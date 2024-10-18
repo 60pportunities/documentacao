@@ -1,6 +1,26 @@
-O GitHub é uma plataforma baseada na nuvem onde você pode armazenar, compartilhar e trabalhar em conjunto com outras pessoas para escrever código.
+O GitHub é uma plataforma baseada na nuvem onde você pode armazenar, compartilhar e trabalhar em conjunto com outras pessoas para escrever código. O GitHub é uma plataforma baseada em nuvem que utiliza o Git, um sistema de controle de versão distribuído, como núcleo.
+GitHub oferece uma plataforma de desenvolvimento alimentada por IA para criar, dimensionar e entregar software seguro.
+
 Git é um sistema de controle de versão que rastreia mudanças em arquivos de forma inteligente.
 Como o Git e o GitHub funcionam juntos?  Ao enviar arquivos para o GitHub, você os armazenará em um "repositório Git". Isso significa que quando você fizer alterações (ou "commits") nos seus arquivos no GitHub, o Git começará automaticamente a rastrear e gerenciar suas alterações.
+
+Um repositório contém todos os arquivos do seu projeto e o histórico de revisão de cada arquivo.
+
+Para usar um arquivo CODEOWNERS, crie um arquivo chamado CODEOWNERS na raiz, em .github/ ou no diretório docs/ do repositório, no branch em que deseja adicionar os proprietários de código.
+
+- [x] README.md (Serve como a introdução do projeto.)
+- [x] CONTRIBUTING.md (Contém diretrizes para contribuir com o projeto.)
+- [x] LICENCE.md (Especifica os termos sob os quais o código do projeto pode ser utilizado, modificado e redistribuído. Vc pode escolher o modelo.)
+- [x] CODE OF CONDUCT.md (Possui duas templates)
+- [x] CODEOWNERS (Os arquivos CODEOWNERS devem ter menos de 3 MB. Um arquivo CODEOWNERS acima deste limite não será carregado, o que significa que as informações do proprietário do código não serão mostradas e não será solicitado que os proprietários do código apropriado revise as alterações em um pull request.@username ou o formato @org/team-name)
+```
+**/logs @octocat
+/apps/ @octocat
+/apps/* @octocat
+/scripts/ @doctocat @octocat
+```
+Você pode atribuir proprietários de código diferentes para diferentes branches, como @octo-org/codeowners-team para uma base de código no branch padrão e @octocat para um site do GitHub Pages no branch gh-pages.
+
 
 | Tipo de Conta | Entenda |
 | -----         | -----   |
@@ -47,6 +67,162 @@ Contas empresariais
 |             |  Included minutes can be used with standard GitHub-hosted runners only. |  |
 |             |  50 GB GitHub Packages storage
 |             |  A service level agreement for 99.9% monthly uptime
+
+
+IA: a produtividade por meio do Copilot e a segurança automatizando verificações de segurança mais rapidamente.
+Colaboração: Repositórios, Problemas, Pull Requests e outras ferramentas ajudam a habilitar desenvolvedores, gerentes de projeto, líderes de operações e outros na mesma empresa.
+Produtividade: a plataforma oferece aos usuários a capacidade de configurar tarefas e esquecê-las, cuidando da administração rotineira e acelerando o trabalho diário.
+Segurança: recursos de segurança nativos e internos que minimizam o risco de segurança com uma solução de segurança criada internamente.seu código permanece privado dentro da sua organização. usufruir da visão geral de segurança e o Dependabot.
+Escala: 
+
+## Introdução aos repositórios
+Um repositório contém todos os arquivos do seu projeto e o histórico de revisão de cada arquivo. 
+Ao criar um repositório, você pode definir um proprietário, normalmente é o da conta.
+
+- [x] Os repositórios públicos são acessíveis a todos na Interne
+- [x] Os repositórios privados só podem ser acessados por você, por pessoas com quem você compartilha explicitamente o acesso no caso de repositórios de organizações, por determinados membros da organização.
+
+##  adicionar um arquivo ao seu repositório
+No campo do nome de arquivo, digite o nome e a extensão do arquivo. Para criar subdiretórios, digite o separador de diretório /.
+
+## O que são gists
+os gists são uma forma simplificada de compartilhar trechos de código com outras pessoas. Se você enviar a URL de um gist de segredo para um amigo, ele poderá vê-lo.
+
+## wikis
+GitHub.com vem equipado com uma seção para hospedagem da documentação, chamada wiki.
+
+## branches
+ branch é um lugar seguro para experimentar novos recursos ou correções.
+ `git checkout -b newBranchName`
+
+## commits
+Uma confirmação é uma alteração em um ou mais arquivos de um branch. confirmação é criada, é atribuído a ela uma ID exclusiva.
+
+O commit semântico possui os elementos estruturais abaixo (tipos), que informam a intenção do seu commit ao utilizador(a) de seu código.
+
+    feat- Commits do tipo feat indicam que seu trecho de código está incluindo um novo recurso (se relaciona com o MINOR do versionamento semântico).
+
+    fix - Commits do tipo fix indicam que seu trecho de código commitado está solucionando um problema (bug fix), (se relaciona com o PATCH do versionamento semântico).
+
+    docs - Commits do tipo docs indicam que houveram mudanças na documentação, como por exemplo no Readme do seu repositório. (Não inclui alterações em código).
+
+    test - Commits do tipo test são utilizados quando são realizadas alterações em testes, seja criando, alterando ou excluindo testes unitários. (Não inclui alterações em código)
+
+    build - Commits do tipo build são utilizados quando são realizadas modificações em arquivos de build e dependências.
+
+    perf - Commits do tipo perf servem para identificar quaisquer alterações de código que estejam relacionadas a performance.
+
+    style - Commits do tipo style indicam que houveram alterações referentes a formatações de código, semicolons, trailing spaces, lint... (Não inclui alterações em código).
+
+    refactor - Commits do tipo refactor referem-se a mudanças devido a refatorações que não alterem sua funcionalidade, como por exemplo, uma alteração no formato como é processada determinada parte da tela, mas que manteve a mesma funcionalidade, ou melhorias de performance devido a um code review.
+
+    chore - Commits do tipo chore indicam atualizações de tarefas de build, configurações de administrador, pacotes... como por exemplo adicionar um pacote no gitignore. (Não inclui alterações em código)
+
+    ci - Commits do tipo ci indicam mudanças relacionadas a integração contínua (continuous integration).
+
+    raw - Commits do tipo raw indicam mudanças relacionadas a arquivos de configurações, dados, features, parâmetros.
+
+    cleanup - Commits do tipo cleanup são utilizados para remover código comentado, trechos desnecessários ou qualquer outra forma de limpeza do código-fonte, visando aprimorar sua legibilidade e manutenibilidade.
+
+    remove - Commits do tipo remove indicam a exclusão de arquivos, diretórios ou funcionalidades obsoletas ou não utilizadas, reduzindo o tamanho e a complexidade do projeto e mantendo-o mais organizado.
+
+
+## Estados primários de um arquivo (lazygit)
+Os estados primários de um arquivo em um repositório Git são Não rastreado e Rastreado.
+https://learn.microsoft.com/pt-br/training/modules/introduction-to-github/3-components-of-github-flow
+
+Não rastreado: Um estado inicial de um arquivo quando ele ainda não faz parte do repositório Git. O Git desconhece a existência dele.
+
+Rastreado: Um arquivo rastreado é aquele que o Git está monitorando ativamente. A imagem pode estar em um dos seguintes subestados:
+
+    Não modificado: O arquivo é rastreado, mas não foi modificado desde a última confirmação.
+    Modificado: O arquivo foi alterado desde o último commit, mas essas alterações ainda não foram preparadas para o próximo commit.
+    Encenado: O arquivo foi modificado e as alterações foram adicionadas à área de preparo (também conhecida como índice). Essas mudanças estão prontas para serem confirmadas.
+    Empenhado: O arquivo está no banco de dados do repositório. Ele representa a versão confirmada mais recente do arquivo.
+
+## solicitações de pull?
+solicitação de pull é o mecanismo usado para sinalizar que as confirmações de um branch estão prontas para serem mescladas em outro branch.
+
+## Github FLow
+
+    Comece criando uma ramificação para que as alterações, recursos e correções que você criar não afetem a ramificação principal.
+    Em seguida, faça suas alterações. Recomendamos implantar alterações no branch do recurso antes de mesclar no branch principal. Fazer isso garante que as alterações sejam válidas em um ambiente de produção.
+    Agora, crie uma solicitação de pull para pedir feedback aos colaboradores. A revisão de pull request é tão valiosa que alguns repositórios exigem uma revisão de aprovação antes que os pull requests possam ser mesclados.
+    Em seguida, revise e implemente o feedback dos seus colaboradores.
+    Quando você se sentir satisfeito com suas alterações, é hora de aprovar sua solicitação de pull e mesclá-la ao branch principal.
+    Por fim, você pode excluir sua ramificação. Excluir sua ramificação sinaliza que seu trabalho nela foi concluído e evita que você ou outras pessoas usem ramificações antigas acidentalmente.
+
+## Problemas
+Os problemas do GitHub foram criados para acompanhar ideias, comentários, tarefas ou bugs relacionados ao trabalho no GitHub. 
+Se você for um mantenedor de projeto, poderá atribuir o problema a alguém, adicioná-lo a um quadro de projetos, associá-lo a um marco ou aplicar um rótulo.
+
+## Discussões
+Se destinam a conversas que precisam ser acessíveis a todos e não estão relacionadas ao código.
+### Habilitar uma discussão em seu repositório
+Os proprietários do repositório e as pessoas com acesso de gravação podem habilitar o GitHub Discussions. 
+Configurações --> Recursos e, em Discussões, selecione Configurar as discussões.
+### Criar uma nova discussão
+Qualquer usuário autenticado que possa visualizar um repositório pode criar uma discussão nesse repositório.
+## Como gerenciar assinaturas e notificações
+Uma conversa em um problema específico, pull request ou gist,Atividade de CI, como o status de fluxos,Problemas de repositório, solicitações de pull, versões, alertas de segurança ou discussões (se habilitados) e Todas as atividades em um repositório.
+##  GitHub Pages
+GitHub Pages para hospedar e divulgar um site sobre você, sua organização ou seu projeto diretamente de um repositório do GitHub.com.
+
+PerguntasL
+Lois fez um comentário sobre um problema do GitHub, mas esqueceu de mencionar seu colega, Peter, que precisa fornecer informações sobre o tópico. Em vez de criar um novo comentário, se Lois editar um comentário no problema do GitHub e mencionar Peter, Peter receberá uma notificação?
+
+Qual das seguintes opções descreve com precisão os diferentes status de uma solicitação pull? Escolha TRÊS respostas corretas.
+Fechado, Rascunho, Pendente.
+
+## Contas
+https://learn.microsoft.com/pt-br/training/modules/github-introduction-products/2-what-are-github-products
+
+Contas pessoais: Todas as pessoas que utilizam o GitHub.com se conectam a uma conta pessoal (às vezes chamada de conta de usuário). como criar um problema ou revisar uma solicitação de pull, são atribuídas à sua conta pessoal. Cada conta pessoal utiliza o GitHub Free ou o GitHub Pro.
+GitHub Free, os repositórios privados pertencentes a sua conta pessoal terão um conjunto limitado de recursos.
+
+Contas da organização: são contas compartilhadas em que um número ilimitado de pessoas pode colaborar em vários projetos uma vez. as organizações podem ser proprietárias de recursos como repositórios, pacotes e projetos. você não pode entrar em uma organização.   a pessoa toma sobre os recursos da organização são atribuídas à sua conta pessoal. Cada conta pessoal pode ser um integrante de múltiplas organizações.somente os proprietários da organização e os gerenciadores de segurança podem gerenciar as configurações da organização e controlar o acesso aos dados da organização
+
+Conta corporativa: permitem que os administradores gerenciem de forma centralizada as políticas e a cobrança para várias organizações e habilitem o fornecimento interno entre suas organizações. Uma conta corporativa deve ter um identificador, como uma organização ou conta de usuário no GitHub. Nas configurações da conta corporativa, os proprietários da empresa podem convidar organizações existentes para ingressar em sua conta corporativa, transferir organizações entre contas corporativas ou criar organizações.
+
+## Planos
+Existem vários produtos gratuitos do GitHub, além dos pagos:
+
+- [x] GitHub Free para contas pessoais e organizações: conta de usuário pessoal. Uma conta de usuário pessoal inclui repositórios públicos e privados ilimitados e colaboradores ilimitados. Controles de acesso da equipe para gerenciamento de grupos
+
+- [x] GitHub Pro para contas pessoais;
+- [x] GitHub para equipes;
+- [x] GitHub Enterprise;
+
+
+https://learn.microsoft.com/pt-br/training/modules/github-introduction-products/2-what-are-github-products
+
+
+
+
+#!/bin/bash
+clear screen
+
+
+gh repo create "60pportunities" --add-readme --public --license "Apache-2.0" --description "Paginas de Documentação da 60pportunities"
+GITHUB_SHA=$(gh api repos/s60pportunities/60pportunities/commits/main | jq -r '.sha')
+echo "SHA= ${GITHUB_SHA}"
+gh api -X POST /repos/s60pportunities/60pportunities/git/refs -f ref=refs/heads/gh-pages -f sha="${GITHUB_SHA}"
+gh repo edit --enable-pages
+gh repo edit --pages-branch gh-pages --pages-folder /
+#gh repo edit --set-pages-domain "60pportunities.com.br"
+gh repo view --web
+gh label create "documentação" --color "0099cc" --description "Para questões relacionadas à criação ou atualização de documentos."
+gh label create "documentação" --color "0099cc" --description "Para questões relacionadas à criação ou atualização de documentos."
+gh label create "documentação" --color "0099cc" --description "Para questões relacionadas à criação ou atualização de documentos."
+gh label create "documentação" --color "0099cc" --description "Para questões relacionadas à criação ou atualização de documentos."
+gh label create "melhoria" --color "0099cc" --description "Para sugestões de melhorias na documentação existente.
+gh label create "novo recurso" --color "0099cc" --description "Para a documentação de novas funcionalidades ou recursos."
+gh label create "atualização" --color "0099cc" --description "Para tarefas que envolvem a atualização de informações já existentes."
+gh label create "exemplo" --color "0099cc" --description "Para questões que envolvem a adição ou revisão de exemplos de código ou uso."
+gh label create "tradução" --color "0099cc" --description "Para questões relacionadas à tradução da documentação para outros idiomas."
+gh label create "urgente" --color "0099cc" --description "Para problemas que precisam de atenção imediata."
+gh label create "feedback" --color "0099cc" --description "Para sugestões ou comentários gerais sobre a documentação."
+gh label create "formatação" --color "0099cc" --description "Para problemas relacionados à formatação ou estilo da documentação."
 
 ## Permissões de acesso no GitHub
 Uma permissão é a capacidade de executar uma ação específica. 

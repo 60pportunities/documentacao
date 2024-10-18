@@ -30,6 +30,9 @@
 - [x] https://www.linkedin.com/pulse/building-successful-data-mesh-more-than-just-nazia-shahrin/
 - [x] https://www.productivitygame.com/upgrade-sprint/
 - [x] https://news.microsoft.com/annual-wti-2024/#work-trend-index-graphics
+- [x] [SWITCH_ Como mudar as coisas quando a mudança é difícil-Alta Books (2019)](file:///Users/horaciovasconcellos/Downloads/Chip%20Heath,%20Dan%20Heath%20-%20SWITCH_%20Como%20mudar%20as%20coisas%20quando%20a%20mudan%C3%A7a%20%C3%A9%20dif%C3%ADcil-Alta%20Books%20(2019).pdf)
+- [x] https://conteudo.escolaforja.com.br/de-dev-a-tech-lead/2-pare-de-reclamar
+https://www.youtube.com/watch?v=NXHTyr3tqrM&t=3267s
 
 ## Software
 - [x] [Mutal](https://mural.co/)
