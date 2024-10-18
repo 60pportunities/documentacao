@@ -19,7 +19,7 @@ Logo, um produto é uma solução que é desenvolvida para atender às necessida
 
 ## **Gestão e Liderança**
 Pontos interessantes a serem discutidos no "projeto". 
-
+- [x] Começar ---> Manter --> Terminar  (Contexto --> Ritmo  --> Direção (Se vc não estiver no meu ritmo, eu não consigo esperar o seu.)
 - [x] Pare de Focar em Resultados, resultados são consequencias de Processos + Pessoas, sendo o que otimiza Processos e Pessoas de fato é a **Gestão e Liderança**.
 - [x] Não se foca na consequencia, se foca na CAUSA da consequencia, que é a **otimização de processos e otimização de pessoas**.
 - [x] Confiança se constroi com **diálogo** e **atitude**. 

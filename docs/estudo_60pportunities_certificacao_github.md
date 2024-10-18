@@ -20,6 +20,7 @@ Para usar um arquivo CODEOWNERS, crie um arquivo chamado CODEOWNERS na raiz, em 
 /scripts/ @doctocat @octocat
 ```
 Você pode atribuir proprietários de código diferentes para diferentes branches, como @octo-org/codeowners-team para uma base de código no branch padrão e @octocat para um site do GitHub Pages no branch gh-pages.
+Para proteger totalmente um repositório contra alterações não autorizadas, você também precisa definir um proprietário para o próprio arquivo CODEOWNERS. O método mais seguro é definir um arquivo CODEOWNERS no diretório .github do repositório e definir o proprietário do repositório como o proprietário do arquivo CODEOWNERS (/.github/CODEOWNERS @owner_username) ou de todo o diretório (/.github/ @owner_username).
 
 
 | Tipo de Conta | Entenda |
@@ -194,9 +195,111 @@ Existem vários produtos gratuitos do GitHub, além dos pagos:
 - [x] GitHub Enterprise;
 
 
+### Cobrança do GitHub
+ GitHub cobra separadamente por cada conta. Você recebe uma fatura separada para sua conta pessoal e para cada conta corporativa ou de organização que você possui.
+ A cobrança de cada conta é uma combinação de cobranças:
+ Assinaturas : GitHub Pro ou o GitHub Team, como o GitHub Copilot e aplicativos do GitHub Marketplace.
+ A cobrança baseada no uso: depende de quantos minutos seus trabalhos passam em execução e da quantidade de armazenamento que seus artefatos utilizam.
+
 https://learn.microsoft.com/pt-br/training/modules/github-introduction-products/2-what-are-github-products
 
+## Mobile vs Desktop
+O GitHub para Dispositivos Móveis é uma maneira segura e protegida de acessar seus dados no GitHub por meio de um aplicativo cliente confiável, criado pela própria plataforma
+O GitHub para Desktop é um aplicativo autônomo de código aberto, facilita a colaboração entre você e sua equipe e o compartilhamento de boas práticas do Git e do GitHub dentro da sua equipe.
 
+|     Mobile             | Desktop         |
+| -----                  | -------         |
+| Ler, analisar e colaborar em problemas e solicitações de pull.                  | Adicionar e clonar repositórios. |
+| Editar arquivos nas solicitações de pull.                                       | Adicionar alterações ao seu commit de forma interativa. |
+| Pesquisar, navegar e interagir com usuários, repositórios e organizações.       |  Adicione rapidamente coautores ao seu commit. |
+| Receber uma notificação por push quando alguém mencionar seu nome de usuário.   | Fazer o checkout de branches com solicitações de pull e conferir os status de CI. |
+| Agende suas notificações por push para horários personalizados específicos.     | Comparar imagens alteradas. |
+| Proteger sua conta no GitHub.com com uma autenticação de dois fatores.          | |
+| Verificar suas tentativas de login em dispositivos não reconhecidos.            | |
+
+
+## O que é varredura de código? (CodeQL)
+Sua empresa acabou de adquirir uma licença do **GitHub Advanced Security** que ajuda a economizar tempo e esforço, permitindo que você use a varredura de código.
+CodeQL para analisar o código em um repositório GitHub para encontrar vulnerabilidades de segurança e erros de codificação.
+Varredura de código está disponível para todos os repositórios públicos e para repositórios privados pertencentes a organizações em que a Segurança Avançada do GitHub está habilitada. 
+Você pode agendar varreduras para determinados dias e horas ou disparar varreduras quando ocorre um evento específico no repositório, como um push.
+
+| Configuração | Entenda                         |
+| --------     | --------                        |
+| Padrão       | manipula a escolha dos idiomas a serem analisados, o pacote de consultas a ser executado e os eventos que disparam verificações com a opção de configurar manualmente os idiomas e os pacotes de consultas. |
+| avançada     | adicionar o fluxo de trabalho do CodeQL diretamente ao seu repositório. |
+| Execute a CLI do CodeQL  | diretamente em um sistema de CI externo e carregue os resultados no GitHub. |
+
+Segurança --> Code Scan Alerts
+
+
+### Habilitar a verificação de código com ferramentas de terceiros
+Você pode carregar arquivos SARIF (Static Analysis Results Interchange Format  - Formato de Intercâmbio de Resultados de Análise Estáticos) gerados fora do GitHub ou com GitHub Actions para ver alertas de verificação de código de ferramentas de terceiros em seu repositório.
+#### API de Verificação de Código
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/orgs/ORG/code-scanning/alerts
+
+ou
+
+https://docs.github.com/pt/rest/code-scanning/code-scanning?apiVersion=2022-11-28
+
+#### CLI do CodeQL
+
+brew install codeql
+
+
+| Idioma  | Identificador   | Identificadores alternativos opcionais (se houver)  |
+| ------  | ---------       | -----------                                         |
+| C/C++	  | c-cpp	        | c ou cpp                                            |
+| C#	  | csharp	        |                                                      | 
+| go 	  | go	            |                                                      |
+| Java/Kotlin	|java-kotlin	| java ou kotlin |
+| JavaScript/TypeScript	    | javascript-typescript	| javascript ou typescript     |
+| Python  | python		    |                                                      |
+| Ruby	  | ruby		    |                                                      |
+| Swift	  | swift	        |                                                      |
+
+```
+# Create CodeQL databases for Java and Python in the 'codeql-dbs' directory
+# Call the normal build script for the codebase: 'myBuildScript'
+
+codeql database create codeql-dbs --source-root=src \
+    --db-cluster --language=java,python --command=./myBuildScript
+
+# Analyze the CodeQL database for Java, 'codeql-dbs/java'
+# Tag the data as 'java' results and store in: 'java-results.sarif'
+
+codeql database analyze codeql-dbs/java java-code-scanning.qls \
+    --format=sarif-latest --sarif-category=java --output=java-results.sarif
+
+# Analyze the CodeQL database for Python, 'codeql-dbs/python'
+# Tag the data as 'python' results and store in: 'python-results.sarif'
+
+codeql database analyze codeql-dbs/python python-code-scanning.qls \
+    --format=sarif-latest --sarif-category=python --output=python-results.sarif
+
+# Upload the SARIF file with the Java results: 'java-results.sarif'
+# The GitHub App or personal access token created for authentication
+# with GitHub's REST API is available in the `GITHUB_TOKEN` environment variable.
+
+codeql github upload-results \
+    --repository=my-org/example-repo \
+    --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
+    --sarif=java-results.sarif
+
+# Upload the SARIF file with the Python results: 'python-results.sarif'
+
+codeql github upload-results \
+    --repository=my-org/example-repo \
+    --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
+    --sarif=python-results.sarif
+
+https://docs.github.com/pt/code-security/codeql-cli
+
+### Análise de verificação de código com GitHub Actions
 
 
 #!/bin/bash
