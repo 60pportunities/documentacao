@@ -2,10 +2,12 @@
 site_name: 60portunities
 site_description: Documentação do Horacio
 site_author: Horacio Vasconcellos
-site_url: https://60portunities.github.io/devops/
+site_url: https://60portunities.com.br
 
-repo_name: 60portunities/documentacao
-repo_url: https://github.com/60pportunities/documentacao
+repo_name: s60pportunities/60pportunities
+repo_url: https://github.com/s60pportunities/60pportunities
+edit_uri: tree/master/docs
+docs_dir: docs
 
 copyright:  >
    Copyright &copy; 2023 Documentação
@@ -46,23 +48,25 @@ theme:
    # Palette toggle for light mode
    - media: "(prefers-color-scheme: light)"
      scheme: default
-     primary: light blue
-     accent: indigo
+     primary: deep purple  # light blue
+     accent: purple        # indigo
      toggle:
        icon: material/weather-night
        name: Azul da cor do mar
    # Palette toggle for dark mode
    - media: "(prefers-color-scheme: dark)"
      scheme: default 
-     primary: indigo
-     accent: light blue
+     primary: red        # indigo
+     accent: deep purple # light blue
      toggle:
        icon: material/weather-sunny
        name: Rock and Roll 
 plugins:
   - git-committers:
-      repository: 60portunities/devops
-      branch: gh-pages
+      #enterprise_hostname: https://github.com/s60pportunities
+      repository: s60pportunities/60pportunities
+      branch: main
+      token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
   - git-authors
   - git-revision-date-localized:
       enable_creation_date: true
