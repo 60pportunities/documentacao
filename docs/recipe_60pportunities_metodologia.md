@@ -2,6 +2,7 @@
 
 Ao receber uma demanda necessitamos estabelecer, um critérios objetivos como devemos atende-la, para tal cito alguns questionamentos básicos.
 
+- [x] Entrego Tempo + Conhecimento - Pacote de Reccmpensa. NÃO é uma família, é pedir para todos aguanterem em nome do sangue.
 - [x] A demanda tem um objetivo claro e definido que busca entregar uma funcionalidade nova ou uma mudança significativa?
 - [x] A demanda possui um escopo bem delimitado, com entregas e prazos específicos?
 - [x] A demanda impacta o produto existente de forma que altera sua funcionalidade ou seu valor percebido pelos usuários?

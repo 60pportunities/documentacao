@@ -249,7 +249,7 @@ https://docs.github.com/pt/rest/code-scanning/code-scanning?apiVersion=2022-11-2
 #### CLI do CodeQL
 
 brew install codeql
-
+https://docs.github.com/pt/code-security/codeql-cli
 
 | Idioma  | Identificador   | Identificadores alternativos opcionais (se houver)  |
 | ------  | ---------       | -----------                                         |
@@ -296,10 +296,112 @@ codeql github upload-results \
     --repository=my-org/example-repo \
     --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
     --sarif=python-results.sarif
+```
 
-https://docs.github.com/pt/code-security/codeql-cli
 
 ### Análise de verificação de código com GitHub Actions
+Os fluxos de trabalho são armazenados no diretório .github/workflows para seu repositório.
+
+## Configurar a varredura de código
+você pode executar a varredura de código no GitHub, usando GitHub Actions, ou de seu sistema de CI (integração contínua).
+
+## GitHub Copilot 
+ferramenta de desenvolvedor de IA em escala do mundo que pode ajudar você a escrever código mais rapidamente com menos trabalho.
+O OpenAI criou modelo de linguagem pré-treinado generativo do GitHub Copilot, da plataforma OpenAI Codex. 
+extensão está disponível para Visual Studio Code, Visual Studio, Neovim e o pacote JetBrains de IDEs (ambientes de desenvolvimento integrados).
+
+O GitHub Copilot é um serviço que fornece um programador em pares de IA que funciona com todas as linguagens de programação populares e acelera drasticamente a produtividade geral do desenvolvedor. 
+
+GitHub Copilot Business
+
+Foco em equipes: Destinado a equipes de desenvolvimento em empresas de médio a grande porte.
+Recursos de colaboração: Inclui funcionalidades para gerenciamento de usuários e permissões, permitindo que as equipes trabalhem de forma integrada.
+Integração com ferramentas: Funciona bem com diversas ferramentas de desenvolvimento e CI/CD.
+
+GitHub Copilot Enterprise
+Soluções personalizadas: Focado em organizações maiores ou que têm necessidades específicas de segurança e conformidade.
+Gerenciamento avançado: Oferece controle mais rigoroso sobre a implementação e uso do Copilot, com suporte a políticas corporativas.
+Segurança e conformidade: Pode incluir opções de segurança adicionais, como integração com sistemas de autenticação empresarial e conformidade com regulamentos específicos.
+
+Desde ler documentos a escrever código até enviar solicitações de pull e além, o GitHub está trabalhando para personalizar o GitHub Copilot para cada equipe, projeto e repositório em que ele é usado, criando um ciclo de vida de desenvolvimento de software radicalmente aprimorado. 
+
+###  Codespace
+Codespaces é um ambiente de desenvolvimento instantâneo e baseado em nuvem que usa um contêiner para fornecer linguagens, ferramentas e utilitários de desenvolvimento comuns. permitindo que você crie um ambiente de desenvolvimento personalizado para seu projeto. O ciclo de vida de um Codespace começa quando você cria um Codespace e termina quando você o exclui. 
+
+![](img/github-codespace-001.png)
+Você pode criar um Codespace no GitHub.com, no Visual Studio Code ou usando a CLI do GitHub. 
+* Uso de modelos do GitHub
+* branch em seu repositório
+* pull request abert
+* Usando um commit no histórico do repositório para investigar um bug em um momento específico.
+há limites quanto ao número de Codespaces que você pode criar e o que você pode executar ao mesmo tempo. 
+Se estiver iniciando um novo projeto, crie um Codespace usando um modelo e publique-o em um repositório no GitHub posteriormente.
+Administradores de repositório podem habilitar pré-compilações do GitHub Codespaces para um repositório para acelerar a criação do Codespace.
+![](img/github-codespace-002.png)
+
+ O período de tempo limite de inatividade padrão é de 30 minutos. Você pode definir sua configuração de tempo limite pessoal para os Codespaces que criar, mas isso pode ser anulado por uma política de tempo limite da organização.
+ 
+### Codespaces versus editor GitHub.dev
+Você pode usar GitHub.dev para navegar por arquivos e repositórios de código-fonte do GitHub e fazer e confirmar alterações de código. Você pode abrir qualquer repositório, bifurcação ou PR no editor GitHub.dev.
+
+	   |  GitHub.dev        | Codespaces do GitHub |
+| Custo  | Gratuita	        | Cota mensal gratuita de uso para contas pessoais. |
+| Disponibilidade | Disponível para todos no GitHub.com	| Disponível para todos no GitHub.com. |
+Inicialização	GitHub.dev abre instantaneamente com o pressionar de uma tecla e você pode começar a usá-lo imediatamente, sem ter que esperar pela configuração ou instalação.	Quando você cria ou retoma um Codespace, uma VM é atribuída ao Codespace. O contêiner é então configurado com base no conteúdo de um arquivo devcontainer.json. Essa configuração leva alguns minutos para criar o ambiente de desenvolvimento.
+Computação	Não há recursos de computação associados, portanto você não pode criar e executar seu código ou usar o terminal integrado.	Com o GitHub Codespaces, você tem a potência de uma VM dedicada para executar e depurar seu aplicativo.
+Acesso ao terminal	Nenhum	O GitHub Codespaces fornece um conjunto comum de ferramentas por padrão, o que significa que você pode usar o Terminal exatamente como faria no ambiente local.
+Extensões	Apenas um subconjunto de extensões que podem ser executadas na Web aparecerão na visualização de extensões e poderão ser instaladas	Com o GitHub Codespaces, você pode usar a maioria das extensões do Marketplace do Visual Studio Code.
+
+## Gerenciar seu trabalho com projetos do GitHub
+Projetos versus Projetos Clássicos
+
+| O que        | Projetos	| Projetos (Clássico) |
+| -----        | -----     | --------             |
+| Tabelas e quadros	| Quadros, Listas, Layout da Linha do Tempo	| Boards |
+| Dados| 	Classificar, priorizar e agrupar itens por campos personalizados, como texto, número, data, iteração e seleção única| 	Colunas e Cartões| 
+| Insights	| Crie visuais para ajudar a entender seu trabalho por meio de gráficos históricos e atuais com Projetos	| Barra de progresso| 
+| Automação	| Use a API do GraphQL, ações e predefinições de coluna para gerenciar seu projeto	| Configurar Predefinições de coluna para quando problemas e solicitações pull forem adicionados, editados ou fechados|
+
+### Tabelas e quadros
+* Planejar e controlar o trabalho em uma exibição de tabela ou quadro
+* Classificar, priorizar e agrupar dentro de uma tabela por qualquer campo personalizado
+* Crie esboços de problemas com descrições e metadados detalhados
+* Materialize qualquer perspectiva com filtragem tokenizada e visualizações salvas
+* Personalizar cartões e agrupar por em quadros de projeto
+* Atualizações de projeto em tempo real e indicadores de presença do usuário
+
+Automação
+* API do GraphQL ProjectsV2
+* Escopos do projeto do aplicativo GitHub
+* Eventos de webhooks para atualizações de metadados de itens do * projeto
+* GitHub Action para automatizar a adição de problemas a projetos
+
+# Para a criação de Milestone e Lables, tenho que ir nos repositorios e depois issues.
+
+Controlar a visibilidade do seu projeto
+ projeto será público ou privado. Quando seu projeto é público, todos na Internet podem exibi-lo. Quando o projeto é privado, somente os usuários que receberam pelo menos acesso de leitura podem vê-lo.
+
+Projeto no nível da organização
+Sem acesso: Somente os proprietários e usuários da organização que receberam acesso individual podem ver o projeto. Os proprietários da organização também são administradores do projeto.
+Ler: Todos na organização podem ver o projeto. Os proprietários da organização também são administradores do projeto.
+Gravação: Todos na organização podem ver e editar o projeto. Os proprietários da organização também são administradores do projeto.
+Administrador: Todos na organização são administradores do projeto.
+
+Projeto no nível pessoal/de usuário
+Ler: O indivíduo pode ver o projeto.
+Gravação: O indivíduo pode ver e editar o projeto.
+Administrador: O indivíduo pode ver, editar e adicionar novos colaboradores ao projeto.
+
+Para vincular um projeto a um repositório, entre no repositório e projetos e voinvule.
+
+# Insights
+O Insights com Projetos permite que você visualiza, crie e personalize gráficos que usam itens adicionados ao seu projeto como dados de origem. Ao criar um gráfico, você define os filtros, o tipo de gráfico e as informações exibidas.
+
+Gráficos atuais
+Você pode criar gráficos atuais para visualizar itens do projeto.
+
+Gráficos históricos
+Os gráficos históricos estão disponíveis com o GitHub Team e o GitHub Enterprise Cloud para organizações.
 
 
 #!/bin/bash
@@ -742,3 +844,27 @@ Dicas Adicionais
     Se precisar de mais informações sobre a API do GitHub, você pode consultar a documentação oficial.
 
 Se tiver mais perguntas ou precisar de ajuda com algo específico, sinta-se à vontade para perguntar!
+
+
+
+
+
+
+@Github, demonstrar a criação de uma aplicação em GOLANG, que suba um serviço na porta 8050, a solicitação virá de uma requisição, contendo os seguintes campos:
+Plataforma, Nome do Projeto, nome do Time, data de inicio, numero de iteracoes e um vetor com o nome dos repositórios a serem criados.
+Cada solicitação será armazenada no Banco de Dados Oracle, na tabela: requisicao_projeto, que além das informações passadas, terá ainda a data e hora da solicitação, status e a data e hora da conclusão da solicitação.
+
+A data e hora da solicitação e o campo Status,  devem ser inserida no ato da gravação com a data e hora atual e o P, respectivamente, indicando a necessidade de processamento.
+O usuário poderá possuir metodos GET, para obter as informações sobre o processo criado.
+
+Deverá ter uma processo que leia, todos os pedidos pendenter, com o o STATUS = P e inicie o processo de verificação na Plataforma Azure-Devops e Github.
+
+
+Ao final da execução do processo de criação
+
+ recebendo um request POST e retorne o registro enviado com um ID de identificação do registro. No método GET, o serviço receberá o ID e retornará o registro. As informação deverão ser arquivadas no Banco de DADOs Oracle, no host: horacio, na porta 1521 com o servico dbl11
+
+
+
+
+
