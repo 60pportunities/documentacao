@@ -11,6 +11,7 @@ Os scripts de hook do Git são úteis para identificar problemas simples antes d
 
 
 O Futuro das profissoes
-21 Licoes para o Seculo XXI
-Inevitável
-Paul R. Daugherty
+21 lições para o século 21 - Yuval Noah Harari
+Inevitável: as 12 forças tecnológicas que mudarão o nosso mundo - Kevin Kelly
+Human + Machine: Reimagining Work in the Age of AI - Paul R. Daugherty
+/Users/horaciovasconcellos/Library/Containers/com.docker.docker/Data/log/host
