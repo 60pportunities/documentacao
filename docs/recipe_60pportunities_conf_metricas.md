@@ -1,5 +1,4 @@
-![](img/metricas_regua_000.png)
-
+![](img/metricas_regua_000.png){width="600" height="450" style="display: block; margin: 0 auto" }
 São indicadores quantitativos utilizados para medir o desempenho, produtividade e o progresso de um projeto de software. Características que reforçam a importância das métricas :
 
 * Antes que perguntem: 

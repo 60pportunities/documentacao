@@ -403,6 +403,68 @@ Você pode criar gráficos atuais para visualizar itens do projeto.
 Gráficos históricos
 Os gráficos históricos estão disponíveis com o GitHub Team e o GitHub Enterprise Cloud para organizações.
 
+Automação com projetos
+Há três maneiras diferentes possibilitando você a fazer isso:
+
+Fluxos de trabalho automatizados internos
+API GraphQL
+GitHub Actions com fluxos de trabalho
+
+
+GitHub Actions com fluxos de trabalho
+Um exemplo de fluxo de trabalho que é acionado na criação de um problema que adiciona um rótulo, deixa um comentário e move o problema para um quadro de projeto.
+
+
+Markdown?
+é uma linguagem de marcação que oferece uma abordagem enxuta para edição de conteúdo, protegendo os criadores de conteúdo da sobrecarga do HTML
+Também abordaremos recursos do GFM (GitHub-Flavored Markdown), que são extensões de sintaxe que permitem integrar recursos do GitHub ao conteúdo.
+
+Negrito - \*\*
+Italico - \_\_
+Código = \`\`, pode ser: markdown, javascript, mermaid e etc.
+Endereçar ID - #ID, como #3602
+# e o número do problema ou da solicitação de pull
+GH- e o número do problema ou da solicitação de pull
+Username/Repository# e o número do problema ou da solicitação de pull
+User@SHA
+Mencionar  - @githubteacher
+
+Comandos Barra
+
+Comando	Descrição
+/code	Insere um bloco de código Markdown. Você escolhe a linguagem.
+/details	Insere uma área de detalhes recolhível. Você escolhe o título e o conteúdo.
+/saved-replies	Insere uma resposta salva. Você escolhe uma das respostas salvas para sua conta de usuário. Se você adicionar %cursor% à sua resposta salva, o comando de barra "/" coloca o cursor nesse local.
+/table	Insere uma tabela Markdown. Você escolhe o número de colunas e linhas.
+/tasklist	Insere uma lista de tarefas. Esse comando de barra "/" só funciona em uma descrição do problema.
+/template	Mostra todos os modelos no repositório. Você escolhe o modelo a ser inserido. Esse comando de barra funciona para modelos de problemas e para um modelo de solicitação de pull.
+
+# Contribuir para um projeto de software livre no GitHub
+Contribuir é mais fácil quando você está familiarizado com o projeto e com a comunidade dele.
+Você também pode usar a pesquisa do GitHub para explorar tópicos e projetos relacionados.
+você pode localizar repositórios relevantes para a sua palavra-chave de pesquisa e repositórios coletados por membros da comunidade.
+
+A maioria dos projetos tem estes documentos no nível superior do repositório:
+
+LICENSE: o projeto precisa conter uma licença de código aberto. 
+README: o arquivo LEIAME geralmente serve como a página inicial do projeto.
+CONTRIBUTING: como nome sugere, esse documento fornece diretrizes sobre como contribuir com o projeto. 
+CODE_OF_CONDUCT: o código de conduta define as regras básicas para os membros da comunidade. 
+Embora nem todos os projetos tenham os documentos CONTRIBUTING e CODE_OF_CONDUCT, a presença deles é uma boa indicação do quanto um projeto é amigável e acolhedor.
+
+Uma boa maneira de se familiarizar com a comunidade é ler alguns destes canais de comunicação:
+Issue tracker: local em que as pessoas discutem problemas e tarefas relacionados ao projeto. Para encontrar os problemas no GitHub, você pode ir até a página principal do repositório no GitHub e adicionar **/issues** ao final da URL, por exemplo, https://github.com/jupyter/notebook/issues.
+Pull request: local em que as pessoas discutem e examinam as alterações do projeto. Encontre-a no GitHub adicionando **pulls** à URL do projeto, por exemplo, https://github.com/jupyter/notebook/pulls.
+
+Char channels and forums: alguns projetos usam canais de chat, como Slack, Gitter e IRC, ou fóruns, como o Discourse, para conversas e discussões.
+
+### Identificar tarefas nas quais trabalhar
+Talvez você já tenha identificado algo em que deseja trabalhar, como corrigir links desfeitos ou atualizar a documentação. Uma boa maneira de encontrar problemas adequados para iniciantes é visitando a URL de **/contribute** do projeto.
+
+### Patrocinar um Projeto
+Você pode dar suporte financeiro às pessoas que criam e mantêm o ecossistema de software livre por meio de código, liderança, mentoria, design e muito mais.
+
+
 
 #!/bin/bash
 clear screen
@@ -453,6 +515,7 @@ GitHub Advanced Security: Varredura de código, CodeQL CLI , Escaneamento secret
 |     3| SQL       |
 
 </details>
+
 
 # Criando um link permanente para um snippet de código
 No GitHub, navegue até a página principal do repositório.
@@ -858,13 +921,5 @@ A data e hora da solicitação e o campo Status,  devem ser inserida no ato da g
 O usuário poderá possuir metodos GET, para obter as informações sobre o processo criado.
 
 Deverá ter uma processo que leia, todos os pedidos pendenter, com o o STATUS = P e inicie o processo de verificação na Plataforma Azure-Devops e Github.
-
-
-Ao final da execução do processo de criação
-
- recebendo um request POST e retorne o registro enviado com um ID de identificação do registro. No método GET, o serviço receberá o ID e retornará o registro. As informação deverão ser arquivadas no Banco de DADOs Oracle, no host: horacio, na porta 1521 com o servico dbl11
-
-
-
 
 

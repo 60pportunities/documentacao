@@ -1,3 +1,6 @@
+![](img/IA-001.png)
+Promptar diferente de Pesquisar....
+
  Quando alguém fala sobre IA e imediatamente pensa em ChatGPT, vale lembrar: essa história começou há muito tempo, e o ChatGPT é apenas o capítulo mais recente.
 
 Tudo começou em 1943, quando McCulloch e Pitts publicaram um artigo que lançou as bases para as redes neurais, sugerindo que máquinas poderiam, de fato, "pensar" como humanos. Avance para 1950, quando Alan Turing propôs seu famoso "Teste de Turing", desafiando o mundo a questionar se uma máquina poderia exibir comportamento inteligente indistinguível do humano.
@@ -13,6 +16,7 @@ Em 2011, o Watson, também da IBM, derrotou dois ex-campeões do Jeopardy!, most
 A partir de 2015, a IA não parou mais de impressionar. AlphaGo, da DeepMind, derrotou campeões mundiais em Go, um jogo conhecido por sua complexidade estratégica. Em 2020, o GPT-3 apareceu, fazendo barulho com sua capacidade de gerar textos impressionantemente coerentes, o que trouxe a IA para o centro das atenções públicas de uma vez por todas.
 
 Em 2022, um engenheiro do Google foi demitido após afirmar que o LaMDA, um chatbot avançado, poderia ser senciente. Isso levantou questões sérias sobre os limites da IA e até onde ela poderia ir.
+
 
 
 https://tess.pareto.io/pt-BR/login
@@ -34,12 +38,20 @@ https://tess.pareto.io/pt-BR/login
 
 
 
+Para garantir a capacidade dos cidadãos de trabalhar no futuro, eles precisarão de novas habilidades — mas quais?
+Em um mercado de trabalho mais automatizado, digital e dinâmico, todos os cidadãos se beneficiarão de ter um conjunto de habilidades fundamentais que os ajudem a cumprir os três critérios a seguir, não importa o setor em que trabalhem ou sua ocupação:
+
+- [x] Adicionar valor além do que pode ser feito por sistemas automatizados e máquinas inteligentes
+- [x] Operar em um ambiente digital
+- [x] Adaptar-se continuamente a novas formas de trabalho e novas ocupações
 
 
+Esta pesquisa, definiu quatro categorias amplas de habilidades — cognitiva, digital, interpessoal e autoliderança:
 
+![](img/ia-002.svgz)
 
-
-
+![Pesquisa](https://www.mckinsey.com/industries/public-sector/our-insights/defining-the-skills-citizens-will-need-in-the-future-world-of-work
+)
 Integrar o Microsoft Project com o Azure DevOps é uma excelente maneira de consolidar a gestão de tarefas e projetos. Aqui estão algumas etapas e considerações para ajudá-lo nesse processo:
 
 ### 1. *Planejamento da Integração*

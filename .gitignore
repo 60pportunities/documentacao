@@ -154,4 +154,8 @@ cython_debug/
 #.idea/
 
 site/
-
+_site
+*.swp
+.DS_Store
+.idea/
+node_modules/
