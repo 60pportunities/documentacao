@@ -464,6 +464,22 @@ Talvez você já tenha identificado algo em que deseja trabalhar, como corrigir 
 ### Patrocinar um Projeto
 Você pode dar suporte financeiro às pessoas que criam e mantêm o ecossistema de software livre por meio de código, liderança, mentoria, design e muito mais.
 
+Bifurcar este repositório: clicando no botão fork no topo desta página.
+Clone o repositório: git clone "url you just copied"  exemplo
+Crie ramificação: cd exemplo
+Agora crie uma ramificação: git switch -c your-new-branch-name
+Faça as alterações necessárias e confirme essas alterações: Agora abra Contributors.mdo arquivo em um editor de texto, adicione seu nome a ele. Não o adicione no começo ou no fim do arquivo. Coloque-o em qualquer lugar no meio. Agora, salve o arquivo.
+Adicione essas alterações: git add Contributors.md && git commit -m "Add your-name to Contributors list"
+Envie suas alterações : git push -u origin your-branch-name
+
+https://firstcontributions.github.io/#project-list
+https://docs.github.com/en/get-started/exploring-projects-on-github
+
+
+
+
+
+
 
 
 #!/bin/bash

@@ -1,3 +1,6 @@
+O controle de versão envolve o gerenciamento de múltiplas versões de um projeto, rastreando as alterações realizadas nos arquivos de projetos, onde cada alteração é registrada permitindo desfazer ou reverter facilmente.
+
+
 ![](img/git-basic-modelo-001.png){width="600" height="450" style="display: block; margin: 0 auto" }
 Os scripts de hook do Git são úteis para identificar problemas simples antes do envio para revisão de código.
 
