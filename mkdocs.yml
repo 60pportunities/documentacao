@@ -219,6 +219,8 @@ nav:
       - 'Usando o MkDocs'                            : 'recipe_60pportunities_conf_mkdocs.md'
       - 'Publicando MkDocs no Github'                : 'recipe_60pportunities_conf_mkdocs_publicacao.md'
    - 'Dados Empresariais'                            :
+      - 'Os paradoxos do dia'                        : 'recipe_60pportunities_paradoxos.md'
+      - 'Composição de Time'                         : 'recipe_60pportunities_time.md'
       - 'Segregation of Duties'                      : 'recipe_60pportunities_conf_sod.md'
       - 'Mascaramento de dados'                      : 'recipe_60pportunities_conf_data_mask.md'
       - 'Dados Mestres/Referência'                   : 'recipe_60pportunities_conf_data_master.md'
@@ -233,7 +235,8 @@ nav:
       - 'Observabilidade e Logs'                     : 'recipe_60pportunities_conf_logs.md'
       - 'Docker'                                     : 'recipe_60pportunities_conf_docker.md'
       - 'Jenkins'                                    : 'recipe_60pportunities_conf_jenkins.md'
-
+      - 'Banco de Dados'                             :
+         - 'SGBD Oracle'                             : 'recipe_60pportunities_conf_bancooracle.md'
    - 'Projetos'                                      :
       - 'Formulário de Projetos'                     : 'recipe_60pportunities_metodologia.md'
       - 'Configuração Plataformas'                   :
