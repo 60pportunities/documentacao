@@ -1,3 +1,4 @@
+![Snake animation](https://github.com/60pportunities/documentacao/actions/blob/output/github-contribution-grid-snake.svg)
 # Bem-vindo a 60portunities
 A  60portunities decidiu focar em aposentados que têm interesse em tecnologia e em aprender novas habilidades.
 Realizamos uma pesquisa online e presencial em comunidades de aposentados para entender as necessidades e interesses em tecnologia.

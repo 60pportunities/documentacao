@@ -52,3 +52,11 @@ Os estilos de arquitetura definem como diferentes componentes de uma interface d
 - [x] Gerenciamento do ciclo de vida: coleções de carteiros, RapidAPI, Akan.
 - [x] Análise e monitoramento de API: Moesif. Datadog, pilha ELK (Elasticsearch, Logstash, Kibana)
 
+## Regras
+- no 1: Use substantivos plurais para coleções:É uma convenção arbitrária, mas está bem estabelecida e eu descobri que as violações tendem a ser um indicador principal de "esta API terá arestas". 
+```GET /products              # get all the products
+GET /products/{product_id} # get one product```
+- no 2: Não adicione segmentos de caminho desnecessários
+```# GOOD
+GET /v3/application/listings/{listing_id}```
+- no 3: Não adicione .json ou outras extensões à url

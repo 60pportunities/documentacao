@@ -49,9 +49,10 @@ https://www.youtube.com/watch?v=NXHTyr3tqrM&t=3267s
       - [x] Mindset de crescimento: desenvolver novas habilidades e conquistar o que deseja. Com o tempo, habilidades e competências podem ser aprimoradas em qualquer área, seja na vida pessoal, seja na profissional.
 - [x] [Git e Github](https://learn.microsoft.com/en-us/collections/o1njfe825p602p)
 
+## Imagens
+- [x] [Shields](https://shields.io/)
 
 ## Livros
-
 O Projeto Fênix
 Gene Kim, Kevin Behr e George Spafford - O Projeto Unicórniomarca
 GeneKim O Manual DevOps

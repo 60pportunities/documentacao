@@ -1,13 +1,14 @@
 ## Conferência
 <div class="mdx-columns3" markdown>
-https://ai4.io/vegas/register/ 
+- [x] https://ai4.io/vegas/register/ 
 </div>
 
 ## Cursos
 <div class="mdx-columns3" markdown>
-https://www.iftl.education/ai-academy
-https://www.iftl.education/ai-builder
+- [x] https://www.iftl.education/ai-academy
+- [x] https://www.iftl.education/ai-builder
 </div>
+
 ## Publicações
 - [x] [REASONING AND ACTING IN LANGUAGE MODELS](https://arxiv.org/pdf/2210.03629)
 

@@ -128,6 +128,7 @@ Isso contribui para mais inovação em qualquer área do negócio, incluindo TI.
 ### Métricas Desenvolvimento
 | Grupo                                 | Métrica                             | Definição |
 | -----                                 | -------                             | ---------  |
+| PROJETO  | COMMITS| Avaliação quanto o time esta entregue Fast-Fails - avaliar o desenvolvimento de um projeto. |
 | Git/PR/MR                             | TEMPO DE CODIFICAÇÃO                | O tempo decorrido entre o primeiro commit e o tempo de abertura para Pull Requests. O alto tempo de codificação é um grande risco para o alto tempo de ciclo. Os desenvolvedores devem dividir grandes recursos em pequenos pedaços e manter o tempo de codificação curto para cada PR. |
 |                                       | TEMPO DE REVISÃO                    | O tempo decorrido entre o tempo de abertura e o tempo de mesclagem para Pull Requests. O alto tempo de revisão é um bloqueador para as equipes de desenvolvimento. Não deixe que seu código fique obsoleto.                                                                             |
 |                                       | RISCOS DO PR/MR                     | Identifica as solicitações pull obsoletas, vencidas e superdimensionadas. NÃO deixe de efetuar a quebra de tarefas.                                                                                                                                                                     |

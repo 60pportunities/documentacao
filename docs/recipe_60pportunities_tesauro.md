@@ -720,6 +720,16 @@ Os webhooks permitem que você crie ou configure Aplicativos do GitHub que assin
 Wiki do GitHub
 Seção para hospedar documentação em estilo wiki em um repositório do GitHub.
 
+
+fork - Cópia de um repositório para a sua própria conta no GitHub. Isso cria um novo repositório em sua conta que é independente do original, permitindo que você faça alterações sem afetar o repositório original.
+
+issues - Ferramenta usada para gerenciar tarefas, pedidos de novos recursos e correções de bugs em projetos de código aberto. As issues devem ser descritas e listadas, permitindo aos colaboradores discutirem e rastrearem o progresso das mesmas.
+
+pull request - Mecanismo usado para submeter alterações propostas ao repositório original. Um pull request é uma solicitação para que os mantenedores do projeto revisem e potencialmente incorporem as alterações. O pull request passará por um processo de avaliação e pode ser aceito ou rejeitado.
+
+gist - Ferramenta que permite o compartilhamento de trechos de código sem a necessidade de criar um repositório completo. Gists podem ser compartilhados publicamente ou de forma privada.
+
+
 # Lock-in
 O aprisionamento tecnológico se refere a uma situação em que o custo de se trocar um fornecedor por outro diferente é tão alto que o cliente fica basicamente preso ao fornecedor original. 
 
