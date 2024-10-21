@@ -184,19 +184,19 @@ Fornecer orientação abrangente sobre correção.
 Branch é uma linha de desenvolvimento separada que permite aos desenvolvedores trabalharem em recursos. Ou simplesmente um ponteiro móvel para um desses commits. 
 Um branch geralmente começa com um commit no branch padrão; neste caso, em main. A ramificação desenvolve uma cadeia de histórico separada à medida que os commits são adicionados. Eventualmente, as alterações no branch são mescladas novamente no main.
 
-![](img/two-branches.png){width="550" height="550" style="display: block; margin: 0 auto"}
+![](img/git-basic-modelo-002.png){width="550" height="550" style="display: block; margin: 0 auto"}
 
 ## Quais os Tipos que **EU** havia pensado?
 ### Document as Code(DaC)
 Cada PRODUTO com a sua **DOCUMENTAÇÃO** e um repositório aglutinador - PORTIFÓLIO (coleção de trabalhos realizados).
 
-![](img/repositorio_dac.png){width="1050" height="900" style="display: block; margin: 0 auto"}
+![](img/git-basic-modelo-003.png){width="1050" height="900" style="display: block; margin: 0 auto"}
 
 **Exemplo**:
 
 - [x] mkdir /Users/horaciovasconcellos/AZURE_CESUC
 - [x] cd /Users/horaciovasconcellos/AZURE_CESUC
-- [x] [Clonar o Repositório de Documentação](https://bbts-lab@dev.azure.com/bbts-lab/HORAROSA/_git/MKDOCS_SSG_LIB)
+- [x] [Clonar o Repositório de Documentação](https://60opt-lab@dev.azure.com/60opt-lab/HORAROSA/_git/MKDOCS_SSG_LIB)
 
 No repositório PORTIFOLIO, use o diretório documentacao e crie uma entrada utilizando o submodule, para cada produto a ser documentado.
 Caso o produto seja novo, ajuste o arquivo de DOCUMENTAÇÃO - mkdocs.yml, para incluir o seu submodule.
@@ -207,7 +207,7 @@ Adicionando um repositório a Documentação, ao repositório CESUC ADMINISTRAÇ
 - [X] rm -rf .git/modules/sisloc/  (Remove the submodule directory from .git/modules/)
 - [x] git rm -r --cached documentacao/SISLOC_DOCUMENTACAO_LIB
 - [x] mkdir documentacao && cd documentacao
-- [x] git submodule add --name sisloc https://bbts-lab@dev.azure.com/bbts-lab/SISLOC/_git/SISLOC_DOCUMENTACAO_LIB (Adiciono o submodulo)
+- [x] git submodule add --name sisloc https://60opt-lab@dev.azure.com/60opt-lab/SISLOC/_git/SISLOC_DOCUMENTACAO_LIB (Adiciono o submodulo)
 - [X] Alterando o mkdocs.yml, para inclusão da Documentação
 - [X] Vá até a entrada nav e procure o seu sistema.
 - [X] - 'Locomocao'                                  : '!include ./documentacao/SISLOC_DOCUMENTACAO_LIB/mkdocs.yml'
@@ -216,14 +216,14 @@ Adicionando um repositório a Documentação, ao repositório CESUC ADMINISTRAÇ
 ### Modified Off-the-Shelf ou Commercial off-the-shelf
 Em teoria, eu NÃO vou MODIFICAR o produto, mas irei fazer integrações com ele ou entre produtos OSS, COTS, MOTS, SI.
 
-![](img/repositorio_mots.png){width="1200" height="800" style="display: block; margin: 0 auto"}
+![](img/git-basic-modelo-004.png){width="1200" height="800" style="display: block; margin: 0 auto"}
 
 - [x] git submodule deinit -f documentacao/SISLOC_DOCUMENTACAO_LI  (excluir um submódulo Git)
 - [x] git rm --force documentacao/SISLOC_DOCUMENTACAO_LIB (Remove the submodule directory from Git)
 - [X] rm -rf .git/modules/sisloc/  (Remove the submodule directory from .git/modules/)
 - [x] git rm -r --cached documentacao/SISLOC_DOCUMENTACAO_LIB
 - [x] mkdir documentacao && cd documentacao
-- [X] git submodule add --name sisloc https://bbts-lab@dev.azure.com/bbts-lab/SISLOC/_git/SISLOC_DOCUMENTACAO_LIB (Adiciono o submodulo)
+- [X] git submodule add --name sisloc https://60opt-lab@dev.azure.com/60opt-lab/SISLOC/_git/SISLOC_DOCUMENTACAO_LIB (Adiciono o submodulo)
 
 # Banco de Dados
 Gerenciamento de Dados, Infraestrutura de Ambientes, Dificuldade em automatizar migração. 
@@ -257,25 +257,25 @@ Rollback sem perda de dados
 
 ### Trunk Based development
 
-![](img/desafio-tbd-sql.gif){width="900" height="800" style="display: block; margin: 0 auto"}
+![](img/git-basic-modelo-005.gif){width="900" height="800" style="display: block; margin: 0 auto"}
 
 - [x] Cada desenvolvedor começaria a trabalhar na história do usuário e criaria ramificações de recursos a partir das ramificações `sprint`;
-- [x] `git clone -b sprint --single-branch https://bbts-lab@dev.azure.com/bbts-lab/DESAFIO_CESUC/_git/BACK_LANG_PLSQL`
+- [x] `git clone -b sprint --single-branch https://60opt-lab@dev.azure.com/60opt-lab/DESAFIO_CESUC/_git/BACK_LANG_PLSQL`
 - [x] `git checkout -b wip/numberwit-description` (Inicio dos trabalhos na WIT-100)
 - [x] Como o DESENVOLVIMENTO é curto, vamos criar o cenário, na qual você NÃO termina o trabalho em 15 minutos e precisa **GUARDAR** no repositório central/remoto;
 - [x] Baixe : 03_habilita_esquema_para_ords.sql, 04_criacao_tabela_regiao.sql
-- [x] Acesse o SQL Developer, via WEB: https://ords0.bbts.com.br/ords/sql-developer
-![](img/desafio_sqldeveloper.png)
+- [x] Acesse o SQL Developer, via WEB: https://ords0.60opt.com.br/ords/sql-developer
+![](img/git-basic-modelo-006.png)
 - [x] Posso efetuar um curl usando SQL diretamente na tabela?
-`curl -u usuario006:USUARIO006 -X "POST" "https://ords0.bbts.com.br/ords/dev006/_/sql" -H "Content-Type: application/sql" -d $'SELECT * FROM tb_regiao;' | jq`
+`curl -u usuario006:USUARIO006 -X "POST" "https://ords0.60opt.com.br/ords/dev006/_/sql" -H "Content-Type: application/sql" -d $'SELECT * FROM tb_regiao;' | jq`
 - [x] Posso habilitar a tabela de região e expor o serviço:
-![](img/desafio_tabela_regiao.png)
-- [x] Posso consultar o registro - LIST (https://ords0.bbts.com.br/ords/dev006/regiao/) ou **Chave** (https://ords0.bbts.com.br/ords/dev006/regiao/1) ou **Filtragem em Consultas** dinamicas, tipo selecione todas as [regiões nome que iniciam por Asia](https://ords0.bbts.com.br/ords/dev006/regiao/?q={%22regiao_nome%22:%20{%22$instr%22:%22Asia%22}}). 
+![](img/git-basic-modelo-007.png)
+- [x] Posso consultar o registro - LIST (https://ords0.60opt.com.br/ords/dev006/regiao/) ou **Chave** (https://ords0.60opt.com.br/ords/dev006/regiao/1) ou **Filtragem em Consultas** dinamicas, tipo selecione todas as [regiões nome que iniciam por Asia](https://ords0.60opt.com.br/ords/dev006/regiao/?q={%22regiao_nome%22:%20{%22$instr%22:%22Asia%22}}). 
 - [x] [Quais os comandos dinamicos que possuímos?](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/24.1/orddg/developing-REST-applications.html#GUID-091748F8-3D14-402B-9310-25E6A9116B47)
 - [x] Como seria executar uma função, que veja a SIMILARIDADE de NOMES, diretamente via curl?
   
   ```
-  create or replace function fc_bbts_abrevia (p_palavra1 in varchar2, p_palavra2 in varchar2) return varchar2 
+  create or replace function fc_60opt_abrevia (p_palavra1 in varchar2, p_palavra2 in varchar2) return varchar2 
   as 
   l_retorno            varchar2(4000);
   l_numero             number;
@@ -293,17 +293,17 @@ Rollback sem perda de dados
      l_retorno  :=  l_retorno  || ',Jaro-Winkler Similarity = '  || l_numero;
      
     return l_retorno ;
-  end fc_bbts_abrevia;
+  end fc_60opt_abrevia;
   ```
-![](img/desafio_funcao_abrevia.png)
+![](img/git-basic-modelo-008.png)
 
-```curl -i -X POST -d '{ "p_palavra1": "HORACIO", "p_palavra2": "ORACIO" }' -H "Content-Type: application/json" "https://ords0.bbts.com.br/ords/dev006/abrevia/"```
+```curl -i -X POST -d '{ "p_palavra1": "HORACIO", "p_palavra2": "ORACIO" }' -H "Content-Type: application/json" "https://ords0.60opt.com.br/ords/dev006/abrevia/"```
 
 - [x] Como poderia inserir um registro na tabela?
 
-```curl -i -H "Content-Type: application/json" -X POST -d '{ "regiao_cod" : 150, "sub_regiao" : 1901, "regiao_nome" : "Horacio" }' "https://ords0.bbts.com.br/ords/dev006/regiao/"```
+```curl -i -H "Content-Type: application/json" -X POST -d '{ "regiao_cod" : 150, "sub_regiao" : 1901, "regiao_nome" : "Horacio" }' "https://ords0.60opt.com.br/ords/dev006/regiao/"```
 
-```curl -i -H "Content-Type: application/json" -X PUT -d '{ "regiao_nome": "HORACIO VASCONCELLOS", "sub_regiao" : 201, "regiao_cod" : 200 }' "https://ords0.bbts.com.br/ords/dev006/regiao/21"```
+```curl -i -H "Content-Type: application/json" -X PUT -d '{ "regiao_nome": "HORACIO VASCONCELLOS", "sub_regiao" : 201, "regiao_cod" : 200 }' "https://ords0.60opt.com.br/ords/dev006/regiao/21"```
 
 ## **Correção e Atualização sem Inatividade**
 Há uma distinção entre patch e atualização: em uma situação ideal, todos os requisitos de um programa são implementados no programa real e o programa implementa exatamente a especificação escrita.
@@ -342,7 +342,7 @@ O tempo de **inatividade zero** precisa ser projetado deliberadamente no banco d
             dads.conf file:  PlsqlDatabaseEdition*   
             ```
 
-      - [x] JDBC/Sql Developer: `jdbc:oracle:thin:@exax8m-mto0h-scan.subpvebsdata.vcndb.oraclevcn.com:1521/devgateway?oracle.jdbc.editionName=v2`    
+      - [x] JDBC/Sql Developer: `jdbc:oracle:thin:@hostname:1521/desenvolvimento?oracle.jdbc.editionName=v2`    
 
 - [x] Criei uma edição chamada v2;
 
@@ -366,7 +366,7 @@ O tempo de **inatividade zero** precisa ser projetado deliberadamente no banco d
             ```
             alter session set edition = ora$base
             /
-            create or replace function fc_bbts_abrevia (p_palavra1 in varchar2, p_palavra2 in varchar2) return varchar2 
+            create or replace function fc_60opt_abrevia (p_palavra1 in varchar2, p_palavra2 in varchar2) return varchar2 
             as 
             l_retorno            varchar2(4000);
             l_numero             number;
@@ -390,7 +390,7 @@ O tempo de **inatividade zero** precisa ser projetado deliberadamente no banco d
             
                
               return l_edicao || '  :  ' || l_retorno ;
-            end fc_bbts_abrevia;
+            end fc_60opt_abrevia;
 
             SELECT grantee, owner, table_name AS edition_name, privilege
               FROM dba_tab_privs
@@ -430,7 +430,7 @@ O tempo de **inatividade zero** precisa ser projetado deliberadamente no banco d
             ```
             alter session set edition = v2
             /
-            create or replace function fc_bbts_abrevia (p_palavra1 in varchar2, p_palavra2 in varchar2) return varchar2 
+            create or replace function fc_60opt_abrevia (p_palavra1 in varchar2, p_palavra2 in varchar2) return varchar2 
             as 
             l_retorno            varchar2(4000);
             l_numero             number;
@@ -448,7 +448,7 @@ O tempo de **inatividade zero** precisa ser projetado deliberadamente no banco d
                l_retorno  :=  l_retorno  || ',Jaro-Winkler Similarity = '  || l_numero;
                l_cripto   := sys.dbms_crypto.hash(utl_raw.cast_to_raw(upper(l_retorno) || l_edicao), dbms_crypto.hash_sh1);
               return l_edicao || '  :  ' || l_cripto ;
-            end fc_bbts_abrevia;
+            end fc_60opt_abrevia;
             ```
 
             - [x] Identifique os objetos que sofreram alteração.
@@ -456,7 +456,7 @@ O tempo de **inatividade zero** precisa ser projetado deliberadamente no banco d
             ```
             select object_name, object_type, edition_name from user_objects_ae
             where 1            = 1 
-              and object_name  in ( 'PR_EXEMPLO_EDICAO', 'FC_BBTS_ABREVIA')
+              and object_name  in ( 'PR_EXEMPLO_EDICAO', 'FC_60opt_ABREVIA')
             order by object_name, edition_name;
             ``` 
 
@@ -490,15 +490,15 @@ O tempo de **inatividade zero** precisa ser projetado deliberadamente no banco d
                     Properties p = new Properties();
                     p.put("user", "USUARIO006");
                     p.put("password", "USUARIO006");
-                    Connection conn1 = DriverManager.getConnection("jdbc:oracle:thin:@exax8m-mto0h-scan.subpvebsdata.vcndb.oraclevcn.com:1521/devgateway", p);
+                    Connection conn1 = DriverManager.getConnection("jdbc:oracle:thin:@hostname:1521/desenvolvimento", p);
                     System.out.println(conn1.getMetaData().getDriverVersion());
                     p.put("oracle.jdbc.editionName", "V2");
-                    Connection conn2 = DriverManager.getConnection("jdbc:oracle:thin:@exax8m-mto0h-scan.subpvebsdata.vcndb.oraclevcn.com:1521/devgateway", p);
+                    Connection conn2 = DriverManager.getConnection("jdbc:oracle:thin:@hostname:1521/desenvolvimento", p);
                     test(conn1);
                     test(conn2);
                 }
                 public static void test(Connection conn) throws SQLException {
-                    String funcao="begin ? := fc_bbts_abrevia(?, ?); end;";
+                    String funcao="begin ? := fc_60opt_abrevia(?, ?); end;";
                     CallableStatement st= conn.prepareCall(funcao);
                     st.registerOutParameter(1, java.sql.Types.VARCHAR);
                     st.setString(2,"HORACIO");
@@ -514,7 +514,7 @@ O tempo de **inatividade zero** precisa ser projetado deliberadamente no banco d
             ```
 
 
-- [x] `git add 03_habilita_esquema_para_ords.sql 04_criacao_tabela_regiao.sql fc_bbts_abrevia.sql`
+- [x] `git add 03_habilita_esquema_para_ords.sql 04_criacao_tabela_regiao.sql fc_60opt_abrevia.sql`
 - [x] `git status`
 - [x] `git commit -m "<feat> Nome da Feature/PBI para trabalhar 15 minutos"`
 - [x] `git push origin wip/numberwit-description`
@@ -636,14 +636,14 @@ alter database default edition = v2;
    /
    create edition "hor01.00.00" as child of ora$base;
    
-   PROCEDURE create_service( service_name        => 'DEVGATEV01',
+   PROCEDURE create_service( service_name        => 'DEVELOPER',
                              network_name        => 
                              edition             => 
                            );
    
    begin
-     dbms_service.create_service( service_name => 'DEVGATEV01',
-                                  network_name => 'DEVGATEV01',
+     dbms_service.create_service( service_name => 'DEVELOPER',
+                                  network_name => 'DEVELOPER',
                                   edition      => 'hor01.00.00'
                                );
    
@@ -730,76 +730,76 @@ alter database default edition = v2;
 # **Observação POSSIVELMENTE deverá haver TROCA DE USUÁRIOS e/ou AJUSTE em ROTINAS**
 ## Fase 01 - Scripts Diversos para DBA
 
-- [x] [00_database_tamanho_crescimento.sql](../queries/00_database_tamanho_crescimento.sql)
-- [x] [00_devops_database_traceability.sql](../queries/00_devops_database_traceability.sql)
-- [x] [00_grants_apex_e_seguranca.sql](../queries/00_grants_apex_e_seguranca.sql)
+- [x] 00_database_tamanho_crescimento.sql
+- [x] 00_devops_database_traceability.sql
+- [x] 00_grants_apex_e_seguranca.sql
 
 ## Fase 02 - Criação de Estrutura de DBA - SQL
 
-- [x] [01_elimina_schema](../queries/01_elimina_schema.sql)
-- [x] [02_criacao_do_esquema](../queries/02_criacao_do_esquema.sql)
-- [x] [03_habilita_esquema_para_ords](../queries/03_habilita_esquema_para_ords.sql)
+- [x] 01_elimina_schema
+- [x] 02_criacao_do_esquema
+- [x] 03_habilita_esquema_para_ords
 
 ## Fase 03 - Criação de Estrutura Exemplo
 
-- [x] [04_criacao_tabela_regiao](../queries/04_criacao_tabela_regiao.sql)
-- [x] [05_criacao_tabela_pais](../queries/05_criacao_tabela_pais.sql)
-- [x] [05_01_criacao_mvp_tabela_pais](../queries/05_01_criacao_mvp_tabela_pais.sql)
+- [x] 04_criacao_tabela_regiao
+- [x] 05_criacao_tabela_pais
+- [x] 05_01_criacao_mvp_tabela_pais
 
 ## Fase 03 - Liberação de Serviços ORDS sem Autenticação
 
-- [x] [06_criacao_ords_modulos](../queries/06_criacao_ords_modulos.sql)
-- [x] [07_criacao_ords_templates](../queries/07_criacao_ords_templates.sql)
-- [x] [08_criacao_ords_handler](../queries/08_criacao_ords_handler.sql)
-- [x] [08_01_estrategia_padronizacao](../queries/08_01_estrategia_padronizacao.sql)
+- [x] 06_criacao_ords_modulos
+- [x] 07_criacao_ords_templates
+- [x] 08_criacao_ords_handler
+- [x] 08_01_estrategia_padronizacao
 
 ## Fase 04 - Liberação de Serviços - Segurança em Nível de Linha (RLS)
 
-- [x] [09_criacao_de_contexto](../queries/09_criacao_de_contexto.sql)
-- [x] [10_criacao_de_politica](../queries/10_criacao_de_politica.sql)
+- [x] 09_criacao_de_contexto
+- [x] 10_criacao_de_politica
 
 ## Fase 05 - REST Enabled SQL (NoSecurity e Security)
 
 Permite executar instruções DML e DDL (via REST) ​​em um banco de dados Oracle remoto.
 
-- [x] [11_criacao_ords_enable_objects](../queries/11_criacao_ords_enable_objects.sql)
-- [x] [12_criacao_ords_query_graphiql](../queries/12_criacao_ords_query_graphiql.sql)
+- [x] 11_criacao_ords_enable_objects
+- [x] 12_criacao_ords_query_graphiql
 
 ## Fase 06 - Adicionando OAuth ao ORDS
 
-- [x] [13_habilita_seguranca_ords](../queries/13_habilita_seguranca_ords.sql)
-- [x] [14_criacao_de_roles_e_usuarios](../queries/14_criacao_de_roles_e_usuarios.sql)
-- [x] [15_criacao_de_exemplos](../queries/15_criacao_de_exemplos.sql)
-- [x] [16_requisicao_codigo_do_pais](../queries/16_requisicao_codigo_do_pais.sql)
+- [x] 13_habilita_seguranca_ords
+- [x] 14_criacao_de_roles_e_usuarios
+- [x] 15_criacao_de_exemplos
+- [x] 16_requisicao_codigo_do_pais
 
 ## **Fase 07 - Clonagem a Quente do Banco de Dados (NÃO executar este procedimento)**
 
-- [x] [17_clonagem_quente_de_bancodedados](../queries/17_clonagem_quente_de_bancodedados.sql)
+- [x] 17_clonagem_quente_de_bancodedados
 
 ## Fase 08 - Edição dos Objetos no Banco de Dados
 
-- [x] [18_estrategia_de_git_vscode](../queries/18_estrategia_de_git_vscode.md)
-- [x] [19_versionamento_no_banco_de_dados](../queries/19_versionamento_no_banco_de_dados.sql)
-- [x] [20_aplicando_codigo_na_pipeline_oracle](../queries/20_aplicando_codigo_na_pipeline_oracle.sql)
+- [x] 18_estrategia_de_git_vscode
+- [x] 19_versionamento_no_banco_de_dados
+- [x] 20_aplicando_codigo_na_pipeline_oracle
 
 ## Fase 10 - Maven
 
-- [x] [Arquétipo Cesuc](../queries/cesuc-archtype-plsql.zip)
-- [x] [Maven Pl/Doc](../queries/100_maven_pldoc)
-- [x] [Maven UtPL/SQL](https://mvnrepository.com/artifact/org.utplsql/utplsql-maven-plugin)
-- [x] [Maven Liquibase](https://mvnrepository.com/artifact/org.liquibase/liquibase-core)
-- [x] [Maven Flyway](https://documentation.red-gate.com/flyway/flyway-cli-and-api/usage/maven-goal)
-
+- [x] Arquétipo
+- [x] Maven Pl/Doc
+- [x] Maven UtPL/SQL
+- [x] Maven Liquibase
+- [x] Maven Flyway
+- [ ] 
 ## Fase 11 - Documentação
 
-- [x] [PL/SQL Documentação](https://pldoc.sourceforge.net/maven-site/maven-pldoc-plugin/index.html)
-- [x] [Caso de Uso - SISLOC](../queries/sisloc.sh)
-- [x] [PL/SQL Linter](../queries/plsql.lint)
+- [x] PL/SQL Documentação
+- [x] Caso de Uso
+- [x] PL/SQL Linter
 
 ## Fase 12 - Teste de Stress
 
-- [x] [Stress Mensagem](../queries/CodigoMensagem.jmx)
-- [x] [Banco de Dados](../queries/BancoDeDados.jmx)
+- [x] Stress Mensagem
+- [x] Banco de Dados
 
 ## Fase 13 - Todos os Arquivos deverão ter POR OBJETO
 
@@ -870,8 +870,8 @@ Liquibase é fornecido em diversos sabores (liquibase, sqlCl, maven e etc), bast
 - [x] mvn clean install -X
 - [x] mvn clean install
 - [x] mvn process-resources –P generate-sql-migration-script
-- [x] mvn -B archetype:generate -DarchetypeGroupId=br.com.bbts.archetypes -DarchetypeArtifactId=cesuc-archetype-plsql -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=br.com.bbts -DartifactId=exemploplsql
-mvn -B archetype:generate -DarchetypeGroupId=br.com.bbts.archetypes -DarchetypeArtifactId=cesuc-archetype-plsql -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=br.com.bbts -DartifactId=exemplo2
+- [x] mvn -B archetype:generate -DarchetypeGroupId=br.com.60opt.archetypes -DarchetypeArtifactId=cesuc-archetype-plsql -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=br.com.60opt -DartifactId=exemploplsql
+mvn -B archetype:generate -DarchetypeGroupId=br.com.60opt.archetypes -DarchetypeArtifactId=cesuc-archetype-plsql -DarchetypeVersion=1.0-SNAPSHOT -DgroupId=br.com.60opt -DartifactId=exemplo2
 - [x] mvn clean install -DskipTests liquibase:update -Pprod
 - [x] mvn clean install -DskipTests liquibase:update -Pprod -Dcontext-filter="dev,homolog"
 - [x] mvn clean install -DskipTests liquibase:update -Pprod -Dcontext-filter="dev,homolog,prod"
@@ -893,4 +893,3 @@ mvn -B archetype:generate -DarchetypeGroupId=br.com.bbts.archetypes -DarchetypeA
 ```
 ./pldoc.sh -doctitle \"Sistema de Exemplo\" -inputencoding ISO-8859-15 -d "/Users/horaciovasconcellos/mkdocs/CESUC_PORTIFOLIO/docs/exemplo/objetos/" -keywordsuppercase -savesourcecode -driver oracle.jdbc.OracleDriver -url "jdbc:oracle:thin:@horaciovasconcellos.com.br:1521/ORCLPDB1" -user "USUARIO001" -password "USUARIO001" -verbose -types "CLUSTER,CONTEXT,DIRECTORY,FUNCTION,INDEX,INDEX,JOB,PACKAGE,PACKAGE_BODY,PROCEDURE,QUEUE,RULE,SCHEDULE,SEQUENCE,SYNONYM,TABLE,TRIGGER,TYPE,VIEW" -sql %
 ```
-
