@@ -1,18 +1,4 @@
 
-<<<<<<< HEAD
-Documentação da APIs - CESUC / 2024-10-21
-=========================================
-
-#Changelog
-
-
-
-
-## [ v01.00.00 ] - 2024-10-19
-
-||||||| parent of 5d1df20 (<doc> Criação versão documentaca)
-**PROPOSITALMENTE VAZIO**
-=======
 Documentação da APIs - CESUC / 2024-10-21
 =========================================
 
@@ -37,4 +23,3 @@ Documentação da APIs - CESUC / 2024-10-21
 
 ## [ v01.00.00 ] - 2024-10-19
 
->>>>>>> 5d1df20 (<doc> Criação versão documentaca)

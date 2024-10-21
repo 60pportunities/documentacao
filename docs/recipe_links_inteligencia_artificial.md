@@ -5,8 +5,17 @@
 
 ## Cursos
 <div class="mdx-columns3" markdown>
+<<<<<<< HEAD
 - [x] https://www.iftl.education/ai-academy
 - [x] https://www.iftl.education/ai-builder
+||||||| parent of a1cb2a8 (<doc> Ajuste na documentação)
+https://www.iftl.education/ai-academy
+https://www.iftl.education/ai-builder
+=======
+- [x] https://www.iftl.education/ai-academy
+- [x] https://www.iftl.education/ai-builder
+- [ ] [Introdução ao Block Chain](https://m.youtube.com/playlist?list=PLsGmTzb4NxK0hRfnjfcg0f9rc0lleY28O)
+>>>>>>> a1cb2a8 (<doc> Ajuste na documentação)
 </div>
 
 ## Publicações

@@ -1,9 +1,9 @@
 ![Snake animation](https://github.com/60pportunities/documentacao/actions/blob/output/github-contribution-grid-snake.svg)
 # Bem-vindo a 60portunities
-A  60portunities decidiu focar em aposentados que têm interesse em tecnologia e em aprender novas habilidades.
-Realizamos uma pesquisa online e presencial em comunidades de aposentados para entender as necessidades e interesses em tecnologia.
+<p align="justify">A  60portunities decidiu focar em aposentados que têm interesse em tecnologia e em aprender novas habilidades. Realizamos uma pesquisa online e presencial em comunidades de aposentados para entender as necessidades e interesses em tecnologia.</p>
+
 ## Criação de Conteúdo Educacional
-Elaboramos um conjunto de Webinars introdutórios e de forma diária com instrutores experientes que irão fazer de forma propositiva e evolutiva o aprendizado a estas tecnologias permitindo uma maior inclusão no meio tecnológico com boas práticas comerciais.
+<p align="justify">Elaboramos um conjunto de Webinars introdutórios e de forma diária com instrutores experientes que irão fazer de forma propositiva e evolutiva o aprendizado a estas tecnologias permitindo uma maior inclusão no meio tecnológico com boas práticas comerciais.</p>
 
 - [x] **Webinar de Introdução ao Git**: Organiza um webinar gratuito com um instrutor experiente que apresenta o Git de forma prática e simples, usando exemplos do dia a dia.
 - [x] **Guia em PDF**: Cria um guia "Git para Iniciantes" que é distribuído gratuitamente após o webinar, com exercícios práticos.

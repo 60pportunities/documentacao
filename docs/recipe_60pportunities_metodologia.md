@@ -19,14 +19,16 @@ Então, sendo o foco de entregar um resultado específico, que pode ou não se t
 Logo, um produto é uma solução que é desenvolvida para atender às necessidades dos usuários de forma contínua, geralmente tem um roadmap e uma visão de longo prazo.
 
 ## **Gestão e Liderança**
+
 Pontos interessantes a serem discutidos no "projeto". 
-- [x] Começar ---> Manter --> Terminar  (Contexto --> Ritmo  --> Direção (Se vc não estiver no meu ritmo, eu não consigo esperar o seu.)
-- [x] Pare de Focar em Resultados, resultados são consequencias de Processos + Pessoas, sendo o que otimiza Processos e Pessoas de fato é a **Gestão e Liderança**.
+
+- [x] Começar --> Manter --> Terminar (Contexto --> Ritmo  --> Direção (Se vc não estiver no meu ritmo, eu não consigo esperar o seu).
+- [x] Pare de Focar em Resultados. **Resultados** são consequencias de **Processos + Pessoas**, sendo o que otimiza Processos e Pessoas de fato é a **Gestão e Liderança**.
 - [x] Não se foca na consequencia, se foca na CAUSA da consequencia, que é a **otimização de processos e otimização de pessoas**.
-- [x] Confiança se constroi com **diálogo** e **atitude**. 
+- [x] Confiança se constroi com **Diálogo** e **Atitude**. 
 - [x] Gestores NÃO são acostumados a lidar com pessoas:
       - [x] 100% dos clientes são pessoas..
-      - [x] 100% dos funcionários são pessoas..
+      - [x] 100% dos funcionários são pessoas.
       - [x] Logo, entender de pessoas é entender de negócio..
       - [x] Promovemos gestores por: Comportamento e conhecimento específicos, Inteligencia Exata, Extroversão, Não ter vergonha ir a público, Raciocínio Dinamico, ou seja, performance não atrelado ao cuidado. 
 - [x] Transformando pessoas, em uma máquina de lucros:
@@ -34,13 +36,16 @@ Pontos interessantes a serem discutidos no "projeto".
       - [x] Não procure: **Convencer, Concordancia e Consenso**. Não sendo falta de ética, não sendo CRIME, vamos abandonar as três coisas e estabelecer uma quarta: **COMPROMISSO**.
       - [x] Como é que fazemos o PROJETO ser FUNCIONAL? Se é aqui que queremos estar, se é aqui que EU, quero estar, se a gente faz AQUI, ACONTECER, temos que deixar de pedir ao TRABALHO, o que não NÃO dará e focar no **RESULTADO/COMPROMISSO**.
 - [x] O que preciso fazer para melhorar a liderança?
-      - [ ] Quanto tempo você irá esperar para algo melhorar? Qual o prazo? O que precisa acontecer, para você sentir que mudou? O que te leva a crer, por histórico, que isso irá mudar?
-      - [ ] Lista de Comportamento Concreto e observável.
-      - [ ] Quando vc não sabe reconhecer quando chega ou quando falta.
-      - [ ] Não temos como localizar um **CULPADO**, nós inventamos uma estrutura, que é difícil mudar a direção de forma SIMPLES. 
-      - [ ] Novos anseios, mentalidade, novas visões que talvez faça sentido para a gente, pode NÃO fazer sentido para outros.
-      - [ ] Infelizmente não temos respostas prontas..mas cabe a gente tomar uma decisão.
-      - [ ] Hoje, seguro mais os meus anseios, mentalidade e novas visões,  que talvez faça sentido para mim, mas pode NÃO fazer sentido para outros.
+      - [x] Quanto tempo você irá esperar para algo melhorar? 
+      - [x] Qual o prazo? 
+      - [x] O que precisa acontecer, para você sentir que mudou? 
+      - [x] O que te leva a crer, por histórico, que isso irá mudar?
+      - [x] Lista de Comportamento Concreto e observável.
+      - [x] Quando vc não sabe reconhecer quando chega ou quando falta.
+      - [x] Não temos como localizar um **CULPADO**, nós inventamos uma estrutura, que é difícil mudar a direção de forma SIMPLES. 
+      - [x] Novos anseios, mentalidade, novas visões que talvez faça sentido para a gente, pode NÃO fazer sentido para outros.
+      - [x] Infelizmente não temos respostas prontas..mas cabe a gente tomar uma decisão.
+      - [x] Hoje, seguro mais os meus anseios, mentalidade e novas visões,  que talvez faça sentido para mim, mas pode NÃO fazer sentido para outros.
 
 ## **Calendários dos Projetos(Sugestão)**
 |                         | Seg  | Ter  | Qua  | Qui  | Sex  | Sab  | Dom  | Seg  | Ter  | Qua  | Qui  |  Sex |
@@ -170,8 +175,8 @@ Design Sprint Kit é um recurso de código aberto para líderes de design, propr
 
 ### Planejar um Design Sprint
 
-| N. | Passo                                       | Entenda                                        |
-| ---- | ----                                      | ----                                                                  |                 
+| N.   | Passo                                     | Entenda                                        |
+| ---- | ----                                      | ----                                           |                 
 |  1  | Entenda o desafio que você precisa resolver | Familiarize-se com o problema,pesquisa o tema.                        |   
 |  2  | Objetivo claro | Cada workshop bem sucedido começa com um objetivo final claramente definido.                       |
 |    |                | “Por que estamos fazendo isso? O que queremos alcançar? Onde esperamos estar daqui a seis meses?”  |
@@ -844,7 +849,8 @@ Associe a validação do RegEx a um código de erro e grave o erro na tabela de 
 - [x] Interaction to Next Paint (INP)
 - [x] Cumulative Layout Shift (CLS)
 </div>
-### **Métricas de Dados**  
+
+### **Métricas de Dados**
 <div class="mdx-columns2" markdown>   
 - [x] Erros relacionados à conformidade regulatória;
 - [x] Taxa de sucesso/falha;
@@ -853,8 +859,10 @@ Associe a validação do RegEx a um código de erro e grave o erro na tabela de 
 - [x] Taxa de crescimento de dados;
 - [x] Volume do log de auditoria; 
 </div>
+
 ### **Métricas para Desempenho do Banco de Dados**
 A observabilidade do banco de dados também se estende ao desempenho do próprio banco de dados incluir:
+
 <div class="mdx-columns2" markdown>  
 - [x] Tempo de resposta da consulta;
 - [x] Tempos de conexão do banco de dados;
@@ -863,8 +871,10 @@ A observabilidade do banco de dados também se estende ao desempenho do próprio
 - [x] Taxa de transferência de E/S de disco;
 - [x] Latência do usuário final;
 </div>
+
 ### **Métricas para segurança de Banco de Dados**
 As medições de observabilidade do banco de dados podem colocar em foco a segurança e a conformidade do banco de dados, elevando o nível de segurança dos dados.
+
 <div class="mdx-columns2" markdown> 
 - [x] Frequência da verificação de segurança;
 - [x] Tempo de resposta a incidentes;
@@ -872,6 +882,7 @@ As medições de observabilidade do banco de dados podem colocar em foco a segur
 - [x] Compilações de segurança com falha;
 - [x] Cobertura de testes de segurança automatizados (%);
 </div>
+
 ## Documentação
 ### **Catálogo de Serviços**
 - [ ] Registrar a Aplicação no Catálogo de Sistemas Internos;
@@ -885,6 +896,7 @@ Realização de OPT-In e OPT-Out para a Segurança?
 - [ ] OPT-IN;
 - [ ] OPT-OUT;
 </div>
+
 ### **API Security**
 - [ ] Testes de segurança - API([csaf](https://codes.dilettant.life/docs/csaf/) report);
 ## **Application Performance Management/Monitoramento**
