@@ -1,7 +1,6 @@
 É uma sentença declarativa aparentemente verdadeira mas que leva a uma contradição lógica ou simplesmente a algo que contradiz a intuição.
 ## Paradoxo do Pinóquio 
 <p align="justify">Pinóquio é reconhecidamente um dos ícones da cultura moderna, criado como um boneco de madeira que sonha em ser um menino de verdade, ele é mais conhecido por suas mentiras.</p>
-
 <p align="justify">Trata-se de um conflito de lógica baseado na famosa história infantil do boneco Pinóquio, cujo nariz crescia sempre que o mesmo contava uma mentira.</p>
 
 Mas se Pinóquio dissesse “Meu nariz irá crescer agora”, você sabe dizer o que aconteceria? Seu nariz iria crescer ou não?
@@ -15,7 +14,7 @@ Neste caso, duas hipóteses, igualmente válidas poderiam acontecer:
 - [x] O nariz de Pinóquio cresce. Então ele disse uma verdade, portanto, o nariz dele não tinha motivo para ter crescido.
 
 ## Paradoxo da Escolha
-Barry Schwartz - Um maior número de escolhas concede-nos mais liberdade. No entanto, demasiadas opções limitam-nos a capacidade de decisão.
+**Barry Schwartz** - Um maior número de escolhas concede-nos mais liberdade. No entanto, demasiadas opções limitam-nos a capacidade de decisão.
 
 Crise de indecisão e insatisfação nos consumidores, em vez de impulsionar as compras.
 
@@ -39,9 +38,8 @@ A responsabilidade é enorme, **pois cabe a você** entender as características
 - [x] Transferência de responsabilidade  - A responsabilidade sobre uma decisão ruim se transfere totalmente para o consumidor, se escolher errado, fica o sentimento de que a culpa é dele e não da empresa, que ofereceu muitas chances.
 - [x] Arrependimento                     - Ela vai se lembrar das vantagens daquelas que rejeitou.
 
-
 ## Branding, Marca, Persona e Arquétipo
-
+<div class="center-table" markdown>
 ```mermaid
 flowchart LR
     id1((Propósito)) --> id2((Conhecimento)) 
@@ -49,11 +47,12 @@ flowchart LR
     id4 --> id5((Indicadores)) --> id6((Governança)) -->id7((Execução))
     id7 --> id8((Relaxamento)) --> id1
 ```
+</div>
 
 A empresa, produto tem que existir além de seu criador. Entenda que **criação** é diferente de criatividade, mas é óbvio, que a criação pode inserir em criatividade, ou seja, trago algo criativo ou com uma outra leitura.
 
 ## Outros Paradoxos
 
-- [x] Fábrica de Botas: Fábrica de Botas um botando a culpa no outro...
-- [x] Paradoxo Homer Simpson: "CULPA É MINHA E COLOCO EM QUEM EU QUISER"? 
-- [x] Parador da Laranja;
+- [x] **Fábrica de Botas**: Fábrica de Botas um botando a culpa no outro.
+- [x] **Paradoxo Homer Simpson**: "CULPA É MINHA E COLOCO EM QUEM EU QUISER"? 
+- [x] **Paradoxo da Laranja**;

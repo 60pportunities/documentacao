@@ -29,22 +29,32 @@ Elaborado um quadro abaixo com o objetivo de fornecer uma maneira clara a identi
 - [x] Para a PORTA quanto **mais alta**, mais longe da produção e sufixo do servidor não há regras.
 
 ### Development (DEV)
+<div class="mdx-columns2" markdown>
 - [x] Ambiente de Desenvolvimento;
 - [x] História do Usuário atribuídas ao desenvolvedor;
 - [x] Código completo e de acordo com os padrões;
 - [x] Repositório Central atualizado com a última versão do código;
 - [x] **Testes Unitários** executados pelo time de desenvolvimento;
 - [x] Estimamos que em breve estaremos liberando **Plataforma do Dsenvolvedor Interno/Internal Developer Platforms (IDP)** que será o conjunto de tecnologias, ferramentas e amostragem de dados que as equipes de  desenvolvimento utilizarão.
+</div>
+
 ### System Integration Test (SIT)
+<div class="mdx-columns2" markdown>
 - [x] Desenvolvedores e/ou Tester/Qualidade
 - [x] Planilha de Teste de Aceitação preenchida e atualizada no Repositório Central;
+</div>
+
 ### User Acceptance Test (UAT)
+<div class="mdx-columns2" markdown>
 - [x] Clientes, Donos do Produto ou Gerente de Produto;
 - [x] Implantado e configurado no ambiente de Homologação;
 - [x] Testes de Aceitação executados e validados pelo cliente;
 - [x] Realização da Revisão da Sprint: demonstração pelo time de desenvolvimento;
 - [x] Implantado e configurado no ambiente de Produção;
+</div>
 ### Production(PROD)
+<div class="mdx-columns2" markdown>
 - [x] Ambiente Público, controlodo por perfil de acesso.
 - [x] Documentação do usuário entregue;
 - [x] Release criada e armazenada no Repository Management.
+</div>

@@ -1,4 +1,4 @@
-O GitHub Pages é uma funcionalidade do GitHub que permite hospedar sites estáticos diretamente de um repositório. É uma ótima maneira de mostrar portfólios, blogs ou documentação de projetos. Aqui está um passo a passo para criar e utilizar o GitHub Pages:
+<p align="justify">O GitHub Pages é uma funcionalidade do GitHub que permite hospedar sites estáticos diretamente de um repositório. É uma ótima maneira de mostrar portfólios, blogs ou documentação de projetos. Aqui está um passo a passo para criar e utilizar o GitHub Pages:</p>
 
 - [x] Criar um Repositório
       - [x] Acesse sua Conta: Faça login na sua conta do GitHub.
@@ -30,6 +30,7 @@ O GitHub Pages é uma funcionalidade do GitHub que permite hospedar sites estát
          </body>
          </html>
       ```
+
 - [x] Configurar o GitHub Pages
       - [x] Acessar Configurações:
       - [x] Vá para a aba "Settings" do seu repositório.
@@ -45,19 +46,20 @@ O GitHub Pages é uma funcionalidade do GitHub que permite hospedar sites estát
 
 **Observação**:
 
-- A configuração básica seria esta, porem iremos utilizar o conceito de DaC (Doc as Code);
-- Todo o documento será desenvolvido em TEXTO simples utilizando o [Markdown](https://code.visualstudio.com/docs/editor/profiles#_doc-writer-profile-template). Como padrão deste material, utilizaremos o Editor VS Code da Microsoft com algumas extensões:
-    - Code Spell Checker - Verificador de ortografia para código fonte.
-    - Markdown Checkboxes -  Adiciona o suporte a caixa de seleção para o VS Code built-in Markdown Preview.
-    - Markdown Emoji - Adiciona suporte de sintaxe emoji para Markdown Preview e células Markdown de notebook.
-    - Markdown Footnotes - Adiciona o suporte de sintaxe da nota ?do para o Markdown Preview.
-    - Markdown Preview GitHub Styling - Use o estilo GitHub no Markdown Preview.
-    - Markdown Preview Mermaid Support -  Diagramas e fluxogramas da Mermaid.
-    - Markdown yaml Preamble - Renders YAML para tabelas.
-    - markdownlint -  Markdown linting e verificação de estilo para Visual Studio Code.
-    - Word Count - Visualize o número de palavras em um documento de marcação na barra de status.
-    - Read Time - Estime quanto tempo leva para ler o seu Markdown.
-    - Paste Image - Copia imagem para o texto markdown.
-    - PlantUML - Extensão incrível se você precisar desenhar diagramas.
-    - C4 DSL Extension - Especificar modelos de arquitetura de software com o Structurizr DSL.
+- [x] A configuração básica seria esta, porem iremos utilizar o conceito de DaC (Doc as Code);
+- [x] Todo o documento será desenvolvido em TEXTO simples utilizando o [Markdown](https://code.visualstudio.com/docs/editor/profiles#_doc-writer-profile-template). Como padrão deste material, utilizaremos o Editor VS Code da Microsoft com algumas extensões:
+  
+    - [x] Code Spell Checker - Verificador de ortografia para código fonte.
+    - [x] Markdown Checkboxes -  Adiciona o suporte a caixa de seleção para o VS Code built-in Markdown Preview.
+    - [x] Markdown Emoji - Adiciona suporte de sintaxe emoji para Markdown Preview e células Markdown de notebook.
+    - [x] Markdown Footnotes - Adiciona o suporte de sintaxe da nota ?do para o Markdown Preview.
+    - [x] Markdown Preview GitHub Styling - Use o estilo GitHub no Markdown Preview.
+    - [x] Markdown Preview Mermaid Support -  Diagramas e fluxogramas da Mermaid.
+    - [x] Markdown yaml Preamble - Renders YAML para tabelas.
+    - [x] markdownlint -  Markdown linting e verificação de estilo para Visual Studio Code.
+    - [x] Word Count - Visualize o número de palavras em um documento de marcação na barra de status.
+    - [x] Read Time - Estime quanto tempo leva para ler o seu Markdown.
+    - [x] Paste Image - Copia imagem para o texto markdown.
+    - [x] PlantUML - Extensão incrível se você precisar desenhar diagramas.
+    - [x] C4 DSL Extension - Especificar modelos de arquitetura de software com o Structurizr DSL.
 

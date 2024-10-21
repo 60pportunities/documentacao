@@ -2,7 +2,7 @@ Qualquer um pode usar, modificar e compartilhar livremente softwares desenvolvid
 
 Para tal observa-se duas práticas atuais no mundo de desenvolvimento: Innersource e Boilerplate code.
 
-- [x] InnerSource é uma prática que aplica princípios do desenvolvimento de código aberto dentro de uma organização.  Basicamente, envolve a colaboração e compartilhamento de código entre equipes e departamentos, promovendo uma cultura mais aberta e colaborativa.
+- [x] **InnerSource** é uma prática que aplica princípios do desenvolvimento de código aberto dentro de uma organização.  Basicamente, envolve a colaboração e compartilhamento de código entre equipes e departamentos, promovendo uma cultura mais aberta e colaborativa.
 
 | Prática    | Entenda |
 | -------    | ------- |
@@ -13,9 +13,12 @@ Para tal observa-se duas práticas atuais no mundo de desenvolvimento: Innersour
 | Cultura de Aprendizado |  Promove uma cultura de aprendizado contínuo, onde os desenvolvedores podem aprender uns com os outros e melhorar suas habilidades.|
 | Ferramentas e Processos |  Utiliza ferramentas comuns de gerenciamento de código-fonte e colaboração, como GitHub ou GitLab, para facilitar o trabalho conjunto. |
 
-- [x] Boilerplate code refere-se a trechos de código que se repetem e que frequentemente aparecem em muitos projetos ou partes do código. Esses trechos geralmente não contêm lógica específica, mas são necessários para a estrutura do programa, temdo como uma ideia a reutilização esse código para economizar tempo e evitar erros ao reescrever o mesmo código repetidamente.
+Uma parte essencial da adoção do InnerSource em sua equipe é estabelecer **metas, marcos e, em seguida, criar uma lista de verificação de itens que precisam ser realizados em sua equipe para atingir essas metas**.
+
+- [x] **Boilerplate** code refere-se a trechos de código que se repetem e que frequentemente aparecem em muitos projetos ou partes do código. Esses trechos geralmente não contêm lógica específica, mas são necessários para a estrutura do programa, temdo como uma ideia a reutilização esse código para economizar tempo e evitar erros ao reescrever o mesmo código repetidamente.
 
 O código padronizado é um texto em linguagem computacional que você pode reutilizar com pouca ou nenhuma alteração em diversos contextos diferentes.
+
 <div class="mdx-columns2" markdown>
 - [x] Códigos aparentemente repetitivos e transformá-los em padrões.
 - [x] Barateamento do código, pois já foi testado e ele funciona.
@@ -27,11 +30,10 @@ O código padronizado é um texto em linguagem computacional que você pode reut
 - [x] O tempo de latência do ORDS não poderá exceder a 10 ms;
 </div>
 
-
 ## Consumerização
-Os softwares ERPs, acumulam, tecnologias e funcionalidades para atender uma grandiosidade empresarial (indo contra os cenários atuais com os processos ágeis – Lean IT, SCRUM e etc.), que por muitas vezes não aplicáveis a instituição e/ou adotam tecnologias, que foram abandonadas pelo mercado ou não amigáveis ou com raros profissionais, por exemplo o FORMS, OAF, PEOPLECODE e etc.
+<p align="justify">Os softwares ERPs, acumulam, tecnologias e funcionalidades para atender uma grandiosidade empresarial (indo contra os cenários atuais com os processos ágeis – Lean IT, SCRUM e etc.), que por muitas vezes não aplicáveis a instituição e/ou adotam tecnologias, que foram abandonadas pelo mercado ou não amigáveis ou com raros profissionais, por exemplo o FORMS, OAF, PEOPLECODE e etc.</p>
 
- Esta claro com esta pesquisa, que a diferença entre software "corporativo" e "consumidor" necessita  diminuir e que os “consumidores”, usam softwares mais envolventes e intuitivos: iFOOD, UBER, LinkedIn, WhatsApp e etc., sendo óbvio, as perguntas:
+ <p align="justify">Esta claro com esta pesquisa, que a diferença entre software **corporativo** e **consumidor** necessita  diminuir e que os **consumidores**, usam softwares mais envolventes e intuitivos: iFOOD, UBER, LinkedIn, WhatsApp e etc., sendo óbvio, as perguntas:</p>
  
 - [x] Como diminuir este hiato entre estas camadas ou diminuir esta sensação?
 - [x] Como aumentar a satisfação do cliente, sem tornar o Aplicativo corporativo apenas um repositório?
@@ -39,37 +41,40 @@ Os softwares ERPs, acumulam, tecnologias e funcionalidades para atender uma gran
 - [x] Como diminuir a sensação, sem aumentar o número de sistemas - FRONT END?
 
 # Coisas que um não programador pode fazer
-**Comece a ouvir** : Tudo em código aberto envolve outras pessoas. Você está procurando se juntar a uma equipe, e isso significa entender a comunidade e como ela funciona.
+**Comece a ouvir** : Tudo em código envolve outras pessoas. Você está procurando se juntar a uma equipe, e isso significa entende-la e como ela funciona.
+
 **Participe de uma lista de discussão** : Para muitos projetos, a lista de discussão é o principal canal de comunicação sobre o desenvolvimento do projeto. 
+
 **Siga um Blog** : Blogs mantidos por desenvolvedores geralmente dão informações sobre o que está por vir em lançamentos futuros e o que é preciso para chegar lá.
 
-**Trabalhe com Tickets/Issues** : <p align="justify">O código é o coração de qualquer projeto de código aberto, mas não pense que escrever código é a única maneira de contribuir. A manutenção do código e dos sistemas que o cercam geralmente são negligenciados na pressa de criar novos recursos e corrigir bugs. A maioria dos projetos tem um sistema de tickets de problemas publicamente visível, vinculado à página inicial do site do projeto e incluído na documentação. É o principal canal de comunicação entre os usuários e os desenvolvedores. Mantê-lo atualizado é uma ótima maneira de ajudar o projeto. Você pode precisar obter permissões especiais no sistema de tickets, que a maioria dos líderes de projeto ficará feliz em lhe dar quando você disser que quer ajudar a limpar os tickets.</p>
+**Trabalhe com Tickets/Issues** : O código é o coração de qualquer projeto de código, mas não pense que escrever código é a única maneira de contribuir. A maioria dos projetos tem um sistema de tickets de problemas publicamente visível, vinculado à página inicial do site do projeto e incluído na documentação. É o principal canal de comunicação entre os usuários e os desenvolvedores. Mantê-lo atualizado é uma ótima maneira de ajudar o projeto.
 
 **Diagnosticar um bug** : Bugs são frequentemente mal reportados. Diagnosticar e triar um bug pode ajudar a economizar tempo dos desenvolvedores com o trabalho braçal de descobrir as especificidades do problema. 
-    - [x] Se um usuário relatou, "O software não funciona quando eu faço X", gaste algum tempo para descobrir as especificidades do que acontece nesse problema. 
-    - [x] É repetível? Você pode criar um conjunto de etapas para causar o problema repetidamente? 
-    - [x] Você pode restringir o problema, como acontecer apenas em um navegador, mas não em outro, ou em uma distribuição, mas não em outra? Mesmo que você não saiba o que causa o problema, o esforço que você coloca em restringir as circunstâncias torna mais fácil para outra pessoa consertá-lo. 
-    - [x] O que quer que você descubra, adicione ao ticket no sistema de bugs para que todos vejam.
-**Fechar bugs corrigidos** : <p align="justify">Frequentemente, os bugs são corrigidos na base de código, mas os tickets relatados sobre eles não são atualizados no sistema de tickets. Limpar esse lixo pode ser demorado, mas é valioso para todo o projeto. Comece consultando o sistema de tickets para tickets mais antigos que um ano e veja se o bug ainda existe. Verifique o log de alterações de lançamento do projeto para ver se o bug foi corrigido e pode ser fechado. Se for conhecido que foi corrigido, anote o número da versão no ticket e feche-o.</p>
 
-<p align="justify">Sempre que você modificar o código, certifique-se de agir como um membro responsável da comunidade e manter seu estilo de código para combinar com o resto da base de código.  O código que você adicionar ou modificar deve se parecer com o resto. Você pode não gostar do estilo de colchetes ou do tratamento de espaços para recuo, mas é escroto enviar uma alteração de código que não corresponda aos padrões existentes. É o mesmo que dizer "Não gosto do seu estilo, e acho que o meu é melhor, então você deve fazer do meu jeito".</p>
+- [x] Se um usuário relatou, "O software não funciona quando eu faço X", gaste algum tempo para descobrir as especificidades do que acontece nesse problema. 
+- [x] É repetível? Você pode criar um conjunto de etapas para causar o problema repetidamente? 
+- [x] Você pode restringir o problema, como acontecer apenas em um navegador, mas não em outro, ou em uma distribuição, mas não em outra? Mesmo que você não saiba o que causa o problema, o esforço que você coloca em restringir as circunstâncias torna mais fácil para outra pessoa consertá-lo. 
+- [x] O que quer que você descubra, adicione ao ticket no sistema de bugs para que todos vejam.
+
+**Fechar bugs corrigidos** : Frequentemente, os bugs são corrigidos na base de código, mas os tickets relatados sobre eles não são atualizados no sistema de tickets. Limpar esse lixo pode ser demorado, mas é valioso para todo o projeto. Comece consultando o sistema de tickets para tickets mais antigos que um ano e veja se o bug ainda existe. Verifique o log de alterações de lançamento do projeto para ver se o bug foi corrigido e pode ser fechado. Se for conhecido que foi corrigido, anote o número da versão no ticket e feche-o.
 
 **Teste um beta ou candidato a lançamento** : Qualquer projeto que seja projetado para rodar em múltiplas plataformas pode ter todos os tipos de problemas de portabilidade. Quando um lançamento se aproxima e um beta ou candidato a lançamento é publicado, o líder do projeto espera que ele seja testado por muitas pessoas diferentes em muitas plataformas diferentes. Você pode ser uma dessas pessoas e ajudar a garantir que o pacote funcione na sua plataforma.
 
-**Corrigir um bug** :<p align="justify">Geralmente é aqui que os colaboradores que querem começar a trabalhar no código começam. É simples: encontre um bug que pareça interessante no sistema de tickets e tente corrigi-lo no código. Documente a correção no código, se for apropriado. É uma boa ideia adicionar um teste ao conjunto de testes para testar o ponto do código que você corrigiu; alguns projetos exigem que as correções de bugs incluam testes. Mantenha notas enquanto você vasculha essa base de código desconhecida. Mesmo que você não consiga corrigir o bug, documente no ticket o que você descobriu como parte da tentativa de correção. O que você encontrar ajuda aqueles que vêm depois de você.</p>
+**Corrigir um bug** : Geralmente é aqui que os colaboradores que querem começar a trabalhar no código começam. É simples: encontre um bug que pareça interessante no sistema de tickets e tente corrigi-lo no código. Documente a correção no código, se for apropriado. É uma boa ideia adicionar um teste ao conjunto de testes para testar o ponto do código que você corrigiu; alguns projetos exigem que as correções de bugs incluam testes. Mantenha notas enquanto você vasculha essa base de código desconhecida. Mesmo que você não consiga corrigir o bug, documente no ticket o que você descobriu como parte da tentativa de correção. O que você encontrar ajuda aqueles que vêm depois de você.
 
-**Escreva um Teste** : <p align="justify">A maioria dos projetos tem um conjunto de testes que testa o código, mas é difícil imaginar um conjunto de testes que não pudesse ter mais testes adicionados a ele. Se você encontrar um bug, tente escrever um teste que o reproduza. Se você não puder reproduzir o bug, escreva um teste que falhe. Se você não puder escrever um teste que falhe, escreva um teste que passe. Se você não puder escrever um teste que passe, escreva um teste que falhe. Se você não puder escrever um teste que falhe, escreva um teste que passe. Se você não puder escrever um teste que passe, escreva um teste que falhe. Se você não puder escrever um teste que falhe, escreva um teste que passe. </p>
+**Escreva um Teste** : A maioria dos projetos tem um conjunto de testes que testa o código, mas é difícil imaginar um conjunto de testes que não pudesse ter mais testes adicionados a ele. Se você encontrar um bug, tente escrever um teste que o reproduza. Se você não puder reproduzir o bug, escreva um teste que falhe. Se você não puder escrever um teste que falhe, escreva um teste que passe. Se você não puder escrever um teste que passe, escreva um teste que falhe. Se você não puder escrever um teste que falhe, escreva um teste que passe. Se você não puder escrever um teste que passe, escreva um teste que falhe. Se você não puder escrever um teste que falhe, escreva um teste que passe.
+
 **Adicione um comentário** : Ao vasculhar o código, você pode encontrar alguns pontos que são confusos. Provavelmente, se você ficou confuso, outros também ficarão. Documente-os no código e envie um patch. Trabalhe com documentação A documentação é normalmente a parte de um projeto que recebe pouca atenção. Ela também pode sofrer por ter sido escrita do ponto de vista daqueles que estão familiarizados com o projeto, em vez dos olhos de alguém que está começando a entender. 
+
 **Trabalhe com a Comunidade** : O código aberto é apenas parcialmente sobre código. A comunidade faz o código aberto funcionar. Aqui estão algumas maneiras de ajudar a construí-lo.
+
 **Responda a uma pergunta** : A melhor maneira de ajudar a construir a comunidade é ajudando os outros. Responder a uma pergunta, especialmente de alguém que está apenas começando, é crucial para ajudar o projeto a crescer e prosperar. O tempo que você leva para ajudar um iniciante, mesmo que ele esteja fazendo uma pergunta em que você poderia facilmente dar um rápido "RTFM", compensa no futuro, pois consegue outro membro ativo da comunidade. Todo mundo começa em algum lugar, e os projetos precisam de um fluxo constante de pessoas para que continuem vitais.
 
 **Escreva uma postagem de blog/wiki** : Se você tem um blog, escreva sobre suas experiências com o projeto que está usando. Conte sobre um problema que você enfrentou usando o software e o que você fez para resolvê-lo. Você estará ajudando de duas maneiras, tanto ajudando a manter o projeto na mente de outras pessoas ao seu redor, quanto criando um registro para qualquer outra pessoa que tenha seu problema no futuro e pesquise na web pela resposta. (Um blog de suas aventuras técnicas também é uma excelente maneira de mostrar experiência no mundo real com o software em questão na próxima vez que você for procurar um emprego usando-o.)
 
 **Melhore um site** : Se você tem habilidades em web design e pode ajudar a melhorar o site, e assim a imagem pública do projeto, esse é um tempo bem gasto. Talvez o projeto pudesse usar uma reformulação gráfica, ou um logotipo para identificar o projeto. Essas podem ser habilidades que faltam na comunidade. Eu sei que adoraria se pudesse obter alguma ajuda de design gráfico nos sites dos meus projetos.
 
-**Escreva documentação técnica** : Se você consegue escrever sobre como um aplicativo ou software funciona, você pode escrever documentação técnica sobre ele. Especialmente projetos de código aberto que buscam atualizar, renovar, expandir ou criar documentos técnicos para o público em geral ler. Quanto mais você escrever em inglês simples, melhor. A melhor parte é que você não precisa ser um programador para escrever documentos técnicos.
-
-Acima de tudo, ouça o que as pessoas ao seu redor discutem. Veja se você consegue reconhecer uma necessidade urgente. Por exemplo, recentemente na lista de discussão dos desenvolvedores do Parrot, foi decidido usar o GitHub como o sistema de tickets de problemas, abandonando a antiga instalação do Trac que eles tinham. Algumas pessoas foram contra a mudança porque não havia como converter os tickets para o sistema do GitHub. Depois de um dia de discussão, eu me manifestei e disse "Que tal se eu escrevesse um conversor?" As pessoas ficaram entusiasmadas com a ideia. Eu gastei tempo escrevendo um programa de conversão para os mais de 450 tickets, então não perdemos nada do nosso histórico de tickets. Foi um grande sucesso. Eu pude contribuir, e os desenvolvedores principais permaneceram focados no negócio de trabalhar no Parrot.
+**Escreva Documentação técnica** : Se você consegue escrever sobre como um aplicativo ou software funciona, você pode escrever documentação técnica sobre ele. Especialmente projetos de código aberto que buscam atualizar, renovar, expandir ou criar documentos técnicos para o público em geral ler. Quanto mais você escrever em inglês simples, melhor. A melhor parte é que você não precisa ser um programador para escrever documentos técnicos.
 
 **Ensine e ajude os outros** : A melhor maneira de aprender mais sobre um tópico é tentar ensiná-lo. O melhor professor é aquele que consegue explicar coisas complexas com exemplos simples. Então você precisa tentar ser o melhor professor para ser o melhor aprendiz e o melhor no seu mundo de programação. Ensinar os outros fará você se sentir melhor consigo mesmo e ajudará você a obter melhores habilidades e conhecimento em sua profissão. Quando você receber ajuda de alguém, não guarde para si mesmo, compartilhe com os outros. Faça do mundo um lugar melhor para se viver.
 
@@ -95,6 +100,7 @@ Temos que enviar produtos com mais rapidez para acompanhar as crescentes necessi
 - [x] Uma parte deve se concentrar na configuração do processo adequado de desenvolvimento de software;
 - [x] Uma parte deve se aproveitar das ferramentas e tecnologias corretas para impulsionar a produtividade.
 </div>
+
 ## Pilares da Codificação/Tenha em Mente
 <div class="mdx-columns2" markdown>
 - [x] O melhor código é aquele que não precisa ser escrito;

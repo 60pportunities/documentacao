@@ -1178,5 +1178,3 @@ A data e hora da solicitação e o campo Status,  devem ser inserida no ato da g
 O usuário poderá possuir metodos GET, para obter as informações sobre o processo criado.
 
 Deverá ter uma processo que leia, todos os pedidos pendenter, com o o STATUS = P e inicie o processo de verificação na Plataforma Azure-Devops e Github.
-
-

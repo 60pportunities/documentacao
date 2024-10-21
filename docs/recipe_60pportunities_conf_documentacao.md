@@ -5,74 +5,67 @@
 <p align="justify">Michael Nygard, em uma publicação de 2011, "Os métodos ágeis não se opõem à documentação, apenas à documentação sem valor. Documentos que auxiliam a própria equipe podem ter valor, mas somente se estiverem atualizados. Documentos grandes nunca são mantidos atualizados. Documentos pequenos e modulares têm pelo menos uma chance de serem atualizados."</p>
 
 ## Estrutura do Diretório
-
 ![](img/60opt-documentacao.png){width="960" height="840" style="display: block; margin: 0 auto"}
 
 ## Escrita da Documentação
-NÃO SE DEVE escrever as documentações nas ferrametas **Office-Microsoft**, DEVEmos escrever da mesma forma, que escrevemos CÓDIGO.
+NÃO SE DEVE escrever as documentações nas ferrametas **Office-Microsoft**, **DEVEmos** escrever da mesma forma, que escrevemos CÓDIGO.
 
 Ferramentas centradas no desenvolvedor para documentação são freqüentemente chamadas de **Docs-as-Code**. Tratar documentos como código geralmente significa fazer o seguinte:
 
-* Trabalhar em arquivos de texto simples;
-* Usar um gerador de site estático;
-* Trabalhar com arquivos por meio de um editor de texto;
-* Armazenamento de documentos em um repositório de controle de versão;
-* Automatizar o processo de construção do site ou Portable Document Format (PDF) com entrega contínua;
-* Com esta definição de documentação, nós podemos expressar alguns princípios:
-    * Conhecimento que é de interesse por uma grandes período de Tempo DEVE ser documentado.
-    * Conhecimento que é de interesse para um amplo número de pessoas  DEVE ser documentado.
-    * Conhecimento que é valioso ou crítico DEVE ser documentado.
+- [x] Trabalhar em arquivos de texto simples;
+- [x] Usar um gerador de site estático;
+- [x] Trabalhar com arquivos por meio de um editor de texto;
+- [x] Armazenamento de documentos em um repositório de controle de versão;
+- [x] Automatizar o processo de construção do site ou Portable Document Format (PDF) com entrega contínua;
+- [x] Com esta definição de documentação, nós podemos expressar alguns princípios:
+      - [x] Conhecimento que é de interesse por  uma grandes período de Tempo DEVE ser documentado.
+      - [x] Conhecimento que é de interesse para um  amplo número de pessoas  DEVE ser documentado.
+      - [x] Conhecimento que é valioso ou crítico DEVE ser documentado.
   
 <p align="justify">Em vez de criar a documentação em um sistema separado, os analistas de requisitos e desenvolvedores simplesmente adicionam o documento no mesmo projeto em repositórios diferentes ou no mesmo repositório do código, através do uso de markdown. Esse local garante que qualquer pessoa que esteja usando o código também possa encontrar a documentação.</p>
 
-<p align="justify">Qualquer um pode ler a documentação diretamente no código-fonte do Markdown ou podem lê-la exibida em um navegador. Com a Documentação como Código, os desenvolvedores tratam a documentação como parte integrante do sistema, melhoram as mensagens de commit. A documentação, junto com o código, é construída e implantada como parte de um pipeline. 
+<p align="justify">Qualquer um pode ler a documentação diretamente no código-fonte do Markdown ou podem lê-la exibida em um navegador. Com a Documentação como Código, os desenvolvedores tratam a documentação como parte integrante do sistema, melhoram as mensagens de commit. A documentação, junto com o código, é construída e implantada como parte de um pipeline.</p>
 
-Escrever documentação é entediante e chato, mas de suma importancia. Alguns até pensam que escrever documentação é um esforço infrutífero, visto que os desenvolvedores acham que seu código incrível é autodocumentado. Portanto, um software bem documentado é normalmente uma exceção.</p>
+<p align="justify">Escrever documentação é entediante e chato, mas de suma importancia. Alguns até pensam que escrever documentação é um esforço infrutífero, visto que os desenvolvedores acham que seu código incrível é autodocumentado. Portanto, um software bem documentado é normalmente uma exceção.</p>
 
-Resumindo, tratar os documentos como código significa usar os mesmos sistemas, processos e fluxos de trabalho com os documentos que você faz com o código de programação.
-
-## História da Wiki :heart:
-Desde 2010-13, elaboramos a Media-Wiki na 60Oportunities-RJ, no grupo de desenvolvimento. Sabíamos que processos não documentados e conhecimento implícito, estavam impedindo a contribuição de novos colaboradores com os constantes concursos. 
-
-Com a retirada da Wiki do Rio de Janeiro (2018), paramos de produzir conteúdo o que só retornou em 2020, porem gostaríamos de outros formatos. Em 2020, com a utilização do Gitlab, iniciamos a migração da Wiki para as Wikis de Projetos, porem faltava algo de unificação. 
-O Gitlab permitia criar GRUPOS e deixar um grupo responsável pela documentação. Em maio de 2022, migramos para o Azure-Devops, o que nos permitiu efetuar um outro caminho, utilizando agora o conceito de "Jamstack", ou seja, uma arquitetura de desenvolvimento web baseada em JavaScript, APIs e Markdown. Criamos uma primeira versão que pode ser consultada em [Desenvolvedores Documentação].
-
-![](img/jamstack.png)
+<p align="justify">Resumindo, tratar os documentos como código significa usar os mesmos sistemas, processos e fluxos de trabalho com os documentos que você faz com o código de programação.</p>
 
 Hoje, esta estrutura é utilizada  para se referir de forma mais ampla a uma abordagem arquitetônica para construção de sites.
 
-* Não há necessidade de se preocupar com vulnerabilidades de servidores ou bancos de dados;
-* A hospedagem de arquivos estáticos é barata;
-* Cada implantação é um instantâneo completo do site. Isto ajuda a garantir um versão consistente do site globalmente.
-* Seu texto reside em um sistema de controle de versão, como o Git.
+- [x] Não há necessidade de se preocupar com vulnerabilidades de servidores ou bancos de dados;
+- [x] A hospedagem de **arquivos estáticos** é barata;
+- [x] Cada implantação é um instantâneo completo do site. Isto ajuda a garantir um versão consistente do site globalmente.
+- [x] Seu texto reside em um sistema de controle de versão, como o Git.
+- [x] Minha versão segue a versão do Código.
 
-Entre os diversos SSG(Static Site Generatos), foram escolhidos o HUGO e o MkDocs.  Como seria uma coisa muito simples, não requerendo conhecimento específico, escolhi o mkdocs por ser mais rápido, simples e gerador voltado para a construção de documentação de projetos. Orientei a TODOS os colaboradores que tivessem um repositório separado de documentação, o que facilitaria a automatização e unificação dos mesmos.
+<p align="justify">Entre os diversos SSG(Static Site Generatos), foram escolhidos o HUGO e o MkDocs. Como seria uma coisa muito simples, não requerendo conhecimento específico, escolhi o MkDocs por ser mais rápido, simples e gerador voltado para a construção de documentação de projetos. Orientei a TODOS os colaboradores que tivessem um repositório separado de documentação, o que facilitaria a automatização e unificação dos mesmos.</p>
 
 ## [Documentação Técnica no Desenvolvimento de Software](https://www.altexsoft.com/blog/technical-documentation-in-software-development-types-best-practices-and-tools/#utm_source=MediumCom&utm_medium=referral)
 É o termo genérico que abrange todos os documentos e materiais escritos que tratam do desenvolvimento de produtos de software. 
 
 * A documentação de qualquer sistema/produto, consiste em:
     * Documentação do Produto
-        * Sistema (Inclui documentos de requisitos, decisões de design, descrições de arquitetura, código-fonte do programa e perguntas frequentes.)
-            * Requisitos (Informações sobre a funcionalidade do sistema.)
-            * UX (Inclui pesquisa, prototipagem, testes de usabilidade e a própria parte do design, durante a qual são produzidos muitos documentos e resultados.)
-            * Arquitetura
-            * Qualidade/Teste
-            * API
-            * Ajuda
-        * Usuário (Inclui tutoriais, guias do usuário, manuais de solução de problemas, instalação e manuais de referência.)
-            * Usuário Final (Explicar da forma mais simples possível como o software pode ajudar a resolver seus problemas.)
-            * System Admin (Documentos de administração cobrem a instalação e atualizações que ajudam o administrador do sistema na manutenção do produto.)
+        * Sistema (Inclui documentos de requisitos, decisões de design, descrições de arquitetura, código-fonte do programa e perguntas frequentes).
+            * Requisitos (Informações sobre a funcionalidade do sistema);
+            * UX (Inclui pesquisa, prototipagem, testes de usabilidade e a própria parte do design, durante a qual são produzidos muitos documentos e resultados);
+            * Arquitetura (C4-Model)
+            * Test-driven development (TDD), Behavior-Driven Development(BDD) - Gherkin Language (Cucumber);
+            * API (Swagger)
+            * Ajuda (Mkdocs, Mermaid, PlantUml)
+        * Usuário (Inclui tutoriais, guias do usuário, manuais de solução de problemas, instalação e manuais de referência).
+            * Usuário Final (Explicar da forma mais simples possível como o software pode ajudar a resolver seus problemas).
+            * System Admin (Documentos de administração cobrem a instalação e atualizações que ajudam o administrador do sistema na manutenção do produto).
     * Documentação do Processo (Documentos produzidos durante o desenvolvimento e manutenção)
         * Roadmap de Produto(Sprint)
         * Estimativas
         * Agendas de Reuniões e Decisões
 
-A melhor prática é escrever um documento de requisitos usando um modelo único e consistente que todos os membros da equipe aderem. 
+A melhor prática é escrever um documento de requisitos usando um modelo único e consistente que todos os membros da equipe aderem - [Gherkin](https://cucumber.io/docs/gherkin/reference/). 
 
-Como regra, as documentações deveriam ser escritas em Markdown, as imagens/fluxos em [Mermaid](https://mermaid.js.org/intro/getting-started.html)
+Como regra, as documentações deveriam ser escritas em Markdown, as imagens/fluxos em [Mermaid](https://mermaid.js.org/intro/getting-started.html).
+
 A documentação os arquivos de origem são escritos em Markdown e configurados com um único YAML arquivo de configuração. 
-
+<div class="center-table" markdown>
 ```mermaid
 flowchart TD
 A(Desenvolver) --> B(Controle</br>de versão)
@@ -85,6 +78,8 @@ I              --> J(Implantação atômica)
 J              --> K(Pré-render e invalidar cache)
 K              --> L(Entrega e </br>Distribuição de</br> conteúdo)
 ```
+</div>
+
 ### Vantagens
 Nosso manual é novo e mantê-lo relevante é uma parte importante do trabalho de todos. É uma parte vital de quem somos e de como nos comunicamos. Estabelecemos esses processos porque vimos estes benefícios:
 

@@ -17,11 +17,22 @@ Para configurar o MkDocs e publicar seu site no GitHub Pages, vamos efetuar um p
 - [x] **Visualizar localmente** : Para ver como o seu site ficará, você pode executar o servidor local, no diretório raiz do projeto clonado. `mkdocs serve` e posteriormente acesse `http://127.0.0.1:8000` no seu navegador para visualizar.
 - [x] **Preparar para publicação**: Quando estiver satisfeito, você pode gerar os arquivos para publicação: `mkdocs build`, isso criará uma pasta chamada site com todos os arquivos necessários.
 - [x] **Publicar no GitHub Pages**: Para publicar no GitHub Pages, você pode usar o seguinte comando: `mkdocs gh-deploy`, isso irá construir o projeto e enviar o conteúdo da pasta site para a branch gh-pages do seu repositório.
-- [x] **Para fazer atualizações** no seu site, basta editar os arquivos Markdown, executar mkdocs build novamente e usar mkdocs gh-deploy para publicar as mudanças.
+- [x] **Para fazer atualizações** no seu site, basta editar os arquivos Markdown, executar mkdocs build novamente e usar **mkdocs gh-deploy** para publicar as mudanças.
       
 **Observação**: 
 
-- [x] Você precisa adicionar a CNAME arquivo do arquivo para a raiz de seu docs_dir. 
-- [x] O arquivo deve conter um único domínio nuo ou subdomínio em uma única linha (veja o próprio arquivo CNAME do MkDocs como exemplo). 
+- [x] Você precisa adicionar a CNAME arquivo do arquivo para a raiz de seu **docs_dir**. 
+- [x] O arquivo deve conter um único domínio ou subdomínio em uma única linha (veja o próprio arquivo CNAME do MkDocs como exemplo).
 - [x] mkdocs gh-deploy --help
 - [x] mkdocs gh-deploy --config-file mkdocs.yml --remote-branch main
+- [x] Exemplo de uma script em Shell:
+
+      ```
+      #!/bin/bash
+      #mike delete --all
+      set -x
+      git commit -m "<doc> Criação versão documentaca" --allow-empty
+      LASTTAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+      mike deploy --update-aliases "${LASTTAG}" latest
+      mike set-default --push latest
+      ```

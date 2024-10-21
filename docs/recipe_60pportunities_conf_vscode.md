@@ -1,8 +1,10 @@
 O Visual Studio Code (VS Code) é um editor de código de código aberto desenvolvido pela Microsoft.
-O VS Code possui vários atalhos de teclado que facilitam o trabalho. Esses atalhos podem ser customizados e  pode atribuir teclas de atalho para funcionalidades existentes mas que não possuem um atalho definido.
-Como programadores, quanto mais tempo mantermos as mãos no teclado, melhor. Afinal, pressionar algumas teclas é bem mais rápido do que ir com a mão até o mouse e sair clicando e procurando o que você precisa.
+
+<p align="justify">O VS Code possui vários atalhos de teclado que facilitam o trabalho. Esses atalhos podem ser customizados e  pode atribuir teclas de atalho para funcionalidades existentes mas que não possuem um atalho definido.
+Como programadores, quanto mais tempo mantermos as mãos no teclado, melhor. Afinal, pressionar algumas teclas é bem mais rápido do que ir com a mão até o mouse e sair clicando e procurando o que você precisa.</p>
 
 O VS Code pode ser utilizado diretamente do seu navegador preferido, bastando : [VSCode](https://vscode.dev/).
+
 ## Lista de Extensões configuradas
 Para listar as extensões:  ```code --list-extensions | xargs -L 1 echo code --install-extension```
 <div class="mdx-columns2" markdown>

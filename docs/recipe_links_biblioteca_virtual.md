@@ -51,7 +51,12 @@ https://www.youtube.com/watch?v=NXHTyr3tqrM&t=3267s
 
 ## Imagens
 - [x] [Shields](https://shields.io/)
-
+- [Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
+- [Open Source badges](https://github.com/ellerbrock/open-source-badges/)
+- [Slack Team](https://firstcontributions.github.io/assets/Readme/join-slack-team.png)
+- [License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+- [Open Source Helpers](https://www.codetriage.com/roshanjossey/first-contributions/badges/users.svg)](https://www.codetriage.com/roshanjossey/first-contributions)
+  
 ## Livros
 O Projeto Fênix
 Gene Kim, Kevin Behr e George Spafford - O Projeto Unicórniomarca
