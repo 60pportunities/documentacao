@@ -1,0 +1,1425 @@
+- [x] A distributed version control system is best described as a system that: `ensures each developer has their own local copy of the entire code repository, including the complete project history and metadata.`
+- [x] A user with the username merlin99 creates a repo named git-examples, an Organization called GitWizards. What would the GitHub repo URL be? `https://github.com/GitWizards/git-examples`
+- [x] Adam West is a project manager for a software development team using GitHub to host their repositories. He wants to analyze the traffic to their project repository and understand where the visitors are coming from and which content is generating the most interest. Which GitHub feature should Adam use to get this information? `Traffic`
+- [x] After 30 minutes of inactivity, a GitHub Codespace will: `time out.`
+- [x] An employee needs to find all issues within organization “Avocado” containing text “404 error” and a “guacamole” label. Which of the following steps would be best to search for these results? `Enter query org: Avocado label:guacamole “404 error” in the search bar. Select “Issues” in the “Filter by” section.`
+- [x] As a GitHub user, where in the Ul can you configure two-factor authentication (2FA) to further secure your account? `Settings Password and Authentication → 2FA`
+- [x] As a repository owner, what actions can you restrict on GitHub Actions? `You can disable GitHub Actions for a repository, or set a policy that configures which Actions and reusable Workflows can be used in the repository`.
+- [x] As a user, what feature can you use to merge proposed changes in a repository on GitHub? `pull requests`
+- [x] As a user, which of the following default labels is used to indicate that a maintainer needs assistance on an issue or pull request? `help wanted`
+- [x] As the owner of your organization, you want to ensure that everyone who is signed in to your corporate network can access the GitHub website without having to sign in again. What type of technology would you use to achieve this?`Single sign-on`
+- [x] Barbara Pewterschmidt is a project manager overseeing a GitHub repository for a software development project. She wants to acknowledge and recognize the top contributors to the project. Where can Barbara view the top 100 contributors to the repository, excluding merge commits and empty commits? `Contributors graph`
+- [x] Bonnie wants to use a template repository as starter code for an assignment in GitHub Classroom. She wants to ensure that she understands any limitations associated with template repositories. What is a limitation of template repositories on GitHub? `They cannot include files stored using Git LFS`.
+- [x] Brian Griffin is a software developer who is interested in contributing to open source projects related to machine learning. He wants to explore repositories in this subject area to find projects to contribute to and discover new solutions. Which feature of GitHub would be most helpful for Brian in this scenario? `Topics`
+- [x] Brian wants to use historical charts in his GitHub project to analyze the completion status of tasks over time. Which type of historical chart on GitHub displays the progress of issues over time, showing completed work and remaining tasks? `Burn up chart`
+- [x] Brian, a developer, is working on a private repository for a proprietary project for his company. He wants to organize the repository by adding specific topics relevant to the project's technology stack and functionalities. What is the visibility status of topic names created within a private repository on GitHub? `Topic names created in private repositories are always public`.
+- [x] Brian, a GitHub user, has a repository dedicated to sharing his literary works and book reviews. He wants to make it easier for other users to find his repository and contribute to it. What action should Brian take to achieve this goal? `Adding topics to the repository`.
+- [x] Brian, a software engineer, is setting up a continuous integration (CI) workflow for his project on GitHub. He wants to understand how jobs work within GitHub Actions to streamline the build and testing process efficiently. What is a job in the context of GitHub Actions? `A set of steps executed on the same runner`.
+- [x] By default, what is the initial branch called in a freshly created GitHub repository? `main`
+- [x] Can a gist be converted from public to secret after it has been created on GitHub free account? `No, once a gist is created as public, it cannot be made secret`.
+- [x] Can a threaded comment be marked as an answer in a GitHub discussion? `Yes, threaded comments can be marked as answers`.
+- [x] Can issues or pull requests be filtered based on the most added reaction? `Yes`
+- [x] Can voters change their vote after they have cast it in a poll on GitHub? `No, voters cannot change their vote`.
+- [x] Can you configure GitHub Copilot Individual to exclude certain files from being available to GitHub servers? `No`
+- [x] Can you filter GitHub issues based on milestones? `Yes, GitHub allows filtering of issues based on milestone`.
+- [x] Chris Griffin just pushed his latest changes to GitHub but realizes that one of the commits contains a critical error. He wants to undo that specific commit. What should Chris do to undo the mistaken commit while keeping the commit history intact? `git revert <SHA>`
+- [x] Chris Griffin wants to add an existing file to his GitHub repository using the command line. He has already cloned the repository locally on his computer. What command should he use to stage the file for commit? `git add .`
+- [x] Chris Griffin wants to include all the changes made to tracked files in his next commit without explicitly staging them using git add. Which command should he use to achieve this? `git commit -a`
+- [x] Chris Griffin works for an organization that develops various open-source projects. The organization wants to create a centralized website to provide information about its projects and activities. Which type of GitHub Pages site should Chris create for the organization's centralized website? `Organization site`.
+- [x] Chris has been actively developing a project on GitHub, utilizing GitHub Actions to automate various tasks in his workflow. Recently, he renamed one of the repositories containing actions referenced in his workflows. What consequence does Chris face regarding his workflows? `Workflows using the previous repository name will encounter failures.`
+- [x] Explain the difference between GitHub Desktop and github.com? `GitHub Desktop is a graphical user interface (GUI) application that simplifies the use of Git and GitHub, while github.com is the website and cloud-based hosting service for Git repositories.`
+- [x] Explain the difference between GitHub Desktop and github.com? `GitHub Desktop is a graphical user interface (GUI) application that simplifies the use of Git and GitHub, while github.com is the website and cloud-based hosting service for Git repositories.`
+- [x] From the list of projects for an organization, how can a user identify a GitHub Projects template? `Use the is: template filter in the search text box.`
+- [x] From the Organization settings, which restrictions can organization owners place on GitHub Actions usage? `Allow actions by Marketplace verified creators. AND Allow actions that use self-hosted runners. AND Allow specified actions.`
+- [x] Gists are actually Git repositories, which means that you can fork or clone any gist, even if you aren't the original author. `True`
+- [x] GIT-GHF What are the two deployment options for GitHub Enterprise? `GitHub Enterprise Server e GitHub Enterprise Cloud`
+- [x] GitHub Actions workflows can be directly triggered by which of the following events? `pushing to a GitHub repository`
+- [x] Glenn is a contributor to a GitHub repository that has been archived by the repository owner. He wants to know what actions he can still perform on the archived repository. Contributors can only fork or star the repository, but they cannot make any other changes.
+- [x] Glenn is considering archiving one of his GitHub repositories because it's no longer actively maintained. However, he wants to understand the implications of archiving before making a decision. What happens to a repository when it is archived on GitHub? `The repository becomes read-only for all users`.
+- [x] Glenn maintains a repository on GitHub for a project that is no longer actively maintained. He wants to make the repository read-only for all users and indicate its inactive status. Which action should he take? `Archive the repository`.
+- [x] Glenn Quagmire is a developer working on a project hosted on GitHub. he has made some changes to the codebase and created a pull request to merge your changes into the main branch. However, the status checks for his pull request are failing. He want to understand more about status checks on GitHub to troubleshoot the issue. What are status checks on GitHub and how are they useful? `They indicate if your commits meet the conditions set for the repository, such as passing continuous integration builds.`
+- [x] Glenn Quagmire is learning how to format text using Markdown for his GitHub README file. Which Markdown syntax should Glenn use to bold the word "FamilyGuy" in his document? `__FamilyGuy__`
+- [x] How are commits related to pull requests? `Commits are made on a branch that can have a linked pull request.`
+- [x] How are settings in `.gitignore` files inherited in a Git repository? `Settings are inherited from parent directories`.
+- [x] How are workflows defined in a GitHub repository? `In the .github/workflows directory.`
+- [x] How can a developer open a GitHub repository in the github.dev editor in a new browser tab? `By pressing > while browsing the repository on GitHub.`
+- [x] How can a gist be copied while preserving its history? `Fork`
+- [x] How can a user choose to receive ongoing updates about a specific activity on GitHub.com? `by customizing the types of notifications you will receive in the future`
+- [x] How can a user create a repository template, and what permissions are required? `With Admin permissions, navigate to Repository settings and select Template Repository.`
+- [x] How can a user highlight a post to the top of the Discussions page? `Pin the discussion`
+- [x] How can branch protection rules contribute to secure development on GitHub? `By enforcing certain workflows for branches, such as requiring code reviews and passing status checks`
+- [x] How can discussions be pinned in GitHub? `You can pin a discussion to a specific category or You can globally pin a discussion above the list of discussions for the repository or organization`.
+- [x] How can Glenn make changes to an archived repository? `By unarchiving the repository first whenever you need to make any changes.`
+- [x] How can labels be used in GitHub repositories? `To categorize issues and pull requests for better organization and filtering.`
+- [x] How can Meg share the filtered view of issues assigned to Brian on GitHub? `By copying the URL generated by GitHub for the filtered view and sending it to Brian.`
+- [x] How can pull request templates be added to a GitHub repository? `By creating a docs folder, or a hidden .github directory in the repository and adding the template file.`
+- [x] How can Tricia access repositories that she's watching on GitHub? `By visiting her watching page at https://github.com/watching`
+- [x] How can users access the Pulse feature on GitHub? `By navigating to the "Insights" tab in the repository and selecting "Pulse."`
+- [x] How can you add a link in a wiki page using Markdown syntax? `[Link Text](URL)`
+- [x] How can you add a new file to a GitHub repository? `Using the 'Add file' button on the repository's main page and choosing 'Create new file' or 'Upload files'.`
+- [x] How can you authenticate GitHub CLI commands for managing projects via the GraphQL API? Run `gh auth login --scopes "project"`
+- [x] How can you classify your repository to help others discover and contribute to your project more easily? `Add relevant topics related to your project's purpose, subject area, or groups of interest.`
+- [x] How can you clone a wiki from a GitHub repository to your local computer? `Using the "git clone" command with the repository's URL followed by ".wiki.git"`.
+- [x] How can you create a new branch in Git using the terminal? `git checkout -b <branch-name>`
+- [x] How can you customize notifications to receive ongoing updates about specific activity on GitHub.com through subscriptions? `By selecting the types of notifications you want to receive or unsubscribing from specific conversations or repository`.
+- [x] How can you easily add files via the GUI to your GitHub Repo? `Using the 'Upload files' button`
+- [x] How can you easily add files via the GUI to your GitHub Repo? `Using the 'Upload files' button`
+- [x] How can you efficiently manage and categorize issues and pull requests in a GitHub project? `By using labels to categorize and filter issues and pull requests.`
+- [x] How can you efficiently manage and categorize issues and pull requests in a GitHub project? `By using labels to categorize and filter issues and pull requests.`
+- [x] How can you ensure that pull requests for a specific repository area are not merged unless approved by certain users or teams? `Use a `CODEOWNERS` file and enable required reviews`.
+- [x] How can you ensure that the CODEOWNERS file itself is protected against unauthorized changes? `Define the repository owner as the owner of the CODEOWNERS file`.
+- [x] How can you ensure that your favorite discussion stays at the top? `Pin it`.
+- [x] How can you filter issues in a GitHub repository? `By using the search bar at the top of the Issues tab and applying filters like labels, milestones, and assignees.`
+- [x] How can you filter issues or pull requests that have either the bug or error labels? `label:"bug","error"`
+- [x] How can you find issues that mention a specific user on GitHub? `Use the mentions: followed by the username`.
+- [x] How can you follow an organization on GitHub.com? `By clicking the 'Follow' button on the organization's profile`
+- [x] How can you link a pull request (PR) to an existing issue on GitHub? `By mentioning the issue number preceded by a hashtag in the PR description.`
+- [x] How can you link a pull request (PR) to an existing issue on GitHub? `By mentioning the issue number preceded by a hashtag in the PR description.`
+- [x] How can you link a Pull Request (PR) to an issue on GitHub? `By mentioning the issue number in the PR description using the '#' symbol followed by the issue number.`
+- [x] How can you make a copy of a public Gist on GitHub and maintain its version history? `By using the 'Fork' button on the Gist page`.
+- [x] How can you make a README file appear on your GitHub profile automatically? `Name the README file after your username`.
+- [x] How can you make a specific issue more visible in your repository by fixing it at the top of the issue list? `By pinning the issue.`
+- [x] How can you make a specific issue more visible in your repository by fixing it at the top of the issue list? `By pinning the issue.`
+- [x] How can you make a specific issue more visible in your repository by fixing it at the top of the issue list? `By pinning the issue.`
+- [x] How can you manage your notification subscriptions for a specific repository on GitHub? `By navigating to the repository, clicking the 'Watch' button, and choosing your desired notification settings.`
+- [x] How can you remain informed about the latest comments in an issue? `By subscribing to the issue.`
+- [x] How can you save a repository on GitHub for later reference? `By starring the repository.`
+- [x] How can you save a repository on GitHub for later reference? `By starring the repository.`
+- [x] How can you set a project as a template in GitHub? `Navigate to the "project settings" under settings, select the "Templates" section, and toggle the "Make template" switch to On`.
+- [x] How can you start a GitHub Codespace? `By selecting the 'New codespace' button at the top of a GitHub repository page. AND By opening the repository and using the command palette to create a new codespace.`
+- [x] How can you unlink an issue that was linked using a keyword? `By editing the pull request description and removing the keyword`.
+- [x] How can you view insights for a GitHub repository? `By clicking on the 'Insights' tab at the top of the repository page.`
+- [x] How do you add a custom Readme page to your Github User Profile? `Add a README.md file to the repository and commit it AND Create a new repository with the same name as your GitHub username`
+- [x] How do you create a Security Policy for your GitHub Repo? `Add a SECURITY.md file in the .github directory of your repository`
+- [x] How do you create a Security Policy for your GitHub Repo? `Add a SECURITY.md file in the .github directory of your repository`
+- [x] How do you follow people on Github.com? `By clicking the 'Follow' button on the user's profile page`
+- [x] How do you follow people on Github.com? `By clicking the 'Follow' button on the user's profile page`
+- [x] How do you quickly create a branch from an issue in a Github Issue? `By commenting "/branch" in the issue comments`
+- [x] How do you quickly create a branch from an issue in a Github Issue? `By commenting "/branch" in the issue comments`
+- [x] How do you subscribe to a notifications thread in GitHub? `Click the 'Subscribe' button on the right side of an issue or pull request page.`
+- [x] How does a Draft Pull Request work on GitHub? `It indicates that the pull request is a work-in-progress and not ready for review`
+- [x] How does a GitHub Codespace differ from the github.dev editor? `GitHub Codespaces offers a complete, configurable dev environment, while github.dev provides a lightweight, web-based code editor.`
+- [x] How does GitHub advance open source projects? `By providing a collaborative platform for code hosting, version control, issue tracking, and more`
+- [x] How does GitHub Codespaces handle inactivity timeouts? `Codespaces time out after 30 minutes of inactivity.`
+- [x] How does GitHub Codespaces work? `It uses containers to provide a cloud-based development environment`.
+- [x] How does GitHub determine which file to use for populating the footer and sidebar of a wiki? `By using the file names _Footer.<extension> and _Sidebar.<extension>`
+- [x] How does GitHub help reduce the overhead of staying on top of security considerations for project dependencies? `By offering dependency graphs and automated dependency alerts.`
+- [x] How does innersource promote code reuse within an organization? `By enabling teams to discover, customize, and reuse existing internal projects`.
+- [x] How does SAML SSO work with GitHub Enterprise? `Users are redirected to the Identity Provider (IdP) to authenticate`.
+- [x] How does the "fork and pull" model work on GitHub for collaborative development? `Developers have a full copy of the project and propose changes via pull requests.`
+- [x] How frequently does the information in the referring sites and popular content sections of GitHub's traffic graph update? `Daily`
+- [x] How many auto-add workflows can you have in GitHub Enterprise Server? `20`
+- [x] How many default workflows are enabled when a project initializes in GitHub Projects? `Two`
+- [x] How many files can be included in a single diff on GitHub? `300`
+- [x] How many important issues can be pinned above the issues list in a GitHub repository? `Three`
+- [x] How many issues can be manually linked to each pull request? `Up to 10`
+- [x] How many levels of workflows can be connected together? `Up to four levels`
+- [x] How many of the most recently pushed-to branches does the network graph of a repository display on GitHub? `Up to 100 branches.`
+- [x] How many people can be assigned to an issue or pull request in private repositories for a free plan? `Only one person`
+- [x] How many people can be assigned to an issue or pull request in public repositories or private repositories for a paid account? `Up to 10 people`
+- [x] If multiple README files are present in different directories of a GitHub repository, which README file will be displayed on the repository's homepage by default? `The README in the .github directory`.
+- [x] Imagine that one of your source projects relies on secrets stored in a folder called .secrets. You want to make sure that the files kept in this folder on development machines are not accidentally committed to the repository. Which of these files is the most effective for enforcing this policy? `.gitignore`
+- [x] In a Distributed Version Control System (DVCS) like Git, what is a significant advantage over centralized systems? `Full copy of the project and history.`
+- [x] In a GitHub repository, under the security tab, which of the following alerts might appear? `Workflow run alerts AND Code scanning alerts AND Dependency review alerts`
+- [x] In a GitHub repository, under the security tab, which of the following alerts might appear? `Workflow run alerts, Dependency review alerts, Code scanning alerts`
+- [x] In a GitHub repository, where are Issue Forms templates stored? `In the .github/ISSUE_TEMPLATE/ directory`
+- [x] In GitHub Enterprise, what option provides additional security, compliance, and deployment controls? `GitHub Advanced Security`
+- [x] In GitHub, what does it mean when a pull request is in a 'draft' state? `The pull request is incomplete and not ready for review or merging`
+- [x] In GitHub, what does it mean when a pull request is in a 'draft' state? `the pull request is incomplete and not ready for review or merging`
+- [x] In GitHub, why is it recommended to deploy from your feature branch before merging into the main branch? `to ensure the changes are verified and validated in a production environment`
+- [x] In GitHub, why is it recommended to deploy from your feature branch before merging into the main branch? `to ensure the changes are verified and validated in a production environment`
+- [x] In how many ways can you create GitHub Issues? `6`
+- [x] In order to perform a pull request in a GitHub repository, which of the following conditions must be true? `The target branch must exist in the repository`.
+- [x] In the context of a GitHub pull request, what do the base and compare branches represent? `base is the branch you are merging changes into, and compare is the branch where the changes are coming from.`
+- [x] In the event that someone accidentally commits a sensitive API key that is stored in the .secrets folder. What is the appropriate method to remove that information from GitHub? `Use git to remove the unwanted commit and update historical references. Then contact GitHub support to run garbage collection and invalidate the Git cache.`
+- [x] In the GitHub Marketplace what are the type of possible plans `Open-Source AND Free AND Paid`
+- [x] In the GitHub Marketplace what are the type of possible plans? `Open-Source AND Paid AND Free`
+- [x] In which section of a GitHub repository can slash commands be used to insert complex Markdown? `Issues and pull request descriptions`
+- [x] Jillian is a project manager overseeing a software development project. She wants to filter and find pull requests opened in May 2023 that have a failed status. Which search query should she use? `created:2023-05-01..2023-05-31 status:failure type:pr`
+- [x] Joe Swanson is collaborating on a project on GitHub and notices that a pull request is marked as a draft. He wants to understand how this affects the review process. What is the significance of marking a pull request as a draft on GitHub? `It suppresses notifications to reviewers until it's ready for review.`
+- [x] Joe Swanson is considering options for implementing a CI/CD solution for his development projects. He is comparing GitHub Actions and Jenkins to determine which one would best suit his requirements. Which statement best describes the difference between GitHub and Jenkins for CI/CD? `Jenkins focuses only on automation and CI/CD capabilities, while GitHub Actions offers a complete DevOps and DevSecOps platform.`
+- [x] Lois Griffin is managing a software development project on GitHub and wants to track the progress of different feature implementations. She decides to use milestones to group related issues and pull requests. `Which of the following statements about milestones on GitHub is true? Milestones allow you to track completion percentage and due dates.`
+- [x] Lois Griffin wants to configure Git to ignore certain files or directories in all repositories on her computer. Which approach should she use? `Add the file paths to the file ~/.config/git/ignore.`
+- [x] Lois has created a PR on the default branch of her repository to address an issue. She includes a special keyword in the PR description to link it to the issue. What will happen when she merges this PR? `The issue linked to the PR will be closed automatically.`
+- [x] Lois has starred numerous repositories on GitHub related to various programming languages and frameworks. She wants to organize them into different categories for easier access. How can Lois organize her starred repositories into public lists on GitHub? `By creating public lists that appear on her stars page using the "Lists" feature.`
+- [x] Lois is a developer working on a project hosted on GitHub.She wants to identify all the dependencies her project relies on. Which feature should she use? `Dependency Graph`
+- [x] Lois is a project manager on GitHub and wants to filter all the open issues and pull requests in her repository to prioritize tasks. Which filtering option should she use? `Open issues and pull requests`.
+- [x] Lois is a project manager on GitHub managing discussions in a repository. She notices that one of the discussions in a category that accepts answers has received a helpful response from a community member. What action can Lois take to highlight the helpful response? `Lois can mark the response as an answer to the discussion.`
+- [x] Lois is a project manager using GitHub to track software development issues for her team. She wants to identify issues that have received a moderate level of discussion, specifically those with comments ranging from 500 to 1,000. Which search query should Lois use to achieve this? `comments:500..1000 is:issue`
+- [x] Lois is a project manager who wants to assess the popularity and activity of forks created from their team's repository on GitHub. What information can Lois find listed on the forks insight page of a repository? `Number of stars, direct forks, open issues, and open pull requests of each fork.`
+- [x] Lois is learning how to format text using Markdown on GitHub. She wants to emphasize certain words or phrases by making them bold. Which of the following examples demonstrates the correct way to bold the middle of a word for emphasis? `Quiz**Experts**PracticeTest`
+- [x] Lois is managing a repository with multiple branches on GitHub, and she wants to assign different code owners for different branches. How can Lois assign different code owners for different branches in her repository? `By specifying different code owners for different branches within the CODEOWNERS file for each branch.`
+- [x] Lois is working on a new project and wants to ensure that visitors to her GitHub repository can easily access important information about her project. Where should she place the README file to ensure GitHub automatically surfaces it to repository visitors? Inside the `.github` directory.
+- [x] Lois made a comment on a GitHub issue but forgot to mention his colleague, Peter, who needs to provide input on the topic. Instead of creating a new comment, if Lois edits a comment in the GitHub issue and mentions Peter, will Peter receive a notification? `Yes, Peter will receive a notification`.
+- [x] Lois uses GitHub Actions to automate various tasks in her project workflow and recently encountered an issue with one of the actions referenced in her GitHub Actions workflow. Where can she view the actions referenced in her GitHub Actions workflows? `In the Dependency Graph of her repository.`
+- [x] Lois wants to analyze the performance of tasks within her GitHub project using insights. However, she wonders: What does Insights for Projects on GitHub not track? `Items that have been archived or deleted`.
+- [x] Lois wants to configure an auto-add workflow to add new issues to their project board when they are labeled as "urgent." However, she is concerned about the limitations of auto-add workflows. Which plan allows a maximum of 20 auto-add workflows? `GitHub Enterprise`
+- [x] Lois wants to insert a saved reply into a comment to provide a standard response to a common question. Which slash command should she use? `/saved-replies`
+- [x] Lois wants to provide feedback on a beta feature she recently explored on GitHub. However, she cannot find the feedback link for the feature. Where can Lois find the feedback link for a beta feature on GitHub? `Profile Photo > Feature preview`
+- [x] Lois wants to remove a specific achievement badge from her GitHub profile because she doesn't want others to see it. How can she hide an individual achievement on her GitHub profile? `Click on the badge and select the option to hide it`.
+- [x] Lois, a project manager, is exploring ways to enhance collaboration within her team's GitHub repository. `She wants to understand the functionality of the /details slash command. What is the purpose of the /details slash command in GitHub? It creates a collapsible detail area with customizable content.`
+- [x] Lois, a project manager, wants to get a quick summary of her team's recent activity on a GitHub repository. She needs to see information about open and merged pull requests, open and closed issues, and commit activity? `Pulse`
+- [x] Meg Griffin has just committed her changes to Git, but she made a typo in the commit message. Instead of "Fixes bug #42", she mistakenly typed "Fxies bug #42". However, she hasn't pushed the commit yet. Which Git command should Meg use to fix the last commit message without creating a new commit? `git commit --amend`
+- [x] Meg Griffin is working on a README file for her project on GitHub. She wants to include an example command that contains an asterisk (*) character without it being interpreted as Markdown formatting. Which approach should Meg use to ensure the asterisk (*) character is not interpreted as Markdown formatting in her README file? `Use backslashes before the asterisk (*)`
+- [x] Meg is a developer who has been actively contributing to a GitHub repository, but she notices that her contributions are not showing up in the contributors graph. She wants to troubleshoot the issue. What could be a possible reason why Meg's contributions are not appearing in the repository's contributors graph? Meg's commits haven't been merged into the default branch.
+- [x] Meg is a member of an organization on GitHub, and she has read access to several repositories. She wants to ensure that her colleague, Chris, receives notifications when she mentions him in comments on the organization's repositories. What condition must be met for Chris to receive notifications? `Chris must be a member of the organization.`
+- [x] Meg is a project manager who wants to efficiently manage the issues in her team's GitHub repository. How can she identify the issues that are labeled as "priority" and have the phrase "broken" in the issue body but do not have the label "bug"? `broken in:body -label:bug label:priority`
+- [x] Meg is a student who recently started using GitHub for her programming assignments. She's curious about how slash commands can improve her workflow on GitHub. R: GitHub slash commands are shortcuts that allow users to perform various actions directly from the comment box or issue description, facilitating efficient collaboration and task management.
+- [x] Meg is browsing GitHub and finds a repository for a machine learning project that she finds interesting and wants to keep track of. `What action should she take? Star the repository`.
+- [x] Meg is managing a GitHub project with a large number of issues and pull requests. She wants to ensure that the project remains organized. Which of the following actions can Meg take to automatically manage items in her project? `Configure built-in workflows to automatically archive items based on specific criteria`.
+- [x] Meg is new to software development and wants to understand the key differences between Git and GitHub. Which statement accurately describes the difference between Git and GitHub? `GitHub provides cloud-hosted Git services, while Git is a locally installed version control system.`
+- [x] Meg wants to delete a branch named feature-x from the remote repository named origin. Which Git command should she use? `git push origin :feature-x`
+- [x] Meg wants to know how GitHub determines the priority when multiple CODEOWNERS files exist in different directories within a repository. Which of the following statements accurately describes the priority order used by GitHub to search for and apply CODEOWNERS files? `GitHub will search for the CODEOWNERS file in the .github/, root, or docs/ directory of the repository and use the first one it finds`.
+- [x] Meg wants to link a pull request to an issue using a special keyword. What branch should her pull request target for the keyword to be effective? `The default branch.`
+- [x] Meg wants to open a GitHub repository in the same browser tab for editing using a web-based editor. Which shortcut should she use? `Press key .`
+- [x] Meg wants to set up code owners in her GitHub repository. Where should she place the CODEOWNERS file to ensure that it assigns the code owners for a specific branch? `In the .github/, root, or docs/ directory of the repository.`
+- [x] Meg, a developer, is looking for open issues in her GitHub repository that have not been labeled, assigned to anyone, and have no comments yet. Which search query should Meg use to find these issues? `is:open is:issue no:label no:assignee comments:0`
+- [x] Meg, a developer, wants to configure her GitHub notifications to ensure she stays updated on important activities related to her projects. What are the options for receiving notifications for activity on GitHub.com? Choose THREE correct answers. `An email client with a verified email address. AND The notifications inbox in the GitHub.com web interface.`
+- [x] Meg, a software developer, wants to provide additional context within an issue discussion in her GitHub repository. She is exploring options for creating collapsible detail areas to hide supplementary information. How can she create it in a GitHub comment or description? `By using the `/details` slash command and providing a title and content for the collapsible section`.
+- [x] Meg's keyboard layout does not allow her to use the . key to open github.dev. What alternative method can she use to open a GitHub repository in github.dev? `Change the URL from github.com to github.dev .`
+- [x] Michael is managing a large GitHub repository with numerous contributors. He wants to ensure that the CODEOWNERS file is within the size limit to avoid issues with loading and requesting code owner reviews. What is the maximum size limit for a CODEOWNERS file on GitHub? `3 MB`
+- [x] Mort Goldman is a GitHub user who has been working on a project and making commits to the "gh-pages" branch. However, he notices that his contributions don't show up in the repository's contributors graph. Why might commits on the "gh-pages" branch not appear in the repository's contributors graph on GitHub? The "gh-pages" branch is not a default branch of the repository.
+- [x] New open source contributors can receive funding from GitHub sponsors: `after setting up a sponsored developer profile.`
+- [x] Peter Griffin accidentally added application.log to the Git repository. Now, every time he runs the application, Git reports unstaged changes in application.log. Although he added *.log to the .gitignore file, the issue persists. How can Peter undo tracking changes in this file? `git rm --cached application.log`
+- [x] Peter Griffin has been asked to review a pull request. While going through it, he spots several minor coding errors and typos. How should he approach the review? Start a review and fix obvious typos inline. Add comments in places that require further discussion or offer educational value. Complete the review with changes requested.
+- [x] Peter Griffin is managing a software development project on GitHub and wants to gain insights into the project's progress by viewing and customizing charts built from the project's data. Who can use the Insights feature for Projects on GitHub? Only people with write or admin access to the project.
+- [x] Peter Griffin wants to find GitHub repositories related to cats that have 10 or fewer stars. Which search query should he use to achieve this? Choose TWO correct answers. `cats stars:*..10 and cats stars:<=10`
+- [x] Peter Griffin wants to ignore a file that is already checked into his Git repository. What command should he use to untrack the file before adding a rule to ignore it? `git rm --cached FILENAME`
+- [x] Peter Griffin wants to ignore certain files in his Git repository without creating a .gitignore file to share with others. What approach should he use? Edit the `.git/info/exclude` file in the root of his repository.
+- [x] Peter has created an issue template, as shown below, yet users are encountering difficulty locating it while raising an issue. What might be the plausible explanation for this? `The `about` key is missing`.
+- [x] Peter has starred several repositories and topics on GitHub over time but now wants to revisit them to see if there are any updates. However, he's not sure where to find his starred content. How can users access all the repositories and topics they have starred on GitHub? By accessing their stars page at https://github.com/stars.
+- [x] Peter is a developer who wants to explore the forks of a repository on GitHub to find active and popular forks. Which page should Peter visit to view the forks of a repository and filter them based on various criteria? `Forks page`
+- [x] Peter is a project manager for a startup company looking for software solutions that offer flexibility, customization, and cost savings. Which advantage of open source software would be most appealing to Peter's requirements? `No vendor lock-in`
+- [x] Peter is a software developer who wants to acknowledge the community members who have contributed to his project's Python dependencies. Where can Peter find a list of people who have contributed to his project's Python dependencies on GitHub? `By visiting https://github.com/REPO-OWNER/REPO-NAME/graphs/contributors.`
+- [x] Peter is experiencing issues opening github.dev. `Which of the following steps should he try first to troubleshoot the problem? Disable any ad blockers`. 
+- [x] Peter is managing a large repository on GitHub, and he's noticed that the CODEOWNERS file size is exceeding the limit. What approach should Peter take to address this issue effectively? `Peter should use wildcard patterns to consolidate multiple entries into a single entry in the CODEOWNERS file`.
+- [x] Peter is reviewing a pull request for a project on GitHub. He notices a section of code in one of the files that he has a question about. Which of the following actions can Peter take to address his question? `Peter can comment on specific files or sections of a file in the pull request's Files changed tab`.
+- [x] Peter is searching for issues created before March 2024 in the "family-guy" project owned by QuizExperts. Which search query should he use? `repo:quiz-experts/family-guy created:<2024-03-01 type:issue`
+- [x] Peter is working on a GitHub Actions workflow for his project, which involves multiple tasks such as building the application, running tests, and deploying the application. What should Peter do to ensure that the deployment job in his GitHub Actions workflow starts only after the build and test jobs have completed successfully? `Peter should specify job dependencies in the GitHub Actions workflow file to make the deployment job dependent on the build and test jobs`.
+- [x] Peter is working on a project and has created a pull request (PR) to fix an issue. However, the PR is on a feature branch and not the default branch. What will happen to the special keywords in the PR description in this case? The special keywords will be ignored, and no links will be created.
+- [x] Peter wants to continue his work in a GitHub Codespace from github.dev. What option should he choose? `Click on "Continue Working On…" and select "Create New Codespace".`
+- [x] Peter wants to ensure that code owners receive review requests when a pull request is opened with changes relevant to their assigned files. Where must the CODEOWNERS file be located for code owners to receive review requests when a pull request is opened? `On the base branch of the pull request.`
+- [x] Peter wants to know which repositories and packages are dependent on his open-source project hosted on GitHub. Which feature should he use? `Dependency Graph`
+- [x] Peter wants to rename his local branch named feature-1 to new-feature on the remote repository named origin. Which Git command should he use? `git push origin feature-1:new-feature`
+- [x] Peter wants to see all the issues and pull requests that are assigned to him in the project. Which filter option should he use? `is:open assignee:@me`
+- [x] Peter wants to update his GitHub profile settings to decide whether to publicize his private contributions. He wants to understand the implications of this choice before making a decision. What happens when he choose to publicize his private contributions on his GitHub profile? `Visitors can see the number of private contributions without further details`.
+- [x] Peter, a developer, wants to create a new public repository on GitHub to host his personal website. What should Peter name his new public repository? `Peter must name his repository `username.github.io`, where username is his username on GitHub`.
+- [x] Peter, a software engineer, wants to analyze the changes made to a GitHub repository. Which feature should Peter use to analyze the content additions and deletions in the repository? `Code frequency graph`
+- [x] Pull requests can only be created between two branches that are:  `different.`
+- [x] Stewie Griffin wants to add a large file (150 MiB) to his GitHub repository. What should he do to ensure that the file is uploaded successfully? `Use Git Large File Storage (LFS)`
+- [x] Stewie Griffin was working on a project when his dog unexpectedly jumped on his keyboard, causing some unintended changes to be saved in a file. Fortunately, he hadn't committed those changes yet. Now, Stewie wants to revert the file back to its state as it was in the last commit. Which Git command should Stewie use to accomplish this? `git checkout -- <filename>`
+- [x] Stewie is a developer working on a project with multiple contributors. He wants to filter issues and pull requests to see only those that are assigned to him. Which filtering option should he select? `Everything assigned to you`.
+- [x] Stewie is working on a software project hosted on GitHub and wants to share a specific line of code from a file in the project with his colleague, Meg. However, Stewie wants to ensure that the link he shares remains valid even if changes are made to the file in the future. `Which of the following options should Stewie use to create a link to the specific line of code? Stewie should use the "Permalink" option provided by GitHub to create a permanent link and share it with Meg.`
+- [x] Stewie manages a public repository on GitHub for his robotics projects. He wants to improve the visibility of his repository by adding relevant topics. Which of the following statements is true regarding GitHub's topic suggestion feature for his repository? `GitHub analyzes public repository content and generates suggested topics that Stewie can accept or reject.`
+- [x] Stewie wants to push his changes to his repository on GitHub. How can he skip checks for an individual commit when pushing it to his GitHub repository? `Add the line skip-checks: true after commit description, before the closing quotation, and after two empty lines.`
+- [x] Suppose you are leading a software development project on GitHub. To assist the team in prioritizing tasks and ensuring that critical issues are promptly addressed, you must compile a list of all issues without an assignee and bearing either the 'error' or 'bug' label, sorted by their creation date. Which of the following options, based on the provided reference, would help you accomplish this objective? `gh issue list --search 'no:assignee label:error,bug sort:created-asc'`
+- [x] Suppose you'd like to work with a project on GitHub, but you don't have write access to the project. What can you do to contribute? `Fork the project's repository to your GitHub account, clone the forked repository to your local machine, push changes to your repository, and submit a pull request to the target (upstream) repository.`
+- [x] Suppose your team has been receiving some low-quality bug reports without enough information to properly diagnose. Which of the following choices is the best way to address the issue? `Add an `ISSUE_TEMPLATE.md` file that includes fields for reproduction steps, system properties, and instructions for generating and including important logs.`
+- [x] Suppose your team has been tracking data of all kinds since your InnerSource program went live three months ago. Which of the following metrics indicates your program is a great success? `A dramatic rise in pull requests that address bugs in your software.`
+- [x] The difference between GitHub Desktop and github.com is that Desktop? `is a standalone software application.`
+- [x] The involves qualifier is a logical OR between the author, assignee, mentions, and commenter qualifiers for a single user.`True`
+- [x] Tom Tucker wants to create a template repository for his project to ensure that future repositories have the same directory structure, branches, and files. Which of the following statements is true regarding creating a template repository on GitHub? `Branches created from a template repository have unrelated histories, so you cannot create pull requests or merge between them`.
+- [x] Tricia Takanawa wants to stay updated on the activity in a specific repository on GitHub. `What action should she take? Watch the repository`. 
+- [x] Under what conditions can a workflow use a reusable workflow? `If the called workflow is stored in a public repository or a private repository with appropriate access settings`.
+- [x] What action will pin a discussion to the top of the discussions page in a GitHub repository? `Using the "Pin discussion" option`
+- [x] What action will pin an issue to the top of the issues page on a GitHub repository? `Using the "Pin issue" option`
+- [x] What action will pin an issue to the top of the issues page on a GitHub repository? `Using the "Pin issue" option`
+- [x] What actions are restricted when working on a protected branch? `All of the above`.
+- [x] What actions can you perform from GitHub Desktop? `Create issues or pull requests to collaborate on projects with other people and Create a branch of a project and push your commits to GitHub`.
+- [x] What advanced search syntax would you use to search MIT open-source license repo's on GitHub? `license:MIT`
+- [x] What advantages do GitHub issue forms offer? `People can be automatically assigned to issues created and Labels can be automatically added to issues created`.
+- [x] What are advantages of GitHub Projects over GitHub Projects Classic? `GitHub Projects can be connected to third-party tools.`
+- [x] What are built-in workflows in GitHub Projects primarily used for? `Updating the status of items based on certain events.`
+- [x] What are Enterprise Managed Users (EMUs) in the context of GitHub? `Users whose accounts are managed at the enterprise level, providing centralized control over permissions and security settings.`
+- [x] What are Enterprise Managed Users (EMUs) in the context of GitHub? `Users whose accounts are managed at the enterprise level, providing centralized control over permissions and security settings.`
+- [x] What are feature previews on GitHub? `Previews of upcoming GitHub features that users can opt-in to try before they are released broadly.`
+- [x] What are feature previews on GitHub? `Previews of upcoming GitHub features that users can opt-in to try before they are released broadly.`
+- [x] What are gists on GitHub? `Code snippets sharing.`
+- [x] What are GitHub Codespaces? `A configurable online development environment hosted by GitHub.`
+- [x] What are GitHub Codespaces? `A configurable online development environment hosted by GitHub.`
+- [x] What are GitHub Wiki pages primarily used for? `To provide a platform for user-generated documentation and notes related to a project.`
+- [x] What are GitHub Wiki pages primarily used for? `To provide a platform for user-generated documentation and notes related to a project.`
+- [x] What are primary benefits of using GitHub Issues templates? `to easily coerce existing issues into a standard format AND to provide an easy-to-fill-out form for creating new issues`
+- [x] What are some scenarios that can automatically subscribe you to conversations on GitHub? (Each answer presents a complete solution. Choose three.) `commenting on a thread AND being assigned to an issue or pull request AND opening a pull request or issue`
+- [x] What are special profile badges that can be earned appear on your GitHub Profile by completing certain objectives? `GitHub Achievements`
+- [x] What are special profile badges that can be earned appear on your GitHub Profile by completing certain objectives? `GitHub Achievements`
+- [x] What are the benefits of a decentralized version control system (DVCS)? `Enhanced security, Improved collaboration efficiency, Faster performance`
+- [x] What are the benefits of GitHub's Dev Editor? `It provides code completion suggestions AND It has a terminal for executing commands in your repo AND It supports editing multiple files at the same time`
+- [x] What are the benefits of using milestones in GitHub Projects? `To group issues and pull requests together to achieve specific project goals. AND To track the progress of a group of related tasks towards completion.`
+- [x] What are the components of a GitHub Actions workflow? `Jobs, actions, and runners`
+- [x] What are the defining features of Git? `distributed version control, open source software, and being designed for handling projects of any size with efficiency`
+- [x] What are the differences between GitHub Pro and GitHub Team? `GitHub Pro is intended for individual users, providing them with advanced coding, review, and collaboration tools, while GitHub Team is designed for teams and organizations to collaborate on projects.`
+- [x] What are the differences between GitHub Pro and GitHub Team? `GitHub Pro is intended for individual users, providing them with advanced coding, review, and collaboration tools, while GitHub Team is designed for teams and organizations to collaborate on projects. AND GitHub Team allows collaboration within teams, offering organization accounts, team discussions, and fine-grained access controls, which are not available in GitHub Pro.`
+- [x] What are the differences between having an organization in a GitHub Team account versus having a GitHub Free account? `More GitHub Actions minutes and increased storage for GitHub Packages.`
+- [x] What are the differences between organization members and external collaborators in GitHub? `External collaborators cannot be team maintainers.`
+- [x] What are the different options available for providing a code review on a pull request on GitHub? `Approve AND  Suggest changes AND Request changes`
+- [x] What are the key areas of focus for GitHub? `building a technology platform for secure code sharing and collaboration AND providing a social media platform for project managers AND Nurturing a community that supports open-source principles`
+- [x] What are the layout configurations available in GitHub Projects? `Table, Roadmap AND Board`
+- [x] What are the limits imposed on diffs for commits, pull requests, and compare views on GitHub? `No total diff may exceed 20,000 lines or 1 MB of raw diff data.`
+- [x] What are the potential consequences of disabling team synchronization in GitHub organizations? `Team members assigned through IdP groups may lose access to repositories.`
+- [x] What are the predefined roles available for a GitHub repository in an organization? `Triage, Write, Maintain`
+- [x] What are the three types of GitHub accounts? `Personal, Organization, and Enterprise`
+- [x] What are the two deployment options for GitHub Enterprise? `GitHub Enterprise Cloud and GitHub Enterprise Server`
+- [x] What are the two main reasons why one might fork a repository? `to propose changes to the base repository`
+- [x] What are the two types of gists you can create on GitHub? `Public and Secret`
+- [x] What are three benefits of using a decentralized version control system (DVCS) like Git? `Allows for local commits, reducing reliance on a central server. AND Offers robust tools for branching and merging. AND Enables collaboration by allowing multiple users to work on a project simultaneously.`
+- [x] What are three benefits of using a decentralized version control system (DVCS) like Git? `Enables collaboration by allowing multiple users to work on a project simultaneously. AND Allows for local commits, reducing reliance on a central server. AND Offers robust tools for branching and merging.`
+- [x] What are three ways you can clone a repo in Github? `GitHub CLI AND HTTPS AND SSH`
+- [x] What are two recommended ways of improving the discoverability of a repository? `Add topics to classify the repository.`
+- [x] What are two ways you can collect payments via GitHub Sponsors? `Through Patreon e Through GitHub.com`
+- [x] What authentication method does GitHub strongly recommend avoiding when dealing with highly sensitive information? `Username and password`
+- [x] What authentication method is required before running GitHub CLI commands to manage projects via the GraphQL API? `Token authentication`
+- [x] What benefits do GitHub actions bring to open-source projects? `Provides packaged scripts for automating tasks in a software development workflow`.
+- [x] What best describes a GitHub Repo? `A collection of files and folders stored on GitHub`.
+- [x] What best describes Git vs GitHub? `Git is a version control system, while GitHub is a cloud-based hosting service for Git repositories`
+- [x] What best describes GitHub Copilot? It is GitHub's `AI-powered code completion tool`
+- [x] What best describes GitHub Flow? `A collaborative workflow that centers around creating branches for new features, code reviews, and pull requests.`
+- [x] What best describes GitHub Flow? `A collaborative workflow that centers around creating branches for new features, code reviews, and pull requests.`
+- [x] What best describes GitHub Projects? `A task management tool to plan and track work, using cards and columns
+- [x] What best describes GitHub's open-source mission? `To foster innovation and collaboration in software development through the support of open-source projects.`
+- [x] What best describes Markdown? `markup language`
+- [x] What best describes open source? `Software with its source code made available to the public for use, modification, and distribution`
+- [x] What best describes open source? `Software with its source code made available to the public for use, modification, and distribution`
+- [x] What best describes source code that is made freely available for commercial or public use under a specific set of terms and conditions outlined by a license? `Open Source Software`
+- [x] What best describes the difference between Git and GitHub? `Git is a distributed version control system, while GitHub is a cloud-based hosting service that lets you manage Git repositories.`
+- [x] What best describes the difference between Git and GitHub? `Git is a distributed version control system, while GitHub is a cloud-based hosting service that lets you manage Git repositories.`
+- [x] What best describes the differences between GitHub.com, GitHub Desktop, and GitHub Mobile? `GitHub.com is a web-based Git repository hosting service AND GitHub Desktop is a GUI client for Git AND  GitHub Mobile allows repository management on mobile devices.`
+- [x] What best describes the differences between GitHub.com, GitHub Desktop, and GitHub Mobile? `GitHub.com is a web-based Git repository hosting service, GitHub Desktop is a GUI client for Git, GitHub Mobile allows repository management on mobile devices.`
+- [x] What best describes the GitHub Marketplace and its purpose? `It's a digital storefront for applications and actions that extend GitHub functionality.`
+- [x] What best describes the use-case for Enterprise Managed Users (EMUs)? `To create and manage GitHub users and organizations automatically using API`
+- [x] What best describes the use-case for Personal Access Tokens (PATs) in GitHub? `Is a replacement for password authentication when using the GitHub API or Git over HTTPS.`
+- [x] What can you do to make a repository more discoverable? Use descriptive README.md files. `Add relevant topics`.
+- [x] What can you do with GitHub Discussions? `You can create an issue out of it`.
+- [x] What command is used to create a new repository using GitHub CLI? `gh repo create`
+- [x] What configuration options can you set when you Launch a Github Codespace? `Choose the geographical location of the codespace's hosted server AND Set up specific packages and tools for the codespace AND Customize the color theme of the codespace's editor AND Define environment variables for the codespace`
+- [x] What configuration options can you set when you Launch a Github Codespace? `Set up specific packages and tools for the codespace AND Customize the color theme of the codespace's editor AND Define environment variables for the codespace AND Choose the geographical location of the codespace's hosted server`
+- [x] What customization can you do for codespaces? `Change the shell, Change the virtual machine, Change the name, Change the IDE`.
+- [x] What distinguishes Fine-Grained Personal Access Tokens from Personal Access Tokens (Classic) in GitHub? `Fine-Grained Tokens expire, while Personal Access Tokens (Classic) are allowed to live forever`.
+- [x] What distinguishes GitHub Copilot for Business from GitHub Copilot for Individuals? `GitHub Copilot for Business is designed for enterprise-scale deployment and administrative controls, whereas GitHub Copilot for Individuals is for personal use.`
+- [x] What distinguishes GitHub Pro accounts from GitHub Free accounts for personal use? `GitHub Pro has more GitHub Actions minutes, while GitHub Free has fewer GitHub Actions minutes`.
+- [x] What distinguishes internal repositories from other repositories on GitHub? `Internal repositories are accessible to all enterprise members`.
+- [x] What do topics do for a Github Repo? `They help users discover your repository by labeling it with subject matter keywords`
+- [x] What does a "Draft pull request" status indicate? `The pull request cannot be merged`
+- [x] What does a CODEOWNERS file do in a repository? `sets the reviewers for pull requests automatically`
+- [x] What does Dependabot alerts do? `They notify you about outdated dependencies in your repository`
+- [x] What does git status do in Git? `Shows the state of the working tree and staging area.`
+- [x] What does GitHub Enterprise Server offer for deployment protection rules in private or internal repositories? `GitHub Actions`
+- [x] What does GitHub's secret scanning feature do? `It looks for known secrets or credentials committed within the repository`.
+- [x] What does pinning a GitHub issue do? `It keeps the issue at the top of the issue list for increased visibility`.
+- [x] What does starring a GitHub in a repo do? `It bookmarks the repository for easy access later`
+- [x] What does starring a GitHub in a repo do? `It bookmarks the repository for easy access later`
+- [x] What does the 'base' branch in a pull request represent? `The branch into which the changes will be merged.`
+- [x] What does the 'base' branch in a pull request represent? `The branch into which the changes will be merged.`
+- [x] What does the "approve" review option do to a GitHub Pull Request? `Signals the reviewer's agreement and satisfaction with the changes, allowing for merging if all policies are met`
+- [x] What does the "Squash and merge" option do when merging a pull request? It combines all commits into one, helping keep the repository history readable.`
+- [x] What does the concept of "shifting left" refer to in the context of secure development? `Integrating security measures earlier in the development lifecycle.`
+- [x] What does the error Remote HEAD refers to nonexistent ref, unable to checkout indicate? `Deleted default branch on GitHub`
+- [x] What does the git add command do? `Starts tracking changes in certain files`.
+- [x] What does the github.dev editor use to carry out most of its functionality? `GitHub Repositories extension`
+- [x] What does the on: attribute do in a GitHub Actions workflow file? `It specifies the events that trigger the workflow`
+- [x] What does the search qualifier "review-requested:[USERNAME]" allow you to find? `Pull requests where the specified user is requested for review`.
+- [x] What does the term "base branch" refer to in a GitHub repository? `The primary branch where all the changes eventually merge.`
+- [x] What feature allows users to build hierarchies of issues and create new relationships between them? `Tasklists`
+- [x] What feature does GitHub Mobile offer to manage workflow on the go? `Managing notifications and collaborating on issues and pull requests.`
+- [x] What feature does GitHub Mobile offer to manage workflow on the go? `Managing notifications and collaborating on issues and pull requests.`
+- [x] What feature does the Markdown syntax - [x] represent in GitHub? `An unchecked checkbox in a task list.`
+- [x] What feature does the Markdown syntax - [x] represent in GitHub? `An unchecked checkbox in a task list.`
+- [x] What feature in GitHub allows you to manage and track how many people have access to your repository and their permission levels? `Collaborators & Teams section in repository settings`
+- [x] What feature of GitHub allows repository maintainers to privately discuss and fix security vulnerabilities? `GitHub Security Advisories`.
+- [x] What feature of GitHub Discussions allows community members to gauge interest in new ideas and project direction? Labels
+- [x] What features are available in GitHub Copilot Business that are not in GitHub Copilot Individual? `VPN, HTTP Proxy with custom certificates and Organization or enterprise accounts and Organization-wide policy management.`
+- [x] What features are expected in GitHub Copilot X? `A chat interface to the editor adopting OpenAI's newest GPT-4 models.`
+- [x] What features are offered by Copilot for Business that are not offered by Copilot for Individuals? `support for organization or enterprise GitHub accounts AND organization-wide policy management AND blocks suggestions matching public code`
+- [x] What features can you enable on a GitHub repo? `Actions, Pages, Projects, Discussions, Wiki`
+- [x] What field can you use in order to make a Priority grouping like High, Medium, and Low in your Project? `Single select`
+- [x] What folder is the definition files stored in when creating custom issue forms? `O.github/ISSUE_TEMPLATE`
+- [x] What GitHub features allows users use products or features that are available in beta? `GitHub Feature Preview`
+- [x] What GitHub features allows users use products or features that are available in beta? `GitHub Feature Preview`
+- [x] What happens if a GitHub Pages deployment takes longer than 10 minutes? `The deployment fails.`
+- [x] What happens if a poll is edited after some votes have been cast? `The votes are reset, and users need to vote again.`
+- [x] What happens if a workflow tries to use a reusable workflow from a repository that has changed its name? `The workflow will fail because redirects are not supported.`
+- [x] What happens if Lois places the README file in the root directory of her repository and also in the .github directory? `Only the README file in the .github directory will be shown`. 
+- [x] What happens if someone discovers the URL of a secret gist on GitHub? `They can view the gist regardless of the author's permissions`.
+- [x] What happens if you delete a branch after its pull request has been merged into the main branch? `GitHub automatically updates pull requests targeting the deleted branch.`
+- [x] What happens regarding code owner review when a pull request is marked as a draft? `Code owners are not automatically requested to review the draft pull request`.
+- [x] What happens to a repository's permissions when it is archived on GitHub? `Permissions become read-only.`
+- [x] What happens to draft pull requests in terms of merging? `They cannot be merged`.
+- [x] What happens to the content of a wiki when you turn it off? `The content is hidden but can be restored later.`
+- [x] What happens when an issue or pull request is closed in a GitHub Project with default workflows enabled? `The status of the item is set to "Done".`
+- [x] What happens when an organization requires the use of two-factor authentication (2FA) for its members? `Accounts that do not use 2FA will be removed from the organization and lose access to its repositories.`
+- [x] What happens when Codespace loses internet connectivity? `If the connection to the internet is lost while working in a Codespace, you aren't able to access your Codespace.`
+- [x] What happens when Peter enables an auto-add workflow in GitHub for an existing project board? `The workflow will not add existing items to the project board, but it will add new items that meet the filter criteria`.
+- [x] What happens when you archive a repository on GitHub? `It becomes read-only for all users and indicates that it's no longer actively maintained.`
+- [x] What happens when you delete a Codespace with unpushed git commits? `A warning notifies you of unpushed changes, allowing you to push changes before deletion.`
+- [x] What happens when you delete a forked repository on GitHub? `The forked repository is permanently deleted with no option for restoration.`
+- [x] What information can you see on a user profile on GitHub? `You can view repositories you own or contribute to, as well as repositories you've starred and organized into lists and You can see the profile photo, bio, and interests you have that other people may like to know about.`
+- [x] What is a "commit" in the context of version control? `A saved snapshot of the project's state at a specific point in time`.
+- [x] What is a benefit of using GitHub Enterprise Cloud with Enterprise Managed Users (EMU)? `It provides centralized control and streamlined management of user accounts through their identity provider (IdP).`
+- [x] What is a commit with respect to a pull request? `Commits can be made at any time before or after the pull request is created`.
+- [x] What is a distinguishing feature of GitHub Codespaces compared to github.dev? `GitHub Codespaces provides access to a dedicated virtual machine for running and debugging code.`
+- [x] What is a fork in the context of GitHub repositories? `A new repository that shares code and visibility settings with the original repository`.
+- [x] What is a function you can execute on GitHub Mobile? `Manage, triage, and clear notifications from github.com`.
+- [x] What is a gist? `git repository`
+- [x] What is a Github Project Template? `It's a pre-built layout for organizing and managing tasks in a GitHub Project`
+- [x] What is a Github Project Template? `It's a pre-built layout for organizing and managing tasks in a GitHub Project` 
+- [x] What is a job in the context of GitHub Actions? `A set of steps that are executed sequentially`.
+- [x] What is a key characteristic of draft pull requests in GitHub? `They cannot be merged until they are converted to regular pull requests.`
+- [x] What is a key feature available in GitHub Enterprise but not in GitHub Team? `GitHub Enterprise Support`
+- [x] What is a recommended course of action when your code can be reused across multiple projects? `Publish the code as a stand-alone library (dependency).`
+- [x] What is a recommended way to stay in touch with organizations and enterprises on GitHub? `By following them on GitHub`.
+- [x] What is a security policy in GitHub? `Define guidelines for reporting security vulnerabilities`.
+- [x] What is GitHub API primarily used for? `Automating common tasks and creating integrations.`
+- [x] What is GitHub Codespaces? `A cloud-based development environment`.
+- [x] What is GitHub Copilot? `GitHub Copilot is an AI pair programmer that you can use to get code suggestions`.
+- [x] What is GitHub Marketplace primarily used for? `Sharing GitHub Actions and Apps`
+- [x] What is GitHub primarily based on? `Distributed version control system`.
+- [x] What is GitHub primarily used for? `Collaborating on work`.
+- [x] What is GitHub Sponsors? `A program that financially supports open source contributors`
+- [x] What is GitHub? `a cloud-based hosting service for version control and collaboration, focused on creating a safe and collaborative environment for developers`
+- [x] What is GitHub? `A web-based platform for hosting Git repositories`. 
+- [x] What is InnerSource? `A strategy that applies open source practices to proprietary code to enhance collaboration.`
+- [x] What is InnerSource? `Sharing of source code within the organization`.
+- [x] What is Markdown in GitHub? `A lightweight markup language`.
+- [x] What is Markdown primarily used for on GitHub? `For writing formatted text in issues, pull requests, and files like READMEs.`
+- [x] What is needed before you can create a pull request on GitHub? `Fork a repo, clone it, commit changes, and push to your fork.`
+- [x] What is not a valid reason to create a pull request? `into main due to upstream changes made since you created it. Creating a pull request lets the other contributor know they need to pull their changes out so you can put yours in.`
+- [x] What is the advantage of using a wiki alongside a README file for a GitHub repository? `README files quickly tell what a project can do, while wikis can provide additional long-form detailed documentation`.
+- [x] What is the advantage of using relative links in README files? `They ensure that links work regardless of the current branch`.
+- [x] What is the default operating system for a codespace development environment? `Ubuntu Linux`
+- [x] What is the difference between a draft issue and a draft in Github Projects? `Draft issues are saved but not yet published forms of issue, while drafts in Github Projects are saved but not yet published project boards.`
+- [x] What is the difference between a GitHub Issue and a Pull Request? `Issues are used for reporting bugs or suggesting enhancements, while Pull Requests are proposals to merge code changes into a repository.`
+- [x] What is the difference between a GitHub Issue and a Pull Request? `Issues are used for reporting bugs or suggesting enhancements, while Pull Requests are proposals to merge code changes into a repository.`
+- [x] What is the difference between a GitHub Issues Template and a Github Pull Request Template? `A GitHub Issues Template guides the creation of new issues, and a Pull Request Template guides the creation of new pull requests.`
+- [x] What is the difference between an organization member and an outside collaborator? `Outside collaborators do not consume paid licenses.`
+- [x] What is the difference between GitHub Codespaces and Github.dev? `GitHub Codespaces provides a complete, configurable, and collaborative development environment in the cloud, while Github.dev is a lightweight, instant code editor available directly in the browser from any repository.`
+- [x] What is the difference between GitHub Codespaces and Github.dev? `GitHub Codespaces provides a complete, configurable, and collaborative development environment in the cloud, while Github.dev is a lightweight, instant code editor available directly in the browser from any repository.`
+- [x] What is the difference between GitHub Copilot Business and GitHub Copilot Enterprise? `GitHub Copilot Enterprise has an extra layer of personalization, with organization utilizing their own codebase to train GitHub Copilot.`
+- [x] What is the difference between GitHub Desktop and the GitHub UI? `GitHub Desktop is a standalone desktop application`.
+- [x] What is the difference between GitHub Projects and GitHub Projects Classic? `GitHub Projects use a board layout while Projects Classic uses a list layout`
+- [x] What is the difference between GitHub Projects and GitHub Projects Classic? `GitHub Projects use a board layout while Projects Classic uses a list layout`
+- [x] What is the difference between InnerSource vs OpenSource? `OpenSource involves building open software within a closed team while InnerSource involves using open source practices within an organizations`
+- [x] What is the difference between InnerSource vs OpenSource? `OpenSource involves building open software within a closed team while InnerSource involves using open source practices within an organizations` 
+- [x] What is the difference between pinning and starring for a GitHub Repo? `Pinning is for public display on your profile, starring is for private tracking of repositories you find interesting.`
+- [x] What is the easiest way to add automation to your Project? `Built-in Automation`
+- [x] What is the first step in ensuring secure software development in an enterprise? `Configuring authentication using tools available with the identity provider (IdP).`
+- [x] What is the GitHub flow? `A lightweight workflow for safe experimentation using branching, pull requests, and merging`.
+- [x] What is the key difference between 'Projects' and 'Projects Classic' on GitHub? `'Projects' provides enhanced project management features and customization, while 'Projects Classic' has a simpler, card-based board.`
+- [x] What is the key difference between GitHub Enterprise Server (GHES) and GitHub Enterprise Cloud? `GHES is a self-hosted solution, providing control over infrastructure, while GitHub Enterprise Cloud is hosted by GitHub.`
+- [x] What is the lifecycle of a GitHub Codespace when it remains inactive over time? `If a GitHub Codespace remains inactive, it gets suspended. Your data is preserved, and the environment can be reconnected later, as long as this occurs within 30 days of inactivity. After 30 days without activity, the codespace will be automatically deleted.`
+- [x] What is the lifecycle of a GitHub Codespace? `Creation, Active Use, Suspension, and Deletion.`
+- [x] What is the main advantage of a Distributed Version Control System (DVCS) like Git over centralized systems? `Local and offline access to the complete project history`.
+- [x] What is the main difference between forking a repository and creating a repository from a template on GitHub? `Forking includes the entire commit history of the parent repository, while creating from a template starts with a single commit`.
+- [x] What is the main difference between InnerSource and open source? `InnerSource is about private collaboration within an organization, while open source involves public collaboration.`
+- [x] What is the main difference between InnerSource and open source? `InnerSource is about private collaboration within an organization, while open source involves public collaboration.`
+- [x] What is the main feature of the Roadmap layout for GitHub Projects? `It enables a Gannt chart view to visualize and plan tasks and deadlines in a timeline`
+- [x] What is the main feature of the Roadmap layout for GitHub Projects? `It enables a Gannt chart view to visualize and plan tasks and deadlines in a timeline`
+- [x] What is the maximum number of Codespaces that you can create per repository or branch? `You can create an unlimited number of Codespaces`.
+- [x] What is the maximum number of members allowed in a GitHub team when using team synchronization? `5.000`
+- [x] What is the maximum number of options that can be added to a poll in GitHub Discussions? `Eight`
+- [x] What is the maximum number of reusable workflows that can be called from a single workflow file? `20`
+- [x] What is the maximum size allowed for files added to a repository via a browser? `25 MiB`
+- [x] What is the minimum access needed to contribute to a repository? `write`
+- [x] What is the minimum permission required to contribute to a GitHub repository? `Write`
+- [x] What is the name of the most recent commit on the current Git branch? `HEAD`
+- [x] What is the name of the section where you can edit the section where you change the visibility of your Project and delete or close your Project? `Danger Zone`
+- [x] What is the primary advantage of using the github.dev editor over GitHub Codespaces? `Faster startup time`.
+- [x] What is the primary benefit of GitHub Projects? `Organizing and managing team tasks and priorities.`
+- [x] What is the primary benefit of reusing workflows in GitHub Actions? `Avoiding duplication and promoting best practices`.
+- [x] What is the primary benefit of using code scanning in a GitHub repository? `To analyze and find security vulnerabilities and errors in the code.`
+- [x] What is the primary benefit of using saved replies in GitHub? `To store common responses to issues and pull requests, saving time and maintaining consistency.`
+- [x] What is the primary benefit of using saved replies in GitHub? `To store common responses to issues and pull requests, saving time and maintaining consistency.`
+- [x] What is the primary difference between InnerSource and open source? `InnerSource is about private collaboration within an organization, while open source involves public collaboration.`
+- [x] What is the primary difference between milestones and labels in GitHub? `Milestones are project-specific and can be used to view details about progress, while labels are applied to individual issues or pull requests for categorization.`
+- [x] What is the primary difference between milestones and labels in GitHub? `Milestones are used to track project progress and completion, while labels are used to categorize issues and pull requests based on their attributes.`
+- [x] What is the primary difference between the calculation of file differences on compare pages and pull request pages in GitHub? `Compare pages show the diff between the tip of the head ref and the current common ancestor of the head and base ref, while pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created.`
+- [x] What is the primary function of the CONTRIBUTING file in a repository? `To offer guidelines on how to contribute to the project.`
+- [x] What is the primary purpose of a pull request on GitHub? `To request that your code changes be reviewed and merged into another branch.`
+- [x] What is the primary purpose of branch protections in a GitHub repository? `To restrict branch deletion and enforce certain workflows, such as requiring pull request reviews before merging.`
+- [x] What is the primary purpose of branch protections in a GitHub repository? `To restrict branch deletion and enforce certain workflows, such as requiring pull request reviews before merging.`
+- [x] What is the primary purpose of creating a new branch in the GitHub flow? `to experiment with new features or fixes`
+- [x] What is the primary purpose of creating a security policy in a repository? `to describe how security vulnerabilities should be responsibly disclosed`
+- [x] What is the primary purpose of enabling Two-Factor Authentication (2FA) for your GitHub account? `To provide an extra layer of security by requiring a second form of verification besides your password.`
+- [x] What is the primary purpose of enabling Two-Factor Authentication (2FA) for your GitHub account? `To provide an extra layer of security by requiring a second form of verification besides your password.`
+- [x] What is the primary purpose of GitHub Actions? `Automating build, test, and deployment pipelines`.
+- [x] What is the primary purpose of GitHub Actions? `To automate, customize, and execute your software development workflows directly in your GitHub repository.`
+- [x] What is the primary purpose of GitHub Copilot? `Code suggestion and generation`
+- [x] What is the primary purpose of GitHub Marketplace? `To list free and paid tools for developers`.
+- [x] What is the primary purpose of GitHub Projects? `To create an adaptable tool for planning and tracking work`.
+- [x] What is the primary purpose of GitHub Projects? `To offer a project management tool that organizes tasks, issues, and pull requests.`
+- [x] What is the primary purpose of milestones in GitHub? `To track progress on groups of issues or pull requests.`
+- [x] What is the primary purpose of the 'Insights' tab in a GitHub repository? `To show statistics and metrics about the repository's usage, such as traffic, contributions, and code frequency.`
+- [x] What is the primary purpose of the 'Insights' tab in a GitHub repository? `To show statistics and metrics about the repository's usage, such as traffic, contributions, and code frequency.` 
+- [x] What is the primary purpose of the "https://github.com/watching" page on GitHub? `To manage and configure notification settings for repositories a user is watching.`
+- [x] What is the primary purpose of the github.dev editor? `It provides a lightweight, web-based editor for quick edits and previews of code in your repository.`
+- [x] What is the primary purpose of the github.dev editor? `It provides a lightweight, web-based editor for quick edits and previews of code in your repository.`
+- [x] What is the primary purpose of version control systems like Git? `To track changes in files and coordinate work among multiple people.`
+- [x] What is the process for deleting a file that was added in the most recent unpushed commit? `$ git rm --cached <FILE-NAME> AND $ git commit --amend -CHEAD`
+- [x] What is the purpose of a "branch" in version control? `To isolate and work on a specific set of changes without affecting the main code`.
+- [x] What is the purpose of a "remote" in Git? `A reference to another Git repository.`
+- [x] What is the purpose of a GitHub gist? `To host and share small pieces of code or text snippets.`
+- [x] What is the purpose of a GitHub Repository Template? `To serve as a boilerplate for setting up new repositories`
+- [x] What is the purpose of a GitHub Team? `A team is intended to reflect a company or group's structure. It's used to provide cascading access permissions and make it easy to notify all team members via mentions.`
+- [x] What is the purpose of a pull request in an open-source project? `To propose changes to the project`.
+- [x] What is the purpose of Enterprise Managed Users on GitHub Enterprise Cloud? `To centrally manage identity and access for enterprise members from an external identity provider.`
+- [x] What is the purpose of forking a repository on GitHub? `To experiment with changes before proposing them to the original repository.`
+- [x] What is the purpose of GitHub Sponsors? `It allows the developer community to financially support open source projects.`
+- [x] What is the purpose of github.dev? `A lightweight web-based editor`
+- [x] What is the purpose of issue and pull request templates on GitHub? `To customize and standardize the information required from contributors when opening issues and pull requests`.
+- [x] What is the purpose of linking a pull request to an issue? `To show that someone is working on the issue.`
+- [x] What is the purpose of personal access tokens (PATs) in GitHub? `To authenticate to GitHub API or command line`.
+- [x] What is the purpose of SAML SSO in GitHub organization management? `To allow users to sign in to all their applications with one set of credentials`.
+- [x] What is the purpose of slash commands on GitHub? `To reduce typing required for complex Markdown`.
+- [x] What is the purpose of the .gitignore file in a repository? `To exclude specific files or directories from being tracked by Git.`
+- [x] What is the purpose of the "Share a deep link" option in GitHub Codespaces? `To share the link to the codespace creation page with specific configuration options`.
+- [x] What is the purpose of the /tasklist slash command in GitHub? `It inserts a checklist of tasks into an issue description, allowing contributors to mark them as complete.`
+- [x] What is the purpose of the actions/add-to-project workflow? `It automates the process of adding issues and pull requests to projects`.
+- [x] What is the purpose of the addProjectV2ItemById mutation in the GitHub GraphQL API? `To add an issue or pull request to a project`.
+- [x] What is the purpose of the CODEOWNERS file? `To assign automatic review requests to certain team members when changes are made to parts of the codebase`
+- [x] What is the purpose of the CODEOWNERS file? `To assign automatic review requests to certain team members when changes are made to parts of the codebase`
+- [x] What is the purpose of the CONTRIBUTING file in a GitHub repo? `It outlines instructions and guidelines for contributing to the project`
+- [x] What is the purpose of the git add command in the context of committing changes? `It stages changes to be included in the next commit.`
+- [x] What is the purpose of the git pull command in Git? `Updates the local line of development with remote updates`.
+- [x] What is the purpose of the good first issue label in GitHub repositories? `To identify issues suitable for first-time contributors.`
+- [x] What is the purpose of the LICENSE file in a repository? `To describe the terms under which the code can be used, modified, and shared.`
+- [x] What is the purpose of the Pulse feature on GitHub? `To view a summary of a repository's pull request, issue, and commit activity`.
+- [x] What is the purpose of the Security tab on GitHub? `To provide security advisories and code scanning.`
+- [x] What is the recommended approach for measuring the success of an InnerSource program? `Tracking the number of external contributors and their contributions.`
+- [x] What is the recommended character limit for the subject line of a Git commit message? `50 characters`
+- [x] What is the recommended ideal size for repositories to ensure better performance and ease of maintenance? `Less than 1 GiB`.
+- [x] What is the recommended limit for GitHub Pages source repositories? `1 GB`
+- [x] What is the significance of adding labels to a pull request? `To provide visual clues for the purpose of the pull request and It categorizes the nature of the changes being proposed`.
+- [x] What is the significance of creating a draft pull request? `It allows contributors to ask for guidance or help without signaling completion`.
+- [x] What is the significance of maintaining multiple `.gitignore` files in a repository? `It allows for more granular control over which files are ignored in different directories`.
+- [x] What is the use-case for Milestones on GitHub? `To group together issues and pull requests for specific features or phases of work`
+- [x] What is the use-case for using labels in GitHub? `To category and filter issues and pull requests`
+- [x] What is the use-case for using saved replies in Github? `To pre-load common responses for issues and pull request reviews w To quickly reply to common questions or recurring themes in your repositories`
+- [x] What is true about forking and cloning gists on GitHub? `Both forking and cloning gists are possible, even if you aren't the original author`.
+- [x] What is true about the wiki of a private repository? `Only people with access to the repository can access the wiki`.
+- [x] What keyboard hotkey will instantly open up GitHub.dev Editor in a GitHub Repo? `. (Period)`
+- [x] What label does a maintainer use to indicate that they require assistance with an issue or pull request? `help wanted`
+- [x] What language is used to format Pull Request templates on GitHub? `Markdown`
+- [x] What layouts are available for GitHub Projects? `Table, RoadMap, Board`
+- [x] What level of repository permission is suitable for contributors who need to actively push changes to your repository? `write`
+- [x] What option allows a contributor to receive notifications only for events they select in a pull request? `Custom`
+- [x] What option allows the provisioning and management of user accounts for developers in GitHub Enterprise Cloud? `Enterprise Managed Users`
+- [x] What option do we have for GitHub Repo visibility? `Public, Internal, Private`
+- [x] What options are available for merging a pull request? `Create a merge commit, Squash and merge, and Rebase and merge.`
+- [x] What permissions are required to enable team synchronization with Microsoft Entra ID? `Read all users’ full profiles`
+- [x] What Project descriptor will automatically save when you change it? `Project name`
+- [x] What project management feature in GitHub can simply track the amount of open and closed tasks for a specific goal? `GitHub Milestones`
+- [x] What project management feature in GitHub can simply track the amount of open and closed tasks for a specific goal? `GitHub Milestones`
+- [x] What qualifier finds issues that mention a certain user? `mentions:`
+- [x] What role do open source workflow practices play in InnerSource adoption? `They facilitate collaboration, visibility, and code reuse`.
+- [x] What sets Projects apart from Projects Classic in GitHub? `Projects offer more views with advanced customization and automation and Insights is available for new Projects`.
+- [x] What should be done to locate an existing action that was provided by a GitHub-approved vendor? `Confirm that the action has a verification badge.`
+- [x] What should Lois do if the "." key doesn't work to open github.dev according to his local keyboard layout? `Change the URL from "github.com" to "github.dev"`
+- [x] What should you avoid doing if you create a new repository under your account in the future after renaming a repository? `Reuse the original name of the renamed repository`
+- [x] What should you do if you encounter the error "Repository not found" when cloning a repository? `All of the above`.
+- [x] What should you do to configure different notification settings for different repositories you are participating in? `Use the 'Watch' button on each repository's page to customize your level of notifications.`
+- [x] What should you do to configure different notification settings for different repositories you are participating in? `Use the 'Watch' button on each repository's page to customize your level of notifications.`
+- [x] What tool can automatically create pull requests to update dependencies flagged as vulnerable? `Dependabot`
+- [x] What tool can be used to remove files from a repository's history if they were added in earlier commits? `BFG Repo-Cleaner or git filter-repo command`
+- [x] What two-factor authentication method supports the secure backup of your authentication codes in the cloud? `Time-based One-time Password (TOTP)`
+- [x] What type of window should Stewie use in his browser to open github.dev if he's experiencing issues? `Non-incognito window`
+- [x] What warning does Git provide if you attempt to add or update a file larger than 50 MiB to a repository? `It displays a warning but allows the changes to be successfully pushed.`
+- [x] What would be considered a practice of Inner Source? `Encouraging cross-team collaboration on projects within the organization AND Adopting a code review process before merging changes internally AND Using open source practices within an organization's boundaries.`
+- [x] What would be considered a practice of Open Source? `Making the source code available to the public AND Allowing anyone to modify the source code AND Publishing the software under an open source license`
+- [x] What would be considered a practice of Open Source? `Publishing the software under an open source license AND Making the source code available to the public AND Allowing anyone to modify the source code`
+- [x] What's the best reason to decide to upgrade to the GitHub Enterprise product? `Because you want to centrally manage users and repositories across multiple organizations.`
+- [x] When can you get rid of a branch after finishing your work? `After your pull request has been merged.`
+- [x] When creating a repo, what is the scope for the uniqueness of the repo name? `Unique within the creator's account`
+- [x] When creating private Gists on GitHub, in which way are they not completely secure? `They can be accessed by anyone who has the URL.`
+- [x] When exploring files in a GitHub repo what hotkey can be quickly used to focus the search box to search through files? `T`
+- [x] When exploring files in a GitHub repo what hotkey can be quickly used to focus the search box to search through files? `T`
+- [x] When exploring files in a GitHub repo what hotkey can be quickly used to focus the search box to search through files? `The README in the .github directory.`
+- [x] When is forking recommended in the context of repositories? `For accepting contributions from unaffiliated contributors`.
+- [x] When is the dependency graph automatically updated? `When a change is pushed to the default branch affecting manifest or lock files.`
+- [x] When might you be automatically subscribed to conversations on GitHub? `When commenting on a thread`.
+- [x] When should you use a Pull Request template in GitHub? `When you want to provide a structured format for contributors to submit proposed changes`
+- [x] When should you use a Pull Request template in GitHub? `When you want to provide a structured format for contributors to submit proposed changes`
+- [x] When should you use GitHub Codespaces over GitHub.dev? `Use GitHub Codespaces for heavy lifting, testing code, and terminal access`.
+- [x] When using GitHub's advanced search, which of the following syntax options correctly searches an organization for pull requests that contain information about payments? `org:organization_name is:pr payments`
+- [x] When using Organizations, GitHub Teams is better than GitHub Free because it offers: `authentication with SAML single sign-on and increased GitHub Actions minutes.`
+- [x] Where are GitHub workspace files stored in your GitHub Repo? `Under the ./.github/workflows directory`
+- [x] Where are GitHub workspace files stored in your GitHub Repo? `Under the ./.github/workflows directory`
+- [x] Where are issue templates stored in a GitHub repository? `In a hidden .github/ISSUE_TEMPLATE directory on the default branch`
+- [x] Where can a repository admin view insights for a repository? `In the "Insights" tab`.
+- [x] Where can you define the actions you use in your workflow? `Any public repository, A published Docker container image on Docker Hub and The same repository as your workflow file`.
+- [x] Where can you find the option to enable two-factor authentication (2FA) in GitHub? `In the "Access" section under "Password and authentication" in the user "Settings"`.
+- [x] Where can you find trending apps? `GitHub Marketplace`
+- [x] Where can you go to discover, browse, and install tools? `GitHub Marketplace`
+- [x] Where do topics appear once added to a repository? `On the main page of the repository.`
+- [x] Where is the best place to communicate your intent to contribute to an existing open-source project? `Issue tracker`
+- [x] Where should a repository admin navigate to view pre-built visualizations from repository data? `Insights`
+- [x] Which authentication method is available with GitHub Enterprise for single sign-on (SSO)? `SAML`
+- [x] Which code review option for GitHub Pull Requests will require the Pull Requester to make changes? `Request Changes`
+- [x] Which command is used to create an issue with GitHub CLI? `gh issue create`
+- [x] Which configuration layout options for GitHub Project is only for Roadmaps? `Dates AND Zoom Level `
+- [x] Which deployment option provides 50,000 GitHub Actions minutes per month and 50 GB GitHub Packages storage? `GitHub Enterprise Cloud`
+- [x] Which feature in Git allows you to develop new features, fix bugs, or safely experiment with new ideas in isolated environments within the same repository? `Git Branch`
+- [x] Which feature in Git allows you to develop new features, fix bugs, or safely experiment with new ideas in isolated environments within the same repository? `Git Branch`
+- [x] Which feature in the 'Security' tab of a GitHub repository can help you identify and fix vulnerabilities in your dependencies? `Dependabot alerts.`
+- [x] Which feature is NOT available in the github.dev editor compared to GitHub Codespaces? `Terminal access AND Dedicated VM for running and debugging applications`
+- [x] Which features can you use to improve your workflow in GitHub Projects? `Labels for categorizing and filtering tasks. AND Custom fields for adding unique information to each task. `
+- [x] Which file format are used for Saved Replies? `Markdown`
+- [x] Which file format are used for Saved Replies? `Markdown`
+- [x] Which file is used to configure the developer environment such as programs installed or base docker image for GitHub Codespaces? `.devcontainer/devcontainer.json`
+- [x] Which filters for issues that do not require advanced syntax can you use on GitHub? `Everything mentioning you AND Your Issues AND Everything assigned to you`
+- [x] Which format of GitHub Discussions allows you to select a best answer? `Q&A Format`
+- [x] Which Git command allows you to check out and create a new branch simultaneously? `git checkout -b new-branch`
+- [x] Which Git command is used to create a local copy of a remote project? `git clone`
+- [x] Which git command is used to push a new local branch to the remote repository and set it to track the remote branch automatically? `git push -u origin new-branch`
+- [x] Which GitHub cloning method requires the use of a Personal Access Token? `HTTPS, GitHub CLI, API`
+- [x] Which GitHub feature allows users to propose modifications, fixes, or new features to a repository for review and potential merge into the main codebase? `Pull Requests`
+- [x] Which GitHub feature enforces pull requests to be reviewed before being merged? `Required Reviewers`
+- [x] Which GitHub feature helps identify underutilized features within an enterprise? `GitHub Insights`
+- [x] Which GitHub organization plan does NOT provide draft pull requests on private repos? `Free`
+- [x] Which GitHub personal plan offers Dependabot alerts? `GitHub Pro AND GitHub Free`
+- [x] Which GitHub personal plan offers Dependabot alerts? `GitHub Pro e GitHub Free`
+- [x] Which GitHub product is available for personal accounts? `GitHub Free`
+- [x] Which GitHub repo features are available in a public repo for an Organization with a free plan? `Access to GitHub Pages, GitHub Actions with limited minutes, Unlimited collaborators.`
+- [x] Which GitHub repo features are available in a public repo for an Organization with a free plan? `Unlimited collaborators, Access to GitHub Pages, GitHub Actions with limited minutes`.
+- [x] Which GitHub Repository Insight provides a summary of activity, including a list of recent pull requests, and issues that have been opened and closed? `Pulse`
+- [x] Which GitHub service allows you to access GitHub on the go? GitHub Mobile`
+- [x] Which IDE's support GitHub Copilot? `Visual Studio Code AND GitHub Codespaces AND JetBrains IntelliJ IDEA`
+- [x] Which identity providers are supported for enabling team synchronization in GitHub? `Microsoft Entra ID, Okta`
+- [x] Which integrated development environments (IDEs) are supported by GitHub Copilot? `Visual Studio Code, Visual Studio, Vim, and JetBrains IDEs`
+- [x] Which is NOT a role for GitHub Organization collaborators? `Collaborator`
+- [x] Which keyword is used to reference a reusable workflow within a job? `uses`
+- [x] Which layout options are available in GitHub Projects? `Board, Roadmap, Table`
+- [x] Which light-weight version control workflow focusing on simplicity and effective use of branches and pull requests? `GitHub Flow`
+- [x] Which of the following accurately describes the different statuses of a pull request? `Closed,Draft, Merged`
+- [x] Which of the following accurately describes the events that can trigger workflows in GitHub Actions? `Workflows can be triggered by specific activity on GitHub, scheduled times, or events from external sources`.
+- [x] Which of the following actions can you perform with GitHub Pages? `Host a static website directly from a repository. AND Customize the site's appearance using themes.`
+- [x] Which of the following are actual push notifications that you can receive from GitHub Mobile? `Direct Mentions, 
+- [x] Which of the following are actual push notifications that you can receive from GitHub Mobile? `Direct Mentions, Review Requested abd Pull Request Review`
+- [x] Which of the following are advantages of saved replies? `Saved replies allow you to create a reusable response to issues and pull requests.`
+- [x] Which of the following are attributes that can be defined in a GitHub Actions workflow file? `steps AND on AND jobs`
+- [x] Which of the following are attributes that can be defined in a GitHub Actions workflow file? `Steps, Jobs, on.`
+- [x] Which of the following are available statuses of a pull request? `draft AND closed AND merged AND open`
+- [x] Which of the following are built-in workflows for GitHub Projects? `Auto-archive items, Code changes requested, Item added to project,Pull request merged e Item reopened `
+- [x] Which of the following are built-in workflows for GitHub Projects? `Code review approved AND Auto-add to project AND Item closed`
+- [x] Which of the following are features of a GitHub user profile? `Profile Readme AND Achievements AND Pinned repositories`
+- [x] Which of the following are features of the 'Conversations' tab in a pull request on GitHub? `Displaying a list of commits included in the pull request. AND Showing the status checks and continuous integration build results. AND Showing all comments and discussions related to the pull request.`
+- [x] Which of the following are features of the 'Conversations' tab in a pull request on GitHub? `Showing the status checks and continuous integration build results. AND Showing all comments and discussions related to the pull request. AND Displaying a list of commits included in the pull request.`
+- [x] Which of the following are general event types where you can use GitHub Actions within GitHub? `When a new issue is created in the repository. AND When a pull request is merged into the main branch.`
+- [x] Which of the following are general event types where you can use GitHub Actions within GitHub? `When a new issue is created in the repository. AND When a pull request is merged into the main branch.`
+- [x] Which of the following are included as pre-defined repository roles? `Write, Triage, Maintain`
+- [x] Which of the following are true about linking a pull request to an issue? `Linking a pull request to an issue can help provide context and automatically close the issue when the pull request is merged. AND Linking a pull request to an issue is achieved by mentioning the issue number in the pull request description.`
+- [x] Which of the following are two factor methods provided by GitHub? `Hardware token AND Google Authenticator AND SMS text message`
+- [x] Which of the following are two factor methods provided by GitHub? `SMS text message AND Hardware token AND Google Authenticator`
+- [x] Which of the following are valid Github Action triggers? `release AND issue_comment AND schedule`
+- [x] Which of the following are valid Github Action triggers? `release, issue_comment, schedule`
+- [x] Which of the following are valid keywords used in a pull request description to link it to an issue? `close, resolve and fix`.
+- [x] Which of the following authentication methods is considered the most secure way to authenticate with 2FA on GitHub Enterprise? `Security keys`
+- [x] Which of the following best describes a Codespace? `a development environment hosted in the cloud`
+- [x] Which of the following best describes cloning a repository? `It creates a copy of the repository on your local machine.`
+- [x] Which of the following best describes GitHub Copilot? `an Al pair programmer that offers autocomplete-style suggestions`
+- [x] Which of the following best describes GitHub Pages? `webpages hosted and published through GitHub repositories`
+- [x] Which of the following can be performed within GitHub Desktop? `adding and cloning repositories`
+- [x] Which of the following can be performed within GitHub Mobile? `managing notifications from github.com`
+- [x] Which of the following can help you create an AI-generated description for a pull request? `GitHub Copilot Enterprise`
+- [x] Which of the following can trigger a workflow in your GitHub repository? Choose FOUR correct answers. `Someone stars a repository and Comment on a discussion and Edit a pull request comment and Repository changes from private to public.`
+- [x] Which of the following describes a branch in Git? `a separate, isolated copy of the project’s codebase`
+- [x] Which of the following describes the primary states a file can be in within a Git repository? `Untracked and Tracked`
+- [x] Which of the following describes the state of a tracked file within a Git repository? `Modified, Staged`
+- [x] Which of the following events can trigger a workflow run in GitHub Actions? `All of the above`.
+- [x] Which of the following GitHub syntax formats is consistent with the associated text? `# This is a heading`
+- [x] Which of the following information is available by default in a user’s GitHub profile? `personal biography and profile picture`
+- [x] Which of the following is a collaboration feature provided by GitHub but not by Git? `Pull requests`
+- [x] Which of the following is a default category for discussions when you enable discussions in a repository? `Show and tell`
+- [x] Which of the following is a default GitHub issue template available for repositories? `Feature request and Bug report`
+- [x] Which of the following is a default workflow available for GitHub projects? `Item reopened`
+- [x] Which of the following is a deployment option for GitHub Enterprise? `Hybrid (Cloud and on-premises)`
+- [x] Which of the following is a deployment option for GitHub Enterprise? `Hybrid (Cloud and on-premises)`
+- [x] Which of the following is a feature of repository templates in GitHub? `They provide pre-configured files and folders for a new repository based on the template.`
+- [x] Which of the following is a key characteristic of GitHub Projects? `ability to create and customize multiple views`
+- [x] Which of the following is a primary goal of GitHub’s community? `facilitating collaboration and creativity`
+- [x] Which of the following is a valid deep link for GitHub Codespace? `https://codespaces.new/myorg/myrepo`
+- [x] Which of the following is a valid Markdown syntax? `# Will appear as a heading line in the rendered Markdown`
+- [x] Which of the following is always true about the feature preview phases Alpha and Beta? `Alpha features are not available to the public.`
+- [x] Which of the following is an example of a distributed version control system (DVCS)? `Git`
+- [x] Which of the following is an Innersource development practice? `sharing code between teams within the organization`
+- [x] Which of the following is distinctive of GitHub Actions workflows? `stored in the.github/wonk flows directory in a GitHub repository AND built using YAML syntax`
+- [x] Which of the following is NOT a branch protection rule? `Automatically managing open issues`
+- [x] Which of the following is NOT a branch protection rule? `Automatically managing open issues`
+- [x] Which of the following is NOT a default label provided by GitHub in every new repository? `feature`
+- [x] Which of the following is NOT a Github Actions trigger? `code_review`
+- [x] Which of the following is NOT a recommended practice for writing a Git commit message? `Including a detailed explanation of the change in the subject line.`
+- [x] Which of the following is NOT a valid custom field type for Github Projects? `Color`
+- [x] Which of the following is NOT a valid custom field type for Github Projects? `Color`
+- [x] Which of the following is NOT typically included in the recommended best practices for repositories? `Storing large binary files directly in the repository.`
+- [x] Which of the following is the best GitHub feature for long-form documentation for a project? `Wikis`
+- [x] Which of the following is the purpose of a GitHub repository? `to provide a collaborative space where developers can share and manage code files, track changes, and store revision history`
+- [x] Which of the following is true about GitHub Gist? Choose THREE correct answers. `Gist can be embedded in any text field that supports JavaScript, such as a blog post. AND Gist supports mapping GeoJSON files, so you can easily share and embed maps. AND You can subscribe to a gist by clicking Subscribe at the top of any gist.`
+- [x] Which of the following is true about workflows in GitHub? `Workflows are defined by a YAML file to run one or more jobs or Workflows are defined in the `.github/workflows` directory`.
+- [x] Which of the following items can you customize for an individual Codespace? `name, default editor and shell`
+- [x] Which of the following Markdown syntax is GitHub Flavored Markdown? `Fenced code blocks using triple backticks AND Emoji shorthand (e.g., :smile:).`
+- [x] Which of the following options are available to define the visibility of teams on GitHub?`Visible and Secret`
+- [x] Which of the following options can a user do from a discussion post? `Create an issue from the discussion.`
+- [x] Which of the following options helps you search for issues with the "404 error" string in repositories owned by the QuizExperts organization? `Search "404 error" org:QuizExperts and click on "Issues" under the "Filter by" section`.
+- [x] Which of the following options is available as a default Discussion category? `show and tell`
+- [x] Which of the following stages is not part of the Codespace's lifecycle? `Run`
+- [x] Which of the following statements about saved replies are true? `Saved replies are tied to your personal account and GitHub provides a "Duplicate issue" saved reply for marking duplicate issues and Saved replies save time by allowing you to create reusable responses for issues and pull requests`.
+- [x] Which of the following statements about secret teams on GitHub is NOT true? `Secret teams can be nested under parent teams`.
+- [x] Which of the following statements accurately describes a Centralized Version Control System (CVCS)? `Changes are made directly to the central server without local repositories.`
+- [x] Which of the following statements accurately describes GitHub Projects? Choose TWO correct answers. `You can use Projects for planning sprints and features. AND Projects are structured like a spreadsheet.`
+- [x] Which of the following statements is true about GitHub Wiki pages? `Wiki pages allow collaborative editing and support Markdown for formatting.`
+- [x] Which of the following statements is true? `GitHub cannot be used without Git`.
+- [x] Which of the following statements most accurately describes secret gists? `Anyone with the URL for the gist can view the gist.`
+- [x] Which of the following statements most accurately describes who can access a private repository Wiki? `Wikis can be viewed by the same people who have Read access to the repository.`
+- [x] Which of the following steps are part of the Codespaces lifecycle? `Create,Delete and Rebuild`
+- [x] Which of the following two-factor authentication (2FA) methods can you use to secure a GitHub account? `GitHub mobile AND security keys AND authenticator app`
+- [x] Which of these elements is NOT typically included in a Git commit? `The branch name where the commit is made`
+- [x] Which open source software powers version tracking on GitHub? `Git`
+- [x] Which operating systems are supported for a codespace development environment? `Linux only`
+- [x] Which option is not available for GitHub two-factor authentication? `GitHub App`
+- [x] Which options are available for repository visibility on GitHub? `Public AND PRIVATE`
+- [x] Which options can you use to configure the visibility of a GitHub repository? `Make the repository public, allowing unrestricted access to the code. AND Set the repository as private, restricting access to specific collaborators or teams.`
+- [x] Which permission level on GitHub is recommended for project managers who need to manage the repository without access to sensitive or destructive actions? `Maintain`
+- [x] Which phase of GitHub's release cycle involves heavy development, changing requirements, and no service level agreements (SLAs)? `Alpha`
+- [x] Which protocol allows synchronization of user identity information between an identity provider (IdP) and GitHub? `SCIM`
+- [x] Which security feature of GitHub can you use to prevent pushing secrets to your repo? `Secret Scanning`
+- [x] Which three files can be automatically created during the initial creation of a GitHub repository? `.gitignore, README.md e LICENSE`
+- [x] Which tool is recommended for those who prefer a visual interface and want to work with files locally? `GitHub Desktop`.
+- [x] Which two options can you use to simply filter issues in the GitHub interface without using advanced search syntax? `Labels AND Milestones`
+- [x] Which two options can you use to simply filter issues in the GitHub interface without using advanced search syntax? `Milestones e Labels`
+- [x] Which two types of charts can be created with Project Insights on GitHub? `Current Chart and Historical Chart`
+- [x] Which type of apps on GitHub Marketplace can have paid plans? `Only apps owned by organizations.`
+- [x] Which type of commits are excluded from the Commit graph? `Merge commits`
+- [x] Which type of GitHub Account allows you to deploy your own self-hosted version of GitHub? `GitHub Enterprise Account w `
+- [x] Which type of GitHub repository is unique to GitHub Enterprise accounts? `Internal Repositories`
+- [x] Which type of link is recommended for referring to other files within your repository in a README file? `Relative links`
+- [x] Which types of commits are not counted as contributions in the contributors graph? `Both merge commits and empty commits.`
+- [x] Which version control systems are decentralized? (Choose 2) `Mercurial AND Git`
+- [x] Who can assign issues and pull requests in a GitHub repository? `Only users with write access.`
+- [x] Who can be assigned an issue in a GitHub repository? `Anyone with write permissions to the repository. and Anyone who has commented on the issue or pull request`.
+- [x] Who can be assigned to an issue or pull request? `anyone with write permissions to the repository AND anyone who has a personal GitHub account`
+- [x] Who can create a branch to work on an issue directly from the issue page? `Anyone with write permission to the repository`
+- [x] Who can create a new discussion in a GitHub repository or organization? `Any authenticated user who can view the repository or organization`.
+- [x] Who can create an issue in a repository where issues are enabled? `Anyone with read access`.
+- [x] Who can create repository a template on GitHub? `Anyone with admin permissions to a repository`.
+- [x] Who can customize the default labels for repositories in their organization? `Organization owners.`
+- [x] Who can edit existing labels in a GitHub repository? `Anyone with write access to the repository.`
+- [x] Who can enable GitHub Discussions in a repository? `Repository owners and user with Write access`
+- [x] Who can publish an action in GitHub Marketplace? `Anyone`
+- [x] Who can use GitHub Copilot for free? `Verified students and teachers e Maintainers of popular open source projects.`
+- [x] Why is deleting a branch in the GitHub flow considered a good practice? `To prevent accidental use of old branches.`
+- [x] Why is it essential to integrate security into every stage of the software development life cycle? `To catch security issues earlier and reduce overall development time.`
+- [x] Why is it recommended to break down large issues into smaller ones in project management? `To make the work more manageable and enable team members to work in parallel.`
+- [x] Why is it recommended to deploy changes to a feature branch before merging into the main branch in the GitHub flow? `To ensure changes are valid in a production environment.`
+- [x] Why might you not be able to access certain insights in the Code frequency graph? `The repository has more than 10,000 commits.`
+- [x] Why would a project manager want to automatically archive items in a GitHub project? `To help stay below the limit of 1,200 items in the project and manage clutter.`
+- [x] Workflows can reference actions in: `any public repository. AND the same repository as your workflow file. AND a published Docker container image on Docker Hub.`- [x] A distributed version control system is best described as a system that: `ensures each developer has their own local copy of the entire code repository, including the complete project history and metadata.`
+- [x] A user with the username merlin99 creates a repo named git-examples, an Organization called GitWizards. What would the GitHub repo URL be? `https://github.com/GitWizards/git-examples`
+- [x] Adam West is a project manager for a software development team using GitHub to host their repositories. He wants to analyze the traffic to their project repository and understand where the visitors are coming from and which content is generating the most interest. Which GitHub feature should Adam use to get this information? `Traffic`
+- [x] After 30 minutes of inactivity, a GitHub Codespace will: `time out.`
+- [x] An employee needs to find all issues within organization “Avocado” containing text “404 error” and a “guacamole” label. Which of the following steps would be best to search for these results? `Enter query org: Avocado label:guacamole “404 error” in the search bar. Select “Issues” in the “Filter by” section.`
+- [x] As a GitHub user, where in the Ul can you configure two-factor authentication (2FA) to further secure your account? `Settings Password and Authentication → 2FA`
+- [x] As a repository owner, what actions can you restrict on GitHub Actions? `You can disable GitHub Actions for a repository, or set a policy that configures which Actions and reusable Workflows can be used in the repository`.
+- [x] As a user, what feature can you use to merge proposed changes in a repository on GitHub? `pull requests`
+- [x] As a user, which of the following default labels is used to indicate that a maintainer needs assistance on an issue or pull request? `help wanted`
+- [x] As the owner of your organization, you want to ensure that everyone who is signed in to your corporate network can access the GitHub website without having to sign in again. What type of technology would you use to achieve this?`Single sign-on`
+- [x] Barbara Pewterschmidt is a project manager overseeing a GitHub repository for a software development project. She wants to acknowledge and recognize the top contributors to the project. Where can Barbara view the top 100 contributors to the repository, excluding merge commits and empty commits? `Contributors graph`
+- [x] Bonnie wants to use a template repository as starter code for an assignment in GitHub Classroom. She wants to ensure that she understands any limitations associated with template repositories. What is a limitation of template repositories on GitHub? `They cannot include files stored using Git LFS`.
+- [x] Brian Griffin is a software developer who is interested in contributing to open source projects related to machine learning. He wants to explore repositories in this subject area to find projects to contribute to and discover new solutions. Which feature of GitHub would be most helpful for Brian in this scenario? `Topics`
+- [x] Brian wants to use historical charts in his GitHub project to analyze the completion status of tasks over time. Which type of historical chart on GitHub displays the progress of issues over time, showing completed work and remaining tasks? `Burn up chart`
+- [x] Brian, a developer, is working on a private repository for a proprietary project for his company. He wants to organize the repository by adding specific topics relevant to the project's technology stack and functionalities. What is the visibility status of topic names created within a private repository on GitHub? `Topic names created in private repositories are always public`.
+- [x] Brian, a GitHub user, has a repository dedicated to sharing his literary works and book reviews. He wants to make it easier for other users to find his repository and contribute to it. What action should Brian take to achieve this goal? `Adding topics to the repository`.
+- [x] Brian, a software engineer, is setting up a continuous integration (CI) workflow for his project on GitHub. He wants to understand how jobs work within GitHub Actions to streamline the build and testing process efficiently. What is a job in the context of GitHub Actions? `A set of steps executed on the same runner`.
+- [x] By default, what is the initial branch called in a freshly created GitHub repository? `main`
+- [x] Can a gist be converted from public to secret after it has been created on GitHub free account? `No, once a gist is created as public, it cannot be made secret`.
+- [x] Can a threaded comment be marked as an answer in a GitHub discussion? `Yes, threaded comments can be marked as answers`.
+- [x] Can issues or pull requests be filtered based on the most added reaction? `Yes`
+- [x] Can voters change their vote after they have cast it in a poll on GitHub? `No, voters cannot change their vote`.
+- [x] Can you configure GitHub Copilot Individual to exclude certain files from being available to GitHub servers? `No`
+- [x] Can you filter GitHub issues based on milestones? `Yes, GitHub allows filtering of issues based on milestone`.
+- [x] Chris Griffin just pushed his latest changes to GitHub but realizes that one of the commits contains a critical error. He wants to undo that specific commit. What should Chris do to undo the mistaken commit while keeping the commit history intact? `git revert <SHA>`
+- [x] Chris Griffin wants to add an existing file to his GitHub repository using the command line. He has already cloned the repository locally on his computer. What command should he use to stage the file for commit? `git add .`
+- [x] Chris Griffin wants to include all the changes made to tracked files in his next commit without explicitly staging them using git add. Which command should he use to achieve this? `git commit -a`
+- [x] Chris Griffin works for an organization that develops various open-source projects. The organization wants to create a centralized website to provide information about its projects and activities. Which type of GitHub Pages site should Chris create for the organization's centralized website? `Organization site`.
+- [x] Chris has been actively developing a project on GitHub, utilizing GitHub Actions to automate various tasks in his workflow. Recently, he renamed one of the repositories containing actions referenced in his workflows. What consequence does Chris face regarding his workflows? `Workflows using the previous repository name will encounter failures.`
+- [x] Explain the difference between GitHub Desktop and github.com? `GitHub Desktop is a graphical user interface (GUI) application that simplifies the use of Git and GitHub, while github.com is the website and cloud-based hosting service for Git repositories.`
+- [x] Explain the difference between GitHub Desktop and github.com? `GitHub Desktop is a graphical user interface (GUI) application that simplifies the use of Git and GitHub, while github.com is the website and cloud-based hosting service for Git repositories.`
+- [x] From the list of projects for an organization, how can a user identify a GitHub Projects template? `Use the is: template filter in the search text box.`
+- [x] From the Organization settings, which restrictions can organization owners place on GitHub Actions usage? `Allow actions by Marketplace verified creators. AND Allow actions that use self-hosted runners. AND Allow specified actions.`
+- [x] Gists are actually Git repositories, which means that you can fork or clone any gist, even if you aren't the original author. `True`
+- [x] GIT-GHF What are the two deployment options for GitHub Enterprise? `GitHub Enterprise Server e GitHub Enterprise Cloud`
+- [x] GitHub Actions workflows can be directly triggered by which of the following events? `pushing to a GitHub repository`
+- [x] Glenn is a contributor to a GitHub repository that has been archived by the repository owner. He wants to know what actions he can still perform on the archived repository. Contributors can only fork or star the repository, but they cannot make any other changes.
+- [x] Glenn is considering archiving one of his GitHub repositories because it's no longer actively maintained. However, he wants to understand the implications of archiving before making a decision. What happens to a repository when it is archived on GitHub? `The repository becomes read-only for all users`.
+- [x] Glenn maintains a repository on GitHub for a project that is no longer actively maintained. He wants to make the repository read-only for all users and indicate its inactive status. Which action should he take? `Archive the repository`.
+- [x] Glenn Quagmire is a developer working on a project hosted on GitHub. he has made some changes to the codebase and created a pull request to merge your changes into the main branch. However, the status checks for his pull request are failing. He want to understand more about status checks on GitHub to troubleshoot the issue. What are status checks on GitHub and how are they useful? `They indicate if your commits meet the conditions set for the repository, such as passing continuous integration builds.`
+- [x] Glenn Quagmire is learning how to format text using Markdown for his GitHub README file. Which Markdown syntax should Glenn use to bold the word "FamilyGuy" in his document? `__FamilyGuy__`
+- [x] How are commits related to pull requests? `Commits are made on a branch that can have a linked pull request.`
+- [x] How are settings in `.gitignore` files inherited in a Git repository? `Settings are inherited from parent directories`.
+- [x] How are workflows defined in a GitHub repository? `In the .github/workflows directory.`
+- [x] How can a developer open a GitHub repository in the github.dev editor in a new browser tab? `By pressing > while browsing the repository on GitHub.`
+- [x] How can a gist be copied while preserving its history? `Fork`
+- [x] How can a user choose to receive ongoing updates about a specific activity on GitHub.com? `by customizing the types of notifications you will receive in the future`
+- [x] How can a user create a repository template, and what permissions are required? `With Admin permissions, navigate to Repository settings and select Template Repository.`
+- [x] How can a user highlight a post to the top of the Discussions page? `Pin the discussion`
+- [x] How can branch protection rules contribute to secure development on GitHub? `By enforcing certain workflows for branches, such as requiring code reviews and passing status checks`
+- [x] How can discussions be pinned in GitHub? `You can pin a discussion to a specific category or You can globally pin a discussion above the list of discussions for the repository or organization`.
+- [x] How can Glenn make changes to an archived repository? `By unarchiving the repository first whenever you need to make any changes.`
+- [x] How can labels be used in GitHub repositories? `To categorize issues and pull requests for better organization and filtering.`
+- [x] How can Meg share the filtered view of issues assigned to Brian on GitHub? `By copying the URL generated by GitHub for the filtered view and sending it to Brian.`
+- [x] How can pull request templates be added to a GitHub repository? `By creating a docs folder, or a hidden .github directory in the repository and adding the template file.`
+- [x] How can Tricia access repositories that she's watching on GitHub? `By visiting her watching page at https://github.com/watching`
+- [x] How can users access the Pulse feature on GitHub? `By navigating to the "Insights" tab in the repository and selecting "Pulse."`
+- [x] How can you add a link in a wiki page using Markdown syntax? `[Link Text](URL)`
+- [x] How can you add a new file to a GitHub repository? `Using the 'Add file' button on the repository's main page and choosing 'Create new file' or 'Upload files'.`
+- [x] How can you authenticate GitHub CLI commands for managing projects via the GraphQL API? Run `gh auth login --scopes "project"`
+- [x] How can you classify your repository to help others discover and contribute to your project more easily? `Add relevant topics related to your project's purpose, subject area, or groups of interest.`
+- [x] How can you clone a wiki from a GitHub repository to your local computer? `Using the "git clone" command with the repository's URL followed by ".wiki.git"`.
+- [x] How can you create a new branch in Git using the terminal? `git checkout -b <branch-name>`
+- [x] How can you customize notifications to receive ongoing updates about specific activity on GitHub.com through subscriptions? `By selecting the types of notifications you want to receive or unsubscribing from specific conversations or repository`.
+- [x] How can you easily add files via the GUI to your GitHub Repo? `Using the 'Upload files' button`
+- [x] How can you easily add files via the GUI to your GitHub Repo? `Using the 'Upload files' button`
+- [x] How can you efficiently manage and categorize issues and pull requests in a GitHub project? `By using labels to categorize and filter issues and pull requests.`
+- [x] How can you efficiently manage and categorize issues and pull requests in a GitHub project? `By using labels to categorize and filter issues and pull requests.`
+- [x] How can you ensure that pull requests for a specific repository area are not merged unless approved by certain users or teams? `Use a `CODEOWNERS` file and enable required reviews`.
+- [x] How can you ensure that the CODEOWNERS file itself is protected against unauthorized changes? `Define the repository owner as the owner of the CODEOWNERS file`.
+- [x] How can you ensure that your favorite discussion stays at the top? `Pin it`.
+- [x] How can you filter issues in a GitHub repository? `By using the search bar at the top of the Issues tab and applying filters like labels, milestones, and assignees.`
+- [x] How can you filter issues or pull requests that have either the bug or error labels? `label:"bug","error"`
+- [x] How can you find issues that mention a specific user on GitHub? `Use the mentions: followed by the username`.
+- [x] How can you follow an organization on GitHub.com? `By clicking the 'Follow' button on the organization's profile`
+- [x] How can you link a pull request (PR) to an existing issue on GitHub? `By mentioning the issue number preceded by a hashtag in the PR description.`
+- [x] How can you link a pull request (PR) to an existing issue on GitHub? `By mentioning the issue number preceded by a hashtag in the PR description.`
+- [x] How can you link a Pull Request (PR) to an issue on GitHub? `By mentioning the issue number in the PR description using the '#' symbol followed by the issue number.`
+- [x] How can you make a copy of a public Gist on GitHub and maintain its version history? `By using the 'Fork' button on the Gist page`.
+- [x] How can you make a README file appear on your GitHub profile automatically? `Name the README file after your username`.
+- [x] How can you make a specific issue more visible in your repository by fixing it at the top of the issue list? `By pinning the issue.`
+- [x] How can you make a specific issue more visible in your repository by fixing it at the top of the issue list? `By pinning the issue.`
+- [x] How can you make a specific issue more visible in your repository by fixing it at the top of the issue list? `By pinning the issue.`
+- [x] How can you manage your notification subscriptions for a specific repository on GitHub? `By navigating to the repository, clicking the 'Watch' button, and choosing your desired notification settings.`
+- [x] How can you remain informed about the latest comments in an issue? `By subscribing to the issue.`
+- [x] How can you save a repository on GitHub for later reference? `By starring the repository.`
+- [x] How can you save a repository on GitHub for later reference? `By starring the repository.`
+- [x] How can you set a project as a template in GitHub? `Navigate to the "project settings" under settings, select the "Templates" section, and toggle the "Make template" switch to On`.
+- [x] How can you start a GitHub Codespace? `By selecting the 'New codespace' button at the top of a GitHub repository page. AND By opening the repository and using the command palette to create a new codespace.`
+- [x] How can you unlink an issue that was linked using a keyword? `By editing the pull request description and removing the keyword`.
+- [x] How can you view insights for a GitHub repository? `By clicking on the 'Insights' tab at the top of the repository page.`
+- [x] How do you add a custom Readme page to your Github User Profile? `Add a README.md file to the repository and commit it AND Create a new repository with the same name as your GitHub username`
+- [x] How do you create a Security Policy for your GitHub Repo? `Add a SECURITY.md file in the .github directory of your repository`
+- [x] How do you create a Security Policy for your GitHub Repo? `Add a SECURITY.md file in the .github directory of your repository`
+- [x] How do you follow people on Github.com? `By clicking the 'Follow' button on the user's profile page`
+- [x] How do you follow people on Github.com? `By clicking the 'Follow' button on the user's profile page`
+- [x] How do you quickly create a branch from an issue in a Github Issue? `By commenting "/branch" in the issue comments`
+- [x] How do you quickly create a branch from an issue in a Github Issue? `By commenting "/branch" in the issue comments`
+- [x] How do you subscribe to a notifications thread in GitHub? `Click the 'Subscribe' button on the right side of an issue or pull request page.`
+- [x] How does a Draft Pull Request work on GitHub? `It indicates that the pull request is a work-in-progress and not ready for review`
+- [x] How does a GitHub Codespace differ from the github.dev editor? `GitHub Codespaces offers a complete, configurable dev environment, while github.dev provides a lightweight, web-based code editor.`
+- [x] How does GitHub advance open source projects? `By providing a collaborative platform for code hosting, version control, issue tracking, and more`
+- [x] How does GitHub Codespaces handle inactivity timeouts? `Codespaces time out after 30 minutes of inactivity.`
+- [x] How does GitHub Codespaces work? `It uses containers to provide a cloud-based development environment`.
+- [x] How does GitHub determine which file to use for populating the footer and sidebar of a wiki? `By using the file names _Footer.<extension> and _Sidebar.<extension>`
+- [x] How does GitHub help reduce the overhead of staying on top of security considerations for project dependencies? `By offering dependency graphs and automated dependency alerts.`
+- [x] How does innersource promote code reuse within an organization? `By enabling teams to discover, customize, and reuse existing internal projects`.
+- [x] How does SAML SSO work with GitHub Enterprise? `Users are redirected to the Identity Provider (IdP) to authenticate`.
+- [x] How does the "fork and pull" model work on GitHub for collaborative development? `Developers have a full copy of the project and propose changes via pull requests.`
+- [x] How frequently does the information in the referring sites and popular content sections of GitHub's traffic graph update? `Daily`
+- [x] How many auto-add workflows can you have in GitHub Enterprise Server? `20`
+- [x] How many default workflows are enabled when a project initializes in GitHub Projects? `Two`
+- [x] How many files can be included in a single diff on GitHub? `300`
+- [x] How many important issues can be pinned above the issues list in a GitHub repository? `Three`
+- [x] How many issues can be manually linked to each pull request? `Up to 10`
+- [x] How many levels of workflows can be connected together? `Up to four levels`
+- [x] How many of the most recently pushed-to branches does the network graph of a repository display on GitHub? `Up to 100 branches.`
+- [x] How many people can be assigned to an issue or pull request in private repositories for a free plan? `Only one person`
+- [x] How many people can be assigned to an issue or pull request in public repositories or private repositories for a paid account? `Up to 10 people`
+- [x] If multiple README files are present in different directories of a GitHub repository, which README file will be displayed on the repository's homepage by default? `The README in the .github directory`.
+- [x] Imagine that one of your source projects relies on secrets stored in a folder called .secrets. You want to make sure that the files kept in this folder on development machines are not accidentally committed to the repository. Which of these files is the most effective for enforcing this policy? `.gitignore`
+- [x] In a Distributed Version Control System (DVCS) like Git, what is a significant advantage over centralized systems? `Full copy of the project and history.`
+- [x] In a GitHub repository, under the security tab, which of the following alerts might appear? `Workflow run alerts AND Code scanning alerts AND Dependency review alerts`
+- [x] In a GitHub repository, under the security tab, which of the following alerts might appear? `Workflow run alerts, Dependency review alerts, Code scanning alerts`
+- [x] In a GitHub repository, where are Issue Forms templates stored? `In the .github/ISSUE_TEMPLATE/ directory`
+- [x] In GitHub Enterprise, what option provides additional security, compliance, and deployment controls? `GitHub Advanced Security`
+- [x] In GitHub, what does it mean when a pull request is in a 'draft' state? `The pull request is incomplete and not ready for review or merging`
+- [x] In GitHub, what does it mean when a pull request is in a 'draft' state? `the pull request is incomplete and not ready for review or merging`
+- [x] In GitHub, why is it recommended to deploy from your feature branch before merging into the main branch? `to ensure the changes are verified and validated in a production environment`
+- [x] In GitHub, why is it recommended to deploy from your feature branch before merging into the main branch? `to ensure the changes are verified and validated in a production environment`
+- [x] In how many ways can you create GitHub Issues? `6`
+- [x] In order to perform a pull request in a GitHub repository, which of the following conditions must be true? `The target branch must exist in the repository`.
+- [x] In the context of a GitHub pull request, what do the base and compare branches represent? `base is the branch you are merging changes into, and compare is the branch where the changes are coming from.`
+- [x] In the event that someone accidentally commits a sensitive API key that is stored in the .secrets folder. What is the appropriate method to remove that information from GitHub? `Use git to remove the unwanted commit and update historical references. Then contact GitHub support to run garbage collection and invalidate the Git cache.`
+- [x] In the GitHub Marketplace what are the type of possible plans `Open-Source AND Free AND Paid`
+- [x] In the GitHub Marketplace what are the type of possible plans? `Open-Source AND Paid AND Free`
+- [x] In which section of a GitHub repository can slash commands be used to insert complex Markdown? `Issues and pull request descriptions`
+- [x] Jillian is a project manager overseeing a software development project. She wants to filter and find pull requests opened in May 2023 that have a failed status. Which search query should she use? `created:2023-05-01..2023-05-31 status:failure type:pr`
+- [x] Joe Swanson is collaborating on a project on GitHub and notices that a pull request is marked as a draft. He wants to understand how this affects the review process. What is the significance of marking a pull request as a draft on GitHub? `It suppresses notifications to reviewers until it's ready for review.`
+- [x] Joe Swanson is considering options for implementing a CI/CD solution for his development projects. He is comparing GitHub Actions and Jenkins to determine which one would best suit his requirements. Which statement best describes the difference between GitHub and Jenkins for CI/CD? `Jenkins focuses only on automation and CI/CD capabilities, while GitHub Actions offers a complete DevOps and DevSecOps platform.`
+- [x] Lois Griffin is managing a software development project on GitHub and wants to track the progress of different feature implementations. She decides to use milestones to group related issues and pull requests. `Which of the following statements about milestones on GitHub is true? Milestones allow you to track completion percentage and due dates.`
+- [x] Lois Griffin wants to configure Git to ignore certain files or directories in all repositories on her computer. Which approach should she use? `Add the file paths to the file ~/.config/git/ignore.`
+- [x] Lois has created a PR on the default branch of her repository to address an issue. She includes a special keyword in the PR description to link it to the issue. What will happen when she merges this PR? `The issue linked to the PR will be closed automatically.`
+- [x] Lois has starred numerous repositories on GitHub related to various programming languages and frameworks. She wants to organize them into different categories for easier access. How can Lois organize her starred repositories into public lists on GitHub? `By creating public lists that appear on her stars page using the "Lists" feature.`
+- [x] Lois is a developer working on a project hosted on GitHub.She wants to identify all the dependencies her project relies on. Which feature should she use? `Dependency Graph`
+- [x] Lois is a project manager on GitHub and wants to filter all the open issues and pull requests in her repository to prioritize tasks. Which filtering option should she use? `Open issues and pull requests`.
+- [x] Lois is a project manager on GitHub managing discussions in a repository. She notices that one of the discussions in a category that accepts answers has received a helpful response from a community member. What action can Lois take to highlight the helpful response? `Lois can mark the response as an answer to the discussion.`
+- [x] Lois is a project manager using GitHub to track software development issues for her team. She wants to identify issues that have received a moderate level of discussion, specifically those with comments ranging from 500 to 1,000. Which search query should Lois use to achieve this? `comments:500..1000 is:issue`
+- [x] Lois is a project manager who wants to assess the popularity and activity of forks created from their team's repository on GitHub. What information can Lois find listed on the forks insight page of a repository? `Number of stars, direct forks, open issues, and open pull requests of each fork.`
+- [x] Lois is learning how to format text using Markdown on GitHub. She wants to emphasize certain words or phrases by making them bold. Which of the following examples demonstrates the correct way to bold the middle of a word for emphasis? `Quiz**Experts**PracticeTest`
+- [x] Lois is managing a repository with multiple branches on GitHub, and she wants to assign different code owners for different branches. How can Lois assign different code owners for different branches in her repository? `By specifying different code owners for different branches within the CODEOWNERS file for each branch.`
+- [x] Lois is working on a new project and wants to ensure that visitors to her GitHub repository can easily access important information about her project. Where should she place the README file to ensure GitHub automatically surfaces it to repository visitors? Inside the `.github` directory.
+- [x] Lois made a comment on a GitHub issue but forgot to mention his colleague, Peter, who needs to provide input on the topic. Instead of creating a new comment, if Lois edits a comment in the GitHub issue and mentions Peter, will Peter receive a notification? `Yes, Peter will receive a notification`.
+- [x] Lois uses GitHub Actions to automate various tasks in her project workflow and recently encountered an issue with one of the actions referenced in her GitHub Actions workflow. Where can she view the actions referenced in her GitHub Actions workflows? `In the Dependency Graph of her repository.`
+- [x] Lois wants to analyze the performance of tasks within her GitHub project using insights. However, she wonders: What does Insights for Projects on GitHub not track? `Items that have been archived or deleted`.
+- [x] Lois wants to configure an auto-add workflow to add new issues to their project board when they are labeled as "urgent." However, she is concerned about the limitations of auto-add workflows. Which plan allows a maximum of 20 auto-add workflows? `GitHub Enterprise`
+- [x] Lois wants to insert a saved reply into a comment to provide a standard response to a common question. Which slash command should she use? `/saved-replies`
+- [x] Lois wants to provide feedback on a beta feature she recently explored on GitHub. However, she cannot find the feedback link for the feature. Where can Lois find the feedback link for a beta feature on GitHub? `Profile Photo > Feature preview`
+- [x] Lois wants to remove a specific achievement badge from her GitHub profile because she doesn't want others to see it. How can she hide an individual achievement on her GitHub profile? `Click on the badge and select the option to hide it`.
+- [x] Lois, a project manager, is exploring ways to enhance collaboration within her team's GitHub repository. `She wants to understand the functionality of the /details slash command. What is the purpose of the /details slash command in GitHub? It creates a collapsible detail area with customizable content.`
+- [x] Lois, a project manager, wants to get a quick summary of her team's recent activity on a GitHub repository. She needs to see information about open and merged pull requests, open and closed issues, and commit activity? `Pulse`
+- [x] Meg Griffin has just committed her changes to Git, but she made a typo in the commit message. Instead of "Fixes bug #42", she mistakenly typed "Fxies bug #42". However, she hasn't pushed the commit yet. Which Git command should Meg use to fix the last commit message without creating a new commit? `git commit --amend`
+- [x] Meg Griffin is working on a README file for her project on GitHub. She wants to include an example command that contains an asterisk (*) character without it being interpreted as Markdown formatting. Which approach should Meg use to ensure the asterisk (*) character is not interpreted as Markdown formatting in her README file? `Use backslashes before the asterisk (*)`
+- [x] Meg is a developer who has been actively contributing to a GitHub repository, but she notices that her contributions are not showing up in the contributors graph. She wants to troubleshoot the issue. What could be a possible reason why Meg's contributions are not appearing in the repository's contributors graph? Meg's commits haven't been merged into the default branch.
+- [x] Meg is a member of an organization on GitHub, and she has read access to several repositories. She wants to ensure that her colleague, Chris, receives notifications when she mentions him in comments on the organization's repositories. What condition must be met for Chris to receive notifications? `Chris must be a member of the organization.`
+- [x] Meg is a project manager who wants to efficiently manage the issues in her team's GitHub repository. How can she identify the issues that are labeled as "priority" and have the phrase "broken" in the issue body but do not have the label "bug"? `broken in:body -label:bug label:priority`
+- [x] Meg is a student who recently started using GitHub for her programming assignments. She's curious about how slash commands can improve her workflow on GitHub. R: GitHub slash commands are shortcuts that allow users to perform various actions directly from the comment box or issue description, facilitating efficient collaboration and task management.
+- [x] Meg is browsing GitHub and finds a repository for a machine learning project that she finds interesting and wants to keep track of. `What action should she take? Star the repository`.
+- [x] Meg is managing a GitHub project with a large number of issues and pull requests. She wants to ensure that the project remains organized. Which of the following actions can Meg take to automatically manage items in her project? `Configure built-in workflows to automatically archive items based on specific criteria`.
+- [x] Meg is new to software development and wants to understand the key differences between Git and GitHub. Which statement accurately describes the difference between Git and GitHub? `GitHub provides cloud-hosted Git services, while Git is a locally installed version control system.`
+- [x] Meg wants to delete a branch named feature-x from the remote repository named origin. Which Git command should she use? `git push origin :feature-x`
+- [x] Meg wants to know how GitHub determines the priority when multiple CODEOWNERS files exist in different directories within a repository. Which of the following statements accurately describes the priority order used by GitHub to search for and apply CODEOWNERS files? `GitHub will search for the CODEOWNERS file in the .github/, root, or docs/ directory of the repository and use the first one it finds`.
+- [x] Meg wants to link a pull request to an issue using a special keyword. What branch should her pull request target for the keyword to be effective? `The default branch.`
+- [x] Meg wants to open a GitHub repository in the same browser tab for editing using a web-based editor. Which shortcut should she use? `Press key .`
+- [x] Meg wants to set up code owners in her GitHub repository. Where should she place the CODEOWNERS file to ensure that it assigns the code owners for a specific branch? `In the .github/, root, or docs/ directory of the repository.`
+- [x] Meg, a developer, is looking for open issues in her GitHub repository that have not been labeled, assigned to anyone, and have no comments yet. Which search query should Meg use to find these issues? `is:open is:issue no:label no:assignee comments:0`
+- [x] Meg, a developer, wants to configure her GitHub notifications to ensure she stays updated on important activities related to her projects. What are the options for receiving notifications for activity on GitHub.com? Choose THREE correct answers. `An email client with a verified email address. AND The notifications inbox in the GitHub.com web interface.`
+- [x] Meg, a software developer, wants to provide additional context within an issue discussion in her GitHub repository. She is exploring options for creating collapsible detail areas to hide supplementary information. How can she create it in a GitHub comment or description? `By using the `/details` slash command and providing a title and content for the collapsible section`.
+- [x] Meg's keyboard layout does not allow her to use the . key to open github.dev. What alternative method can she use to open a GitHub repository in github.dev? `Change the URL from github.com to github.dev .`
+- [x] Michael is managing a large GitHub repository with numerous contributors. He wants to ensure that the CODEOWNERS file is within the size limit to avoid issues with loading and requesting code owner reviews. What is the maximum size limit for a CODEOWNERS file on GitHub? `3 MB`
+- [x] Mort Goldman is a GitHub user who has been working on a project and making commits to the "gh-pages" branch. However, he notices that his contributions don't show up in the repository's contributors graph. Why might commits on the "gh-pages" branch not appear in the repository's contributors graph on GitHub? The "gh-pages" branch is not a default branch of the repository.
+- [x] New open source contributors can receive funding from GitHub sponsors: `after setting up a sponsored developer profile.`
+- [x] Peter Griffin accidentally added application.log to the Git repository. Now, every time he runs the application, Git reports unstaged changes in application.log. Although he added *.log to the .gitignore file, the issue persists. How can Peter undo tracking changes in this file? `git rm --cached application.log`
+- [x] Peter Griffin has been asked to review a pull request. While going through it, he spots several minor coding errors and typos. How should he approach the review? Start a review and fix obvious typos inline. Add comments in places that require further discussion or offer educational value. Complete the review with changes requested.
+- [x] Peter Griffin is managing a software development project on GitHub and wants to gain insights into the project's progress by viewing and customizing charts built from the project's data. Who can use the Insights feature for Projects on GitHub? Only people with write or admin access to the project.
+- [x] Peter Griffin wants to find GitHub repositories related to cats that have 10 or fewer stars. Which search query should he use to achieve this? Choose TWO correct answers. `cats stars:*..10 and cats stars:<=10`
+- [x] Peter Griffin wants to ignore a file that is already checked into his Git repository. What command should he use to untrack the file before adding a rule to ignore it? `git rm --cached FILENAME`
+- [x] Peter Griffin wants to ignore certain files in his Git repository without creating a .gitignore file to share with others. What approach should he use? Edit the `.git/info/exclude` file in the root of his repository.
+- [x] Peter has created an issue template, as shown below, yet users are encountering difficulty locating it while raising an issue. What might be the plausible explanation for this? `The `about` key is missing`.
+- [x] Peter has starred several repositories and topics on GitHub over time but now wants to revisit them to see if there are any updates. However, he's not sure where to find his starred content. How can users access all the repositories and topics they have starred on GitHub? By accessing their stars page at https://github.com/stars.
+- [x] Peter is a developer who wants to explore the forks of a repository on GitHub to find active and popular forks. Which page should Peter visit to view the forks of a repository and filter them based on various criteria? `Forks page`
+- [x] Peter is a project manager for a startup company looking for software solutions that offer flexibility, customization, and cost savings. Which advantage of open source software would be most appealing to Peter's requirements? `No vendor lock-in`
+- [x] Peter is a software developer who wants to acknowledge the community members who have contributed to his project's Python dependencies. Where can Peter find a list of people who have contributed to his project's Python dependencies on GitHub? `By visiting https://github.com/REPO-OWNER/REPO-NAME/graphs/contributors.`
+- [x] Peter is experiencing issues opening github.dev. `Which of the following steps should he try first to troubleshoot the problem? Disable any ad blockers`. 
+- [x] Peter is managing a large repository on GitHub, and he's noticed that the CODEOWNERS file size is exceeding the limit. What approach should Peter take to address this issue effectively? `Peter should use wildcard patterns to consolidate multiple entries into a single entry in the CODEOWNERS file`.
+- [x] Peter is reviewing a pull request for a project on GitHub. He notices a section of code in one of the files that he has a question about. Which of the following actions can Peter take to address his question? `Peter can comment on specific files or sections of a file in the pull request's Files changed tab`.
+- [x] Peter is searching for issues created before March 2024 in the "family-guy" project owned by QuizExperts. Which search query should he use? `repo:quiz-experts/family-guy created:<2024-03-01 type:issue`
+- [x] Peter is working on a GitHub Actions workflow for his project, which involves multiple tasks such as building the application, running tests, and deploying the application. What should Peter do to ensure that the deployment job in his GitHub Actions workflow starts only after the build and test jobs have completed successfully? `Peter should specify job dependencies in the GitHub Actions workflow file to make the deployment job dependent on the build and test jobs`.
+- [x] Peter is working on a project and has created a pull request (PR) to fix an issue. However, the PR is on a feature branch and not the default branch. What will happen to the special keywords in the PR description in this case? The special keywords will be ignored, and no links will be created.
+- [x] Peter wants to continue his work in a GitHub Codespace from github.dev. What option should he choose? `Click on "Continue Working On…" and select "Create New Codespace".`
+- [x] Peter wants to ensure that code owners receive review requests when a pull request is opened with changes relevant to their assigned files. Where must the CODEOWNERS file be located for code owners to receive review requests when a pull request is opened? `On the base branch of the pull request.`
+- [x] Peter wants to know which repositories and packages are dependent on his open-source project hosted on GitHub. Which feature should he use? `Dependency Graph`
+- [x] Peter wants to rename his local branch named feature-1 to new-feature on the remote repository named origin. Which Git command should he use? `git push origin feature-1:new-feature`
+- [x] Peter wants to see all the issues and pull requests that are assigned to him in the project. Which filter option should he use? `is:open assignee:@me`
+- [x] Peter wants to update his GitHub profile settings to decide whether to publicize his private contributions. He wants to understand the implications of this choice before making a decision. What happens when he choose to publicize his private contributions on his GitHub profile? `Visitors can see the number of private contributions without further details`.
+- [x] Peter, a developer, wants to create a new public repository on GitHub to host his personal website. What should Peter name his new public repository? `Peter must name his repository `username.github.io`, where username is his username on GitHub`.
+- [x] Peter, a software engineer, wants to analyze the changes made to a GitHub repository. Which feature should Peter use to analyze the content additions and deletions in the repository? `Code frequency graph`
+- [x] Pull requests can only be created between two branches that are:  `different.`
+- [x] Stewie Griffin wants to add a large file (150 MiB) to his GitHub repository. What should he do to ensure that the file is uploaded successfully? `Use Git Large File Storage (LFS)`
+- [x] Stewie Griffin was working on a project when his dog unexpectedly jumped on his keyboard, causing some unintended changes to be saved in a file. Fortunately, he hadn't committed those changes yet. Now, Stewie wants to revert the file back to its state as it was in the last commit. Which Git command should Stewie use to accomplish this? `git checkout -- <filename>`
+- [x] Stewie is a developer working on a project with multiple contributors. He wants to filter issues and pull requests to see only those that are assigned to him. Which filtering option should he select? `Everything assigned to you`.
+- [x] Stewie is working on a software project hosted on GitHub and wants to share a specific line of code from a file in the project with his colleague, Meg. However, Stewie wants to ensure that the link he shares remains valid even if changes are made to the file in the future. `Which of the following options should Stewie use to create a link to the specific line of code? Stewie should use the "Permalink" option provided by GitHub to create a permanent link and share it with Meg.`
+- [x] Stewie manages a public repository on GitHub for his robotics projects. He wants to improve the visibility of his repository by adding relevant topics. Which of the following statements is true regarding GitHub's topic suggestion feature for his repository? `GitHub analyzes public repository content and generates suggested topics that Stewie can accept or reject.`
+- [x] Stewie wants to push his changes to his repository on GitHub. How can he skip checks for an individual commit when pushing it to his GitHub repository? `Add the line skip-checks: true after commit description, before the closing quotation, and after two empty lines.`
+- [x] Suppose you are leading a software development project on GitHub. To assist the team in prioritizing tasks and ensuring that critical issues are promptly addressed, you must compile a list of all issues without an assignee and bearing either the 'error' or 'bug' label, sorted by their creation date. Which of the following options, based on the provided reference, would help you accomplish this objective? `gh issue list --search 'no:assignee label:error,bug sort:created-asc'`
+- [x] Suppose you'd like to work with a project on GitHub, but you don't have write access to the project. What can you do to contribute? `Fork the project's repository to your GitHub account, clone the forked repository to your local machine, push changes to your repository, and submit a pull request to the target (upstream) repository.`
+- [x] Suppose your team has been receiving some low-quality bug reports without enough information to properly diagnose. Which of the following choices is the best way to address the issue? `Add an `ISSUE_TEMPLATE.md` file that includes fields for reproduction steps, system properties, and instructions for generating and including important logs.`
+- [x] Suppose your team has been tracking data of all kinds since your InnerSource program went live three months ago. Which of the following metrics indicates your program is a great success? `A dramatic rise in pull requests that address bugs in your software.`
+- [x] The difference between GitHub Desktop and github.com is that Desktop? `is a standalone software application.`
+- [x] The involves qualifier is a logical OR between the author, assignee, mentions, and commenter qualifiers for a single user.`True`
+- [x] Tom Tucker wants to create a template repository for his project to ensure that future repositories have the same directory structure, branches, and files. Which of the following statements is true regarding creating a template repository on GitHub? `Branches created from a template repository have unrelated histories, so you cannot create pull requests or merge between them`.
+- [x] Tricia Takanawa wants to stay updated on the activity in a specific repository on GitHub. `What action should she take? Watch the repository`. 
+- [x] Under what conditions can a workflow use a reusable workflow? `If the called workflow is stored in a public repository or a private repository with appropriate access settings`.
+- [x] What action will pin a discussion to the top of the discussions page in a GitHub repository? `Using the "Pin discussion" option`
+- [x] What action will pin an issue to the top of the issues page on a GitHub repository? `Using the "Pin issue" option`
+- [x] What action will pin an issue to the top of the issues page on a GitHub repository? `Using the "Pin issue" option`
+- [x] What actions are restricted when working on a protected branch? `All of the above`.
+- [x] What actions can you perform from GitHub Desktop? `Create issues or pull requests to collaborate on projects with other people and Create a branch of a project and push your commits to GitHub`.
+- [x] What advanced search syntax would you use to search MIT open-source license repo's on GitHub? `license:MIT`
+- [x] What advantages do GitHub issue forms offer? `People can be automatically assigned to issues created and Labels can be automatically added to issues created`.
+- [x] What are advantages of GitHub Projects over GitHub Projects Classic? `GitHub Projects can be connected to third-party tools.`
+- [x] What are built-in workflows in GitHub Projects primarily used for? `Updating the status of items based on certain events.`
+- [x] What are Enterprise Managed Users (EMUs) in the context of GitHub? `Users whose accounts are managed at the enterprise level, providing centralized control over permissions and security settings.`
+- [x] What are Enterprise Managed Users (EMUs) in the context of GitHub? `Users whose accounts are managed at the enterprise level, providing centralized control over permissions and security settings.`
+- [x] What are feature previews on GitHub? `Previews of upcoming GitHub features that users can opt-in to try before they are released broadly.`
+- [x] What are feature previews on GitHub? `Previews of upcoming GitHub features that users can opt-in to try before they are released broadly.`
+- [x] What are gists on GitHub? `Code snippets sharing.`
+- [x] What are GitHub Codespaces? `A configurable online development environment hosted by GitHub.`
+- [x] What are GitHub Codespaces? `A configurable online development environment hosted by GitHub.`
+- [x] What are GitHub Wiki pages primarily used for? `To provide a platform for user-generated documentation and notes related to a project.`
+- [x] What are GitHub Wiki pages primarily used for? `To provide a platform for user-generated documentation and notes related to a project.`
+- [x] What are primary benefits of using GitHub Issues templates? `to easily coerce existing issues into a standard format AND to provide an easy-to-fill-out form for creating new issues`
+- [x] What are some scenarios that can automatically subscribe you to conversations on GitHub? (Each answer presents a complete solution. Choose three.) `commenting on a thread AND being assigned to an issue or pull request AND opening a pull request or issue`
+- [x] What are special profile badges that can be earned appear on your GitHub Profile by completing certain objectives? `GitHub Achievements`
+- [x] What are special profile badges that can be earned appear on your GitHub Profile by completing certain objectives? `GitHub Achievements`
+- [x] What are the benefits of a decentralized version control system (DVCS)? `Enhanced security, Improved collaboration efficiency, Faster performance`
+- [x] What are the benefits of GitHub's Dev Editor? `It provides code completion suggestions AND It has a terminal for executing commands in your repo AND It supports editing multiple files at the same time`
+- [x] What are the benefits of using milestones in GitHub Projects? `To group issues and pull requests together to achieve specific project goals. AND To track the progress of a group of related tasks towards completion.`
+- [x] What are the components of a GitHub Actions workflow? `Jobs, actions, and runners`
+- [x] What are the defining features of Git? `distributed version control, open source software, and being designed for handling projects of any size with efficiency`
+- [x] What are the differences between GitHub Pro and GitHub Team? `GitHub Pro is intended for individual users, providing them with advanced coding, review, and collaboration tools, while GitHub Team is designed for teams and organizations to collaborate on projects.`
+- [x] What are the differences between GitHub Pro and GitHub Team? `GitHub Pro is intended for individual users, providing them with advanced coding, review, and collaboration tools, while GitHub Team is designed for teams and organizations to collaborate on projects. AND GitHub Team allows collaboration within teams, offering organization accounts, team discussions, and fine-grained access controls, which are not available in GitHub Pro.`
+- [x] What are the differences between having an organization in a GitHub Team account versus having a GitHub Free account? `More GitHub Actions minutes and increased storage for GitHub Packages.`
+- [x] What are the differences between organization members and external collaborators in GitHub? `External collaborators cannot be team maintainers.`
+- [x] What are the different options available for providing a code review on a pull request on GitHub? `Approve AND  Suggest changes AND Request changes`
+- [x] What are the key areas of focus for GitHub? `building a technology platform for secure code sharing and collaboration AND providing a social media platform for project managers AND Nurturing a community that supports open-source principles`
+- [x] What are the layout configurations available in GitHub Projects? `Table, Roadmap AND Board`
+- [x] What are the limits imposed on diffs for commits, pull requests, and compare views on GitHub? `No total diff may exceed 20,000 lines or 1 MB of raw diff data.`
+- [x] What are the potential consequences of disabling team synchronization in GitHub organizations? `Team members assigned through IdP groups may lose access to repositories.`
+- [x] What are the predefined roles available for a GitHub repository in an organization? `Triage, Write, Maintain`
+- [x] What are the three types of GitHub accounts? `Personal, Organization, and Enterprise`
+- [x] What are the two deployment options for GitHub Enterprise? `GitHub Enterprise Cloud and GitHub Enterprise Server`
+- [x] What are the two main reasons why one might fork a repository? `to propose changes to the base repository`
+- [x] What are the two types of gists you can create on GitHub? `Public and Secret`
+- [x] What are three benefits of using a decentralized version control system (DVCS) like Git? `Allows for local commits, reducing reliance on a central server. AND Offers robust tools for branching and merging. AND Enables collaboration by allowing multiple users to work on a project simultaneously.`
+- [x] What are three benefits of using a decentralized version control system (DVCS) like Git? `Enables collaboration by allowing multiple users to work on a project simultaneously. AND Allows for local commits, reducing reliance on a central server. AND Offers robust tools for branching and merging.`
+- [x] What are three ways you can clone a repo in Github? `GitHub CLI AND HTTPS AND SSH`
+- [x] What are two recommended ways of improving the discoverability of a repository? `Add topics to classify the repository.`
+- [x] What are two ways you can collect payments via GitHub Sponsors? `Through Patreon e Through GitHub.com`
+- [x] What authentication method does GitHub strongly recommend avoiding when dealing with highly sensitive information? `Username and password`
+- [x] What authentication method is required before running GitHub CLI commands to manage projects via the GraphQL API? `Token authentication`
+- [x] What benefits do GitHub actions bring to open-source projects? `Provides packaged scripts for automating tasks in a software development workflow`.
+- [x] What best describes a GitHub Repo? `A collection of files and folders stored on GitHub`.
+- [x] What best describes Git vs GitHub? `Git is a version control system, while GitHub is a cloud-based hosting service for Git repositories`
+- [x] What best describes GitHub Copilot? It is GitHub's `AI-powered code completion tool`
+- [x] What best describes GitHub Flow? `A collaborative workflow that centers around creating branches for new features, code reviews, and pull requests.`
+- [x] What best describes GitHub Flow? `A collaborative workflow that centers around creating branches for new features, code reviews, and pull requests.`
+- [x] What best describes GitHub Projects? `A task management tool to plan and track work, using cards and columns
+- [x] What best describes GitHub's open-source mission? `To foster innovation and collaboration in software development through the support of open-source projects.`
+- [x] What best describes Markdown? `markup language`
+- [x] What best describes open source? `Software with its source code made available to the public for use, modification, and distribution`
+- [x] What best describes open source? `Software with its source code made available to the public for use, modification, and distribution`
+- [x] What best describes source code that is made freely available for commercial or public use under a specific set of terms and conditions outlined by a license? `Open Source Software`
+- [x] What best describes the difference between Git and GitHub? `Git is a distributed version control system, while GitHub is a cloud-based hosting service that lets you manage Git repositories.`
+- [x] What best describes the difference between Git and GitHub? `Git is a distributed version control system, while GitHub is a cloud-based hosting service that lets you manage Git repositories.`
+- [x] What best describes the differences between GitHub.com, GitHub Desktop, and GitHub Mobile? `GitHub.com is a web-based Git repository hosting service AND GitHub Desktop is a GUI client for Git AND  GitHub Mobile allows repository management on mobile devices.`
+- [x] What best describes the differences between GitHub.com, GitHub Desktop, and GitHub Mobile? `GitHub.com is a web-based Git repository hosting service, GitHub Desktop is a GUI client for Git, GitHub Mobile allows repository management on mobile devices.`
+- [x] What best describes the GitHub Marketplace and its purpose? `It's a digital storefront for applications and actions that extend GitHub functionality.`
+- [x] What best describes the use-case for Enterprise Managed Users (EMUs)? `To create and manage GitHub users and organizations automatically using API`
+- [x] What best describes the use-case for Personal Access Tokens (PATs) in GitHub? `Is a replacement for password authentication when using the GitHub API or Git over HTTPS.`
+- [x] What can you do to make a repository more discoverable? Use descriptive README.md files. `Add relevant topics`.
+- [x] What can you do with GitHub Discussions? `You can create an issue out of it`.
+- [x] What command is used to create a new repository using GitHub CLI? `gh repo create`
+- [x] What configuration options can you set when you Launch a Github Codespace? `Choose the geographical location of the codespace's hosted server AND Set up specific packages and tools for the codespace AND Customize the color theme of the codespace's editor AND Define environment variables for the codespace`
+- [x] What configuration options can you set when you Launch a Github Codespace? `Set up specific packages and tools for the codespace AND Customize the color theme of the codespace's editor AND Define environment variables for the codespace AND Choose the geographical location of the codespace's hosted server`
+- [x] What customization can you do for codespaces? `Change the shell, Change the virtual machine, Change the name, Change the IDE`.
+- [x] What distinguishes Fine-Grained Personal Access Tokens from Personal Access Tokens (Classic) in GitHub? `Fine-Grained Tokens expire, while Personal Access Tokens (Classic) are allowed to live forever`.
+- [x] What distinguishes GitHub Copilot for Business from GitHub Copilot for Individuals? `GitHub Copilot for Business is designed for enterprise-scale deployment and administrative controls, whereas GitHub Copilot for Individuals is for personal use.`
+- [x] What distinguishes GitHub Pro accounts from GitHub Free accounts for personal use? `GitHub Pro has more GitHub Actions minutes, while GitHub Free has fewer GitHub Actions minutes`.
+- [x] What distinguishes internal repositories from other repositories on GitHub? `Internal repositories are accessible to all enterprise members`.
+- [x] What do topics do for a Github Repo? `They help users discover your repository by labeling it with subject matter keywords`
+- [x] What does a "Draft pull request" status indicate? `The pull request cannot be merged`
+- [x] What does a CODEOWNERS file do in a repository? `sets the reviewers for pull requests automatically`
+- [x] What does Dependabot alerts do? `They notify you about outdated dependencies in your repository`
+- [x] What does git status do in Git? `Shows the state of the working tree and staging area.`
+- [x] What does GitHub Enterprise Server offer for deployment protection rules in private or internal repositories? `GitHub Actions`
+- [x] What does GitHub's secret scanning feature do? `It looks for known secrets or credentials committed within the repository`.
+- [x] What does pinning a GitHub issue do? `It keeps the issue at the top of the issue list for increased visibility`.
+- [x] What does starring a GitHub in a repo do? `It bookmarks the repository for easy access later`
+- [x] What does starring a GitHub in a repo do? `It bookmarks the repository for easy access later`
+- [x] What does the 'base' branch in a pull request represent? `The branch into which the changes will be merged.`
+- [x] What does the 'base' branch in a pull request represent? `The branch into which the changes will be merged.`
+- [x] What does the "approve" review option do to a GitHub Pull Request? `Signals the reviewer's agreement and satisfaction with the changes, allowing for merging if all policies are met`
+- [x] What does the "Squash and merge" option do when merging a pull request? It combines all commits into one, helping keep the repository history readable.`
+- [x] What does the concept of "shifting left" refer to in the context of secure development? `Integrating security measures earlier in the development lifecycle.`
+- [x] What does the error Remote HEAD refers to nonexistent ref, unable to checkout indicate? `Deleted default branch on GitHub`
+- [x] What does the git add command do? `Starts tracking changes in certain files`.
+- [x] What does the github.dev editor use to carry out most of its functionality? `GitHub Repositories extension`
+- [x] What does the on: attribute do in a GitHub Actions workflow file? `It specifies the events that trigger the workflow`
+- [x] What does the search qualifier "review-requested:[USERNAME]" allow you to find? `Pull requests where the specified user is requested for review`.
+- [x] What does the term "base branch" refer to in a GitHub repository? `The primary branch where all the changes eventually merge.`
+- [x] What feature allows users to build hierarchies of issues and create new relationships between them? `Tasklists`
+- [x] What feature does GitHub Mobile offer to manage workflow on the go? `Managing notifications and collaborating on issues and pull requests.`
+- [x] What feature does GitHub Mobile offer to manage workflow on the go? `Managing notifications and collaborating on issues and pull requests.`
+- [x] What feature does the Markdown syntax - [x] represent in GitHub? `An unchecked checkbox in a task list.`
+- [x] What feature does the Markdown syntax - [x] represent in GitHub? `An unchecked checkbox in a task list.`
+- [x] What feature in GitHub allows you to manage and track how many people have access to your repository and their permission levels? `Collaborators & Teams section in repository settings`
+- [x] What feature of GitHub allows repository maintainers to privately discuss and fix security vulnerabilities? `GitHub Security Advisories`.
+- [x] What feature of GitHub Discussions allows community members to gauge interest in new ideas and project direction? Labels
+- [x] What features are available in GitHub Copilot Business that are not in GitHub Copilot Individual? `VPN, HTTP Proxy with custom certificates and Organization or enterprise accounts and Organization-wide policy management.`
+- [x] What features are expected in GitHub Copilot X? `A chat interface to the editor adopting OpenAI's newest GPT-4 models.`
+- [x] What features are offered by Copilot for Business that are not offered by Copilot for Individuals? `support for organization or enterprise GitHub accounts AND organization-wide policy management AND blocks suggestions matching public code`
+- [x] What features can you enable on a GitHub repo? `Actions, Pages, Projects, Discussions, Wiki`
+- [x] What field can you use in order to make a Priority grouping like High, Medium, and Low in your Project? `Single select`
+- [x] What folder is the definition files stored in when creating custom issue forms? `O.github/ISSUE_TEMPLATE`
+- [x] What GitHub features allows users use products or features that are available in beta? `GitHub Feature Preview`
+- [x] What GitHub features allows users use products or features that are available in beta? `GitHub Feature Preview`
+- [x] What happens if a GitHub Pages deployment takes longer than 10 minutes? `The deployment fails.`
+- [x] What happens if a poll is edited after some votes have been cast? `The votes are reset, and users need to vote again.`
+- [x] What happens if a workflow tries to use a reusable workflow from a repository that has changed its name? `The workflow will fail because redirects are not supported.`
+- [x] What happens if Lois places the README file in the root directory of her repository and also in the .github directory? `Only the README file in the .github directory will be shown`. 
+- [x] What happens if someone discovers the URL of a secret gist on GitHub? `They can view the gist regardless of the author's permissions`.
+- [x] What happens if you delete a branch after its pull request has been merged into the main branch? `GitHub automatically updates pull requests targeting the deleted branch.`
+- [x] What happens regarding code owner review when a pull request is marked as a draft? `Code owners are not automatically requested to review the draft pull request`.
+- [x] What happens to a repository's permissions when it is archived on GitHub? `Permissions become read-only.`
+- [x] What happens to draft pull requests in terms of merging? `They cannot be merged`.
+- [x] What happens to the content of a wiki when you turn it off? `The content is hidden but can be restored later.`
+- [x] What happens when an issue or pull request is closed in a GitHub Project with default workflows enabled? `The status of the item is set to "Done".`
+- [x] What happens when an organization requires the use of two-factor authentication (2FA) for its members? `Accounts that do not use 2FA will be removed from the organization and lose access to its repositories.`
+- [x] What happens when Codespace loses internet connectivity? `If the connection to the internet is lost while working in a Codespace, you aren't able to access your Codespace.`
+- [x] What happens when Peter enables an auto-add workflow in GitHub for an existing project board? `The workflow will not add existing items to the project board, but it will add new items that meet the filter criteria`.
+- [x] What happens when you archive a repository on GitHub? `It becomes read-only for all users and indicates that it's no longer actively maintained.`
+- [x] What happens when you delete a Codespace with unpushed git commits? `A warning notifies you of unpushed changes, allowing you to push changes before deletion.`
+- [x] What happens when you delete a forked repository on GitHub? `The forked repository is permanently deleted with no option for restoration.`
+- [x] What information can you see on a user profile on GitHub? `You can view repositories you own or contribute to, as well as repositories you've starred and organized into lists and You can see the profile photo, bio, and interests you have that other people may like to know about.`
+- [x] What is a "commit" in the context of version control? `A saved snapshot of the project's state at a specific point in time`.
+- [x] What is a benefit of using GitHub Enterprise Cloud with Enterprise Managed Users (EMU)? `It provides centralized control and streamlined management of user accounts through their identity provider (IdP).`
+- [x] What is a commit with respect to a pull request? `Commits can be made at any time before or after the pull request is created`.
+- [x] What is a distinguishing feature of GitHub Codespaces compared to github.dev? `GitHub Codespaces provides access to a dedicated virtual machine for running and debugging code.`
+- [x] What is a fork in the context of GitHub repositories? `A new repository that shares code and visibility settings with the original repository`.
+- [x] What is a function you can execute on GitHub Mobile? `Manage, triage, and clear notifications from github.com`.
+- [x] What is a gist? `git repository`
+- [x] What is a Github Project Template? `It's a pre-built layout for organizing and managing tasks in a GitHub Project`
+- [x] What is a Github Project Template? `It's a pre-built layout for organizing and managing tasks in a GitHub Project` 
+- [x] What is a job in the context of GitHub Actions? `A set of steps that are executed sequentially`.
+- [x] What is a key characteristic of draft pull requests in GitHub? `They cannot be merged until they are converted to regular pull requests.`
+- [x] What is a key feature available in GitHub Enterprise but not in GitHub Team? `GitHub Enterprise Support`
+- [x] What is a recommended course of action when your code can be reused across multiple projects? `Publish the code as a stand-alone library (dependency).`
+- [x] What is a recommended way to stay in touch with organizations and enterprises on GitHub? `By following them on GitHub`.
+- [x] What is a security policy in GitHub? `Define guidelines for reporting security vulnerabilities`.
+- [x] What is GitHub API primarily used for? `Automating common tasks and creating integrations.`
+- [x] What is GitHub Codespaces? `A cloud-based development environment`.
+- [x] What is GitHub Copilot? `GitHub Copilot is an AI pair programmer that you can use to get code suggestions`.
+- [x] What is GitHub Marketplace primarily used for? `Sharing GitHub Actions and Apps`
+- [x] What is GitHub primarily based on? `Distributed version control system`.
+- [x] What is GitHub primarily used for? `Collaborating on work`.
+- [x] What is GitHub Sponsors? `A program that financially supports open source contributors`
+- [x] What is GitHub? `a cloud-based hosting service for version control and collaboration, focused on creating a safe and collaborative environment for developers`
+- [x] What is GitHub? `A web-based platform for hosting Git repositories`. 
+- [x] What is InnerSource? `A strategy that applies open source practices to proprietary code to enhance collaboration.`
+- [x] What is InnerSource? `Sharing of source code within the organization`.
+- [x] What is Markdown in GitHub? `A lightweight markup language`.
+- [x] What is Markdown primarily used for on GitHub? `For writing formatted text in issues, pull requests, and files like READMEs.`
+- [x] What is needed before you can create a pull request on GitHub? `Fork a repo, clone it, commit changes, and push to your fork.`
+- [x] What is not a valid reason to create a pull request? `into main due to upstream changes made since you created it. Creating a pull request lets the other contributor know they need to pull their changes out so you can put yours in.`
+- [x] What is the advantage of using a wiki alongside a README file for a GitHub repository? `README files quickly tell what a project can do, while wikis can provide additional long-form detailed documentation`.
+- [x] What is the advantage of using relative links in README files? `They ensure that links work regardless of the current branch`.
+- [x] What is the default operating system for a codespace development environment? `Ubuntu Linux`
+- [x] What is the difference between a draft issue and a draft in Github Projects? `Draft issues are saved but not yet published forms of issue, while drafts in Github Projects are saved but not yet published project boards.`
+- [x] What is the difference between a GitHub Issue and a Pull Request? `Issues are used for reporting bugs or suggesting enhancements, while Pull Requests are proposals to merge code changes into a repository.`
+- [x] What is the difference between a GitHub Issue and a Pull Request? `Issues are used for reporting bugs or suggesting enhancements, while Pull Requests are proposals to merge code changes into a repository.`
+- [x] What is the difference between a GitHub Issues Template and a Github Pull Request Template? `A GitHub Issues Template guides the creation of new issues, and a Pull Request Template guides the creation of new pull requests.`
+- [x] What is the difference between an organization member and an outside collaborator? `Outside collaborators do not consume paid licenses.`
+- [x] What is the difference between GitHub Codespaces and Github.dev? `GitHub Codespaces provides a complete, configurable, and collaborative development environment in the cloud, while Github.dev is a lightweight, instant code editor available directly in the browser from any repository.`
+- [x] What is the difference between GitHub Codespaces and Github.dev? `GitHub Codespaces provides a complete, configurable, and collaborative development environment in the cloud, while Github.dev is a lightweight, instant code editor available directly in the browser from any repository.`
+- [x] What is the difference between GitHub Copilot Business and GitHub Copilot Enterprise? `GitHub Copilot Enterprise has an extra layer of personalization, with organization utilizing their own codebase to train GitHub Copilot.`
+- [x] What is the difference between GitHub Desktop and the GitHub UI? `GitHub Desktop is a standalone desktop application`.
+- [x] What is the difference between GitHub Projects and GitHub Projects Classic? `GitHub Projects use a board layout while Projects Classic uses a list layout`
+- [x] What is the difference between GitHub Projects and GitHub Projects Classic? `GitHub Projects use a board layout while Projects Classic uses a list layout`
+- [x] What is the difference between InnerSource vs OpenSource? `OpenSource involves building open software within a closed team while InnerSource involves using open source practices within an organizations`
+- [x] What is the difference between InnerSource vs OpenSource? `OpenSource involves building open software within a closed team while InnerSource involves using open source practices within an organizations` 
+- [x] What is the difference between pinning and starring for a GitHub Repo? `Pinning is for public display on your profile, starring is for private tracking of repositories you find interesting.`
+- [x] What is the easiest way to add automation to your Project? `Built-in Automation`
+- [x] What is the first step in ensuring secure software development in an enterprise? `Configuring authentication using tools available with the identity provider (IdP).`
+- [x] What is the GitHub flow? `A lightweight workflow for safe experimentation using branching, pull requests, and merging`.
+- [x] What is the key difference between 'Projects' and 'Projects Classic' on GitHub? `'Projects' provides enhanced project management features and customization, while 'Projects Classic' has a simpler, card-based board.`
+- [x] What is the key difference between GitHub Enterprise Server (GHES) and GitHub Enterprise Cloud? `GHES is a self-hosted solution, providing control over infrastructure, while GitHub Enterprise Cloud is hosted by GitHub.`
+- [x] What is the lifecycle of a GitHub Codespace when it remains inactive over time? `If a GitHub Codespace remains inactive, it gets suspended. Your data is preserved, and the environment can be reconnected later, as long as this occurs within 30 days of inactivity. After 30 days without activity, the codespace will be automatically deleted.`
+- [x] What is the lifecycle of a GitHub Codespace? `Creation, Active Use, Suspension, and Deletion.`
+- [x] What is the main advantage of a Distributed Version Control System (DVCS) like Git over centralized systems? `Local and offline access to the complete project history`.
+- [x] What is the main difference between forking a repository and creating a repository from a template on GitHub? `Forking includes the entire commit history of the parent repository, while creating from a template starts with a single commit`.
+- [x] What is the main difference between InnerSource and open source? `InnerSource is about private collaboration within an organization, while open source involves public collaboration.`
+- [x] What is the main difference between InnerSource and open source? `InnerSource is about private collaboration within an organization, while open source involves public collaboration.`
+- [x] What is the main feature of the Roadmap layout for GitHub Projects? `It enables a Gannt chart view to visualize and plan tasks and deadlines in a timeline`
+- [x] What is the main feature of the Roadmap layout for GitHub Projects? `It enables a Gannt chart view to visualize and plan tasks and deadlines in a timeline`
+- [x] What is the maximum number of Codespaces that you can create per repository or branch? `You can create an unlimited number of Codespaces`.
+- [x] What is the maximum number of members allowed in a GitHub team when using team synchronization? `5.000`
+- [x] What is the maximum number of options that can be added to a poll in GitHub Discussions? `Eight`
+- [x] What is the maximum number of reusable workflows that can be called from a single workflow file? `20`
+- [x] What is the maximum size allowed for files added to a repository via a browser? `25 MiB`
+- [x] What is the minimum access needed to contribute to a repository? `write`
+- [x] What is the minimum permission required to contribute to a GitHub repository? `Write`
+- [x] What is the name of the most recent commit on the current Git branch? `HEAD`
+- [x] What is the name of the section where you can edit the section where you change the visibility of your Project and delete or close your Project? `Danger Zone`
+- [x] What is the primary advantage of using the github.dev editor over GitHub Codespaces? `Faster startup time`.
+- [x] What is the primary benefit of GitHub Projects? `Organizing and managing team tasks and priorities.`
+- [x] What is the primary benefit of reusing workflows in GitHub Actions? `Avoiding duplication and promoting best practices`.
+- [x] What is the primary benefit of using code scanning in a GitHub repository? `To analyze and find security vulnerabilities and errors in the code.`
+- [x] What is the primary benefit of using saved replies in GitHub? `To store common responses to issues and pull requests, saving time and maintaining consistency.`
+- [x] What is the primary benefit of using saved replies in GitHub? `To store common responses to issues and pull requests, saving time and maintaining consistency.`
+- [x] What is the primary difference between InnerSource and open source? `InnerSource is about private collaboration within an organization, while open source involves public collaboration.`
+- [x] What is the primary difference between milestones and labels in GitHub? `Milestones are project-specific and can be used to view details about progress, while labels are applied to individual issues or pull requests for categorization.`
+- [x] What is the primary difference between milestones and labels in GitHub? `Milestones are used to track project progress and completion, while labels are used to categorize issues and pull requests based on their attributes.`
+- [x] What is the primary difference between the calculation of file differences on compare pages and pull request pages in GitHub? `Compare pages show the diff between the tip of the head ref and the current common ancestor of the head and base ref, while pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created.`
+- [x] What is the primary function of the CONTRIBUTING file in a repository? `To offer guidelines on how to contribute to the project.`
+- [x] What is the primary purpose of a pull request on GitHub? `To request that your code changes be reviewed and merged into another branch.`
+- [x] What is the primary purpose of branch protections in a GitHub repository? `To restrict branch deletion and enforce certain workflows, such as requiring pull request reviews before merging.`
+- [x] What is the primary purpose of branch protections in a GitHub repository? `To restrict branch deletion and enforce certain workflows, such as requiring pull request reviews before merging.`
+- [x] What is the primary purpose of creating a new branch in the GitHub flow? `to experiment with new features or fixes`
+- [x] What is the primary purpose of creating a security policy in a repository? `to describe how security vulnerabilities should be responsibly disclosed`
+- [x] What is the primary purpose of enabling Two-Factor Authentication (2FA) for your GitHub account? `To provide an extra layer of security by requiring a second form of verification besides your password.`
+- [x] What is the primary purpose of enabling Two-Factor Authentication (2FA) for your GitHub account? `To provide an extra layer of security by requiring a second form of verification besides your password.`
+- [x] What is the primary purpose of GitHub Actions? `Automating build, test, and deployment pipelines`.
+- [x] What is the primary purpose of GitHub Actions? `To automate, customize, and execute your software development workflows directly in your GitHub repository.`
+- [x] What is the primary purpose of GitHub Copilot? `Code suggestion and generation`
+- [x] What is the primary purpose of GitHub Marketplace? `To list free and paid tools for developers`.
+- [x] What is the primary purpose of GitHub Projects? `To create an adaptable tool for planning and tracking work`.
+- [x] What is the primary purpose of GitHub Projects? `To offer a project management tool that organizes tasks, issues, and pull requests.`
+- [x] What is the primary purpose of milestones in GitHub? `To track progress on groups of issues or pull requests.`
+- [x] What is the primary purpose of the 'Insights' tab in a GitHub repository? `To show statistics and metrics about the repository's usage, such as traffic, contributions, and code frequency.`
+- [x] What is the primary purpose of the 'Insights' tab in a GitHub repository? `To show statistics and metrics about the repository's usage, such as traffic, contributions, and code frequency.` 
+- [x] What is the primary purpose of the "https://github.com/watching" page on GitHub? `To manage and configure notification settings for repositories a user is watching.`
+- [x] What is the primary purpose of the github.dev editor? `It provides a lightweight, web-based editor for quick edits and previews of code in your repository.`
+- [x] What is the primary purpose of the github.dev editor? `It provides a lightweight, web-based editor for quick edits and previews of code in your repository.`
+- [x] What is the primary purpose of version control systems like Git? `To track changes in files and coordinate work among multiple people.`
+- [x] What is the process for deleting a file that was added in the most recent unpushed commit? `$ git rm --cached <FILE-NAME> AND $ git commit --amend -CHEAD`
+- [x] What is the purpose of a "branch" in version control? `To isolate and work on a specific set of changes without affecting the main code`.
+- [x] What is the purpose of a "remote" in Git? `A reference to another Git repository.`
+- [x] What is the purpose of a GitHub gist? `To host and share small pieces of code or text snippets.`
+- [x] What is the purpose of a GitHub Repository Template? `To serve as a boilerplate for setting up new repositories`
+- [x] What is the purpose of a GitHub Team? `A team is intended to reflect a company or group's structure. It's used to provide cascading access permissions and make it easy to notify all team members via mentions.`
+- [x] What is the purpose of a pull request in an open-source project? `To propose changes to the project`.
+- [x] What is the purpose of Enterprise Managed Users on GitHub Enterprise Cloud? `To centrally manage identity and access for enterprise members from an external identity provider.`
+- [x] What is the purpose of forking a repository on GitHub? `To experiment with changes before proposing them to the original repository.`
+- [x] What is the purpose of GitHub Sponsors? `It allows the developer community to financially support open source projects.`
+- [x] What is the purpose of github.dev? `A lightweight web-based editor`
+- [x] What is the purpose of issue and pull request templates on GitHub? `To customize and standardize the information required from contributors when opening issues and pull requests`.
+- [x] What is the purpose of linking a pull request to an issue? `To show that someone is working on the issue.`
+- [x] What is the purpose of personal access tokens (PATs) in GitHub? `To authenticate to GitHub API or command line`.
+- [x] What is the purpose of SAML SSO in GitHub organization management? `To allow users to sign in to all their applications with one set of credentials`.
+- [x] What is the purpose of slash commands on GitHub? `To reduce typing required for complex Markdown`.
+- [x] What is the purpose of the .gitignore file in a repository? `To exclude specific files or directories from being tracked by Git.`
+- [x] What is the purpose of the "Share a deep link" option in GitHub Codespaces? `To share the link to the codespace creation page with specific configuration options`.
+- [x] What is the purpose of the /tasklist slash command in GitHub? `It inserts a checklist of tasks into an issue description, allowing contributors to mark them as complete.`
+- [x] What is the purpose of the actions/add-to-project workflow? `It automates the process of adding issues and pull requests to projects`.
+- [x] What is the purpose of the addProjectV2ItemById mutation in the GitHub GraphQL API? `To add an issue or pull request to a project`.
+- [x] What is the purpose of the CODEOWNERS file? `To assign automatic review requests to certain team members when changes are made to parts of the codebase`
+- [x] What is the purpose of the CODEOWNERS file? `To assign automatic review requests to certain team members when changes are made to parts of the codebase`
+- [x] What is the purpose of the CONTRIBUTING file in a GitHub repo? `It outlines instructions and guidelines for contributing to the project`
+- [x] What is the purpose of the git add command in the context of committing changes? `It stages changes to be included in the next commit.`
+- [x] What is the purpose of the git pull command in Git? `Updates the local line of development with remote updates`.
+- [x] What is the purpose of the good first issue label in GitHub repositories? `To identify issues suitable for first-time contributors.`
+- [x] What is the purpose of the LICENSE file in a repository? `To describe the terms under which the code can be used, modified, and shared.`
+- [x] What is the purpose of the Pulse feature on GitHub? `To view a summary of a repository's pull request, issue, and commit activity`.
+- [x] What is the purpose of the Security tab on GitHub? `To provide security advisories and code scanning.`
+- [x] What is the recommended approach for measuring the success of an InnerSource program? `Tracking the number of external contributors and their contributions.`
+- [x] What is the recommended character limit for the subject line of a Git commit message? `50 characters`
+- [x] What is the recommended ideal size for repositories to ensure better performance and ease of maintenance? `Less than 1 GiB`.
+- [x] What is the recommended limit for GitHub Pages source repositories? `1 GB`
+- [x] What is the significance of adding labels to a pull request? `To provide visual clues for the purpose of the pull request and It categorizes the nature of the changes being proposed`.
+- [x] What is the significance of creating a draft pull request? `It allows contributors to ask for guidance or help without signaling completion`.
+- [x] What is the significance of maintaining multiple `.gitignore` files in a repository? `It allows for more granular control over which files are ignored in different directories`.
+- [x] What is the use-case for Milestones on GitHub? `To group together issues and pull requests for specific features or phases of work`
+- [x] What is the use-case for using labels in GitHub? `To category and filter issues and pull requests`
+- [x] What is the use-case for using saved replies in Github? `To pre-load common responses for issues and pull request reviews w To quickly reply to common questions or recurring themes in your repositories`
+- [x] What is true about forking and cloning gists on GitHub? `Both forking and cloning gists are possible, even if you aren't the original author`.
+- [x] What is true about the wiki of a private repository? `Only people with access to the repository can access the wiki`.
+- [x] What keyboard hotkey will instantly open up GitHub.dev Editor in a GitHub Repo? `. (Period)`
+- [x] What label does a maintainer use to indicate that they require assistance with an issue or pull request? `help wanted`
+- [x] What language is used to format Pull Request templates on GitHub? `Markdown`
+- [x] What layouts are available for GitHub Projects? `Table, RoadMap, Board`
+- [x] What level of repository permission is suitable for contributors who need to actively push changes to your repository? `write`
+- [x] What option allows a contributor to receive notifications only for events they select in a pull request? `Custom`
+- [x] What option allows the provisioning and management of user accounts for developers in GitHub Enterprise Cloud? `Enterprise Managed Users`
+- [x] What option do we have for GitHub Repo visibility? `Public, Internal, Private`
+- [x] What options are available for merging a pull request? `Create a merge commit, Squash and merge, and Rebase and merge.`
+- [x] What permissions are required to enable team synchronization with Microsoft Entra ID? `Read all users’ full profiles`
+- [x] What Project descriptor will automatically save when you change it? `Project name`
+- [x] What project management feature in GitHub can simply track the amount of open and closed tasks for a specific goal? `GitHub Milestones`
+- [x] What project management feature in GitHub can simply track the amount of open and closed tasks for a specific goal? `GitHub Milestones`
+- [x] What qualifier finds issues that mention a certain user? `mentions:`
+- [x] What role do open source workflow practices play in InnerSource adoption? `They facilitate collaboration, visibility, and code reuse`.
+- [x] What sets Projects apart from Projects Classic in GitHub? `Projects offer more views with advanced customization and automation and Insights is available for new Projects`.
+- [x] What should be done to locate an existing action that was provided by a GitHub-approved vendor? `Confirm that the action has a verification badge.`
+- [x] What should Lois do if the "." key doesn't work to open github.dev according to his local keyboard layout? `Change the URL from "github.com" to "github.dev"`
+- [x] What should you avoid doing if you create a new repository under your account in the future after renaming a repository? `Reuse the original name of the renamed repository`
+- [x] What should you do if you encounter the error "Repository not found" when cloning a repository? `All of the above`.
+- [x] What should you do to configure different notification settings for different repositories you are participating in? `Use the 'Watch' button on each repository's page to customize your level of notifications.`
+- [x] What should you do to configure different notification settings for different repositories you are participating in? `Use the 'Watch' button on each repository's page to customize your level of notifications.`
+- [x] What tool can automatically create pull requests to update dependencies flagged as vulnerable? `Dependabot`
+- [x] What tool can be used to remove files from a repository's history if they were added in earlier commits? `BFG Repo-Cleaner or git filter-repo command`
+- [x] What two-factor authentication method supports the secure backup of your authentication codes in the cloud? `Time-based One-time Password (TOTP)`
+- [x] What type of window should Stewie use in his browser to open github.dev if he's experiencing issues? `Non-incognito window`
+- [x] What warning does Git provide if you attempt to add or update a file larger than 50 MiB to a repository? `It displays a warning but allows the changes to be successfully pushed.`
+- [x] What would be considered a practice of Inner Source? `Encouraging cross-team collaboration on projects within the organization AND Adopting a code review process before merging changes internally AND Using open source practices within an organization's boundaries.`
+- [x] What would be considered a practice of Open Source? `Making the source code available to the public AND Allowing anyone to modify the source code AND Publishing the software under an open source license`
+- [x] What would be considered a practice of Open Source? `Publishing the software under an open source license AND Making the source code available to the public AND Allowing anyone to modify the source code`
+- [x] What's the best reason to decide to upgrade to the GitHub Enterprise product? `Because you want to centrally manage users and repositories across multiple organizations.`
+- [x] When can you get rid of a branch after finishing your work? `After your pull request has been merged.`
+- [x] When creating a repo, what is the scope for the uniqueness of the repo name? `Unique within the creator's account`
+- [x] When creating private Gists on GitHub, in which way are they not completely secure? `They can be accessed by anyone who has the URL.`
+- [x] When exploring files in a GitHub repo what hotkey can be quickly used to focus the search box to search through files? `T`
+- [x] When exploring files in a GitHub repo what hotkey can be quickly used to focus the search box to search through files? `T`
+- [x] When exploring files in a GitHub repo what hotkey can be quickly used to focus the search box to search through files? `The README in the .github directory.`
+- [x] When is forking recommended in the context of repositories? `For accepting contributions from unaffiliated contributors`.
+- [x] When is the dependency graph automatically updated? `When a change is pushed to the default branch affecting manifest or lock files.`
+- [x] When might you be automatically subscribed to conversations on GitHub? `When commenting on a thread`.
+- [x] When should you use a Pull Request template in GitHub? `When you want to provide a structured format for contributors to submit proposed changes`
+- [x] When should you use a Pull Request template in GitHub? `When you want to provide a structured format for contributors to submit proposed changes`
+- [x] When should you use GitHub Codespaces over GitHub.dev? `Use GitHub Codespaces for heavy lifting, testing code, and terminal access`.
+- [x] When using GitHub's advanced search, which of the following syntax options correctly searches an organization for pull requests that contain information about payments? `org:organization_name is:pr payments`
+- [x] When using Organizations, GitHub Teams is better than GitHub Free because it offers: `authentication with SAML single sign-on and increased GitHub Actions minutes.`
+- [x] Where are GitHub workspace files stored in your GitHub Repo? `Under the ./.github/workflows directory`
+- [x] Where are GitHub workspace files stored in your GitHub Repo? `Under the ./.github/workflows directory`
+- [x] Where are issue templates stored in a GitHub repository? `In a hidden .github/ISSUE_TEMPLATE directory on the default branch`
+- [x] Where can a repository admin view insights for a repository? `In the "Insights" tab`.
+- [x] Where can you define the actions you use in your workflow? `Any public repository, A published Docker container image on Docker Hub and The same repository as your workflow file`.
+- [x] Where can you find the option to enable two-factor authentication (2FA) in GitHub? `In the "Access" section under "Password and authentication" in the user "Settings"`.
+- [x] Where can you find trending apps? `GitHub Marketplace`
+- [x] Where can you go to discover, browse, and install tools? `GitHub Marketplace`
+- [x] Where do topics appear once added to a repository? `On the main page of the repository.`
+- [x] Where is the best place to communicate your intent to contribute to an existing open-source project? `Issue tracker`
+- [x] Where should a repository admin navigate to view pre-built visualizations from repository data? `Insights`
+- [x] Which authentication method is available with GitHub Enterprise for single sign-on (SSO)? `SAML`
+- [x] Which code review option for GitHub Pull Requests will require the Pull Requester to make changes? `Request Changes`
+- [x] Which command is used to create an issue with GitHub CLI? `gh issue create`
+- [x] Which configuration layout options for GitHub Project is only for Roadmaps? `Dates AND Zoom Level `
+- [x] Which deployment option provides 50,000 GitHub Actions minutes per month and 50 GB GitHub Packages storage? `GitHub Enterprise Cloud`
+- [x] Which feature in Git allows you to develop new features, fix bugs, or safely experiment with new ideas in isolated environments within the same repository? `Git Branch`
+- [x] Which feature in Git allows you to develop new features, fix bugs, or safely experiment with new ideas in isolated environments within the same repository? `Git Branch`
+- [x] Which feature in the 'Security' tab of a GitHub repository can help you identify and fix vulnerabilities in your dependencies? `Dependabot alerts.`
+- [x] Which feature is NOT available in the github.dev editor compared to GitHub Codespaces? `Terminal access AND Dedicated VM for running and debugging applications`
+- [x] Which features can you use to improve your workflow in GitHub Projects? `Labels for categorizing and filtering tasks. AND Custom fields for adding unique information to each task. `
+- [x] Which file format are used for Saved Replies? `Markdown`
+- [x] Which file format are used for Saved Replies? `Markdown`
+- [x] Which file is used to configure the developer environment such as programs installed or base docker image for GitHub Codespaces? `.devcontainer/devcontainer.json`
+- [x] Which filters for issues that do not require advanced syntax can you use on GitHub? `Everything mentioning you AND Your Issues AND Everything assigned to you`
+- [x] Which format of GitHub Discussions allows you to select a best answer? `Q&A Format`
+- [x] Which Git command allows you to check out and create a new branch simultaneously? `git checkout -b new-branch`
+- [x] Which Git command is used to create a local copy of a remote project? `git clone`
+- [x] Which git command is used to push a new local branch to the remote repository and set it to track the remote branch automatically? `git push -u origin new-branch`
+- [x] Which GitHub cloning method requires the use of a Personal Access Token? `HTTPS, GitHub CLI, API`
+- [x] Which GitHub feature allows users to propose modifications, fixes, or new features to a repository for review and potential merge into the main codebase? `Pull Requests`
+- [x] Which GitHub feature enforces pull requests to be reviewed before being merged? `Required Reviewers`
+- [x] Which GitHub feature helps identify underutilized features within an enterprise? `GitHub Insights`
+- [x] Which GitHub organization plan does NOT provide draft pull requests on private repos? `Free`
+- [x] Which GitHub personal plan offers Dependabot alerts? `GitHub Pro AND GitHub Free`
+- [x] Which GitHub personal plan offers Dependabot alerts? `GitHub Pro e GitHub Free`
+- [x] Which GitHub product is available for personal accounts? `GitHub Free`
+- [x] Which GitHub repo features are available in a public repo for an Organization with a free plan? `Access to GitHub Pages, GitHub Actions with limited minutes, Unlimited collaborators.`
+- [x] Which GitHub repo features are available in a public repo for an Organization with a free plan? `Unlimited collaborators, Access to GitHub Pages, GitHub Actions with limited minutes`.
+- [x] Which GitHub Repository Insight provides a summary of activity, including a list of recent pull requests, and issues that have been opened and closed? `Pulse`
+- [x] Which GitHub service allows you to access GitHub on the go? GitHub Mobile`
+- [x] Which IDE's support GitHub Copilot? `Visual Studio Code AND GitHub Codespaces AND JetBrains IntelliJ IDEA`
+- [x] Which identity providers are supported for enabling team synchronization in GitHub? `Microsoft Entra ID, Okta`
+- [x] Which integrated development environments (IDEs) are supported by GitHub Copilot? `Visual Studio Code, Visual Studio, Vim, and JetBrains IDEs`
+- [x] Which is NOT a role for GitHub Organization collaborators? `Collaborator`
+- [x] Which keyword is used to reference a reusable workflow within a job? `uses`
+- [x] Which layout options are available in GitHub Projects? `Board, Roadmap, Table`
+- [x] Which light-weight version control workflow focusing on simplicity and effective use of branches and pull requests? `GitHub Flow`
+- [x] Which of the following accurately describes the different statuses of a pull request? `Closed,Draft, Merged`
+- [x] Which of the following accurately describes the events that can trigger workflows in GitHub Actions? `Workflows can be triggered by specific activity on GitHub, scheduled times, or events from external sources`.
+- [x] Which of the following actions can you perform with GitHub Pages? `Host a static website directly from a repository. AND Customize the site's appearance using themes.`
+- [x] Which of the following are actual push notifications that you can receive from GitHub Mobile? `Direct Mentions, 
+- [x] Which of the following are actual push notifications that you can receive from GitHub Mobile? `Direct Mentions, Review Requested abd Pull Request Review`
+- [x] Which of the following are advantages of saved replies? `Saved replies allow you to create a reusable response to issues and pull requests.`
+- [x] Which of the following are attributes that can be defined in a GitHub Actions workflow file? `steps AND on AND jobs`
+- [x] Which of the following are attributes that can be defined in a GitHub Actions workflow file? `Steps, Jobs, on.`
+- [x] Which of the following are available statuses of a pull request? `draft AND closed AND merged AND open`
+- [x] Which of the following are built-in workflows for GitHub Projects? `Auto-archive items, Code changes requested, Item added to project,Pull request merged e Item reopened `
+- [x] Which of the following are built-in workflows for GitHub Projects? `Code review approved AND Auto-add to project AND Item closed`
+- [x] Which of the following are features of a GitHub user profile? `Profile Readme AND Achievements AND Pinned repositories`
+- [x] Which of the following are features of the 'Conversations' tab in a pull request on GitHub? `Displaying a list of commits included in the pull request. AND Showing the status checks and continuous integration build results. AND Showing all comments and discussions related to the pull request.`
+- [x] Which of the following are features of the 'Conversations' tab in a pull request on GitHub? `Showing the status checks and continuous integration build results. AND Showing all comments and discussions related to the pull request. AND Displaying a list of commits included in the pull request.`
+- [x] Which of the following are general event types where you can use GitHub Actions within GitHub? `When a new issue is created in the repository. AND When a pull request is merged into the main branch.`
+- [x] Which of the following are general event types where you can use GitHub Actions within GitHub? `When a new issue is created in the repository. AND When a pull request is merged into the main branch.`
+- [x] Which of the following are included as pre-defined repository roles? `Write, Triage, Maintain`
+- [x] Which of the following are true about linking a pull request to an issue? `Linking a pull request to an issue can help provide context and automatically close the issue when the pull request is merged. AND Linking a pull request to an issue is achieved by mentioning the issue number in the pull request description.`
+- [x] Which of the following are two factor methods provided by GitHub? `Hardware token AND Google Authenticator AND SMS text message`
+- [x] Which of the following are two factor methods provided by GitHub? `SMS text message AND Hardware token AND Google Authenticator`
+- [x] Which of the following are valid Github Action triggers? `release AND issue_comment AND schedule`
+- [x] Which of the following are valid Github Action triggers? `release, issue_comment, schedule`
+- [x] Which of the following are valid keywords used in a pull request description to link it to an issue? `close, resolve and fix`.
+- [x] Which of the following authentication methods is considered the most secure way to authenticate with 2FA on GitHub Enterprise? `Security keys`
+- [x] Which of the following best describes a Codespace? `a development environment hosted in the cloud`
+- [x] Which of the following best describes cloning a repository? `It creates a copy of the repository on your local machine.`
+- [x] Which of the following best describes GitHub Copilot? `an Al pair programmer that offers autocomplete-style suggestions`
+- [x] Which of the following best describes GitHub Pages? `webpages hosted and published through GitHub repositories`
+- [x] Which of the following can be performed within GitHub Desktop? `adding and cloning repositories`
+- [x] Which of the following can be performed within GitHub Mobile? `managing notifications from github.com`
+- [x] Which of the following can help you create an AI-generated description for a pull request? `GitHub Copilot Enterprise`
+- [x] Which of the following can trigger a workflow in your GitHub repository? Choose FOUR correct answers. `Someone stars a repository and Comment on a discussion and Edit a pull request comment and Repository changes from private to public.`
+- [x] Which of the following describes a branch in Git? `a separate, isolated copy of the project’s codebase`
+- [x] Which of the following describes the primary states a file can be in within a Git repository? `Untracked and Tracked`
+- [x] Which of the following describes the state of a tracked file within a Git repository? `Modified, Staged`
+- [x] Which of the following events can trigger a workflow run in GitHub Actions? `All of the above`.
+- [x] Which of the following GitHub syntax formats is consistent with the associated text? `# This is a heading`
+- [x] Which of the following information is available by default in a user’s GitHub profile? `personal biography and profile picture`
+- [x] Which of the following is a collaboration feature provided by GitHub but not by Git? `Pull requests`
+- [x] Which of the following is a default category for discussions when you enable discussions in a repository? `Show and tell`
+- [x] Which of the following is a default GitHub issue template available for repositories? `Feature request and Bug report`
+- [x] Which of the following is a default workflow available for GitHub projects? `Item reopened`
+- [x] Which of the following is a deployment option for GitHub Enterprise? `Hybrid (Cloud and on-premises)`
+- [x] Which of the following is a deployment option for GitHub Enterprise? `Hybrid (Cloud and on-premises)`
+- [x] Which of the following is a feature of repository templates in GitHub? `They provide pre-configured files and folders for a new repository based on the template.`
+- [x] Which of the following is a key characteristic of GitHub Projects? `ability to create and customize multiple views`
+- [x] Which of the following is a primary goal of GitHub’s community? `facilitating collaboration and creativity`
+- [x] Which of the following is a valid deep link for GitHub Codespace? `https://codespaces.new/myorg/myrepo`
+- [x] Which of the following is a valid Markdown syntax? `# Will appear as a heading line in the rendered Markdown`
+- [x] Which of the following is always true about the feature preview phases Alpha and Beta? `Alpha features are not available to the public.`
+- [x] Which of the following is an example of a distributed version control system (DVCS)? `Git`
+- [x] Which of the following is an Innersource development practice? `sharing code between teams within the organization`
+- [x] Which of the following is distinctive of GitHub Actions workflows? `stored in the.github/wonk flows directory in a GitHub repository AND built using YAML syntax`
+- [x] Which of the following is NOT a branch protection rule? `Automatically managing open issues`
+- [x] Which of the following is NOT a branch protection rule? `Automatically managing open issues`
+- [x] Which of the following is NOT a default label provided by GitHub in every new repository? `feature`
+- [x] Which of the following is NOT a Github Actions trigger? `code_review`
+- [x] Which of the following is NOT a recommended practice for writing a Git commit message? `Including a detailed explanation of the change in the subject line.`
+- [x] Which of the following is NOT a valid custom field type for Github Projects? `Color`
+- [x] Which of the following is NOT a valid custom field type for Github Projects? `Color`
+- [x] Which of the following is NOT typically included in the recommended best practices for repositories? `Storing large binary files directly in the repository.`
+- [x] Which of the following is the best GitHub feature for long-form documentation for a project? `Wikis`
+- [x] Which of the following is the purpose of a GitHub repository? `to provide a collaborative space where developers can share and manage code files, track changes, and store revision history`
+- [x] Which of the following is true about GitHub Gist? Choose THREE correct answers. `Gist can be embedded in any text field that supports JavaScript, such as a blog post. AND Gist supports mapping GeoJSON files, so you can easily share and embed maps. AND You can subscribe to a gist by clicking Subscribe at the top of any gist.`
+- [x] Which of the following is true about workflows in GitHub? `Workflows are defined by a YAML file to run one or more jobs or Workflows are defined in the `.github/workflows` directory`.
+- [x] Which of the following items can you customize for an individual Codespace? `name, default editor and shell`
+- [x] Which of the following Markdown syntax is GitHub Flavored Markdown? `Fenced code blocks using triple backticks AND Emoji shorthand (e.g., :smile:).`
+- [x] Which of the following options are available to define the visibility of teams on GitHub?`Visible and Secret`
+- [x] Which of the following options can a user do from a discussion post? `Create an issue from the discussion.`
+- [x] Which of the following options helps you search for issues with the "404 error" string in repositories owned by the QuizExperts organization? `Search "404 error" org:QuizExperts and click on "Issues" under the "Filter by" section`.
+- [x] Which of the following options is available as a default Discussion category? `show and tell`
+- [x] Which of the following stages is not part of the Codespace's lifecycle? `Run`
+- [x] Which of the following statements about saved replies are true? `Saved replies are tied to your personal account and GitHub provides a "Duplicate issue" saved reply for marking duplicate issues and Saved replies save time by allowing you to create reusable responses for issues and pull requests`.
+- [x] Which of the following statements about secret teams on GitHub is NOT true? `Secret teams can be nested under parent teams`.
+- [x] Which of the following statements accurately describes a Centralized Version Control System (CVCS)? `Changes are made directly to the central server without local repositories.`
+- [x] Which of the following statements accurately describes GitHub Projects? Choose TWO correct answers. `You can use Projects for planning sprints and features. AND Projects are structured like a spreadsheet.`
+- [x] Which of the following statements is true about GitHub Wiki pages? `Wiki pages allow collaborative editing and support Markdown for formatting.`
+- [x] Which of the following statements is true? `GitHub cannot be used without Git`.
+- [x] Which of the following statements most accurately describes secret gists? `Anyone with the URL for the gist can view the gist.`
+- [x] Which of the following statements most accurately describes who can access a private repository Wiki? `Wikis can be viewed by the same people who have Read access to the repository.`
+- [x] Which of the following steps are part of the Codespaces lifecycle? `Create,Delete and Rebuild`
+- [x] Which of the following two-factor authentication (2FA) methods can you use to secure a GitHub account? `GitHub mobile AND security keys AND authenticator app`
+- [x] Which of these elements is NOT typically included in a Git commit? `The branch name where the commit is made`
+- [x] Which open source software powers version tracking on GitHub? `Git`
+- [x] Which operating systems are supported for a codespace development environment? `Linux only`
+- [x] Which option is not available for GitHub two-factor authentication? `GitHub App`
+- [x] Which options are available for repository visibility on GitHub? `Public AND PRIVATE`
+- [x] Which options can you use to configure the visibility of a GitHub repository? `Make the repository public, allowing unrestricted access to the code. AND Set the repository as private, restricting access to specific collaborators or teams.`
+- [x] Which permission level on GitHub is recommended for project managers who need to manage the repository without access to sensitive or destructive actions? `Maintain`
+- [x] Which phase of GitHub's release cycle involves heavy development, changing requirements, and no service level agreements (SLAs)? `Alpha`
+- [x] Which protocol allows synchronization of user identity information between an identity provider (IdP) and GitHub? `SCIM`
+- [x] Which security feature of GitHub can you use to prevent pushing secrets to your repo? `Secret Scanning`
+- [x] Which three files can be automatically created during the initial creation of a GitHub repository? `.gitignore, README.md e LICENSE`
+- [x] Which tool is recommended for those who prefer a visual interface and want to work with files locally? `GitHub Desktop`.
+- [x] Which two options can you use to simply filter issues in the GitHub interface without using advanced search syntax? `Labels AND Milestones`
+- [x] Which two options can you use to simply filter issues in the GitHub interface without using advanced search syntax? `Milestones e Labels`
+- [x] Which two types of charts can be created with Project Insights on GitHub? `Current Chart and Historical Chart`
+- [x] Which type of apps on GitHub Marketplace can have paid plans? `Only apps owned by organizations.`
+- [x] Which type of commits are excluded from the Commit graph? `Merge commits`
+- [x] Which type of GitHub Account allows you to deploy your own self-hosted version of GitHub? `GitHub Enterprise Account w `
+- [x] Which type of GitHub repository is unique to GitHub Enterprise accounts? `Internal Repositories`
+- [x] Which type of link is recommended for referring to other files within your repository in a README file? `Relative links`
+- [x] Which types of commits are not counted as contributions in the contributors graph? `Both merge commits and empty commits.`
+- [x] Which version control systems are decentralized? (Choose 2) `Mercurial AND Git`
+- [x] Who can assign issues and pull requests in a GitHub repository? `Only users with write access.`
+- [x] Who can be assigned an issue in a GitHub repository? `Anyone with write permissions to the repository. and Anyone who has commented on the issue or pull request`.
+- [x] Who can be assigned to an issue or pull request? `anyone with write permissions to the repository AND anyone who has a personal GitHub account`
+- [x] Who can create a branch to work on an issue directly from the issue page? `Anyone with write permission to the repository`
+- [x] Who can create a new discussion in a GitHub repository or organization? `Any authenticated user who can view the repository or organization`.
+- [x] Who can create an issue in a repository where issues are enabled? `Anyone with read access`.
+- [x] Who can create repository a template on GitHub? `Anyone with admin permissions to a repository`.
+- [x] Who can customize the default labels for repositories in their organization? `Organization owners.`
+- [x] Who can edit existing labels in a GitHub repository? `Anyone with write access to the repository.`
+- [x] Who can enable GitHub Discussions in a repository? `Repository owners and user with Write access`
+- [x] Who can publish an action in GitHub Marketplace? `Anyone`
+- [x] Who can use GitHub Copilot for free? `Verified students and teachers e Maintainers of popular open source projects.`
+- [x] Why is deleting a branch in the GitHub flow considered a good practice? `To prevent accidental use of old branches.`
+- [x] Why is it essential to integrate security into every stage of the software development life cycle? `To catch security issues earlier and reduce overall development time.`
+- [x] Why is it recommended to break down large issues into smaller ones in project management? `To make the work more manageable and enable team members to work in parallel.`
+- [x] Why is it recommended to deploy changes to a feature branch before merging into the main branch in the GitHub flow? `To ensure changes are valid in a production environment.`
+- [x] Why might you not be able to access certain insights in the Code frequency graph? `The repository has more than 10,000 commits.`
+- [x] Why would a project manager want to automatically archive items in a GitHub project? `To help stay below the limit of 1,200 items in the project and manage clutter.`
+- [x] Workflows can reference actions in: `any public repository. AND the same repository as your workflow file. AND a published Docker container image on Docker Hub.`

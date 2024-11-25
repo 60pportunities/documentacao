@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ config.site_name }}</title>
+    <!-- Adicione seu CSS personalizado aqui se necessário -->
+</head>
+<body>
+    <header>
+        <h1>{{ config.site_name }}</h1>
+        <p>Última tag: {{ git_revision.tag }}</p>
+        <p>Último commit: {{ git_revision.commit }}</p>
+    </header>
+    <nav>
+        <ul>
+            {% for page in pages %}
+            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <!-- Adicione seu JavaScript personalizado aqui se necessário -->
+</body>
+</html>
+
