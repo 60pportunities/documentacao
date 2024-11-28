@@ -15,7 +15,7 @@ jobs:
         shell: bash
       - name: Print secrets
         run: |
-          echo "TOKEN: ${TOKEN} "
+          echo "O valor do Token eh: ${TOKEN}"
         shell: bash
   github-actions-environment-variables-windows:
     runs-on: windows-latest
