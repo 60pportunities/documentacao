@@ -13,7 +13,9 @@ jobs:
           [[ "${TOKEN}" != "" ]] && echo "TOKEN deve ser desmarcado, obtido ${TOKEN}" && exit 1
           true
         shell: bash
-        
+      - name: Print secrets
+        run: echo "TOKEN: ${{ secrets.TOKEN }}"
+        shell: bash
   github-actions-environment-variables-windows:
     runs-on: windows-latest
     steps:
