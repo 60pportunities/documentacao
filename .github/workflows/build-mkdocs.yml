@@ -15,7 +15,7 @@ jobs:
         shell: bash
       - name: Print secrets
         run: |
-          echo "TOKEN: ${{ secrets.TOKEN }}"
+          echo "TOKEN: ${{ TOKEN }}"
         shell: bash
   github-actions-environment-variables-windows:
     runs-on: windows-latest
