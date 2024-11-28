@@ -1,24 +1,6 @@
-name: Publica Mkdocs GitHub Pages 60pportunities
-on:
-  push:
-    branches:
-      - main
-jobs:
-  build:
-    name: Deploy docs
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout main
-        uses: actions/checkout@v2
-
-      - name: Deploy docs
-        uses: 60pportunities/documentacao@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CUSTOM_DOMAIN: 60pportunities.com.br
-          CONFIG_FILE: mkdocs.yml
-          EXTRA_PACKAGES: build-base
-          # GITHUB_DOMAIN: github.myenterprise.com
-          REQUIREMENTS: requirements.txt
-
-          
+steps:
+  - shell: bash
+    env:
+      SUPER_SECRET: ${{ secrets.TOKEN }}
+    run: |
+      example-command "$SUPER_SECRET"
