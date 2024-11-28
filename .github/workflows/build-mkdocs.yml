@@ -3,4 +3,4 @@ steps:
     env:
       SUPER_SECRET: ${{ secrets.TOKEN }}
     run: |
-      example-command "$SUPER_SECRET"
+      echo "O valor da variável é: ${SUPER_SECRET}"
