@@ -117,6 +117,68 @@ https://ghcertified.com/
 https://github.com/actions/labeler
 https://github.com/actions/starter-workflows
 
+https://developerrelations.com/strategy-and-metrics/a-success-ful-approach-to-devrel
+
+https://www.youtube.com/watch?v=EDgNuFdVay0
+
+
+https://innersourcecommons.org/events/isc-2024/
+https://patterns.innersourcecommons.org/p/transparent-cross-team-decision-making-using-rfcs
+
+https://github.com/InnerSourceCommons/InnerSourcePatterns/discussions/729
+
+InnerSource Commons website
+https://innersourcecommons.org/
+InnerSource Patterns
+https://innersourcecommons.org/learn/patterns/
+InnerSource Learning Path
+https://innersourcecommons.org/learn/learning-path/
+
+https://www.schneier.com/blog/archives/2024/11/ai-industry-is-trying-to-subvert-the-definition-of-open-source-ai.html
+
+
+https://foundationcapital.com/system-of-agents/
+
+  Learning Path:
+
+1. Fundamentals
+ • API Fundamentals - https://lnkd.in/e8eMet_k
+ • API Simplified - https://lnkd.in/er9JiGxw
+ • API Terminologies - https://lnkd.in/eRsPMzpd
+
+1. Core Concepts
+ • API Methods - https://lnkd.in/ey9v7-hU
+ • API Authentication - https://lnkd.in/eNPfpAdE
+ • API Status Codes - https://lnkd.in/egXizUrS
+
+1. Advanced Topics
+ • REST API vs GraphQL - https://lnkd.in/eZHREdgC
+ • API Scaling - https://lnkd.in/e3mZSvmn
+ • Developing Robust APIs - https://lnkd.in/eBXzbFyg
+
+1. Integration
+ • API Integration - https://lnkd.in/eDASPP5m
+ • API Integration in Detail - https://lnkd.in/eZwFVrH7
+ • API with Python - https://lnkd.in/eM23ah2y
+
+1. Testing & Tools
+ • API Testing - https://lnkd.in/emgmWJqH
+ • Testing APIs - https://lnkd.in/eCPnGTGi
+ • APIs with Postman - https://lnkd.in/ezue3d4B
+
+1. Security & Accessibility
+ • API Security - https://lnkd.in/e79ZYfPa
+ • APIs for Everyone - https://lnkd.in/e4WGDffA
+ 
+
+
+
+  https://patterns.innersourcecommons.org/p/base-documentation
+  https://patterns.innersourcecommons.org/p/innersource-portal 
+  https://github.com/SAP/project-portal-for-innersource
+
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/asQuQZl2LzAUX8" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/slideshow/openchain-innersource-summit-2024-2024-11-20/273604747" title="OpenChain @ InnerSource Summit 2024 - 2024-11-20" target="_blank">OpenChain @ InnerSource Summit 2024 - 2024-11-20</a> </strong> de <strong><a href="//www.slideshare.net/ShaneCoughlan3" target="_blank">Shane Coughlan</a></strong> </div>
 
 | Termo                      | Definição                                                                                                                                                               |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------                         |

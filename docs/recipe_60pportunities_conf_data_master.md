@@ -249,3 +249,27 @@ flowchart LR
 - [x] [The World Bank](http://data.worldbank.org/)
 - [x] [United States Government](http://www.data.gov/)
 </div>
+
+![](img/data-engenharia.png)
+
+# Conceitos
+## Fundamentais
+
+- [x] Modularidade: Deve ser construída com componentes independentes que se integram facilmente, promovendo flexibilidade e escalabilidade.
+- [x] Data as a Product: Cada conjunto de dados é tratado como um produto, com “donos” responsáveis, SLAs definidos e interfaces claras para consumo.
+- [x] Interoperabilidade: Capaz de suportar diferentes tecnologias e padrão para facilitar integração.
+- [x] Replicabilidade: Processos como ingestão de dados, transformação e monitoramento devem ser automatizados para reduzir erros e aumentar a eficiência.
+- [x] Segurança e Governança: Proteção de dados, rastreabilidade e conformidade regulatória são fundamentais e não podem ficar de fora.
+
+## Componentes Importantes
+
+- [x] Sources: Pontos de origem dos dados, como bancos de dados transacionais, APIs, logs.
+- [x] Ingestion: Ferramentas para capturar e transferir dados de fontes para ambiente de armazenamento.
+- [x] Storage: Foco em armazenamento de dados em formatos brutos e também estruturado e otimizado para análises.
+- [x] Processing: Processamento em lote (batch) e em tempo real (streaming).
+- [x] Transformation (ETL/ELT): Preparação e transformação e limpeza dos dados usando pipelines.
+- [x] Governance & Metadata Management: Controle de qualidade, catálogo de dados e gerenciamento de metadados.
+- [x] Orchestration: Coordenação de workflows de dados.
+- [x] Consumption: Interfaces e ferramentas para acessar dados em dashboards.
+- [x] Monitoring & Observability: Rastreamento de desempenho, latência e falhas.
+- [x] Security & Compliance: Criptografia, autenticação (IAM) e controle de acessos.
