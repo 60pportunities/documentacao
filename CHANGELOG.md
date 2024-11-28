@@ -1,12 +1,8 @@
-
 Documentação da APIs - CESUC / 2024-11-07
 =========================================
 
 #Changelog
 
+## [ v00.00.01 ] - 2024-11-25
 
-
-
-## [ v00.00.01 ] - 2024-11-07
-
-* **4f30997** -  <doc> Criação da Documentação - Inicial do Projeto  Horacio - **(horacio.vasconcellos@gmail.com)**
+* **16f17fc** -  <doc> criação do arquivo de mensagens  Horacio - **(horacio.vasconcellos@gmail.com)**
