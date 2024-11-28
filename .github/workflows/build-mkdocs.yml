@@ -10,7 +10,7 @@ jobs:
         run: env
       - name: Verify secrets to env variables (with prefix, include)
         run: |
-          [[ "${TOKEN}" != "" ]] && echo "SECRET_1 should be unset, got ${SECRET_1}" && exit 1
+          [[ "${TOKEN}" != "" ]] && echo "TOKEN deve ser desmarcado, obtido ${TOKEN}" && exit 1
           true
         shell: bash
         
