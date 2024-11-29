@@ -2,11 +2,10 @@
 site_name: 60portunities
 site_description: Documentação 60pportunities
 site_author: Horacio Vasconcellos
-#site_url: https://60pportunities.github.io/documentacao/
 site_url: https://60pportunities.com.br
 
-repo_name: s60pportunities/60pportunities
-repo_url: https://github.com/60pportunities/documentacao
+repo_name: documentacao
+repo_url: https://github.com/60pportunities/
 edit_uri: tree/master/docs
 docs_dir: docs
 
