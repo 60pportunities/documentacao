@@ -15,13 +15,8 @@ jobs:
         shell: bash
       - name: Print secrets
         run: |
-          echo "O valor do Token eh: ${TOKEN}"
+          echo "O valor do Token eh: ${{ secrets.TOKEN }}"
         shell: bash
-      - name: Seta em variável
-        with: 
-          super_secret: ${{ secrets.TOKEN }}
-        env:
-          super_secret: ${{ secrets.TOKEN }}
       
   github-actions-environment-variables-windows:
     runs-on: windows-latest
