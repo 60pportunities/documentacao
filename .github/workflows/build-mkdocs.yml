@@ -2,8 +2,10 @@ name: Publish GitHub Actions Artifacts Example
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
+
 jobs:
-  github-actions-environment-variables-ubuntu:
+  mkdocs-documentacao-ubuntu:
     runs-on: ubuntu-latest
     steps:
       - name: List of the GitHub Actions environment variables on Windows
@@ -13,15 +15,11 @@ jobs:
         run: |
           echo "O valor do Token VALOR eh: ${{ secrets.TOKEN }}"
         shell: bash
-      - name: Run Commands with various variables
-        if: ${{ env.WORKFLOW_VARIABLE == 'WORKFLOW' }}
-        env:
-          STEP_VARIABLE: STEP
+      - name: Check out code
+        uses: actions/checkout@v3.0.2
+      - name: Shellcheck
         run: |
-          echo "Alo mundo...."
-          echo "Esta é the $WORKFLOW_VARIABLE variavel de ambiente."
-          echo "Esta é the $JOB_VARIABLE      variavel de ambiente."
-          echo "Esta é the $STEP_VARIABLE     variavel de ambiente."      
+          shellcheck 60opt_github.sh 
   github-actions-environment-variables-windows:
     runs-on: windows-latest
     steps:
