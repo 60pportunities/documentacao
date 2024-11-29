@@ -1,24 +1,25 @@
 ## Mantendo o Equilíbrio
 Defina limites claros para ajudar você a manter o equilíbrio e permanecer atualizado e produtivo a longo prazo.
 ## Ecologia pessoal
-Conforme descrito pelo Rockwood Leadership Institute , envolve “Manter equilíbrio, ritmo e eficiência para sustentar nossa energia ao longo da vida”.
+Conforme descrito pelo Rockwood Leadership Institute , envolve :
 
-"Eu não conseguia me concentrar ou começar uma tarefa. Eu tinha falta de empatia pelos usuários."
-
+- [x] **“Manter equilíbrio, ritmo e eficiência para sustentar nossa energia ao longo da vida”**.
+- [x] **"Eu não conseguia me concentrar ou começar uma tarefa. Eu tinha falta de empatia pelos usuários".**
 
 - [x] Identifique suas motivações: Entender suas motivações pode ajudar a priorizar o trabalho de uma forma que o mantenha engajado e pronto para novos desafios.
 - [x] Reflita sobre o que faz você ficar desequilibrado e estressado: 
-      - [ ] Falta de feedback positivo?
-      - [ ] Não dizer 'não';
-      - [ ] Trabalhando sozinho;
-      - [ ] Pouco tempo ou recursos para a realização das atividades?
-      - [ ] Demandas conflitantes;
-- [ ] [Lista de verificação de esgotamento](https://governingopen.com/resources/signs-of-burnout-checklist.html)
+      - [x] Falta de feedback positivo?
+      - [x] Não dizer 'não';
+      - [x] Trabalhando sozinho;
+      - [x] Pouco tempo ou recursos para a realização das atividades?
+      - [x] Demandas conflitantes;
+- [x] [Lista de verificação de esgotamento](https://governingopen.com/resources/signs-of-burnout-checklist.html)
 
 ## Seja feliz
+
 - [x] Descanse e recarregue as energias;
-- [ ] Tire os fins de semana para relaxar e rejuvenescer;
-- [ ] Defina limites: Você não pode dizer sim a todas as solicitações.
+- [x] Tire os fins de semana para relaxar e rejuvenescer;
+- [x] Defina limites: Você não pode dizer sim a todas as solicitações.
 
 ## Por que contribuir para o código aberto
 Contribuir com o código aberto pode ser uma maneira gratificante de aprender, ensinar e adquirir experiência em praticamente qualquer habilidade que você possa imaginar.
@@ -58,21 +59,22 @@ Esses arquivos geralmente são listados no nível superior de um repositório.
 - [x] Quantos colaboradores o projeto tem?
 - [x] Com que frequência as pessoas fazem commits? (No GitHub, você pode encontrar isso clicando em "Commits" na barra superior.)
 
-Quantas questões em aberto existem?
+### Quantas questões em aberto existem?
+
 - [x] Os mantenedores respondem rapidamente aos problemas quando eles são abertos?
 - [x] Há discussão ativa sobre as questões?
 - [x] Os problemas são recentes?
-- [x]Os problemas estão sendo fechados? (No GitHub, clique na aba "fechados" na página Problemas para ver os problemas fechados.)
+- [x] Os problemas estão sendo fechados? (No GitHub, clique na aba "fechados" na página Problemas para ver os problemas fechados.)
 
 ### Comunicando-se
 
 Não importa se você é um colaborador ou está tentando ingressar em uma comunidade: "trabalhar com outras pessoas é uma das habilidades mais importantes que você desenvolverá no código aberto".
 
 - [x] Dê contexto: Ajude outros a se atualizarem rapidamente.
-- [ ] Faça sua lição de casa antes: Antes de pedir ajuda, certifique-se de verificar o README, a documentação, os problemas (abertos ou fechados), a lista de discussão de um projeto e pesquise na internet por uma resposta. 
-- [ ] Mantenha as solicitações curtas e diretas. 
-- [ ] Não tem problema fazer perguntas (mas seja paciente!).
-- [ ] Acima de tudo, mantenha a classe.
+- [x] Faça sua lição de casa antes: Antes de pedir ajuda, certifique-se de verificar o README, a documentação, os problemas (abertos ou fechados), a lista de discussão de um projeto e pesquise na internet por uma resposta. 
+- [x] Mantenha as solicitações curtas e diretas. 
+- [x] Não tem problema fazer perguntas (mas seja paciente!).
+- [x] Acima de tudo, mantenha a classe.
 
 # Contribua com o guia.de.código.aberto
 
