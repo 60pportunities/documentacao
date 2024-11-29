@@ -43,8 +43,8 @@ fi
 if ! git config --get user.email; then
     git config --global user.email "${GITHUB_ACTOR}@users.noreply.${GITHUB_DOMAIN:-"github.com"}"
 fi
-git remote rm origin
-git remote add origin "${remote_repo}"
+#git remote rm origin
+#git remote add origin "${remote_repo}"
 LASTTAG=$(git describe --tags "$(git rev-list --tags --max-count=1)")
 mike deploy --update-aliases "${LASTTAG}" latest
 mike set-default --push latest
