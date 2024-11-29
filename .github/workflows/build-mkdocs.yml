@@ -15,7 +15,7 @@ jobs:
         shell: bash
       - name: Print secrets
         run: |
-          echo "O valor do Token eh: ${{ secrets.TOKEN }}"
+          echo "O valor do Token VALOR eh: ${{ secrets.VALOR }}"
         shell: bash
       - name: Run Commands with various variables
         if: ${{ env.WORKFLOW_VARIABLE == 'WORKFLOW' }}
