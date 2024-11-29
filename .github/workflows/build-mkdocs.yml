@@ -7,9 +7,6 @@ on:
     branches:
       - main
 jobs:
-  env:
-   GITHUB_TOKEN: ${{ secrets.TOKEN }}
-   MKDOCS_GIT_COMMITTERS_APIKEY : ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
   deploy:
     runs-on: ubuntu-latest
 
@@ -37,20 +34,17 @@ jobs:
         echo "LASTTAG=$LASTTAG" >> $GITHUB_ENV
 
     - name: Build and deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        MKDOCS_GIT_COMMITTERS_APIKEY : ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
+        GH_PAGES: ${{ secrets.GITHUB_TOKEN }}
       run: |
         mike deploy --update-aliases "${{ env.LASTTAG }}" latest
-      env:
-        GH_PAGES: ${{ secrets.GITHUB_TOKEN }}
+        mike deploy --update-aliases "${LASTTAG}" latest
+        mike set-default --push latest
 
     - name: Push to gh-pages
       run: |
         git add .
         git commit -m "Deploy to GitHub Pages"
-        git push origin gh-pages
-
-    - name: Configure custom domain
-      run: |
-        echo "60pportunities.com.br" > CNAME
-        git add CNAME
-        git commit -m "Add CNAME for custom domain"
         git push origin gh-pages
