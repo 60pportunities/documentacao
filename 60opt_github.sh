@@ -45,7 +45,7 @@ if ! git config --get user.email; then
 fi
 git remote rm origin
 git remote add origin "${remote_repo}"
-LASTTAG=$(git describe --tags $(git rev-list --tags --max-count=1))
+LASTTAG=$(git describe --tags "$(git rev-list --tags --max-count=1)")
 mike deploy --update-aliases "${LASTTAG}" latest
 mike set-default --push latest
 echo "Publicada: ${LASTTAG}"
