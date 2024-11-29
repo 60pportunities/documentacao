@@ -6,8 +6,6 @@ on:
 
 jobs:
   mkdocs-documentacao-ubuntu:
-    with:
-    debug: true
     runs-on: ubuntu-latest
     steps:
       - name: List of the GitHub Actions environment variables on Windows
