@@ -1,6 +1,6 @@
 # Project information
 site_name: 60portunities
-site_description: Documentação do Horacio
+site_description: Documentação 60pportunities
 site_author: Horacio Vasconcellos
 #site_url: https://60pportunities.github.io/documentacao/
 site_url: https://60pportunities.com.br
@@ -11,7 +11,7 @@ edit_uri: tree/master/docs
 docs_dir: docs
 
 copyright:  >
-   Copyright &copy; 2023 Documentação
+   Copyright &copy; 2024 Documentação
    <a href="#__consent">Change cookie settings</a>
 extra_css:
   - styles/app-theme.css
@@ -23,7 +23,7 @@ extra_javascript:
   - javascripts/tablesort.js
 validation:
   omitted_files: ignore
-  absolute_links: ignore  # Or 'relative_to_docs' - new in MkDocs 1.6
+  absolute_links: ignore
   unrecognized_links: ignore
   anchors: ignore
 theme:

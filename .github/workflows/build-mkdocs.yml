@@ -15,11 +15,21 @@ jobs:
         run: |
           echo "O valor do Token VALOR eh: ${{ secrets.TOKEN }}"
         shell: bash
-      - name: Check out code
+      - name: Validação do Código de Bump
         uses: actions/checkout@v3.0.2
       - name: Shellcheck
         run: |
           shellcheck 60opt_github.sh 
+      - name: Deploy docs
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        # Or use mhausenblas/mkdocs-deploy-gh-pages@nomaterial to build without the mkdocs-material theme
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CUSTOM_DOMAIN: 60pportunities.com.br
+          CONFIG_FILE: mkdocs.yml
+          #EXTRA_PACKAGES: build-base
+          GITHUB_DOMAIN: 60pportunities.github.io/documentacao/
+          REQUIREMENTS: requirements.txt
   github-actions-environment-variables-windows:
     runs-on: windows-latest
     steps:
