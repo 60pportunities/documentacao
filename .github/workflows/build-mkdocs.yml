@@ -10,12 +10,12 @@ jobs:
         run: env
       - name: Verify secrets to env variables (with prefix, include)
         run: |
-          [[ "${TOKEN}" != "" ]] && echo "TOKEN deve ser desmarcado, obtido ${TOKEN}" && exit 1
+          [[ " ${{ secrets.TOKEN }}" != "" ]] && echo "TOKEN deve ser desmarcado, obtido  ${{ secrets.TOKEN }}" && exit 1
           true
         shell: bash
       - name: Print secrets
         run: |
-          echo "O valor do Token VALOR eh: ${{ secrets.VALOR }}"
+          echo "O valor do Token VALOR eh: ${{ secrets.TOKEN }}"
         shell: bash
       - name: Run Commands with various variables
         if: ${{ env.WORKFLOW_VARIABLE == 'WORKFLOW' }}
