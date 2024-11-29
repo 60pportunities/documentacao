@@ -46,9 +46,3 @@ jobs:
         mike deploy --update-aliases "${{ env.LASTTAG }}" latest
         mike deploy --update-aliases "${LASTTAG}" latest
         mike set-default --push latest
-
-    - name: Push to gh-pages
-      run: |
-        git add .
-        git commit -m "Deploy to GitHub Pages"
-        git push origin gh-pages
