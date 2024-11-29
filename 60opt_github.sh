@@ -15,7 +15,7 @@ else
         pip install -r "${REQUIREMENTS}" --root-user-action=ignore
     fi
 fi
-
+CUSTOM_DOMAIN="60pportunities.com.br"
 if [ -n "${CUSTOM_DOMAIN}" ]; then
     print_info "Setting custom domain for github pages"
     echo "${CUSTOM_DOMAIN}" > "${GITHUB_WORKSPACE}/docs/CNAME"
