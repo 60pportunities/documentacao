@@ -17,7 +17,15 @@ jobs:
         run: |
           echo "O valor do Token eh: ${{ secrets.TOKEN }}"
         shell: bash
-      
+      - name: Run Commands with various variables
+        if: ${{ env.WORKFLOW_VARIABLE == 'WORKFLOW' }}
+        env:
+          STEP_VARIABLE: STEP
+        run: |
+          echo "Alo mundo...."
+          echo "Esta é the $WORKFLOW_VARIABLE variavel de ambiente."
+          echo "Esta é the $JOB_VARIABLE      variavel de ambiente."
+          echo "Esta é the $STEP_VARIABLE     variavel de ambiente."      
   github-actions-environment-variables-windows:
     runs-on: windows-latest
     steps:
