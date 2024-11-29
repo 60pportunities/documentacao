@@ -37,6 +37,7 @@ fi
 #    exec -- mkdocs build --config-file "${CONFIG_FILE}"
 #fi
 # git config --global --add safe.directory "$GITHUB_WORKSPACE"
+git config --global --add safe.directory /github/workspace
 if ! git config --get user.name; then
     git config --global user.name "${GITHUB_ACTOR}"
 fi
