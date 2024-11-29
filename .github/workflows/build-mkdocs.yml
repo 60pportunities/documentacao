@@ -23,11 +23,11 @@ jobs:
       - name: Deploy docs
         uses: 60pportunities/documentacao/@main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CUSTOM_DOMAIN: 60pportunities.com.br
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          CUSTOM_DOMAIN:0pportunities.com.br
           CONFIG_FILE: mkdocs.yml
           #EXTRA_PACKAGES: build-base
-          #GITHUB_DOMAIN: 60pportunities.github.io/documentacao/
+          GITHUB_DOMAIN: 60pportunities.github.io/documentacao/
           REQUIREMENTS: requirements.txt
   github-actions-environment-variables-windows:
     runs-on: windows-latest
