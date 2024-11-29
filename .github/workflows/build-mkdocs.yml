@@ -21,7 +21,7 @@ jobs:
         run: |
           shellcheck 60opt_github.sh 
       - name: Deploy docs
-        run: actions.sh
+        uses: 60pportunities/documentacao/@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CUSTOM_DOMAIN: 60pportunities.com.br
