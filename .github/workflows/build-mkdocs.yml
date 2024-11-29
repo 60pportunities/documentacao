@@ -38,7 +38,11 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
         MKDOCS_GIT_COMMITTERS_APIKEY : ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
         GH_PAGES: ${{ secrets.GITHUB_TOKEN }}
+        USERNAME: ${{ secrets.USERNAME }}
+        USEREMAIL: ${{ secrets.USEREMAIL }}
       run: |
+        git config --global user.name "$USERNAME"
+        git config --global user.email "$USEREMAIL"
         mike deploy --update-aliases "${{ env.LASTTAG }}" latest
         mike deploy --update-aliases "${LASTTAG}" latest
         mike set-default --push latest
