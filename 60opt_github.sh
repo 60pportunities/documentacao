@@ -8,11 +8,11 @@ do
     apk add --no-cache "${package}"
 done
 if [ -n "${REQUIREMENTS}" ] && [ -f "${GITHUB_WORKSPACE}/${REQUIREMENTS}" ]; then
-    pip install -r "${GITHUB_WORKSPACE}/${REQUIREMENTS}"
+    pip install -r "${GITHUB_WORKSPACE}/${REQUIREMENTS}" --root-user-action=ignore
 else
     REQUIREMENTS="${GITHUB_WORKSPACE}/requirements.txt"
     if [ -f "${REQUIREMENTS}" ]; then
-        pip install -r "${REQUIREMENTS}"
+        pip install -r "${REQUIREMENTS}" --root-user-action=ignore
     fi
 fi
 
