@@ -43,6 +43,7 @@ jobs:
       run: |
         git config --global user.name "$USERNAME"
         git config --global user.email "$USEREMAIL"
+        git config --global user.password "$GITHUB_TOKEN"
         mike deploy --update-aliases "${{ env.LASTTAG }}" latest
         mike deploy --update-aliases "${LASTTAG}" latest
         mike set-default --push latest
