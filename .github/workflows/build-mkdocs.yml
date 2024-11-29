@@ -29,7 +29,7 @@ jobs:
     - name: Get the latest tag
       id: get_latest_tag
       run: |
-        LASTTAG=$(git describe --tags "$(git rev-list --tags --max-count=1)")
+        LASTTAG="1.0.0"
         echo "LASTTAG=$LASTTAG" >> $GITHUB_ENV
 
     - name: Build and deploy
