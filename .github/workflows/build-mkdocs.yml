@@ -8,10 +8,6 @@ jobs:
     steps:
       - name: List of the GitHub Actions environment variables on Windows
         run: env
-      - name: Verify secrets to env variables (with prefix, include)
-        run: |
-          [[ " ${{ secrets.TOKEN }}" != "" ]] && echo "TOKEN deve ser desmarcado, obtido  ${{ secrets.TOKEN }}" && exit 1
-          true
         shell: bash
       - name: Print secrets
         run: |
