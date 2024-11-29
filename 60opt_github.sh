@@ -26,16 +26,16 @@ if [ -n "${CONFIG_FILE}" ]; then
 else
     export CONFIG_FILE="${GITHUB_WORKSPACE}/mkdocs.yml"
 fi
-if [ -n "${GITHUB_TOKEN}" ]; then
-    print_info "setup with GITHUB_TOKEN"
-    remote_repo="https://x-access-token:${GITHUB_TOKEN}@${GITHUB_DOMAIN:-"github.com"}/${GITHUB_REPOSITORY}.git"
-elif [ -n "${PERSONAL_TOKEN}" ]; then
-    print_info "setup with PERSONAL_TOKEN"
-    remote_repo="https://x-access-token:${PERSONAL_TOKEN}@${GITHUB_DOMAIN:-"github.com"}/${GITHUB_REPOSITORY}.git"
-else
-    print_info "no token found; linting"
-    exec -- mkdocs build --config-file "${CONFIG_FILE}"
-fi
+#if [ -n "${GITHUB_TOKEN}" ]; then
+#    print_info "setup with GITHUB_TOKEN"
+#    remote_repo="https://x-access-token:${GITHUB_TOKEN}@${GITHUB_DOMAIN:-"github.com"}/${GITHUB_REPOSITORY}.git"
+#elif [ -n "${PERSONAL_TOKEN}" ]; then
+#    print_info "setup with PERSONAL_TOKEN"
+#    remote_repo="https://x-access-token:${PERSONAL_TOKEN}@${GITHUB_DOMAIN:-"github.com"}/${GITHUB_REPOSITORY}.git"
+#else
+#    print_info "no token found; linting"
+#    exec -- mkdocs build --config-file "${CONFIG_FILE}"
+#fi
 git config --global --add safe.directory "$GITHUB_WORKSPACE"
 if ! git config --get user.name; then
     git config --global user.name "${GITHUB_ACTOR}"
