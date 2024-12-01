@@ -253,7 +253,9 @@ nav:
           - 'Links para Estudo'                      : 'recipe_60pportunities_ghf_50_links.md'
           - 'Exemplo Prova'                          : 'recipe_60pportunities_ghf_90_questions.md'
         - 'Actions'                                  :
-          - 'Guide'                                  : 'recipe_60pportunities_gha_guide.md'
+          - 'Guide'                                  : 'recipe_60pportunities_gha_01_guide.md'
+          - 'Preparação Resumo'                      : 'recipe_60pportunities_gha_03_resumo.md'
+          - 'Exemplo Prova'                          : 'recipe_60pportunities_gha_90_questions.md'
         - 'Advanced Security'                        :
           - 'Guide'                                  : 'recipe_60pportunities_ghas_guide.md'
    - 'Documentação as Code'                          : 

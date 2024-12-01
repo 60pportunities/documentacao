@@ -172,6 +172,9 @@ https://foundationcapital.com/system-of-agents/
  
 
 
+https://resources.github.com/events/
+https://github.blog/changelog/?utm_source=insider&utm_medium=email&utm_campaign=2024q1-em-GitHub-Insider-November-14
+https://github.com/orgs/community/discussions/categories/actions?utm_source=insider&utm_medium=email&utm_campaign=2024q1-em-GitHub-Insider-November-14
 
   https://patterns.innersourcecommons.org/p/base-documentation
   https://patterns.innersourcecommons.org/p/innersource-portal 
@@ -206,3 +209,15 @@ https://foundationcapital.com/system-of-agents/
 | **Branching Strategy**      | A estratégia que uma equipe usa para organizar e gerenciar diferentes branches em um repositório para garantir um fluxo de trabalho eficiente.                         |
 
 
+https://crontab.guru/
+
+
+https://github.com/jimporter/mike/tree/master
+https://cicube.io/workflow-hub/github-pages-action/
+https://github.com/actions/starter-workflows/tree/main/ci
+https://github.com/actions/starter-workflows/tree/main/deployments
+
+https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#issues
+
+
+https://github.com/marketplace/actions/lint-action

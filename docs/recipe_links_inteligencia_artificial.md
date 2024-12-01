@@ -41,3 +41,9 @@
 ## Gerador de Senha
 
 ![Passwords Generator](https://passwordsgenerator.net/)
+
+
+https://www.cursor.com/
+
+https://bolt.new/
+

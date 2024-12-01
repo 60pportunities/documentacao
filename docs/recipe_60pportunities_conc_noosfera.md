@@ -465,4 +465,3 @@ O arquiteto de muitas formas ajuda o time a definir uma organização ou seja qu
 - [x] Criar um projeto:  um mantenedor desde seu início e o mantenedor ainda está ativo;
 - [x] Propriedade do projeto passada a você pelo proprietário anterior (isso às vezes é conhecido como "passar o bastão").
 - [x] Adquirir propriedade de um projeto é observar que ele precisa de trabalho e que o proprietário desapareceu ou perdeu o interesse.
-- [ ] 

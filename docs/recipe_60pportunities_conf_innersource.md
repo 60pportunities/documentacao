@@ -126,3 +126,30 @@ Os webhooks não são configurados com um segredo compartilhado para validar a o
 O branch padrão deve exigir que todos os commits sejam assinados
 Exigir que todos os commits sejam assinados e verificados
 
+
+```mermaid
+mindmap
+  root((Document as</br>Code DAC))
+    CSDM (Common Service Data Model)
+      RFC (Request for Comments)
+      MAPA (Mapeamentos)
+      REL (Relacionamentos)
+    ITAM (IT Asset Management)
+      (Procurement</br>Contratos)
+      (Gerenciamento</br>Licenças)
+      (Gerenciamento</br>Certificados)
+    DEV (Desenvolvimento)
+      (Funcionais)
+      ::icon(fa fa-book)
+      (Não Funcionais)
+      ::icon(fa fa-laptop-code)
+    IS (InnerSource)
+       FRM (Framework)
+       PRJ (Projetos)
+    DEVREL (Developer Relations)
+       COM (Comunidades)
+       LVC (Live Coding)
+       TKS (Talks)
+       MNT (Mentorias)
+       BLG (Blogs)
+```
