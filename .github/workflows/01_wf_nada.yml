@@ -1,0 +1,16 @@
+name:  01_wf_nada
+ on:
+  push:
+    branches:
+      - main
+jobs:
+  example_job:   # job_name: Unique name for the job
+    runs-on: ubuntu-latest  # Target runner type
+
+    steps:  # List of steps to be executed within the job
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Execute a command
+      run: echo "Hello, GitHub Workflow!"
+
