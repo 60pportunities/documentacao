@@ -3,11 +3,13 @@ name:  01_wf_nada
   push:
     branches:
       - main
-jobs:
-  example_job:   # job_name: Unique name for the job
-    runs-on: ubuntu-latest  # Target runner type
+      - develop
 
-    steps:  # List of steps to be executed within the job
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+
+    steps:  
     - name: Checkout code
       uses: actions/checkout@v2
 
