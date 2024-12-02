@@ -5,14 +5,17 @@ on:
       - main
       - develop
 jobs:
-  example_job:   # job_name: Unique name for the job
-    runs-on: ubuntu-latest  # Target runner type
 
-    steps:  # List of steps to be executed within the job
-    - name: Checkout code
-      uses: actions/checkout@v2
+  job_01_wf_nada:
+    name: job_01_wf_nada
+    runs-on: ubuntu-latest
 
-    - name: Execute a command
-      run: echo "Hello, GitHub Workflow!"
+    steps:
+      - name: Show Env
+        run: echo "Env ${{ env.ENV_ID }}"
 
+      - name: Checkout code
+        uses: actions/checkout@v2
 
+      - name: Executa o Comando
+        run: echo "Hello, GitHub Workflow!"

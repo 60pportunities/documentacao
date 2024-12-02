@@ -1,0 +1,11 @@
+name: 02_wf_nada
+
+on: push
+jobs:
+  
+  job_02_wf_nada:
+    if: ${{ !github.event.act }}
+    runs-on: ubuntu-latest
+    steps:
+    - run: exit 0
+

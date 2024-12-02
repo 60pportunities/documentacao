@@ -1,0 +1,13 @@
+name: 06_wf_nada
+
+on: push
+
+jobs:
+  job_06_wf_nada:
+    name: job_06_wf_nada
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy the code
+        run: |
+          echo "Variável SECRETA = ${{ secrets.SECRET_KEY }}"
+

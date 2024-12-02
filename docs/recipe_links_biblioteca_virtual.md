@@ -81,6 +81,8 @@ https://github.com/advanced-security/secret-scanning-custom-patterns?tab=readme-
 - [ ] 
 
 https://github.com/freeCodeCamp/freeCodeCamp
+https://nektosact.com/usage/runners.html
+
 
 - [x] [The GitHub Foundations learning path on MS Learn](https://learn.microsoft.com/en-us/collections/o1njfe825p602p)
 - [x] [Prepare for the GitHub Foundations Certification](https://www.linkedin.com/learning/paths/prepare-for-the-github-foundations-certification)
@@ -221,3 +223,4 @@ https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow
 
 
 https://github.com/marketplace/actions/lint-action
+https://resources.github.com/learn/pathways/copilot/essentials/essentials-of-github-copilot/
