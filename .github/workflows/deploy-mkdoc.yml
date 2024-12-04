@@ -1,7 +1,6 @@
 name: Deploy MkDocs
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
@@ -26,7 +25,7 @@ jobs:
 
     - name: Get latest tag
       id: get_tag
-      run: echo "::set-output name=tag::$(git describe --tags `git rev-list --tags --max-count=1`)"
+      run: echo "tag=$(git describe --tags `git rev-list --tags --max-count=1`)" >> $GITHUB_OUTPUT
 
     - name: Deploy to GitHub Pages
       env:
