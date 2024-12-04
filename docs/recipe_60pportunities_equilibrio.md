@@ -81,3 +81,25 @@ Não importa se você é um colaborador ou está tentando ingressar em uma comun
 [Guia de código Aberto](https://github.com/github/opensource.guide/blob/main/_articles/how-to-contribute.md)
 
 
+# Gentileza gera Gentileza - José Datrino, tb conhecido com o Profeta Gentileza.
+## Catalisando uma Revolução Cultural ("eu" para o "nós")
+À medida que navegamos no cenário de TI, nesta rápida evolução, frequentemente nos encontramos na busca incessante de ficar à frente, com  tecnologias de ponta e metodologias inovadoras (TRAM)
+Não aprendemos a compartilhar, mas de fato, precisamos reajustar nossos instrumentos, e essa afinação exige uma mudança cultural que considero significativa, mas como?
+Sair de apresentações solo para um concerto harmonizado;
+Reuniões e discussões devem engrandecer assistência e a cooperação;
+Talvez esta mudança de paradigma do "eu" para o "nós" possa revolucionar a cultura de trabalho, tornando-a mais inclusiva, solidária e bem-sucedida.
+ 
+Como preconizado no Scrum
+A formação de times e organizações multifuncionais e de alto desempenho, onde pessoas de várias funções, conhecimentos se envolvem umas com as outras em um espírito de ajuda e cooperação, ou seja, quando fomentamos o sucesso uns dos outros, inadvertidamente lançamos as bases para o nosso próprio sucesso.
+ 
+Como gostamos de fluxos, podemos: 
+ 
+Objetivo: Promover uma cultura proativa e cooperativa pela a união da equipe, aumente a produtividade e impulsione o sucesso coletivo na organização.
+ 
+Identificar a necessidade: Incentive discussões abertas e comunicação transparente dentro da equipe para entender melhor as funções e os desafios de cada um.
+Ofereça ajuda: Ofereça sua experiência, tempo e recursos para ajudar a resolver o problema ou superar o obstáculo.
+Colaboração Contínua(CC): Promover uma cultura de colaboração, envolvendo colegas com diversas habilidades e conhecimentos para contribuir na resolução do problema.
+Compartilhe Conhecimento (CC):  Compartilhe conhecimento e experiências abertamente para ajudar a equipe a crescer junto.
+Reconhecimento e Esforços(RE): Reconheça e aprecie os esforços feitos pelos membros da equipe para serem úteis.
+Melhoria Contínua (MC): Incentive cada membro da equipe a sugerir melhorias que possam tornar o fluxo de trabalho mais eficiente e benéfico.
+

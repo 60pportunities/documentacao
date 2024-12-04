@@ -191,6 +191,9 @@ Você pode identificar o código-fonte usado para criar as imagens de VM para ex
 - [x] [Imagens Runners](https://github.com/actions/runner-images)
 
 #### Runners Específicos - Auto-hospedados
+Crie os grupos necessários para efetuar o isolamento de seus runners.
+- [x] Settings --> Actions --> Runner Groups --> APP-xxx
+
 Você pode adicionar um executor auto-hospedado a um repositório, a uma organização ou a uma empresa. Os executores auto-hospedados a nível da organização ou empresa. Esta abordagem torna o executor disponível para vários repositórios na sua organização ou empresa, e também permite gerenciar seus executores em um só lugar.
 
 Settings --> Actions --> Runners
@@ -497,3 +500,115 @@ docker run -it --rm \
 -v /home/mkdocs/.git-credentials:/usr/src/mkdocs/.git-credentials \
 -v /home/mkdocs/Documents/mkdocs/jvincze84.github.io/:/usr/src/mkdocs/build \
 mkdocs:1 gh-deploy
+
+
+
+```
+60pportunities-actions/
+  ├── python-linter/
+  │   ├── Dockerfile
+  │   ├── action.yaml
+  │   ├── entrypoint.sh
+  │   └── requirements.txt
+  ├── security-scanner/
+  │   ├── Dockerfile
+  │   ├── action.yaml
+  │   ├── scanner.py
+  │   └── ... 
+```
+
+```
+python-linter/
+  ├── Dockerfile
+  ├── action.yaml
+  ├── entrypoint.sh
+  └── requirements.txt
+```
+
+Dockerfile
+```
+FROM python:3.9-slim
+RUN pip install --no-cache-dir black
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"] 
+```
+
+action.yml
+```
+name: "Python Linter with Black"
+description: "A GitHub Action to lint Python code using Black."
+inputs:
+  directory:
+    description: "Directory to lint"
+    required: true
+    default: "."
+outputs:
+  formatted:
+    description: "Indicates if any files were reformatted"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+branding:
+  icon: "code"
+  color: "blue" 
+```
+
+entrypoint.sh
+```
+#!/bin/bash
+set -e
+
+echo "Running Black Linter on $1"
+OUTPUT=$(black --check "$1" || true)
+
+if [[ "$OUTPUT" == *"reformatted"* ]]; then
+  echo "Some files need reformatting:"
+  echo "$OUTPUT"
+  echo "::set-output name=formatted::true"
+else
+  echo "All files are formatted correctly."
+  echo "::set-output name=formatted::false"
+fi 
+```
+
+requirements.txt
+```
+```
+
+
+
+Example Usage in a Workflow
+```
+name: Lint Python Code
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run Python Linter
+        uses: your-org/org-actions/python-linter@v1
+        with:
+          directory: "./src" 
+```
+
+No mundo em rápida evolução do desenvolvimento de software, pipelines de Integração Contínua/Entrega Contínua (CI/CD) são essenciais para automatizar e agilizar processos.
+É importante ressaltar que proteger o ambiente de CI/CD não é o mesmo que apenas escanear seu código com SAST, DAST e SCA.
+
+1. Controle de fluxo insuficientes: Esses controles devem proteger repositórios de artefatos, ferramentas de CI e sistemas de gerenciamento de código-fonte (SCM) para reforçar a segurança, por exemplo, exigindo etapas adicionais de revisão ou aprovação.
+2. Gerenciamento de Identidade e Acesso (IAM) Baixo ou Inexistente: Políticas e controles fracos de IAM expõem o sistema de CI/CD a ataques.
+3. Cadeia de dependências: Explorações de cadeia de dependência podem fazer com que o sistema busque e execute pacotes maliciosos localmente.
+4. Execução de Pipeline Envenenado (PPE): Invasores podem injetar comandos maliciosos em configurações de pipeline de construção para “envenenar” o pipeline. O código malicioso é executado como parte do processo de CI/CD. 
+5. Controles de acesso insuficientes baseados em pipeline (PBAC - Policy-Based Access Control): Os invasores podem executar código malicioso em um pipeline aproveitando PBACs fracos e abusando das permissões de acesso do pipeline para se mover lateralmente pelo ambiente CI/CD.
+6. Credenciais gerenciadas incorretamente: Credenciais ruim permite que invasores roubem e explorem segredos e tokens de acesso no pipeline de CI/CD.
+7. Problemas de configuração incorreta do sistema: Essas configurações inseguras fornecem frutos fáceis que os invasores podem explorar para se infiltrar no ambiente de CI/CD.
+8. Uso descontrolado de serviços de terceiros: Organizações fornecem acesso fácil a terceiros para usar seus sistemas críticos, introduzindo um risco de acesso não governado e aumentando a superfície de ataque do sistema CI/CD. 
+9. Validação inadequada de artefatos: Sem mecanismos adequados de validação de artefatos e códigos, os invasores podem empurrar artefatos maliciosos para o pipeline sem serem detectados.
+10. Visibilidade e registro insuficientes : Logs insuficientes dificultam a identificação e o rastreamento de ataques ou a investigação de incidentes de segurança depois que eles ocorrem.
+
+Proteger ambientes de CI/CD vai além de proteger o código; abrange proteger todo o pipeline, da integração à implantação. 

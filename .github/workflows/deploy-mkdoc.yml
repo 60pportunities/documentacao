@@ -1,0 +1,44 @@
+name: Deploy MkDocs
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install mkdocs mike
+
+    - name: Get latest tag
+      id: get_tag
+      run: echo "::set-output name=tag::$(git describe --tags `git rev-list --tags --max-count=1`)"
+
+    - name: Deploy to GitHub Pages
+      env:
+        LASTTAG: ${{ steps.get_tag.outputs.tag }}
+      run: |
+        mike deploy --update-aliases "${LASTTAG}" latest
+        mike set-default --push latest
+
+    - name: Push changes to gh-pages
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add .
+        git commit -m "Deploy to GitHub Pages"
+        git push origin gh-pages
