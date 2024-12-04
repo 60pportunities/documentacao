@@ -35,7 +35,7 @@ jobs:
     - name: Deploy to GitHub Pages
       env:
         LASTTAG: ${{ steps.get_tag.outputs.tag }}
-        MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.PRODUCAO_MKDOCS_GIT_COMMITTERS_APIKEY }}
+        MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.producao_MKDOCS_GIT_COMMITTERS_APIKEY }}
       run: |
         mike deploy --update-aliases "${LASTTAG}" latest
         mike set-default --push latest
