@@ -88,6 +88,26 @@ Esta action-validator é uma ferramenta autônoma projetada para "lint" os arqui
 - [x] Os runners vêm com uma variedade de softwares e ferramentas pré-instalados comumente usados no
 desenvolvimento de software.
 
+Pipeline de Build
+- [x] Processo de compilação;
+- [ ] Testes unitários
+- [ ] Análise de qualidade
+- [ ] Geração do artefato;
+
+Pipeline de Segurança
+- [ ] Analisar dependências, 
+- [ ] Analisar secrets, 
+- [ ] Analisar vulnerabilidades.
+
+Pipeline de Deployment
+- [ ] Configuração de ambiente
+- [ ] Implantação da aplicação, 
+- [ ] Testes de fumaça. 
+
+Pipeline de Infra as Code
+- [ ] Processo de infraestrutura em nuvem ou até mesmo no seu Ambiente On-premises. 
+
+
 ### Types of GitHub actions
 Há três tipos de ações do GitHub: ações de contêiner (Estas ações só podem ser executadas num ambiente Linux que o GitHub aloja), ações JavaScript (não incluem o ambiente no código, você terá que especificar o ambiente para executar essas ações. As ações JavaScript suportam ambientes Linux, macOS e Windows.) e ações compostas (permitem combinar várias etapas do fluxo de trabalho em uma única ação).
 
@@ -165,6 +185,43 @@ Use a chave `on` para especificar os eventos que disparam o fluxo de trabalho.
 ### Runners
 O GitHub Actions oferece [ambientes virtuais](https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners) gerenciados para executar fluxos de trabalho. 
 Para act executar seus fluxos de trabalho localmente, ele deve executar um contêiner para o runner definido no seu arquivo de fluxo de trabalho. (act --container-architecture linux/amd64 ou act -P ubuntu-latest=-self-hosted)
+
+Você pode identificar o código-fonte usado para criar as imagens de VM para executores hospedados no GitHub usados ​​para Actions, bem como para agentes hospedados pela Microsoft usados ​​para Azure Pipelines. 
+
+- [x] [Imagens Runners](https://github.com/actions/runner-images)
+
+#### Runners Específicos - Auto-hospedados
+Você pode adicionar um executor auto-hospedado a um repositório, a uma organização ou a uma empresa. Os executores auto-hospedados a nível da organização ou empresa. Esta abordagem torna o executor disponível para vários repositórios na sua organização ou empresa, e também permite gerenciar seus executores em um só lugar.
+
+Settings --> Actions --> Runners
+
+Arquiteturas
+As seguintes arquiteturas de processador são compatíveis com o aplicativo do executor auto-hospedado.
+
+x64 – Linux, macOS e Windows.
+ARM64 – Linux, macOS, Windows (atualmente em versão prévia pública).
+ARM32 – Linux.
+
+```
+# Create a folder
+$ mkdir actions-runner && cd actions-runner
+Copied!# Download the latest runner package
+$ curl -o actions-runner-osx-arm64-2.321.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.321.0/actions-runner-osx-arm64-2.321.0.tar.gz
+Copied!# Optional: Validate the hash
+$ echo "fbee07e42a134645d4f04f8146b0a3d0b3c948f0d6b2b9fa61f4318c1192ff79  actions-runner-osx-arm64-2.321.0.tar.gz" | shasum -a 256 -c
+# Extract the installer
+$ tar xzf ./actions-runner-osx-arm64-2.321.0.tar.gz
+Copied!
+Configure
+# Create the runner and start the configuration experience
+$ ./config.sh --url https://github.com/60pportunities --token BMFODSGMACOJCOS5W7HYTKLHKAQPM
+Copied!# Last step, run it!
+$ ./run.sh
+Using your self-hosted runner
+# Use this YAML in your workflow file for each job
+runs-on: self-hosted
+```
+
 
 ### Job
 Um job é um conjunto de etapas em um fluxo de trabalho executadas no mesmo executor.
@@ -329,7 +386,7 @@ build-and-push-images:
           file: ./front-end-nextjs/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/qr-frontend:${{ github.sha }}
-          
+
 Etapa 4: Configurando segredos de ambiente para Dockerhub
 
 Etapa 5: Confirmar e executar o fluxo de trabalho

@@ -32,7 +32,11 @@
 - [ ] Adobe Firefly
 </div>
 
+🚧Ferramentas  que falei no Vídeo:🚧 
 
+https://gptengineer.app/
+
+https://supabase.com/
 
 [Klassmatt](https://klassmatt.com)
 [CH Master Data](https://chmasterdata.com.br/)
