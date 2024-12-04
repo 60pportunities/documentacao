@@ -53,11 +53,3 @@ jobs:
       run: |
         mike deploy --update-aliases "${LASTTAG}" latest
         mike set-default --push latest
-
-    - name: Push changes to gh-pages
-      run: |
-        git config --global user.name "HVasconcellos"
-        git config --global user.email "horacio.vasconcellos@gmail.com"
-        git add .
-        git commit -m "Deploy to GitHub Pages" --allow-empty
-        git push origin gh-pages
