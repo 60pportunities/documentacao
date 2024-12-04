@@ -31,11 +31,13 @@ jobs:
     - name: Get latest tag
       id: get_tag
       run: |
-        echo "tag=$(git describe --tags $(git rev-list --tags --max-count=1))" >> $GITHUB_OUTPUT
+          LAST_TAG=$(git tag -l --sort=-v:refname | head -n 1)
+          echo "Última tag: $LAST_TAG"
+          echo "LAST_TAG=$LAST_TAG" >> $GITHUB_ENV
 
     - name: Deploy to GitHub Pages
       env:
-        LASTTAG: ${{ steps.get_tag.outputs.tag }}
+        LASTTAG: $LAST_TAG
         MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
       run: |
         mike deploy --update-aliases "${LASTTAG}" latest
