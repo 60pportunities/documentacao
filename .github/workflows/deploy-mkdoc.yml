@@ -8,6 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Explicitly set permissions to allow writing to the repository
+
     environment:
       name: producao
     steps:
