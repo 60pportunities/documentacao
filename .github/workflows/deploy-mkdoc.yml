@@ -47,6 +47,7 @@ jobs:
           release_version: ${{ steps.version.outputs.version }}
           config_file: .github/changelogConfig.yml
           github_token: ${{ secrets.GITHUB_TOKEN }}        
+          
     - name: Get latest tag
       id: get_tag
       run: |
