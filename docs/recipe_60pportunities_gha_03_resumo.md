@@ -89,24 +89,28 @@ Esta action-validator é uma ferramenta autônoma projetada para "lint" os arqui
 desenvolvimento de software.
 
 Pipeline de Build
+<div class="mdx-columns2" markdown>
 - [x] Processo de compilação;
 - [ ] Testes unitários
 - [ ] Análise de qualidade
 - [ ] Geração do artefato;
-
+</div>
 Pipeline de Segurança
+<div class="mdx-columns2" markdown>
 - [ ] Analisar dependências, 
 - [ ] Analisar secrets, 
 - [ ] Analisar vulnerabilidades.
-
+</div>
 Pipeline de Deployment
+<div class="mdx-columns2" markdown>
 - [ ] Configuração de ambiente
 - [ ] Implantação da aplicação, 
 - [ ] Testes de fumaça. 
-
+</div>
 Pipeline de Infra as Code
+<div class="mdx-columns2" markdown>
 - [ ] Processo de infraestrutura em nuvem ou até mesmo no seu Ambiente On-premises. 
-
+</div>
 
 ### Types of GitHub actions
 Há três tipos de ações do GitHub: ações de contêiner (Estas ações só podem ser executadas num ambiente Linux que o GitHub aloja), ações JavaScript (não incluem o ambiente no código, você terá que especificar o ambiente para executar essas ações. As ações JavaScript suportam ambientes Linux, macOS e Windows.) e ações compostas (permitem combinar várias etapas do fluxo de trabalho em uma única ação).
@@ -141,7 +145,69 @@ Os fluxos de trabalho são definidos no diretório .github/workflows
 Um workflow é processo bem-definido que será executado no repositório ao qual ele pertence
 Ele é definido a partir de um arquivo YAML dentro da pasta .github/workflows
 É comum definir workflows para testagem de pacotes, geração de documentação, atualização de dados, etc.
-O workflow é, essencialmente, um duende mágico que baixa o nosso repositório em um servidor do GitHub e executa os comandos especificados
+O workflow é, essencialmente, um duende mágico que baixa o nosso repositório em um servidor do GitHub e executa os comandos especificados.
+#### Workflow para Eventos Agendados
+O evento schedule permite que você dispare um fluxo de trabalho para ser executado em horários UTC específicos, para obter ajuda: [CRONTAB](https://crontab.guru/)
+![](img/scheduled-events.png)
+```
+on:
+  schedule:
+    - cron:  '*/15 * * * *'
+OU
+on:
+  schedule:
+    - cron:  '0 3 * * SUN'
+```
+#### Workflow Eventos Manuais
+O evento `workflow_dispatch` ou `repository_dispatch` você pode disparar manualmente um fluxo de trabalho. 
+```
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
+
+OU
+
+on:
+  repository_dispatch:
+    types: [opened, deleted
+```
+Usando: `curl -X POST -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/{owner}/{repo}/dispatches -d '{"event_type":"event_type"}'`
+
+#### Workflow Eventos webhooks
+Quando eventos de webhook específicos ocorrerem no GitHub.
+```
+on:
+  check_run:
+    types: [rerequested, requested_action]
+```
+#### Palavras-chave condicionais
+Você pode acessar informações de contexto e avaliar expressões. [Veja a sintaxe](https://docs.github.com/pt/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif).
+```
+on: push
+jobs:
+  prod-check:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      ...
+```
+#### Modelos
+a consistência em toda a sua organização usando um modelo de fluxo de trabalho definido no repositório .github da organização. Para encontrar esses fluxos de trabalho, navegue até a guia Ações de um repositório dentro da organização, selecione Novo fluxo de trabalho e encontre a seção de modelo de fluxo de trabalho da organização intitulada "Fluxos de trabalho criados por nome da organização". 
+#### Versões específicas de uma ação
+Ao fazer referência a uma versão específica, você está criando uma proteção contra alterações inesperadas enviadas para a ação que poderiam interromper o fluxo de trabalho. 
+```
+steps:    
+  - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
+  - uses: actions/setup-node@v1
+  - uses: actions/setup-node@v1.2
+  - uses: actions/setup-node@main
+```
 
 ### Eventos
 Um evento é uma atividade específica em um repositório que dispara a execução de um fluxo de trabalho.

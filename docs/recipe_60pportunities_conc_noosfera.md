@@ -239,7 +239,7 @@ Os projetos da InnerSource que desejam atingir altas taxas de participação e t
 A publicação de documentos internos **Requests for Comments (RFCs)** permite discussões no início do processo de design e aumenta as chances de construir soluções com um alto grau de comprometimento de todas as partes envolvidas.
 
 
-# Opem Source ou InnerSource
+# Open Source ou InnerSource
 
 <p align="justify">Adotar a abordagem Innersource dentro de uma organização pode trazer diversas vantagens, especialmente em termos de eficiência interna, colaboração e inovação.  Para que não haja dúvidas sobre as diferenças de innersource e Open Source, elaboramos o quadro abaixo:</p>
 

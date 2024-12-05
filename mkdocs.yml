@@ -229,9 +229,13 @@ nav:
       - 'Arquitetura'                                : 'recipe_60pportunities_conc_arquitetonicos.md'
       - 'Noosfera'                                   : 'recipe_60pportunities_conc_noosfera.md'
       - 'Time Formação'                              : 'recipe_60pportunities_conc_time_formacao.md'
-      - 'Os paradoxos do dia'                        : 'recipe_60pportunities_conc_paradoxos.md'
-      - 'Projetos Falham'                            : 'recipe_60pportunities_conc_projetos_falham.md'
-      - 'Projetos Método'                            : 'recipe_60pportunities_conc_projetos_metodo.md'
+      - 'Paradoxos'                                  : 'recipe_60pportunities_conc_paradoxos.md'
+   - 'Projetos'                                      :   
+      - 'Falham'                                     : 'recipe_60pportunities_conc_projetos_falham.md'
+      - 'Método'                                     : 'recipe_60pportunities_conc_projetos_metodo.md'
+      - 'Configuração Plataformas'                   :
+         - 'Github'                                  : 'recipe_60pportunities_conf_github.md'
+         - 'Azure-Devops'                            : 'recipe_60pportunities_conf_azuredevops.md'
    - 'Registro'                                      :
       - 'Registrando um Domínio'                     : 'recipe_60pportunities_conf_registrobr_dominio.md'
    - 'Git'                                           : 
@@ -281,9 +285,6 @@ nav:
       - 'Hacker do Bem'                              : 'recipe_60pportunities_dev_hacker_etico.md'
       - 'Linguagem'                                  :
          - 'PHP'                                     : 'recipe_60pportunities_dev_doc_php.md'
-      - 'Configuração Plataformas'                   :
-         - 'Github'                                  : 'recipe_60pportunities_conf_github.md'
-         - 'Azure-Devops'                            : 'recipe_60pportunities_conf_azuredevops.md'
       - 'Métricas'                                   :
          - 'Métricas Internas'                       : 'recipe_60pportunities_conf_metricas.md'
    - 'Estudos/Aprendizado'                           : 
