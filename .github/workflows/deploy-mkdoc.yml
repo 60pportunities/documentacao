@@ -44,7 +44,6 @@ jobs:
       id: changelog_ci
       with:
         changelog_filename: CHANGELOG.md
-        release_version: ${{ steps.version.outputs.version }}
         config_file: .github/changelogConfig.yml
         github_token: ${{ secrets.GITHUB_TOKEN }}        
           
