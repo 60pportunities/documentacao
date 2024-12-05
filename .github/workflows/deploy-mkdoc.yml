@@ -38,7 +38,15 @@ jobs:
     - name: Install dependencies Requirements
       run: |
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        
+    
+    - name: Create Changelog
+        uses: saadmk11/changelog-ci@v1.1.2
+        id: changelog_ci
+        with:
+          changelog_filename: CHANGELOG.md
+          release_version: ${{ steps.version.outputs.version }}
+          config_file: .github/changelogConfig.yml
+          github_token: ${{ secrets.GITHUB_TOKEN }}        
     - name: Get latest tag
       id: get_tag
       run: |
