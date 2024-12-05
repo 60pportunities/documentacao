@@ -37,15 +37,7 @@ jobs:
         
     - name: Install dependencies Requirements
       run: |
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    
-    - name: Create Changelog
-      uses: saadmk11/changelog-ci@v1.1.2
-      id: changelog_ci
-      with:
-        changelog_filename: CHANGELOG.md
-        config_file: .github/changelogConfig.yml
-        github_token: ${{ secrets.GITHUB_TOKEN }}        
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi 
           
     - name: Get latest tag
       id: get_tag
@@ -54,6 +46,15 @@ jobs:
           echo "Última tag: $LAST_TAG"
           echo "LAST_TAG=$LAST_TAG" >> $GITHUB_ENV
 
+    - name: Create Changelog
+      uses: saadmk11/changelog-ci@v1.1.2
+      id: changelog_ci
+      with:
+        changelog_filename: CHANGELOG.md
+        release_version: $LAST_TAG
+        config_file: .github/changelogConfig.yml
+        github_token: ${{ secrets.GITHUB_TOKEN }}      
+        
     - name: Deploy to GitHub Pages
       env:
         LASTTAG: $LAST_TAG
