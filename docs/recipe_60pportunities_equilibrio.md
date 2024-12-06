@@ -1,3 +1,4 @@
+## Mantendo o Equilíbrio
 Defina limites claros para ajudar você a manter o equilíbrio e permanecer atualizado e produtivo a longo prazo.
 ## Ecologia pessoal
 Conforme descrito pelo Rockwood Leadership Institute , envolve :
@@ -7,35 +8,33 @@ Conforme descrito pelo Rockwood Leadership Institute , envolve :
 
 - [x] Identifique suas motivações: Entender suas motivações pode ajudar a priorizar o trabalho de uma forma que o mantenha engajado e pronto para novos desafios.
 - [x] Reflita sobre o que faz você ficar desequilibrado e estressado: 
-<div class="mdx-columns2" markdown>
-- [x] Falta de feedback positivo?
-- [x] Não dizer 'não';
-- [x] Trabalhando sozinho;
-- [x] Pouco tempo ou recursos para a realização das atividades?
-- [x] Demandas conflitantes;
-</div>
+      - [x] Falta de feedback positivo?
+      - [x] Não dizer 'não';
+      - [x] Trabalhando sozinho;
+      - [x] Pouco tempo ou recursos para a realização das atividades?
+      - [x] Demandas conflitantes;
 - [x] [Lista de verificação de esgotamento](https://governingopen.com/resources/signs-of-burnout-checklist.html)
 
 ## Seja feliz
-<div class="mdx-columns2" markdown>
+
 - [x] Descanse e recarregue as energias;
 - [x] Tire os fins de semana para relaxar e rejuvenescer;
 - [x] Defina limites: Você não pode dizer sim a todas as solicitações.
-</div>
+
 ## Por que contribuir para o código aberto
 Contribuir com o código aberto pode ser uma maneira gratificante de aprender, ensinar e adquirir experiência em praticamente qualquer habilidade que você possa imaginar.
-<div class="mdx-columns2" markdown>
-- [x] Melhore as habilidades existentes
-- [x] Conheça pessoas interessadas em coisas semelhantes
-- [x] Encontre mentores e ensine outros
-- [x] Aprenda habilidades interpessoais
-</div>
+
+Melhore as habilidades existentes
+Conheça pessoas interessadas em coisas semelhantes
+Encontre mentores e ensine outros
+Aprenda habilidades interpessoais
+
 ## Anatomia de um projeto
 Um projeto típico tem os seguintes tipos de pessoas:
 
 - [x] Autor: A pessoa/pessoas ou organização que criou o projeto
 - [x] Proprietário: A(s) pessoa(s) que tem(têm) propriedade administrativa sobre a organização ou repositório (nem sempre o mesmo que o autor original)
-- [x] Mantenedores: Colaboradores responsáveis por conduzir a visão e gerenciar os aspectos organizacionais do projeto (eles também podem ser autores ou proprietários do projeto).
+- [x] Mantenedores: Colaboradores responsáveis ​​por conduzir a visão e gerenciar os aspectos organizacionais do projeto (eles também podem ser autores ou proprietários do projeto).
 - [x] Colaboradores: Todos que contribuíram com algo para o projeto
 - [x] Membros da Comunidade: Pessoas que usam o projeto. Eles podem ser ativos em conversas ou expressar sua opinião sobre a direção do projeto;
 
@@ -55,19 +54,18 @@ Esses arquivos geralmente são listados no nível superior de um repositório.
 - [x] Canal de bate-papo síncrono:  Slack ou Teams.
   
 ### Analise o Projeto
-<div class="mdx-columns2" markdown>
 - [x] Ele tem uma licença? Normalmente, há um arquivo chamado LICENSE na raiz do repositório.
 - [x] Quando foi o último commit?
 - [x] Quantos colaboradores o projeto tem?
 - [x] Com que frequência as pessoas fazem commits? (No GitHub, você pode encontrar isso clicando em "Commits" na barra superior.)
-</div>
+
 ### Quantas questões em aberto existem?
-<div class="mdx-columns2" markdown>
+
 - [x] Os mantenedores respondem rapidamente aos problemas quando eles são abertos?
 - [x] Há discussão ativa sobre as questões?
 - [x] Os problemas são recentes?
 - [x] Os problemas estão sendo fechados? (No GitHub, clique na aba "fechados" na página Problemas para ver os problemas fechados.)
-</div>
+
 ### Comunicando-se
 
 Não importa se você é um colaborador ou está tentando ingressar em uma comunidade: "trabalhar com outras pessoas é uma das habilidades mais importantes que você desenvolverá no código aberto".
@@ -78,9 +76,10 @@ Não importa se você é um colaborador ou está tentando ingressar em uma comun
 - [x] Não tem problema fazer perguntas (mas seja paciente!).
 - [x] Acima de tudo, mantenha a classe.
 
-## Links Úteis
+# Contribua com o guia.de.código.aberto
 
-- [x] [Guia de código Aberto](https://github.com/github/opensource.guide/blob/main/_articles/how-to-contribute.md)
+[Guia de código Aberto](https://github.com/github/opensource.guide/blob/main/_articles/how-to-contribute.md)
+
 
 # Gentileza gera Gentileza - José Datrino, tb conhecido com o Profeta Gentileza.
 ## Catalisando uma Revolução Cultural ("eu" para o "nós")
@@ -97,10 +96,9 @@ Como gostamos de fluxos, podemos:
  
 Objetivo: Promover uma cultura proativa e cooperativa pela a união da equipe, aumente a produtividade e impulsione o sucesso coletivo na organização.
  
-- [x] Identificar a necessidade: Incentive discussões abertas e comunicação transparente dentro da equipe para entender melhor as funções e os desafios de cada um.
-- [x] Ofereça ajuda: Ofereça sua experiência, tempo e recursos para ajudar a resolver o problema ou superar o obstáculo.
-- [x] Colaboração Contínua(CC): Promover uma cultura de colaboração, envolvendo colegas com diversas habilidades e conhecimentos para contribuir na resolução do problema.
-- [x] Compartilhe Conhecimento (CC):  Compartilhe conhecimento e experiências abertamente para ajudar a equipe a crescer junto.
-- [x] Reconhecimento e Esforços(RE): Reconheça e aprecie os esforços feitos pelos membros da equipe para serem úteis.
-- [x] Melhoria Contínua (MC): Incentive cada membro da equipe a sugerir melhorias que possam tornar o fluxo de trabalho mais eficiente e benéfico.
-
+Identificar a necessidade: Incentive discussões abertas e comunicação transparente dentro da equipe para entender melhor as funções e os desafios de cada um.
+Ofereça ajuda: Ofereça sua experiência, tempo e recursos para ajudar a resolver o problema ou superar o obstáculo.
+Colaboração Contínua(CC): Promover uma cultura de colaboração, envolvendo colegas com diversas habilidades e conhecimentos para contribuir na resolução do problema.
+Compartilhe Conhecimento (CC):  Compartilhe conhecimento e experiências abertamente para ajudar a equipe a crescer junto.
+Reconhecimento e Esforços(RE): Reconheça e aprecie os esforços feitos pelos membros da equipe para serem úteis.
+Melhoria Contínua (MC): Incentive cada membro da equipe a sugerir melhorias que possam tornar o fluxo de trabalho mais eficiente e benéfico.

@@ -78,6 +78,8 @@ Esta action-validator é uma ferramenta autônoma projetada para "lint" os arqui
 `action-validator .github/workflows/04_wf_nada.yml`
 
 ## GitHub Actions
+As ações do GitHub Actions são scripts empacotados para automatizar tarefas em um fluxo de trabalho de desenvolvimento de software no GitHub. Consiste em scripts que aderem a um formato de dados yml. Você pode pesquisar GitHub Marketplace, projetos open-source e gravar suas próprias ações do GitHub Actions do zero.
+
 
 ![](img/github-actions-001.jpeg)
 
@@ -113,7 +115,7 @@ Pipeline de Infra as Code
 </div>
 
 ### Types of GitHub actions
-Há três tipos de ações do GitHub: ações de contêiner (Estas ações só podem ser executadas num ambiente Linux que o GitHub aloja), ações JavaScript (não incluem o ambiente no código, você terá que especificar o ambiente para executar essas ações. As ações JavaScript suportam ambientes Linux, macOS e Windows.) e ações compostas (permitem combinar várias etapas do fluxo de trabalho em uma única ação).
+Há três tipos de ações do GitHub: **ações de contêiner** (Estas ações só podem ser executadas num ambiente Linux que o GitHub aloja), **ações JavaScript** (não incluem o ambiente no código, você terá que especificar o ambiente para executar essas ações, as ações JavaScript suportam ambientes Linux, macOS e Windows) e **ações compostas**(permitem combinar várias etapas do fluxo de trabalho em uma única ação).
 
 
 ```mermaid
@@ -139,13 +141,48 @@ flowchart LR
     C          -->|Use| D(Actions)
 ```
 
-### Workflow 
+### Workflow (Fluxo de Trabalho)
 Um fluxo de trabalho é um processo automatizado configurável que executará um ou mais trabalhos.
 Os fluxos de trabalho são definidos no diretório .github/workflows
 Um workflow é processo bem-definido que será executado no repositório ao qual ele pertence
 Ele é definido a partir de um arquivo YAML dentro da pasta .github/workflows
 É comum definir workflows para testagem de pacotes, geração de documentação, atualização de dados, etc.
 O workflow é, essencialmente, um duende mágico que baixa o nosso repositório em um servidor do GitHub e executa os comandos especificados.
+
+| **Categoria**               | **Palavra-chave**            | **Descrição**                                                                 |
+|-----------------------------|------------------------------|-------------------------------------------------------------------------------|
+| **Configuração**             | `workflow`                   | Arquivo YAML que define o conjunto de ações automatizadas a serem executadas. |
+|                             | `job`                        | Uma unidade de trabalho dentro de um workflow; pode consistir em várias etapas (steps). |
+|                             | `step`                       | Um comando individual dentro de um job, que pode ser uma execução de script ou uma ação. |
+|                             | `action`                     | Uma tarefa reutilizável que pode ser incorporada em um step, como uma ação pré-configurada do GitHub ou personalizada. |
+|                             | `event`                      | O gatilho (trigger) que inicia o workflow, como `push`, `pull_request`, `schedule`, entre outros. |
+| **Execução**                 | `run`                        | Comando executado em um step, geralmente contendo um script ou uma linha de código. |
+|                             | `uses`                       | Referência a uma ação específica ou repositório de ações dentro de um step.   |
+|                             | `with`                       | Passa parâmetros para uma ação ou comando dentro de um step.                  |
+| **Ambiente**                 | `env`                        | Variáveis de ambiente definidas no workflow, job ou step.                    |
+|                             | `secrets`                    | Variáveis de ambiente seguras, geralmente usadas para armazenar senhas e tokens. |
+| **Condicional**              | `if`                         | Condição que permite a execução de um step ou job baseado em expressões.      |
+|                             | `continue-on-error`          | Define se o fluxo de trabalho deve continuar após um erro em um step.        |
+| **Matrix**                   | `matrix`                     | Permite a execução paralela de jobs com diferentes combinações de variáveis, como diferentes versões de Node.js ou Python. |
+| **Fluxo de Execução**        | `needs`                      | Define a dependência entre jobs, indicando que um job deve ser executado após a conclusão de outro. |
+|                             | `runs-on`                    | Define o ambiente de execução para um job, como `ubuntu-latest`, `windows-latest`, etc. |
+| **Artefatos e Resultados**   | `artifacts`                  | Arquivos gerados durante a execução do workflow que podem ser arquivados e acessados posteriormente. |
+|                             | `upload-artifact`            | Ação que faz o upload de artefatos gerados no workflow para armazenamento.     |
+|                             | `download-artifact`          | Ação que baixa artefatos previamente carregados em um job anterior.           |
+| **Execução Condicional**     | `if`                         | Define uma condição para a execução de um job ou step com base em variáveis e resultados de etapas anteriores. |
+| **Notificações**             | `status`                     | A visualização do estado do job (sucesso, falha, cancelado) nas interfaces do GitHub. |
+| **Cancelamento e Timeout**   | `timeout-minutes`            | Define o tempo máximo de execução para um job antes que ele seja cancelado automaticamente. |
+|                             | `cancel`                     | Gatilho para cancelar a execução de um workflow ou job, útil em fluxos mais complexos. |
+
+- [x] workflow: O arquivo principal em YAML que descreve todo o fluxo de trabalho.
+- [x] job: Cada trabalho dentro de um fluxo de trabalho pode ser executado em paralelo ou sequencialmente.
+- [x] step: Etapas que são executadas dentro de um job, podem ser comandos run ou ações.
+- [x] action: Conjunto de comandos reutilizáveis. Podem ser criadas por qualquer usuário e compartilhadas no GitHub.
+- [x] run: Um comando ou script executado no ambiente de execução.
+- [x] matrix: Permite a execução simultânea de vários jobs com diferentes combinações de parâmetros, útil para testes em várias plataformas.
+- [x] secrets: Variáveis protegidas que podem ser usadas para armazenar senhas, tokens e outras informações sensíveis.
+- [x] needs: Define que um job só será executado após a conclusão de outro job especificado.
+
 #### Workflow para Eventos Agendados
 O evento schedule permite que você dispare um fluxo de trabalho para ser executado em horários UTC específicos, para obter ajuda: [CRONTAB](https://crontab.guru/)
 ![](img/scheduled-events.png)
@@ -678,3 +715,106 @@ No mundo em rápida evolução do desenvolvimento de software, pipelines de Inte
 10. Visibilidade e registro insuficientes : Logs insuficientes dificultam a identificação e o rastreamento de ataques ou a investigação de incidentes de segurança depois que eles ocorrem.
 
 Proteger ambientes de CI/CD vai além de proteger o código; abrange proteger todo o pipeline, da integração à implantação. 
+
+DataStudio - Criação de relatórios sonoros e interativos para análise de dados, com integração ao Google Analytics, Google Sheets e outras.  
+Coblue/Weekdone - Plataforma brasileira dedicada   à metodologia OKR. 
+UIPATH - Plataforma líder em automação robótica (RPA) que usa IA para tornar as operações mais ágeis e eficientes.
+PIPEFY - Automatizar processos de trabalho. 
+FIS Global/Anaplan/NIBO -  Plataforma preditiva de gestão de risco para instituições financeiras em geral. 
+ZENDESK - Intercom - Integração de IA  para automação de suporte ao cliente.
+BambooHR/WorkDay/PyMetrics - Recrutamento, Desempenho e análise de personalidade (muita gente não passaria).
+RunRun.it/Gupy - Produtividade e Recrutamento e seleção
+Sisense - BI com IA
+Monkeylearn - IA para análise de textos
+
+https://lovable.dev/
+
+Objetivo:
+Desenvolver um aplicativo que auxilie usuários e compartilhe dúvidas e compartilhamento de trechos de códigos em Java, PHP, PL/SQL, Typescript, Zig, Deno, Node, C++ e Python.
+
+Este aplicativo deve ser um implementação de referência para listar todos os projetos InnerSource de uma empresa de forma interativa e fácil de usar. 
+
+O arquivo innersource.json.contém um array de objetos. Cada objeto representa um projeto que você deseja exibir no portal.
+
+Para cada projeto  adicione uma chave com um objeto contendo os seguintes metadados sobre o projeto: topics , participation e guidelines.
+
+
+topics: Consulte tópicos do GitHub e adicione a matriz de tópicos com a chave topicspara cada repositório para permitir a pesquisa de projetos por tópico e exibi-los no pop-up de detalhes.
+participation: Consulte o GitHub para obter a contagem de commits semanais (subconjunto "all") e adicione-a com a chave participation. Uma visualização das estatísticas de participação dos 12 meses anteriores agora é mostrada na página de detalhes do projeto.
+guidelines: Verifique se o repositório contém diretrizes de contribuição e adicione o nome do arquivo com a chave guidelines(por exemplo, CONTRIBUTING.md). Se especificado, o botão Contribuir para este projeto vinculará a este arquivo em vez da raiz do repositório.
+
+Diariamente é gerado um arquivo com as informações dos repositórios que estão aceitando contribuições e colocados em um arquivo innersource.json.  Como exemplo:
+[
+{
+    "id": Identificador Interno
+    "name": "Nome do Projeto",
+    "full_name": "Nome Extenso",
+    "html_url": URL do Projeto",
+    "description": "Informações do Projeto, contribuições, percepções.",
+    "created_at": "Data da Criaçãop",
+    "updated_at": "Data da Ultima Atualização",
+    "pushed_at": "Ultima atualização",
+    "stargazers_count": Número de Curtidas,
+    "watchers_count": Número de Observadores,
+    "language": "Linguagem de Programação Principal",
+    "forks_count": Numero de Forks que o repositório teve,
+    "open_issues_count": Quantas PBIs ,
+    "license": "TERMO E LICENÇA",
+    "default_branch": "NOME DA BRANCH MAIN",
+    "owner": {
+      "login": "DONO DO PROJETO",
+      "avatar_url": "AVATAR DO DONO DO PROJETO"
+    },
+    "_InnerSourceMetadata": {
+      "participation": [
+          lista de usuários que estão contribuindo ou assumindo uma atividade
+      ],
+      "logo": "LOGO",
+      "score": ,
+      "topics": [
+        "Topicos Liberados para contribuicão"
+      ]
+    }
+  },
+]
+
+Cada bloco no portal do projeto representa um projeto InnerSource. 
+A lista de projetos pode ser filtrada por linguagem de programação, classificada por vários KPIs e pesquisada usando uma palavra-chave. Os critérios de filtro e pesquisa são persistidos na URL para permitir o compartilhamento fácil de um subconjunto de projetos. 
+
+As entradas no portal podem ser classificadas pelo Repository Activity Score.
+ 
+Principais Funcionalidades:
+Formulário de Entrada de Dados:
+Uma tela simples onde os usuários podem inserir manualmente as informações constantes no innersource.json.
+
+
+Considere adicionar um script de crawler automatizado que busque todos os projetos do InnerSource conforme descrito na figura a seguir. Para construir seu próprio crawler, revise a Documentação de Crawling .
+
+
+Geração de Relatório Mensal em PDF:
+O aplicativo cria um relatório em PDF com base nos dados do mês, incluindo um resumo das finanças, total de gastos por categoria, saldo final e gráficos de evolução. O PDF é estruturado com cabeçalhos, seções e uma formatação padrão para facilitar a leitura.
+I
+Bibliotecas para geração de PDF: Utilize bibliotecas como pdf-lib ou jsPDF em Node.js ou JavaScript para a criação do relatório.
+ 
+
+
+
+Everyone bom|a dia|tarde|noite...
+ 
+O que vocês acham? No dia 17/12/2024 o pessoal do Rio de Janeiro, almoçar em uma churrascaria estilo RioSul, com o objetivo de se conhecer pessoalmente e comemorar mais um ano...
+ 
+Fica a dica. APENAS PARA LEMBRANÇA:
+
+09/12/2024    - Churrascaria Rio SUL - Luiz Izoton
+09-13/12/2024 - Eu Não posso, mas se vocês acharem conveniente.. Façam.
+17/12/2024    - Foi a data proposta.
+
+Perfil --> Seguranca --> BB Code --> Habilitar e Siga
+
+
+
+DESAFIOS DO GESTOR DE TI
+
+VOCÊ FOI CONTRATADO COMO GESTOR DE TI EM UMA PEQUENA EMPRESA.
+Logo no início dos trabalhos você percebeu a necessidade de ov 5152200000 900011 implantar um modelo de qualidade, pois os projetos estão 00 1000100 sendo entregues fora dos prazos acordados e, em alguns deles, houve reclamação por parte do cliente quanto à expectativa não alcançada. 001001100000011
+Para essa implantação você conta com poucos recursos financeiros; 11000 001110 porém, já tem o apoio da sua 11000100 100000 diretoria para iniciar o projeto.

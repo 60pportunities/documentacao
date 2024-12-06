@@ -7,7 +7,7 @@
 <div class="mdx-columns3" markdown>
 - [x] https://www.iftl.education/ai-academy
 - [x] https://www.iftl.education/ai-builder
-- [ ] [Introdução ao Block Chain](https://m.youtube.com/playlist?list=PLsGmTzb4NxK0hRfnjfcg0f9rc0lleY28O)
+- [x] [Introdução ao Block Chain](https://m.youtube.com/playlist?list=PLsGmTzb4NxK0hRfnjfcg0f9rc0lleY28O)
 </div>
 
 ## Publicações
@@ -22,32 +22,25 @@
 - [x] [Better Writing](https://quillbot.com/)
 - [x] [Presentations](https://gamma.app/)
 - [x] [Jjulius](https://julius.ai/)
-- [ ] [Piktochart](https://piktochart.com/pt-br/blog/melhores-geradores-de-imagens-ai/)
+- [x] [Piktochart](https://piktochart.com/pt-br/blog/melhores-geradores-de-imagens-ai/)
 - [x] [Flux AI](https://fluximage.org/pt)
-- [ ] [Het Gen](https://app.heygen.com/login?sid=rewardful&via=funky&gad_source=1&gclid=EAIaIQobChMI_fWd4P-siQMVhVNIAB067CUuEAAYASAAEgILs_D_BwE])
-- [ ] [Claude](https://claude.ai/)
-- [ ] [Make](https://www.make.com/en/help/ai-in-make)
-- [ ] [RunWay](https://www.imagine.art/dashboard/video?utm_source=google&utm_medium=cpc&utm_campaign=Web_WW_Vid_AI1.1&utm_term=runway&utm_campaign=&utm_source=adwords&utm_medium=ppc&hsa_acc=3029240990&hsa_cam=21453551905&hsa_grp=164481109396&hsa_ad=705108964251&hsa_src=g&hsa_tgt=aud-2037773484408%3Akwd-10680636&hsa_kw=runway&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjwsoe5BhDiARIsAOXVoUsP1Em5Rr2wzV7ZqXSUAcQjoUPtsNUiY57eedolfN5jlhmefe356osaAsYDEALw_wcB)]
-- [ ] [HeyGen!](https://www.heygen.com/?sid=rewardful&via=032100&gad_source=1&gclid=Cj0KCQjwsoe5BhDiARIsAOXVoUvvZplGbRQTNTIJL7YpBiRkBmm-Ha-yn8ONs0iJMrGvohpOFlP7eQ8aAluhEALw_wcB)
-- [ ] Adobe Firefly
+- [x] [Het Gen](https://app.heygen.com/login?sid=rewardful&via=funky&gad_source=1&gclid=EAIaIQobChMI_fWd4P-siQMVhVNIAB067CUuEAAYASAAEgILs_D_BwE])
+- [x] [Claude](https://claude.ai/)
+- [x] [Make](https://www.make.com/en/help/ai-in-make)
+- [x] [RunWay](https://www.imagine.art/dashboard/video?utm_source=google&utm_medium=cpc&utm_campaign=Web_WW_Vid_AI1.1&utm_term=runway&utm_campaign=&utm_source=adwords&utm_medium=ppc&hsa_acc=3029240990&hsa_cam=21453551905&hsa_grp=164481109396&hsa_ad=705108964251&hsa_src=g&hsa_tgt=aud-2037773484408%3Akwd-10680636&hsa_kw=runway&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjwsoe5BhDiARIsAOXVoUsP1Em5Rr2wzV7ZqXSUAcQjoUPtsNUiY57eedolfN5jlhmefe356osaAsYDEALw_wcB)]
+- [x] [HeyGen!](https://www.heygen.com/?sid=rewardful&via=032100&gad_source=1&gclid=Cj0KCQjwsoe5BhDiARIsAOXVoUvvZplGbRQTNTIJL7YpBiRkBmm-Ha-yn8ONs0iJMrGvohpOFlP7eQ8aAluhEALw_wcB)
+- [x] Adobe Firefly
+- [x] [GPTEngineer](https://gptengineer.app/)
+- [x] [Supabase](https://supabase.com/)
+- [x] [Cursor](https://www.cursor.com/)
+- [x] [Bolt](https://bolt.new/)
 </div>
 
-🚧Ferramentas  que falei no Vídeo:🚧 
+## Dados Mestres
 
-https://gptengineer.app/
-
-https://supabase.com/
-
-[Klassmatt](https://klassmatt.com)
-[CH Master Data](https://chmasterdata.com.br/)
-[BLR Data](https://www.blrdata.com.br/)
+- [x] [Klassmatt](https://klassmatt.com)
+- [x] [CH Master Data](https://chmasterdata.com.br/)
+- [x] [BLR Data](https://www.blrdata.com.br/)
 
 ## Gerador de Senha
-
 ![Passwords Generator](https://passwordsgenerator.net/)
-
-
-https://www.cursor.com/
-
-https://bolt.new/
-
