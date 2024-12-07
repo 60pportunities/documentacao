@@ -27,7 +27,7 @@ Por fim,a importancia de medir é a de se ter uma visão objetiva do progresso e
 ### Métricas técnicas
 São um tipo de métrica muito utilizada, como no Kanban e no Scrum, para avaliar aspectos técnicos e de qualidade do software em desenvolvimento.
 
-* Cobertura de testes
+* Cobertura de testes;
 * Complexidade de código
 * Taxa de defeitos
 * Tempo de resposta
@@ -62,6 +62,27 @@ São um tipo de métrica para observar o desempenho, o progresso e o impacto das
 | Gráfico de velocidade | Aumento constante da carga de trabalho que está sendo tratada. Exibe a quantidade média de trabalho que sua equipe está concluindo durante um sprint ou iteração. |
 | Gráfico de lead time | Mostrar uma grande melhoria na redução da quantidade de dias em que um problema é deixado em aberto. Quanto tempo leva para um problema ir de aberto a fechado. |
 
+## Métricas Experiência do Desenvolvedor
+ Aponta os fatores mais críticos para atingir maior eficiência e qualidade no desenvolvimento de software. Esta é uma medida preditiva desenvolvida por pesquisadores, com amostras de benchmark de centenas de organizações em todo o mundo.
+
+Está na capacidade de uma empresa de remover atritos para seus desenvolvedores, permitindo entrega e inovação mais rápidas. Iremos medir a eficácia da engenharia através das lentes dos desenvolvedores, fornecendo insights sobre os processos e fluxos de trabalho de engenharia.
+
+![](img/metricas_regua_003.png)
+
+|
+|            |  Speed                            | Effectiveness                    |  Quality |  Impact |
+| Key metric |  Diffs per engineer* (PRS or MRs) | Developer Experience Index (DXI) |  Change failure rate | % of time spent on new capabilities |  
+|            |  Not at individual level  | Measure of key engineering performance drivers, developed by DX | | |
+| Secondary metrics |  Lead time                 | Time to 10th PR  | Failed deployment recovery time | Initiative progress and ROI |
+|                   | Deployment frequency       | Ease of delivery | Perceived software quality  | Revenue per Engineer |
+|                   | Perceived rate of delivery | Regrettable attrition | Operational health and security metrics | 
+|                   | Only at organizational level | 
+
+
+Ease of delivery
+• 
+• 
+• * *Only at organizational level
 ### Cumulative Flow Diagram  (CDF) 
 É um dos gráficos que nos dá uma visão geral do que está acontecendo em um projeto ou nas atividades de um produto.
 O eixo horizontal representa um período e o vertical indica a contagem cumulativa de itens no processo. Cada área pintada no gráfico está relacionada a uma etapa do fluxo de trabalho (por exemplo, a fazer, em andamento, concluído). 
