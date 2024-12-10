@@ -21,7 +21,7 @@
 - [x] [TLDV](https://tldv.io/)
 - [x] [Better Writing](https://quillbot.com/)
 - [x] [Presentations](https://gamma.app/)
-- [x] [Jjulius](https://julius.ai/)
+- [x] [Julius](https://julius.ai/)
 - [x] [Piktochart](https://piktochart.com/pt-br/blog/melhores-geradores-de-imagens-ai/)
 - [x] [Flux AI](https://fluximage.org/pt)
 - [x] [Het Gen](https://app.heygen.com/login?sid=rewardful&via=funky&gad_source=1&gclid=EAIaIQobChMI_fWd4P-siQMVhVNIAB067CUuEAAYASAAEgILs_D_BwE])
