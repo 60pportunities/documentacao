@@ -11,10 +11,12 @@
 </div>
 
 ## Publicações
+<div class="mdx-columns3" markdown>
 - [x] [REASONING AND ACTING IN LANGUAGE MODELS](https://arxiv.org/pdf/2210.03629)
+</div>
 
 ## Dicas
-<div class="mdx-columns3" markdown>
+<div class="mdx-columns2" markdown>
 - [x] [LumaAI](https://lumalabs.ai/genie?view=create)
 - [x] [RunWay](https://runwayml.com/)
 - [x] [MiniMax](https://minimax-ai.org/)
@@ -37,10 +39,11 @@
 </div>
 
 ## Dados Mestres
-
+<div class="mdx-columns2" markdown>
 - [x] [Klassmatt](https://klassmatt.com)
 - [x] [CH Master Data](https://chmasterdata.com.br/)
 - [x] [BLR Data](https://www.blrdata.com.br/)
+</div>
 
 ## Gerador de Senha
 ![Passwords Generator](https://passwordsgenerator.net/)
