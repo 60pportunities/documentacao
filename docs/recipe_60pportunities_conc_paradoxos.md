@@ -55,4 +55,4 @@ A empresa, produto tem que existir além de seu criador. Entenda que **criação
 
 - [x] **Fábrica de Botas**: Fábrica de Botas um botando a culpa no outro.
 - [x] **Paradoxo Homer Simpson**: "CULPA É MINHA E COLOCO EM QUEM EU QUISER"? 
-- [x] **Paradoxo da Laranja**;
+- [x] **Paradoxo da Laranja** : Comparação.
