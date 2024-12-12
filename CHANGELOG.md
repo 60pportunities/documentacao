@@ -1,3 +1,10 @@
+# Version: $LAST_TAG
+
+* [43ad9b4](https://github.com/60pportunities/documentacao/commit/43ad9b41ef1b35146172aa6464fe5ebdd98a69fc): Update recipe_60pportunities_conc_paradoxos.md
+* [4a7328d](https://github.com/60pportunities/documentacao/commit/4a7328d141db918d8fdc450cf5d146962da0e8f5): Update deploy-mkdoc.yml
+* [8d3ce19](https://github.com/60pportunities/documentacao/commit/8d3ce1965c24ed8fbd7d4e55064ddcfd45fc60c7): Update deploy-mkdoc.yml
+
+
 
 Documentação da APIs - CESUC / 2024-12-05
 =========================================
