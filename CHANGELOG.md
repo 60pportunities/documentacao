@@ -1,3 +1,8 @@
+# Version: $LAST_TAG
+
+* [8d3ce19](https://github.com/60pportunities/documentacao/commit/8d3ce1965c24ed8fbd7d4e55064ddcfd45fc60c7): Update deploy-mkdoc.yml
+
+
 
 Documentação da APIs - CESUC / 2024-12-05
 =========================================
