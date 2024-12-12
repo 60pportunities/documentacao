@@ -1,0 +1,1093 @@
+<!DOCTYPE html><html class=no-js lang=en> <head><meta charset=utf-8><meta content="width=device-width,initial-scale=1" name=viewport><meta content="Documentação 60pportunities" name=description><meta content="Horacio Vasconcellos" name=author><link href=https://60pportunities.com.br/v00.00.03/recipe_60pportunities_dev_docker/ rel=canonical><link href=../recipe_60pportunities_dev_backstage/ rel=prev><link href=../recipe_60pportunities_dev_jenkins/ rel=next><link href=../img/favicon.ico rel=icon><meta content="mkdocs-1.6.1, mkdocs-material-9.5.48" name=generator><title>Docker - 60portunities</title><link href=../assets/stylesheets/main.6f8fc17f.min.css rel=stylesheet><link href=../assets/stylesheets/palette.06af60db.min.css rel=stylesheet><link crossorigin href=https://fonts.gstatic.com rel=preconnect><link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback" rel=stylesheet><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><link href=../css/timeago.css rel=stylesheet><link href=../styles/app-theme.css rel=stylesheet><link href=https://unpkg.com/mermaid@8.5.1/dist/mermaid.css rel=stylesheet><link href=../styles/tablesort.css rel=stylesheet><link href=../styles/bbts-themas.css rel=stylesheet><script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script><script id=__analytics>function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-horacio"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-horacio",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-horacio",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script><script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script><link href=../assets/stylesheets/glightbox.min.css rel=stylesheet><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style><script src=../assets/javascripts/glightbox.min.js></script></head> <body data-md-color-accent=purple data-md-color-primary=deep-purple data-md-color-scheme=default dir=ltr> <input autocomplete=off class=md-toggle data-md-toggle=drawer id=__drawer type=checkbox> <input autocomplete=off class=md-toggle data-md-toggle=search id=__search type=checkbox> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a class=md-skip href=#gerenciador-de-container-portainer> Skip to content </a> </div> <div data-md-component=announce> </div> <div data-md-color-scheme=default data-md-component=outdated hidden> </div> <header class="md-header md-header--shadow" data-md-component=header> <nav aria-label=Header class="md-header__inner md-grid"> <a aria-label=60portunities class="md-header__button md-logo" data-md-component=logo href=.. title=60portunities> <img alt=logo src=../img/logo.jpeg> </a> <label class="md-header__button md-icon" for=__drawer> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> 60portunities </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Docker </span> </div> </div> </div> <form class=md-header__option data-md-component=palette> <input aria-label="Azul da cor do mar" class=md-option data-md-color-accent=purple data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary=deep-purple data-md-color-scheme=default id=__palette_0 name=__palette type=radio> <label class="md-header__button md-icon" for=__palette_1 hidden title="Azul da cor do mar"> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg> </label> <input aria-label="Rock and Roll" class=md-option data-md-color-accent=deep-purple data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary=red data-md-color-scheme=default id=__palette_1 name=__palette type=radio> <label class="md-header__button md-icon" for=__palette_0 hidden title="Rock and Roll"> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg> </label> </form> <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script> <label class="md-header__button md-icon" for=__search> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input aria-label=Search autocapitalize=off autocomplete=off autocorrect=off class=md-search__input data-md-component=search-query name=query placeholder=Search required spellcheck=false type=text> <label class="md-search__icon md-icon" for=__search> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg> </label> <nav aria-label=Search class=md-search__options> <a aria-label=Share class="md-search__icon md-icon" data-clipboard data-clipboard-text data-md-component=search-share href=javascript:void(0) tabindex=-1 title=Share> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg> </a> <button aria-label=Clear class="md-search__icon md-icon" tabindex=-1 title=Clear type=reset> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg> </button> </nav> <div class=md-search__suggest data-md-component=search-suggest></div> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix tabindex=0> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list role=presentation></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a class=md-source data-md-component=source href=https://github.com/60pportunities/ title="Go to repository"> <div class="md-source__icon md-icon"> <svg viewbox="0 0 448 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg> </div> <div class=md-source__repository> documentacao </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav aria-label=Navigation class="md-nav md-nav--primary" data-md-level=0> <label class=md-nav__title for=__drawer> <a aria-label=60portunities class="md-nav__button md-logo" data-md-component=logo href=.. title=60portunities> <img alt=logo src=../img/logo.jpeg> </a> 60portunities </label> <div class=md-nav__source> <a class=md-source data-md-component=source href=https://github.com/60pportunities/ title="Go to repository"> <div class="md-source__icon md-icon"> <svg viewbox="0 0 448 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg> </div> <div class=md-source__repository> documentacao </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_1 type=checkbox> <label class=md-nav__link for=__nav_1 id=__nav_1_label tabindex=0> <span class=md-ellipsis> Inicio </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_1_label class=md-nav data-md-level=1> <label class=md-nav__title for=__nav_1> <span class="md-nav__icon md-icon"></span> Inicio </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../LICENSE/ class=md-nav__link> <span class=md-ellipsis> Licença </span> </a> </li> <li class=md-nav__item> <a href=../CHANGELOG/ class=md-nav__link> <span class=md-ellipsis> Changelog </span> </a> </li> <li class=md-nav__item> <a href=../CONTRIBUTING/ class=md-nav__link> <span class=md-ellipsis> Contribuições </span> </a> </li> <li class=md-nav__item> <a href=../CODE_OF_CONDUCT/ class=md-nav__link> <span class=md-ellipsis> Codigo de Conduta </span> </a> </li> <li class=md-nav__item> <a href=../notas/ class=md-nav__link> <span class=md-ellipsis> Notas </span> </a> </li> <li class=md-nav__item> <a href=../politicas/ class=md-nav__link> <span class=md-ellipsis> Políticas </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_equilibrio/ class=md-nav__link> <span class=md-ellipsis> Mantenha o Equilíbrio </span> </a> </li> <li class=md-nav__item> <a href=../SECURITY/ class=md-nav__link> <span class=md-ellipsis> Segurança </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_2 type=checkbox> <label class=md-nav__link for=__nav_2 id=__nav_2_label tabindex=0> <span class=md-ellipsis> Conceitos </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_2_label class=md-nav data-md-level=1> <label class=md-nav__title for=__nav_2> <span class="md-nav__icon md-icon"></span> Conceitos </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../recipe_60pportunities_conc_definicao/ class=md-nav__link> <span class=md-ellipsis> Definições </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conc_foundation/ class=md-nav__link> <span class=md-ellipsis> Fundação </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conc_arquitetonicos/ class=md-nav__link> <span class=md-ellipsis> Arquitetura </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conc_noosfera/ class=md-nav__link> <span class=md-ellipsis> Noosfera </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conc_time_formacao/ class=md-nav__link> <span class=md-ellipsis> Time Formação </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conc_paradoxos/ class=md-nav__link> <span class=md-ellipsis> Paradoxos </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_3 type=checkbox> <label class=md-nav__link for=__nav_3 id=__nav_3_label tabindex=0> <span class=md-ellipsis> Projetos </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_3_label class=md-nav data-md-level=1> <label class=md-nav__title for=__nav_3> <span class="md-nav__icon md-icon"></span> Projetos </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../recipe_60pportunities_conc_projetos_falham/ class=md-nav__link> <span class=md-ellipsis> Falham </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conc_projetos_metodo/ class=md-nav__link> <span class=md-ellipsis> Método </span> </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_3_3 type=checkbox> <label class=md-nav__link for=__nav_3_3 id=__nav_3_3_label tabindex=0> <span class=md-ellipsis> Configuração Plataformas </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_3_3_label class=md-nav data-md-level=2> <label class=md-nav__title for=__nav_3_3> <span class="md-nav__icon md-icon"></span> Configuração Plataformas </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_github/ class=md-nav__link> <span class=md-ellipsis> Github </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_azuredevops/ class=md-nav__link> <span class=md-ellipsis> Azure-Devops </span> </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_4 type=checkbox> <label class=md-nav__link for=__nav_4 id=__nav_4_label tabindex=0> <span class=md-ellipsis> Registro </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_4_label class=md-nav data-md-level=1> <label class=md-nav__title for=__nav_4> <span class="md-nav__icon md-icon"></span> Registro </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_registrobr_dominio/ class=md-nav__link> <span class=md-ellipsis> Registrando um Domínio </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_5 type=checkbox> <label class=md-nav__link for=__nav_5 id=__nav_5_label tabindex=0> <span class=md-ellipsis> Git </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_5_label class=md-nav data-md-level=1> <label class=md-nav__title for=__nav_5> <span class="md-nav__icon md-icon"></span> Git </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../recipe_60pportunities_treino_git_00_historia/ class=md-nav__link> <span class=md-ellipsis> Histórico Git </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_treino_git_00_gitpro/ class=md-nav__link> <span class=md-ellipsis> Git-Pro </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_treino_git_01_version/ class=md-nav__link> <span class=md-ellipsis> Versionamento </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_treino_git_02_branch/ class=md-nav__link> <span class=md-ellipsis> Estratégia de Branch </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_6 type=checkbox> <label class=md-nav__link for=__nav_6 id=__nav_6_label tabindex=0> <span class=md-ellipsis> GitHub </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_6_label class=md-nav data-md-level=1> <label class=md-nav__title for=__nav_6> <span class="md-nav__icon md-icon"></span> GitHub </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_github_conta/ class=md-nav__link> <span class=md-ellipsis> Conta no GitHub </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_github_pages/ class=md-nav__link> <span class=md-ellipsis> Configurando Pages </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_github_dominio_pages/ class=md-nav__link> <span class=md-ellipsis> Publicando Pages no Domínio </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_contribuicao/ class=md-nav__link> <span class=md-ellipsis> Contribuindo com Código Aberto </span> </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_6_5 type=checkbox> <label class=md-nav__link for=__nav_6_5 id=__nav_6_5_label tabindex=0> <span class=md-ellipsis> GitHub Certificação </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_6_5_label class=md-nav data-md-level=2> <label class=md-nav__title for=__nav_6_5> <span class="md-nav__icon md-icon"></span> GitHub Certificação </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_6_5_1 type=checkbox> <label class=md-nav__link for=__nav_6_5_1 id=__nav_6_5_1_label tabindex=0> <span class=md-ellipsis> Foundations </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_6_5_1_label class=md-nav data-md-level=3> <label class=md-nav__title for=__nav_6_5_1> <span class="md-nav__icon md-icon"></span> Foundations </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../recipe_60pportunities_ghf_01_guide/ class=md-nav__link> <span class=md-ellipsis> Guide </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_ghf_02_conta/ class=md-nav__link> <span class=md-ellipsis> Criação de Conta </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_ghf_03_resumo/ class=md-nav__link> <span class=md-ellipsis> Preparação Resumo </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=../recipe_60pportunities_ghf_04_innersource.md> <span class=md-ellipsis> Innersource/Boilerplate </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=../recipe_60pportunities_ghf_50_links.md> <span class=md-ellipsis> Links para Estudo </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_ghf_90_questions/ class=md-nav__link> <span class=md-ellipsis> Exemplo Prova </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_6_5_2 type=checkbox> <label class=md-nav__link for=__nav_6_5_2 id=__nav_6_5_2_label tabindex=0> <span class=md-ellipsis> Actions </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_6_5_2_label class=md-nav data-md-level=3> <label class=md-nav__title for=__nav_6_5_2> <span class="md-nav__icon md-icon"></span> Actions </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../recipe_60pportunities_gha_01_guide/ class=md-nav__link> <span class=md-ellipsis> Guide </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_gha_03_resumo/ class=md-nav__link> <span class=md-ellipsis> Preparação Resumo </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_gha_90_questions/ class=md-nav__link> <span class=md-ellipsis> Exemplo Prova </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_6_5_3 type=checkbox> <label class=md-nav__link for=__nav_6_5_3 id=__nav_6_5_3_label tabindex=0> <span class=md-ellipsis> Advanced Security </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_6_5_3_label class=md-nav data-md-level=3> <label class=md-nav__title for=__nav_6_5_3> <span class="md-nav__icon md-icon"></span> Advanced Security </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a class=md-nav__link href=../recipe_60pportunities_ghas_guide.md> <span class=md-ellipsis> Guide </span> </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_7 type=checkbox> <label class=md-nav__link for=__nav_7 id=__nav_7_label tabindex=0> <span class=md-ellipsis> Documentação as Code </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_7_label class=md-nav data-md-level=1> <label class=md-nav__title for=__nav_7> <span class="md-nav__icon md-icon"></span> Documentação as Code </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_documentacao/ class=md-nav__link> <span class=md-ellipsis> Documentação </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_mkdocs/ class=md-nav__link> <span class=md-ellipsis> Usando o MkDocs </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_mkdocs_publicacao/ class=md-nav__link> <span class=md-ellipsis> Publicando MkDocs no Github </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_8 type=checkbox> <label class=md-nav__link for=__nav_8 id=__nav_8_label tabindex=0> <span class=md-ellipsis> Dados </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_8_label class=md-nav data-md-level=1> <label class=md-nav__title for=__nav_8> <span class="md-nav__icon md-icon"></span> Dados </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_data_sod/ class=md-nav__link> <span class=md-ellipsis> Segregation of Duties </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_data_mask/ class=md-nav__link> <span class=md-ellipsis> Mascaramento de dados </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_data_master/ class=md-nav__link> <span class=md-ellipsis> Dados Mestres/Referência </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_data_ccadastro/ class=md-nav__link> <span class=md-ellipsis> Central de Cadastro </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_data_etica/ class=md-nav__link> <span class=md-ellipsis> Dados Ética </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_data_master/ class=md-nav__link> <span class=md-ellipsis> Dados Mestres/Referência </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input checked class="md-nav__toggle md-toggle" id=__nav_9 type=checkbox> <label class=md-nav__link for=__nav_9 id=__nav_9_label tabindex=0> <span class=md-ellipsis> Desenvolvedor </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=true aria-labelledby=__nav_9_label class=md-nav data-md-level=1> <label class=md-nav__title for=__nav_9> <span class="md-nav__icon md-icon"></span> Desenvolvedor </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../recipe_60pportunities_dev_backstage/ class=md-nav__link> <span class=md-ellipsis> Backstage </span> </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-nav__toggle md-toggle" id=__toc type=checkbox> <label class="md-nav__link md-nav__link--active" for=__toc> <span class=md-ellipsis> Docker </span> <span class="md-nav__icon md-icon"></span> </label> <a href=./ class="md-nav__link md-nav__link--active"> <span class=md-ellipsis> Docker </span> </a> <nav aria-label="Table of contents" class="md-nav md-nav--secondary"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a class=md-nav__link href=#gerenciador-de-container-portainer> <span class=md-ellipsis> Gerenciador de Container - Portainer </span> </a> <nav aria-label="Gerenciador de Container - Portainer" class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a class=md-nav__link href=#centro-de-dados> <span class=md-ellipsis> Centro de dados </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#computacao-de-borda> <span class=md-ellipsis> Computação de Borda </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#instalacao-do-portainer> <span class=md-ellipsis> Instalação do Portainer </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#install-signoz-using-docker-compose> <span class=md-ellipsis> Install SigNoz Using Docker Compose </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a class=md-nav__link href=#portas> <span class=md-ellipsis> Portas </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#convencao-de-nomeacao-em-tags> <span class=md-ellipsis> Convenção de Nomeação em tags </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#arquitetura-docker> <span class=md-ellipsis> Arquitetura Docker </span> </a> <nav aria-label="Arquitetura Docker" class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a class=md-nav__link href=#rede-de-conteineres> <span class=md-ellipsis> Rede de contêineres </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a class=md-nav__link href=#binbash> <span class=md-ellipsis> !/bin/bash </span> </a> <nav aria-label=!/bin/bash class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a class=md-nav__link href=#-> <span class=md-ellipsis> ------------------------------------------------------------------------------- </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#-_1> <span class=md-ellipsis> ------------------------------------------------------------------------------- </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#manual> <span class=md-ellipsis> Manual </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#docker-pull-container-registryoraclecomdatabasefreelatest-docker-run-d-it-name-23cfree-p-85211521-p-85005500-p-80238080-p-90438443-e-oracle_pwde-container-registryoraclecomdatabasefreelatest-docker-exec-it-23cfree-binbash-curl-o-apex-latestzip-httpsdownloadoraclecomotn_softwareapexapex-latestzip-unzip-apex-latestzip-rm-apex-latestzip-cd-apex-bash-44-sqlplus-as-sysdba-sqlplus-release-230000-developer-release-on-wed-apr-5-132732-2023-version-232000-copyright-c-1982-2023-oracle-all-rights-reserved-connected-to-oracle-database-23c-free-release-230000-developer-release-version-232000-alter-session-set-container-freepdb1-apexinssql-sysaux-sysaux-temp-i-alter-user-apex_public_user-account-unlock-alter-user-apex_public_user-identified-by-e-apxchpwdsql-exit-mkdir-homeoraclesoftware-mkdir-homeoraclesoftwareapex-mkdir-homeoraclesoftwareords-mkdir-homeoraclescripts-cp-r-homeoracleapeximages-homeoraclesoftwareapex-cd-homeoracle-su-cat-devnull-etcdnfvarsociregion-dnf-update-y-dnf-install-sudo-y-dnf-install-nano-y-nano-etcsudoers-defaults-lecture-oracle-allall-nopasswd-all-dnf-install-java-17-openjdk-y-mkdir-etcords-mkdir-etcordsconfig-mkdir-homeoraclelogs-chmod-r-777-etcords-java-version-openjdk-version-1706-2023-01-17-lts-openjdk-runtime-environment-red_hat-1706010-3el8_7-build-170610-lts-openjdk-64-bit-server-vm-red_hat-1706010-3el8_7-build-170610-lts-mixed-mode-sharing-yum-config-manager-add-repohttpyumoraclecomrepooraclelinuxol8oraclesoftwarex86_64-dnf-install-ords-y-export-_java_options-xms512m-xmx512m-ords-config-etcordsconfig-install-enter-a-number-to-select-the-tns-net-service-name-to-use-or-specify-the-database-connection-1-extproc_connection_data-sidplsextproc-2-free-service_namefree-3-freepdb1-service_namefreepdb1-s-specify-the-database-connection-choose-1-3-provide-database-user-name-with-administrator-privileges-enter-the-administrator-username-sys-enter-the-database-password-for-sys-as-sysdba-e-retrieving-information-ords-is-not-installed-in-the-database-ords-installation-is-required-enter-a-number-to-update-the-value-or-select-option-a-to-accept-and-continue-1-connection-type-tns-2-tns-connection-tns_namefreepdb1-tns_folderoptoracleproduct23cdbhomefreenetworkadmin-administrator-user-sys-as-sysdba-3-database-password-for-ords-runtime-user-ords_public_user-generate-4-ords-runtime-user-and-schema-tablespaces-default-sysaux-temporary-temp-5-additional-feature-database-actions-6-configure-and-start-ords-in-standalone-mode-yes-7-protocol-http-8-http-port-8080-9-apex-static-resources-location-a-accept-and-continue-create-configuration-and-install-ords-in-the-database-q-quit-do-not-proceed-no-changes-choose-a-homeoraclesoftwareapeximages-code-classlang-plaintext2024-04-15t153027922z-info-oracle-rest-data-services-initialized-oracle-rest-data-services-version-2410r0960841-oracle-rest-data-services-server-info-jetty10020-oracle-rest-data-services-java-info-openjdk-64-bit-server-vm-170107-lts-docker-pull-container-registryoraclecomdatabaseexpresslatest-docker-images-docker-network-create-apex-network-docker-run-d-name-apex_db-hostname-apexhost-networkapex-network-p-15221521-container-registryoraclecomdatabaseexpresslatest-docker-exec-it-apex_db-sqlplus-as-sysdba-show-pdbs-docker-exec-apex_db-setpasswordsh-hamza123-docker-logs-apex_db-sqlplus-syshamza123apexhost1522xe-as-sysdba-sqlplus-systemhamza123apexhost1522xe-sqlplus-pdbadminhamza123apexhost1522xepdb1-docker-pull-container-registryoraclecomdatabaseordslatest-mkdir-apex-echo-conn_stringsyshamza123apexhost1521xepdb1-apexconn_stringtxt-docker-inspect-apex_db-and-search-for-the-ipaddress-conn_stringuserpasswordhostportservice_name-docker-run-rm-name-apex-v-absolute_pathapexoptoraclevariables-networkapex-network-p-81818181-container-registryoraclecomdatabaseordslatest-sqlplus-syshamza123apexhost1521xepdb1-as-sysdba-and-set-the-password-alter-user-apex_public_user-identified-by-eraoui123-workspace-internal-username-admin-password-welcome_1> <span class=md-ellipsis> docker pull container-registry.oracle.com/database/free:latest docker run -d -it --name 23cfree -p 8521:1521 -p 8500:5500 -p 8023:8080 -p 9043:8443 -e ORACLE_PWD=E container-registry.oracle.com/database/free:latest docker exec -it 23cfree /bin/bash curl -o apex-latest.zip https://download.oracle.com/otn_software/apex/apex-latest.zip unzip apex-latest.zip rm apex-latest.zip cd apex bash-4.4$ sqlplus / as sysdba SQL*Plus: Release 23.0.0.0.0 - Developer-Release on Wed Apr 5 13:27:32 2023 Version 23.2.0.0.0 Copyright (c) 1982, 2023, Oracle. All rights reserved. Connected to: Oracle Database 23c Free, Release 23.0.0.0.0 - Developer-Release Version 23.2.0.0.0 ALTER SESSION SET CONTAINER = FREEPDB1; @apexins.sql SYSAUX SYSAUX TEMP /i/ ALTER USER APEX_PUBLIC_USER ACCOUNT UNLOCK; ALTER USER APEX_PUBLIC_USER IDENTIFIED BY E; @apxchpwd.sql exit mkdir /home/oracle/software mkdir /home/oracle/software/apex mkdir /home/oracle/software/ords mkdir /home/oracle/scripts cp -r /home/oracle/apex/images /home/oracle/software/apex cd /home/oracle/ su cat /dev/null &gt; /etc/dnf/vars/ociregion dnf update -y dnf install sudo -y dnf install nano -y nano /etc/sudoers Defaults !lecture oracle ALL=(ALL) NOPASSWD: ALL dnf install java-17-openjdk -y mkdir /etc/ords mkdir /etc/ords/config mkdir /home/oracle/logs chmod -R 777 /etc/ords java -version openjdk version "17.0.6" 2023-01-17 LTS OpenJDK Runtime Environment (Red_Hat-17.0.6.0.10-3.el8_7) (build 17.0.6+10-LTS) OpenJDK 64-Bit Server VM (Red_Hat-17.0.6.0.10-3.el8_7) (build 17.0.6+10-LTS, mixed mode, sharing) yum-config-manager --add-repo=http://yum.oracle.com/repo/OracleLinux/OL8/oracle/software/x86_64 dnf install ords -y export _JAVA_OPTIONS="-Xms512M -Xmx512M" ords --config /etc/ords/config install Enter a number to select the TNS net service name to use or specify the database connection [1] EXTPROC_CONNECTION_DATA SID=PLSExtProc [2] FREE SERVICE_NAME=FREE [3] FREEPDB1 SERVICE_NAME=FREEPDB1 [S] Specify the database connection Choose [1]: 3 Provide database user name with administrator privileges. Enter the administrator username: SYS Enter the database password for SYS AS SYSDBA: E Retrieving information. ORDS is not installed in the database. ORDS installation is required. Enter a number to update the value or select option A to Accept and Continue [1] Connection Type: TNS [2] TNS Connection: TNS_NAME=FREEPDB1 TNS_FOLDER=/opt/oracle/product/23c/dbhomeFree/network/admin Administrator User: SYS AS SYSDBA [3] Database password for ORDS runtime user (ORDS_PUBLIC_USER): &lt;generate&gt; [4] ORDS runtime user and schema tablespaces: Default: SYSAUX Temporary TEMP [5] Additional Feature: Database Actions [6] Configure and start ORDS in Standalone Mode: Yes [7] Protocol: HTTP [8] HTTP Port: 8080 [9] APEX static resources location: [A] Accept and Continue - Create configuration and Install ORDS in the database [Q] Quit - Do not proceed. No changes Choose [A]: /home/oracle/software/apex/images &lt;code class="lang-plaintext"&gt;2024-04-15T15:30:27.922Z INFO Oracle REST Data Services initialized Oracle REST Data Services version : 24.1.0.r0960841 Oracle REST Data Services server info: jetty/10.0.20 Oracle REST Data Services java info: OpenJDK 64-Bit Server VM 17.0.10+7-LTS docker pull container-registry.oracle.com/database/express:latest docker images docker network create apex-network docker run -d --name apex_db --hostname apexhost --network=apex-network -p 1522:1521 container-registry.oracle.com/database/express:latest docker exec -it apex_db sqlplus / as sysdba show pdbs docker exec apex_db ./setPassword.sh hamza123 docker logs apex_db sqlplus sys/hamza123@//apexhost:1522/XE as sysdba sqlplus system/hamza123@//apexhost:1522/XE sqlplus pdbadmin/hamza123@//apexhost:1522/XEPDB1 docker pull container-registry.oracle.com/database/ords:latest mkdir ~/apex echo CONN_STRING=sys/hamza123@apexhost:1521/XEPDB1 &gt; ~/apex/conn_string.txt docker inspect apex_db and search for the IPAddress CONN_STRING=user/password@host:port/service_name docker run --rm --name apex -v /absolute_path/apex:/opt/oracle/variables --network=apex-network -p 8181:8181 container-registry.oracle.com/database/ords:latest sqlplus sys/hamza123@//apexhost:1521/XEPDB1 as sysdba and set the password alter user APEX_PUBLIC_USER identified by eraoui123; Workspace: internal Username: admin Password: Welcome_1 </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a class=md-nav__link href=#binbash_1> <span class=md-ellipsis> !/bin/bash </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#set-environment> <span class=md-ellipsis> set environment </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#add-hostname> <span class=md-ellipsis> add hostname </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#set-timezone> <span class=md-ellipsis> set timezone </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#start-all-components> <span class=md-ellipsis> start all components </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#ssh> <span class=md-ellipsis> ssh </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#oracle> <span class=md-ellipsis> oracle </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#tomcat> <span class=md-ellipsis> tomcat </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#infinite-wait-loop-trap-interruptterminate-signal-for-graceful-termination> <span class=md-ellipsis> Infinite wait loop, trap interrupt/terminate signal for graceful termination </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_dev_jenkins/ class=md-nav__link> <span class=md-ellipsis> Jenkins </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_dev_logs/ class=md-nav__link> <span class=md-ellipsis> Observabilidade e Logs </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_dev_mensagens/ class=md-nav__link> <span class=md-ellipsis> Mensagens </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_dev_vscode/ class=md-nav__link> <span class=md-ellipsis> Visual Code </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_dev_sbom/ class=md-nav__link> <span class=md-ellipsis> Software Bill of Materials (SBOM) </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_dev_bancooracle/ class=md-nav__link> <span class=md-ellipsis> SGBD Oracle </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_dev_hacker_etico/ class=md-nav__link> <span class=md-ellipsis> Hacker do Bem </span> </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_9_10 type=checkbox> <label class=md-nav__link for=__nav_9_10 id=__nav_9_10_label tabindex=0> <span class=md-ellipsis> Linguagem </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_9_10_label class=md-nav data-md-level=2> <label class=md-nav__title for=__nav_9_10> <span class="md-nav__icon md-icon"></span> Linguagem </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../recipe_60pportunities_dev_doc_php/ class=md-nav__link> <span class=md-ellipsis> PHP </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_9_11 type=checkbox> <label class=md-nav__link for=__nav_9_11 id=__nav_9_11_label tabindex=0> <span class=md-ellipsis> Métricas </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_9_11_label class=md-nav data-md-level=2> <label class=md-nav__title for=__nav_9_11> <span class="md-nav__icon md-icon"></span> Métricas </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_metricas/ class=md-nav__link> <span class=md-ellipsis> Métricas Internas </span> </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_10 type=checkbox> <label class=md-nav__link for=__nav_10 id=__nav_10_label tabindex=0> <span class=md-ellipsis> Estudos/Aprendizado </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_10_label class=md-nav data-md-level=1> <label class=md-nav__title for=__nav_10> <span class="md-nav__icon md-icon"></span> Estudos/Aprendizado </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_api/ class=md-nav__link> <span class=md-ellipsis> Application Program Interface </span> </a> </li> <li class=md-nav__item> <a href=../recipe_60pportunities_conf_inteligencia_artificial/ class=md-nav__link> <span class=md-ellipsis> Inteligencia Artificial </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_11 type=checkbox> <label class=md-nav__link for=__nav_11 id=__nav_11_label tabindex=0> <span class=md-ellipsis> Dicionário </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_11_label class=md-nav data-md-level=1> <label class=md-nav__title for=__nav_11> <span class="md-nav__icon md-icon"></span> Dicionário </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../recipe_60pportunities_tesauro/ class=md-nav__link> <span class=md-ellipsis> Termos </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle" id=__nav_12 type=checkbox> <label class=md-nav__link for=__nav_12 id=__nav_12_label tabindex=0> <span class=md-ellipsis> Links Úteis para o Aprendizado </span> <span class="md-nav__icon md-icon"></span> </label> <nav aria-expanded=false aria-labelledby=__nav_12_label class=md-nav data-md-level=1> <label class=md-nav__title for=__nav_12> <span class="md-nav__icon md-icon"></span> Links Úteis para o Aprendizado </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../recipe_60pportunities_lic_software/ class=md-nav__link> <span class=md-ellipsis> Faça você mesmo </span> </a> </li> <li class=md-nav__item> <a href=../recipe_links_inteligencia_artificial/ class=md-nav__link> <span class=md-ellipsis> Inteligência Artificial </span> </a> </li> <li class=md-nav__item> <a href=../recipe_links_biblioteca_virtual/ class=md-nav__link> <span class=md-ellipsis> Biblioteca Virtual </span> </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav aria-label="Table of contents" class="md-nav md-nav--secondary"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a class=md-nav__link href=#gerenciador-de-container-portainer> <span class=md-ellipsis> Gerenciador de Container - Portainer </span> </a> <nav aria-label="Gerenciador de Container - Portainer" class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a class=md-nav__link href=#centro-de-dados> <span class=md-ellipsis> Centro de dados </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#computacao-de-borda> <span class=md-ellipsis> Computação de Borda </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#instalacao-do-portainer> <span class=md-ellipsis> Instalação do Portainer </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#install-signoz-using-docker-compose> <span class=md-ellipsis> Install SigNoz Using Docker Compose </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a class=md-nav__link href=#portas> <span class=md-ellipsis> Portas </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#convencao-de-nomeacao-em-tags> <span class=md-ellipsis> Convenção de Nomeação em tags </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#arquitetura-docker> <span class=md-ellipsis> Arquitetura Docker </span> </a> <nav aria-label="Arquitetura Docker" class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a class=md-nav__link href=#rede-de-conteineres> <span class=md-ellipsis> Rede de contêineres </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a class=md-nav__link href=#binbash> <span class=md-ellipsis> !/bin/bash </span> </a> <nav aria-label=!/bin/bash class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a class=md-nav__link href=#-> <span class=md-ellipsis> ------------------------------------------------------------------------------- </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#-_1> <span class=md-ellipsis> ------------------------------------------------------------------------------- </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#manual> <span class=md-ellipsis> Manual </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#docker-pull-container-registryoraclecomdatabasefreelatest-docker-run-d-it-name-23cfree-p-85211521-p-85005500-p-80238080-p-90438443-e-oracle_pwde-container-registryoraclecomdatabasefreelatest-docker-exec-it-23cfree-binbash-curl-o-apex-latestzip-httpsdownloadoraclecomotn_softwareapexapex-latestzip-unzip-apex-latestzip-rm-apex-latestzip-cd-apex-bash-44-sqlplus-as-sysdba-sqlplus-release-230000-developer-release-on-wed-apr-5-132732-2023-version-232000-copyright-c-1982-2023-oracle-all-rights-reserved-connected-to-oracle-database-23c-free-release-230000-developer-release-version-232000-alter-session-set-container-freepdb1-apexinssql-sysaux-sysaux-temp-i-alter-user-apex_public_user-account-unlock-alter-user-apex_public_user-identified-by-e-apxchpwdsql-exit-mkdir-homeoraclesoftware-mkdir-homeoraclesoftwareapex-mkdir-homeoraclesoftwareords-mkdir-homeoraclescripts-cp-r-homeoracleapeximages-homeoraclesoftwareapex-cd-homeoracle-su-cat-devnull-etcdnfvarsociregion-dnf-update-y-dnf-install-sudo-y-dnf-install-nano-y-nano-etcsudoers-defaults-lecture-oracle-allall-nopasswd-all-dnf-install-java-17-openjdk-y-mkdir-etcords-mkdir-etcordsconfig-mkdir-homeoraclelogs-chmod-r-777-etcords-java-version-openjdk-version-1706-2023-01-17-lts-openjdk-runtime-environment-red_hat-1706010-3el8_7-build-170610-lts-openjdk-64-bit-server-vm-red_hat-1706010-3el8_7-build-170610-lts-mixed-mode-sharing-yum-config-manager-add-repohttpyumoraclecomrepooraclelinuxol8oraclesoftwarex86_64-dnf-install-ords-y-export-_java_options-xms512m-xmx512m-ords-config-etcordsconfig-install-enter-a-number-to-select-the-tns-net-service-name-to-use-or-specify-the-database-connection-1-extproc_connection_data-sidplsextproc-2-free-service_namefree-3-freepdb1-service_namefreepdb1-s-specify-the-database-connection-choose-1-3-provide-database-user-name-with-administrator-privileges-enter-the-administrator-username-sys-enter-the-database-password-for-sys-as-sysdba-e-retrieving-information-ords-is-not-installed-in-the-database-ords-installation-is-required-enter-a-number-to-update-the-value-or-select-option-a-to-accept-and-continue-1-connection-type-tns-2-tns-connection-tns_namefreepdb1-tns_folderoptoracleproduct23cdbhomefreenetworkadmin-administrator-user-sys-as-sysdba-3-database-password-for-ords-runtime-user-ords_public_user-generate-4-ords-runtime-user-and-schema-tablespaces-default-sysaux-temporary-temp-5-additional-feature-database-actions-6-configure-and-start-ords-in-standalone-mode-yes-7-protocol-http-8-http-port-8080-9-apex-static-resources-location-a-accept-and-continue-create-configuration-and-install-ords-in-the-database-q-quit-do-not-proceed-no-changes-choose-a-homeoraclesoftwareapeximages-code-classlang-plaintext2024-04-15t153027922z-info-oracle-rest-data-services-initialized-oracle-rest-data-services-version-2410r0960841-oracle-rest-data-services-server-info-jetty10020-oracle-rest-data-services-java-info-openjdk-64-bit-server-vm-170107-lts-docker-pull-container-registryoraclecomdatabaseexpresslatest-docker-images-docker-network-create-apex-network-docker-run-d-name-apex_db-hostname-apexhost-networkapex-network-p-15221521-container-registryoraclecomdatabaseexpresslatest-docker-exec-it-apex_db-sqlplus-as-sysdba-show-pdbs-docker-exec-apex_db-setpasswordsh-hamza123-docker-logs-apex_db-sqlplus-syshamza123apexhost1522xe-as-sysdba-sqlplus-systemhamza123apexhost1522xe-sqlplus-pdbadminhamza123apexhost1522xepdb1-docker-pull-container-registryoraclecomdatabaseordslatest-mkdir-apex-echo-conn_stringsyshamza123apexhost1521xepdb1-apexconn_stringtxt-docker-inspect-apex_db-and-search-for-the-ipaddress-conn_stringuserpasswordhostportservice_name-docker-run-rm-name-apex-v-absolute_pathapexoptoraclevariables-networkapex-network-p-81818181-container-registryoraclecomdatabaseordslatest-sqlplus-syshamza123apexhost1521xepdb1-as-sysdba-and-set-the-password-alter-user-apex_public_user-identified-by-eraoui123-workspace-internal-username-admin-password-welcome_1> <span class=md-ellipsis> docker pull container-registry.oracle.com/database/free:latest docker run -d -it --name 23cfree -p 8521:1521 -p 8500:5500 -p 8023:8080 -p 9043:8443 -e ORACLE_PWD=E container-registry.oracle.com/database/free:latest docker exec -it 23cfree /bin/bash curl -o apex-latest.zip https://download.oracle.com/otn_software/apex/apex-latest.zip unzip apex-latest.zip rm apex-latest.zip cd apex bash-4.4$ sqlplus / as sysdba SQL*Plus: Release 23.0.0.0.0 - Developer-Release on Wed Apr 5 13:27:32 2023 Version 23.2.0.0.0 Copyright (c) 1982, 2023, Oracle. All rights reserved. Connected to: Oracle Database 23c Free, Release 23.0.0.0.0 - Developer-Release Version 23.2.0.0.0 ALTER SESSION SET CONTAINER = FREEPDB1; @apexins.sql SYSAUX SYSAUX TEMP /i/ ALTER USER APEX_PUBLIC_USER ACCOUNT UNLOCK; ALTER USER APEX_PUBLIC_USER IDENTIFIED BY E; @apxchpwd.sql exit mkdir /home/oracle/software mkdir /home/oracle/software/apex mkdir /home/oracle/software/ords mkdir /home/oracle/scripts cp -r /home/oracle/apex/images /home/oracle/software/apex cd /home/oracle/ su cat /dev/null &gt; /etc/dnf/vars/ociregion dnf update -y dnf install sudo -y dnf install nano -y nano /etc/sudoers Defaults !lecture oracle ALL=(ALL) NOPASSWD: ALL dnf install java-17-openjdk -y mkdir /etc/ords mkdir /etc/ords/config mkdir /home/oracle/logs chmod -R 777 /etc/ords java -version openjdk version "17.0.6" 2023-01-17 LTS OpenJDK Runtime Environment (Red_Hat-17.0.6.0.10-3.el8_7) (build 17.0.6+10-LTS) OpenJDK 64-Bit Server VM (Red_Hat-17.0.6.0.10-3.el8_7) (build 17.0.6+10-LTS, mixed mode, sharing) yum-config-manager --add-repo=http://yum.oracle.com/repo/OracleLinux/OL8/oracle/software/x86_64 dnf install ords -y export _JAVA_OPTIONS="-Xms512M -Xmx512M" ords --config /etc/ords/config install Enter a number to select the TNS net service name to use or specify the database connection [1] EXTPROC_CONNECTION_DATA SID=PLSExtProc [2] FREE SERVICE_NAME=FREE [3] FREEPDB1 SERVICE_NAME=FREEPDB1 [S] Specify the database connection Choose [1]: 3 Provide database user name with administrator privileges. Enter the administrator username: SYS Enter the database password for SYS AS SYSDBA: E Retrieving information. ORDS is not installed in the database. ORDS installation is required. Enter a number to update the value or select option A to Accept and Continue [1] Connection Type: TNS [2] TNS Connection: TNS_NAME=FREEPDB1 TNS_FOLDER=/opt/oracle/product/23c/dbhomeFree/network/admin Administrator User: SYS AS SYSDBA [3] Database password for ORDS runtime user (ORDS_PUBLIC_USER): &lt;generate&gt; [4] ORDS runtime user and schema tablespaces: Default: SYSAUX Temporary TEMP [5] Additional Feature: Database Actions [6] Configure and start ORDS in Standalone Mode: Yes [7] Protocol: HTTP [8] HTTP Port: 8080 [9] APEX static resources location: [A] Accept and Continue - Create configuration and Install ORDS in the database [Q] Quit - Do not proceed. No changes Choose [A]: /home/oracle/software/apex/images &lt;code class="lang-plaintext"&gt;2024-04-15T15:30:27.922Z INFO Oracle REST Data Services initialized Oracle REST Data Services version : 24.1.0.r0960841 Oracle REST Data Services server info: jetty/10.0.20 Oracle REST Data Services java info: OpenJDK 64-Bit Server VM 17.0.10+7-LTS docker pull container-registry.oracle.com/database/express:latest docker images docker network create apex-network docker run -d --name apex_db --hostname apexhost --network=apex-network -p 1522:1521 container-registry.oracle.com/database/express:latest docker exec -it apex_db sqlplus / as sysdba show pdbs docker exec apex_db ./setPassword.sh hamza123 docker logs apex_db sqlplus sys/hamza123@//apexhost:1522/XE as sysdba sqlplus system/hamza123@//apexhost:1522/XE sqlplus pdbadmin/hamza123@//apexhost:1522/XEPDB1 docker pull container-registry.oracle.com/database/ords:latest mkdir ~/apex echo CONN_STRING=sys/hamza123@apexhost:1521/XEPDB1 &gt; ~/apex/conn_string.txt docker inspect apex_db and search for the IPAddress CONN_STRING=user/password@host:port/service_name docker run --rm --name apex -v /absolute_path/apex:/opt/oracle/variables --network=apex-network -p 8181:8181 container-registry.oracle.com/database/ords:latest sqlplus sys/hamza123@//apexhost:1521/XEPDB1 as sysdba and set the password alter user APEX_PUBLIC_USER identified by eraoui123; Workspace: internal Username: admin Password: Welcome_1 </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a class=md-nav__link href=#binbash_1> <span class=md-ellipsis> !/bin/bash </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#set-environment> <span class=md-ellipsis> set environment </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#add-hostname> <span class=md-ellipsis> add hostname </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#set-timezone> <span class=md-ellipsis> set timezone </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#start-all-components> <span class=md-ellipsis> start all components </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#ssh> <span class=md-ellipsis> ssh </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#oracle> <span class=md-ellipsis> oracle </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#tomcat> <span class=md-ellipsis> tomcat </span> </a> </li> <li class=md-nav__item> <a class=md-nav__link href=#infinite-wait-loop-trap-interruptterminate-signal-for-graceful-termination> <span class=md-ellipsis> Infinite wait loop, trap interrupt/terminate signal for graceful termination </span> </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <p>O Docker facilita o encapsulamento de seus aplicativos e serviços em contêineres para que você possa executá-los em qualquer lugar. O Docker fornece todas as ferramentas necessárias para limpar seu sistema a partir da linha de comando. Este guia no estilo folha de dicas fornece uma referência rápida para comandos que são úteis para liberar espaço em disco e manter seu sistema organizado removendo imagens, contêineres e volumes do Docker não utilizados.</p> <p>No entanto, conforme você trabalha com o Docker, também é fácil acumular um número excessivo de imagens, contêineres e volumes de dados não utilizados que desorganizam a saída e consomem espaço em disco.</p> <p>Para remover completamente o Docker do seu sistema, você precisará remover quaisquer imagens , contêineres e volumes que foram criados. Para fazer isso, use os seguintes comandos:</p> <table> <thead> <tr> <th>Uso</th> <th>Comando</th> </tr> </thead> <tbody> <tr> <td>Remove unused data</td> <td>docker system prune --all --volumes</td> </tr> <tr> <td>Remove all services</td> <td>docker service rm $(docker service ls -q)</td> </tr> <tr> <td>Remove all containers</td> <td>docker rm -f $(docker ps -aq)</td> </tr> <tr> <td>Remove all images</td> <td>docker rmi -f $(docker images -aq)</td> </tr> <tr> <td>Remove all volumes</td> <td>docker volume rm $(docker volume ls -q)</td> </tr> </tbody> </table> <h2 id=gerenciador-de-container-portainer>Gerenciador de Container - Portainer<a class=headerlink href=#gerenciador-de-container-portainer title="Permanent link">¶</a></h2> <p>Portainer é uma plataforma centralizada de gerenciamento de contêineres que acelera a adoção de contêineres, reduz a complexidade operacional e aborda os desafios de executar contêineres no Docker, Docker Swarm, Podman e Kubernetes. Ele ajuda você a começar e acelerar a adoção inteligente com um portal de gerenciamento inovador e de autoatendimento.</p> <p>O Portainer consiste em dois elementos: o Portainer Server e o Portainer Agent.</p> <p><a class=glightbox data-desc-position=bottom data-height=auto data-type=image data-width=80% href=../img/portainer-001.png><img alt height=600 src=../img/portainer-001.png style="display: block; margin: 0 auto" width=900></a></p> <h3 id=centro-de-dados>Centro de dados<a class=headerlink href=#centro-de-dados title="Permanent link">¶</a></h3> <p>O Portainer for Datacenter é a solução recomendada para usuários implantarem o Portainer para gerenciar clusters de tempo de execução de contêineres em sua própria nuvem ou datacenters locais, ou seja, na rede privada. Nesse caso, a implantação do Portainer e dos Agentes será localizada em sua própria rede privada. <a class=glightbox data-desc-position=bottom data-height=auto data-type=image data-width=80% href=../img/portainer-002.png><img alt height=600 src=../img/portainer-002.png style="display: block; margin: 0 auto" width=900></a></p> <h3 id=computacao-de-borda>Computação de Borda<a class=headerlink href=#computacao-de-borda title="Permanent link">¶</a></h3> <p>O Portainer for Edge é a solução recomendada para usuários implantarem e configurarem o Portainer para permitir que dispositivos de computação de ponta, por exemplo, dispositivos IoT, estabeleçam conexões entre os dois. Em termos de arquitetura para edge computing, a arquitetura de alto nível é muito semelhante à versão do datacenter, mas as diferenças serão: Um firewall será utilizado para hospedar publicamente os endpoints da API HTTPS (porta 9443) e do HTTP WebSocket Tunnel (porta 8000) do Portainer. O tipo de agente Async Edge requer apenas o ponto de extremidade da API HTTPS (porta 9443). O diagrama a seguir descreve como o Portainer e os agentes de borda devem ser implantados em seu ambiente: <a class=glightbox data-desc-position=bottom data-height=auto data-type=image data-width=80% href=../img/portainer-003.png><img alt height=600 src=../img/portainer-003.png style="display: block; margin: 0 auto" width=900></a></p> <h3 id=instalacao-do-portainer>Instalação do Portainer<a class=headerlink href=#instalacao-do-portainer title="Permanent link">¶</a></h3> <p>Primeiro, crie o volume que o Portainer Server usará para armazenar seu banco de dados: - [x] <code>docker volume create portainer_data</code> Em seguida, baixe e instale o contêiner do Portainer Server: - [x] <code>docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:2.21.3</code></p> <h3 id=install-signoz-using-docker-compose>Install SigNoz Using Docker Compose<a class=headerlink href=#install-signoz-using-docker-compose title="Permanent link">¶</a></h3> <p>SigNoz é uma ferramenta de observabilidade de código aberto alimentada pela OpenTelemetry. Você pode usar o SigNoz para monitorar seus aplicativos e infraestrutura e obter insights sobre eles. Ele suporta uma ampla variedade de sinais de telemetria, como logs, métricas, traces e exceções, para que você possa usar o SigNoz como uma ferramenta de observabilidade completa para monitorar seus aplicativos.</p> <ul class=task-list> <li class=task-list-item><label class=task-list-control><input checked disabled type=checkbox><span class=task-list-indicator></span></label> <code>git clone -b main https://github.com/SigNoz/signoz.git &amp;&amp; cd signoz/deploy/</code></li> <li class=task-list-item><label class=task-list-control><input checked disabled type=checkbox><span class=task-list-indicator></span></label> <code>docker compose -f docker/clickhouse-setup/docker-compose.yaml up -d</code></li> </ul> <h1 id=portas>Portas<a class=headerlink href=#portas title="Permanent link">¶</a></h1> <table> <thead> <tr> <th>Porta</th> <th>Software</th> <th>Motivo</th> </tr> </thead> <tbody> <tr> <td>8000</td> <td>Portainer</td> <td>Ela só é necessária para aqueles que planejam usar os recursos de computação Edge com agentes Edge.</td> </tr> <tr> <td>9000</td> <td>Portainer</td> <td>Portainer também pode ser acessado pela porta 9000 por motivos de legado.</td> </tr> <tr> <td>9443</td> <td>Portainer</td> <td>Interface baseada na web.</td> </tr> <tr> <td>8080</td> <td>SigNoz</td> <td>Interface baseada na web.</td> </tr> <tr> <td>3301</td> <td>SigNoz</td> <td>Interface baseada na web.</td> </tr> <tr> <td>3888</td> <td>SigNoz</td> <td>clickhouse-setup</td> </tr> <tr> <td>2181</td> <td>SigNoz</td> <td>clickhouse-setup</td> </tr> <tr> <td>2888</td> <td>SigNoz</td> <td>clickhouse-setup</td> </tr> <tr> <td>8123</td> <td>SigNoz</td> <td>clickhouse-setup</td> </tr> <tr> <td>9000</td> <td>SigNoz</td> <td>clickhouse-setup</td> </tr> <tr> <td>9181</td> <td>SigNoz</td> <td>clickhouse-setup</td> </tr> <tr> <td>4317</td> <td>SigNoz</td> <td>Dados de Telemetria</td> </tr> <tr> <td>4318</td> <td>SigNoz</td> <td>Dados de Telemetria</td> </tr> </tbody> </table> <h1 id=convencao-de-nomeacao-em-tags>Convenção de Nomeação em tags<a class=headerlink href=#convencao-de-nomeacao-em-tags title="Permanent link">¶</a></h1> <p>A convenção de nomenclatura para as tags no Docker Hub segue o formato <repository_name>:<tag>, onde o nome do repositório é 60pportunities/objeto e onde a tag especifica a versão da imagem. No caso do LTS e das versões mais recentes, as tags são lts a latest, respectivamente.</tag></repository_name></p> <p>A seguir estão os 6 estágios de alto nível de um processo típico de inicialização do Linux.</p> <p><a class=glightbox data-desc-position=bottom data-height=auto data-type=image data-width=80% href=../img/linux-boot-process.png><img alt height=225 src=../img/linux-boot-process.png style="display: block; margin: 0 auto" width=300></a></p> <table> <thead> <tr> <th>Processo</th> <th>Entenda</th> </tr> </thead> <tbody> <tr> <td>BIOS</td> <td>Executa algumas verificações de integridade do sistema.</td> </tr> <tr> <td></td> <td>Pesquisa, carrega e executa o programa carregador de boot.</td> </tr> <tr> <td></td> <td>Ele procura o carregador de boot em uma unidade externa ou disco rígido.</td> </tr> <tr> <td></td> <td>Uma vez que o programa carregador de boot é detectado e carregado na memória, o BIOS dá o controle a ele.</td> </tr> <tr> <td></td> <td>Então, em termos simples, o BIOS carrega e executa o carregador de boot MBR.</td> </tr> <tr> <td></td> <td></td> </tr> <tr> <td>MBR</td> <td>significa Registro mestre de inicialização.</td> </tr> <tr> <td></td> <td>Ele está localizado no primeiro setor do disco inicializável. Normalmente /dev/hda ou /dev/sda</td> </tr> <tr> <td></td> <td>O MBR tem menos de 512 bytes de tamanho. Isso tem três componentes</td> </tr> <tr> <td></td> <td>1) informações do carregador de inicialização primário nos primeiros 446 bytes</td> </tr> <tr> <td></td> <td>2) Informações da tabela de partição nos próximos 64 bytes</td> </tr> <tr> <td></td> <td>3) verificação de validação do mbr nos últimos 2 bytes.</td> </tr> <tr> <td></td> <td>Contém informações sobre o GRUB (ou LILO em sistemas antigos).</td> </tr> <tr> <td></td> <td>Então, em termos simples, o MBR carrega e executa o carregador de boot GRUB.</td> </tr> <tr> <td></td> <td></td> </tr> <tr> <td>GRUB</td> <td>significa Grand Unified Bootloader.</td> </tr> <tr> <td></td> <td>Se você tiver várias imagens de kernel instaladas no seu sistema, poderá escolher qual delas será executada.</td> </tr> <tr> <td></td> <td>GRUB exibe uma tela inicial, aguarda alguns segundos, se você não inserir nada, ele carrega a imagem padrão do kernel conforme especificado no arquivo de configuração do grub.</td> </tr> <tr> <td></td> <td>GRUB tem conhecimento do sistema de arquivos (o antigo carregador Linux LILO não entendia o sistema de arquivos).</td> </tr> <tr> <td></td> <td>O arquivo de configuração do Grub é /boot/grub/grub.conf (/etc/grub.conf é um link para isso).</td> </tr> <tr> <td></td> <td>Como você notou nas informações acima, ele contém o kernel e a imagem initrd.</td> </tr> <tr> <td></td> <td>Então, em termos simples, o GRUB apenas carrega e executa imagens do Kernel e do initrd.</td> </tr> <tr> <td>KERNEL</td> <td>Monta o sistema de arquivos raiz conforme especificado em “root=” em grub.conf</td> </tr> <tr> <td></td> <td>Kernel executa o programa /sbin/init</td> </tr> <tr> <td></td> <td>Como o init foi o primeiro programa a ser executado pelo Kernel Linux, ele possui o ID do processo (PID) igual a 1. Faça um 'ps -ef</td> </tr> <tr> <td></td> <td>initrd significa disco RAM inicial.</td> </tr> <tr> <td></td> <td>initrd é usado pelo kernel como sistema de arquivo raiz temporário até que o kernel seja inicializado e o sistema de arquivo raiz real seja montado. Ele também contém os drivers necessários compilados internamente, o que o ajuda a acessar as partições do disco rígido e outros hardwares.</td> </tr> <tr> <td>Init</td> <td>Examina o arquivo /etc/inittab para decidir o nível de execução do Linux.</td> </tr> <tr> <td></td> <td>A seguir estão os níveis de exec</td> </tr> <tr> <td></td> <td>0 – parar</td> </tr> <tr> <td></td> <td>1 – Modo de usuário único</td> </tr> <tr> <td></td> <td>2 – Multiusuário, sem NFS</td> </tr> <tr> <td></td> <td>3 – Modo multiusuário completo</td> </tr> <tr> <td></td> <td>4 – não utilizado</td> </tr> <tr> <td></td> <td>5 – X11</td> </tr> <tr> <td></td> <td>6 – reiniciar</td> </tr> <tr> <td></td> <td>Init identifica o nível de inicialização padrão de /etc/inittab e o usa para carregar todos os programas apropriados.</td> </tr> <tr> <td></td> <td>Execute 'grep initdefault /etc/inittab' em seu sistema para identificar o nível de execução padrão</td> </tr> <tr> <td></td> <td>Se quiser ter problemas, você pode definir o nível de execução padrão como 0 ou 6. Como você sabe o que significam 0 e 6, provavelmente não fará isso.</td> </tr> <tr> <td></td> <td>Normalmente você definiria o nível de execução padrão como 3 ou 5.</td> </tr> <tr> <td>Runlevel programs</td> <td>(Programas de nível de execução)</td> </tr> <tr> <td></td> <td>Quando o sistema Linux estiver inicializando, você pode ver vários serviços sendo iniciados. Por exemplo, pode dizer “iniciando sendmail …. OK”. Esses são os programas de nível de execução, executados a partir do diretório de nível de execução conforme definido pelo seu nível de execução.</td> </tr> <tr> <td></td> <td>Dependendo da configuração padrão do nível de inicialização, o sistema executará os programas de um dos seguintes diretórios.</td> </tr> <tr> <td></td> <td>Execute o nível 0 – /etc/rc.d/rc0.d/</td> </tr> <tr> <td></td> <td>Execute o nível 1 – /etc/rc.d/rc1.d/</td> </tr> <tr> <td></td> <td>Execute o nível 2 – /etc/rc.d/rc2.d/</td> </tr> <tr> <td></td> <td>Execute o nível 3 – /etc/rc.d/rc3.d/</td> </tr> <tr> <td></td> <td>Execute o nível 4 – /etc/rc.d/rc4.d/</td> </tr> <tr> <td></td> <td>Execute o nível 5 – /etc/rc.d/rc5.d/</td> </tr> <tr> <td></td> <td>Execute o nível 6 – /etc/rc.d/rc6.d/</td> </tr> <tr> <td></td> <td>Observe que também existem links simbólicos disponíveis para esses diretórios diretamente em /etc. Portanto, /etc/rc0.d está vinculado a /etc/rc.d/rc0.d.</td> </tr> <tr> <td></td> <td>Nos diretórios /etc/rc.d/rc*.d/, você veria programas que começam com S e K.</td> </tr> <tr> <td></td> <td>Os programas iniciados com S são usados durante a inicialização. S para inicialização.</td> </tr> <tr> <td></td> <td>Os programas iniciados com K são usados durante o desligamento. K para matar.</td> </tr> <tr> <td></td> <td>Existem números ao lado de S e K nos nomes dos programas. Esses são os números de sequência em que os programas devem ser iniciados ou encerrados.</td> </tr> <tr> <td></td> <td>Por exemplo, S12syslog deve iniciar o daemon syslog, que tem o número de sequência 12. S80sendmail deve iniciar o daemon sendmail, que tem o número de sequência 80. Portanto, o programa syslog será iniciado antes do sendmail.</td> </tr> </tbody> </table> <h1 id=arquitetura-docker>Arquitetura Docker<a class=headerlink href=#arquitetura-docker title="Permanent link">¶</a></h1> <p><a class=glightbox data-desc-position=bottom data-height=auto data-type=image data-width=80% href=../img/layers.webp><img alt height=450 src=../img/layers.webp style="display: block; margin: 0 auto" width=600></a></p> <table> <thead> <tr> <th>Processo</th> <th>Entenda</th> </tr> </thead> <tbody> <tr> <td>Servidor Docker</td> <td>Daemon Docker é um programa que roda no “plano de fundo” do seu computador ou máquina, e que faz o gerenciamento dos containers e imagens do Docker.</td> </tr> <tr> <td>Cliente Docker</td> <td>permite que os usuários interajam com o daemon Docker através da interface de linha de comando (CLI).</td> </tr> <tr> <td>Registro Docker</td> <td>repositório central que armazena e faz a gestão de imagens.</td> </tr> <tr> <td>Container Docker</td> <td></td> </tr> </tbody> </table> <p><a class=glightbox data-desc-position=bottom data-height=auto data-type=image data-width=80% href=../img/dockerEstrutura.png><img alt height=450 src=../img/dockerEstrutura.png style="display: block; margin: 0 auto" width=600></a></p> <p>Uma imagem é um modelo somente leitura com instruções para criar um contêiner Docker. Um contêiner é uma instância executável de uma imagem. Em geral, cada contêiner deve fazer uma coisa e fazê-la bem. A seguir estão alguns motivos para executar o contêiner separadamente:</p> <p>Quando um contêiner é executado, ele usa as várias camadas de uma imagem para seu sistema de arquivos. Cada contêiner também obtém seu próprio "espaço de rascunho" para criar/atualizar/remover arquivos. Quaisquer alterações não serão vistas em outro contêiner, mesmo que estejam usando a mesma imagem.</p> <p>Os volumes fornecem a capacidade de conectar caminhos específicos do sistema de arquivos do contêiner de volta à máquina host.</p> <p>Uma montagem de volume é uma ótima escolha quando você precisa de um lugar persistente para armazenar os dados do seu aplicativo. </p> <p>Volume nomeado: <code>type=volume,src=my-volume,target=/usr/local/data</code></p> <p>Uma montagem bind é outro tipo de montagem, que permite que você compartilhe um diretório do sistema de arquivos do host para o contêiner.</p> <p>Montagem de encadernação: <code>type=bind,src=/path/to/data,target=/usr/local/data</code> * docker run -it --mount type=bind,src="$(pwd)",target=/src ubuntu bash</p> <p>Você pode usar a CLI ou o Docker Desktop para executar seu contêiner com uma montagem de vinculação.</p> <div class=highlight><pre><span></span><code>docker run -dp 127.0.0.1:3000:3000 \
+    -w /app --mount type=bind,src="$(pwd)",target=/app \
+    node:18-alpine \
+    sh -c "yarn install &amp;&amp; yarn run dev"
+
+ docker run -dp 127.0.0.1:3000:3000 --mount type=volume,src=todo-db,target=/etc/todos getting-started
+</code></pre></div> <h2 id=rede-de-conteineres>Rede de contêineres<a class=headerlink href=#rede-de-conteineres title="Permanent link">¶</a></h2> <p>Lembre-se de que os contêineres, por padrão, são executados isoladamente e não sabem nada sobre outros processos ou contêineres na mesma máquina. A resposta é rede. Se você colocar os dois contêineres na mesma rede, eles podem conversar entre si.</p> <div class=highlight><pre><span></span><code>docker network create todo-app
+docker run -it --network some-network --rm mysql mysql -hsome-mysql -uexample-user -p$ docker run --name some-mysql -v /my/own/datadir:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag`
+docker run -d \ --network todo-app --network-alias mysql \ -v todo-mysql-data:/var/lib/mysql \ -e MYSQL_ROOT_PASSWORD=secret \ -e MYSQL_DATABASE=todos \     mysql:8.0
+docker exec -it &lt;mysql-container-id&gt; mysql -u root -p
+git clone https://github.com/nicolaka/netshootdocker run -it --network todo-app nicolaka/netshoot 
+dig mysql
+definir a MYSQL_PASSWORD_FILEvar fará com que o aplicativo use o conteúdo do arquivo referenciado como a senha de conexão.
+cat /run/secrets/secure-secret
+eHwX8kV8sFt/y30WASgz8kimnKhUkCrt07XMrmewYr8=
+openssl rand -base64 32 | docker secret create secure-secret -
+docker service create --secret="secure-secret" redis:alpine
+</code></pre></div> <p>O termo “Dockerize” significa adaptar ou configurar um aplicativo ou serviço para funcionar dentro de um contêiner Docker. Quando você “Dockeriza” um aplicativo, você está essencialmente preparando-o para conteinerização usando o Docker, uma plataforma de conteinerização. O processo de Dockerização de um aplicativo envolve criar um Dockerfile, construir uma imagem Docker e executar o aplicativo como um contêiner Docker.</p> <p>Por que você pode querer empregar o Dockerizing? A dockerização de seus aplicativos ou serviços oferece diversas vantagens e pode ser benéfica por vários motivos:</p> <ul> <li> <p>Consistência : Os contêineres Docker encapsulam aplicativos e suas dependências, garantindo que eles sejam executados consistentemente em diferentes ambientes. Isso elimina o problema de “funciona na minha máquina” e torna mais fácil manter a consistência entre os ambientes de desenvolvimento, teste e produção.</p> </li> <li> <p>Portabilidade : Os contêineres Docker são altamente portáteis e podem ser executados em qualquer sistema que suporte Docker. Essa portabilidade simplifica o processo de mover aplicativos entre diferentes ambientes, seja desenvolvendo localmente, implantando em um servidor de nuvem ou migrando para uma infraestrutura diferente.</p> </li> <li> <p>Isolamento : Os contêineres fornecem isolamento para seus aplicativos, o que significa que eles não interferem uns com os outros ou com o sistema host. Esse isolamento aumenta a segurança e a estabilidade, tornando mais seguro executar vários aplicativos em um único servidor.</p> </li> <li> <p>Eficiência : Os contêineres Docker são leves e compartilham o kernel do sistema operacional do host, tornando-os mais eficientes em termos de recursos em comparação à virtualização tradicional. Você pode executar mais contêineres no mesmo hardware, melhorando a utilização de recursos.</p> </li> <li> <p>Escalabilidade: O Docker facilita a escalabilidade horizontal de aplicativos adicionando ou removendo instâncias de contêiner. Isso é especialmente valioso para arquiteturas de microsserviços em que os componentes podem ser escalados de forma independente.</p> </li> <li> <p>DevOps e CI/CD : Docker é uma tecnologia fundamental nas práticas modernas de DevOps. Ele simplifica o processo de construção, teste e implantação de aplicativos, permitindo ciclos de lançamento mais rápidos. Os contêineres também podem ser orquestrados para implantação e dimensionamento automatizados em pipelines de CI/CD.</p> </li> <li> <p>Controle de versão : as imagens do Docker podem ser versionadas, permitindo que você retorne a estados anteriores do seu aplicativo se surgirem problemas durante a implantação. Isso facilita o gerenciamento e a manutenção de diferentes versões do seu software.</p> </li> <li> <p>Ecossistema: O Docker tem um rico ecossistema de imagens e ferramentas disponíveis no Docker Hub e no Docker Store. Isso significa que você pode facilmente encontrar e compartilhar contêineres pré-configurados para vários aplicativos e serviços, economizando tempo e esforço.* </p> </li> <li> <p>Gerenciamento de configuração simplificado: as imagens do Docker podem incluir variáveis ​​de ambiente e arquivos de configuração, facilitando o gerenciamento das configurações do aplicativo de forma consistente e reproduzível.</p> </li> <li> <p>Otimização de Recursos: O Docker permite que você otimize a alocação de recursos criando contêineres separados para diferentes componentes de um aplicativo. Isso pode levar a uma melhor utilização de recursos e gerenciamento mais fácil de aplicativos complexos.</p> </li> </ul> <p>Em resumo, Dockerizar seus aplicativos ou serviços oferece maior consistência, portabilidade e eficiência, facilitando o gerenciamento e a implantação de software em práticas modernas de desenvolvimento e implantação. É particularmente valioso em DevOps, microsserviços e arquiteturas de aplicativos nativos da nuvem.</p> <p>Opções - Dependência entre containers wait-for-it</p> <p>Na gravação do curso o Wesley utilizou o dockerize para realizar a sincronização entre serviços de containers Docker.</p> <p>Atualmente o dockerize funciona perfeitamente em ambientes Linux e Windows, mas no MacBook M1 recebemos relatos de problemas de compatibilidade, por isso estamos disponibilizando uma alternativa que supre 100% o uso em comparação ao dockerize e funciona em todas as arquiteturas citadas, além disto é bem mais leve que ele.</p> <p>Abaixo o repositório com informações sobre a configuração e pontos importantes sobre o <a href=https://github.com/codeedu/docker-wait-for-it>wait-for-it</a>.</p> <ul> <li>docker - <a href=https://github.com/devfullcycle/docker-healthcheck>healthcheck</a></li> </ul> <p>Uma outro opção nativa do Docker é o healthcheck, com ele podemos verificar a integridade de um determinado container x e, caso ele esteja com o status = healthy, um container y pode se conectar à ele.</p> <p>No repositório abaixo temos mais informações sobre a utilização desta opção.</p> <p>git clone <a href=https://github.com/docker/getting-started-app.git>https://github.com/docker/getting-started-app.git</a></p> <p><div class=highlight><pre><span></span><code># syntax=docker/dockerfile:1
+FROM node:18-alpine
+WORKDIR /app
+COPY . .
+RUN yarn install --production
+CMD ["node", "src/index.js"]
+EXPOSE 3000
+
+docker run -dp 127.0.0.1:3000:3000 getting-started
+docker stop &lt;the-container-id&gt;
+docker rm &lt;the-container-id&gt;
+docker push docker/getting-started
+docker login -u YOUR-USER-NAME 
+docker tag getting-started YOUR-USER-NAME/getting-started
+docker push YOUR-USER-NAME/getting-started 
+docker build --platform linux/amd64 -t YOUR-USER-NAME/getting-started .
+docker build -t ofs:latest . --no-cache
+docker run --rm -itd --name myOFS -v=&lt;yourintallationfolder&gt;:/home/intelFPGA_pro/:ro -v=DataOFS:/dataofs ofs:latest /bin/bash
+ENV no_proxy=   #you could use  github.com here
+ENV http_proxy= #setup proxy
+ENV https_proxy=  #setup proxy
+ENV GITUSER= #setup github user
+ENV GITTOKEN= #setup github token
+ENV REDUSER= #redhat user 
+ENV REDPASS= #redhat password
+ENV DW_LICENSE_FILE= #DW license
+ENV SNPSLMD_LICENSE_FILE= #Synopsys license
+ENV LM_LICENSE_FILE= #Quartus License
+
+systemctl status
+Em Linux precisamos entender dois componentes fundamentais: cgroups, namespaces, OFS - Overlay File System.
+
+Os namespaces são responsáveis por gerar o isolamento de grupos de processos em seu nível lógico, como o gerenciamento de usuários, rede, etc., garantido que o container não enxergue os processos do host e vice-versa. Logo, ao criar um container, são criados namespaces como PID (Process ID) para isolar processos, NET (Network) para controlar e isolar as redes de cada container, IPC (Inter Process Communication) que permite a comunicação entre processos, etc.
+É isso que se chama namespace, é um espaço separado de nomes, no caso de PIDs.
+</code></pre></div> ps aux sudo unshare --fork --pid --mount-proc /bin/bash. ps aux <div class=highlight><pre><span></span><code>Olha só, cadê todos os meus processos? Sumiu? O bash agora tem PID 1.
+
+A diferença é que o bash que acabamos de abrir não enxerga mais o mesmo "/proc" global. Ele tem um "/proc" 
+
+wget https://github.com/ericchiang/containers-
+
+Cgroups são basicamente a tecnologia que nos permite definir limites de uso de recursos em processos Linux. 
+</code></pre></div> ls /sys/fs/cgroup systemctl status cat /proc/PID/group <div class=highlight><pre><span></span><code>Posso configurar outros limites, como memória, mas pra esse exemplo, só isso já funciona. 
+
+Agora vou abrir um shell dentro desse cgroup com este comando `systemd-run --slice=akita.slice --uid=akitaonrails --shell`
+
+A Open Container Initiative (OCI) é uma comunidade técnica de código aberto na qual os participantes do setor podem contribui
+
+----------- Inicio do Dockerfile
+# LICENSE UPL 1.0
+#
+# Copyright (c) 1982-2017 Oracle and/or its affiliates. All rights reserved.
+#
+# ORACLE DOCKERFILES PROJECT
+# --------------------------
+# This is the Dockerfile for Oracle Rest Data Services
+#
+# REQUIRED FILES TO BUILD THIS IMAGE
+# ----------------------------------
+# (1) ords.3.0.10.165.06.53.zip
+#     Download Oracle Rest Data Services from
+#     http://www.oracle.com/technetwork/developer-tools/rest-data-services/downloads/index.html
+#
+# HOW TO BUILD THIS IMAGE
+# -----------------------
+# Put the downloaded file in the same directory as this Dockerfile
+# Run: 
+#      $ docker build -t oracle/restdataservices:3.0.10 . 
+#
+# Pull base image
+# ---------------
+
+ARG BASE_IMAGE=container-registry.oracle.com/java/serverjre:latest
+FROM ${BASE_IMAGE}
+
+# Labels
+# ----------
+LABEL maintainer "horacio.vasconcellos@gmail.com"
+
+# Environment variables required for this build (do NOT change)
+# -------------------------------------------------------------
+ENV ORDS_HOME=/opt/oracle/ords \
+    INSTALL_FILE=ords*.zip \
+    CONFIG_PROPS="ords_params.properties.tmpl" \
+    STANDALONE_PROPS="standalone.properties.tmpl" \
+    RUN_FILE="runOrds.sh"
+
+# Copy binaries
+# -------------
+COPY $INSTALL_FILE $CONFIG_PROPS $STANDALONE_PROPS $RUN_FILE $ORDS_HOME/
+
+# ARG for installing APEX prerequisites
+ARG INCLUDE_APEX=true
+
+# Setup filesystem and oracle user
+# Adjust file permissions, go to /opt/oracle as user 'oracle' to proceed with ORDS installation
+# ------------------------------------------------------------
+RUN if [ ! -e ${ORDS_HOME}/${INSTALL_FILE} ]; then curl https://download.oracle.com/otn_software/java/ords/ords-21.4.2.062.1806.zip -o $ORDS_HOME/ords-latest.zip; fi &amp;&amp; \
+    mkdir -p  $ORDS_HOME/doc_root $ORDS_HOME/config/ords &amp;&amp; \
+    chmod ug+x $ORDS_HOME/*.sh &amp;&amp; \
+    groupadd -g 54322 dba &amp;&amp; \
+    useradd -u 54321 -d /home/oracle -g dba -m -s /bin/bash oracle &amp;&amp; \
+    if [ $INCLUDE_APEX == "true" ]; then \
+        yum -y install oracle-instantclient-release-el7 &amp;&amp; \
+        yum -y install oracle-instantclient-sqlplus.x86_64 &amp;&amp; \
+        cd "${ORDS_HOME}"/config/ &amp;&amp; \
+        curl https://download.oracle.com/otn_software/apex/apex-latest.zip -o apex-latest.zip &amp;&amp; \
+        jar -xvf apex-latest.zip &amp;&amp; \
+        rm apex-latest.zip; \
+    fi &amp;&amp; \
+    cd $ORDS_HOME &amp;&amp; \
+    jar -xf $INSTALL_FILE &amp;&amp; \
+    rm $INSTALL_FILE  &amp;&amp; \
+    java -jar $ORDS_HOME/ords.war configdir $ORDS_HOME/config &amp;&amp; \
+    chown -R oracle:dba $ORDS_HOME &amp;&amp; \
+    yum install -y tar &amp;&amp; \
+    rm -rf /var/cache/yum &amp;&amp; \
+    rm -rf /var/tmp/yum-*
+
+# Finalize setup
+# -------------------
+USER oracle
+WORKDIR /home/oracle
+
+VOLUME ["$ORDS_HOME/config/ords"]
+EXPOSE 8443
+
+# Define default command to start Oracle Database.
+CMD $ORDS_HOME/$RUN_FILE
+----------- FIm do Dockerfile
+
+
+--------Inicio buildContainerImage.sh
+#!/bin/bash
+# 
+# Since: February, 2017
+# Author: gerald.venzl@oracle.com
+# Description: Build script for building Oracle Rest Data Services Docker images.
+# 
+# DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+# 
+# Copyright (c) 2014-2017 Oracle and/or its affiliates. All rights reserved.
+# 
+
+usage() {
+  cat &lt;&lt; EOF
+
+Usage: buildContainerImage.sh [-i] [-o] [Docker build option]
+Builds a Docker Image for Oracle Rest Data Services
+
+Parameters:
+   -i: ignores the MD5 checksums
+   -o: passes on Docker build option
+
+LICENSE UPL 1.0
+
+Copyright (c) 2014-2017 Oracle and/or its affiliates. All rights reserved.
+
+EOF
+  exit 0
+}
+
+# Validate packages
+checksumPackages() {
+  # Check if Checksum file exists
+  if [ -f "Checksum.$VERSION" ]; then
+    echo "Checking if required packages are present and valid..."
+    md5sum -c "Checksum.$VERSION"
+    ret=$?
+    if [ "$ret" -ne 0 ]; then
+      echo "MD5 for required packages to build this image did not match!"
+      echo "Make sure to download missing files."
+      exit "$ret"
+    fi
+  fi
+}
+
+# Check container runtime
+checkContainerRuntime() {
+  CONTAINER_RUNTIME=$(which docker 2&gt;/dev/null) ||
+    CONTAINER_RUNTIME=$(which podman 2&gt;/dev/null) ||
+    {
+      echo "No docker or podman executable found in your PATH"
+      exit 1
+    }
+
+  if "${CONTAINER_RUNTIME}" info | grep -i -q buildahversion; then
+    checkPodmanVersion
+  else
+    checkDockerVersion
+  fi
+}
+
+# Check Podman version
+checkPodmanVersion() {
+  # Get Podman version
+  echo "Checking Podman version."
+  PODMAN_VERSION=$("${CONTAINER_RUNTIME}" info --format '{{.host.BuildahVersion}}' 2&gt;/dev/null ||
+                   "${CONTAINER_RUNTIME}" info --format '{{.Host.BuildahVersion}}')
+  # Remove dot in Podman version
+  PODMAN_VERSION=${PODMAN_VERSION//./}
+
+  if [ -z "${PODMAN_VERSION}" ]; then
+    exit 1;
+  elif [ "${PODMAN_VERSION}" -lt "${MIN_PODMAN_VERSION//./}" ]; then
+    echo "Podman version is below the minimum required version ${MIN_PODMAN_VERSION}"
+    echo "Please upgrade your Podman installation to proceed."
+    exit 1;
+  fi
+}
+
+# Check Docker version
+checkDockerVersion() {
+  # Get Docker Server version
+  echo "Checking Docker version."
+  DOCKER_VERSION=$("${CONTAINER_RUNTIME}" version --format '{{.Server.Version | printf "%.5s" }}'|| exit 0)
+  # Remove dot in Docker version
+  DOCKER_VERSION=${DOCKER_VERSION//./}
+
+  if [ "${DOCKER_VERSION}" -lt "${MIN_DOCKER_VERSION//./}" ]; then
+    echo "Docker version is below the minimum required version ${MIN_DOCKER_VERSION}"
+    echo "Please upgrade your Docker installation to proceed."
+    exit 1;
+  fi;
+}
+
+# Parameters
+VERSION=""
+SKIPMD5=0
+MIN_DOCKER_VERSION="17.09"
+MIN_PODMAN_VERSION="1.6.0"
+DOCKEROPS=""
+
+while getopts "hio:" optname; do
+  case "$optname" in
+    "h")
+      usage
+      ;;
+    "i")
+      SKIPMD5=1
+      ;;
+    "o")
+      DOCKEROPS="$OPTARG"
+      ;;
+    "?")
+      usage;
+      exit 1;
+      ;;
+    *)
+    # Should not occur
+      echo "Unknown error while processing options inside buildDockerImage.sh"
+      ;;
+  esac
+done
+
+# Check that we have a container runtime installed
+checkContainerRuntime
+
+# Determine latest version
+# Do this after the options so that users can still do a "-h"
+ORDS_ZIP_COUNT="$(ls -al ords*zip 2&gt;/dev/null | wc -l)"
+if [ "${ORDS_ZIP_COUNT}" -eq 0 ]; then
+  VERSION="latest"
+elif [ "${ORDS_ZIP_COUNT}" -gt 1 ]; then
+  echo "ERROR: Found multiple versions of ORDS zip files.";
+  echo "ERROR: Please only put one ORDS zip file into this directory!";
+  exit 1;
+else
+  # #644: using awk as below does not work in macOS bash as it's really gawk (3 params) - see ticket for more info
+  # VERSION=$(ls ords*zip 2&gt;/dev/null | awk 'match ($0, /(ords\.)(.{1,2}\..{1,2}\..{1,2})\.(.+.zip)/, result) { print result[2] }')
+  ORDS_FILENAME=$(ls ords*zip 2&gt;/dev/null)
+  ORDS_FILENAME_REGEXP="(ords(\.|-))(.{1,2}\..{1,2}\..{1,2})(\..*)(zip)"
+
+  if [[ $ORDS_FILENAME =~ $ORDS_FILENAME_REGEXP ]]; then
+    VERSION="${BASH_REMATCH[3]}"
+  else
+    VERSION=""
+  fi;
+
+fi;
+
+if [ -z "$VERSION" ]; then
+  echo "ERROR: No install file is in this directory!"
+  echo "ERROR: Please copy the install file into this directory or refer to the ReadMe!"
+  exit 1;
+fi;
+
+
+# Oracle Database Image Name
+IMAGE_NAME="oracle/restdataservices:$VERSION"
+
+if [ ! "$SKIPMD5" -eq 1 ] &amp;&amp; [ "$VERSION" != "latest" ]; then
+  checksumPackages
+else
+  echo "Ignored MD5 checksum."
+fi
+
+echo "=========================="
+echo "Container Runtime info:"
+"${CONTAINER_RUNTIME}" info
+echo "=========================="
+
+# Proxy settings
+PROXY_SETTINGS=""
+if [ "${http_proxy}" != "" ]; then
+  PROXY_SETTINGS="$PROXY_SETTINGS --build-arg http_proxy=${http_proxy}"
+fi
+
+if [ "${https_proxy}" != "" ]; then
+  PROXY_SETTINGS="$PROXY_SETTINGS --build-arg https_proxy=${https_proxy}"
+fi
+
+if [ "${ftp_proxy}" != "" ]; then
+  PROXY_SETTINGS="$PROXY_SETTINGS --build-arg ftp_proxy=${ftp_proxy}"
+fi
+
+if [ "${no_proxy}" != "" ]; then
+  PROXY_SETTINGS="$PROXY_SETTINGS --build-arg no_proxy=${no_proxy}"
+fi
+
+if [ "$PROXY_SETTINGS" != "" ]; then
+  echo "Proxy settings were found and will be used during build."
+fi
+
+# ################## #
+# BUILDING THE IMAGE #
+# ################## #
+echo "Building image '$IMAGE_NAME' ..."
+
+# BUILD THE IMAGE (replace all environment variables)
+BUILD_START=$(date '+%s')
+"${CONTAINER_RUNTIME}" build --force-rm=true --no-cache=true $DOCKEROPS $PROXY_SETTINGS \
+             -t $IMAGE_NAME -f Dockerfile . || {
+  echo "There was an error building the image."
+  exit 1
+}
+BUILD_END=$(date '+%s')
+BUILD_ELAPSED=$((BUILD_END - BUILD_START))
+
+echo ""
+
+cat &lt;&lt; EOF
+  Oracle Rest Data Services version $VERSION is ready to be extended: 
+
+    --&gt; $IMAGE_NAME
+
+  Build completed in $BUILD_ELAPSED seconds.
+
+EOF
+--------Fim    buildContainerImage.sh
+
+
+---- Inicio ords_params.properties.tmpl
+rest.services.ords.add=true
+database.api.enabled=true
+db.hostname=###ORACLE_HOST###
+db.port=###ORACLE_PORT###
+db.servicename=###ORACLE_SERVICE###
+plsql.gateway.add=false
+rest.services.apex.add=false
+rest.services.ords.add=true
+standalone.http.port=8888
+standalone.mode=false
+standalone.use.https=true
+sys.user=SYS
+sys.password=###ORACLE_PWD###
+user.public.password=###ORDS_PWD###
+pdb.skip.readonly=true
+---- Termino ords_params.properties.tmpl
+
+--- Inicio OracleRestDataServices/dockerfiles/runOrds.sh
+#!/bin/bash
+
+CONTEXT_ROOT=${CONTEXT_ROOT:-"ords"}
+CONTEXT_ROOT=$(echo "${CONTEXT_ROOT}" | sed 's/\///g')
+if [ "$CONTEXT_ROOT" != "ords" ]; then
+  if mv $ORDS_HOME/ords.war $ORDS_HOME/$CONTEXT_ROOT.war; then
+    echo "INFO: Renamed ords.war to $CONTEXT_ROOT.war"
+  else
+    echo "ERROR: Failed renaming ords.war to $CONTEXT_ROOT.war. Exiting..."
+    exit 1
+  fi
+fi
+
+function setupOrds() {
+
+  # Check whether the Oracle DB password has been specified
+  if [ "$ORACLE_PWD" == "" ]; then
+    echo "Error: No ORACLE_PWD specified!"
+    echo "Please specify Oracle DB password using the ORACLE_PWD environment variable."
+    exit 1;
+  fi;
+
+  # Defaults
+  ORACLE_SERVICE=${ORACLE_SERVICE:-"ORCLPDB1"}
+  ORACLE_HOST=${ORACLE_HOST:-"localhost"}
+  ORACLE_PORT=${ORACLE_PORT:-"1521"}
+  ORDS_PWD=${ORDS_PWD:-"oracle"}
+  APEXI=${APEXI:-"$ORDS_HOME/doc_root/i"}
+
+  # Make standalone dir
+  mkdir -p $ORDS_HOME/config/$CONTEXT_ROOT/standalone
+
+  # Copy template files
+  cp $ORDS_HOME/$CONFIG_PROPS $ORDS_HOME/params/ords_params.properties
+  cp $ORDS_HOME/$STANDALONE_PROPS $ORDS_HOME/config/$CONTEXT_ROOT/standalone/standalone.properties
+
+  # Replace DB related variables (ords_params.properties)
+  sed -i -e "s|###ORACLE_SERVICE###|$ORACLE_SERVICE|g" $ORDS_HOME/params/ords_params.properties
+  sed -i -e "s|###ORACLE_HOST###|$ORACLE_HOST|g" $ORDS_HOME/params/ords_params.properties
+  sed -i -e "s|###ORACLE_PORT###|$ORACLE_PORT|g" $ORDS_HOME/params/ords_params.properties
+  sed -i -e "s|###ORDS_PWD###|$ORDS_PWD|g" $ORDS_HOME/params/ords_params.properties
+  sed -i -e "s|###ORACLE_PWD###|$ORACLE_PWD|g" $ORDS_HOME/params/ords_params.properties
+
+  # Replace standalone runtime variables (standalone.properties)
+  sed -i -e "s|###PORT###|8443|g" $ORDS_HOME/config/$CONTEXT_ROOT/standalone/standalone.properties
+  sed -i -e "s|###HOST###|$HOSTNAME|g" $ORDS_HOME/config/$CONTEXT_ROOT/standalone/standalone.properties
+  sed -i -e "s|###CONTEXT_ROOT###|$CONTEXT_ROOT|g" $ORDS_HOME/config/$CONTEXT_ROOT/standalone/standalone.properties
+  sed -i -e "s|###DOC_ROOT###|$ORDS_HOME/doc_root|g" $ORDS_HOME/config/$CONTEXT_ROOT/standalone/standalone.properties
+  sed -i -e "s|###APEXI###|$APEXI|g" $ORDS_HOME/config/$CONTEXT_ROOT/standalone/standalone.properties
+
+   # Start ODRDS setup
+   java -jar $ORDS_HOME/$CONTEXT_ROOT.war install simple
+}
+
+############# MAIN ################
+
+# Check whether ords is already setup
+if [ ! -f $ORDS_HOME/config/$CONTEXT_ROOT/standalone/standalone.properties ]; then
+   setupOrds;
+fi;
+
+if [ "$1" = "--setuponly" ];then
+  exit $?
+else
+  java -jar $ORDS_HOME/$CONTEXT_ROOT.war standalone
+fi
+--- Termino OracleRestDataServices/dockerfiles/runOrds.sh
+
+--- Inicio OracleRestDataServices/dockerfiles/standalone.properties.tmpl
+jetty.secure.port=###PORT###
+ssl.cert=
+ssl.cert.key=
+ssl.host=###HOST###
+standalone.access.log=/tmp/ords_log
+standalone.context.path=/###CONTEXT_ROOT###
+standalone.doc.root=###DOC_ROOT###
+standalone.scheme.do.not.prompt=true
+standalone.static.context.path=/i
+standalone.static.do.not.prompt=true
+standalone.static.path=###APEXI###
+--- Termino OracleRestDataServices/dockerfiles/standalone.properties.tmpl
+
+--- Install TOMCAT
+FROM tomcat:8.0-alpine
+LABEL maintainer="deepak@softwareyoga.com"
+
+ADD sample.war /usr/local/tomcat/webapps/
+
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
+
+
+OU 
+
+FROM ubuntu:16.04
+
+# Install prerequisites
+RUN apt-get -y update &amp;amp;&amp;amp; apt-get -y upgrade
+RUN apt-get -y install openjdk-8-jdk wget
+RUN apt-get -y install curl
+RUN mkdir /usr/local/tomcat
+RUN wget https://downloads.apache.org/tomcat/tomcat-10/v10.0.20/bin/apache-tomcat-10.0.20.tar.gz -O /tmp/tomcat.tar.gz
+RUN cd /tmp  tar xvfz tomcat.tar.gz
+RUN cp -Rv /tmp/apache-tomcat-10.0.20/* /usr/local/tomcat/
+
+EXPOSE 8080
+# java
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+
+# Define default command.
+CMD ["bash"]
+
+MAINTAINER bhaskarndas@gmail.com
+
+
+WORKDIR /usr/local/tomcat/webapps
+RUN curl -O -L https://github.com/bhaskarndas/sample-war/raw/main/sampletest.war
+
+
+CMD ["https://net.cloudinfrastructureservices.co.uk/usr/local/tomcat/bin/catalina.sh", "run"]
+
+
+---Fim 
+
+version: "3"
+
+services:
+
+  tomcat_1:
+    image: tomcat:9-jdk8-openjdk
+    environment:
+      VIRTUAL_HOST: t1.my-site.com
+      VIRTUAL_PORT: 8080
+    restart: always
+    volumes:
+      - "./tomcat/webapps:/usr/local/tomcat/webapps"
+      - "./tomcat/logs:/usr/local/tomcat/logs"
+
+  tomcat_2:
+    image: tomcat:9-jdk8-openjdk
+    environment:
+      VIRTUAL_HOST: t2.my-site.com
+      VIRTUAL_PORT: 8080
+    restart: always
+    volumes:
+      - "./tomcat/webapps:/usr/local/tomcat/webapps"
+      - "./tomcat/logs:/usr/local/tomcat/logs"
+
+  tomcat_3:
+    image: tomcat:9-jdk8-openjdk
+    environment:
+      VIRTUAL_HOST: t1.my-site.com
+      VIRTUAL_PORT: 8080
+    restart: always
+    volumes:
+      - "./tomcat/webapps:/usr/local/tomcat/webapps"
+      - "./tomcat/logs:/usr/local/tomcat/logs"
+
+  tomcat_4:
+    image: tomcat:9-jdk8-openjdk
+    environment:
+      VIRTUAL_HOST: t2.my-site.com
+      VIRTUAL_PORT: 8080
+    restart: always
+    volumes:
+      - "./tomcat/webapps:/usr/local/tomcat/webapps"
+      - "./tomcat/logs:/usr/local/tomcat/logs"
+
+  reverse-proxy:
+    image: jwilder/nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./nginx/certs:/etc/nginx/certs
+      - ./nginx/nginx-proxy.conf:/etc/nginx/conf.d/nginx-proxy.conf:ro
+    links:
+      - tomcat_1
+      - tomcat_2
+      - tomcat_3
+      - tomcat_4
+
+      nginx-proxy.conf
+
+server {
+    listen 80;
+    server_name t1.my-site.com;
+    return 301 https://$host$request_uri;
+}
+server {
+    listen 443 ;
+    server_name t1.my-site.com;
+    access_log /var/log/nginx/data-access.log combined;
+    location / {
+        proxy_pass http://t1.my-site.com:8080/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+   }
+server {
+    listen 80;
+    server_name t2.my-site.com;
+    return 301 https://$host$request_uri;
+}
+server {
+    listen 443 ;
+    server_name t2.my-site.com;
+    access_log /var/log/nginx/data-access.log combined;
+    location / {
+        proxy_pass http://t2.my-site.com:8080/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+
+
+
+
+# Latencia
+Existem vários fatores que influenciam uma conexão ruim com a internet, como velocidade ou estabilidade, mas certamente há um que muitas vezes não prestamos a devida atenção: latência. 
+
+O tempo que leva para cada pacote transmitir é o que é conhecido como latência. A latência, medida em milissegundos, é melhor quanto menor for. Ou seja, é menos provável que você sofra cortes em sua chamada de vídeo ou videogame online se a latência da sua conexão for baixa. A latência da rede é expressa em ping. Portanto, a latência é frequentemente conhecida por este mesmo nome. 
+
+
+A velocidade da conexão representa nossa largura de banda. Quanto maior a velocidade, maiores os pacotes de dados. 
+A latência refere-se ao tempo exato que leva para que esses pacotes sejam enviados do servidor
+
+
+# Cloud ou not cloud, is this question
+Empresas em todo o mundo estão optando por repatriar seus dados, abandonando soluções baseadas em nuvem e retornando a servidores locais. 
+A repatriação de dados, responde a uma necessidade crescente de controle, segurança e conformidade regulatória.
+
+
+As 5 principais razões para este movimento seríam:
+1. Custos Elevados: Muitas empresas descobrem que os custos de operação na nuvem podem superar os benefícios, especialmente quando o uso é intensivo e contínuo.
+2. Necessidade de Controle: Algumas organizações preferem ter um controle mais direto sobre seus dados e infraestrutura, o que pode ser mais difícil de alcançar em ambientes de nuvem compartilhados.
+3. Desempenho e Latência: Para aplicações críticas, a latência e o desempenho podem ser melhor gerenciados em um ambiente local do que na nuvem.
+4. Segurança e Conformidade: Questões de segurança e conformidade regulatória podem levar empresas a optar por soluções locais para garantir que estão totalmente em conformidade com as leis e normas.
+5. Inovação Tecnológica: Com o avanço da tecnologia, algumas empresas encontram soluções mais inovadoras e eficientes fora da nuvem, como edge computing e infraestruturas descentralizadas.
+
+
+
+# Comandos Docker
+
+Para aqueles que são totalmente iniciantes no ecossistema Docker, aqui estão algumas explicações para os termos usados ​​no arquivo docker.
+
+FROM  – É a imagem base sobre a qual todo o contêiner será executado. Em outras palavras, você pode dizer que ele fornece o ambiente para o contêiner ser executado dentro do ambiente docker. Neste caso, o ubuntu 16 foi usado, mas outras alternativas também podem ser usadas, como CentOS, alpine, etc. 
+Instalar Perquisites – eles são análogos às ferramentas básicas, frameworks e bibliotecas necessárias para configurar e executar um ambiente de desenvolvimento. O comando RUN executará a instalação, atualização e upgrade necessários relacionados a instaladores como java, tomcat, etc.
+EXPOSE – Isso permite que o usuário exponha as portas fora do contêiner.
+CMD  – O prompt de comando padrão para o contêiner. Sem isso, o contêiner não seria capaz de executar comandos e o contêiner não seria capaz de rodar. É análogo a carregar um sistema Linux em sua máquina local, que compactaria o prompt de comando e começaria a executar comandos para carregar o SO. Aqui, Bash é o shell padrão.
+Maintainer – É um parâmetro opcional no Dockerfile. Se você estiver testando para um ambiente local, não é necessário. No entanto, se você estiver mantendo imagens no docker hub, ele identifica o principal mantenedor para aquela imagem em particular.
+WORKDIR  – É o espaço de trabalho onde ocorrerá todo o desenvolvimento e implantação de aplicações dentro do container.
+Para testar nossa imagem tomcat, estou usando um arquivo war de exemplo hospedado no repositório GitHub . O arquivo war contém um programa hello world simples escrito em JSP. Este JSP será acessado quando a imagem for construída e será executado como um contêiner nas próximas etapas.
+
+Container é imutável... se o container morrer a alteração irá embora
+</code></pre></div> docker -it IMAGE bash docker run -d -p 8081:80 --name nginx nginx docker exec -it IMAGE bash docker rm nginx -f</p> <p>BindMount - Vc monta no seu computador docker run -d --name nginx -p 8081:80 -v /Users/horaciovasconcellos/docker/html:/usr/share/nginx/html nginx docker run -d --name nginx -p 8081:80 --mount type=bind,source="$(pwd)"/docker/html, target=/usr/share/nginx/html nginx</p> <p>Usando volumes, se especificar uma pasta que NÃO exista, no -v ele cria, no mount ele da um erro.</p> <p>FROM nginx:latest WORKDIR /app RUN apt-get update &amp;&amp; \ apt-get install vim -y COPY html/ /usr/share/nginx/html</p> <p>docker build -t 77678117787/nginx-com-vim:latest .</p> <p>docker run -d --name nginx -p 8081:80 --mount type=bind,source="$(pwd)"/docker/html, target=/usr/share/nginx/html 77678117787/nginx-com-vim:latest</p> <p>docker container prune -f</p> <p>docker ps -a -q</p> <p>docker rm $(ps -a -q) -f</p> <p>docker pull hello-world <div class=highlight><pre><span></span><code>FROM ubuntu:latest
+
+CMD ["echo", "Alo Mundo"]
+
+docker run --rm 77678117787/nginx-com-vim:latest echo "oi"
+
+docker run 77678117787/nginx-com-vim:latest echo "Horacio"
+
+CMD ["comando", "Parametros"] --
+
+ENTRYPOINT ["echo", "parametros"]
+
+
+docker build -t 77678117787/nginx-horacio:latest .
+
+docker logout
+
+docker login
+</code></pre></div></p> <p>Alguns tipos de NEtwork</p> <ul> <li>Bridge - POnte entre container um fala com o outro</li> <li>Host - Mescla a rede docker com a rede do host da minha máquina</li> <li>Overlay - COnsegue que todos se comuniquer (docker Swaarm - Cluster de vários doker) maclan - none - </li> </ul> <p>docker network ls</p> <p>docker run -it -d --name ubuntu1 bash docker run -it -d --name ubuntu2 bash docker network inspect bridge</p> <p>docker attach ubuntu1 ip addr show</p> <p>docker network create --driver bridge minhared</p> <p>docker run -dit --name ubuntu1 --network minharede bash docker run -dit --name ubuntu2 --network minharede bash</p> <p>docker network connect minharede ubuntu3</p> <p>Escolha o sinalizador -v ou --mount Em geral, --mounté mais explícito e verboso. A maior diferença é que a -vsintaxe combina todas as opções juntas em um campo, enquanto a --mount sintaxe as separa. Aqui está uma comparação da sintaxe para cada flag.</p> <p>Se você precisar especificar opções de driver de volume, deverá usar --mount.</p> <p>-vou --volume: Consiste em três campos, separados por dois pontos ( :). Os campos devem estar na ordem correta, e o significado de cada campo não é imediatamente óbvio.</p> <p>No caso de volumes nomeados, o primeiro campo é o nome do volume, e é exclusivo em uma determinada máquina host. Para volumes anônimos, o primeiro campo é omitido. O segundo campo é o caminho onde o arquivo ou diretório é montado no contêiner. O terceiro campo é opcional e é uma lista de opções separadas por vírgulas, como ro. Essas opções são discutidas abaixo. --mount: Consiste em vários pares de chave-valor, separados por vírgulas e cada um consistindo de uma <key>=<value>tupla. A --mountsintaxe é mais verbosa do que -vor --volume, mas a ordem das chaves não é significativa, e o valor do sinalizador é mais fácil de entender.</value></key></p> <p>O typeda montagem, que pode ser bind, volume, ou tmpfs. Este tópico discute volumes, então o tipo é sempre volume. O sourceda montagem. Para volumes nomeados, este é o nome do volume. Para volumes anônimos, este campo é omitido. Pode ser especificado como source ou src. O destinationtoma como valor o caminho onde o arquivo ou diretório está montado no contêiner. Pode ser especificado como destination, dst, ou target. A readonlyopção, se presente, faz com que a montagem bind seja montada no contêiner como somente leitura . Pode ser especificado como readonlyou ro. A volume-optopção, que pode ser especificada mais de uma vez, recebe um par chave-valor que consiste no nome da opção e seu valor.</p> <p>docker service create \ --mount 'type=volume,src=<volume-name>,dst=<container-path>,volume-driver=local,volume-opt=type=nfs,volume-opt=device=<nfs-server>:<nfs-path>,"volume-opt=o=addr=<nfs-address>,vers=4,soft,timeo=180,bg,tcp,rw"' --name myservice \ IMAGE</nfs-address></nfs-path></nfs-server></container-path></volume-name></p> <p>docker run -d \ --name=nginxtest \ --mount source=nginx-vol,destination=/usr/share/nginx/html \ nginx:latest</p> <p>Somente Leitura docker run -d \ --name=nginxtest \ --mount source=nginx-vol,destination=/usr/share/nginx/html,readonly \ nginx:latest</p> <p>docker service create -d \ --name nfs-service \ --mount 'type=volume,source=nfsvolume,target=/app,volume-driver=local,volume-opt=type=nfs,volume-opt=device=:/var/docker-nfs,volume-opt=o=addr=10.0.0.10' \ nginx:latest</p> <p>docker volume prune llama3</p> <p>Preparação dos arquivos CLOB: Certifique-se de que os arquivos CLOB estejam disponíveis no diretório local. Você pode nomeá-los, por exemplo, como clob1.txt e clob2.txt. Criando o comando curl: Abra o terminal ou prompt de comando e execute o seguinte comando curl: curl -X POST -H "Content-Type: application/json" \ -d '{"clob1": "<span class=arithmatex>\((cat clob1.txt)", "clob2": "\)</span>(cat clob2.txt)"}' \ <a href=http://seu-servico-url-aqui>http://seu-servico-url-aqui</a> Substitua <a href=http://seu-servico-url-aqui>http://seu-servico-url-aqui</a> pela URL do seu serviço Oracle ORDS. -X POST: Especifica o método HTTP como POST. -H "Content-Type: application/json": </p> <p>Define o cabeçalho para indicar que estamos enviando dados JSON. -d '{"clob1": "<span class=arithmatex>\((cat clob1.txt)", "clob2": "\)</span>(cat clob2.txt)"}': Envia os dados JSON com os conteúdos dos arquivos CLOB. Certifique-se de que o caminho para os arquivos clob1.txt e clob2.txt esteja correto. Execute o comando: Execute o comando curl no terminal ou prompt de comando. Ele enviará os dados dos arquivos CLOB para o serviço Oracle ORDS.</p> <p>Curl -X POST <a href=http://localhost:8080/ai/rag>http://localhost:8080/ai/rag</a> \ -H "Content-Type: application/json" \ -d '{"message":"How is the weather tomorrow?"}' | jq -r .generation</p> <p>curl -X POST <a href=http://localhost:8080/ai/rag>http://localhost:8080/ai/rag</a> \ -H "Content-Type: application/json" \ -d '{"message":"To run the example, how can I check if the dbms it is working correctly?"}' | jq -r .generation</p> <p>sudo /usr/libexec/oci-growfs curl -s -L <a href=https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo>https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo</a> | sudo tee /etc/yum.repos.d/nvidia-container-toolkit.repo sudo dnf install -y dnf-utils zip unzip sudo dnf config-manager --add-repo=<a href=https://download.docker.com/linux/centos/docker-ce.repo>https://download.docker.com/linux/centos/docker-ce.repo</a> sudo dnf remove -y runc sudo dnf install -y docker-ce --nobest sudo useradd docker_user</p> <div class=highlight><pre><span></span><code>sudo visudo
+docker_user  ALL=(ALL)  NOPASSWD: /usr/bin/docker
+sudo su - docker_user
+
+    sudo /usr/libexec/oci-growfs
+curl -s -L https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo |   sudo tee /etc/yum.repos.d/nvidia-container-toolkit.repo
+sudo dnf install -y dnf-utils zip unzip
+sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+sudo dnf remove -y runc
+sudo dnf install -y docker-ce --nobest
+sudo useradd docker_user
+</code></pre></div> <p>docker run -d --gpus=all -v ollama:/root/.ollama -p 11400:11434 --name ollama ollama/ollama serve docker exec -it ollama ollama pull nomic-embed-text docker exec -it ollama ollama pull llama2:13b-chat-fp16 docker logs -f --tail 10 ollama</p> <p>journalctl -e -u ollama sudo systemctl stop ollama sudo systemctl disable ollama sudo rm /etc/systemd/system/ollama.service sudo rm $(which ollama) Remove the downloaded models and Ollama service user and group:</p> <p>sudo rm -r /usr/share/ollama sudo userdel ollama sudo groupdel ollama</p> <p>lsof -i -P -n | grep LISTEN netstat -tulpn | grep LISTEN ss -tulpn | grep LISTEN lsof -i:11434 ## see a specific port such as 22 ## sudo nmap -sTU -O IP-address-Here</p> <p>./root/instalacao/rag-chatbot/data/ollama ./root/snap/ollama ./var/lib/docker/overlay2/e1d315d8ce13316b1e7c17da6193443ec56a24ccf94107857bc0f8b4fabf58a3/diff/usr/bin/ollama ./var/lib/docker/overlay2/z7dtfi9jumfrn68l9a15ju5bw/diff/usr/local/lib/python3.11/site-packages/llama_index/llms/ollama ./var/lib/docker/volumes/ollama ./var/lib/snapd/snap/ollama ./var/lib/snapd/snap/ollama/15/bin/ollama ./var/snap/ollama ./tmp/tmp.nGahuNAcrY/ollama</p> <p>/proc/ filesystem entry. Try the ls command: ls -l /proc/30216/exe ls -l /proc/3813/cwd Current Working Directory Of a Process</p> <p>docker network create <your name network></your></p> <p>docker network create --driver bridge ords-sgbd docker network ls docker run --name oracledb --network=ords-sgbd oracle/database:12.2.0.1-ee</p> <p>curl <a href=http://horaciovasconcellos.com.br:11434/api/generate>http://horaciovasconcellos.com.br:11434/api/generate</a> -d '{"model": "llama3", "prompt": "Qual a origem do nome: Horácio", "format": "json", "stream": false}'</p> <p>docker service create \ --mount 'type=volume,src=<volume-name>,dst=<container-path>,volume-driver=local,volume-opt=type=nfs,volume-opt=device=<nfs-server>:<nfs-path>,"volume-opt=o=addr=<nfs-address>,vers=4,soft,timeo=180,bg,tcp,rw"' --name myservice \ IMAGE</nfs-address></nfs-path></nfs-server></container-path></volume-name></p> <p>docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama</p> <p>-p 5678:5678 \ -e GENERIC_TIMEZONE="America/Sao_Paulo" -e TZ="America/Sao_Paulo"</p> <p>docker volume create data</p> <p>docker run -d -it --rm -e GENERIC_TIMEZONE="America/Sao_Paulo" -e TZ="America/Sao_Paulo" --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n</p> <p>docker volume create n8n_data</p> <p>docker run -it --rm \ --name n8n \ -p 5678:5678 \ -e DB_TYPE=postgresdb \ -e DB_POSTGRESDB_DATABASE=<postgres_database> \ -e DB_POSTGRESDB_HOST=<postgres_host> \ -e DB_POSTGRESDB_PORT=<postgres_port> \ -e DB_POSTGRESDB_USER=<postgres_user> \ -e DB_POSTGRESDB_SCHEMA=<postgres_schema> \ -e DB_POSTGRESDB_PASSWORD=<postgres_password> \ -v n8n_data:/home/node/.n8n \</postgres_password></postgres_schema></postgres_user></postgres_port></postgres_host></postgres_database></p> <p>a .env file and add the following to it:</p> <p>POSTGRES_USER=ThisIsUser POSTGRES_PASSWORD=ThisIsPassword POSTGRES_DB=n8n</p> <p>POSTGRES_NON_ROOT_USER=ThisIsUser POSTGRES_NON_ROOT_PASSWORD=ThisIsPassword</p> <p>N8N_BASIC_AUTH_USER=ThisIsUser N8N_BASIC_AUTH_PASSWORD=ThisIsPassword</p> <h1 id=binbash>!/bin/bash<a class=headerlink href=#binbash title="Permanent link">¶</a></h1> <p>set -e;</p> <p>if [ -n "<span class=arithmatex postgres_non_root_password:-=POSTGRES_NON_ROOT_PASSWORD:->\({POSTGRES_NON_ROOT_USER:-}" ] &amp;&amp; [ -n "\)</span>" ]; then psql -v ON_ERROR_STOP=1 --username "<span class=arithmatex>\(POSTGRES_USER" --dbname "\)</span>POSTGRES_DB" &lt;&lt;-EOSQL CREATE USER <span class=arithmatex postgres_non_root_password=POSTGRES_NON_ROOT_PASSWORD>\({POSTGRES_NON_ROOT_USER} WITH PASSWORD '\)</span>'; GRANT ALL PRIVILEGES ON DATABASE ${POSTGRES_DB} TO ${POSTGRES_NON_ROOT_USER}; EOSQL else echo "SETUP INFO: No Environment variables given!" fi</p> <p>docker pull n8nio/n8n docker run -it --rm --name n8n -p 5678:5678 -e N8N_BASIC_AUTH_USER=admin -e N8N_BASIC_AUTH_PASSWORD=password -e N8N_SECURE_COOKIE=false -e GENERIC_TIMEZONE="America/Sao_Paulo" -e TZ="America/Sao_Paulo" -v n8n_data:/home/node/.n8n n8nio/n8n</p> <p>docker volume create n8n_data</p> <p>docker run -it --rm \ --name n8n \ -p 5678:5678 \ -e GENERIC_TIMEZONE="America/Sao_Paulo" \ -e TZ="America/Sao_Paulo" \ -v n8n_data:/home/node/.n8n \ docker.n8n.io/n8nio/n8n</p> <p>{"model":"llama3","created_at":"2024-07-07T23:20:08.460442144Z","response":"{\"Obrigado!\" : \"Horacio\"}\n\n\n\n\n\n\n\n\n\n\n\n\n\n","done":true,"done_reason":"stop","context":[128006,882,128007,271,32129,264,2780,336,656,17567,25,15083,30441,822,128009,128006,78191,128007,271,5018,46,83132,2172,9135,551,330,40701,36970,64259,46228,128009],"total_duration":4304552786,"load_duration":883141,"prompt_eval_duration":180844000,"eval_count":13,"eval_duration":4121978000}</p> <p>git clone -b main <a href=https://github.com/SigNoz/signoz.git>https://github.com/SigNoz/signoz.git</a> &amp;&amp; cd signoz/deploy/ docker compose -f docker/clickhouse-setup/docker-compose.yaml up -d</p> <p>docker run -d -it --rm --name n8n -p 5678:5678 -e N8N_BASIC_AUTH_USER=admin -e N8N_BASIC_AUTH_PASSWORD=password -e N8N_SECURE_COOKIE=false -e GENERIC_TIMEZONE="America/Sao_Paulo" -e TZ="America/Sao_Paulo" -v n8n_data:/home/node/.n8n n8nio/n8</p> <p>docker run -it --rm --name n8n -p 5678:5678 -e N8N_BASIC_AUTH_USER=admin -e N8N_BASIC_AUTH_PASSWORD=password -e N8N_SECURE_COOKIE=false -e GENERIC_TIMEZONE="America/Sao_Paulo" -e TZ="America/Sao_Paulo" -v n8n_data:/home/node/.n8n n8nio/n8n</p> <div class=highlight><pre><span></span><code>curl http://localhost:11434/api/generate -d '{"model": "phi3", "prompt": "Qual a origem do nome: Horácio", "format": "json", "stream": false}'
+
+
+
+elabore um modelo relacional entre  cliente, vendedor, região, filial e vendas. Na tabela de cliente e vendedores teremos os campos serão: id, nome e email. 
+Na tabela de região teremos id e nome. Na tabela de filial, teremos id, nome, id da regiao e o endereço(Tipo de Logradouro, Logradouro, numero e complemento)
+</code></pre></div> <p>Em vendas teremos o id do pedido, a data, valor da venda, id_vendedor, id_cliente e id_regiao.</p> <p>Explicação do Modelo Cliente e Vendedor têm informações básicas como nome e email, cada um identificado por um ID único. Região define áreas geográficas ou de mercado distintas, identificadas por um ID único e um nome descritivo. Filial representa locais físicos onde vendas podem ser realizadas, ligados a uma região específica através do campo id_regiao. Vendas registra transações individuais, com detalhes como data, valor da venda, e referências aos IDs de cliente, vendedor e região relacionados. Este modelo permite capturar as relações entre clientes, vendedores, regiões geográficas, filiais e transações de vendas, facilitando a análise e o gerenciamento de informações relacionadas ao processo de vendas e distribuição geográfica das operações.</p> <p>Elabore um modelo relacional entre cliente, vendedor, região, filial e vendas. Demonstre com comandos SQL.</p> <p>Para demonstrar como criar as tabelas e estabelecer as chaves estrangeiras no SQL, vou utilizar o padrão SQL padrão. Se você estiver utilizando um sistema de gerenciamento de banco de dados específico, como MySQL, PostgreSQL ou SQLite, os comandos podem ser ajustados conforme a sintaxe específica do sistema. Aqui está como você poderia definir as tabelas:</p> <p>sql Copiar código -- Tabela Cliente CREATE TABLE Cliente ( id INT PRIMARY KEY, nome VARCHAR(100), email VARCHAR(100) );</p> <p>-- Tabela Vendedor CREATE TABLE Vendedor ( id INT PRIMARY KEY, nome VARCHAR(100), email VARCHAR(100) );</p> <p>-- Tabela Região CREATE TABLE Regiao ( id INT PRIMARY KEY, nome VARCHAR(100) );</p> <p>-- Tabela Filial CREATE TABLE Filial ( id INT PRIMARY KEY, nome VARCHAR(100), id_regiao INT, endereco_tipo_logradouro VARCHAR(100), endereco_logradouro VARCHAR(100), endereco_numero VARCHAR(20), endereco_complemento VARCHAR(100), FOREIGN KEY (id_regiao) REFERENCES Regiao(id) );</p> <p>-- Tabela Vendas CREATE TABLE Vendas ( id_pedido INT PRIMARY KEY, data DATE, valor_venda DECIMAL(10, 2), id_vendedor INT, id_cliente INT, id_regiao INT, FOREIGN KEY (id_vendedor) REFERENCES Vendedor(id), FOREIGN KEY (id_cliente) REFERENCES Cliente(id), FOREIGN KEY (id_regiao) REFERENCES Regiao(id) ); Explicação dos Comandos SQL: Cliente: Cria a tabela Cliente com colunas id, nome e email. O id é a chave primária.</p> <p>Vendedor: Cria a tabela Vendedor com colunas id, nome e email. O id é a chave primária.</p> <p>Região: Cria a tabela Regiao com colunas id e nome. O id é a chave primária.</p> <p>Filial: Cria a tabela Filial com colunas id, nome, id_regiao, endereco_tipo_logradouro, endereco_logradouro, endereco_numero e endereco_complemento. O id é a chave primária. id_regiao é uma chave estrangeira que referencia Regiao(id).</p> <p>Vendas: Cria a tabela Vendas com colunas id_pedido, data, valor_venda, id_vendedor, id_cliente e id_regiao. id_pedido é a chave primária. id_vendedor, id_cliente e id_regiao são chaves estrangeiras que referenciam Vendedor(id), Cliente(id) e Regiao(id), respectivamente.</p> <p>Pergunta: Dado o modelo criado simule com pelo menos 10 registros.</p> <p>-- Inserir dados na tabela Cliente INSERT INTO Cliente (id, nome, email) VALUES (1, 'João Silva', '<a href=mailto:joao.silva@example.com>joao.silva@example.com</a>'), (2, 'Maria Oliveira', '<a href=mailto:maria.oliveira@example.com>maria.oliveira@example.com</a>'), (3, 'Pedro Santos', '<a href=mailto:pedro.santos@example.com>pedro.santos@example.com</a>'), (4, 'Ana Costa', '<a href=mailto:ana.costa@example.com>ana.costa@example.com</a>'), (5, 'Carlos Pereira', '<a href=mailto:carlos.pereira@example.com>carlos.pereira@example.com</a>');</p> <p>-- Inserir dados na tabela Vendedor INSERT INTO Vendedor (id, nome, email) VALUES (1, 'Fernanda Souza', '<a href=mailto:fernanda.souza@example.com>fernanda.souza@example.com</a>'), (2, 'Ricardo Mendes', '<a href=mailto:ricardo.mendes@example.com>ricardo.mendes@example.com</a>'), (3, 'Juliana Santos', '<a href=mailto:juliana.santos@example.com>juliana.santos@example.com</a>'), (4, 'Marcos Oliveira', '<a href=mailto:marcos.oliveira@example.com>marcos.oliveira@example.com</a>'), (5, 'Carla Lima', '<a href=mailto:carla.lima@example.com>carla.lima@example.com</a>');</p> <p>-- Inserir dados na tabela Regiao INSERT INTO Regiao (id, nome) VALUES (1, 'Sudeste'), (2, 'Nordeste'), (3, 'Norte'), (4, 'Centro-Oeste'), (5, 'Sul');</p> <p>-- Inserir dados na tabela Filial INSERT INTO Filial (id, nome, id_regiao, endereco_tipo_logradouro, endereco_logradouro, endereco_numero, endereco_complemento) VALUES (1, 'Filial Sudeste 1', 1, 'Rua', 'São Paulo', '100', 'Sala 101'), (2, 'Filial Nordeste 1', 2, 'Avenida', 'Recife', '200', 'Andar 2'), (3, 'Filial Norte 1', 3, 'Rua', 'Manaus', '300', 'Loja 3'), (4, 'Filial Centro-Oeste 1', 4, 'Avenida', 'Brasília', '400', 'Loja 4'), (5, 'Filial Sul 1', 5, 'Rua', 'Porto Alegre', '500', 'Loja 5');</p> <p>-- Inserir dados na tabela Vendas INSERT INTO Vendas (id_pedido, data, valor_venda, id_vendedor, id_cliente, id_regiao) VALUES (1, '2024-07-01', 500.00, 1, 1, 1), (2, '2024-07-02', 750.00, 2, 2, 2), (3, '2024-07-03', 300.00, 3, 3, 3), (4, '2024-07-04', 1000.00, 4, 4, 4), (5, '2024-07-05', 450.00, 5, 5, 5), (6, '2024-07-06', 600.00, 1, 2, 1), (7, '2024-07-07', 850.00, 2, 3, 2), (8, '2024-07-08', 400.00, 3, 4, 3), (9, '2024-07-09', 1200.00, 4, 5, 4), (10, '2024-07-10', 550.00, 5, 1, 5);</p> <p>Explicação da Inserção de Dados Cliente: Inserimos 5 clientes com diferentes nomes e emails. Vendedor: Inserimos 5 vendedores com diferentes nomes e emails. Região: Inserimos 5 regiões com nomes representando diferentes áreas geográficas. Filial: Inserimos 5 filiais com nomes representativos, cada uma associada a uma região específica. Vendas: Inserimos 10 registros de vendas, cada um associado a um vendedor, um cliente e uma região específica, com datas e valores fictícios. Verificação dos Dados Inseridos Para verificar se os dados foram inseridos corretamente, você pode executar consultas SQL simples, por exemplo:</p> <p>-- Consulta simples para verificar dados na tabela Cliente SELECT * FROM Cliente;</p> <p>-- Consulta simples para verificar dados na tabela Vendedor SELECT * FROM Vendedor;</p> <p>-- Consulta simples para verificar dados na tabela Regiao SELECT * FROM Regiao;</p> <p>-- Consulta simples para verificar dados na tabela Filial SELECT * FROM Filial;</p> <p>-- Consulta simples para verificar dados na tabela Vendas SELECT * FROM Vendas;</p> <p>Essas consultas retornarão os registros que foram inseridos nas respectivas tabelas, permitindo verificar se os dados foram inseridos corretamente de acordo com o modelo definido.</p> <p>você é um profissional experiente em bancos de dados por interpretar as instruções do usuário e fornecer exclusivamente a query solicitada deve ser um select sem nenhum comando ddl ou dml garantindo apenas a recuperação de dados a query precisa ser eficiente e performática.</p> <p>-- Tabela Cliente CREATE TABLE Cliente ( id INT PRIMARY KEY, nome VARCHAR(100), email VARCHAR(100) );</p> <p>-- Tabela Vendedor CREATE TABLE Vendedor ( id INT PRIMARY KEY, nome VARCHAR(100), email VARCHAR(100) );</p> <p>-- Tabela Região CREATE TABLE Regiao ( id INT PRIMARY KEY, nome VARCHAR(100) );</p> <p>-- Tabela Filial CREATE TABLE Filial ( id INT PRIMARY KEY, nome VARCHAR(100), id_regiao INT, endereco_tipo_logradouro VARCHAR(100), endereco_logradouro VARCHAR(100), endereco_numero VARCHAR(20), endereco_complemento VARCHAR(100), FOREIGN KEY (id_regiao) REFERENCES Regiao(id) );</p> <p>-- Tabela Vendas CREATE TABLE Vendas ( id_pedido INT PRIMARY KEY, data DATE, valor_venda DECIMAL(10, 2), id_vendedor INT, id_cliente INT, id_regiao INT, FOREIGN KEY (id_vendedor) REFERENCES Vendedor(id), FOREIGN KEY (id_cliente) REFERENCES Cliente(id), FOREIGN KEY (id_regiao) REFERENCES Regiao(id) );</p> <p>-- Inserir dados na tabela Cliente INSERT INTO Cliente (id, nome, email) VALUES (1, 'João Silva', '<a href=mailto:joao.silva@example.com>joao.silva@example.com</a>'), (2, 'Maria Oliveira', '<a href=mailto:maria.oliveira@example.com>maria.oliveira@example.com</a>'), (3, 'Pedro Santos', '<a href=mailto:pedro.santos@example.com>pedro.santos@example.com</a>'), (4, 'Ana Costa', '<a href=mailto:ana.costa@example.com>ana.costa@example.com</a>'), (5, 'Carlos Pereira', '<a href=mailto:carlos.pereira@example.com>carlos.pereira@example.com</a>');</p> <p>-- Inserir dados na tabela Vendedor INSERT INTO Vendedor (id, nome, email) VALUES (1, 'Fernanda Souza', '<a href=mailto:fernanda.souza@example.com>fernanda.souza@example.com</a>'), (2, 'Ricardo Mendes', '<a href=mailto:ricardo.mendes@example.com>ricardo.mendes@example.com</a>'), (3, 'Juliana Santos', '<a href=mailto:juliana.santos@example.com>juliana.santos@example.com</a>'), (4, 'Marcos Oliveira', '<a href=mailto:marcos.oliveira@example.com>marcos.oliveira@example.com</a>'), (5, 'Carla Lima', '<a href=mailto:carla.lima@example.com>carla.lima@example.com</a>');</p> <p>-- Inserir dados na tabela Regiao INSERT INTO Regiao (id, nome) VALUES (1, 'Sudeste'), (2, 'Nordeste'), (3, 'Norte'), (4, 'Centro-Oeste'), (5, 'Sul');</p> <p>-- Inserir dados na tabela Filial INSERT INTO Filial (id, nome, id_regiao, endereco_tipo_logradouro, endereco_logradouro, endereco_numero, endereco_complemento) VALUES (1, 'Filial Sudeste 1', 1, 'Rua', 'São Paulo', '100', 'Sala 101'), (2, 'Filial Nordeste 1', 2, 'Avenida', 'Recife', '200', 'Andar 2'), (3, 'Filial Norte 1', 3, 'Rua', 'Manaus', '300', 'Loja 3'), (4, 'Filial Centro-Oeste 1', 4, 'Avenida', 'Brasília', '400', 'Loja 4'), (5, 'Filial Sul 1', 5, 'Rua', 'Porto Alegre', '500', 'Loja 5');</p> <p>-- Inserir dados na tabela Vendas INSERT INTO Vendas (id_pedido, data, valor_venda, id_vendedor, id_cliente, id_regiao) VALUES (1, '2024-07-01', 500.00, 1, 1, 1), (2, '2024-07-02', 750.00, 2, 2, 2), (3, '2024-07-03', 300.00, 3, 3, 3), (4, '2024-07-04', 1000.00, 4, 4, 4), (5, '2024-07-05', 450.00, 5, 5, 5), (6, '2024-07-06', 600.00, 1, 2, 1), (7, '2024-07-07', 850.00, 2, 3, 2), (8, '2024-07-08', 400.00, 3, 4, 3), (9, '2024-07-09', 1200.00, 4, 5, 4), <br> (10, '2024-07-10', 550.00, 5, 1, 5);ln -sf /usr/local/bin/python</p> <p>create or replace PACKAGE BODY CN_MDM_UTL_PK AS</p> <p>GC_SCOPE_PREFIX CONSTANT VARCHAR2(100) := 'cn.mdm.'||LOWER($$plsql_unit) || '.';</p> <h2 id=->-------------------------------------------------------------------------------<a class=headerlink href=#- title="Permanent link">¶</a></h2> <p>PROCEDURE sync_changed_items (p_last_sync_time VARCHAR2) IS</p> <p>CURSOR cr_changed_items (cp_items_json IN CLOB) IS SELECT jt.* FROM JSON_TABLE(cp_items_json, '<span class=arithmatex>\(.items[*]' COLUMNS (item_id NUMBER PATH '\)</span>.item_id', item_number VARCHAR2(50) PATH '<span class=arithmatex>\(.item_number', item_description VARCHAR2(4000) PATH '\)</span>.item_description', uom_code VARCHAR2(10) PATH '<span class=arithmatex>\(.uom_code', order_enabled VARCHAR2(1) PATH '\)</span>.order_enabled', purchase_enabled VARCHAR2(1) PATH '<span class=arithmatex>\(.purchase_enabled', status_code VARCHAR2(10) PATH '\)</span>.status_code', lead_time_days NUMBER PATH '<span class=arithmatex>\(.lead_time_days', on_hand_quantity NUMBER PATH '\)</span>.on_hand_quantity', date_introduced TIMESTAMP WITH TIME ZONE PATH '<span class=arithmatex>\(.date_introduced', last_updated_utc TIMESTAMP WITH TIME ZONE PATH '\)</span>.last_updated_utc')) jt;</p> <p>lt_parm_names apex_application_global.VC_ARR2; lt_parm_values apex_application_global.VC_ARR2; l_last_sync_time_utc TIMESTAMP WITH TIME ZONE; l_params_json CLOB; l_items_clob CLOB; l_base_url VARCHAR2(500); l_item_exists PLS_INTEGER; rest_call_failed EXCEPTION;</p> <p>BEGIN</p> <p>apex_automation.log_info('** Start **'); apex_automation.log_info('p_last_sync_time: ' || p_last_sync_time);</p> <p>-- Fetch the Base URL for the Web Service from a remote server definiton -- stored at the workspace level. This avoids hard coding the URL of the REST API. SELECT base_url INTO l_base_url FROM apex_workspace_remote_servers WHERE remote_server_static_id = 'demo_cloudnueva_com_ords_demo';</p> <p>-- Store the Date and Time the Automation last run in the UTC Time zone. l_last_sync_time_utc := SYS_EXTRACT_UTC(TO_TIMESTAMP_TZ (p_last_sync_time, 'YYYY-MM-DD"T"HH24:MI:SS.FF3TZH:TZM'));</p> <p>-- Prepare the HTTP Headers for the REST API Call. apex_web_service.g_request_headers.DELETE(); apex_web_service.g_request_headers(1).NAME := 'Content-Type'; apex_web_service.g_request_headers(1).VALUE := 'application/json';</p> <p>-- Build JSON used to pass the last changed date to the REST API on the Remote Server. -- In this example, the remote REST API is an ORDS Service, so we are using -- ORDS query syntax that produces a query string like this: -- q={"last_updated_utc":{"<span class=arithmatex>\(gt":{"\)</span>date":"2023-12-03T19:56:44Z"}}} apex_json.initialize_clob_output(); apex_json.open_object (); apex_json.open_object ('last_updated_utc'); apex_json.open_object ('<span class=arithmatex>\(gt'); apex_json.write('\)</span>date', TO_CHAR(l_last_sync_time_utc, 'YYYY-MM-DD"T"HH24:MI:SS"Z"')); apex_json.close_all; l_params_json := apex_json.get_clob_output; apex_json.free_output;</p> <p>-- Prepare the Query String Parameters for the REST API Call. lt_parm_names.DELETE; lt_parm_names(1) := 'q'; lt_parm_values(1) := l_params_json;</p> <p>-- Call the REST API. l_items_clob := apex_web_service.make_rest_request (p_url =&gt; l_base_url || 'mdm/items', p_http_method =&gt; 'GET', p_transfer_timeout =&gt; 10, p_parm_name =&gt; lt_parm_names, p_parm_value =&gt; lt_parm_values, p_credential_static_id =&gt; 'credentials_for_mdm_items', p_token_url =&gt; l_base_url || 'oauth/token'); apex_automation.log_info('Status: ' || apex_web_service.g_status_code);</p> <p>IF apex_web_service.g_status_code = 201 THEN -- Loop through the changed items returned from the REST API. FOR r_item IN cr_changed_items (cp_items_json =&gt; l_items_clob) LOOP -- Check if the item already exists in the local table. SELECT COUNT(1) INTO l_item_exists FROM mdm_items_local WHERE item_id = r_item.item_id;</p> <div class=highlight><pre><span></span><code>  IF l_item_exists = 0 THEN
+    -- Create the item in the local table.
+    apex_automation.log_info(' &gt; Adding Item: ' || r_item.item_number);
+    INSERT INTO mdm_items_local 
+     (item_id, item_number, item_description,
+      uom_code, order_enabled, purchase_enabled,
+      status_code, lead_time_days, on_hand_quantity,
+      date_introduced, last_updated_utc)
+    VALUES 
+     (r_item.item_id, r_item.item_number, r_item.item_description,
+      r_item.uom_code, r_item.order_enabled, r_item.purchase_enabled,
+      r_item.status_code, r_item.lead_time_days, r_item.on_hand_quantity,
+      r_item.date_introduced, r_item.last_updated_utc);
+  ELSE
+    apex_automation.log_info(' &gt; Updating Item: ' || r_item.item_number);
+    -- Update the item in the local table.
+    UPDATE mdm_items_local
+    SET    item_number      = r_item.item_number
+    ,      item_description = r_item.item_description
+    ,      uom_code         = r_item.uom_code
+    ,      order_enabled    = r_item.order_enabled
+    ,      purchase_enabled = r_item.purchase_enabled
+    ,      status_code      = r_item.status_code
+    ,      lead_time_days   = r_item.lead_time_days
+    ,      on_hand_quantity = r_item.on_hand_quantity
+    ,      date_introduced  = r_item.date_introduced
+    ,      last_updated_utc = r_item.last_updated_utc
+    WHERE  item_id = r_item.item_id;
+  END IF;
+END LOOP;
+</code></pre></div> <p>ELSE raise rest_call_failed; END IF;</p> <p>EXCEPTION WHEN rest_call_failed THEN apex_automation.log_error('Call to REST API failed'); RAISE; WHEN OTHERS THEN apex_automation.log_error('Unhandled Error ['||SQLERRM||']'); RAISE; END sync_changed_items;</p> <p>END CN_MDM_UTL_PK; /</p> <p>create or replace PACKAGE BODY CN_MDM_UTL_PK AS</p> <p>GC_SCOPE_PREFIX CONSTANT VARCHAR2(100) := 'cn.mdm.'||LOWER($$plsql_unit) || '.';</p> <h2 id=-_1>-------------------------------------------------------------------------------<a class=headerlink href=#-_1 title="Permanent link">¶</a></h2> <p>PROCEDURE sync_changed_items (p_last_sync_time VARCHAR2) IS</p> <p>CURSOR cr_changed_items (cp_items_json IN CLOB) IS SELECT jt.* FROM JSON_TABLE(cp_items_json, '<span class=arithmatex>\(.items[*]' COLUMNS (item_id NUMBER PATH '\)</span>.item_id', item_number VARCHAR2(50) PATH '<span class=arithmatex>\(.item_number', item_description VARCHAR2(4000) PATH '\)</span>.item_description', uom_code VARCHAR2(10) PATH '<span class=arithmatex>\(.uom_code', order_enabled VARCHAR2(1) PATH '\)</span>.order_enabled', purchase_enabled VARCHAR2(1) PATH '<span class=arithmatex>\(.purchase_enabled', status_code VARCHAR2(10) PATH '\)</span>.status_code', lead_time_days NUMBER PATH '<span class=arithmatex>\(.lead_time_days', on_hand_quantity NUMBER PATH '\)</span>.on_hand_quantity', date_introduced TIMESTAMP WITH TIME ZONE PATH '<span class=arithmatex>\(.date_introduced', last_updated_utc TIMESTAMP WITH TIME ZONE PATH '\)</span>.last_updated_utc')) jt;</p> <p>lt_parm_names apex_application_global.VC_ARR2; lt_parm_values apex_application_global.VC_ARR2; l_last_sync_time_utc TIMESTAMP WITH TIME ZONE; l_params_json CLOB; l_items_clob CLOB; l_base_url VARCHAR2(500); l_item_exists PLS_INTEGER; rest_call_failed EXCEPTION;</p> <p>BEGIN</p> <p>apex_automation.log_info('** Start **'); apex_automation.log_info('p_last_sync_time: ' || p_last_sync_time);</p> <p>-- Fetch the Base URL for the Web Service from a remote server definiton -- stored at the workspace level. This avoids hard coding the URL of the REST API. SELECT base_url INTO l_base_url FROM apex_workspace_remote_servers WHERE remote_server_static_id = 'demo_cloudnueva_com_ords_demo';</p> <p>-- Store the Date and Time the Automation last run in the UTC Time zone. l_last_sync_time_utc := SYS_EXTRACT_UTC(TO_TIMESTAMP_TZ (p_last_sync_time, 'YYYY-MM-DD"T"HH24:MI:SS.FF3TZH:TZM'));</p> <p>-- Prepare the HTTP Headers for the REST API Call. apex_web_service.g_request_headers.DELETE(); apex_web_service.g_request_headers(1).NAME := 'Content-Type'; apex_web_service.g_request_headers(1).VALUE := 'application/json';</p> <p>-- Build JSON used to pass the last changed date to the REST API on the Remote Server. -- In this example, the remote REST API is an ORDS Service, so we are using -- ORDS query syntax that produces a query string like this: -- q={"last_updated_utc":{"<span class=arithmatex>\(gt":{"\)</span>date":"2023-12-03T19:56:44Z"}}} apex_json.initialize_clob_output(); apex_json.open_object (); apex_json.open_object ('last_updated_utc'); apex_json.open_object ('<span class=arithmatex>\(gt'); apex_json.write('\)</span>date', TO_CHAR(l_last_sync_time_utc, 'YYYY-MM-DD"T"HH24:MI:SS"Z"')); apex_json.close_all; l_params_json := apex_json.get_clob_output; apex_json.free_output;</p> <p>-- Prepare the Query String Parameters for the REST API Call. lt_parm_names.DELETE; lt_parm_names(1) := 'q'; lt_parm_values(1) := l_params_json;</p> <p>-- Call the REST API. l_items_clob := apex_web_service.make_rest_request (p_url =&gt; l_base_url || 'mdm/items', p_http_method =&gt; 'GET', p_transfer_timeout =&gt; 10, p_parm_name =&gt; lt_parm_names, p_parm_value =&gt; lt_parm_values, p_credential_static_id =&gt; 'credentials_for_mdm_items', p_token_url =&gt; l_base_url || 'oauth/token'); apex_automation.log_info('Status: ' || apex_web_service.g_status_code);</p> <p>IF apex_web_service.g_status_code = 201 THEN -- Loop through the changed items returned from the REST API. FOR r_item IN cr_changed_items (cp_items_json =&gt; l_items_clob) LOOP -- Check if the item already exists in the local table. SELECT COUNT(1) INTO l_item_exists FROM mdm_items_local WHERE item_id = r_item.item_id;</p> <div class=highlight><pre><span></span><code>  IF l_item_exists = 0 THEN
+    -- Create the item in the local table.
+    apex_automation.log_info(' &gt; Adding Item: ' || r_item.item_number);
+    INSERT INTO mdm_items_local 
+     (item_id, item_number, item_description,
+      uom_code, order_enabled, purchase_enabled,
+      status_code, lead_time_days, on_hand_quantity,
+      date_introduced, last_updated_utc)
+    VALUES 
+     (r_item.item_id, r_item.item_number, r_item.item_description,
+      r_item.uom_code, r_item.order_enabled, r_item.purchase_enabled,
+      r_item.status_code, r_item.lead_time_days, r_item.on_hand_quantity,
+      r_item.date_introduced, r_item.last_updated_utc);
+  ELSE
+    apex_automation.log_info(' &gt; Updating Item: ' || r_item.item_number);
+    -- Update the item in the local table.
+    UPDATE mdm_items_local
+    SET    item_number      = r_item.item_number
+    ,      item_description = r_item.item_description
+    ,      uom_code         = r_item.uom_code
+    ,      order_enabled    = r_item.order_enabled
+    ,      purchase_enabled = r_item.purchase_enabled
+    ,      status_code      = r_item.status_code
+    ,      lead_time_days   = r_item.lead_time_days
+    ,      on_hand_quantity = r_item.on_hand_quantity
+    ,      date_introduced  = r_item.date_introduced
+    ,      last_updated_utc = r_item.last_updated_utc
+    WHERE  item_id = r_item.item_id;
+  END IF;
+END LOOP;
+</code></pre></div> <p>ELSE raise rest_call_failed; END IF;</p> <p>EXCEPTION WHEN rest_call_failed THEN apex_automation.log_error('Call to REST API failed'); RAISE; WHEN OTHERS THEN apex_automation.log_error('Unhandled Error ['||SQLERRM||']'); RAISE; END sync_changed_items;</p> <p>END CN_MDM_UTL_PK; / BEGIN -- Truncate the Table before loading. EXECUTE IMMEDIATE 'TRUNCATE TABLE EV_SALES_BY_YEAR'; -- Fetch the File from OCI, Unzip it, Parse it and Load It. INSERT INTO EV_SALES_BY_YEAR (DATA_YEAR,COUNTY,FUEL_TYPE,MAKE,MODEL,NUMBER_OF_VEHICLES) SELECT col001 data_year , col002 COUNTY , col003 FUEL_TYPE , col004 MAKE , col005 MODEL , col006 NUMBER_OF_VEHICLES FROM apex_data_parser.parse (p_content =&gt; apex_zip.get_file_content (p_zipped_blob =&gt; dbms_cloud.get_object (credential_name =&gt; 'obj_store_dbms_cloud_test', object_uri =&gt; '<a href=https://objectstorage.us-ashburn-1.oraclecloud.com/n/xxxxx/b/dbms_cloud_test/o/CA_EV_Sales.csv.zip>https://objectstorage.us-ashburn-1.oraclecloud.com/n/xxxxx/b/dbms_cloud_test/o/CA_EV_Sales.csv.zip</a>'), p_file_name =&gt; 'CA_EV_Sales.csv'), p_skip_rows =&gt; 1, p_detect_data_types =&gt; 'N', p_file_name =&gt; 'CA_EV_Sales.csv');</p> <p>END;</p> <p>DECLARE l_operation_id user_load_operations.id%TYPE; BEGIN -- Truncate the table prior to load. EXECUTE IMMEDIATE 'TRUNCATE TABLE EV_SALES_BY_YEAR'; -- Stream, Parse and Load the File. dbms_cloud.copy_data -- Table we want to load data into. (table_name =&gt; 'EV_SALES_BY_YEAR', -- Credential we created above using dbms_cloud.create_credential credential_name =&gt; 'obj_store_dbms_cloud_test', -- CSV List of fields from the CSV file, -- listed in the same order as columns in the table. -- The field names do not have to match the column names. -- It is a good idea to specify field sizes for VARCHAR2 columns -- as I have done here. Otherwise, dbms_cloud.copy_data -- assumes a default of only 240 characters. field_list =&gt; 'data_year,county CHAR(50),fuel_type CHAR(50),make CHAR(50),model CHAR(50),number_of_vehicles', <br> -- File name, CSV List of Files, or Wildcard Expression -- representing the file(s) to load. file_uri_list =&gt; '<a href=https://objectstorage.us-ashburn-1.oraclecloud.com/n/xxxx/b/dbms_cloud_test/o/CA_EV_Sales.gzip>https://objectstorage.us-ashburn-1.oraclecloud.com/n/xxxx/b/dbms_cloud_test/o/CA_EV_Sales.gzip</a>', -- Variable returned by dbms_cloud.copy_data with -- the ID of the load. Track Progess of the load by -- querying user_load_operations WHERE id = l_operation_id operation_id =&gt; l_operation_id, -- JSON_OBJECT containing details required to perform the load. -- type: CSV File, coompression: File is compressed by gzip format =&gt; json_object ('type' value 'csv', 'compression' value 'gzip', 'skipheaders' value '1', 'delimiter' value ',', 'ignoremissingcolumns' value 'true' )); END;</p> <p>SELECT id , status , logfile_table , badfile_table , rows_loaded FROM user_load_operations WHERE id = 48;</p> <p>SELECT id , status , logfile_table , badfile_table , rows_loaded FROM user_load_operations WHERE id = 48;</p> <p>DECLARE lt_parm_names apex_application_global.VC_ARR2; lt_parm_values apex_application_global.VC_ARR2; BEGIN lt_parm_names(1) := 'lat'; lt_parm_values(1) := '32.866889'; lt_parm_names(2) := 'lng'; lt_parm_values(2) := '-117.257139'; lt_parm_names(3) := 'date'; lt_parm_values(3) := 'today'; lt_parm_names(4) := 'formatted'; lt_parm_values(4) := '0'; END;</p> <p>-- Example ACL to allow the schema APEX_230200 -- connect access to any host '<em>' BEGIN DBMS_NETWORK_ACL_ADMIN.APPEND_HOST_ACE( host =&gt; '</em>', ace =&gt; xs<span class=arithmatex>\(ace_type(privilege_list =&gt; xs\)</span>name_list('connect'), principal_name =&gt; 'APEX_230200', principal_type =&gt; xs_acl.ptype_db)); END;</p> <p>curl -H "Time-Zone: America/Sao_Paulo" -X POST <a href=https://api.github.com/repos/github-linguist/linguist/contents/new_file.md>https://api.github.com/repos/github-linguist/linguist/contents/new_file.md</a></p> <p><a href=https://apibldr.com/ >https://apibldr.com/</a></p> <p><a href=https://blog.cloudnueva.com/rad-stack-integrations-part1>https://blog.cloudnueva.com/rad-stack-integrations-part1</a></p> <p>Elas incluem Oracle Integration Cloud (OIC), Mulesoft, Jitterbit e Dell Boomi. Essas soluções oferecem conectores pré-construídos, mapeamento de dados, orquestração, gerenciamento de API, vários protocolos de transporte, recursos de tratamento de erros, etc. Esses recursos, no entanto, não vêm sem um custo significativo. O custo está relacionado às taxas de assinatura mensal e à contratação de engenheiros altamente pagos para construir e manter suas integrações.</p> <p>Padrões comuns de integração * Obtendo dados de outros sistemas * Recebendo dados de outros sistemas * Enviando dados para outros sistemas</p> <p>O caso de uso se concentra em um sistema Master Data Management (MDM) Armazena um total de 10.000 itens. Possui serviços REST protegidos usando credenciais de cliente OAuth2. Tem uma API GET REST para buscar itens, que retorna JSON. O serviço suporta paginação, permitindo até 500 itens por página.</p> <p>As seções a seguir descrevem três abordagens para lidar com esse cenário.</p> <p>Em tempo real via fonte de dados REST Sincronizar com uma tabela local usando fonte de dados REST Sincronizar alterações em uma tabela local usando uma automação APEX e código PL/SQL apex_rest_source_sync_log (Tabela de Log)</p> <p>Within the APEX SQL Workshop screen execute the following PLSQL</p> <p>BEGIN OAUTH.CREATE_CLIENT( P_NAME =&gt; 'sql_dev_client', P_GRANT_TYPE =&gt; 'client_credentials', P_OWNER =&gt; 'HR', P_DESCRIPTION =&gt; 'OAuth Client With SQL Developer role', P_ORIGINS_ALLOWED =&gt; '', P_REDIRECT_URI =&gt; NULL, P_SUPPORT_EMAIL =&gt; '<a href=mailto:test@example.com>test@example.com</a>', P_SUPPORT_URI =&gt; '<a href=https://example.com>https://example.com</a>', P_PRIVILEGE_NAMES =&gt; '' ); OAUTH.GRANT_CLIENT_ROLE( P_CLIENT_NAME =&gt; 'sql_dev_client', P_ROLE_NAME =&gt; 'SQL Developer' ); COMMIT; END; SELECT name, client_id, client_secret FROM user_ords_clients;</p> <p>curl \ --user 3WjIAi.:myb-nWh.. \ --data 'grant_type=client_credentials' \ <a href=https://my-database.adb.eu-frankfurt-1.oraclecloudapps.com/ords/ >https://my-database.adb.eu-frankfurt-1.oraclecloudapps.com/ords/</a><schema alias>/oauth/token</schema></p> <p>{ "access_token":"9EVGMlgDLQ8N5clLKVLj0Q", "token_type":"bearer", "expires_in":3600</p> <p>curl '<a href=https://my-database.adb.eu-frankfurt-1.oraclecloudapps.com/ords/hr/_/db-api/stable/database/datapump/jobs/ >https://my-database.adb.eu-frankfurt-1.oraclecloudapps.com/ords/hr/_/db-api/stable/database/datapump/jobs/</a>' \ -H 'Authorization: bearer 9EVGMlgDLQ8N5clLKVLj0Q'</p> <p>curl '<a href=https://my-database.adb.eu-frankfurt-1.oraclecloudapps.com/ords/hr/_/sql>https://my-database.adb.eu-frankfurt-1.oraclecloudapps.com/ords/hr/_/sql</a>' \ -H 'Authorization: bearer 9EVGMlgDLQ8N5clLKVLj0Q' \ -H 'Content-Type: application/json' \ --data-raw '{"statementText":"select user from dual","offset":0,"limit":256}'</p> <p>BEGIN ords.enable_object(p_object =&gt; 'TEAM', p_auto_rest_auth =&gt; TRUE); ords.enable_object(p_object =&gt; 'DRIVER', p_auto_rest_auth =&gt; TRUE); ords.enable_object(p_object =&gt; 'RACE', p_auto_rest_auth =&gt; TRUE); ords.enable_object(p_object =&gt; 'DRIVER_RACE_MAP', p_auto_rest_auth =&gt; TRUE); ords.enable_object(p_object =&gt; 'RACE_DV', p_object_type =&gt; 'VIEW', p_auto_rest_auth =&gt; TRUE);</p> <div class=highlight><pre><span></span><code>ords.enable_object(p_object =&gt; 'DRIVER_DV', p_object_type =&gt; 'VIEW', p_auto_rest_auth =&gt; TRUE);
+
+ords.enable_object(p_object =&gt; 'TEAM_DV', p_object_type =&gt; 'VIEW', p_auto_rest_auth =&gt; TRUE);
+
+oauth.delete_client(p_name =&gt; 'Car Racing Client');
+oauth.create_client(p_name =&gt; 'Car Racing Client', 
+                p_grant_type =&gt; 'client_credentials', 
+                p_description =&gt; 'Used for interacting with Car Racing Duality View Examples', 
+                p_owner =&gt; sys_context( 'userenv', 'current_schema' ),
+                p_support_email =&gt; 'janus@example.com', 
+                p_privilege_names =&gt; null);
+</code></pre></div> <p>OAUTH.grant_client_role( p_client_name =&gt; 'Car Racing Client', p_role_name =&gt; 'oracle.dbtools.role.autorest.HR.TEAM' );</p> <p>OAUTH.grant_client_role( p_client_name =&gt; 'Car Racing Client', p_role_name =&gt; 'oracle.dbtools.role.autorest.HR.DRIVER' ); OAUTH.grant_client_role( p_client_name =&gt; 'Car Racing Client', p_role_name =&gt; 'oracle.dbtools.role.autorest.HR.RACE' ); OAUTH.grant_client_role( p_client_name =&gt; 'Car Racing Client', p_role_name =&gt; 'oracle.dbtools.role.autorest.HR.DRIVER_RACE_MAP' ); OAUTH.grant_client_role( p_client_name =&gt; 'Car Racing Client', p_role_name =&gt; 'oracle.dbtools.role.autorest.HR.RACE_DV' ); OAUTH.grant_client_role( p_client_name =&gt; 'Car Racing Client', p_role_name =&gt; 'oracle.dbtools.role.autorest.HR.DRIVER_DV' ); OAUTH.grant_client_role( p_client_name =&gt; 'Car Racing Client', p_role_name =&gt; 'oracle.dbtools.role.autorest.HR.TEAM_DV' );</p> <div class=highlight><pre><span></span><code>COMMIT;
+</code></pre></div> <p>END; /</p> <p>SELECT client_id, client_secret FROM user_ords_clients WHERE name = 'Car Racing Client';</p> <p>curl -X 'GET' \ '<a href=http://localhost:8080/ords/hr/driver_dv/ >http://localhost:8080/ords/hr/driver_dv/</a>' \ -H 'accept: application/json'</p> <p>curl \ --user x9mADG7hKJNlj4LNITBJ3Q..:alRNwbRmezM2E0YDPTe6eA.. \ --data 'grant_type=client_credentials' \ <a href=http://localhost:8080/ords/hr/oauth/token>http://localhost:8080/ords/hr/oauth/token</a></p> <p>{ "access_token":"Fs5Lrsu1g6XAP1mGXMnUig", "token_type":"bearer", "expires_in":3600 }</p> <p>curl -X 'GET' \ '<a href=http://localhost:8080/ords/hr/driver_dv/ >http://localhost:8080/ords/hr/driver_dv/</a>' \ -H 'accept: application/json' \ -H 'Authorization: Bearer Vu1AJ02QdF_13_kjjsSXRw'</p> <p>2 3 4 curl -i -X POST --data-binary <a class="magiclink magiclink-github magiclink-mention" href=https://github.com/add-team title="GitHub User: add-team">@add-team</a>.json \ -H "Content-Type: application/json" \ -H 'Authorization: Bearer Vu1AJ02QdF_13_kjjsSXRw' \ '<a href=http://localhost:8080/ords/hr/team_dv/batchload>http://localhost:8080/ords/hr/team_dv/batchload</a></p> <p>url --request POST \ --url <a href=http://localhost:8080/ords/hr/driver_race_map/ >http://localhost:8080/ords/hr/driver_race_map/</a> \ --header 'Content-Type: application/json' \ --header 'Authorization: Bearer Vu1AJ02QdF_13_kjjsSXRw' \ --data '{"race_id" : 202, "driver_id" : 119, "position" : 4}'</p> <p>curl --request POST \ --url <a href=http://localhost:8080/ords/hr/driver_race_map/ >http://localhost:8080/ords/hr/driver_race_map/</a> \ --header 'Content-Type: application/json' \ --header 'Authorization: Bearer Vu1AJ02QdF_13_kjjsSXRw' \ --data '{"race_id" : 202, "driver_id" : 115, "position" : 3}'</p> <p>curl --request POST \ --url <a href=http://localhost:8080/ords/hr/driver_race_map/ >http://localhost:8080/ords/hr/driver_race_map/</a> \ --header 'Content-Type: application/json' \ --header 'Authorization: Bearer Vu1AJ02QdF_13_kjjsSXRw' \ --data '{"race_id" : 202, "driver_id" : 103, "position" : 2}'</p> <p>curl --request POST \ --url <a href=http://localhost:8080/ords/hr/driver_race_map/ >http://localhost:8080/ords/hr/driver_race_map/</a> \ --header 'Content-Type: application/json' \ --header 'Authorization: Bearer Vu1AJ02QdF_13_kjjsSXRw' \ --data '{"race_id" : 202, "driver_id" : 101, "position" :</p> <p>curl --location '<a href=http://localhost:8080/ords/hr/_/graphql>http://localhost:8080/ords/hr/_/graphql</a>' \ --header 'Content-Type: application/json' \ --header 'Authorization: Bearer vSs7J_ILrcynMaPWyVcQLA' \ --data '{"query":"query Drivers {\n driver \n { \n driver_id \n name \n points \n team_id\n team_team_id {\n name\n }\n driver_race_map_driver_id {\n driver_race_map_id\n race_id\n race_race_id {\n name\n race_date\n }\n position\n }\n }\n}","variables":{}}'</p> <p>Extrado Detalhado da previdencia</p> <div class=highlight><pre><span></span><code>docker create -it --name 23cfree -p 8521:1521 -p 8500:5500 -p 8023:8080 -p 9043:8443 -p 9922:22 -e ORACLE_PWD=E container-registry.oracle.com/database/free:latest
+curl -o unattended_apex_install_23c.sh https://raw.githubusercontent.com/Pretius/pretius-23cfree-unattended-apex-installer/main/src/unattended_apex_install_23c.sh
+curl -o 00_start_apex_ords_installer.sh https://raw.githubusercontent.com/Pretius/pretius-23cfree-unattended-apex-installer/main/src/00_start_apex_ords_installer.sh
+docker cp unattended_apex_install_23c.sh 23cfree:/home/oracle
+docker cp 00_start_apex_ords_installer.sh 23cfree:/opt/oracle/scripts/startup
+docker start 23cfree
+docker exec -it 23cfree /bin/bash tail -f /home/oracle/unattended_apex_install_23c.log
+ http://localhost:8023/ords/apex
+     User: ADMIN
+    Password: OrclAPEX1999!
+
+ORDS_PUBLIC_USER, APEX_PUBLIC_USER, SYS, etc. Password: E
+
+docker pull container-registry.oracle.com/database/free:latest
+docker run -d -it --name 23cfree -p 8521:1521 -p 8500:5500 -p 8023:8080 -p 9043:8443 -p 9922:22 -e ORACLE_PWD=oracle container-registry.oracle.com/database/free:latest
+docker exec -it 23cfree /bin/bash
+curl -o apex-latest.zip https://download.oracle.com/otn_software/apex/apex-latest.zip
+unzip apex-latest.zip
+rm apex-latest.zip
+cd apex
+sqlplus / as sysdba
+ALTER SESSION SET CONTAINER = FREEPDB1;
+@apexins.sql SYSAUX SYSAUX TEMP /i/
+ALTER USER APEX_PUBLIC_USER IDENTIFIED BY oracle ACCOUNT UNLOCK;
+@apxchpwd.sql
+exit
+mkdir /home/oracle/software
+mkdir /home/oracle/software/apex
+mkdir /home/oracle/software/ords
+mkdir /home/oracle/scripts
+cp -r /home/oracle/apex/images /home/oracle/software/apex
+su
+dnf update -y
+dnf install sudo -y
+dnf install nano -y
+
+nano /etc/sudoers
+dnf install java-17-openjdk -y
+java -version
+mkdir /etc/ords
+mkdir /etc/ords/config
+mkdir /home/oracle/logs
+chmod -R 777 /etc/ords
+yum-config-manager --add-repo=http://yum.oracle.com/repo/OracleLinux/OL8/oracle/software/x86_64
+dnf install ords -y
+export _JAVA_OPTIONS="-Xms512M -Xmx512M"
+ords --config /etc/ords/config install
+
+# Follow the configuration steps
+Installation Type &gt; Choose option [2] Enter
+Connection Type &gt; Choose option [1] Enter
+host name &gt; Enter
+listen port &gt; Enter
+service name &gt; FREEPDB1
+administrator username &gt; SYS
+password &gt; oracle
+default tablespace &gt; Enter
+temp tablespace &gt; Enter
+features &gt; Enter
+Start ORDS &gt; [1] Enter &lt;-- Standalone Mode
+protocol &gt; [1] &lt; http
+port &gt; [1] &lt;-- 8080
+Static Resources &gt; /home/oracle/software/apex/images
+
+limactl start
+brew install lima
+limactl start
+lima nerdctl run -d --name nginx -p 127.0.0.1:8080:80 nginx:alpine
+docker build -t nerdctl .
+docker run -it --rm --privileged nerdctl
+docker run -d -p 1521:1521 -e ORACLE_PASSWORD=&lt;your password&gt; -v oracle-volume:/opt/oracle/oradata gvenzl/oracle-free
+colima start --arch x86_64 --memory 4
+colima start --arch x86_64 --memory 4
+docker create -it --name 23cfree -p 8521:1521 -p 8500:5500 -p 8023:8080 -p 9043:8443 -p 9922:22 -e ORACLE_PWD=E container-registry.oracle.com/database/free:latest
+curl -o unattended_apex_install_23c.sh https://raw.githubusercontent.com/Pretius/pretius-23cfree-unattended-apex-installer/main/src/unattended_apex_install_23c.sh
+curl -o 00_start_apex_ords_installer.sh https://raw.githubusercontent.com/Pretius/pretius-23cfree-unattended-apex-installer/main/src/00_start_apex_ords_installer.sh
+docker cp unattended_apex_install_23c.sh 23cfree:/home/oracle
+docker cp 00_start_apex_ords_installer.sh 23cfree:/opt/oracle/scripts/startup
+docker start 23cfree
+
+docker exec -it 23cfree /bin/bash
+ tail -f /home/oracle/unattended_apex_install_23c.log
+
+http://localhost:8023/ords/apex
+User: ADMIN
+Password: OrclAPEX1999!
+netstat -tunlp
+netstat -tnlp | grep :22
+</code></pre></div> <h2 id=manual>Manual<a class=headerlink href=#manual title="Permanent link">¶</a></h2> <h2 id=docker-pull-container-registryoraclecomdatabasefreelatest-docker-run-d-it-name-23cfree-p-85211521-p-85005500-p-80238080-p-90438443-e-oracle_pwde-container-registryoraclecomdatabasefreelatest-docker-exec-it-23cfree-binbash-curl-o-apex-latestzip-httpsdownloadoraclecomotn_softwareapexapex-latestzip-unzip-apex-latestzip-rm-apex-latestzip-cd-apex-bash-44-sqlplus-as-sysdba-sqlplus-release-230000-developer-release-on-wed-apr-5-132732-2023-version-232000-copyright-c-1982-2023-oracle-all-rights-reserved-connected-to-oracle-database-23c-free-release-230000-developer-release-version-232000-alter-session-set-container-freepdb1-apexinssql-sysaux-sysaux-temp-i-alter-user-apex_public_user-account-unlock-alter-user-apex_public_user-identified-by-e-apxchpwdsql-exit-mkdir-homeoraclesoftware-mkdir-homeoraclesoftwareapex-mkdir-homeoraclesoftwareords-mkdir-homeoraclescripts-cp-r-homeoracleapeximages-homeoraclesoftwareapex-cd-homeoracle-su-cat-devnull-etcdnfvarsociregion-dnf-update-y-dnf-install-sudo-y-dnf-install-nano-y-nano-etcsudoers-defaults-lecture-oracle-allall-nopasswd-all-dnf-install-java-17-openjdk-y-mkdir-etcords-mkdir-etcordsconfig-mkdir-homeoraclelogs-chmod-r-777-etcords-java-version-openjdk-version-1706-2023-01-17-lts-openjdk-runtime-environment-red_hat-1706010-3el8_7-build-170610-lts-openjdk-64-bit-server-vm-red_hat-1706010-3el8_7-build-170610-lts-mixed-mode-sharing-yum-config-manager-add-repohttpyumoraclecomrepooraclelinuxol8oraclesoftwarex86_64-dnf-install-ords-y-export-_java_options-xms512m-xmx512m-ords-config-etcordsconfig-install-enter-a-number-to-select-the-tns-net-service-name-to-use-or-specify-the-database-connection-1-extproc_connection_data-sidplsextproc-2-free-service_namefree-3-freepdb1-service_namefreepdb1-s-specify-the-database-connection-choose-1-3-provide-database-user-name-with-administrator-privileges-enter-the-administrator-username-sys-enter-the-database-password-for-sys-as-sysdba-e-retrieving-information-ords-is-not-installed-in-the-database-ords-installation-is-required-enter-a-number-to-update-the-value-or-select-option-a-to-accept-and-continue-1-connection-type-tns-2-tns-connection-tns_namefreepdb1-tns_folderoptoracleproduct23cdbhomefreenetworkadmin-administrator-user-sys-as-sysdba-3-database-password-for-ords-runtime-user-ords_public_user-generate-4-ords-runtime-user-and-schema-tablespaces-default-sysaux-temporary-temp-5-additional-feature-database-actions-6-configure-and-start-ords-in-standalone-mode-yes-7-protocol-http-8-http-port-8080-9-apex-static-resources-location-a-accept-and-continue-create-configuration-and-install-ords-in-the-database-q-quit-do-not-proceed-no-changes-choose-a-homeoraclesoftwareapeximages-code-classlang-plaintext2024-04-15t153027922z-info-oracle-rest-data-services-initialized-oracle-rest-data-services-version-2410r0960841-oracle-rest-data-services-server-info-jetty10020-oracle-rest-data-services-java-info-openjdk-64-bit-server-vm-170107-lts-docker-pull-container-registryoraclecomdatabaseexpresslatest-docker-images-docker-network-create-apex-network-docker-run-d-name-apex_db-hostname-apexhost-networkapex-network-p-15221521-container-registryoraclecomdatabaseexpresslatest-docker-exec-it-apex_db-sqlplus-as-sysdba-show-pdbs-docker-exec-apex_db-setpasswordsh-hamza123-docker-logs-apex_db-sqlplus-syshamza123apexhost1522xe-as-sysdba-sqlplus-systemhamza123apexhost1522xe-sqlplus-pdbadminhamza123apexhost1522xepdb1-docker-pull-container-registryoraclecomdatabaseordslatest-mkdir-apex-echo-conn_stringsyshamza123apexhost1521xepdb1-apexconn_stringtxt-docker-inspect-apex_db-and-search-for-the-ipaddress-conn_stringuserpasswordhostportservice_name-docker-run-rm-name-apex-v-absolute_pathapexoptoraclevariables-networkapex-network-p-81818181-container-registryoraclecomdatabaseordslatest-sqlplus-syshamza123apexhost1521xepdb1-as-sysdba-and-set-the-password-alter-user-apex_public_user-identified-by-eraoui123-workspace-internal-username-admin-password-welcome_1><div class=highlight><pre><span></span><code>docker pull container-registry.oracle.com/database/free:latest
+docker run -d -it --name 23cfree -p 8521:1521 -p 8500:5500 -p 8023:8080 -p 9043:8443 -e ORACLE_PWD=E container-registry.oracle.com/database/free:latest
+
+docker exec -it 23cfree /bin/bash
+curl -o apex-latest.zip https://download.oracle.com/otn_software/apex/apex-latest.zip
+
+unzip apex-latest.zip
+rm apex-latest.zip
+cd apex
+
+
+bash-4.4$ sqlplus / as sysdba
+SQL*Plus: Release 23.0.0.0.0 - Developer-Release on Wed Apr 5 13:27:32 2023 Version 23.2.0.0.0
+Copyright (c) 1982, 2023, Oracle. All rights reserved.
+Connected to: Oracle Database 23c Free, Release 23.0.0.0.0 - Developer-Release Version 23.2.0.0.0
+
+
+ALTER SESSION SET CONTAINER = FREEPDB1;
+@apexins.sql SYSAUX SYSAUX TEMP /i/
+
+ALTER USER APEX_PUBLIC_USER ACCOUNT UNLOCK;
+ALTER USER APEX_PUBLIC_USER IDENTIFIED BY E;
+
+@apxchpwd.sql
+
+exit
+
+
+mkdir /home/oracle/software
+mkdir /home/oracle/software/apex
+mkdir /home/oracle/software/ords
+mkdir /home/oracle/scripts
+
+cp -r /home/oracle/apex/images /home/oracle/software/apex
+cd /home/oracle/
+su
+cat /dev/null &gt; /etc/dnf/vars/ociregion
+dnf update -y
+dnf install sudo -y
+dnf install nano -y
+nano /etc/sudoers
+Defaults !lecture
+oracle ALL=(ALL) NOPASSWD: ALL
+dnf install java-17-openjdk -y
+
+mkdir /etc/ords
+mkdir /etc/ords/config
+mkdir /home/oracle/logs
+chmod -R 777 /etc/ords
+java -version
+
+openjdk version "17.0.6" 2023-01-17 LTS
+OpenJDK Runtime Environment (Red_Hat-17.0.6.0.10-3.el8_7) (build 17.0.6+10-LTS)
+OpenJDK 64-Bit Server VM (Red_Hat-17.0.6.0.10-3.el8_7) (build 17.0.6+10-LTS, mixed mode, sharing)
+
+yum-config-manager --add-repo=http://yum.oracle.com/repo/OracleLinux/OL8/oracle/software/x86_64
+dnf install ords -y
+
+export _JAVA_OPTIONS="-Xms512M -Xmx512M"
+ords --config /etc/ords/config install
+
+
+Enter a number to select the TNS net service name to use or specify the database connection
+   [1] EXTPROC_CONNECTION_DATA SID=PLSExtProc
+   [2] FREE         SERVICE_NAME=FREE
+   [3] FREEPDB1     SERVICE_NAME=FREEPDB1
+   [S] Specify the database connection
+ Choose [1]: 3
+Provide database user name with administrator privileges.
+  Enter the administrator username: SYS
+Enter the database password for SYS AS SYSDBA: E
+Retrieving information.
+ORDS is not installed in the database. ORDS installation is required.
+  Enter a number to update the value or select option A to Accept and Continue
+    [1] Connection Type: TNS
+    [2] TNS Connection: TNS_NAME=FREEPDB1 TNS_FOLDER=/opt/oracle/product/23c/dbhomeFree/network/admin
+           Administrator User: SYS AS SYSDBA
+    [3] Database password for ORDS runtime user (ORDS_PUBLIC_USER): &lt;generate&gt;
+    [4] ORDS runtime user and schema tablespaces:  Default: SYSAUX Temporary TEMP
+    [5] Additional Feature: Database Actions
+    [6] Configure and start ORDS in Standalone Mode: Yes
+    [7]    Protocol: HTTP
+    [8]       HTTP Port: 8080
+    [9]   APEX static resources location:
+    [A] Accept and Continue - Create configuration and Install ORDS in the database
+    [Q] Quit - Do not proceed. No changes
+  Choose [A]:
+
+
+/home/oracle/software/apex/images
+
+
+&lt;code class="lang-plaintext"&gt;2024-04-15T15:30:27.922Z INFO        Oracle REST Data Services initialized
+Oracle REST Data Services version : 24.1.0.r0960841
+Oracle REST Data Services server info: jetty/10.0.20
+Oracle REST Data Services java info: OpenJDK 64-Bit Server VM 17.0.10+7-LTS
+
+docker pull container-registry.oracle.com/database/express:latest
+docker images
+docker network create apex-network
+docker run -d --name apex_db --hostname apexhost --network=apex-network -p 1522:1521 container-registry.oracle.com/database/express:latest
+docker exec -it apex_db sqlplus / as sysdba
+show pdbs
+docker exec apex_db ./setPassword.sh hamza123
+docker logs apex_db
+sqlplus sys/hamza123@//apexhost:1522/XE as sysdba
+sqlplus system/hamza123@//apexhost:1522/XE
+sqlplus pdbadmin/hamza123@//apexhost:1522/XEPDB1
+
+docker pull container-registry.oracle.com/database/ords:latest
+mkdir ~/apex
+echo CONN_STRING=sys/hamza123@apexhost:1521/XEPDB1 &gt; ~/apex/conn_string.txt
+docker inspect apex_db
+and search for the IPAddress
+CONN_STRING=user/password@host:port/service_name
+docker run --rm --name apex -v /absolute_path/apex:/opt/oracle/variables --network=apex-network -p 8181:8181 container-registry.oracle.com/database/ords:latest
+sqlplus sys/hamza123@//apexhost:1521/XEPDB1 as sysdba
+
+and set the password
+
+alter user APEX_PUBLIC_USER identified by eraoui123;
+Workspace: internal
+Username: admin
+Password: Welcome_1
+</code></pre></div><a class=headerlink href=#docker-pull-container-registryoraclecomdatabasefreelatest-docker-run-d-it-name-23cfree-p-85211521-p-85005500-p-80238080-p-90438443-e-oracle_pwde-container-registryoraclecomdatabasefreelatest-docker-exec-it-23cfree-binbash-curl-o-apex-latestzip-httpsdownloadoraclecomotn_softwareapexapex-latestzip-unzip-apex-latestzip-rm-apex-latestzip-cd-apex-bash-44-sqlplus-as-sysdba-sqlplus-release-230000-developer-release-on-wed-apr-5-132732-2023-version-232000-copyright-c-1982-2023-oracle-all-rights-reserved-connected-to-oracle-database-23c-free-release-230000-developer-release-version-232000-alter-session-set-container-freepdb1-apexinssql-sysaux-sysaux-temp-i-alter-user-apex_public_user-account-unlock-alter-user-apex_public_user-identified-by-e-apxchpwdsql-exit-mkdir-homeoraclesoftware-mkdir-homeoraclesoftwareapex-mkdir-homeoraclesoftwareords-mkdir-homeoraclescripts-cp-r-homeoracleapeximages-homeoraclesoftwareapex-cd-homeoracle-su-cat-devnull-etcdnfvarsociregion-dnf-update-y-dnf-install-sudo-y-dnf-install-nano-y-nano-etcsudoers-defaults-lecture-oracle-allall-nopasswd-all-dnf-install-java-17-openjdk-y-mkdir-etcords-mkdir-etcordsconfig-mkdir-homeoraclelogs-chmod-r-777-etcords-java-version-openjdk-version-1706-2023-01-17-lts-openjdk-runtime-environment-red_hat-1706010-3el8_7-build-170610-lts-openjdk-64-bit-server-vm-red_hat-1706010-3el8_7-build-170610-lts-mixed-mode-sharing-yum-config-manager-add-repohttpyumoraclecomrepooraclelinuxol8oraclesoftwarex86_64-dnf-install-ords-y-export-_java_options-xms512m-xmx512m-ords-config-etcordsconfig-install-enter-a-number-to-select-the-tns-net-service-name-to-use-or-specify-the-database-connection-1-extproc_connection_data-sidplsextproc-2-free-service_namefree-3-freepdb1-service_namefreepdb1-s-specify-the-database-connection-choose-1-3-provide-database-user-name-with-administrator-privileges-enter-the-administrator-username-sys-enter-the-database-password-for-sys-as-sysdba-e-retrieving-information-ords-is-not-installed-in-the-database-ords-installation-is-required-enter-a-number-to-update-the-value-or-select-option-a-to-accept-and-continue-1-connection-type-tns-2-tns-connection-tns_namefreepdb1-tns_folderoptoracleproduct23cdbhomefreenetworkadmin-administrator-user-sys-as-sysdba-3-database-password-for-ords-runtime-user-ords_public_user-generate-4-ords-runtime-user-and-schema-tablespaces-default-sysaux-temporary-temp-5-additional-feature-database-actions-6-configure-and-start-ords-in-standalone-mode-yes-7-protocol-http-8-http-port-8080-9-apex-static-resources-location-a-accept-and-continue-create-configuration-and-install-ords-in-the-database-q-quit-do-not-proceed-no-changes-choose-a-homeoraclesoftwareapeximages-code-classlang-plaintext2024-04-15t153027922z-info-oracle-rest-data-services-initialized-oracle-rest-data-services-version-2410r0960841-oracle-rest-data-services-server-info-jetty10020-oracle-rest-data-services-java-info-openjdk-64-bit-server-vm-170107-lts-docker-pull-container-registryoraclecomdatabaseexpresslatest-docker-images-docker-network-create-apex-network-docker-run-d-name-apex_db-hostname-apexhost-networkapex-network-p-15221521-container-registryoraclecomdatabaseexpresslatest-docker-exec-it-apex_db-sqlplus-as-sysdba-show-pdbs-docker-exec-apex_db-setpasswordsh-hamza123-docker-logs-apex_db-sqlplus-syshamza123apexhost1522xe-as-sysdba-sqlplus-systemhamza123apexhost1522xe-sqlplus-pdbadminhamza123apexhost1522xepdb1-docker-pull-container-registryoraclecomdatabaseordslatest-mkdir-apex-echo-conn_stringsyshamza123apexhost1521xepdb1-apexconn_stringtxt-docker-inspect-apex_db-and-search-for-the-ipaddress-conn_stringuserpasswordhostportservice_name-docker-run-rm-name-apex-v-absolute_pathapexoptoraclevariables-networkapex-network-p-81818181-container-registryoraclecomdatabaseordslatest-sqlplus-syshamza123apexhost1521xepdb1-as-sysdba-and-set-the-password-alter-user-apex_public_user-identified-by-eraoui123-workspace-internal-username-admin-password-welcome_1 title="Permanent link">¶</a></h2> <p><a href="https://container-registry.oracle.com/ords/f?p=113:4:125263294212830:::4:P4_REPOSITORY,AI_REPOSITORY,AI_REPOSITORY_NAME,P4_REPOSITORY_NAME,P4_EULA_ID,P4_BUSINESS_AREA_ID:2483,2483,Oracle%20REST%20Data%20Services%20(ORDS)%20Developer,Oracle%20REST%20Data%20Services%20(ORDS)%20Developer,1,0&cs=3g8WqCdCHnTwO_vdTDFZOuXnGHFJqGmTSq33H6KzH5Dgj3yYtLVwukRbKmQNswoBJJ1pgGi8tdDfqEWX4QI99hw">https://container-registry.oracle.com/ords/f?p=113:4:125263294212830:::4:P4_REPOSITORY,AI_REPOSITORY,AI_REPOSITORY_NAME,P4_REPOSITORY_NAME,P4_EULA_ID,P4_BUSINESS_AREA_ID:2483,2483,Oracle%20REST%20Data%20Services%20(ORDS)%20Developer,Oracle%20REST%20Data%20Services%20(ORDS)%20Developer,1,0&amp;cs=3g8WqCdCHnTwO_vdTDFZOuXnGHFJqGmTSq33H6KzH5Dgj3yYtLVwukRbKmQNswoBJJ1pgGi8tdDfqEWX4QI99hw</a> <a href="https://container-registry.oracle.com/ords/f?p=113:1:125263294212830::::P1_BUSINESS_AREA:3&cs=3SzFK-vQSoyxp-VJsLJ5i3TX8lMX_KbVUc3GJ092IsL_X1nUA0z7vnNHR-qbd32xd6mdEOTV3D2WAxIVAPkt38A">https://container-registry.oracle.com/ords/f?p=113:1:125263294212830::::P1_BUSINESS_AREA:3&amp;cs=3SzFK-vQSoyxp-VJsLJ5i3TX8lMX_KbVUc3GJ092IsL_X1nUA0z7vnNHR-qbd32xd6mdEOTV3D2WAxIVAPkt38A</a> <a href=http://localhost:8023/ords/apex>http://localhost:8023/ords/apex</a> i <a href=https://pretius.com/blog/oracle-apex-docker-ords/ >https://pretius.com/blog/oracle-apex-docker-ords/</a></p> <hr> <div class=highlight><pre><span></span><code>FROM oraclelinux:7.9
+
+MAINTAINER Daniel Hochleitner &lt;dhochleitner@posteo.de&gt;
+
+# environment variables
+ENV INSTALL_APEX=true \
+    INSTALL_SQLCL=true \
+    INSTALL_SQLDEVWEB=true \
+    INSTALL_LOGGER=true \
+    INSTALL_OOSUTILS=true \
+    INSTALL_AOP=true \
+    INSTALL_AME=true \
+    INSTALL_SWAGGER=true \
+    INSTALL_CA_CERTS_WALLET=true \
+    DBCA_TOTAL_MEMORY=2048 \
+    ORACLE_SID=orcl \
+    SERVICE_NAME=orcl \
+    DB_INSTALL_VERSION=19 \
+    ORACLE_BASE=/u01/app/oracle \
+    ORACLE_HOME12=/u01/app/oracle/product/12.2.0.1/dbhome \
+    ORACLE_HOME18=/u01/app/oracle/product/18.0.0/dbhome \
+    ORACLE_HOME19=/u01/app/oracle/product/19.0.0/dbhome \
+    ORACLE_INVENTORY=/u01/app/oraInventory \
+    PASS=oracle \
+    ORDS_HOME=/u01/ords \
+    JAVA_HOME=/opt/java \
+    TOMCAT_HOME=/opt/tomcat \
+    APEX_PASS=OrclAPEX1999! \
+    APEX_ADDITIONAL_LANG= \
+    APEX_PATCH_SET_BUNDLE_FILE= \
+    TIME_ZONE=UTC
+
+# copy all scripts
+ADD scripts /scripts/
+
+# copy all files
+ADD files /files/
+
+# image setup via shell script to reduce layers and optimize final disk usage
+RUN /scripts/install_main.sh
+
+# ssh, database and apex port
+EXPOSE 22 1521 8080
+
+# use ${ORACLE_BASE} without product subdirectory as data volume
+VOLUME ["${ORACLE_BASE}"]
+
+# entrypoint for database creation, startup and graceful shutdown
+ENTRYPOINT ["/scripts/entrypoint.sh"]
+</code></pre></div> <p>-- entrypoint.sh</p> <h1 id=binbash_1>!/bin/bash<a class=headerlink href=#binbash_1 title="Permanent link">¶</a></h1> <h1 id=set-environment>set environment<a class=headerlink href=#set-environment title="Permanent link">¶</a></h1> <p>. /scripts/setenv.sh</p> <h1 id=add-hostname>add hostname<a class=headerlink href=#add-hostname title="Permanent link">¶</a></h1> <p>echo "127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4" &gt; /etc/hosts echo "::1 localhost localhost.localdomain localhost6 localhost6.localdomain6" &gt;&gt; /etc/hosts echo "127.0.0.1 $HOSTNAME" &gt;&gt; /etc/hosts</p> <h1 id=set-timezone>set timezone<a class=headerlink href=#set-timezone title="Permanent link">¶</a></h1> <p>ln -s -f /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime</p> <h1 id=start-all-components>start all components<a class=headerlink href=#start-all-components title="Permanent link">¶</a></h1> <h1 id=ssh>ssh<a class=headerlink href=#ssh title="Permanent link">¶</a></h1> <p>/usr/sbin/sshd</p> <h1 id=oracle>oracle<a class=headerlink href=#oracle title="Permanent link">¶</a></h1> <p>if [ <span class=arithmatex oracle_home12=ORACLE_HOME12>\({DB_INSTALL_VERSION} == "12" ]; then export ORACLE_HOME=\)</span> fi if [ <span class=arithmatex oracle_home18=ORACLE_HOME18>\({DB_INSTALL_VERSION} == "18" ]; then export ORACLE_HOME=\)</span> fi if [ <span class=arithmatex oracle_home19=ORACLE_HOME19>\({DB_INSTALL_VERSION} == "19" ]; then export ORACLE_HOME=\)</span> fi gosu oracle bash -c "${ORACLE_HOME}/bin/lsnrctl start" gosu oracle bash -c 'echo startup\; | ${ORACLE_HOME}/bin/sqlplus -s -l / as sysdba'</p> <h1 id=tomcat>tomcat<a class=headerlink href=#tomcat title="Permanent link">¶</a></h1> <p>if [ <span class=arithmatex tomcat_home=TOMCAT_HOME>\({INSTALL_APEX} == "true" ]; then gosu tomcat bash -c "\)</span>/bin/startup.sh" fi</p> <h1 id=infinite-wait-loop-trap-interruptterminate-signal-for-graceful-termination>Infinite wait loop, trap interrupt/terminate signal for graceful termination<a class=headerlink href=#infinite-wait-loop-trap-interruptterminate-signal-for-graceful-termination title="Permanent link">¶</a></h1> <p>trap "gosu oracle bash -c 'echo shutdown immediate\; | ${ORACLE_HOME}/bin/sqlplus -S / as sysdba'" INT TERM while true; do sleep 1; done ;; ```</p> <aside class=md-source-file> <span class=md-source-file__fact> <span class=md-icon title="Last update"> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg> </span> <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class=timeago datetime=2024-11-25T20:12:32-03:00 locale=pt></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-25</span> </span> <span class=md-source-file__fact> <span class=md-icon title=Created> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg> </span> <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class=timeago datetime=2024-11-25T20:12:32-03:00 locale=pt></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-25</span> </span> <span class=md-source-file__fact> <span class=md-icon title=Contributors> <svg viewbox="0 0 24 24" xmlns=http://www.w3.org/2000/svg><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"></path></svg> </span> <nav> <a href=mailto:horacio.vasconcellos@gmail.com>Horacio</a> </nav> </span> </aside> </article> </div> <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script> </div> </main> <footer class=md-footer> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-copyright> <div class=md-copyright__highlight> Copyright © 2024 Documentação <a href=#__consent>Change cookie settings</a> </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ rel=noopener target=_blank> Material for MkDocs </a> </div> <div class=md-social> <a class=md-social__link href=https://github.com/horaciovasconcellos rel=noopener target=_blank title=github.com> <svg viewbox="0 0 496 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg> </a> <a class=md-social__link href=https://gitlab.com/horaciovasconcellos rel=noopener target=_blank title=gitlab.com> <svg viewbox="0 0 512 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="m503.5 204.6-.7-1.8-69.7-181.78c-1.4-3.57-3.9-6.59-7.2-8.64-2.4-1.55-5.1-2.515-8-2.81s-5.7.083-8.4 1.11c-2.7 1.02-5.1 2.66-7.1 4.78-1.9 2.12-3.3 4.67-4.1 7.44l-47 144H160.8l-47.1-144c-.8-2.77-2.2-5.31-4.1-7.43-2-2.12-4.4-3.75-7.1-4.77a18.1 18.1 0 0 0-8.38-1.113 18.4 18.4 0 0 0-8.04 2.793 18.1 18.1 0 0 0-7.16 8.64L9.267 202.8l-.724 1.8a129.57 129.57 0 0 0-3.52 82c7.747 26.9 24.047 50.7 46.447 67.6l.27.2.59.4 105.97 79.5 52.6 39.7 32 24.2c3.7 1.9 8.3 4.3 13 4.3s9.3-2.4 13-4.3l32-24.2 52.6-39.7 106.7-79.9.3-.3c22.4-16.9 38.7-40.6 45.6-67.5 8.6-27 7.4-55.8-2.6-82"></path></svg> </a> <a class=md-social__link href=https://twitter.com/Horacio_Junior rel=noopener target=_blank title="Horacio.Vasconcellos on Twitter"> <svg viewbox="0 0 512 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"></path></svg> </a> <a class=md-social__link href rel="noopener me" target=_blank title="Horaci.Vasconcellos on Mastodon"> <svg viewbox="0 0 448 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.5 102.5 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5m-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"></path></svg> </a> <a class=md-social__link href=https://gitter.im/squidfunk/mkdocs-material rel=noopener target=_blank title=gitter.im> <svg viewbox="0 0 384 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M66.4 322.5H16V0h50.4zM166.9 76.1h-50.4V512h50.4zm100.6 0h-50.4V512h50.4zM368 76h-50.4v247H368z"></path></svg> </a> <a class=md-social__link href=https://hub.docker.com/u/77678117787 rel=noopener target=_blank title=hub.docker.com> <svg viewbox="0 0 640 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1zm0-204.3h-66.1v60.7h66.1zm78.2 144.8H362v59.4h66.1zm-156.3-72.1h-66.1v60.1h66.1zm78.1 0h-66.1v60.1h66.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1zm78.1 0h-66.1v59.4h66.1zm-78.1-72.1h-66.1v60.1h66.1z"></path></svg> </a> <a class=md-social__link href=https://www.linkedin.com/in/hor%C3%A1cio-correa-t-de-vasconcellos-j%C3%BAnior-b7788467/ rel=noopener target=_blank title=www.linkedin.com> <svg viewbox="0 0 448 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg> </a> <a class=md-social__link href=https://www.instagram.com/horacio.vasconcellos/ rel=noopener target=_blank title=www.instagram.com> <svg viewbox="0 0 448 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141m0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7m146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8m76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg> </a> <a class=md-social__link href=https://www.facebook.com/horacio.vasconcellos rel=noopener target=_blank title=www.facebook.com> <svg viewbox="0 0 512 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg> </a> <a class=md-social__link href=https://www.bbts.com.br rel=noopener target=_blank title=www.bbts.com.br> <svg viewbox="0 0 640 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M180.5 74.262C80.813 74.262 0 155.633 0 256s80.819 181.738 180.5 181.738S361 356.373 361 256 280.191 74.262 180.5 74.262m288.25 10.646c-49.845 0-90.245 76.619-90.245 171.095s40.406 171.1 90.251 171.1 90.251-76.619 90.251-171.1H559c0-94.503-40.4-171.095-90.248-171.095Zm139.506 17.821c-17.526 0-31.735 68.628-31.735 153.274s14.2 153.274 31.735 153.274S640 340.631 640 256c0-84.649-14.215-153.271-31.742-153.271Z"></path></svg> </a> <a class=md-social__link href=https://www.bbts.com.br rel=noopener target=_blank title=www.bbts.com.br> <svg viewbox="0 0 576 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M244 246c-3.2-2-6.3-2.9-10.1-2.9-6.6 0-12.6 3.2-19.3 3.7l1.7 4.9zm135.9 197.9c-19 0-64.1 9.5-79.9 19.8l6.9 45.1c35.7 6.1 70.1 3.6 106-9.8-4.8-10-23.5-55.1-33-55.1M340.8 177c6.6 2.8 11.5 9.2 22.7 22.1 2-1.4 7.5-5.2 7.5-8.6 0-4.9-11.8-13.2-13.2-23 11.2-5.7 25.2-6 37.6-8.9 68.1-16.4 116.3-52.9 146.8-116.7C548.3 29.3 554 16.1 554.6 2l-2 2.6c-28.4 50-33 63.2-81.3 100-31.9 24.4-69.2 40.2-106.6 54.6l-6.3-.3v-21.8c-19.6 1.6-19.7-14.6-31.6-23-18.7 20.6-31.6 40.8-58.9 51.1-12.7 4.8-19.6 10-25.9 21.8 34.9-16.4 91.2-13.5 98.8-10M555.5 0l-.6 1.1-.3.9.6-.6zm-59.2 382.1c-33.9-56.9-75.3-118.4-150-115.5l-.3-6c-1.1-13.5 32.8 3.2 35.1-31l-14.4 7.2c-19.8-45.7-8.6-54.3-65.5-54.3-14.7 0-26.7 1.7-41.4 4.6 2.9 18.6 2.2 36.7-10.9 50.3l19.5 5.5c-1.7 3.2-2.9 6.3-2.9 9.8 0 21 42.8 2.9 42.8 33.6 0 18.4-36.8 60.1-54.9 60.1-8 0-53.7-50-53.4-60.1l.3-4.6 52.3-11.5c13-2.6 12.3-22.7-2.9-22.7-3.7 0-43.1 9.2-49.4 10.6-2-5.2-7.5-14.1-13.8-14.1-3.2 0-6.3 3.2-9.5 4-9.2 2.6-31 2.9-21.5 20.1L15.9 298.5c-5.5 1.1-8.9 6.3-8.9 11.8 0 6 5.5 10.9 11.5 10.9 8 0 131.3-28.4 147.4-32.2 2.6 3.2 4.6 6.3 7.8 8.6 20.1 14.4 59.8 85.9 76.4 85.9 24.1 0 58-22.4 71.3-41.9 3.2-4.3 6.9-7.5 12.4-6.9.6 13.8-31.6 34.2-33 43.7-1.4 10.2-1 35.2-.3 41.1 26.7 8.1 52-3.6 77.9-2.9 4.3-21 10.6-41.9 9.8-63.5l-.3-9.5c-1.4-34.2-10.9-38.5-34.8-58.6-1.1-1.1-2.6-2.6-3.7-4 2.2-1.4 1.1-1 4.6-1.7 88.5 0 56.3 183.6 111.5 229.9 33.1-15 72.5-27.9 103.5-47.2-29-25.6-52.6-45.7-72.7-79.9m-196.2 46.1v27.2l11.8-3.4-2.9-23.8zm-68.7-150.4 24.1 61.2 21-13.8-31.3-50.9zm84.4 154.9 2 12.4c9-1.5 58.4-6.6 58.4-14.1 0-1.4-.6-3.2-.9-4.6-26.8 0-36.9 3.8-59.5 6.3"></path></svg> </a> <a class=md-social__link href=https://www.producthunt.com/@horacio_vasconcellos rel=noopener target=_blank title=www.producthunt.com> <svg viewbox="0 0 512 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M326.3 218.8c0 20.5-16.7 37.2-37.2 37.2h-70.3v-74.4h70.3c20.5 0 37.2 16.7 37.2 37.2M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248m-128.1-37.2c0-47.9-38.9-86.8-86.8-86.8H169.2v248h49.6v-74.4h70.3c47.9 0 86.8-38.9 86.8-86.8"></path></svg> </a> <a class=md-social__link href=https://gitlab.com/horaciovasconcellos rel=noopener target=_blank title=gitlab.com> <svg viewbox="0 0 448 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1s21.16-47.06 47.06-47.06h47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06S448 171 448 196.9s-21.16 47.06-47.06 47.06h-47.06zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06S309 480 283.1 480s-47.06-21.16-47.06-47.06v-47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06s21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06z"></path></svg> </a> <a class=md-social__link href=http://intranet.bbts.com.br rel=noopener target=_blank title=intranet.bbts.com.br> <svg viewbox="0 0 640 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485 485 0 0 0 404.081 32.03a1.82 1.82 0 0 0-1.923.91 338 338 0 0 0-14.9 30.6 447.9 447.9 0 0 0-134.426 0 310 310 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.7 483.7 0 0 0-119.688 37.107 1.7 1.7 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.02 2.02 0 0 0 .765 1.375 487.7 487.7 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348 348 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321 321 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251 251 0 0 0 9.109-7.137 1.82 1.82 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.81 1.81 0 0 1 1.924.233 235 235 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.4 301.4 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391 391 0 0 0 30.014 48.815 1.86 1.86 0 0 0 2.063.7A486 486 0 0 0 610.7 405.729a1.88 1.88 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541M222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241m195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241"></path></svg> </a> <a class=md-social__link href rel=noopener target=_blank title> <svg viewbox="0 0 512 512" xmlns=http://www.w3.org/2000/svg><!-- Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.8l167.6-182.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4"></path></svg> </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <div class=md-consent data-md-component=consent hidden id=__consent> <div class=md-consent__overlay></div> <aside class=md-consent__inner> <form class="md-consent__form md-grid md-typeset" name=consent> <h4>Consentimento</h4> <p>Utilizamos cookies para reconhecer as suas repetidas visitas e preferências, bem como para medir a eficácia da nossa documentação e se os usuários encontre o que eles estão procurando. Com o seu consentimento, você está nos ajudando a melhorar nossa documentação.</p> <input class=md-toggle id=__settings type=checkbox> <div class=md-consent__settings> <ul class=task-list> <li class=task-list-item> <label class=task-list-control> <input checked name=analytics type=checkbox> <span class=task-list-indicator></span> Google Analytics </label> </li> <li class=task-list-item> <label class=task-list-control> <input checked name=github type=checkbox> <span class=task-list-indicator></span> GitHub </label> </li> </ul> </div> <div class=md-consent__controls> <button class="md-button md-button--primary">Accept</button> <label class=md-button for=__settings>Manage settings</label> </div> </form> </aside> </div> <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script> <script id=__config type=application/json>{"base": "..", "features": ["announce.dismiss", "commit", "content.code.annotation", "content.code.copy", "search.highlight", "search.share", "search.suggest", "version", "content.footnote.tooltips"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script> <script src=../assets/javascripts/bundle.83f73b43.min.js></script> <script src=../js/timeago.min.js></script> <script src=../js/timeago_mkdocs_material.js></script> <script src=../javascripts/tables.js></script> <script src=../javascripts/tablesort.js></script> <script id=init-glightbox>const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script><script>document$.subscribe(() => {
+            window.update_swagger_ui_iframe_height = function (id) {
+                var iFrameID = document.getElementById(id);
+                if (iFrameID) {
+                    full_height = (iFrameID.contentWindow.document.body.scrollHeight + 80) + "px";
+                    iFrameID.height = full_height;
+                    iFrameID.style.height = full_height;
+                }
+            }
+        
+            let iframe_id_list = []
+            var iframes = document.getElementsByClassName("swagger-ui-iframe");
+            for (var i = 0; i < iframes.length; i++) { 
+                iframe_id_list.push(iframes[i].getAttribute("id"))
+            }
+        
+            let ticking = true;
+            
+            document.addEventListener('scroll', function(e) {
+                if (!ticking) {
+                    window.requestAnimationFrame(()=> {
+                        let half_vh = window.innerHeight/2;
+                        for(var i = 0; i < iframe_id_list.length; i++) {
+                            let element = document.getElementById(iframe_id_list[i])
+                            if(element==null){
+                                return
+                            }
+                            let diff = element.getBoundingClientRect().top
+                            if(element.contentWindow.update_top_val){
+                                element.contentWindow.update_top_val(half_vh - diff)
+                            }
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        
+            const dark_scheme_name = "slate"
+            
+            window.scheme = document.body.getAttribute("data-md-color-scheme")
+            const options = {
+                attributeFilter: ['data-md-color-scheme'],
+            };
+            function color_scheme_callback(mutations) {
+                for (let mutation of mutations) {
+                    if (mutation.attributeName === "data-md-color-scheme") {
+                        scheme = document.body.getAttribute("data-md-color-scheme")
+                        var iframe_list = document.getElementsByClassName("swagger-ui-iframe")
+                        for(var i = 0; i < iframe_list.length; i++) {
+                            var ele = iframe_list.item(i);
+                            if (ele) {
+                                if (scheme === dark_scheme_name) {
+                                    ele.contentWindow.enable_dark_mode();
+                                } else {
+                                    ele.contentWindow.disable_dark_mode();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            observer = new MutationObserver(color_scheme_callback);
+            observer.observe(document.body, options);
+            })</script></body> </html>

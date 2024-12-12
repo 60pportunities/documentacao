@@ -2,6 +2,11 @@
   {
     "version": "$LAST_TAG",
     "title": "$LAST_TAG",
+    "aliases": []
+  },
+  {
+    "version": "v00.00.03",
+    "title": "v00.00.03",
     "aliases": [
       "latest"
     ]
