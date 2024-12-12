@@ -1,10 +1,15 @@
 [
   {
-    "version": "v00.00.02",
-    "title": "v00.00.02",
+    "version": "$LAST_TAG",
+    "title": "$LAST_TAG",
     "aliases": [
       "latest"
     ]
+  },
+  {
+    "version": "v00.00.02",
+    "title": "v00.00.02",
+    "aliases": []
   },
   {
     "version": "v00.00.01",
