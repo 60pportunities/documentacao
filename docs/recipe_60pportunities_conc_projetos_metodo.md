@@ -1,5 +1,5 @@
-![](img/DESIGN-SPRINT-LEAN-AGILE.jpg){width="400" height="300" style="display: block; margin: 0 auto"}
-No mundo acelerado de hoje, a busca pela excelência é uma jornada implacável.  
+No mundo acelerado de hoje, a busca pela excelência é uma jornada implacável. 
+
 Ao receber uma demanda necessitamos estabelecer, um critérios objetivos como devemos atende-la, para tal cito alguns questionamentos básicos.
 
 - [x] Entrego Tempo + Conhecimento - Pacote de Reccmpensa. NÃO é uma família, é pedir para todos aguanterem em nome do sangue.
@@ -19,6 +19,19 @@ Então, sendo o foco de entregar um resultado específico, que pode ou não se t
 Logo, um produto é uma solução que é desenvolvida para atender às necessidades dos usuários de forma contínua, geralmente tem um roadmap e uma visão de longo prazo.
 
 ## **Gestão e Liderança**
+Liderança é sobre construir equipes de alto desempenho, uma habilidade que entrelaça entender pessoas, inspirar ações e tomar decisões difíceis. Como qualquer ofício, dominar a liderança exige persistência e aprendizado.
+
+ A liderança, como a arte, mistura teoria fornecendo uma base, a verdadeira expertise vem por meio da aplicação no mundo real, aprendendo com cada interação, sucesso e fracasso.
+
+| Principios                                  | Entenda                                                               |
+| -------                                     | -----                                                                 |
+| Autoaperfeiçoamento                         | Traços e atributos. Timidez, paciência ou modéstia. Antes que alguém possa efetivamente liderar os outros, é preciso primeiro entender e gerenciar a si mesmo. |
+| Proficiência Técnica                        | Entender os desafios técnicos que sua equipe enfrenta.                |
+| Conheça seu povo e cuide do bem-estar deles | Pontos fortes, fracos e situações pessoais dos membros da sua equipe. |
+| Mantenha Equipes informadas                 | Comunicação clara                                                     |
+| Decisões acertadas e oportunas              | Frameworks estruturados pode ajudar a tomar decisões ponderadas.      |
+| Dê o exemplo e assuma a responsabilidade    | Defina o padrão de comportamento, ética de trabalho e responsabilidade dentro de suas equipes.|
+
 
 Pontos interessantes a serem discutidos no "projeto". 
 
