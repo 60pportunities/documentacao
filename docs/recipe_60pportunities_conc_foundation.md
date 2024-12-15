@@ -40,13 +40,13 @@ A verdade é que exige uma operação parruda e, claro, muitas tecnologias! E da
 - [x] Plataforma de produto digital[^2] é o compartilhamento de recursos já existentes na empresa, como componentes, design e infraestrutura, elaborados de modo que possam ser reutilizados internamente em diferentes produtos — building blocks.
 - [x] Plataforma de produto depende da Plataforma de tecnologia.
 - [x] Plataformas de produtos precisam de altíssima disponibilidade para se manterem acessíveis a dezenas ou, quem sabe, centenas de aplicações e de produtos que derivam delas.
-- [ ] plataforma de negócio
+- [x] Plataforma de negócio
 
 Então, para evitar confusão, convencionei o uso de certos termos:
 
-App para me referir a produtos customer-facing, seja aplicativos web ou mobile; 
-Plataforma quando trato dos assuntos acerca da plataforma de produto;
-Produto expressa conceitos genéricos que englobam apps, produtos e plataformas.
+- [x] App para me referir a produtos customer-facing, seja aplicativos web ou mobile; 
+- [x] Plataforma quando trato dos assuntos acerca da plataforma de produto;
+- [x] Produto expressa conceitos genéricos que englobam apps, produtos e plataformas.
 
 Plataforma de serviço segue o estilo de arquitetura de microsserviços baseada em nuvem (instância), composta por:
 
@@ -71,8 +71,6 @@ title Postman 2024 State of the API Report
 ```
 
 - [x] Um Product Manager, você deve conhecer as características do seu produto e responsabilizar pela qualidade, consequências, aprender sobre as características o potencial e as limitações do uso dele.
-
-
 
 [^1]: Deixo aqui um lembrete para a minha amiga: Cristiane Silva
 [^2]: Plataformas

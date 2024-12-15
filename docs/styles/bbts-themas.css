@@ -49,3 +49,14 @@ nav ul li a[href*="referencia"] {
     background-color: #00ccff; /* Altere esta cor para a cor desejada */
 }
 
+.container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px; /* Espaçamento entre as imagens */
+}
+
+.container img {
+            width: 45%; /* Ajuste o tamanho conforme necessário */
+            height: auto;
+}
+

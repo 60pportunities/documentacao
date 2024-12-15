@@ -1,4 +1,3 @@
-## Mantendo o Equilíbrio
 Defina limites claros para ajudar você a manter o equilíbrio e permanecer atualizado e produtivo a longo prazo.
 ## Ecologia pessoal
 Conforme descrito pelo Rockwood Leadership Institute , envolve :
@@ -16,7 +15,6 @@ Conforme descrito pelo Rockwood Leadership Institute , envolve :
 - [x] [Lista de verificação de esgotamento](https://governingopen.com/resources/signs-of-burnout-checklist.html)
 
 ## Seja feliz
-
 - [x] Descanse e recarregue as energias;
 - [x] Tire os fins de semana para relaxar e rejuvenescer;
 - [x] Defina limites: Você não pode dizer sim a todas as solicitações.
@@ -24,10 +22,10 @@ Conforme descrito pelo Rockwood Leadership Institute , envolve :
 ## Por que contribuir para o código aberto
 Contribuir com o código aberto pode ser uma maneira gratificante de aprender, ensinar e adquirir experiência em praticamente qualquer habilidade que você possa imaginar.
 
-Melhore as habilidades existentes
-Conheça pessoas interessadas em coisas semelhantes
-Encontre mentores e ensine outros
-Aprenda habilidades interpessoais
+- [x] Melhore as habilidades existentes;
+- [x] Conheça pessoas interessadas em coisas semelhantes;
+- [x] Encontre mentores e ensine outros;
+- [x] Aprenda habilidades interpessoais;
 
 ## Anatomia de um projeto
 Um projeto típico tem os seguintes tipos de pessoas:
@@ -67,7 +65,6 @@ Esses arquivos geralmente são listados no nível superior de um repositório.
 - [x] Os problemas estão sendo fechados? (No GitHub, clique na aba "fechados" na página Problemas para ver os problemas fechados.)
 
 ### Comunicando-se
-
 Não importa se você é um colaborador ou está tentando ingressar em uma comunidade: "trabalhar com outras pessoas é uma das habilidades mais importantes que você desenvolverá no código aberto".
 
 - [x] Dê contexto: Ajude outros a se atualizarem rapidamente.
@@ -76,29 +73,33 @@ Não importa se você é um colaborador ou está tentando ingressar em uma comun
 - [x] Não tem problema fazer perguntas (mas seja paciente!).
 - [x] Acima de tudo, mantenha a classe.
 
-# Contribua com o guia.de.código.aberto
+### Contribua com o guia.de.código.aberto
 
-[Guia de código Aberto](https://github.com/github/opensource.guide/blob/main/_articles/how-to-contribute.md)
+- [x] [Guia de código Aberto](https://github.com/github/opensource.guide/blob/main/_articles/how-to-contribute.md)
 
 
-# Gentileza gera Gentileza - José Datrino, tb conhecido com o Profeta Gentileza.
-## Catalisando uma Revolução Cultural ("eu" para o "nós")
-À medida que navegamos no cenário de TI, nesta rápida evolução, frequentemente nos encontramos na busca incessante de ficar à frente, com  tecnologias de ponta e metodologias inovadoras (TRAM)
-Não aprendemos a compartilhar, mas de fato, precisamos reajustar nossos instrumentos, e essa afinação exige uma mudança cultural que considero significativa, mas como?
-Sair de apresentações solo para um concerto harmonizado;
-Reuniões e discussões devem engrandecer assistência e a cooperação;
-Talvez esta mudança de paradigma do "eu" para o "nós" possa revolucionar a cultura de trabalho, tornando-a mais inclusiva, solidária e bem-sucedida.
+### Gentileza gera Gentileza - José Datrino, tamb conhecido com o Profeta Gentileza.
+
+|                              |                              |
+| -----                        | -----                        |
+| ![](img/equilibrio-001.jpeg) | ![](img/equilibrio-002.jpeg) |
+
+### Catalisando uma Revolução Cultural ("eu" para o "nós")
+- [x] À medida que navegamos no cenário de TI, nesta rápida evolução, frequentemente nos encontramos na busca incessante de ficar à frente, com  tecnologias de ponta e metodologias inovadoras (TRAM)
+- [x] Não aprendemos a compartilhar, mas de fato, precisamos reajustar nossos instrumentos, e essa afinação exige uma mudança cultural que considero significativa, mas como?
+- [x] Sair de apresentações solo para um concerto harmonizado;
+- [x] Reuniões e discussões devem engrandecer assistência e a cooperação;
+- [x] Talvez esta mudança de paradigma do "eu" para o "nós" possa revolucionar a cultura de trabalho, tornando-a mais inclusiva, solidária e bem-sucedida.
  
-Como preconizado no Scrum
-A formação de times e organizações multifuncionais e de alto desempenho, onde pessoas de várias funções, conhecimentos se envolvem umas com as outras em um espírito de ajuda e cooperação, ou seja, quando fomentamos o sucesso uns dos outros, inadvertidamente lançamos as bases para o nosso próprio sucesso.
+### Como preconizado no Scrum
+- [x] A formação de times e organizações multifuncionais e de alto desempenho, onde pessoas de várias funções, conhecimentos se envolvem umas com as outras em um espírito de ajuda e cooperação, ou seja, quando fomentamos o sucesso uns dos outros, inadvertidamente lançamos as bases para o nosso próprio sucesso.
  
-Como gostamos de fluxos, podemos: 
- 
-Objetivo: Promover uma cultura proativa e cooperativa pela a união da equipe, aumente a produtividade e impulsione o sucesso coletivo na organização.
- 
-Identificar a necessidade: Incentive discussões abertas e comunicação transparente dentro da equipe para entender melhor as funções e os desafios de cada um.
-Ofereça ajuda: Ofereça sua experiência, tempo e recursos para ajudar a resolver o problema ou superar o obstáculo.
-Colaboração Contínua(CC): Promover uma cultura de colaboração, envolvendo colegas com diversas habilidades e conhecimentos para contribuir na resolução do problema.
-Compartilhe Conhecimento (CC):  Compartilhe conhecimento e experiências abertamente para ajudar a equipe a crescer junto.
-Reconhecimento e Esforços(RE): Reconheça e aprecie os esforços feitos pelos membros da equipe para serem úteis.
-Melhoria Contínua (MC): Incentive cada membro da equipe a sugerir melhorias que possam tornar o fluxo de trabalho mais eficiente e benéfico.
+### Como gostamos de fluxos, podemos: 
+
+- [x] **Objetivo**: Promover uma cultura proativa e cooperativa pela a união da equipe, aumente a produtividade e impulsione o sucesso coletivo na organização.
+- [x] **Identificar a necessidade**: Incentive discussões abertas e comunicação transparente dentro da equipe para entender melhor as funções e os desafios de cada um.
+- [x] **Ofereça ajuda**: Ofereça sua experiência, tempo e recursos para ajudar a resolver o problema ou superar o obstáculo.
+- [x] **Colaboração Contínua(CC)**: Promover uma cultura de colaboração, envolvendo colegas com diversas habilidades e conhecimentos para contribuir na resolução do problema.
+- [x] **Compartilhe Conhecimento (CC)**: Compartilhe conhecimento e experiências abertamente para ajudar a equipe a crescer junto.
+- [x] **Reconhecimento e Esforços(RE)**: Reconheça e aprecie os esforços feitos pelos membros da equipe para serem úteis.
+- [x] **Melhoria Contínua (MC)**: Incentive cada membro da equipe a sugerir melhorias que possam tornar o fluxo de trabalho mais eficiente e benéfico.

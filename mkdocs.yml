@@ -45,6 +45,7 @@ theme:
   name: material
   icon:
     logo: img/favicon.ico
+
   palette:
    # Palette toggle for light mode
    - media: "(prefers-color-scheme: light)"
@@ -67,7 +68,7 @@ plugins:
       enabled: true
   - git-committers:
       #enterprise_hostname: https://github.com/s60pportunities
-      repository: s60pportunities/60pportunities
+      repository: https://github.com/60pportunities/documentacao
       branch: main
       token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
   - git-authors
@@ -228,7 +229,6 @@ nav:
       - 'Fundação'                                   : 'recipe_60pportunities_conc_foundation.md'
       - 'Arquitetura'                                : 'recipe_60pportunities_conc_arquitetonicos.md'
       - 'Noosfera'                                   : 'recipe_60pportunities_conc_noosfera.md'
-      - 'Time Formação'                              : 'recipe_60pportunities_conc_time_formacao.md'
       - 'Paradoxos'                                  : 'recipe_60pportunities_conc_paradoxos.md'
       - 'Vulnerabilidade'                            : 'recipe_60pportunities_vulnerabilidade.md'
    - 'Projetos'                                      :   

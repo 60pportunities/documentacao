@@ -53,7 +53,6 @@
 ## Github
 <div class="mdx-columns2" markdown>
 </div>
-
 <div class="mdx-columns2" markdown>
 - [x] [LICENSE](https://github.com/github/choosealicense.com)
 - [x] [Template .gitignore](https://github.com/github/gitignore)
@@ -73,6 +72,8 @@
 ## Software
 <div class="mdx-columns2" markdown>
 - [x] [Mutal](https://mural.co/)
+- [ ] [Rust](https://doc.rust-lang.org/book/)
+- [ ] [Rust Trainning](https://google.github.io/comprehensive-rust/)
 </div>
 
 ## Fontes de Estudo
