@@ -230,6 +230,7 @@ nav:
       - 'Noosfera'                                   : 'recipe_60pportunities_conc_noosfera.md'
       - 'Time Formação'                              : 'recipe_60pportunities_conc_time_formacao.md'
       - 'Paradoxos'                                  : 'recipe_60pportunities_conc_paradoxos.md'
+      - 'Vulnerabilidade'                            : 'recipe_60pportunities_vulnerabilidade.md'
    - 'Projetos'                                      :   
       - 'Falham'                                     : 'recipe_60pportunities_conc_projetos_falham.md'
       - 'Método'                                     : 'recipe_60pportunities_conc_projetos_metodo.md'
@@ -242,7 +243,8 @@ nav:
       - 'Histórico Git'                              : 'recipe_60pportunities_treino_git_00_historia.md'
       - 'Git-Pro'                                    : 'recipe_60pportunities_treino_git_00_gitpro.md'
       - 'Versionamento'                              : 'recipe_60pportunities_treino_git_01_version.md'
-      - 'Estratégia de Branch'                       : 'recipe_60pportunities_treino_git_02_branch.md'      
+      - 'Estratégia de Branch'                       : 'recipe_60pportunities_treino_git_02_branch.md'
+      - 'Jujutsu'                                    : 'recipe_60pportunities_treino_git_04_jj.md'
    - 'GitHub'                                        :    
       - 'Conta no GitHub'                            : 'recipe_60pportunities_conf_github_conta.md'
       - 'Configurando Pages'                         : 'recipe_60pportunities_conf_github_pages.md'
