@@ -33,4 +33,4 @@
 ## Resultado Esperado
 Com essa abordagem, a 60portunities não apenas ensina habilidades de TI, mas também cria uma comunidade acolhedora que valoriza a experiência dos jovens senhores, tornando a transição para o mundo da tecnologia mais fácil e acessível.
 
-FIM
+FIM - No flamengo
