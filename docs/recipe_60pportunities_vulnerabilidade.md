@@ -20,7 +20,7 @@ A vulnerabilidade é uma força.
 - [x] A vulnerabilidade é uma força que está na raiz de sentimentos positivos.
 - [x] A vergonha impede você de mostrar o seu trabalho em público, de expressar os seus sentimentos, de tentar coisas novas.
 - [x] Existe um preço muito alto que nós pagamos para evitar o sentimento de não merecimento.
-
+6	SERVICENOW - IMPLANTAÇÃO ITSM
 ## Showciedade a Epidemia de Narcisismo
 - [x] Você compara as suas férias com as dos outros, a sua casa, a sua carreira, a sua própria vida.
 - [x] Inversão dos Pronomes pessoais: 

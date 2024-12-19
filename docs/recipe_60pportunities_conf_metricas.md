@@ -1,23 +1,85 @@
 ![](img/metricas_regua_000.png){width="600" height="450" style="display: block; margin: 0 auto" }
-São indicadores quantitativos utilizados para medir o desempenho, produtividade e o progresso de um projeto de software. Características que reforçam a importância das métricas :
+A Engenharia de software é um investimento crítico e caro, o caminho para uma produtividade mais alta está na capacidade de uma empresa de remover atritos para seus desenvolvedores, permitindo entrega e inovação mais rápidas. São indicadores quantitativos utilizados para medir o desempenho, produtividade e o progresso de um projeto de software. 
 
-* Antes que perguntem: 
-    * As métricas servem só para avaliar as pessoas? NÃO, não é uma boa escolha.
-    * Para que eu quero saber a produtividade individual de cada integrante da squad se não for para fazer alguma:
-        * Premiação;
-        * Punição;
-        * Tempo de trabalho.
-* As métricas proporcionam uma percepção clara e transparente sobre os projetos.
-* O TIME pode ter uma abordagem mais fundamentada e assertiva.
-* O TIME identifica problemas e gargalos no processo de desenvolvimento.
-* As métricas permitem a implementação de ações corretivas.
+<div class="center-table" markdown>
+| Aspecto         | Metas                                         | Métricas                                    |
+|------------------|----------------------------------------------|---------------------------------------------|
+| Definição        | Objetivos a serem alcançados                 | Instrumentos de medição                     |
+| Foco             | Resultados finais                            | Dados quantitativos e qualitativos           |
+| Exemplo          | Aumentar as vendas em 20%                    | Número de vendas por mês                     |
+| Tempo            | Geralmente de longo prazo                    | Em tempo real ou em períodos específicos     |
+| Especificidade   | Mais amplas e abrangentes                    | Precisamente definidas                       |
+| Uso              | Direciona esforços e estratégias             | Avalia e monitora o progresso das metas      |
+| Alteração        | Pode ser ajustada com o tempo                | Mudança frequente com base em dados reais   |
+</div>
 
-Por fim,a importancia de medir é a de se ter uma visão objetiva do progresso e desempenho do projeto, permitindo tomar decisões embasadas, identificar áreas de melhoria e obter transparência.
+## Antes que perguntem
+Foco no desenvolvedor deve ser sempre uma preocupação das organizações de software, especialmente à medida que as equipes mudam para modelos de trabalho remotos e híbridos. 
+- [x] As métricas servem só para avaliar as pessoas? NÃO, não é uma boa escolha. Para que eu quero saber a produtividade individual de cada integrante do time se não for para fazer alguma:
+
+<div class="mdx-columns2" markdown>
+- [x] Premiação;
+- [x] Punição;
+- [x] Tempo de trabalho;
+</div>
+
+- [x] As métricas proporcionam uma percepção clara e transparente sobre os projetos.
+<div class="mdx-columns2" markdown>
+- [x] O TIME pode ter uma abordagem mais fundamentada e assertiva;
+- [x] O TIME identifica problemas e gargalos no processo de desenvolvimento;
+- [x] As métricas permitem a implementação de ações corretivas;
+</div>
+Por fim,a importancia de **medir** é a de se ter uma visão objetiva do progresso e desempenho do projeto, permitindo tomar decisões embasadas, identificar áreas de melhoria e obter transparência.
 
 ![](img/metricas_regua_001.png){width="900" height="600" style="display: block; margin: 0 auto"}
 
-## Métricas e Frameworks ou Metodologias
+## Transformação de Times de Engenharia
+- [x] O inimigo da Engenharia é a variabilidade?
+- [x] O Engenheiro de software é um investimento crítico e caro. E, comparado a outras funções críticas de negócios, como vendas ou operações, medir e otimizar a eficiência da engenharia de software parece uma caixa-preta.
 
+## Diagnóstico
+O que é necessário para alcançar uma alta performance em um time de Engenharia?
+<div class="mdx-columns2" markdown>
+- [x] Produtividade;
+- [x] Qualidade;
+- [x] Velecidade;
+- [x] Impacto no Negócio;
+</div>
+
+## Eficiência de Fluxo DORA
+As Métricas DORA foram desenvolvidas pela DevOps Research and Assessment (DORA) para medir a eficácia das práticas de DevOps em uma organização.
+<div class="mdx-columns2" markdown>
+- [x] Velocidade de entrega melhorada;
+- [x] Qualidade do Software;
+- [x] Tempo de inatividade;
+- [x] Frequência de implantação;
+- [x] Alinhamento e colaboração de equipes;
+</div>
+## Desempenho das Equipes SPACE
+O Space Framework foi criado para ajudar a medir e analisar a produtividade do desenvolvedor de forma mais precisa. Oferece uma maneira estruturada de olhar para a produtividade, fornecendo insights que podem ajudar a melhorar a eficiência e a colaboração entre as equipes.
+
+- [x] Satisfação e Bem-Estar;
+      - [ ] Satisfação do desenvolvedor;
+      - [ ] Burnout
+- [x] Performance;
+      - [ ] Taxas de Falha de Mudança;
+      - [ ] Precisão no Planejamento do Perfil de Investimento;
+- [x] Atividade;
+      - [ ] Frequência de Implantação;
+      - [ ] Pontos de História Concluídos;
+- [x] Comunicação e Colaboração;
+      - [ ] Cycle time;
+      - [ ] Tempo de Coleta de PR (Pull Request);
+      - [ ] Profundidade de Revisão de PR;
+- [x] Eficiência e Fluxo;
+      - [ ] Cycle time;
+      - [ ] Frequência de Merge;
+
+## Experiência do Desenvolvedor
+É uma preocupação importante para organizações de software, pois aprimorar a experiência do desenvolvedor melhora a produtividade, a satisfação, o engajamento e a retenção.
+
+
+## Métricas e Frameworks ou Metodologias
 | Modelo | Entenda |
 | -----  | ------- |
 | Lean   | Concentram em minimizar o desperdício e enviar continuamente software de qualidade para seus usuários. Alguns exemplos incluem tempo de entrega e tempo de ciclo. |
@@ -78,11 +140,6 @@ Está na capacidade de uma empresa de remover atritos para seus desenvolvedores,
 |                   | Perceived rate of delivery | Regrettable attrition | Operational health and security metrics | 
 |                   | Only at organizational level | 
 
-
-Ease of delivery
-• 
-• 
-• * *Only at organizational level
 ### Cumulative Flow Diagram  (CDF) 
 É um dos gráficos que nos dá uma visão geral do que está acontecendo em um projeto ou nas atividades de um produto.
 O eixo horizontal representa um período e o vertical indica a contagem cumulativa de itens no processo. Cada área pintada no gráfico está relacionada a uma etapa do fluxo de trabalho (por exemplo, a fazer, em andamento, concluído). 
@@ -181,6 +238,7 @@ Isso contribui para mais inovação em qualquer área do negócio, incluindo TI.
 | No caso de aplicativos ou serviços principais em que você trabalha, qual porcentagem de alterações na produção ou liberadas para os usuários resulta em queda no serviço (por exemplo, leva à deficiência ou interrupção do serviço) e, posteriormente, exige remediação (por exemplo, exige um hotfix, reversão, correção de encaminhamento, patch)? |
 
 ## Métricas DORA (DevOps Research and Assessment (DORA) metrics)
+As métricas DevOps Research and Assessment (DORA) revolucionaram a maneira como a indústria de software mede o desempenho e as capacidades de entrega da organização de software. 
 O gerenciamento do fluxo de valor fornece a visibilidade ponta a ponta de todo o ciclo de vida de entrega de software, permitindo que equipes e gerentes entendam todos os aspectos de produtividade, qualidade e entrega.
 ### Frequência de implantação
 A frequência de implantação é medida pelo número médio de implantações por dia em um determinado ambiente, com base no horário de término da implantação. Quantidade de implementações em um período de tempo previamente determinado.

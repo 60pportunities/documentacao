@@ -239,6 +239,8 @@ nav:
          - 'Azure-Devops'                            : 'recipe_60pportunities_conf_azuredevops.md'
    - 'Registro'                                      :
       - 'Registrando um Domínio'                     : 'recipe_60pportunities_conf_registrobr_dominio.md'
+   - 'Documentação'                                  :
+      - 'Processo de Documentação'                   : 'recipe_60pportunities_data_lgpd.md' 
    - 'Git'                                           : 
       - 'Histórico Git'                              : 'recipe_60pportunities_treino_git_00_historia.md'
       - 'Git-Pro'                                    : 'recipe_60pportunities_treino_git_00_gitpro.md'
