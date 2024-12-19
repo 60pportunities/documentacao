@@ -1,3 +1,36 @@
+# Version: $LAST_TAG
+
+* [b1eb885](https://github.com/60pportunities/documentacao/commit/b1eb88508c2bfa6538d99f26cc812d28d03025e0): Ajuste na documentação
+* [fc5256c](https://github.com/60pportunities/documentacao/commit/fc5256cf5e8f90a3835a9f70fc897cf89da5c4bd): <feat> Desenvolvimento do Programa em GOLang para recriar a estrutura mkdocs
+* [44e4822](https://github.com/60pportunities/documentacao/commit/44e482232bcb0c3b1618147b197a833b1c7e9ee6): <doc> Criação versão documentaca
+* [57735be](https://github.com/60pportunities/documentacao/commit/57735be9b6c91ad1a212c457ec7cdb0df0c4f541): Create recipe_60pportunities_gha_02_resumo.md
+* [931e39d](https://github.com/60pportunities/documentacao/commit/931e39d2f97fb08cebfba8ce5df2b86200935e11): colocado Flamengo
+* [1860125](https://github.com/60pportunities/documentacao/commit/18601256e6ab388560c4082de7ee8dbad8522c45): Escrevi a palavra FIM.
+* [ee644ce](https://github.com/60pportunities/documentacao/commit/ee644ce8e4af5e2eef75654a45ab4a47aaede487): <doc> criação do arquivo de mensagens
+* [5235973](https://github.com/60pportunities/documentacao/commit/52359730275471edc6baf3404520fea7bd87da9d): <doc> Criação versão documentaca
+* [8b5a30a](https://github.com/60pportunities/documentacao/commit/8b5a30a1f6df5d89a9daf3301667b3bcd04c3440): <doc> Criação versão documentaca
+* [d3adc91](https://github.com/60pportunities/documentacao/commit/d3adc91221a7fb05a3044e2a0cb2370e0d468caf): <doc> Criação versão documentaca
+* [18e0846](https://github.com/60pportunities/documentacao/commit/18e084621c5f4b69284080a0fe65130abf5ef9aa): <doc> Criação versão documentaca
+* [b9665d3](https://github.com/60pportunities/documentacao/commit/b9665d3759e22412dcff27cc8ceff291b7eb6cc9): <doc> Criação versão documentaca
+* [3fb0ab0](https://github.com/60pportunities/documentacao/commit/3fb0ab0be2dea7d1ff467a262237ae568b925a60): <doc> Criação versão documentaca
+* [556c40d](https://github.com/60pportunities/documentacao/commit/556c40deeea77a7ccc7a79198f1941c7acc874be): <doc> Criação versão documentaca
+* [15765f5](https://github.com/60pportunities/documentacao/commit/15765f5cd1dda42a202ec10170c77f4b2884a9d9): <doc> Criação versão documentaca
+* [01d41df](https://github.com/60pportunities/documentacao/commit/01d41dfa1f4d4988c634e153c7e6f540d5897e9b): <doc> Criação versão documentaca
+* [e783fc5](https://github.com/60pportunities/documentacao/commit/e783fc5b559ee1e61c0af145b5052d5944ce11db): <doc> Criação versão documentaca
+* [e04ea62](https://github.com/60pportunities/documentacao/commit/e04ea6285a82254e7d68245fa66e0c26fddda794): <doc> Criação versão documentaca
+* [190f590](https://github.com/60pportunities/documentacao/commit/190f590ea6bb19e676ddc1cee7a743516bfa24d1): <doc> Criação versão documentaca
+* [f6e36a2](https://github.com/60pportunities/documentacao/commit/f6e36a23bd5443f6c3ee200bee6800affb604603): <doc> Criação versão documentaca
+* [6e3467c](https://github.com/60pportunities/documentacao/commit/6e3467ce8ca8b603f0ff89505888aa939748400a): <doc> Criação versão documentaca
+* [f64b8bd](https://github.com/60pportunities/documentacao/commit/f64b8bd4963e99b0e253788e4e74a33d9647fda9): <doc> Criação versão documentaca
+* [1ff337c](https://github.com/60pportunities/documentacao/commit/1ff337c30d8f82f2244b07ef5d23d8279c9a9ebc): <doc> Criação versão documentaca
+* [11ae707](https://github.com/60pportunities/documentacao/commit/11ae707ac149f252432e31b78a7366df9aaea224): <doc> Criação versão documentaca
+* [7a14c76](https://github.com/60pportunities/documentacao/commit/7a14c76b616d15f74f955bc2b3cda3e81120b25f): <doc> criação do arquivo de mensagens
+* [8a1ad5d](https://github.com/60pportunities/documentacao/commit/8a1ad5dd84ccccbdc0b1d7ed1c0e7017acec6535): <doc> criação do arquivo de mensagens
+* [43ad9b4](https://github.com/60pportunities/documentacao/commit/43ad9b41ef1b35146172aa6464fe5ebdd98a69fc): Update recipe_60pportunities_conc_paradoxos.md
+* [4a7328d](https://github.com/60pportunities/documentacao/commit/4a7328d141db918d8fdc450cf5d146962da0e8f5): Update deploy-mkdoc.yml
+* [8d3ce19](https://github.com/60pportunities/documentacao/commit/8d3ce1965c24ed8fbd7d4e55064ddcfd45fc60c7): Update deploy-mkdoc.yml
+
+
 
 Documentação da APIs - CESUC / 2024-12-05
 =========================================
