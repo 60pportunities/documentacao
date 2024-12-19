@@ -122,3 +122,30 @@ Os problemas que criamos na nossa cabeça são muito mais poderosos do que os pr
 
 
 
+
+Explicite o seu fluxo de trabalho....
+
+
+Eficiencia - É fazer certas coisas.....  Time Técnico
+  - Quanto tempo é mão na massa?
+  - Quanto tempo o meu fluxo completo?
+  - Quanto tempo aguardando alguem para fazer?
+Eficácia   - É fazer as coisas certas..  Time de Negócio
+
+Produtividade  - Eficiencia + Eficácia
+
+Falta Dev, tenho que fazer os Devs produzir mais...
+O que foi codificado em 1 dia, fiocou 3 dias para testar
+Se esta pronto, porque tem que esperar o final da sprint
+
+
+Sentimento - Meu time NÃO é produtivo?
+
+percepção tenho problema em testes...
+
+Como esta o seu FLUXO...
+Estabeleca métricas
+
+Todo time de engenharia possui um fluxo...
+
+
