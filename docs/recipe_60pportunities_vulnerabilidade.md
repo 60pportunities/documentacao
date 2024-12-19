@@ -20,7 +20,7 @@ A vulnerabilidade é uma força.
 - [x] A vulnerabilidade é uma força que está na raiz de sentimentos positivos.
 - [x] A vergonha impede você de mostrar o seu trabalho em público, de expressar os seus sentimentos, de tentar coisas novas.
 - [x] Existe um preço muito alto que nós pagamos para evitar o sentimento de não merecimento.
-6	SERVICENOW - IMPLANTAÇÃO ITSM
+
 ## Showciedade a Epidemia de Narcisismo
 - [x] Você compara as suas férias com as dos outros, a sua casa, a sua carreira, a sua própria vida.
 - [x] Inversão dos Pronomes pessoais: 
@@ -70,13 +70,11 @@ Esse ciclo vicioso pode ser quebrado se você admitir e começar a expor para vo
 - [x] Nós tentamos superar essa inveja, essa sensação de escassez, querendo sempre ser mais, ter mais, fazer mais, sempre presos ao nosso próprio ego.
 - [x] A passar a enxergar a vulnerabilidade não como uma fraqueza, mas sim como uma força, como algo que está na raiz de emoções positivas como amor, empatia e satisfação com a vida.
 - [x] Expor suas vulnerabilidades requer coragem porque é muito mais fácil evitar toda possibilidade de rejeição ou fracasso simplesmente evitando tomar qualquer risco.
-
 - [x] Realmente, se você ficar quieto sem fazer nada, não vai receber nenhuma crítica, mas também não vai se desenvolver.
 - [x] É preciso ter coragem de ser imperfeito.
 - [x] De mostrar o seu trabalho mesmo com falhas, de expor suas ideias mesmo que elas tenham alguns erros, de se arriscar a fazer algo que você ainda não domina.
 - [x] Se você aceitar que a vulnerabilidade é uma força, então você pode abraçar completamente as suas imperfeições.
-Aliás, você até pode usar essas imperfeições a seu favor.
-
+- [x] Aliás, você até pode usar essas imperfeições a seu favor.
 - [x] Nós sempre tentamos esconder as nossas vulnerabilidades porque aprendemos desde crianças que ser vulnerável era algo ruim, uma característica negativa.
 - [x] Mas agora aprendemos que a vulnerabilidade na verdade é uma qualidade, uma força, algo que está na raiz de muitas emoções positivas.
 - [x] Quando você aceita, abraça e até expõe as suas vulnerabilidades, fica muito mais simples você encontrar espaços para se desenvolver a sua vida, o seu trabalho e os seus relacionamentos.
