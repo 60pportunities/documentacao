@@ -1,0 +1,9 @@
+name: 'MkDocs Deploy'
+description: 'Deploy MkDocs to GitHub Pages'
+author: '60pportunities (horacio.vasconcellos@gmail.com)'
+branding:
+  icon: 'arrow-up-circle'
+  color: 'orange'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
