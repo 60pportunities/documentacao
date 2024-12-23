@@ -8,9 +8,12 @@ O Azure DevOps possui uma abordagem poderosa e intuitiva para o gerenciamento de
 |                                         |                                  |
 | ![](img/alm_pt_scrum_wit_artifacts.png) | ![](img/alm-pt-scrum-wf-pbi.png) |
 
-- [x] O que seriam épicos e features, no conceita da Empresa?  
-- [x] Tínhamos a cultura, ou seria, melhor começar de PBI, Bug, Task, Spike?
-- [x] Tínhamos um SQUAD?
+- [x] O que seriam **épicos e features**, no conceita da Empresa? 
+- [x] Temos **Product Manager, Owner ou Usuário Chave**? 
+- [x] Tínhamos a cultura, ou seria, melhor começar de **PBI, Bug, Task, Spike**?
+      - [ ] As Wits poderiam ser **EXCLUÍDAS**?
+      - [ ] Quais os campos obrigatórios ou opcionais?
+- [x] Tínhamos um **SQUAD**?
 
 ### Integração e Ecossistema Microsoft
 O Azure DevOps oferece uma integração nativa com outras ferramentas do ecossistema Microsoft, como o Teams, Power BI e Office 365.
@@ -33,7 +36,7 @@ Embora o GitLab ofereça uma solução de código aberto com boas funcionalidade
       - [x] **Informative Workspace (Ambiente Informativo)**: Documentação gerada automaticamente pelo código com um processo de Tech Writer organizado;
       - [x] **Isolated Environments (Ambientes isolados)**: O time de produto dispor de ambientes para validação, desenvolvimento e Sandbox para equipes explorarem os contratos e SLA sobre as APIs;
 - [x] Iniciamos com o processo **`xxxx-lab Scrum`**  e desenvolvemos o `xxxxπdev_Scrum`;
-- [ ] Como fazer o processo de Deploy, sendo que a maioria dos desenvolvimentos eram `legados` e dificilmente entrariam em uma esteira DevSecOps;
+- [x] Como fazer o processo de Deploy, sendo que a maioria dos desenvolvimentos eram `legados` e dificilmente entrariam em uma esteira DevSecOps;
 
 [![](https://mermaid.ink/img/pako:eNplks2O2jAQgF9l5ENlJCiwR1StShJ-dllVdGFVqcplSAaS4sSRf7RFiIepeugD9BF4sTreBC3Uhyj2fPPZY8-RJTIlNmJbIV-TDJWBp-e4BDfGA76M1g9hB6DXg6WSP8hI7f57vXsIPh9BZ1jRCFKZ6C4I3JAYQcy-5QZKWfOpNTJmp8Y25KuDHudpp7YFdqf7ERUfJz8rRVojtN43OoDL8KtDHsnEFlQaTFB2_oM8FfJAYZlkTTi8iQ75lNBYRdBg8AHCO-6OAtd5Qx9o8yIeZpTspTUQuqtqoOhaPuFr0obgpczN-ZfK2yNOrrEprxXw1aLIzaFhptfMjD-TINSk-4HNRdpQs2tq7jeEtZRCf-pv1P1UYUGvUu0bfn7Du8cktZWqcJVSXfrc3Ska3Lid_PSOj5cPUFtbw8BTPuY-wdCLHvk4odyVmkp40fZ9sY9w8yALHlEl5AEqVOhP6buifkEnXAz4jBSe_5x_u3aRyuTb819xsS088s72xL9Ix-TJW4r3rQzuaS5FSkrXeXHJuqwgV2WeuqY-1qqYmYwKilndnSlt0QoTs7g8ORRdi64OZcJGRlnqMiXtLmOjLQrtZrZK0VCU485d7mW1wvK7lO389A9jEexr?type=png)](https://mermaid.live/edit#pako:eNplks2O2jAQgF9l5ENlJCiwR1StShJ-dllVdGFVqcplSAaS4sSRf7RFiIepeugD9BF4sTreBC3Uhyj2fPPZY8-RJTIlNmJbIV-TDJWBp-e4BDfGA76M1g9hB6DXg6WSP8hI7f57vXsIPh9BZ1jRCFKZ6C4I3JAYQcy-5QZKWfOpNTJmp8Y25KuDHudpp7YFdqf7ERUfJz8rRVojtN43OoDL8KtDHsnEFlQaTFB2_oM8FfJAYZlkTTi8iQ75lNBYRdBg8AHCO-6OAtd5Qx9o8yIeZpTspTUQuqtqoOhaPuFr0obgpczN-ZfK2yNOrrEprxXw1aLIzaFhptfMjD-TINSk-4HNRdpQs2tq7jeEtZRCf-pv1P1UYUGvUu0bfn7Du8cktZWqcJVSXfrc3Ska3Lid_PSOj5cPUFtbw8BTPuY-wdCLHvk4odyVmkp40fZ9sY9w8yALHlEl5AEqVOhP6buifkEnXAz4jBSe_5x_u3aRyuTb819xsS088s72xL9Ix-TJW4r3rQzuaS5FSkrXeXHJuqwgV2WeuqY-1qqYmYwKilndnSlt0QoTs7g8ORRdi64OZcJGRlnqMiXtLmOjLQrtZrZK0VCU485d7mW1wvK7lO389A9jEexr)
 
@@ -190,21 +193,64 @@ Estratégia CI/CD (Integração Contínua/Entrega Contínua) para a camada de pe
 
 ## Problemas
 - [x] Cada user story é um cheque - Alguem paga ou o que é pior **já está pago**;
-- [ ] O time esta entregando pouco, eu preciso acelerar? O que é entregar muito? O que precisa ser entregue? Temos uma lista CLARA, do que precisa ser entregue?
-- [ ] O problema não é trocar prioridade,  o problema é deixar explícito o que não vai ser feito;
-- [ ] O time de tecnologia tentando apontar prazo;
-- [ ] inovação acontece quando você tem intolerância a erros. Linus, erro rápido e acerte logo.
-- [ ] 
+- [x] O time esta entregando pouco, eu preciso acelerar? O que é entregar muito? O que precisa ser entregue? Temos uma lista CLARA, do que precisa ser entregue?
+- [x] O problema não é trocar prioridade,  o problema é deixar explícito o que não vai ser feito;
+- [x] O time de tecnologia tentando apontar prazo;
+- [x] inovação acontece quando você tem intolerância a erros. Linus, erro rápido e acerte logo.
 
 ## Meta vs Métricas
-### Dora matrics
+- [x] Segregar Métricas e Metas;
+      - [x] Métricas: São medidas quantitativas ou qualitativas utilizadas para avaliar o desempenho de um processo, atividade ou sistema.
+      - [x] Metas: São objetivos específicos e mensuráveis que uma pessoa ou organização deseja alcançar em um determinado período de tempo.
+### Dora(DevOps Research and Assessment) matrics
+Elas são baseadas em um estudo realizado pela Google e ajudam a medir a eficácia das equipes de desenvolvimento e operações em várias áreas críticas, como velocidade de entrega, estabilidade e confiabilidade. As 4 principais métricas DORA são:
+
 - [x] **Frequência de implantação**: com que frequência uma equipe de software envia alterações para a produção;
 - [x] **Tempo de entrega da alteração**: o tempo que leva para que o código comprometido seja executado na produção;
 - [x] **Taxa de falha de alteração**: a parcela de incidentes, reversões e falhas de todas as implantações;
 - [x] **Tempo para restaurar o serviço**: o tempo que leva para restaurar o serviço na produção após um incidente;
-### Que gostaria
+### Space
+O SPACE é um modelo de métricas desenvolvido para capturar uma visão holística do desempenho das equipes de engenharia, incluindo tanto a produtividade quanto a experiência e satisfação dos desenvolvedores.
+
+- [x] Satisfação e Bem-estar (Satisfaction and well-being):
+      - [x] O que mede: A satisfação geral dos desenvolvedores com seu trabalho, incluindo aspectos como equilíbrio entre vida pessoal e profissional, saúde mental e motivação.
+      - [x] Por que é importante: A satisfação dos desenvolvedores tem impacto direto na produtividade e qualidade do código produzido.
+- [x] Produtividade (Performance):
+      - [x] O que mede: A quantidade e a qualidade do trabalho entregue, medido em termos de tarefas completadas, código entregue, ou valor entregue aos usuários.
+      - [x] Por que é importante: A produtividade é um reflexo direto da capacidade da equipe de gerar valor e cumprir suas metas.
+- [x] Atenção ao Processo (Activity):
+      - [x] O que mede: A atividade das equipes no uso de ferramentas e práticas, como commits, revisões de código, reuniões, integração contínua e deploys.
+      - [x] Por que é importante: Reflete a eficiência dos processos e a disciplina da equipe no uso de práticas ágeis e de desenvolvimento contínuo.
+- [x] Colaboração (Collaboration):
+      - [x] O que mede: A capacidade de colaboração dentro da equipe e entre equipes, incluindo interações no código, revisão de código, feedback e outras formas de comunicação.
+      - [x] Por que é importante: A colaboração eficaz é um fator crítico para o sucesso de uma equipe de desenvolvimento, pois promove o compartilhamento de conhecimento e a sinergia entre os membros.
+- [x] Eficiência (Efficiency):
+      - [x] O que mede: Como os recursos são usados de maneira eficiente no processo de desenvolvimento. Pode incluir o tempo gasto em tarefas que realmente agregam valor e a eliminação de desperdícios.
+      - [x] Por que é importante: Melhorar a eficiência significa entregar mais valor com menos recursos, tempo ou esforço.
+- [x] Segurança e Qualidade (Errors and Security):
+      - [x] O que mede: A qualidade e segurança do software desenvolvido, medindo o número de bugs, falhas e vulnerabilidades de segurança.
+      - [x] Por que é importante: Alta qualidade e segurança são fundamentais para a confiança do cliente e a estabilidade do sistema.
+### Métricas DevEx (Developer Experience)
+Developer Experience (DevEx) se refere à experiência geral dos desenvolvedores durante o ciclo de desenvolvimento, desde a codificação até a implantação e a manutenção de sistemas. 
+
+- [x] Tempo para Configuração (Onboarding Time):
+      - [x] O que mede: O tempo necessário para que um desenvolvedor se familiarize com as ferramentas, processos e o código base de um projeto.
+      - [x] Por que é importante: Um processo de onboarding eficiente reduz o tempo de adaptação e aumenta a produtividade do desenvolvedor.
+- [x] Tempo de Feedback (Feedback Time):
+      - [x] O que mede: O tempo entre o momento em que o desenvolvedor envia uma alteração de código e o feedback recebido sobre essa alteração (seja uma revisão de código, build, teste, etc.).
+      - [x] Por que é importante: Reduzir o tempo de feedback ajuda os desenvolvedores a iterar rapidamente, melhorar a qualidade do código e aumentar a satisfação no processo de desenvolvimento.
+- [x] Tempo de Espera (Wait Time):
+      - [x] O que mede: O tempo que os desenvolvedores gastam aguardando processos como build, testes, deploys e integrações.
+      - [x] Por que é importante: A redução do tempo de espera melhora a eficiência do desenvolvedor e permite ciclos de feedback mais rápidos.
+- [x] Satisfação do Desenvolvedor (Developer Satisfaction):
+      - [x] O que mede: A satisfação geral do desenvolvedor com as ferramentas, processos e a colaboração dentro da equipe.
+      - [x] Por que é importante: Desenvolvedores satisfeitos são mais produtivos e tendem a permanecer por mais tempo na organização, melhorando a retenção e a qualidade do software.
+- [x] Eficiência do Fluxo de Trabalho (Workflow Efficiency):
+      - [x] O que mede: A facilidade e rapidez com que os desenvolvedores podem completar tarefas, desde a escrita do código até a implantação e a manutenção do software.
+      - [x] Por que é importante: Processos de trabalho eficientes aumentam a produtividade e reduzem o tempo gasto em tarefas repetitivas ou burocráticas.
+### O que gostaria
 - [x] Indicador tem que ser evangelizado com o time; 
       - [x] Se o time não comprar ele na verdade vai trabalhar para melhorar o indicador não o resultado;
       - [x] Sempre tem um jeito de colocar o número bom sem necessariamente ficar bom então é importante que o time entenda na verdade;
 - [x] Quando olhei par ao Azure-Wit, vi valores errados e fiquei triste;
-      - [ ] Início da atividade estava defasada da data de início impostada;
+      - [x] Início da atividade estava defasada da data de início impostada;
