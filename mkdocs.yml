@@ -233,14 +233,20 @@ nav:
       - 'Vulnerabilidade'                            : 'recipe_60pportunities_vulnerabilidade.md'
    - 'Projetos'                                      :   
       - 'Falham'                                     : 'recipe_60pportunities_conc_projetos_falham.md'
+      - 'Falham Standish Group'                      : 'recipe_60pportunities_conc_projetos_falham_sg.md'
+      - 'Centrados'                                  : 'recipe_60pportunities_conc_projetos_centrados.md'
+      - 'Ágeis'                                      : 'recipe_60pportunities_conc_projetos_falham_ageis.md'
       - 'Método'                                     : 'recipe_60pportunities_conc_projetos_metodo.md'
-      - 'Configuração Plataformas'                   :
-         - 'Github'                                  : 'recipe_60pportunities_conf_github.md'
-         - 'Azure-Devops'                            : 'recipe_60pportunities_conf_azuredevops.md'
+   - 'Configuração Plataforma Projeto'               :
+      - 'Github'                                     : 'recipe_60pportunities_conf_github.md'
+      - 'Azure-Devops'                               : 'recipe_60pportunities_conf_azuredevops.md'
+      - 'Jira'                                       : 'recipe_60pportunities_conf_jira.md'
    - 'Registro'                                      :
       - 'Registrando um Domínio'                     : 'recipe_60pportunities_conf_registrobr_dominio.md'
    - 'Documentação'                                  :
-      - 'Processo de Documentação'                   : 'recipe_60pportunities_data_lgpd.md' 
+      - 'Documentação'                               : 'recipe_60pportunities_conf_documentacao.md'
+      - 'Usando o MkDocs'                            : 'recipe_60pportunities_conf_mkdocs.md'
+      - 'Publicando MkDocs no Github'                : 'recipe_60pportunities_conf_mkdocs_publicacao.md'
    - 'Git'                                           : 
       - 'Histórico Git'                              : 'recipe_60pportunities_treino_git_00_historia.md'
       - 'Git-Pro'                                    : 'recipe_60pportunities_treino_git_00_gitpro.md'
@@ -266,10 +272,6 @@ nav:
           - 'Exemplo Prova'                          : 'recipe_60pportunities_gha_90_questions.md'
         - 'Advanced Security'                        :
           - 'Guide'                                  : 'recipe_60pportunities_ghas_guide.md'
-   - 'Documentação as Code'                          : 
-      - 'Documentação'                               : 'recipe_60pportunities_conf_documentacao.md'
-      - 'Usando o MkDocs'                            : 'recipe_60pportunities_conf_mkdocs.md'
-      - 'Publicando MkDocs no Github'                : 'recipe_60pportunities_conf_mkdocs_publicacao.md'
    - 'Dados'                                         :
       - 'Segregation of Duties'                      : 'recipe_60pportunities_conf_data_sod.md'
       - 'Mascaramento de dados'                      : 'recipe_60pportunities_conf_data_mask.md'

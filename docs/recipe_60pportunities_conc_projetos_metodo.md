@@ -1,7 +1,5 @@
-No mundo acelerado de hoje, a busca pela excelência é uma jornada implacável. 
-
-Ao receber uma demanda necessitamos estabelecer, um critérios objetivos como devemos atende-la, para tal cito alguns questionamentos básicos.
-
+- [x] No mundo acelerado de hoje, a busca pela excelência é uma jornada implacável. 
+- [x] Ao receber uma demanda necessitamos estabelecer, um critérios objetivos como devemos atende-la, para tal cito alguns questionamentos básicos.
 - [x] Entrego Tempo + Conhecimento - Pacote de Reccmpensa. NÃO é uma família, é pedir para todos aguanterem em nome do sangue.
 - [x] A demanda tem um objetivo claro e definido que busca entregar uma funcionalidade nova ou uma mudança significativa?
 - [x] A demanda possui um escopo bem delimitado, com entregas e prazos específicos?
@@ -33,7 +31,7 @@ Liderança é sobre construir equipes de alto desempenho, uma habilidade que ent
 | Dê o exemplo e assuma a responsabilidade    | Defina o padrão de comportamento, ética de trabalho e responsabilidade dentro de suas equipes.|
 
 
-Pontos interessantes a serem discutidos no "projeto". 
+- [x] Pontos interessantes a serem discutidos no "PROJETO". 
 
 - [x] A felicidade não é a ausência de conflito, e sim a habilidade de lidar com ele. Uma pessoa feliz não tem o melhor de tudo, mas ela torna tudo melhor.
 - [x] Começar --> Manter --> Terminar (Contexto --> Ritmo  --> Direção (Se vc não estiver no meu ritmo, eu não consigo esperar o seu).
@@ -79,16 +77,6 @@ Pontos interessantes a serem discutidos no "projeto".
       - [x] Infelizmente não temos respostas prontas..mas cabe a gente tomar uma decisão.
       - [x] Hoje, seguro mais os meus anseios, mentalidade e novas visões,  que talvez faça sentido para mim, mas pode NÃO fazer sentido para outros.
 
-## **Calendários dos Projetos(Sugestão)**
-|                         | Seg  | Ter  | Qua  | Qui  | Sex  | Sab  | Dom  | Seg  | Ter  | Qua  | Qui  |  Sex |
-|---------------------    |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
-| Treinamento             | 30   |  30  |  30  |  30  |  30  |   -  |   -  |  30  |  30  | 30   |  30  |   30 |
-| Refinamento do Backlog* |      | 60   |      |      |      |      |      |      | 60   |      |      |      |
-| Planejamento da Sprint  | 120  |      |      |      |      |      |      | 120  |      |      |      |      |
-| Daily Scrum             | 15   | 15   | 15   | 15   | 15   | -    | -    | 15   | 15   | 15   | 15   | 15   |
-| Revisão da Sprint       |      |      |      |      |      |      |      |      |      |      |      | 120  |
-| Retrospectiva da Sprint |      |      |      |      |      |      |      |      |      |      |      | 90   |
-
 ## Criamos o conceito: Ilusão da Previsibilidade
 - [x] AVT (Análise de Viabilidade Técnica);
 - [x] AVE (Análise de Viabilidade Econômica);
@@ -117,8 +105,8 @@ Pontos interessantes a serem discutidos no "projeto".
 | Dica        | Entenda            |
 | ---------   | --------------     |
 | Esforço     | Tarefas que necessitam de mais trabalho; É uma estimativas do trabalho e do esforço necessário desde o início da execução até a entrega;  |
-| Complexidade| Tarefas que possuem muitas possibilidades;                                                                                                |
-| Incerteza   | Quando a tarefa possui vários caminhos duvidosos.                                                                                         |
+| Complexidade| Tarefas que possuem muitas possibilidades;                  |
+| Incerteza   | Quando a tarefa possui vários caminhos duvidosos.           |
 </div>
 
 - [x]  Medida é um item de dado bruto que é medido diretamente, e que será utilizado para calcular uma métrica;
@@ -160,48 +148,6 @@ Então, usaremos o **ESFORÇO**, __contrariando__ o **FRAMEWORK SCRUM** (não s�
 - [x] Métodos de ESTIMATIVAS consideram apenas o momento em que uma demanda está sendo trabalhada, e não consideram/não podem prever o tempo que uma demanda ficará esperando para ser trabalhada.
 - [x] Pensando o quanto é difíficil estimar em PRODUTOS NOVOS, onde o grau da INCERTEZA é muito alto e o medo á GRANDE, elaboramos um QUADRO, para que possamos "ESTIMAR" em um primeiro momento com a EXPERIÊNCIA em PRODUTOS ANTERIORES nos MOTS.
 
-<div class="center-table" markdown>
-| **Compare**                                                                                   | PP          | P     | M       | G       | GG        |
-| :------------------                                                                           | :------:    |:-----:| :-----: | :-----: | :-------: |
-| Preparação do Ambiente                                                                        |             |       | 72    |      |
-| Compare - Analise                                                                             |             |       | 24    |      |            |
-| Total de Horas                                                                                |             |       |       |      |            |
-|                                                                                               |             |       |       |      |            |
-| **Planejamento e criação de software**                                                        |  PP         |  P    |   M   | G    |  GG        |
-| Entender o desafio/propor a melhor estratégia (Tema)                                          | 3           | 8     | 16    | 24   | 32         |
-| Planejar: Analista de Negócios,Designer UX/UI e um Arquiteto de Software (Desing/Arquitetura) |             |       |       | 24   | 32         |
-| Total de Horas                                                                                |             |       |       |      |            |
-|                                                                                               |             |       |       |      |            |
-| **Relatórios/Serviços REST Get**                                                              |  PP         |  P    |   M   | G    |  GG        |
-| Estimativa Técnica (Especificaçao Técnica, Codificaçao, Testes, entraga e documentaçao)       | 16          | 40    | 80    | 120  | 160        |
-| Estimativas Funcionais (Especificaçao Funcional, Testes e Aceite do usuário)                  | 40          | 50    | 80    | 130  | 190        |
-| Total de Horas                                                                                | 56          | 90    | 160   | 250  | 350        |
-|                                                                                               |             |       |       |      |            |
-| **Interfaces**                                                                                |  PP         |  P    |   M   | G    |  GG        |
-| Estimativa Técnica (Especificaçao Técnica, Codificaçao, Testes, Entrega e Documentaçao)       | 24          | 40    | 80    | 160  | 200        |
-| Estimativas Funcionais (Especificaçao Funcional, Testes e Aceite do usuário)                  | 40          | 50    | 80    | 130  | 190        |
-| Total de Horas                                                                                | 64          | 90    | 160   | 290  | 390        |
-|                                                                                               |             |       |       |      |            |
-| **Conversões**                                                                                |  PP         |  P    |   M   | G    |  GG        |
-| Estimativa Técnica (Especificaçao Técnica, Codificaçao, Testes, entraga e documentaçao)       | 24          | 40    | 80    | 160  | 200        |
-| Estimativas Funcionais (Especificaçao Funcional, Testes e Aceito do usuário)                  | 40          | 50    | 80    | 130  | 190        |
-| Total de Horas                                                                                | 64          | 90    | 160   | 290  | 390        |
-|                                                                                               |             |       |       |      |            |
-| **Melhorias / Novas Funcionalidades**                                                         |  PP         |  P    |   M   | G    |  GG        |
-| Estimativa Técnica (Especificaçao Técnica, Codificaçao, Testes, entraga e documentaçao)       | 16          | 40    | 80    | 120  | 160        |
-| Estimativas Funcionais (Especificaçao Funcional, Testes e Aceito do usuário)                  | 40          | 50    | 80    | 130  | 190        |
-| Total de Horas                                                                                | 56          | 90    | 160   | 250  | 350        |
-|                                                                                               |             |       |       |      |            |
-| **Workflow**                                                                                  |  PP         |  P    |   M   | G    |  GG        |
-| Estimativa Técnica (Especificaçao Técnica, Codificaçao, Testes, entraga e documentaçao)       | 24          | 40    | 80    | 120  | 160        |
-| Estimativas Funcionais (Especificaçao Funcional, Testes e Aceito do usuário)                  | 40          | 50    | 80    | 130  | 190        |
-| Total de Horas                                                                                | 64          | 90    | 160   | 250  | 350        |
-|                                                                                               |             |       |       |      |            |
-| **Queries**                                                                                   |  PP         |  P    |   M   | G    |  GG        |
-| Estimativa Técnica (Especificaçao Técnica, Codificaçao, Testes, entraga e documentaçao)       | 8           | 16    | 24    | 40   | 80         |
-| Estimativas Funcionais (Especificaçao Funcional, Testes e Aceito do usuário)                  | 10          | 15    | 20    | 30   | 40         |
-| Total de Horas                                                                                | 18          | 31    | 44    | 70   | 120        |
-</div>
 ## Metodologia de Sprint de Design
 A metodologia Design Sprint é um processo de cinco dias para testar ideias e resolver problemas complexos. O princípio por trás disso é simples: começar é mais importante do que estar certo.
 
@@ -1332,3 +1278,61 @@ O objetivo é aumentar o engajamento, a motivação, bem como, a participação 
 
 - [x] [Kahoot!](https://kahoot.com/): Plataforma permite criar quizzes gamificados que engajam pessoas em tempo real. Util para perguntas e respostas, tornando o aprendizado mais atraente, pois incentiva a participação ativa. Ajuda no desenvolvimento de habilidades, como trabalho em equipe e resolução de problemas, e com isso melhorando o engajamento dos funcionários, aumentando a produtividade e promovendo uma cultura organizacional positiva. 
 - [x] [KARMA](https://todoist.com/pt-BR/karma): É uma ferramenta que gamifica o gerenciamento de tarefas, recompensando os usuários com pontos à medida que completam tarefas.
+
+
+## Sugestão de Calendário
+
+## **Calendários dos Projetos(Sugestão)**
+|                         | Seg  | Ter  | Qua  | Qui  | Sex  | Sab  | Dom  | Seg  | Ter  | Qua  | Qui  |  Sex |
+|---------------------    |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
+| Treinamento             | 30   |  30  |  30  |  30  |  30  |   -  |   -  |  30  |  30  | 30   |  30  |   30 |
+| Refinamento do Backlog* |      | 60   |      |      |      |      |      |      | 60   |      |      |      |
+| Planejamento da Sprint  | 120  |      |      |      |      |      |      | 120  |      |      |      |      |
+| Daily Scrum             | 15   | 15   | 15   | 15   | 15   | -    | -    | 15   | 15   | 15   | 15   | 15   |
+| Revisão da Sprint       |      |      |      |      |      |      |      |      |      |      |      | 120  |
+| Retrospectiva da Sprint |      |      |      |      |      |      |      |      |      |      |      | 90   |
+
+
+
+<div class="center-table" markdown>
+| **Compare**                                                                                   | PP          | P     | M       | G       | GG        |
+| :------------------                                                                           | :------:    |:-----:| :-----: | :-----: | :-------: |
+| Preparação do Ambiente                                                                        |             |       | 72    |      |
+| Compare - Analise                                                                             |             |       | 24    |      |            |
+| Total de Horas                                                                                |             |       |       |      |            |
+|                                                                                               |             |       |       |      |            |
+| **Planejamento e criação de software**                                                        |  PP         |  P    |   M   | G    |  GG        |
+| Entender o desafio/propor a melhor estratégia (Tema)                                          | 3           | 8     | 16    | 24   | 32         |
+| Planejar: Analista de Negócios,Designer UX/UI e um Arquiteto de Software (Desing/Arquitetura) |             |       |       | 24   | 32         |
+| Total de Horas                                                                                |             |       |       |      |            |
+|                                                                                               |             |       |       |      |            |
+| **Relatórios/Serviços REST Get**                                                              |  PP         |  P    |   M   | G    |  GG        |
+| Estimativa Técnica (Especificaçao Técnica, Codificaçao, Testes, entraga e documentaçao)       | 16          | 40    | 80    | 120  | 160        |
+| Estimativas Funcionais (Especificaçao Funcional, Testes e Aceite do usuário)                  | 40          | 50    | 80    | 130  | 190        |
+| Total de Horas                                                                                | 56          | 90    | 160   | 250  | 350        |
+|                                                                                               |             |       |       |      |            |
+| **Interfaces**                                                                                |  PP         |  P    |   M   | G    |  GG        |
+| Estimativa Técnica (Especificaçao Técnica, Codificaçao, Testes, Entrega e Documentaçao)       | 24          | 40    | 80    | 160  | 200        |
+| Estimativas Funcionais (Especificaçao Funcional, Testes e Aceite do usuário)                  | 40          | 50    | 80    | 130  | 190        |
+| Total de Horas                                                                                | 64          | 90    | 160   | 290  | 390        |
+|                                                                                               |             |       |       |      |            |
+| **Conversões**                                                                                |  PP         |  P    |   M   | G    |  GG        |
+| Estimativa Técnica (Especificaçao Técnica, Codificaçao, Testes, entraga e documentaçao)       | 24          | 40    | 80    | 160  | 200        |
+| Estimativas Funcionais (Especificaçao Funcional, Testes e Aceito do usuário)                  | 40          | 50    | 80    | 130  | 190        |
+| Total de Horas                                                                                | 64          | 90    | 160   | 290  | 390        |
+|                                                                                               |             |       |       |      |            |
+| **Melhorias / Novas Funcionalidades**                                                         |  PP         |  P    |   M   | G    |  GG        |
+| Estimativa Técnica (Especificaçao Técnica, Codificaçao, Testes, entraga e documentaçao)       | 16          | 40    | 80    | 120  | 160        |
+| Estimativas Funcionais (Especificaçao Funcional, Testes e Aceito do usuário)                  | 40          | 50    | 80    | 130  | 190        |
+| Total de Horas                                                                                | 56          | 90    | 160   | 250  | 350        |
+|                                                                                               |             |       |       |      |            |
+| **Workflow**                                                                                  |  PP         |  P    |   M   | G    |  GG        |
+| Estimativa Técnica (Especificaçao Técnica, Codificaçao, Testes, entraga e documentaçao)       | 24          | 40    | 80    | 120  | 160        |
+| Estimativas Funcionais (Especificaçao Funcional, Testes e Aceito do usuário)                  | 40          | 50    | 80    | 130  | 190        |
+| Total de Horas                                                                                | 64          | 90    | 160   | 250  | 350        |
+|                                                                                               |             |       |       |      |            |
+| **Queries**                                                                                   |  PP         |  P    |   M   | G    |  GG        |
+| Estimativa Técnica (Especificaçao Técnica, Codificaçao, Testes, entraga e documentaçao)       | 8           | 16    | 24    | 40   | 80         |
+| Estimativas Funcionais (Especificaçao Funcional, Testes e Aceito do usuário)                  | 10          | 15    | 20    | 30   | 40         |
+| Total de Horas                                                                                | 18          | 31    | 44    | 70   | 120        |
+</div>

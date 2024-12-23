@@ -408,7 +408,6 @@ O trade off é o nome que se dá a uma decisão que consiste na escolha de uma o
 - [x] Mas há casos em que a invalidação é inevitável. Por exemplo, se table%rowtype for usado no pacote.
 - [x] E o mesmo vale para outras alterações na estrutura da tabela, não apenas para adições de colunas.
 
-
 ### Trade-off
 - [x] Podemos eliminar a invalidação adicionando uma view entre o pacote e a tabela;
 - [x] Se a visualização simplesmente projetar as colunas da tabela e o pacote fizer referência à visualização em vez da tabela, adicionar uma nova coluna à tabela não causará nenhuma invalidação à visualização e, portanto, o pacote também permanecerá válido;
