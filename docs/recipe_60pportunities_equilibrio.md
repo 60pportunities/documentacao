@@ -80,7 +80,7 @@ Não importa se você é um colaborador ou está tentando ingressar em uma comun
 - [x] [Guia de código Aberto](https://github.com/github/opensource.guide/blob/main/_articles/how-to-contribute.md)
 
 
-### Gentileza gera Gentileza - José Datrino, tamb conhecido com o Profeta Gentileza.
+### Gentileza gera Gentileza - José Datrino, também conhecido com o Profeta Gentileza.
 
 |                              |                              |
 | -----                        | -----                        |

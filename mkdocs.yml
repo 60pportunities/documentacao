@@ -225,6 +225,7 @@ nav:
       - 'Mantenha o Equilíbrio'                      : 'recipe_60pportunities_equilibrio.md'
       - 'Segurança'                                  : 'SECURITY.md'
    - 'Conceitos'                                     :
+      - 'Gerações'                                   : 'recipe_60pportunities_conc_geracao.md'
       - 'Definições'                                 : 'recipe_60pportunities_conc_definicao.md'
       - 'Fundação'                                   : 'recipe_60pportunities_conc_foundation.md'
       - 'Arquitetura'                                : 'recipe_60pportunities_conc_arquitetonicos.md'
@@ -233,13 +234,14 @@ nav:
       - 'Vulnerabilidade'                            : 'recipe_60pportunities_vulnerabilidade.md'
    - 'Projetos'                                      :   
       - 'Falham'                                     : 'recipe_60pportunities_conc_projetos_falham.md'
-      - 'Falham Standish Group'                      : 'recipe_60pportunities_conc_projetos_falham_sg.md'
+      - 'PMI e Standish Group'                       : 'recipe_60pportunities_conc_projetos_falham_sg.md'
       - 'Centrados'                                  : 'recipe_60pportunities_conc_projetos_centrados.md'
       - 'Ágeis'                                      : 'recipe_60pportunities_conc_projetos_falham_ageis.md'
       - 'Método'                                     : 'recipe_60pportunities_conc_projetos_metodo.md'
    - 'Configuração Plataforma Projeto'               :
       - 'Github'                                     : 'recipe_60pportunities_conf_github.md'
       - 'Azure-Devops'                               : 'recipe_60pportunities_conf_azuredevops.md'
+      - 'Azure-Devops - Ideia Original'              : 'recipe_60pportunities_conf_azuredevops_ideia.md'
       - 'Jira'                                       : 'recipe_60pportunities_conf_jira.md'
    - 'Registro'                                      :
       - 'Registrando um Domínio'                     : 'recipe_60pportunities_conf_registrobr_dominio.md'
@@ -293,8 +295,10 @@ nav:
          - 'PHP'                                     : 'recipe_60pportunities_dev_doc_php.md'
       - 'Métricas'                                   :
          - 'Métricas Internas'                       : 'recipe_60pportunities_conf_metricas.md'
-   - 'Estudos/Aprendizado'                           : 
+   - 'Arquitetura'                                   :
       - 'Application Program Interface'              : 'recipe_60pportunities_conf_api.md'
+      - 'Microserviços'                              : 'recipe_60pportunities_conf_api_arquitetura.md'
+   - 'Estudos/Aprendizado'                            : 
       - 'Inteligencia Artificial'                    : 'recipe_60pportunities_conf_inteligencia_artificial.md'
    - 'Dicionário'                                    :
       - 'Termos'                                     : 'recipe_60pportunities_tesauro.md'

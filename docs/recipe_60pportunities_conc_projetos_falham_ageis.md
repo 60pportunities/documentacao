@@ -1,4 +1,3 @@
-## Primeiro Pensamento
 Tudo começa com ideias,necessidades ou hipóteses. Em um fluxo de valor não há requisitos, apenas ideias,necessidades ou hipóteses e quais serão os resultados. 
 <div class="mdx-columns3" markdown>
 - [x] Requisitos;
@@ -36,29 +35,29 @@ Com o tempo, deixamos de ter profissionais do tipo Especialistas em parte, passa
 ## Treinamento Em Agile E Scrum
 O 60PPORTUNITIES possui colaboradores capacitados e certificados em Scrum Master e Scrum Product Owner (Scrum.org, ScrumStudy), e estamos focando no treinamento *Agile for Teams e Leaders* para que entendamos e apoiemos mais as equipes.
 ## Modelar o ambiente de Projeto;
-* Uniformizar os Projetos;
-* Planejar por Equipes e não por indivíduos;
-    * Capacitação e Amarração de Pessoas a Produtos;
-* Treinador;
-* Forçar mudanças organizacionais;
-    * Digitação no PWA;
-    * Integração com o Teams;
-    * Tudo em um Board no PowerBI;
-    * Planilha de Competências, Habilidades e Atitudes;
-    * Planilha com o Mapa de Férias e Ausências;
-* Problemas;
-  * Handoffs são uma área chave de risco e dispersão de conhecimento (Concept to Cash).
-  * Multifuncional e capaz de entregar de ponta a ponta;
-  * Dedicado (sem recursos fracionários); 
-      * Essa superalocação de pessoas vai causar multitarefa e troca de contexto..
-  * Molde O Ambiente
-      * Processos manuais onerosos e sujeitos a erros;
-      * Superalocação de pessoas para projetos, hora-extra diminuir;
-  * Treine Pessoas E Equipes
-      * Treinar equipes para resolver seus próprios problemas;
-      * Evitar Abordagens De Comando E Controle;
-  * Unificação da Ferramenta
-      * Supravizio, OTRS, SysAid, Gitlab e Azure-Devops
+- [x] Uniformizar os Projetos;
+- [x] Planejar por Equipes e não por indivíduos;
+      - [x] Capacitação e Amarração de Pessoas a Produtos;
+- [x] Treinador;
+- [x] Forçar mudanças organizacionais;
+    - [x] Digitação no PWA;
+    - [x] Integração com o Teams;
+    - [x] Tudo em um Board no PowerBI;
+    - [x] Planilha de Competências, Habilidades e Atitudes;
+    - [x] Planilha com o Mapa de Férias e Ausências;
+- [x] Problemas;
+  - [x] Handoffs são uma área chave de risco e dispersão de conhecimento (Concept to Cash).
+  - [x] Multifuncional e capaz de entregar de ponta a ponta;
+  - [x] Dedicado (sem recursos fracionários); 
+      - [x] Essa superalocação de pessoas vai causar multitarefa e troca de contexto..
+  - [x] Molde O Ambiente
+      - [x] Processos manuais onerosos e sujeitos a erros;
+      - [x] Superalocação de pessoas para projetos, hora-extra diminuir;
+  - [x] Treine Pessoas E Equipes
+      - [x] Treinar equipes para resolver seus próprios problemas;
+      - [x] Evitar Abordagens De Comando E Controle;
+  - [x] Unificação da Ferramenta
+      - [x] Supravizio, OTRS, SysAid, Gitlab e Azure-Devops
 ## Melhoria no 60PPORTUNITIES
 - [x] Para usar o Scrum com eficácia, fizemos um  planejamento inicial para garantir que teríamos as pessoas, processos, suporte e ferramentas certas. Este planejamento contou com: Cristiane Valardan (Scrum Leader) com diversos treinamento em SCRUM e lançamento de Horas, Marcus Pessoa (Capacitação em Teste de Software) e Antonio Aureliano/Denis Medina (Gráficos).
 - [x] Definimos que iríamos utilizar o Microsoft Azure-Devops e que havia a necessidade em treinar o pessoal. Todos passaram a ter licenças de Stakeholder para Basic;
@@ -71,9 +70,9 @@ O 60PPORTUNITIES possui colaboradores capacitados e certificados em Scrum Master
 - [x] Os projetos com DOCUMENTAÇÃO deveriam se ligar ao repositório de PORTIFÓLIO.
 
 ## AINDA SEM SOLUÇÃO
-* DONO (PRODUCT OWNER/PRODUCT MANAGER) ou que possa ser engajado e capacitado para gerenciar esse backlog;
-* Ter um  backlog claro e priorizado;
-* Técnico só ASSUMIR, quando PEGAR e ter o hábito de finalizar ao final do dia.
+- [x] DONO (PRODUCT OWNER/PRODUCT MANAGER) ou que possa ser engajado e capacitado para gerenciar esse backlog;
+- [x] Ter um  backlog claro e priorizado;
+- [x] Técnico só ASSUMIR, quando PEGAR e ter o hábito de finalizar ao final do dia.
 
 ## Uma Lista De Parar De Fazer E Começar A Fazer Para Liderança
 
@@ -297,7 +296,8 @@ Eu, não adotaria o TOGAF (The Open Group Architecture Framework) e sim o IT4IT 
 </div>
 
 ### Se você tem que motivar funcionários, você não está contratando direito.
-CRIE um ambiente onde profissionais motivados:
+**CRIE** um ambiente onde profissionais motivados:
+
 - [x] **Produto em si**: A chave é identificar e comunicar o que torna seu produto significativo, seja qual for esse significado. Quando os desenvolvedores entendem completamente essa responsabilidade e importância, isso geralmente leva a um engajamento e dedicação mais profundos ao seu trabalho. Eu vi equipes transformarem sua atitude quando realmente entenderam como seu código impacta a vida de pessoas reais.
 - [x] **Artesanato Técnico**: Equipes se orgulham de construir um código excelente. Resolvendo problemas algorítmicos complexos ou implementando soluções arquitetônicas elegantes, a excelência técnica.
 - [x] **Espírito de Equipe**: Senso de pertencimento a algo especial. Envolve construir uma cultura onde a participação na equipe seja significativa e valorizada.
@@ -329,5 +329,5 @@ Deixe o Product Owner guiar várias equipes quando fizer sentido e dê a eles os
 - [x] Os primeiros itens identificados focaram no que os usuários queriam fazer. 
 - [x] A equipe construiu mais itens do Product Backlog em torno do trabalho de infraestrutura
 
-Se a equipe está enfrentando dificuldades com prioridades pouco claras e dívida técnica crescente, é hora de abandonar a mentalidade de projeto e adotar uma abordagem focada no produto, liberando o potencial da sua equipe e entregar valor contínuo.
+- [x] Se a equipe está enfrentando dificuldades com prioridades pouco claras e dívida técnica crescente, é hora de abandonar a mentalidade de projeto e adotar uma abordagem focada no produto, liberando o potencial da sua equipe e entregar valor contínuo.
 

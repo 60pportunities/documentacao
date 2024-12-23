@@ -24,8 +24,7 @@ e elevem suas habilidades, desde abraçar a liderança colaborativa até exercer
 A inteligência artificial ganha um lugar na sala de reuniões
 https://asia.nikkei.com/Business/Artificial-intelligence-gets-a-seat-in-the-boardroom
 
-As organizações não devem impor nenhuma estrutura ou pensar que um tamanho serve para todos”,
-a mudança repentina para o trabalho remoto e a interação com o cliente 
+As organizações não devem impor nenhuma estrutura ou pensar que um tamanho serve para todos”, a mudança repentina para o trabalho remoto e a interação com o cliente 
 1. Comunicação clara
 	• Use ferramentas como Slack, Teams ou Zoom.
 	• Agende reuniões regulares e documente decisões em plataformas como Confluence ou Notion.
@@ -54,7 +53,6 @@ Produtividade
 - Reutilização de Código (Copilotos, DevRel e Innersource)
 - Apresentação
 - Conteúdo
-
 
 
 Comparação entre Trabalho Presencial e Formas de Trabalho de Equipes Dispersas

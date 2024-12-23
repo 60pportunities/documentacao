@@ -51,13 +51,13 @@ Somos convocados para estimar custos e prazos para o período seguinte, logicame
 
 ![](img/agile_vs_waterfall.png)
 
-Por qualquer critério, um projeto de TI apresenta um risco significativo de ultrapassar o **tempo, o custo ou o escopo**.
+- [x] Por qualquer critério, um projeto de TI apresenta um risco significativo de ultrapassar o **tempo, o custo ou o escopo**.
 
-Por fim erramos até na pergunta: “Quanto custa?” é muito mais fácil de responder do que “Quanto vale?”.
+- [x] Por fim erramos até na pergunta: “Quanto custa?” é muito mais fácil de responder do que “Quanto vale?”.
 
-Na maioria das empresas, o foco na entrega bem-sucedida de projetos distanciou-as do foco na entrega de valor aos seus clientes.
+- [x] Na maioria das empresas, o foco na entrega bem-sucedida de projetos distanciou-as do foco na entrega de valor aos seus clientes.
 
-Por que no desenvolvimento de software adotou-se a realização de projetos? 
+- [x] Por que no desenvolvimento de software adotou-se a realização de projetos? 
 
 - [x] No passado, tudo era quase impossível, por limitação do software.
 - [x] Para tentar imitar a precisão e a previsibilidade da engenharia construção civil e a mecânica;
@@ -72,13 +72,13 @@ Um estudo composto por 600 engenheiros de software do Reino Unido e dos EUA desc
 
 ![](img/agile_falha_estudo.png)
 
-O Manifesto Ágil existe há mais de 21 anos, mas continua a existir uma lacuna na investigação empírica quanto ao impacto real dos seus valores na indústria, apesar de pesquisas recentes terem descoberto que 81% dos decisores empresariais no Reino Unido e 89% nos EUA estão preocupados com a entrega pontual de projetos de software em suas organizações.
+- [x] O Manifesto Ágil existe há mais de 21 anos, mas continua a existir uma lacuna na investigação empírica quanto ao impacto real dos seus valores na indústria, apesar de pesquisas recentes terem descoberto que 81% dos decisores empresariais no Reino Unido e 89% nos EUA estão preocupados com a entrega pontual de projetos de software em suas organizações.
 
-Projetos nos quais o engenheiro de software relatou sentir-se psicologicamente seguro para discutir e resolver problemas rapidamente quando eles surgiram tiveram 87% mais chances de sucesso aqueles que não o fizeram. 
+- [x] Projetos nos quais o engenheiro de software relatou sentir-se psicologicamente seguro para discutir e resolver problemas rapidamente quando eles surgiram tiveram 87% mais chances de sucesso aqueles que não o fizeram. 
 
-Os projetos onde os requisitos foram baseados com precisão em um problema do mundo real tiveram 54% mais chances de sucesso do que aqueles que não o fizeram.
+- [x] Os projetos onde os requisitos foram baseados com precisão em um problema do mundo real tiveram 54% mais chances de sucesso do que aqueles que não o fizeram.
 
-As seguintes práticas de engenharia de software tiveram os seguintes aumentos nas taxas de sucesso em comparação com quando não são usadas:
+- [x] As seguintes práticas de engenharia de software tiveram os seguintes aumentos nas taxas de sucesso em comparação com quando não são usadas:
 
 | Prática de engenharia                                                                              | Aumento no sucesso ao usar versus não usar a prática (%) |
 | ----------                                                                                         | ----------                                               |
@@ -92,11 +92,11 @@ As seguintes práticas de engenharia de software tiveram os seguintes aumentos n
 ## Quem Nunca ?
 Participou de algum Projeto de Desenvolvimento de Software ou Implantação de Software, que teve problemas?
 
-* Ciclo de vida utilizado (Go Horse, Waterfall, Ágil).
-* Restrições impostas (prazo, custo, escopo, equipe...)?
-* Contexto (projeto interno ou adquirido de um terceiro – e de que lado você estava)?
-* O que foi medido no projeto (indicadores)?
-* Qual era o cenário humano (cultura, ambiente, moral da equipe, nível de conflitos)?
-* Quais foram os resultados do projeto (lucratividade, qualidade do produto, entrega de valor ao negócio, realização da equipe)?
-* Quais foram os principais problemas?
-* Quais as consequências dos problemas?
+- [x] Ciclo de vida utilizado (Go Horse, Waterfall, Ágil).
+- [x] Restrições impostas (prazo, custo, escopo, equipe...)?
+- [x] Contexto (projeto interno ou adquirido de um terceiro – e de que lado você estava)?
+- [x] O que foi medido no projeto (indicadores)?
+- [x] Qual era o cenário humano (cultura, ambiente, moral da equipe, nível de conflitos)?
+- [x] Quais foram os resultados do projeto (lucratividade, qualidade do produto, entrega de valor ao negócio, realização da equipe)?
+- [x] Quais foram os principais problemas?
+- [x] Quais as consequências dos problemas?

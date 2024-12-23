@@ -1,6 +1,7 @@
 <p align="justify">Os termos em maiúsculas usados, mas não definidos nestas Políticas de Uso Aceitável, têm os significados atribuídos a eles em seu contrato principal conosco — os Termos de Serviço do `60pportunities` ou o Contrato de Cliente do `60pportunities`, ou os Termos de Serviço Corporativos do `60pportunities` ou outro contrato herdado do `60pportunities`. 
 
 Para clientes sujeitos aos Termos de Serviços Corporativos herdados, "você" e "seu" referem-se a "Cliente" ou "Usuários". "Nós", "nos" e "nosso" referem-se ao "60pportunities".</p>
+
 <div class="mdx-columns2" markdown>
 - [x] Conformidade com Leis e Regulamentos
 - [x] Segurança do usuário
