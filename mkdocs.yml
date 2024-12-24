@@ -234,11 +234,11 @@ nav:
       - 'Vulnerabilidade'                            : 'recipe_60pportunities_vulnerabilidade.md'
       - 'Innersource/Boilerplate'                    : 'recipe_60pportunities_conf_innersource.md'
    - 'Projetos'                                      :   
-      - 'Falham'                                     : 'recipe_60pportunities_conc_projetos_falham.md'
-      - 'PMI e Standish Group'                       : 'recipe_60pportunities_conc_projetos_falham_sg.md'
-      - 'Centrados'                                  : 'recipe_60pportunities_conc_projetos_centrados.md'
-      - 'Ágeis'                                      : 'recipe_60pportunities_conc_projetos_falham_ageis.md'
+      - 'Timeline'                                   : 'recipe_60pportunities_conc_projetos_timeline.md'
+      - 'PMI e Standish Group'                       : 'recipe_60pportunities_conc_projetos_standishgroup.md'
+      - 'Modelo'                                     : 'recipe_60pportunities_conc_projetos_modelo.md'
       - 'Método'                                     : 'recipe_60pportunities_conc_projetos_metodo.md'
+      - 'Centrados'                                  : 'recipe_60pportunities_conc_projetos_centrados.md'     
    - 'Configuração Plataforma Projeto'               :
       - 'Github'                                     : 'recipe_60pportunities_conf_github.md'
       - 'Azure-Devops'                               : 'recipe_60pportunities_conf_azuredevops.md'

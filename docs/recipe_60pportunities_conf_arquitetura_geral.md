@@ -47,6 +47,52 @@ flowchart TD
       - [x] Incidentes;
       - [x] Projetos;
 
+- [x] Uniformizar os Projetos;
+- [x] Planejar por Equipes e não por indivíduos;
+      - [x] Capacitação e Amarração de Pessoas a Produtos;
+- [x] Treinador;
+- [x] Forçar mudanças organizacionais;
+    - [x] Digitação no PWA;
+    - [x] Integração com o Teams;
+    - [x] Tudo em um Board no PowerBI;
+    - [x] Planilha de Competências, Habilidades e Atitudes;
+    - [x] Planilha com o Mapa de Férias e Ausências;
+- [x] Problemas;
+  - [x] Handoffs são uma área chave de risco e dispersão de conhecimento (Concept to Cash).
+  - [x] Multifuncional e capaz de entregar de ponta a ponta;
+  - [x] Dedicado (sem recursos fracionários); 
+      - [x] Essa superalocação de pessoas vai causar multitarefa e troca de contexto..
+  - [x] Molde O Ambiente
+      - [x] Processos manuais onerosos e sujeitos a erros;
+      - [x] Superalocação de pessoas para projetos, hora-extra diminuir;
+  - [x] Treine Pessoas E Equipes
+      - [x] Treinar equipes para resolver seus próprios problemas;
+      - [x] Evitar Abordagens De Comando E Controle;
+  - [x] Unificação da Ferramenta
+      - [x] Supravizio, OTRS, SysAid, Gitlab e Azure-Devops;
+  - [x] Quem faz parte do time? 
+  - [x] Quem faz o que, ou seja, matriz de responsabilidade. Conseguimos identificar das competências necessárias?
+  - [x] Como está o nosso conhecimento?
+### Ainda Sem Solução
+- [x] DONO (PRODUCT OWNER/PRODUCT MANAGER) ou que possa ser engajado e capacitado para gerenciar esse backlog;
+- [x] Ter um  backlog claro e priorizado;
+- [x] Técnico só ASSUMIR, quando PEGAR (Puxar ao invés de EMPURRAR) e ter o hábito de finalizar ao final do dia.
+### Livros
+O livro de Brooks é considerado uma **leitura obrigatória** para gerentes de projetos de software. 
+
+- [x] A Lei de Brooks é uma observação sobre o gerenciamento de projetos de software que afirma que adicionar pessoas a um projeto atrasado o torna ainda mais atrasado. A frase foi cunhada por Fred Brooks no seu livro de 1975, **The Mythical Man-Month**.
+- [x] Leva tempo para novas pessoas se tornarem produtivas (ramp up).
+- [x] Gargá-los de comunicação aumenta quando o número de pessoas aumenta.
+- [x] A divisibilidade de tarefas pode causar mais caos.
+- [x] Alguns trabalhos à serem feitos não podem ser divisiveis e paralelizados.
+
+- [x] Brooks afirma que o número máximo de pessoas em um projeto deve ser determinado de acordo com o número de tarefas que podem ser divididas de forma independente. 
+- [ ] Algumas exceções à Lei de Brooks incluem:
+<div class="mdx-columns2" markdown>
+- [x] Substituir pessoas em vez de adicioná-las;
+- [x] Delegar trabalho já delimitado para as novas pessoas;
+</div>
+
 ## Estrutura do Banco de Dados Oracle
 <p align="justify">Padronizar System Identifier, ServiceName, DBName e DB Unique Name é crucial para garantir consistência, facilidade de gerenciamento e integração entre sistemas em ambientes corporativos. A padronização desses elementos facilita a automação de processos, como backup, recuperação e monitoramento, minimizando erros humanos e garantindo que os serviços de banco de dados sejam acessíveis de maneira uniforme. A uniformidade também contribui para uma gestão mais eficiente, especialmente em ambientes complexos e de grande escala.</p>
 ![](img/60pportunities-oracle-sid.png){width="900" height="600" style="display: block; margin: 0 auto"}
@@ -109,6 +155,15 @@ Com isso, seria uma abordagem que aplica os princípios do desenvolvimento de so
 ![](img/60opt-produtos.png){width="900" height="600" style="display: block; margin: 0 auto"}
 ## Ciclo de Vida de um Produto
 <p align="justify">O Ciclo do software, começa com a ideia, onde identificam-se necessidades ou problemas que o software irá resolver, levando à definição dos requisitos iniciais. Em seguida, entra-se na fase de desenvolvimento, que envolve o design, programação, testes e implementação do software, garantindo que ele atenda aos requisitos definidos. Após a implementação, o software passa pela manutenção, onde são feitas correções, atualizações e melhorias. Com o tempo, o software pode se tornar obsoleto devido a novas tecnologias ou mudanças nas necessidades de mercado, levando à sua descontinuação. Durante todo o ciclo, é importante realizar revisões contínuas para garantir que o software permaneça relevante e eficaz até seu fim.</p>
+Tudo começa com ideias,necessidades ou hipóteses. Em um fluxo de valor não há requisitos, apenas ideias,necessidades ou hipóteses e quais serão os resultados. 
+<div class="mdx-columns3" markdown>
+- [x] Requisitos;
+- [x] Capacitação;
+- [x] Motivação;
+- [x] Qualidade;
+- [x] Manutenibilidade;
+</div>
+
 ![](img/alm-fluxo-2.png){width="800" height="500" style="display: block; margin: 0 auto"}
 
 ## Estruturação do Azure-Devops
@@ -117,8 +172,9 @@ Para estruturar ideias em um projeto no Azure DevOps sem uma **SQUAD**, mas com 
 - [x] https://devops.azure.com/: Esta é a URL base para acessar os serviços de DevOps na nuvem da Microsoft. Todos os recursos relacionados ao Azure DevOps estão acessíveis por meio dessa URL.
 - [x] {organization}: Representa o nome da organização dentro do Azure DevOps. Uma organização no Azure DevOps é uma coleção de projetos e recursos, geralmente vinculada a uma empresa ou equipe. Exemplo: https://devops.azure.com/mycompany.
 - [x] {projects}: Refere-se ao nome do projeto específico dentro da organização. Cada organização pode ter múltiplos projetos, que são as unidades de trabalho e colaboração no Azure DevOps, com diferentes repositórios, pipelines, boards e outros recursos. Exemplo: https://devops.azure.com/mycompany/myproject.
+- [x] [Outras informações importantes](recipe_60pportunities_conc_projetos_modelo.md)
 
-Um produto no Azure DevOps representa uma **solução contínua** que está em desenvolvimento constante, com evolução, melhorias e manutenção regulares. Em vez de ter uma data de término definida como em um projeto, o produto é algo que existe de forma contínua, que precisa ser mantido, evoluído e documentado.
+- [x] Um produto no Azure DevOps representa uma **solução contínua** que está em desenvolvimento constante, com evolução, melhorias e manutenção regulares. Em vez de ter uma data de término definida como em um projeto, o produto é algo que existe de forma contínua, que precisa ser mantido, evoluído e documentado.
 
 ![](img/estrutura-azure-devops.png){width="700" height="500" style="display: block; margin: 0 auto" }
 
@@ -172,6 +228,15 @@ usage: git-azestatistica-json -h|help|?
 Identifica os commits realizados a partir de uma determinada data e os arquivos alterados.
 - Follow de Code.
 ```
+## Uma Lista De Parar De Fazer E Começar A Fazer Para Liderança
+
+| Fazendo agora/Por favor pare  | Não estou fazendo agora/por favor comece |
+| -----                         | -----                                    |
+| Mudando as prioridades dentro de um sprint  | Não mude as prioridades: proteja as equipes para que possam se concentrar. Aprenda e apoie as regras do scrum |
+| Substituindo as prioridades que o proprietário do negócio definiu para a equipe     | Colabore com o negócio |
+| Forçar as equipes a cumprir prazos irrealistas e criar dívidas técnicas             | Definir data ou escopo, não ambos |
+| Retirar pessoas das equipes para trabalhar em simulações de incêndio ou projetos especiais | Deixe as equipes trabalharem em seu ritmo ideal |
+
 ## Camada de Persistência (PL/SQL)
 Estratégia CI/CD (Integração Contínua/Entrega Contínua) para a camada de persistência utilizando Liquibase, será da seguinte forma.
 

@@ -30,9 +30,7 @@ Liderança é sobre construir equipes de alto desempenho, uma habilidade que ent
 | Decisões acertadas e oportunas              | Frameworks estruturados pode ajudar a tomar decisões ponderadas.      |
 | Dê o exemplo e assuma a responsabilidade    | Defina o padrão de comportamento, ética de trabalho e responsabilidade dentro de suas equipes.|
 
-
 - [x] Pontos interessantes a serem discutidos no "PROJETO". 
-
 - [x] A felicidade não é a ausência de conflito, e sim a habilidade de lidar com ele. Uma pessoa feliz não tem o melhor de tudo, mas ela torna tudo melhor.
 - [x] Começar --> Manter --> Terminar (Contexto --> Ritmo  --> Direção (Se vc não estiver no meu ritmo, eu não consigo esperar o seu).
 - [x] Pare de Focar em Resultados. **Resultados** são consequencias de **Processos + Pessoas**, sendo o que otimiza Processos e Pessoas de fato é a **Gestão e Liderança**.
