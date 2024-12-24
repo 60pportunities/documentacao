@@ -296,8 +296,9 @@ nav:
       - 'Métricas'                                   :
          - 'Métricas Internas'                       : 'recipe_60pportunities_conf_metricas.md'
    - 'Arquitetura'                                   :
-      - 'Application Program Interface'              : 'recipe_60pportunities_conf_api.md'
-      - 'Microserviços'                              : 'recipe_60pportunities_conf_api_arquitetura.md'
+      - 'Arquitetura de Software'                    : 'recipe_60pportunities_conf_arquitetura_geral.md'
+      - 'Application Program Interface'              : 'recipe_60pportunities_conf_arquitetura_api.md'
+      - 'Microserviços'                              : 'recipe_60pportunities_conf_arquitetura_microservico.md'
    - 'Estudos/Aprendizado'                            : 
       - 'Inteligencia Artificial'                    : 'recipe_60pportunities_conf_inteligencia_artificial.md'
    - 'Dicionário'                                    :
