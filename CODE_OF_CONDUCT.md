@@ -59,7 +59,7 @@ Se um membro da comunidade se envolver em comportamento inaceitável, os organiz
 
 Se você estiver sujeito ou testemunhar um comportamento inaceitável, ou tiver qualquer outra preocupação, notifique um organizador da comunidade o mais rápido possível. s60pportunities@gmail.com.
 
-[politicas/reporting_guidelines.md]
+- [x] [Políticas](politicas/reporting_guidelines)
 
 Além disso, os organizadores da comunidade estão disponíveis para ajudar os membros da comunidade a se envolverem com as autoridades locais ou para ajudar aqueles que vivenciam comportamento inaceitável a se sentirem seguros. No contexto de eventos presenciais, os organizadores também fornecerão escoltas conforme desejado pela pessoa que está sofrendo.
 
@@ -67,9 +67,9 @@ Além disso, os organizadores da comunidade estão disponíveis para ajudar os m
 
 Se você acha que foi falsa ou injustamente acusado de violar este Código de Conduta, você deve notificar o 60pportunities com uma descrição concisa de sua queixa. Sua reclamação será tratada de acordo com nossas políticas governamentais existentes.
 
-- [x] [Politicas](politicas/politicas.md)
+- [x] [Politicas](politicas/politicas)
 
-- [x] [Notas](politicas/notas.md)
+- [x] [Notas](politicas/notas)
 
 ## 9. Escopo
 

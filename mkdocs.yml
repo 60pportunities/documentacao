@@ -232,6 +232,7 @@ nav:
       - 'Noosfera'                                   : 'recipe_60pportunities_conc_noosfera.md'
       - 'Paradoxos'                                  : 'recipe_60pportunities_conc_paradoxos.md'
       - 'Vulnerabilidade'                            : 'recipe_60pportunities_vulnerabilidade.md'
+      - 'Innersource/Boilerplate'                    : 'recipe_60pportunities_conf_innersource.md'
    - 'Projetos'                                      :   
       - 'Falham'                                     : 'recipe_60pportunities_conc_projetos_falham.md'
       - 'PMI e Standish Group'                       : 'recipe_60pportunities_conc_projetos_falham_sg.md'
@@ -265,12 +266,12 @@ nav:
           - 'Guide'                                  : 'recipe_60pportunities_ghf_01_guide.md'
           - 'Criação de Conta'                       : 'recipe_60pportunities_ghf_02_conta.md'
           - 'Preparação Resumo'                      : 'recipe_60pportunities_ghf_03_resumo.md'
-          - 'Innersource/Boilerplate'                : 'recipe_60pportunities_ghf_04_innersource.md'
-          - 'Links para Estudo'                      : 'recipe_60pportunities_ghf_50_links.md'
+          - 'Links para Estudo'                      : 'recipe_60pportunities_ghf_05_links.md'
           - 'Exemplo Prova'                          : 'recipe_60pportunities_ghf_90_questions.md'
         - 'Actions'                                  :
           - 'Guide'                                  : 'recipe_60pportunities_gha_01_guide.md'
           - 'Preparação Resumo'                      : 'recipe_60pportunities_gha_03_resumo.md'
+          - 'Links para Estudo'                      : 'recipe_60pportunities_gha_50_links.md'
           - 'Exemplo Prova'                          : 'recipe_60pportunities_gha_90_questions.md'
         - 'Advanced Security'                        :
           - 'Guide'                                  : 'recipe_60pportunities_ghas_guide.md'

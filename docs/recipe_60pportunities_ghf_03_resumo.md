@@ -2981,7 +2981,7 @@ GitHub has two APIs REST API and GraphQL API
 
 - [x] [GitHub Rest API](https://docs.github.com/en/rest?apiVersion=2022-11-28)
 - [x] [GitHub GraphQL API documentation](https://docs.github.com/en/graphql)
-- [x] [Chatgpt](www.chtgpt.com) - Escreva um GraphQL que retornará o nome do repositório público ruby ​​para a API GraphQL do Github?
+- [x] [Chatgpt](https://www.chtgpt.com) - Escreva um GraphQL que retornará o nome do repositório público ruby para a API GraphQL do Github?
 
 ## GitHub SDKs
 Atualmente, o GitHub mantém SDKs para os seguintes idiomas/frameworks/plataformas:

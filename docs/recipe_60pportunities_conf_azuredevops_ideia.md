@@ -1,5 +1,4 @@
-## Ciclo de Vida Desenvolvimento de Software (SDLC)
-O processo de desenvolvimento não acolheu o processo definido em 2014, com as ferramentas:
+As Equipes de Desenvolvimento, NÃO acolheram o modelo apresentado em 2014. Cada Equipe desenvolveu o seu próprio processo e a utilizaram de inúmeras ferramentas:
 <div class="mdx-columns2" markdown>
 - [x] **Projetos**: [Redmine](https://www.redmine.org/)
 - [x] **Gerenciador de Artefatos**: [Nexus](https://www.sonatype.com/products/sonatype-nexus-repository)
@@ -9,10 +8,10 @@ O processo de desenvolvimento não acolheu o processo definido em 2014, com as f
 - [x] [Documentação na Intranet](https://intranet.bbts.com.br/index.php?option=com_content&view=article&id=700:teste-teste&catid=112&Itemid=423)
 </div>
 
-<p align="justify">Passou-se a adotar o Supravizio como ferramenta principal e basicamente o processo se desenhava assim:</p>
+<p align="justify">A Equipe do Rio de Janeiro, passou a adotar o Supravizio como ferramenta  - ITSM e DEMANDAS, tendo para cada tipo de item, um fluxo diferenciado. Os fluxos na maioria das vezes, estava desassociado do processo de desenvolvimento de software.</p>
 ![](img/projeto-inicial-rj.png){width="225" height="125" style="display: block; margin: 0 auto"}
 
-**Observação**: <p align="justify">O processo de diferimento de software é uma estratégia frequentemente adotada por equipes de desenvolvimento para adiar ou postergar a implementação de certas funcionalidades ou melhorias em software. Este processo pode ser aplicado tanto em projetos de longo prazo quanto em demandas expressas (geralmente solicitadas por clientes ou usuários internos de forma mais imediata).</p>
+**Observação**: O processo de diferimento de software é uma estratégia frequentemente adotada por equipes de desenvolvimento para adiar ou postergar a implementação de certas funcionalidades ou melhorias em software. Este processo pode ser aplicado tanto em projetos de longo prazo quanto em demandas expressas (geralmente solicitadas por clientes ou usuários internos de forma mais imediata).
 ## Controle de Processo GitHub
 <p align="justify">A estrutura de Organização no GitHub é menos hierárquica, mas permite gerenciar múltiplos repositórios com configurações e permissões centralizadas:</p>
 
@@ -30,35 +29,6 @@ O processo de desenvolvimento não acolheu o processo definido em 2014, com as f
 
 ![](img/gitlab-projeto.png){width="225" height="125" style="display: block; margin: 0 auto"}
 
-## Produtividade
-<p align="justify">Refere-se a eficiência e eficácia com que time consegue entregar software de qualidade, atingindo os requisitos e prazos, utilizando de forma eficaz os recursos disponíveis, como tempo, ferramentas, tecnologias e conhecimento,  estando relacionada à capacidade de produzir código de alta qualidade e entregar funcionalidades ou produtos de software de forma rápida e eficiente, minimizando desperdícios.</p>
-
-- [x] Onde estão os grandes ladrões de ineficiência?
-- [ ] Onde o processo parou? 
-      - [x] Parou em requisitos?
-      - [x] Parou em codificação?
-      - [x] Parou em Teste de Aceitação?
-- [ ] Se esta pronto, porque esperar até o final da SPRINT? Usar Feature Toggle ou Flag.
-      - [x] Deploy é o processo técnico de colocar ou instalar uma versão do software em um ambiente específico, como servidores de produção ou de staging, para que ele esteja disponível para execução.
-      - [x] Release refere-se ao processo de tornar o software disponível para os usuários. 
-- [x] Explicite o seu fluxo de trabalho;
-- [ ] Mítico Homem-mês: Ensaios Sobre Engenharia de Software;
-      - [ ] Conhecer as dificuldades inerentes ao trabalho torna mais fácil suportá-las quando elas surgirem;
-      - [ ] Projeto de software depende de pessoas;
-      - [ ] Não se pode dimensionar um software em termos de homem-mês; A adição de mais força de trabalho não implica na redução do tempo de entrega daquela tarefa;
-      - [ ] Integridade Conceitual - Alguém definiu exatamente o que seria cada produto.
-      - [ ] Comunicação franca entre equipe de arquitetura e equipe de construção, sem influenciar a clara divisão de tarefas.
-- [ ] A única maneira de controlar um projeto grande e de agenda apertada é tendo uma agenda.Defina milestones, datas, prioridades.
-- [ ] Ofensor do Tempo de Entrega e descrença
-      - [ ] O PO simplesmente ignora a fase de homologação e esta é uma restrição para a próxima fase;
-      - [ ] Cada release é uma surpresa, por falta de engajamento do PO;
-      - [ ] Aumento do Pacote, ou seja, não entrego na Sprint correta e aumento o risco na Sprint seguinte;
-- [ ] eu preciso homologar com o usuário e ele simplesmente me ignora se você não tiver
-37:35
-habilidade para conseguir engajar a área demandante a área usuária dificilmente você vai conseguir resolver às vezes um
-- [x] Eficiência vs Eficácia
-      - [x] Eficiência é fazer certo as coisas; 
-      - [x] Eficácia é fazer as coisas certas;
 ## Migração para Azure-Devops
 <p align="justify">A migração do GitLab para o Azure DevOps foi uma decisão estratégica tomada com base em diversos fatores que visam melhorar a eficiência, integração e escalabilidade dos nossos processos de desenvolvimento.</p>
 
@@ -78,7 +48,13 @@ habilidade para conseguir engajar a área demandante a área usuária dificilmen
 - [x] Trabalhamos bem com o Git, SVN ou só colocamos porque é conveniente?
 - [x] Como anda o nosso processo de Documentação onde elas estão? Consigo pegar de forma coorporativa?
 - [x] Tínhamos um **SQUAD**?
-
+- [x] Como incluir as métricas de fluxo (Kanban) e eficiência (DORA Metrics) para uma equipe que mudava constantemente de ferramentas?
+      - [x] Métricas de Fluxo (ex: Kanban) medem como as tarefas se movem através de um sistema, com ênfase no tempo de entrega e na capacidade de conclusão.
+      - [x] Métricas de Eficiência (ex: DORA Metrics) medem a capacidade de uma equipe de entregar de maneira rápida e confiável, com foco em resultados de produção e manutenção.
+- [x] OnBoarding vs OffBoarding:
+      - [x] Como garantir que os novos sejam produtivos, engajados e conectados.
+      - [x] Como garantir que não perdessemos produtividade com por exemplo, o término de contrato de terceiros? Saída por cessão?
+- [ ] 
 ### Integração e Ecossistema Microsoft
 O Azure DevOps oferece uma integração nativa com outras ferramentas do ecossistema Microsoft, como o Teams, Power BI e Office 365.
 ![](img/time-scrum-trabalho.png){width="225" height="125" style="display: block; margin: 0 auto"}
@@ -103,6 +79,49 @@ O Azure DevOps oferece uma integração nativa com outras ferramentas do ecossis
 - [x] Iniciamos com o processo **`xxxx-lab Scrum`**  e desenvolvemos o `xxxxπdev_Scrum`;
 - [x] Como fazer o processo de Deploy, sendo que a maioria dos desenvolvimentos eram `legados` e dificilmente entrariam em uma esteira DevSecOps;
 
-[![](https://mermaid.ink/img/pako:eNplks2O2jAQgF9l5ENlJCiwR1StShJ-dllVdGFVqcplSAaS4sSRf7RFiIepeugD9BF4sTreBC3Uhyj2fPPZY8-RJTIlNmJbIV-TDJWBp-e4BDfGA76M1g9hB6DXg6WSP8hI7f57vXsIPh9BZ1jRCFKZ6C4I3JAYQcy-5QZKWfOpNTJmp8Y25KuDHudpp7YFdqf7ERUfJz8rRVojtN43OoDL8KtDHsnEFlQaTFB2_oM8FfJAYZlkTTi8iQ75lNBYRdBg8AHCO-6OAtd5Qx9o8yIeZpTspTUQuqtqoOhaPuFr0obgpczN-ZfK2yNOrrEprxXw1aLIzaFhptfMjD-TINSk-4HNRdpQs2tq7jeEtZRCf-pv1P1UYUGvUu0bfn7Du8cktZWqcJVSXfrc3Ska3Lid_PSOj5cPUFtbw8BTPuY-wdCLHvk4odyVmkp40fZ9sY9w8yALHlEl5AEqVOhP6buifkEnXAz4jBSe_5x_u3aRyuTb819xsS088s72xL9Ix-TJW4r3rQzuaS5FSkrXeXHJuqwgV2WeuqY-1qqYmYwKilndnSlt0QoTs7g8ORRdi64OZcJGRlnqMiXtLmOjLQrtZrZK0VCU485d7mW1wvK7lO389A9jEexr?type=png)](https://mermaid.live/edit#pako:eNplks2O2jAQgF9l5ENlJCiwR1StShJ-dllVdGFVqcplSAaS4sSRf7RFiIepeugD9BF4sTreBC3Uhyj2fPPZY8-RJTIlNmJbIV-TDJWBp-e4BDfGA76M1g9hB6DXg6WSP8hI7f57vXsIPh9BZ1jRCFKZ6C4I3JAYQcy-5QZKWfOpNTJmp8Y25KuDHudpp7YFdqf7ERUfJz8rRVojtN43OoDL8KtDHsnEFlQaTFB2_oM8FfJAYZlkTTi8iQ75lNBYRdBg8AHCO-6OAtd5Qx9o8yIeZpTspTUQuqtqoOhaPuFr0obgpczN-ZfK2yNOrrEprxXw1aLIzaFhptfMjD-TINSk-4HNRdpQs2tq7jeEtZRCf-pv1P1UYUGvUu0bfn7Du8cktZWqcJVSXfrc3Ska3Lid_PSOj5cPUFtbw8BTPuY-wdCLHvk4odyVmkp40fZ9sY9w8yALHlEl5AEqVOhP6buifkEnXAz4jBSe_5x_u3aRyuTb819xsS088s72xL9Ix-TJW4r3rQzuaS5FSkrXeXHJuqwgV2WeuqY-1qqYmYwKilndnSlt0QoTs7g8ORRdi64OZcJGRlnqMiXtLmOjLQrtZrZK0VCU485d7mW1wvK7lO389A9jEexr)
+## Produtividade
+<p align="justify">Refere-se a eficiência e eficácia com que time consegue entregar software de qualidade, atingindo os requisitos e prazos, utilizando de forma eficaz os recursos disponíveis, como tempo, ferramentas, tecnologias e conhecimento,  estando relacionada à capacidade de produzir código de alta qualidade e entregar funcionalidades ou produtos de software de forma rápida e eficiente, minimizando desperdícios.</p>
 
-# 
+- [x] Onde estão os grandes ladrões de ineficiência?
+- [x] Onde o processo parou? 
+      - [x] Parou em requisitos?
+      - [x] Parou em codificação?
+      - [x] Parou em Teste de Aceitação?
+- [x] Explicite o seu fluxo de trabalho;
+- [x] A única maneira de controlar um projeto grande e de agenda apertada é tendo uma agenda.Defina milestones, datas, prioridades.
+- [x] Mítico Homem-mês: Ensaios Sobre Engenharia de Software;
+      - [x] Conhecer as dificuldades inerentes ao trabalho torna mais fácil suportá-las quando elas surgirem;
+      - [x] Projeto de software depende de pessoas;
+      - [x] Não se pode dimensionar um software em termos de homem-mês; A adição de mais força de trabalho não implica na redução do tempo de entrega daquela tarefa;
+- [x] Melhoria do Product Manager/Owner/Key User
+      - [x] Como conseguir engajar a área demandante e a área usuária, para evitar destruição do Time;
+      - [x] Integridade Conceitual - Alguém definiu exatamente o que seria cada produto.
+      - [x] O PO simplesmente ignora a fase de homologação e esta é uma restrição para a próxima fase;
+      - [x] Cada release é uma surpresa, por falta de engajamento do PO;
+      - [x] Aumento do Pacote, ou seja, não entrego na Sprint correta e aumento o risco na Sprint seguinte;
+- [x] Comunicação
+      - [x] Comunicação franca entre equipe de arquitetura e equipe de construção, sem influenciar a clara divisão de tarefas.
+- [x] Se esta pronto, porque esperar até o final da SPRINT? Usar Feature Toggle ou Flag.
+      - [x] Deploy é o processo técnico de colocar ou instalar uma versão do software em um ambiente específico, como servidores de produção ou de staging, para que ele esteja disponível para execução.
+      - [x] Release refere-se ao processo de tornar o software disponível para os usuários. 
+- [x] Quais as pessoas de gargalo no Time de Desenvolvimento?
+      - [x] O que dependente dele.
+      - [x] Só ele conhece.
+      - [x] A quantidade de trabalho em paralelo.
+- [x] Como CONFIRMAR, que o GARGALO é o TIME DE DESENVOLVIMENTO?
+      - [x] Como atacar o sintoma e não a causa? O gargalo é móvel?
+      - [x] A Teoria das Restrições foi desenvolvida por Eliyahu Goldratt em 1984.
+      - [ ] O gargalo é um ponto no processo onde a capacidade é menor que a demanda, o que significa que ele limita o desempenho do sistema como um todo.
+      - [ ] Você resolve Requisitos, para em Código, Code Review e assim vai.
+- [X] Contratação de MAIS desenvolvedores resolve o problema?
+      - [x] Quem não passou pela experiência de contratar um Developer ficar um tempão pensando cara tem tanto trabalho para fazer?
+      - [x]  Quem nunca contratou por conhecimento e demitiu por atitude?
+      - [x] Começa a colocar item no backlog mas item no backlog que não agrega valor.
+      - [x] Features que NÃO entregam valor e colocar para ele fazer.
+      - [x] O Time tem a capacidade de PUXAR tarefas?
+- [x] Eficiência vs Eficácia
+      - [x] Eficiência é fazer certo as coisas;
+      - [x] Eficácia é fazer as coisas certas;
+
+
+[![](https://mermaid.ink/img/pako:eNplks2O2jAQgF9l5ENlJCiwR1StShJ-dllVdGFVqcplSAaS4sSRf7RFiIepeugD9BF4sTreBC3Uhyj2fPPZY8-RJTIlNmJbIV-TDJWBp-e4BDfGA76M1g9hB6DXg6WSP8hI7f57vXsIPh9BZ1jRCFKZ6C4I3JAYQcy-5QZKWfOpNTJmp8Y25KuDHudpp7YFdqf7ERUfJz8rRVojtN43OoDL8KtDHsnEFlQaTFB2_oM8FfJAYZlkTTi8iQ75lNBYRdBg8AHCO-6OAtd5Qx9o8yIeZpTspTUQuqtqoOhaPuFr0obgpczN-ZfK2yNOrrEprxXw1aLIzaFhptfMjD-TINSk-4HNRdpQs2tq7jeEtZRCf-pv1P1UYUGvUu0bfn7Du8cktZWqcJVSXfrc3Ska3Lid_PSOj5cPUFtbw8BTPuY-wdCLHvk4odyVmkp40fZ9sY9w8yALHlEl5AEqVOhP6buifkEnXAz4jBSe_5x_u3aRyuTb819xsS088s72xL9Ix-TJW4r3rQzuaS5FSkrXeXHJuqwgV2WeuqY-1qqYmYwKilndnSlt0QoTs7g8ORRdi64OZcJGRlnqMiXtLmOjLQrtZrZK0VCU485d7mW1wvK7lO389A9jEexr?type=png)](https://mermaid.live/edit#pako:eNplks2O2jAQgF9l5ENlJCiwR1StShJ-dllVdGFVqcplSAaS4sSRf7RFiIepeugD9BF4sTreBC3Uhyj2fPPZY8-RJTIlNmJbIV-TDJWBp-e4BDfGA76M1g9hB6DXg6WSP8hI7f57vXsIPh9BZ1jRCFKZ6C4I3JAYQcy-5QZKWfOpNTJmp8Y25KuDHudpp7YFdqf7ERUfJz8rRVojtN43OoDL8KtDHsnEFlQaTFB2_oM8FfJAYZlkTTi8iQ75lNBYRdBg8AHCO-6OAtd5Qx9o8yIeZpTspTUQuqtqoOhaPuFr0obgpczN-ZfK2yNOrrEprxXw1aLIzaFhptfMjD-TINSk-4HNRdpQs2tq7jeEtZRCf-pv1P1UYUGvUu0bfn7Du8cktZWqcJVSXfrc3Ska3Lid_PSOj5cPUFtbw8BTPuY-wdCLHvk4odyVmkp40fZ9sY9w8yALHlEl5AEqVOhP6buifkEnXAz4jBSe_5x_u3aRyuTb819xsS088s72xL9Ix-TJW4r3rQzuaS5FSkrXeXHJuqwgV2WeuqY-1qqYmYwKilndnSlt0QoTs7g8ORRdi64OZcJGRlnqMiXtLmOjLQrtZrZK0VCU485d7mW1wvK7lO389A9jEexr)

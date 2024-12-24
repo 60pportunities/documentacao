@@ -1,7 +1,7 @@
 Jenkins é um servidor de automação de código aberto, baseado em Java e possui um enormidade de plugins que auxiliam na criação, implantação e automação dos projetos. 
 Outra característica peculiar é que Jenkins foi desenvolvido para Integração Contínua (Continuous Integration – CI) e Entrega Contínua (Continuous Delivery – CD), conceitos que juntos com uma cultura DevOps aceleram a conclusão de softwares. 
 Tem como uma função principal atuar em toda a pipeline de entrega do software: Construção, Documentação, Teste, Implantação e Análise, facilitando os trabalhos do desenvolvedor. 
-Utilizaremos o Docker para efetuar a montagem do ambiente de desenvolvimento, para tal siga os passos de instalação do [Docker](https://docs.docker.com/get-started/get-docker/) ou [60portunities](recipe_60pportunities_conf_docker.md).
+Utilizaremos o Docker para efetuar a montagem do ambiente de desenvolvimento, para tal siga os passos de instalação do [Docker](https://docs.docker.com/get-started/get-docker/) ou [60portunities](recipe_60pportunities_conf_docker).
 
 ## Pré-instalação de plugins
 <p align="justify">Esta ferramenta irá executar downloads de centros de atualização, e o acesso à Internet é necessário para os centros de atualização padrão. Para instalar os plugins é possível passar um arquivo que contém esse conjunto de plugins (com ou sem quebras de linha). Por padrão, os plugins serão atualizados se não tiverem sido atualizados manualmente e se a versão da imagem do estivador for mais recente do que a versão no contêiner.As versões instaladas pela imagem são rastreadas através de um arquivo marcador.</p>

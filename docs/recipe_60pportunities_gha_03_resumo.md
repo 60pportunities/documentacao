@@ -1,7 +1,7 @@
 `A automação é boa, desde que você saiba exatamente onde coloca-la`.
 
 A Implantação Contínua (CD) está revolucionando a maneira como os desenvolvedores pensam e agem, e se você está ansioso para elevar seu jogo de codificação, este guia é para você! 
-![](img/github-actions-002.jpeg)
+![](img/github-actions-002.png)
 ## Automação: O Coração da Implantação
 Automação não é apenas uma opção; é uma necessidade no mundo do CD. Ao automatizar tarefas, os desenvolvedores liberam tempo, reduzem erros e aumentam a consistência. 
 ## Colaboração: Todos a postos
