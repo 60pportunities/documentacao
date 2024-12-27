@@ -1,5 +1,26 @@
 <p align="justify">O fracasso de projetos de software é uma realidade comum na indústria de tecnologia, e as razões para isso são complexas e multifacetadas. Embora as metodologias e ferramentas de desenvolvimento tenham evoluído ao longo do tempo, os fatores que levam ao insucesso de projetos de software ainda são frequentemente os mesmos. Neste artigo, exploramos algumas das principais razões pelas quais os projetos de software falham, abordando questões técnicas, de gestão, e humanas.</p>
 
+Mais projetos de software deram errado por falta de tempo no calendário do que por todas as outras causas combinadas. Por que essa causa de desastre é tão comum?
+
+- [x] Nossas técnicas de estimativa são mal desenvolvidas;
+- [x] Confundimos falaciosamente esforço com progresso, escondendo a suposição de que homens e meses são intercambiáveis.
+- [x] O progresso do cronograma é mal monitorado;
+- [x] Quando o atraso no cronograma é reconhecido, a resposta natural (e tradicional) é adicionar mão de obra;
+
+Somos mais otimistas do que realistas.
+
+- [x] "Desta vez com certeza vai rodar" ou "Acabei de encontrar o último bug".
+- [ ] É assim que escrever, experimentar, "trabalhar fora" são disciplinas essenciais para o teórico.
+- [ ] O programador constrói a partir de puro pensamento: conceitos e representações muito flexíveis dos mesmos.
+- [ ] São muitas tarefas ou junções, logo, a probabilidade de que cada um dê certo torna-se extremamente pequena. 
+- [ ] Isso implica que homens e meses NÃO são intercambiáveis.
+      - [ ] uma tarefa não pode ser particionada devido a restrições sequenciais, a aplicação de mais esforço não tem efeito sobre o cronograma;
+      - [ ] Em tarefas que podem ser particionadas, mas que requerem comunicação entre as subtarefas, o esforço de comunicação deve ser adicionado à quantidade de trabalho a ser realizado.
+- [ ] Carga adicional de comunicação é composta de duas partes, treinamento (esforço adicionado varia linearmente com o número de trabalhadores) e intercomunicação (o esforço aumenta à medida que
+n (n -1) / 2)
+- [ ] Adicionar mais pessoas aumenta, não encurta, o cronograma.
+- [ ] Planeje-se em 
+
 ## Standish Group e "Chaos Report"
 O Standish Group iniciou o Chaos Report em 1994, desde então, o relatório tem sido uma referência análise do sucesso e fracasso de projetos de software. 
 ## Standish Group - [CHAOS Report](https://vitalitychicago.com/)

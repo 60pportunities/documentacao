@@ -26,6 +26,7 @@
 - [x] 1843: Algoritmo de máquina de Ada Lovelace inventa o primeiro algoritmo de máquina para a máquina de diferenças de Charles Babbage, que estabelece as bases para todas as linguagens de programação.
 - [X] 1854: George Boole publica An Investigation of the Laws of Thought, criando a lógica booleana;
 - [X] 1936: O matemático britânico Alan Turing publica seu trabalho sobre a "Máquina de Turing";
+- [x] 1905 e 1906: "Aqueles que não conseguem lembrar o passado estão condenados a repeti-lo" aparece em seu primeiro livro The Life of Reason (A Vida da Razão, em tradução livre) - George Santayana
 - [x] 1940-1950: Primeiras Noções de Fluxo e Modelagem;
 - [X] 1943: Warren McCulloch e Walter Pitts criam um modelo matemático de redes neurais;
 - [x] 1944-45, Konrad Zuse desenvolveu a primeira linguagem de programação ‘real’ chamada Plankalkül (Plan Calculus). 
@@ -72,6 +73,13 @@
  - [x] 1973–1975: A primeira lista de gíria, as primeiras sátiras, as primeiras discussões autoconscientes sobre a ética hacker, 1973–1975. The Dicionário do Hacker em 1983; 
  - [X] 1973: O Unix foi reescrito em C, o que facilitou a portabilidade e a distribuição do sistema. 
  - [X] 1975: A MITS Altair 8800 é lançada e considerada por muitos como o primeiro verdadeiro "computador pessoal".
+ - [X] 1975: The Mythical Man-month Fred Brook’s
+       - [X] `Feature Teams`, multidisciplinar com um Líder Técnico, de no máximo 10 pessoas; (Vertical Slice)
+       - [x] Principal causa de fiasco de projetos - COMUNICAÇÃO (Scrum Daily, Review, Retrospective): Open Project, Jira, Trello, Slack, Basecamp, Github, Portfolio Management e etc.
+       - [x] **Harlan Mills** programação deveria ser um processo público, e que expor todo o trabalho  pra todo mundo ajuda o controle de qualidade (para mim início **OSS**).
+       - [x] Cunha o conceito de ˜Integridade conceitual" é a coisa MAIS importante  a se considerar em design de sistemas. É melhor um sistema omitir certas features e melhorias, mas  refletir apenas Um conjunto de idéias de design.
+       - [ ] Aristocrata (poder político e privilégios) - Ditador Benevolente - PRODUCT OWNER;
+       - [ ] Planeje jogar um FORA (A primeira versão será sempre a pior). Prepare o gerenciamento do PROJETO para aceitar as MUDANÇAS.
  - [X] 1977: A Apple Computer, fundada por Steve Jobs e Steve Wozniak, lança o Apple II;
  - [X] 1977: A Commodore lança o Commodore PET;
  - [X] 1977: O TRS-80 é lançado pela Tandy/RadioShack;
@@ -109,6 +117,7 @@
 - [x] 1987: O CMM foi inicialmente desenvolvido pelo Software Engineering Institute (SEI)
 - [x] 1988: RUP e OO (Orientação a Objetos). Diagramas UML (Unified Modeling Language), como Diagramas de Casos de Uso, Diagramas de Classe, e outros, para representar visualmente o comportamento e a estrutura do sistema
 - [x] O PRINCE foi criado pelo GOV.UK (Governo do Reino Unido) em 1989 como uma metodologia para gerenciar projetos de TI.
+- [ ] Produtividade de software - Harlan D. Mills, matemático preocupado em trazer mais rigor ao desenvolvimento de sistemas e software.
 - [X] 1989: O cientista Geoffrey Hinton publica um estudo que mostra como redes neurais profundas podem ser treinadas para resolver problemas complexos.
 - [x] 1990: Haskell
 - [x] 1990: Wicked Problems, Righteous Solutions: A Catalogue of Modern Software Engineering Paradigms (Peter DeGrace, Leslie Hulet Stahl) - Problemas perversos, soluções corretas: um catálogo de paradigmas modernos de engenharia de software - de 1990. Foi esse livro que trouxe pela primeira vez a ideia de utilizarmos no desenvolvimento de software o conjunto de práticas descritas pelos dois autores japoneses na reconhecida revista. 
@@ -206,8 +215,8 @@
 ![](img/time_line_devops.png)
 
 ## Minha conclusão
+- [x] A engenharia de software continua errando nos  MESMOS lugares que já se errava a 50 anos atrás;
 - [x] Desde a crise do software até as abordagens ágeis e a evolução para a nuvem — ilustram a contínua evolução das práticas de gestão de projetos e do desenvolvimento de software, sempre buscando maior eficiência, qualidade e satisfação tanto para clientes quanto para desenvolvedores.
 - [x] A transformação tecnológica e a Infraestruturas de TI.
 - [x] As organizações passaram a optar entre a implementação on-premise (em suas próprias instalações) para a migração para a cloud (nuvem).
-
 - [x] Ainda não sabemos qual será a próxima evolução....

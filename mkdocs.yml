@@ -239,6 +239,13 @@ nav:
       - 'Modelo'                                     : 'recipe_60pportunities_conc_projetos_modelo.md'
       - 'Método'                                     : 'recipe_60pportunities_conc_projetos_metodo.md'
       - 'Centrados'                                  : 'recipe_60pportunities_conc_projetos_centrados.md'     
+   - 'Arquitetura'                                   :
+      - 'Arquitetura de Software'                    : 'recipe_60pportunities_conf_arquitetura_geral.md'
+      - 'Application Program Interface'              : 'recipe_60pportunities_conf_arquitetura_api.md'
+      - 'Microserviços'                              : 'recipe_60pportunities_conf_arquitetura_microservico.md'
+      - 'Programação'                                : 'recipe_60pportunities_conc_arquitetura_programacao.md'
+   - 'Time'                                          :
+      - 'Pensamento'                                 : 'recipe_60pportunities_time.md'
    - 'Configuração Plataforma Projeto'               :
       - 'Github'                                     : 'recipe_60pportunities_conf_github.md'
       - 'Azure-Devops'                               : 'recipe_60pportunities_conf_azuredevops.md'
@@ -296,10 +303,6 @@ nav:
          - 'PHP'                                     : 'recipe_60pportunities_dev_doc_php.md'
       - 'Métricas'                                   :
          - 'Métricas Internas'                       : 'recipe_60pportunities_conf_metricas.md'
-   - 'Arquitetura'                                   :
-      - 'Arquitetura de Software'                    : 'recipe_60pportunities_conf_arquitetura_geral.md'
-      - 'Application Program Interface'              : 'recipe_60pportunities_conf_arquitetura_api.md'
-      - 'Microserviços'                              : 'recipe_60pportunities_conf_arquitetura_microservico.md'
    - 'Estudos/Aprendizado'                            : 
       - 'Inteligencia Artificial'                    : 'recipe_60pportunities_conf_inteligencia_artificial.md'
    - 'Dicionário'                                    :
