@@ -35,12 +35,12 @@ flowchart TD
 - [x] Conhecimento **estratégico** para um mercado competitivo e processos **internos e sem prestígio**;
 - [x] Inventário de **riscos**, pode ser uma estratégia bem pensada(LGPD, ESG, InnerSource, Inclusão Social, Ética de dados);
 - [x] **Melhorar não por competição, mas por inspiração**;
-- [x] Mudar as Métricas da Efitec;
+- [x] Mudar as Métricas vs Metas;
       - [x] Incidentes;
       - [x] Projetos;
 - [x] **"Ser o pior"** não é sinônimo de ser **ineficiência ou incompetência**, mas sim de reconhecer que sempre há algo novo para aprender;
-- [x] O motivo de qualquer um de nós: `Ter a coragem de mudar e começar de novo`, para mim, é  quando eu me sinto  que estou  desatualizado em relação às demandas mais modernas do mercado;
-- [x] A diferença entre : `Entregar qualquer coisa` vs `Entregar a coisa certa`;
+- [x] O motivo de qualquer um de nós: _*Ter a coragem de mudar e começar de novo*_, para mim, é  quando eu me sinto  que estou  desatualizado em relação às demandas mais modernas do mercado;
+- [x] A diferença entre : _*Entregar qualquer coisa` vs `Entregar a coisa certa_*;
 - [x] Mude a **ROTA**, mas nunca desista de **MUDAR**;
 - [x] Única ferramenta para o Desenvolvedor;
       - [x] Teams como ferramenta de Comunicação;
@@ -95,13 +95,85 @@ flowchart TD
 - [x] Gargá-los de comunicação aumenta quando o número de pessoas aumenta.
 - [x] A divisibilidade de tarefas pode causar mais caos.
 - [x] Alguns trabalhos à serem feitos não podem ser divisiveis e paralelizados.
-
 - [x] Brooks afirma que o número máximo de pessoas em um projeto deve ser determinado de acordo com o número de tarefas que podem ser divididas de forma independente. 
 - [x] Algumas exceções à Lei de Brooks incluem:
 <div class="mdx-columns2" markdown>
 - [x] Substituir pessoas em vez de adicioná-las;
 - [x] Delegar trabalho já delimitado para as novas pessoas;
 </div>
+
+## Supravizio
+```mermaid
+flowchart LR
+    A[Ticket] --> B[Analista</br>Funcional]
+    B         --> |Demanda Expressa/PDTIC| B0[Especificação]
+    B         --> |Setup| B1[Configuração]
+    B         --> |Incidente| B2[Verificacão]
+    B2        --> B21{Necessita</br>Dev?}
+    B21       --> |Resolve|B211[Apontamento]
+    B211      --> H
+    B0 & B1   --> |Lançar Horas| H[Horas Trabalhadas]
+    B0        --> D[Desenvolvedor]
+    B21      --> D 
+    D         --> |Lançar Horas| H
+    H         --> I{Diferível}
+    I         --> |Sim| J[Contabilidade</br>Fixed Asset]
+    I         --> L
+    J         --> L((Fechar))
+```
+Todo atendimento era realizado através da ferramenta da Venki, tanto para **Incidentes**, **Demandas expressas** e **Projetos**.
+
+<p align="justify">A documentação muita das vezes, ficava associada ao ticket/chamado e/ou com o analista funcional, requisitos ou desenvolvedor. As horas estavam sendo apontadas no Supravizio e posteriormente dependendo da classificação subiriam para a Contabilidade, para realizar o diferimento do custo de software.</p>
+
+<p align="justify">O diferimento de custos de software existe pelo pressuposto de que, ao desenvolvermos um sistema, estamos investindo em algo que trará resultados para a organização em exercícios sociais futuros.</p>
+
+## Open-Source Ticket Request System (OTRS)
+<p align="justify">O sistema de gestão de serviços de que pode ser usado para gerenciar automação de fluxos de trabalho, notificações e chamados.</p>
+
+```mermaid
+flowchart LR
+    A[Ticket] --> B[Analista</br>Funcional]
+    B         --> |Incidente| B2[Verificacão]
+    B2        --> B21{Necessita</br>Dev?}
+    B21       --> |Resolve|B211[CMDB]
+    B21       --> |Resolve|B212[Desenvolvedor]
+    B211      --> L((Fechar))
+    B212      --> L((Fechar))
+```
+
+## GitLab
+<p align="justify">É um gerenciador de repositório de software baseado em git, com suporte a Wiki, gerenciamento de tarefas e CI/CD. Similar ao GitHub, mas o GitLab permite que os desenvolvedores armazenem o código em seus próprios servidores, ao invés da nuvem.</p>
+
+### Comparação entre GitHub, GitLab e Azure DevOps
+
+A tabela a seguir compara as principais funcionalidades e gerenciadores das plataformas **GitHub**, **GitLab** e **Azure DevOps**, para ajudar a entender as principais diferenças e semelhanças entre elas.
+
+| **Funcionalidade**                | **GitHub**                                  | **GitLab**                                  | **Azure DevOps**                             |
+|------------------------------------|---------------------------------------------|---------------------------------------------|----------------------------------------------|
+| **Hospedagem de Repositórios**     | GitHub.com (Cloud) e Auto-hospedagem        | GitLab.com (Cloud) e Auto-hospedagem        | Azure DevOps Services (Cloud) e Auto-hospedagem |
+| **Controle de Versão**             | Git (com suporte a branches, commits, etc.) | Git (com suporte a branches, commits, etc.) | Git (com suporte a branches, commits, etc.)   |
+| **Gestão de Issues/Tarefas**       | **Issues** para rastrear bugs e tarefas     | **Issues** com funcionalidades avançadas    | **Work Items** (Tarefas, Bugs, Epics, etc.)   |
+| **Gestão de Backlog**              | Projetos (Boards simples) e Milestones      | **Boards** (Kanban) e **Milestones**        | **Backlog** com Epics, Features, Stories, e Work Items |
+| **Gestão de Sprint**               | Não possui suporte nativo para sprints      | **Milestones** e **Boards** com Burndown Chart | **Sprints** e gráficos ágeis como **Burndown** |
+| **CI/CD (Integração Contínua/Entrega Contínua)** | **GitHub Actions** para automação de CI/CD | **GitLab CI/CD** com pipelines customizáveis | **Azure Pipelines** (flexível e multi-plataforma) |
+| **Revisão de Código**              | **Pull Requests** para revisão de código    | **Merge Requests** para revisão de código   | **Pull Requests** (Revisão de código)        |
+| **Gerenciamento de Projetos**      | **Projects** (Kanban boards simples)        | **Boards** (Kanban) com integração a Issues | **Boards** com **Kanban**, **Scrum** e Backlog |
+| **Integração com Outras Ferramentas** | Marketplace de Apps e integrações via APIs | Integração com ferramentas externas e APIs  | Integração profunda com o **Azure** e outras ferramentas Microsoft |
+| **Segurança**                      | Funções básicas de segurança no repositório | Análise de código e vulnerabilidades integradas | Funcionalidades avançadas de segurança e conformidade (Ex: SonarQube, cobertura de testes) |
+| **Automação de Tarefas**           | **GitHub Actions** (Automação de workflows) | **GitLab CI/CD** (Automação de pipelines)   | **Azure Pipelines** (Automação de builds e deploys) |
+| **Hospedagem de Sites**            | **GitHub Pages** para sites estáticos       | GitLab Pages para sites estáticos           | Azure Web Apps para aplicações web            |
+| **Apoio a Metodologias Ágeis**     | Funcionalidades limitadas (via Projects)    | Suporte a **Scrum**, **Kanban**, **Agile**   | Suporte a **Scrum**, **Kanban**, **Agile**    |
+| **Relatórios e Métricas**          | Métricas simples via GitHub Insights        | **Grafana** integrado e métricas personalizáveis | **Dashboards** avançados e métricas ágeis (ex: Velocity) |
+| **Escalabilidade**                 | Ideal para projetos individuais e pequenas equipes | Adequado para equipes de tamanho médio a grande | Ideal para grandes empresas e equipes corporativas |
+
+
+| GitLab |        | GitHub |        | Agile Concepts |             |
+| -----  | -----  | ----   |        | -----        | ------      |
+|        |        | Repository      | Issues   | Epict    | Feature  |
+|        |        | Pull Request    | Label    | User Story | Task   |
+|        |        | Template        | Project  | Backlog    | Sprint | 
+|        |        | Milestone    | Actions  | Retrospective | Pipeline |
+
 
 ## Estrutura do Banco de Dados Oracle
 <p align="justify">Padronizar System Identifier, ServiceName, DBName e DB Unique Name é crucial para garantir consistência, facilidade de gerenciamento e integração entre sistemas em ambientes corporativos. A padronização desses elementos facilita a automação de processos, como backup, recuperação e monitoramento, minimizando erros humanos e garantindo que os serviços de banco de dados sejam acessíveis de maneira uniforme. A uniformidade também contribui para uma gestão mais eficiente, especialmente em ambientes complexos e de grande escala.</p>
@@ -378,35 +450,6 @@ O que fazer quando um projeto de software essencial está atrasado?
 
 
 ## Algumas Diferenças
-# Comparação entre GitHub, GitLab e Azure DevOps
-
-A tabela a seguir compara as principais funcionalidades e gerenciadores das plataformas **GitHub**, **GitLab** e **Azure DevOps**, para ajudar a entender as principais diferenças e semelhanças entre elas.
-
-| **Funcionalidade**                | **GitHub**                                  | **GitLab**                                  | **Azure DevOps**                             |
-|------------------------------------|---------------------------------------------|---------------------------------------------|----------------------------------------------|
-| **Hospedagem de Repositórios**     | GitHub.com (Cloud) e Auto-hospedagem        | GitLab.com (Cloud) e Auto-hospedagem        | Azure DevOps Services (Cloud) e Auto-hospedagem |
-| **Controle de Versão**             | Git (com suporte a branches, commits, etc.) | Git (com suporte a branches, commits, etc.) | Git (com suporte a branches, commits, etc.)   |
-| **Gestão de Issues/Tarefas**       | **Issues** para rastrear bugs e tarefas     | **Issues** com funcionalidades avançadas    | **Work Items** (Tarefas, Bugs, Epics, etc.)   |
-| **Gestão de Backlog**              | Projetos (Boards simples) e Milestones      | **Boards** (Kanban) e **Milestones**        | **Backlog** com Epics, Features, Stories, e Work Items |
-| **Gestão de Sprint**               | Não possui suporte nativo para sprints      | **Milestones** e **Boards** com Burndown Chart | **Sprints** e gráficos ágeis como **Burndown** |
-| **CI/CD (Integração Contínua/Entrega Contínua)** | **GitHub Actions** para automação de CI/CD | **GitLab CI/CD** com pipelines customizáveis | **Azure Pipelines** (flexível e multi-plataforma) |
-| **Revisão de Código**              | **Pull Requests** para revisão de código    | **Merge Requests** para revisão de código   | **Pull Requests** (Revisão de código)        |
-| **Gerenciamento de Projetos**      | **Projects** (Kanban boards simples)        | **Boards** (Kanban) com integração a Issues | **Boards** com **Kanban**, **Scrum** e Backlog |
-| **Integração com Outras Ferramentas** | Marketplace de Apps e integrações via APIs | Integração com ferramentas externas e APIs  | Integração profunda com o **Azure** e outras ferramentas Microsoft |
-| **Segurança**                      | Funções básicas de segurança no repositório | Análise de código e vulnerabilidades integradas | Funcionalidades avançadas de segurança e conformidade (Ex: SonarQube, cobertura de testes) |
-| **Automação de Tarefas**           | **GitHub Actions** (Automação de workflows) | **GitLab CI/CD** (Automação de pipelines)   | **Azure Pipelines** (Automação de builds e deploys) |
-| **Hospedagem de Sites**            | **GitHub Pages** para sites estáticos       | GitLab Pages para sites estáticos           | Azure Web Apps para aplicações web            |
-| **Apoio a Metodologias Ágeis**     | Funcionalidades limitadas (via Projects)    | Suporte a **Scrum**, **Kanban**, **Agile**   | Suporte a **Scrum**, **Kanban**, **Agile**    |
-| **Relatórios e Métricas**          | Métricas simples via GitHub Insights        | **Grafana** integrado e métricas personalizáveis | **Dashboards** avançados e métricas ágeis (ex: Velocity) |
-| **Escalabilidade**                 | Ideal para projetos individuais e pequenas equipes | Adequado para equipes de tamanho médio a grande | Ideal para grandes empresas e equipes corporativas |
-
-
-| GitLab |        | GitHub |        | Agile Concepts |             |
-| -----  | -----  | ----   |        | -----        | ------      |
-|        |        | Repository      | Issues   | Epict    | Feature  |
-|        |        | Pull Request    | Label    | User Story | Task   |
-|        |        | Template        | Project  | Backlog    | Sprint | 
-|        |        | Milestone    | Actions  | Retrospective | Pipeline |
 
 # O Mítico Homem-Mês
 - [X] Homens e meses são intercambiáveis apenas quando uma tarefa pode ser dividida entre muitos trabalhadores que não se comuniquem entre si. (…) não é sequer aproximadamente real quando se trata de programação de sistemas.

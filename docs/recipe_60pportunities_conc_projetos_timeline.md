@@ -220,3 +220,4 @@
 - [x] A transformação tecnológica e a Infraestruturas de TI.
 - [x] As organizações passaram a optar entre a implementação on-premise (em suas próprias instalações) para a migração para a cloud (nuvem).
 - [x] Ainda não sabemos qual será a próxima evolução....
+

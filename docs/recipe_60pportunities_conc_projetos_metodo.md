@@ -7,7 +7,7 @@
 - [x] A implementação da demanda requer recursos e esforços significativos (equipe, tempo, orçamento)?
 - [x] A demanda é única e não deve se repetir no futuro, ou faz parte de uma série de melhorias planejadas?
 - [x] O produto já existente, porem novas funcionalidades deverão ser abarcadas e/ou modificadas em função de pequenas alterações.
-
+- [x] desmitologização do homem-mês.
 Com os critérios acima respondidos, então podemos classificar esta demanda como **Melhoria Contínua/Bug** ou um **Novo Produto**. 
 
 Em ambos os casos seguimos o conceito do PMBOK, que define um projeto como um esforço temporário empreendido para criar um produto, serviço ou resultado único, enfatizando sua natureza temporária e sua unicidade.

@@ -717,7 +717,7 @@ No mundo em rápida evolução do desenvolvimento de software, pipelines de Inte
 Proteger ambientes de CI/CD vai além de proteger o código; abrange proteger todo o pipeline, da integração à implantação. 
 
 DataStudio - Criação de relatórios sonoros e interativos para análise de dados, com integração ao Google Analytics, Google Sheets e outras.  
-Coblue/Weekdone - Plataforma brasileira dedicada   à metodologia OKR. 
+Coblue/Weekdone - Plataforma brasileira dedicada  à metodologia OKR. 
 UIPATH - Plataforma líder em automação robótica (RPA) que usa IA para tornar as operações mais ágeis e eficientes.
 PIPEFY - Automatizar processos de trabalho. 
 FIS Global/Anaplan/NIBO -  Plataforma preditiva de gestão de risco para instituições financeiras em geral. 

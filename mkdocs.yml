@@ -240,7 +240,8 @@ nav:
       - 'Método'                                     : 'recipe_60pportunities_conc_projetos_metodo.md'
       - 'Centrados'                                  : 'recipe_60pportunities_conc_projetos_centrados.md'     
    - 'Arquitetura'                                   :
-      - 'Arquitetura de Software'                    : 'recipe_60pportunities_conf_arquitetura_geral.md'
+      - 'Arquitetura Original'                       : 'recipe_60pportunities_conf_arquitetura_original.md'
+      - 'Arquitetura Prevista'                       : 'recipe_60pportunities_conf_arquitetura_geral.md'
       - 'Application Program Interface'              : 'recipe_60pportunities_conf_arquitetura_api.md'
       - 'Microserviços'                              : 'recipe_60pportunities_conf_arquitetura_microservico.md'
       - 'Programação'                                : 'recipe_60pportunities_conc_arquitetura_programacao.md'
@@ -249,8 +250,10 @@ nav:
    - 'Configuração Plataforma Projeto'               :
       - 'Github'                                     : 'recipe_60pportunities_conf_github.md'
       - 'Azure-Devops'                               : 'recipe_60pportunities_conf_azuredevops.md'
-      - 'Azure-Devops - Ideia Original'              : 'recipe_60pportunities_conf_azuredevops_ideia.md'
+
       - 'Jira'                                       : 'recipe_60pportunities_conf_jira.md'
+   - 'Aplicação'                                     :
+      - 'Definições Arquitetônicas'                  : 'recipe_60pportunities_design_application.md'
    - 'Registro'                                      :
       - 'Registrando um Domínio'                     : 'recipe_60pportunities_conf_registrobr_dominio.md'
    - 'Documentação'                                  :
