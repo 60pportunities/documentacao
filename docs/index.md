@@ -32,5 +32,3 @@
 - [x] **Relatórios de Impacto**: Publicam um relatório semestral demonstrando a evolução dos participantes, incluindo dados sobre reintegração no mercado de trabalho.
 ## Resultado Esperado
 Com essa abordagem, a 60portunities não apenas ensina habilidades de TI, mas também cria uma comunidade acolhedora que valoriza a experiência dos jovens senhores, tornando a transição para o mundo da tecnologia mais fácil e acessível.
-
-FIM - No flamengo

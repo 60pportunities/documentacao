@@ -1,15 +1,3 @@
-A arquitetura de software é um aspecto crítico do desenvolvimento de software. Envolve a estruturação de sistemas de software de alto nível para atender aos requisitos técnicos e de negócios. 
-<div class="center-table" markdown>
-| Tipo | Entenda |
-| ---- | -----   |
-| Arquiteto Corporativo | O Enterprise Architect garante que a infraestrutura tecnológica da organização esteja alinhada com sua estratégia de negócios. Esta função integra a estratégia de TI com os objetivos de negócios e rege a conformidade com as políticas e regulamentos da empresa. |
-| Arquiteto de Soluções | Como um elo entre os desafios do negócio e as soluções tecnológicas. |
-| Arquiteto de Aplicativos | Concentra-se no design e na estrutura de aplicativos individuais, garantindo que atendam aos requisitos técnicos e de negócios. |
-| Arquiteto Técnico |  Lida com os aspectos de infraestrutura técnica e hardware, garantindo que a infraestrutura tecnológica suporte os requisitos específicos do domínio. |
-| Arquiteto de Dados |  Responsável por gerenciar, traçar estratégias e estruturar a arquitetura de dados da organização, garantindo a precisão e integridade dos dados.Eles desenvolvem e gerenciam a estratégia, políticas, padrões e práticas de dados, projetam modelos e estruturas de dados para apoiar as operações de negócios e garantem a precisão e integridade dos dados em todos os sistemas. |
-| Arquiteto de Segurança | Concentra-se em projetar estruturas de segurança robustas, garantindo que a arquitetura do domínio esteja protegida contra possíveis ameaças e vulnerabilidades. |
-| Cloud Architect |  Eles são essenciais para facilitar a transição de uma organização para a computação em nuvem, otimizando soluções em nuvem para desempenho, custo e escalabilidade. Esta função envolve projetar estratégias de arquitetura em nuvem, desenvolver soluções em nuvem, supervisionar a migração de sistemas para plataformas em nuvem e gerenciar relacionamentos com provedores de serviços em nuvem. |
-</div>
 # Modelo de Vista Arquitetônica 4+1
 
 ![](img/𝟰_1_a𝗿𝗰𝗵𝗶𝘁𝗲𝗰𝘁𝘂𝗿𝗮𝗹_v𝗶𝗲𝘄_m𝗼𝗱𝗲𝗹.png){width="900" height="600" style="display: block; margin: 0 auto"}

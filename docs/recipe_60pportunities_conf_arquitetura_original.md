@@ -125,25 +125,3 @@ O Azure DevOps oferece uma integração nativa com outras ferramentas do ecossis
       - [x] Eficácia é fazer as coisas certas;
 
 [![](https://mermaid.ink/img/pako:eNplks2O2jAQgF9l5ENlJCiwR1StShJ-dllVdGFVqcplSAaS4sSRf7RFiIepeugD9BF4sTreBC3Uhyj2fPPZY8-RJTIlNmJbIV-TDJWBp-e4BDfGA76M1g9hB6DXg6WSP8hI7f57vXsIPh9BZ1jRCFKZ6C4I3JAYQcy-5QZKWfOpNTJmp8Y25KuDHudpp7YFdqf7ERUfJz8rRVojtN43OoDL8KtDHsnEFlQaTFB2_oM8FfJAYZlkTTi8iQ75lNBYRdBg8AHCO-6OAtd5Qx9o8yIeZpTspTUQuqtqoOhaPuFr0obgpczN-ZfK2yNOrrEprxXw1aLIzaFhptfMjD-TINSk-4HNRdpQs2tq7jeEtZRCf-pv1P1UYUGvUu0bfn7Du8cktZWqcJVSXfrc3Ska3Lid_PSOj5cPUFtbw8BTPuY-wdCLHvk4odyVmkp40fZ9sY9w8yALHlEl5AEqVOhP6buifkEnXAz4jBSe_5x_u3aRyuTb819xsS088s72xL9Ix-TJW4r3rQzuaS5FSkrXeXHJuqwgV2WeuqY-1qqYmYwKilndnSlt0QoTs7g8ORRdi64OZcJGRlnqMiXtLmOjLQrtZrZK0VCU485d7mW1wvK7lO389A9jEexr?type=png)](https://mermaid.live/edit#pako:eNplks2O2jAQgF9l5ENlJCiwR1StShJ-dllVdGFVqcplSAaS4sSRf7RFiIepeugD9BF4sTreBC3Uhyj2fPPZY8-RJTIlNmJbIV-TDJWBp-e4BDfGA76M1g9hB6DXg6WSP8hI7f57vXsIPh9BZ1jRCFKZ6C4I3JAYQcy-5QZKWfOpNTJmp8Y25KuDHudpp7YFdqf7ERUfJz8rRVojtN43OoDL8KtDHsnEFlQaTFB2_oM8FfJAYZlkTTi8iQ75lNBYRdBg8AHCO-6OAtd5Qx9o8yIeZpTspTUQuqtqoOhaPuFr0obgpczN-ZfK2yNOrrEprxXw1aLIzaFhptfMjD-TINSk-4HNRdpQs2tq7jeEtZRCf-pv1P1UYUGvUu0bfn7Du8cktZWqcJVSXfrc3Ska3Lid_PSOj5cPUFtbw8BTPuY-wdCLHvk4odyVmkp40fZ9sY9w8yALHlEl5AEqVOhP6buifkEnXAz4jBSe_5x_u3aRyuTb819xsS088s72xL9Ix-TJW4r3rQzuaS5FSkrXeXHJuqwgV2WeuqY-1qqYmYwKilndnSlt0QoTs7g8ORRdi64OZcJGRlnqMiXtLmOjLQrtZrZK0VCU485d7mW1wvK7lO389A9jEexr)
-
-## Métricas
-
-| Tipo de Métrica       | Medida               | Entenda                                                   |
-| -----                 | -----                | -----                                                     | 
-| Produção              | Disponibilidade      | O quão disponível nosso ambiente esta?                    |
-|                       | Tempo de Resposta    | Qual o  nosso tempo de resposta a solicitação?(Request/Response) |
-|                       | Distribuição         | Tempo médio da resposta e a sua distribuição estatística. |
-|                       | Taxa de falha        | Qual a nossa taxa de falhas ao atenter uma requisição?    |
-|                       | Capacidade de Escala | Quantas Requisições conseguimos atender?                  |
-| Codificação           | Frequencia de PR     | Qual a frequencia que mandamos um PR?                     |
-|                       | Mapas de Alteração   | Onde os desenvolvedores estão alterando código?           |
-|                       | Tamanho do Commit    | Qual o tamanho e o dia da semana dos commits?             |
-|                       | Demanda to Produção  | Quanto tempo uma demanda demora para chegar a produção?   |
-| Qualidade             | Bugs por Aplicação   | Qual a quantidade mensal de bugs, encontrados na Aplicação?|
-|                       | Falha de Deploy      | Qual o percentual de Deploys que falharam e exigem intervenção imediata? |
-|                       | Débito Técnico       | Quantas demandas estão exigindo refatoração de código?      |
-|                       | Mean Time do Recovery | Quanto tempo para recuperação de um deploy que falhou?     |
-| Entrega               | Deploy Frequency      | Qual a frequencia que são feitas as entregas em produção ? |
-|                       | Throughput            | Qual a quantidade de itens entregues em produção?          |
-|                       | Eficiencia de Fluxo   | Quanto tempo útil, despendido em um item de trabalho?      |
-|                       | Cycle Time            | Quanto tempo levamos para produzir algo?                   |
