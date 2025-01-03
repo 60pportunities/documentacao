@@ -61,7 +61,7 @@ jobs:
       id: changelog_ci
       with:
         changelog_filename: CHANGELOG.md
-        release_version: $LAST_TAG
+        release_version: "${LAST_TAG}" 
         committer_username: 'HVasconcellos'
         committer_email: 'horacio.vasconcellos@gmail.com'
         config_file: .github/changelogConfig.yml
