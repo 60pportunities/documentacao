@@ -1,3 +1,199 @@
+![](img/equipe-2025.png){width="800" height="500" style="display: block; margin: 0 auto"}
+<p align="justify">A evolução tecnológica trouxe consigo uma constante transformação nas metodologias de desenvolvimento de software.  Desde o tradicional modelo em cascata (Waterfall), com suas etapas sequenciais e rígidas, até as abordagens mais dinâmicas e adaptativas do Agile, as organizações têm buscado formas de superar desafios e garantir entregas mais eficientes e de qualidade. </p>
+
+<p align="justify">No entanto, apesar da adoção de novas metodologias e práticas, muitas empresas ainda enfrentam dificuldades significativas na entrega de projetos de software.  Prazos estendidos, custos elevados, falhas técnicas e desalinhamento com os objetivos do negócio são problemas recorrentes que comprometem o sucesso dos projetos.</p>
+
+Esse cenário levanta questões cruciais: 
+
+- [x] Por que as falhas continuam acontecendo, mesmo com a migração para métodos mais modernos? 
+- [x] Quais são os fatores que persistem em dificultar a execução eficiente de projetos, independentemente da metodologia adotada?
+
+A cultura de uma empresa é basicamente como ela **aproveita as oportunidades e lida com as dificuldades**.
+
+- [x] Equipes tenham boa comunicação e cooperação (Sinceridade, Confiabilidade, Cuidado e Competência);
+- [x] Enfrentar as falhas sem atribuir culpa, comunicar e resolver problemas com mais facilidade, além de descobrir novos caminhos e ter uma melhoria contínua;
+- [x] Implementação de responsabilidades compartilhadas melhora a qualidade dos serviços;
+- [x] OKR Centrais, ao invés de departamentos;
+- [x] Projetos fracassados resultam em investigações (Identifique e entenda os erros sem atribuir culpa);
+- [x] Recompense e incentive novas ideias que promovam a colaboração;
+
+| Dica         | Entenda |
+| -----        | ------  |
+| Sinceridade  | Admitir erros cedo, ser direto com desafios e compartilhar notícias boas e ruins, sem adoçar as últimas. |
+| Confiabilidade | Você faz o que diz que fará, define expectativas realistas e se comunica proativamente por meio de hábitos de atualização regulares. |
+| Cuidado   | Entenda seus objetivos e desafios, ser proativo em ajudá-los a ter sucesso e mostrar empatia quando as coisas ficam difíceis. |
+| Competência | Isso vai além de habilidades técnicas: é sobre entregar valor de negócio, aprender e crescer com feedback e entender o panorama geral. |
+
+??? note "Registro de Auditoria"
+
+     | Registro                                                                                      |      Numero         |
+     | ----------                                                                                    |      -----          |
+     | Adotar ações para Aprimorar Demandas Expressas                                                | RA-2112/     02-A   |
+     | Estoque de Solicitações Demandas expressas                                                    | RA-2112/     02-B-1 |
+     | Adotar ações, relativas ao gerenciamento de incidentes afeto a fila de sistemas corporativos  | RA-2112/     02-C1  |
+     | Projetos do PDTIC                                                                             |      Projeto        |
+
+    ## Histórico CEERPx CESUC
+     - [x] Perda do QUADRO de FUNCIONÁRIOS com o devido conhecimento - **DÉBITO TÉCNICO** e incremento de **BUGS**;
+           - [x] NÃO FIZ e NÃO CONHEÇO;
+    ## Onde esta(áva)mos desperdiçando tempo, falhando nos Prazos ou Bloqueados?
+
+     - [x] William Thomson: "Aquilo que não se pode medir, não se pode melhorar."
+     - [x] Será que? 
+         - [x] Ausência de Engajamento?
+         - [x] WIP desbalanceado?
+         - [x] DÉBITO TÉCNICO?
+         - [x] DIMINUIÇÃO DA FORÇA DE TRABALHO?
+     - [x] O conceito de Projeto esta alinhado?
+         - [x] O gerenciamento de recurso compartilhado - O QUE RECEBÍAMOS PARA DAR UM PRAZO?
+     - [x] Histórico: 
+         - [x] Incidente (Supravizio, OTRS, Outlook, GERENCIA, e TEAMS);
+         - [x] Demanda   (Supravizio, OTRS, Outlook, GERENCIA, TEAMS, PDTIC (PEOPLE ANALYTICS, OPERADOR LOGISTICO, PROVISÃO E REVERSÃO) E ÁREAS INTERNAS (COBAN, BOTs, OLAP/DATA LAKES). 
+     - [x] Ausência de Planejamento
+         - [x] Ferramentas - Supravizio, OTRS, Gitlab, Azure-Devops, TEAMS, Outlook e ÁREAS INTERNAS (COBAN, BOTs, OLAP/DATA  LAKES).
+         - [x] Recursos em outros projetos e NÃO estão sendo vistos?
+     # Como melhorar?
+     - [x] MÉTRICAS DE FLUXO - KANBAN
+       - [x] Quais metas e métricas a utilizar? Fluxo, Codificação,  Qualidade e/ou Produção ?
+       - [x] Peças unificadas do NOC/SOC/Central de Incidentes a Equipe de Sustentação.
+
+    ![](img/auditoria_002.png)
+     
+    - [x] Scrum
+         - [x] Iterativo e Incremental(Definição de Papéis, Cerimônias e Artefato)
+         - [x] Resumimos o Scrum, fizemos um framework CESUC, Treinamento e foco.
+         - [x] Sprints com 2(duas) semanas;
+         - [x] Nenhuma alteração seria realizada, para colocar risco na meta da Sprint;
+     
+    ![](img/auditoria_001.png)
+     
+    | Dica 1                                      | Motivo                                            |
+    | ------                                      | --------                                          |
+    | Integração inadequada de novos membros      | Sem o devido treinamento ou clareza sobre processos, ferramentas ou expectativas                   |
+    | Falta de documentação ou processos claros   | Não tem uma boa documentação ou processos definidos para a integração de novos colaboradores. | 
+    | Falta de acompanhamento e feedback contínuo | Feedback adequado ou acompanhamento no início da jornada. |
+    | Nenhum experiência para manter o legado     | Inexistencia de conhecimento.                    |
+
+??? note "Ciclo de Vida"
+    Tudo o que faz parte do ciclo de vida do aplicativo deve ser verificado no controle de versão.Isso inclui, mas não está limitado a:
+    
+    - [x] Código-fonte;
+    - [x] Scripts de construção;
+    - [x] Definição de pipeline;
+    - [x] Valores de configuração;
+    - [x] Testes e dados de teste;
+    - [x] Esquemas de banco de dados;
+    - [x] Scripts de atualização de banco de dados;
+    - [x] Scripts de definição de infraestrutura;
+    - [x] Scripts de limpeza/instalação/expurgo;
+    - [x] Documentação associada;
+
+    | Sq  |  Melhores práticas | Categoria | Importância |
+    | ----: | :----            | :-----:   | :----:      |
+    |  1  | Todos os ativos do projeto estão no controle de versão | Artefatos | Crítico |
+    |  2  | Um único artefato é produzido para todos os ambientes | Artefatos | Alta |
+    |  3  | Os artefatos se movem dentro dos pipelines (e não nas revisões de origem)| Artefatos | Alta |
+    |  4  | O desenvolvimento do aplicativo acontece com ramificações de curta duração (uma por recurso) | Artefatos | Altura |
+    |  5  | As compilações podem ser executadas em uma única etapa | Compilar | Alta |
+    |  6  | As compilações são rápidas (menos de 5 minutos) | Compilar | Médio |
+    |  7  | Armazene suas dependências | Compilar |Alta |
+    |  8  | Os testes são automatizados | Testes | Alta |
+    |  9  | Os testes são rápidos | Testes | Alta |
+    | 10   | Os testes limpam automaticamente seus efeitos colaterais | Testes | Alta |
+    | 11   | Existem vários conjuntos de testes | Testes | Médio |
+    | 12   | Ambientes de teste sob demanda | Testes | Médio |
+    | 13  | Executando suítes de teste simultaneamente | Teste | Médio |
+    | 14   | A varredura de segurança faz parte do processo | Qualidade e auditoria | Alto |
+    | 15   | A varredura de qualidade/revisões de código fazem parte do processo | Qualidade e auditoria | Médio |
+    | 16   | As atualizações do banco de dados têm seu ciclo de vida | Banco de dados | Alto |
+    | 17   | As atualizações do banco de dados são automatizadas | Banco de dados | Alto |
+    | 18   | As atualizações do banco de dados são compatíveis com versões anteriores e posteriores | Banco de dados | Alto |
+    | 19   | As implantações acontecem por meio de um único caminho (servidor CI/CD) | Implantações | Crítico |
+    | 20   | As implantações acontecem gradualmente em estágios  | Implantações | Alto   |
+    | 21   | Métricas e logs podem detectar uma implantação ruim | Implantações | Alto   |
+    | 22   | Reversões automáticas estão em vigor                | Implantações | Médio  |
+    | 23   | A preparação corresponde à produção                 | Implantações  | Médio |
+
+ 
+??? note "Tudo é Motivação ME vs WE"
+    Conforme a literatura, os pronomes pessoais podem ser classificados como retos ou oblíquos, de acordo com a função que desempenham na oração:
+    Os **retos**, __assumem a função de sujeito ou predicativo do sujeito__, ah já, os **oblíquos**, assumem a função de complementos, como o objeto direto, o objeto indireto, o agente da passiva, o complemento nominal. Mas acabamos com o possessivo, desde que nos interesse.
+    * "Eu" corresponde a "me", "mim", "comigo" - “meu”, “minha”, “meus”, “minhas”.
+    * "Nós" corresponde a "nos", "conosco" - “nosso”, “nossa”, “nossos”, “nossas”.
+
+    Peça as pessoas para classificarem sua concordância em uma escala de 1 a 5 (1 sendo de forma alguma, 5 sendo concordância     completa) com as declarações abaixo:
+    
+    - [x] Na minha equipe, a informação é buscada ativamente.
+    - [x] Na minha equipe, os fracassos são oportunidades de aprendizado, e os mensageiros deles não são punidos.
+    - [x] Na minha equipe, as responsabilidades são compartilhadas.
+    - [x] Na minha equipe, a colaboração multifuncional é incentivada e recompensada.
+    - [x] Na minha equipe, o fracasso gera questionamento.
+    - [x] Na minha equipe, novas ideias são bem-vindas.
+    
+    Tudo começou com um Tesão. 
+    
+    Você só CONQUISTA, aquilo que LUTA, mas você só luta se desejar. Então como convencer depois de 2020?
+    
+    Se você não LUTA, você NÃO CONQUISTA. 
+    
+    Não é pecado você ter uma vida mais Próspera OU não conseguir.
+    
+    Quando você NÃO consegue algo: Você muda a DIREÇÃO ou o CAMINHO ou a JORNADA.
+    
+    Valor esta ligado a **IMPORTÂNCIA + RARIDADE**.
+    
+    - Técnico de Campo é importante? Sim, mas temos RARIDADE?
+    - Cristiano Ronaldo., é importante? Sim. Quantos Cristianos Ronaldos nós conhecemos?
+  
+    <p align="justify">WILLIAM GLASSER - Aplicou sua teoria da escolha para a educação, na qual o professor é um     guia para o aluno e não um chefe. Ele, explica que não se deve trabalhar apenas com memorização, porque a     maioria dos alunos simplesmente esquecem os conceitos após a aula, em vez disso, nós aprendemos efetivamente     fazendo.</p>
+    
+    Segundo a teoria nós aprendemos:
+
+    - [x] 10% quando lemos;
+    - [x] 20% quando ouvimos;
+    - [x] 30% quando observamos;
+    - [x] 50% quando vemos e ouvimos;
+    - [x] 70% quando discutimos com outros;
+    - [x] 80% quando fazemos;
+    - [x] **95%** quando ensinamos aos outros.
+    
+    <div class="center-table" markdown>
+    ```mermaid
+    %%| fig-cap: Mermaid diagram
+    %%| fig-align: center
+    flowchart TD
+        A(Ideal) --> A00(Propósito) & A01(Direção)
+        A00 & A01 --> A02(Como vamos trabalhar</br>Qual a direção</br>Valores, Virtudes</br>Seja um FATOR de SOMA)
+        A02 --> A03(Espírito de Missão</br>EU SEI o que quero construir</br>ESCOLHAS ACERTADAS</br>Direcionamento)
+        A03 --> A04(Vida Interior</br>O MEU IDEAL</br>QUE FIZ NO DIA DE HOJE)
+        A04 --> A05(CULTIVAR A DISCIPLINA</br>A falta do método caos</br>DESORDEM)
+        A05 --> A06(Exercitar a CONCENTRAÇÃO</BR>CORPO E MENTE JUNTOS</BR>TREINE A CONCENTRAÇÃO</br>Tecnica TRATAK)
+    ```
+    </div>
+
+    Trataka é uma técnica de yoga que consiste na fixação ocular para purificar os olhos e a visão. 
+
+??? note "Secure Software Development LifeCycle"
+    Como o nosso processo estava muito falho e desconexo com a realidade: 
+
+    | Objeto       | Novas Tecnologias | Sustentação  | Observação                                  |
+    | ----         | ----              | ----         | ------                                      |
+    | RPA          | TaGui             | ---          | Mais de 150 profissionais treinados.        |
+    | Fluxo        | Camunda e Cawemo  | Supravizio   | Excessp de demanda. Treinamento sem efeito. |
+    | Sistemas     | IBL               | --           | Contratados deslocados para outros serviços.|
+    |              | Prov e Rev        | PL/SQL       | Necessitava de Aprimoramento.               |
+    |              | PowerBI   GESCON  | GESCON       | Par com a área.                             |
+
+
+    - [x] Planejamento e Definição de Requisitos: Histórias de usuário,revisar e definir os requisitos de segurança
+    - [x] Desenvolvimento Contínuo com Feature Branches: Cada nova funcionalidade é desenvolvida/bug em uma branch separada.Ferramentas como SonarQube, Checkmarx ou Bandit podem ser configuradas para rodar a cada commit e identificar vulnerabilidades no código.
+    - [x] Pull Requests (PRs) e Revisão de Código: Análise de segurança, Revisão de práticas de codificação segura, Ferramentas como CodeQL e Snyk.
+    - [x] Testes de Segurança: Testes estáticos (SAST),Testes dinâmicos (DAST), Testes de dependências (SCA): Ferramentas como Snyk ou Dependabot e Testes de desempenho e resiliência; OWASP ZAP, Burp Suite.
+    - [x] Monitoramento contínuo: Utilize ferramentas como SIEM (Security Information and Event Management) para monitorar atividades suspeitas em produção, bem como monitorar logs de segurança. SIEM, SigNoz, Datadog, ELK Stack.
+    - [x] Introdução Jujutsu—a version control system (dois backends para armazenar commits. Um deles usa um repositório Git regular)
+  
+    ![](img/historico-scm.png)
+
 A arquitetura de software é um aspecto crítico do desenvolvimento de software. Envolve a estruturação de sistemas de software de alto nível para atender aos requisitos técnicos e de negócios. 
 
 ??? note "Tipos de Arquitetos"
@@ -11,33 +207,6 @@ A arquitetura de software é um aspecto crítico do desenvolvimento de software.
     | Arquiteto de Dados |  Responsável por gerenciar, traçar estratégias e estruturar a arquitetura de dados da     organização, garantindo a precisão e integridade dos dados.Eles desenvolvem e gerenciam a estratégia,     políticas, padrões e práticas de dados, projetam modelos e estruturas de dados para apoiar as operações de     negócios e garantem a precisão e integridade dos dados em todos os sistemas. |
     | Arquiteto de Segurança | Concentra-se em projetar estruturas de segurança robustas, garantindo que a     arquitetura do domínio esteja protegida contra possíveis ameaças e vulnerabilidades. |
     | Cloud Architect |  Eles são essenciais para facilitar a transição de uma organização para a computação em     nuvem, otimizando soluções em nuvem para desempenho, custo e escalabilidade. Esta função envolve projetar     estratégias de arquitetura em nuvem, desenvolver soluções em nuvem, supervisionar a migração de sistemas para     plataformas em nuvem e gerenciar relacionamentos com provedores de serviços em nuvem. |
-
-<p align="justify">WILLIAM GLASSER - Aplicou sua teoria da escolha para a educação, na qual o professor é um guia para o aluno e não um chefe. Ele, explica que não se deve trabalhar apenas com memorização, porque a maioria dos alunos simplesmente esquecem os conceitos após a aula, em vez disso, nós aprendemos efetivamente fazendo.</p>
-
-Segundo a teoria nós aprendemos:
-<div class="mdx-columns2" markdown>
-- [x] 10% quando lemos;
-- [x] 20% quando ouvimos;
-- [x] 30% quando observamos;
-- [x] 50% quando vemos e ouvimos;
-- [x] 70% quando discutimos com outros;
-- [x] 80% quando fazemos;
-- [x] **95%** quando ensinamos aos outros.
-</div>
-
-<div class="center-table" markdown>
-```mermaid
-%%| fig-cap: Mermaid diagram
-%%| fig-align: center
-flowchart TD
-    A(Ideal) --> A00(Propósito) & A01(Direção)
-    A00 & A01 --> A02(Como vamos trabalhar</br>Qual a direção</br>Valores, Virtudes</br>Seja um FATOR de SOMA)
-    A02 --> A03(Espírito de Missão</br>EU SEI o que quero construir</br>ESCOLHAS ACERTADAS</br>Direcionamento)
-    A03 --> A04(Vida Interior</br>O MEU IDEAL</br>QUE FIZ NO DIA DE HOJE)
-    A04 --> A05(CULTIVAR A DISCIPLINA</br>A falta do método caos</br>DESORDEM)
-    A05 --> A06(Exercitar a CONCENTRAÇÃO</BR>CORPO E MENTE JUNTOS</BR>TREINE A CONCENTRAÇÃO</br>Tecnica TRATAK)
-```
-</div>
 
 ## Por fim: Sejamos a pior **EQUIPE DE DESENVOLVIMENTO**
 ![](img/60opt-design-sprint-inicial.png){width="900" height="500" style="display: block; margin: 0 auto"}
@@ -60,8 +229,8 @@ flowchart TD
       - [x] Webhook, Gráficos e Abertura de Tickets;
       - [x] PowerBI para acompanhamento;
       - [x] Uniformizar os Projetos;
-      - [ ] Estratégia de Branches;
-      - [ ] Estratégia de Documentação;
+      - [x] Estratégia de Branches;
+      - [x] Estratégia de Documentação;
       - [x] Planejar por Equipes e não por indivíduos;
       - [x] Capacitação e Amarração de Pessoas a Produtos;
       - [x] Treinador;
@@ -113,76 +282,6 @@ flowchart TD
     |                             | - Substituir pessoas em vez de adicioná-las; |
     |                             | - Delegar trabalho já delimitado para as novas pessoas; |
 
-??? note "Livros"
-
-    === "**O Programador Apaixonado**"
-        - Chad Fowler
-
-    === "**Código Limpo**"
-        - Habilidades Práticas do Agile Software - Robert C. Martin
-
-    === "**Arquitetura Limpa**"
-        - O Guia do Artesão Para Estrutura e Design de Software - Robert C. Martin
-
-    === "**Desenvolvimento ágil Limpo**"
-        - De Volta às Origens: Robert C. Martin
-
-    === "**Craftsmanship Limpo**"
-        - Disciplinas, Padrões e ética**: Robert C. Martin e Cibelle Roberta Marques Ravaglia
-
-    === "**Software Productivity**"
-        - Harlan D. Mills
-        1. In Retrospect
-        2. Search for an Easier, Simpler Way (1968)
-        3. The Iterative IF as a Primitive Instruction (1967)
-        4. Programmer Productivity Through Individual Responsibility (1968)
-        5. The Case Against GO TO Statements in PL/ 1 (1969)
-        6. A. The New York Times Thesaurus of Descriptors (1969) e B. A Structural Description of The New York Times Thesaurus of Descriptors (1969)
-        7. Measurements of Program Complexity (1969)
-        8. Chief Programmer Teams: Techniques and Procedures (1970)
-        9. On the Statistical Validation of Computer Programs (1970)
-        10. OS/ 360 Programming (1970)
-        11. Top Down Programming in Large Systems (1970)
-        12. Programming Techniques: From Private Art to Public Practice (1970)
-        13. Mathematical Foundations for Structured Programming (1972)
-        14. Reading Programs as a Managerial Activity (1972)
-        15. How to Buy Quality Software (1974)
-        16. How to Write Correct Programs and Know It (1975)
-        17. The New Math of Computer Programming (1975)
-        18. Software Development (1976)
-        19. Software Engineering Education (1980)
-        20. Software Productivity in the Enterprise (1981)
-
-    === "**Sprint**"
-        - O método usado no Google para testar e aplicar novas ideias em apenas cinco dias - Jake Knapp (Autor), John Zeratsky, Braden Kowitz, Andrea Gottlieb de Castro Neves
-
-    === "**Accelerate**"
-        - The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations - by Nicole Forsgren PhD (Author), Jez Humble (Author)
-
-    === "**Team Topologies**"
-        - Organizing Business and Technology Teams for Fast Flow  -  por Matthew Skelton, Manuel Pais, Ruth Malan;
-
-    === "**A coragem de ser Imperfeito**"
-        - Como aceitar a própria vulnerabilidade, vencer a vergonha e ousar ser quem você é - Brené Brown
-
-    === "**A arte da imperfeição**"
-        - Abandone a pessoa que você acha que deve ser e seja você mesmo - Brené Brown
-
-    === "**The Mythical Man-Month**"
-        - Essays on Software Engineering -  Frederick P. Brooks Jr.
-
-    === "**The Cathedral & the Bazaar**"
-        - Musings on Linux and Open Source by an Accidental Revolutionary  - Eric S. Raymond;
-
-    === "**Scrum**"
-        - A arte de fazer o dobro do trabalho na metade do tempo**: Jeff Sutherland
-
-    === "**The Scrum Anti-Patterns Guide**"
-        -  Challenges Every Scrum Team Faces and How to Overcome Them**: Stefan Wolpers
-
-    === "**[noprojects](https://noprojects.org/)**"
-        - Evan Leybourn & Shane Hastie
-
 ## Supravizio
 ```mermaid
 flowchart LR
@@ -225,7 +324,15 @@ flowchart LR
 ## GitLab
 <p align="justify">É um gerenciador de repositório de software baseado em git, com suporte a Wiki, gerenciamento de tarefas e CI/CD. Similar ao GitHub, mas o GitLab permite que os desenvolvedores armazenem o código em seus próprios servidores, ao invés da nuvem.</p>
 
-??? note "Comparação realizada na época"
+# Análise
+- [x] Nenhuma norma da série de desenvolvimento estava sendo seguida;
+- [x] Nenhuma norma de Dados, estavam sendo seguidas;
+- [x] Não havia uniformização das áreas;
+- [x] Documentos, Códigos espalhados..
+ 
+![](img/o-tempo-001.jpg){width="900" height="500" style="display: block; margin: 0 auto"}
+
+??? note "Análise da época"
 
     === "Togaf/It4It"
 
@@ -260,6 +367,8 @@ flowchart LR
         | **Ideal para**                     | Sites de documentação, blogs simples  | Blogs, portfólios, sites grandes          e dinâmicos |
 
     === "Branch"
+        Os repositórios do GitHub devem estar limitados aos arquivos necessários para criar projetos (Evite fazer commit de arquivos binários grandes, como artefatos de compilação).
+        E se mesmo assim deseja faze-lo, considere usar a extensão Git LFS (Armazenamento de Arquivos Grandes) do Git.
         Escolher a melhor forma de fazer o **branching** do projeto pode mudar o modo que entregamos o produto final e todo o caminho até a finalização.
      
         | *Estratégia*         | *Descrição*                                                                                             | *Uso Principal*                                                                                  | *Principais Branches*           | *Vantagens*                                                                                     | *Desvantagens*                                                                                 |
@@ -330,6 +439,138 @@ flowchart LR
         | **Git Submodules**      | Recurso do Git para gerenciar dependências de código entre repositórios | Uso de submódulos Git para organizar projetos independentes no mesmo repositório |
         | **Pants**               | Ferramenta de build e gerenciamento de Monorepo                   | Build de código, gerenciamento de dependências e testes para várias linguagens |
         | **MonoRepo**            | Ferramenta simples para gerenciamento de múltiplos repositórios | Configuração simples de CI/CD e automação de tarefas repetitivas       |
+
+    === "Solicitações Pull Request"
+        <p align="justify">Escrever boas descrições de solicitações pull request é uma ótima maneira de ajudar os revisores a saber o que esperar ao revisar o código e documentações obrigatórias. Um modelo de solicitação pull é um arquivo contendo texto Markdown que é adicionado à descrição da solicitação pull quando a solicitação pull é criada. O Azure Repos permite criar diversos tipos de templates, porem iremos utilizar Modelos de pull request para específicas branches.Os modelos de solicitação pull específicos de ramificação podem ser configurados para solicitações pull direcionadas a uma ramificação específica, ```<repositoryroot>/.azuredevops/pull_request_template/branches/```, como exemplo foram criados:</p>
+
+        | Arquivo                  | Branch    | Entenda                                                                                               |
+        | -------                  | ------    | -------                                                                                               |
+        | develop.md               | develop   | Este é normalmente o modelo padrão, mas pode ser substituido pelo modelo específico - nome da branch. |
+        | additional.md            | -         | Este é um modelo adicional.                                                                           |
+        | main.md                  | main      | Este é o modelo específico do branch main.                                                            |
+        | wip.md                   | wip/xxxxx | Work in Progress acordado.                                                                            |
+        | wit.md                   | wit/xxxxx | Item de trabalho finalizado.        |
+
+    === "Pipeline"
+        A ideia é automatizar o processo de análise de segurança, revisão de dependências, verificação do código, e testes para garantir que o código está seguro, funcional e sem regressões.
+
+        === "Configuração Inicial do Workflow"
+            O arquivo do workflow deve ser configurado na pasta .github/workflows. Aqui, você define quando o fluxo será acionado, como em push para branches específicas, pull requests, entre outros.
+
+        === "Job de Setup Inicial"
+            A primeira etapa do fluxo é configurar o ambiente de execução, como a versão do Node.js, Python, ou qualquer outra dependência necessária para o seu projeto.
+
+        === "GitHub Security Scan (Dependabot)"
+             O Dependabot é uma ferramenta que verifica e sugere atualizações para dependências de segurança. Ele já pode ser configurado diretamente no GitHub por meio do arquivo dependabot.yml, mas aqui também é possível integrá-lo em um fluxo de CI/CD para garantir que as dependências não tenham vulnerabilidades.
+             Dependabot pode ser configurado automaticamente pelo GitHub para executar varreduras de segurança, mas também podemos integrá-lo ao workflow para alertar em caso de dependências inseguras.
+
+        === "Code Scan"
+            O Code Scanning do GitHub realiza uma análise estática do código para identificar possíveis vulnerabilidades. Podemos configurar essa análise diretamente em uma ação.
+
+        === "DAST (Dynamic Application Security Testing)"
+            O DAST é um teste de segurança dinâmico que verifica o comportamento da aplicação em tempo de execução, em busca de vulnerabilidades como injeção de SQL, XSS, entre outras. Essa abordagem é tipicamente feita com ferramentas como OWASP ZAP, Burp Suite, ou outras soluções de segurança.
+            Aqui, podemos integrar o OWASP ZAP diretamente no GitHub Actions para realizar o DAST.
+            Essa ação executa o OWASP ZAP para testar vulnerabilidades de segurança em sua aplicação enquanto ela está rodando.
+
+        === "Testes Unitários"
+            Os testes unitários são fundamentais para garantir que cada unidade do código se comporte corretamente. Aqui, vamos rodar os testes utilizando o framework apropriado (Jest, PyTest, etc.).
+
+        === "Testes de Regressão"
+            Os testes de regressão verificam se o código novo não quebrou funcionalidades existentes. Dependendo da sua stack, você pode ter testes automatizados (ex: Selenium para testes de UI) ou rodar o mesmo conjunto de testes unitários.
+
+        === "Notificações e Relatórios"
+            Para que o time seja notificado de falhas ou vulnerabilidades, você pode integrar notificações através de Slack, e-mail ou criar relatórios com o GitHub Pages ou SonarCloud.
+            ```
+              name: DevSecOps
+              author: Horacio Vasconcellos
+              description: Segurança e Qualidade de Código
+              on:
+                push:
+                  branches:
+                    - main
+                    - sprint
+                pull_request:
+                  branches:
+                    - main
+                    - sprint
+                schedule:
+                  - cron: '0 0 * * 0'
+              
+              jobs:
+                setup:
+                  runs-on: ubuntu-latest
+                  steps:
+                    - name: Checkout repository
+                      uses: actions/checkout@v4
+                    - name: Set up Node.js
+                      uses: actions/setup-node@v2
+                      with:
+                        node-version: '16'
+                    - name: Install dependencies
+                      run: npm install
+              
+                security_scan:
+                  runs-on: ubuntu-latest
+                  steps:
+                    - name: Checkout repository
+                      uses: actions/checkout@v2
+                    - name: Run GitHub Security Scans (Dependabot)
+                      uses: github/super-linter@v4
+                      env:
+                        RUN_LOCAL: true
+              
+                code_scan:
+                  runs-on: ubuntu-latest
+                  steps:
+                    - name: Checkout repository
+                      uses: actions/checkout@v2
+                    - name: Set up CodeQL Analysis
+                      uses: github/codeql-action/init@v2
+                      with:
+                        languages: 'python, javascript'
+                    - name: Run CodeQL Analysis
+                      uses: github/codeql-action/analyze@v2
+              
+                dast:
+                  runs-on: ubuntu-latest
+                  steps:
+                    - name: Checkout repository
+                      uses: actions/checkout@v2
+                    - name: Run OWASP ZAP DAST Scan
+                      uses: zaproxy/action-full-scan@v0.7.0
+                      with:
+                        target: 'http://localhost:3000'
+              
+                unit_tests:
+                  runs-on: ubuntu-latest
+                  steps:
+                    - name: Checkout repository
+                      uses: actions/checkout@v2
+                    - name: Run unit tests
+                      run: npm run test
+              
+                regression_tests:
+                  runs-on: ubuntu-latest
+                  steps:
+                    - name: Checkout repository
+                      uses: actions/checkout@v2
+                    - name: Run regression tests
+                      run: npm run test -- --regression
+              
+                notifications:
+                  runs-on: ubuntu-latest
+                  steps:
+                    - name: Checkout repository
+                      uses: actions/checkout@v2
+                    - name: Send Slack notification on failure
+                      if: failure()
+                      uses: slackapi/slack-github-action@v1
+                      with:
+                        payload: '{"text": "Falha no pipeline de CI/CD! Verifique os logs para mais detalhes."}'
+                      env:
+                        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+
+            ```        
 
 ## Estrutura do Banco de Dados Oracle
 <p align="justify">Padronizar System Identifier, ServiceName, DBName e DB Unique Name é crucial paragarantir consistência, facilidade de gerenciamento e integração entre sistemas em ambientes corporativos.A padronização desses elementos facilita a automação de processos, como backup, recuperação emonitoramento, minimizando erros humanos e garantindo que os serviços de banco de dados sejam acessíveisde maneira uniforme. A uniformidade também contribui para uma gestão mais eficiente, especialmente em ambientes complexos e de grande escala.</p>
@@ -649,7 +890,6 @@ Observação: Quando NÃO informado o db-pool, o ORDS efetuará o DB-POOL - DEFA
 * `http://horaciovasconcellos.com.br:8020/ords/apps/dominio/?q={%22lookup_type%22:%20{%22$eq%22:%20%22AMPLEG%22}}&limit=5&offset=3`
 * `http://horaciovasconcellos.com.br:8020/ords/apps/dominio/?q={%22lookup_type%22:%22AMPLEG%22,%22meaning%22:{%22$instr%22:%2274,%20III,%20d%22}}`
 
-
 ## Início Básico
 ![](img/pipeline-basica-simples.png)
 
@@ -723,27 +963,33 @@ Observação: Quando NÃO informado o db-pool, o ORDS efetuará o DB-POOL - DEFA
       - [x] Início da atividade estava defasada da data de início impostada;
 - [x] Portal de Colaboração parecido com o InnerSource;
 
-??? example "Algumas Metas e Métricas"
+??? note "Algumas Metas e Métricas"
 
-    | Tipo de Métrica       | Medida               | Entenda                                                   |
-    | -----                 | -----                | -----                                                     | 
-    | Produção              | Disponibilidade      | O quão disponível nosso ambiente esta?                    |
-    |                       | Tempo de Resposta    | Qual o  nosso tempo de resposta a solicitação?(Request/    Response) |
-    |                       | Distribuição         | Tempo médio da resposta e a sua distribuição estatística. |
-    |                       | Taxa de falha        | Qual a nossa taxa de falhas ao atenter uma requisição?    |
-    |                       | Capacidade de Escala | Quantas Requisições conseguimos atender?                  |
-    | Codificação           | Frequencia de PR     | Qual a frequencia que mandamos um PR?                     |
-    |                       | Mapas de Alteração   | Onde os desenvolvedores estão alterando código?           |
-    |                       | Tamanho do Commit    | Qual o tamanho e o dia da semana dos commits?             |
-    |                       | Demanda to Produção  | Quanto tempo uma demanda demora para chegar a produção?   |
-    | Qualidade             | Bugs por Aplicação   | Qual a quantidade mensal de bugs, encontrados na Aplicação?|
-    |                       | Falha de Deploy      | Qual o percentual de Deploys que falharam e exigem intervenção     imediata? |
-    |                       | Débito Técnico       | Quantas demandas estão exigindo refatoração de código?      |
-    |                       | Mean Time do Recovery | Quanto tempo para recuperação de um deploy que falhou?     |
-    | Entrega               | Deploy Frequency      | Qual a frequencia que são feitas as entregas em produção ? |
-    |                       | Throughput            | Qual a quantidade de itens entregues em produção?          |
-    |                       | Eficiencia de Fluxo   | Quanto tempo útil, despendido em um item de trabalho?      |
-    |                       | Cycle Time            | Quanto tempo levamos para produzir algo?                   |
+    |  Tipo de Métrica |  Medida |  Entenda  |
+    |  ----- |  ----- |  -----  |
+    | | Lead Time| É o tempo total desde o momento em que uma solicitação ou requisito é identificado até a sua entrega ao cliente. |
+    | Fluxo| Cycle Time (Tempo de Ciclo)| É o tempo que uma tarefa leva desde o início do trabalho (por exemplo, quando entra no status "Em Progresso") até sua conclusão, por card. |
+    |  | Throughput | É o número de itens de trabalho concluídos em um período específico (Projetos, Demanda Expressa e Correção de Bugs). |
+    |  | Trabalho em Progresso - WIP |  É a quantidade de trabalho que está em andamento em um determinado momento.  |
+    |  | Flow Efficiency (Eficiência do Fluxo)| É a porcentagem de tempo em que um item está em trabalho ativo (em vez de aguardando ou em espera) ao longo do seu ciclo. |
+    | |  Tempo Bloqueado |  É o tempo que um item de trabalho fica bloqueado, sem progresso, devido a impedimentos.  |
+    | |  Deploy Frequency |  Qual a frequencia que são feitas as entregas em produção ?  |
+    | | |  |
+    |  Codificação |  Frequencia de PR |  Qual a frequencia que mandamos um PR?  |
+    |  |  Mapas de Alteração |  Onde os desenvolvedores estão alterando código?  |
+    |  |  Tamanho do Commit |  Qual o tamanho e o dia da semana dos commits?  |
+    |  |  Demanda to Produção |  Quanto tempo uma demanda demora para chegar a produção?  |
+    | | |  |
+    |  Qualidade |  Bugs por Aplicação |  Qual a quantidade mensal de bugs, encontrados na Aplicação? |
+    |  |  Falha de Deploy |  Qual o percentual de Deploys que falharam e exigem intervenção imediata?  |
+    |  |  Débito Técnico |  Quantas demandas estão exigindo refatoração de código?  |
+    |  |  Mean Time do Recovery |  Quanto tempo para recuperação de um deploy que falhou?  |
+    | | |  |
+    |  Produção |  Disponibilidade |  O quão disponível nosso ambiente esta?  |
+    |  |  Tempo de Resposta |  Qual o nosso tempo de resposta a solicitação?(Request/ Response)  |
+    |  |  Distribuição |  Tempo médio da resposta e a sua distribuição estatística.  |
+    |  |  Taxa de falha |  Qual a nossa taxa de falhas ao atenter uma requisição?  |
+    |  |  Capacidade de Escala |  Quantas Requisições conseguimos atender?  |
 
 ## Finalizando
 <p align="justify">Medir a produtividade do desenvolvimento de software é um tópico delicado e, como tal,decisões de cima para baixo podem facilmente causar alguma controvérsia. 
@@ -775,3 +1021,542 @@ O que fazer quando um projeto de software essencial está atrasado?
 - [x] Brooks enfatiza que construir protótipos é essencial para compreender verdadeiramente os requisitosde um projeto.
 - [x] Muitos projetos falham porque subestimam a complexidade envolvida. o planejamento deve incluir nãoapenas o desenvolvimento, mas também o tempo para testes e ajustes.
 - [x] Ele defende a criação de um ambiente onde a equipe se sinta segura para experimentar e errar, poisé através desses erros que surgem as inovações mais significativas.
+
+# **Modelo** Ron **Westrum**
+“A cultura come a estratégia no café da manhã” - Peter Drucker,
+
+São as pessoas que executam sua estratégia e é por meio delas que ela terá sucesso ou falhará.
+Uma organização é construída de relacionamentos entre pessoas (mais alguns processos e software) e as pessoas criam cultura. 
+
+De fato, o primeiro passo em uma jornada inteligente para construir segurança psicológica é frequentemente declarar sua meta e pedir ajuda para chegar lá.
+
+As Tipologias de Westrum apareceram posteriormente no livro “Accelerate” de Nicole Forsgren em 2018, onde ela conseguiu mostrar que culturas generativas estavam associadas a um melhor desempenho na entrega de software (as quatro  Métricas Accelerate ) e outras capacidades organizacionais para aprendizagem.
+
+| 0-10: Patológico	         | 10-20: Burocrático	            | 20-30: Generativo |
+| ----                       | ----                           | ----              |
+| Orientado para o poder     | Orientado a regras	            | Orientado para o desempenho |
+| Baixa cooperação	         | Cooperação modesta	            | Alta cooperação  |
+| Mensageiros “dispararam”   | Mensageiros negligenciados	    | Mensageiros treinados |
+| Responsabilidades evitadas | Responsabilidades limitadas	  | Os riscos são compartilhados |
+| Ponte desencorajada	       | Ponte tolerada	                | A ponte é encorajada |
+| O fracasso leva à procura de bodes expiatórios	| O fracasso leva à justiça	| O fracasso leva à investigação | 
+| Novidade esmagada	         | A novidade leva a problemas	| Novidade implementada |
+
+- [x] Equipes inclusivas com uma cultura generativa sofreram menos esgotamento durante a pandemia de COVID-19;
+- [x] Confiança, empatia e segurança psicológica são necessárias para estabelecer uma cultura colaborativa;
+- [ ] Os desenvolvedores veem um aumento de produtividade de cerca de 50% quando a documentação está atualizada e confiável
+- [x] “A tinta mais clara é melhor que a melhor lembrança.”
+- [ ] Uma boa automação ajuda as equipes a se comunicarem melhor e com mais clareza;
+- [ ] Os desenvolvedores têm quase 60% mais chances de se sentirem preparados para fazer seu trabalho quando conseguem encontrar facilmente o que precisam.
+
+## Taxonomia de Bloom
+É uma ferramenta essencial no planejamento educacional, pois organiza os objetivos de aprendizagem em níveis hierárquicos que vão desde o conhecimento básico até habilidades complexas de pensamento crítico. 
+
+![](img/taxonomia-bloom.jpeg)
+
+# Innersource com o TIME
+- [x] Maior colaboração: Incentive as equipes a colaborar dentro da sua organização usando os mesmos processos e práticas das comunidades de código aberto;
+- [ ] Quebrando Silos: Colaboração simplificada entre equipes, compartilhamento de conhecimento, reutilização de código aprimorada e fluxos de trabalho seguros;
+- [x] Maior satisfação do desenvolvedor: Aproveitar práticas de código interno e de código aberto aumenta a
+satisfação dos desenvolvedores, permitindo que trabalhem em projetos interessantes e aumentem suas habilidades.
+
+# Segurança
+- [x] Revisão integrada de dependências, fornece alertas e atualizações de segurança;
+- [x] Estrutura extensível para escaneamento de código integrado ao fluxo de trabalho do desenvolvedor. Apoiado pelo mecanismo CodeQL
+- [x] Verificação de segredos vazados em repositórios públicos e privados, parceria com mais de 45 provedores
+- [x] Pré-commit, Sast, Dast, Monitoramento contínuo.
+
+
+??? note "Livros"
+
+    === "Dockerfile PHP"
+
+        ```
+        Dockerfile na raiz do projeto. Um exemplo poderia ser:
+        FROM h768
+        # Configuração do ambiente PHP
+        WORKDIR /var/www/html
+        COPY . .
+        # Instalação das dependências
+        RUN composer install
+        CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
+        ```
+
+    === "Action Node"
+
+        ```
+         name: PHP SDLC Pipeline
+         
+         on:
+           push:
+             branches:
+               - main
+           pull_request:
+         
+         jobs:
+           sdlc_pipeline:
+             name: SDLC Pipeline
+             runs-on: ubuntu-latest
+         
+             steps:
+               # 1. Checkout do código
+               - name: Checkout Code
+                 uses: actions/checkout@v3
+         
+               # 2. Build: Construir a aplicação com a imagem Docker ⁠ h768 ⁠
+               - name: Build Application
+                 run: |
+                   docker build -t php-app:h768 .
+         
+               # 3. Test: Executar testes
+               - name: Run Tests
+                 run: |
+                   docker run --rm php-app:h768 sh -c "composer install && php artisan test"
+         
+               # 4. Scan: Verificar segurança
+               - name: Security Scan
+                 uses: aquasecurity/trivy-action@v0.11.0
+                 with:
+                   image-ref: php-app:h768
+                   format: table
+         
+               # 5. Deploy: Deploy da aplicação
+               - name: Deploy Application
+                 env:
+                   ENVIRONMENT: production
+                 run: |
+                   echo "Deploying to $ENVIRONMENT"
+                   docker run --rm php-app:h768 sh -c "php artisan migrate --force && php artisan deploy"
+
+
+        ```
+
+    === "Dockerfile Node"
+
+        ```
+
+        ```
+  
+    === "Actions Node"
+
+        ```
+        name: SDLC Pipeline
+        
+        on:
+          push:
+            branches:
+              - main
+          pull_request:
+        
+        jobs:
+          sdlc_pipeline:
+            name: SDLC Stages
+            runs-on: ubuntu-latest
+        
+            steps:
+              # 1. Checkout o código do repositório
+              - name: Checkout Code
+                uses: actions/checkout@v3
+        
+              # 2. Usar uma imagem Docker customizada
+              - name: Set Up Docker
+                uses: docker/setup-buildx-action@v2
+        
+              # 3. Build: Construir a aplicação
+              - name: Build Application
+                run: |
+                  docker build -t my-app:latest .
+        
+              # 4. Test: Rodar testes
+              - name: Run Tests
+                run: |
+                  docker run --rm my-app:latest sh -c "npm install && npm test"
+        
+              # 5. Scan: Analisar vulnerabilidades de segurança
+              - name: Security Scan
+                uses: aquasecurity/trivy-action@v0.11.0
+                with:
+                  image-ref: my-app:latest
+                  format: table
+        
+              # 6. Deploy: Publicar a aplicação (exemplo de deploy básico)
+              - name: Deploy to Environment
+                env:
+                  ENVIRONMENT: production
+                run: |
+                  echo "Starting deployment to $ENVIRONMENT"
+                  docker run --rm my-app:latest sh -c "npm run deploy"
+        ```
+
+        ```
+         FROM eclipse-temurin:latest
+         COPY java-in-the-can-0.0.1-SNAPSHOT.jar /app.jar
+         EXPOSE 8080
+         CMD ["java", "-jar", "/app.jar"]
+        ```
+
+???+ note "Livros"
+
+    === "**O Programador Apaixonado**"
+        - Chad Fowler
+
+    === "**Código Limpo**"
+        - Habilidades Práticas do Agile Software - Robert C. Martin
+
+    === "**Arquitetura Limpa**"
+        - O Guia do Artesão Para Estrutura e Design de Software - Robert C. Martin
+
+    === "**Desenvolvimento ágil Limpo**"
+        - De Volta às Origens: Robert C. Martin
+
+    === "**Craftsmanship Limpo**"
+        - Disciplinas, Padrões e ética**: Robert C. Martin e Cibelle Roberta Marques Ravaglia
+
+    === "**Software Productivity**"
+        - Harlan D. Mills
+        1. In Retrospect
+        2. Search for an Easier, Simpler Way (1968)
+        3. The Iterative IF as a Primitive Instruction (1967)
+        4. Programmer Productivity Through Individual Responsibility (1968)
+        5. The Case Against GO TO Statements in PL/ 1 (1969)
+        6. A. The New York Times Thesaurus of Descriptors (1969) e B. A Structural Description of The New York Times Thesaurus of Descriptors (1969)
+        7. Measurements of Program Complexity (1969)
+        8. Chief Programmer Teams: Techniques and Procedures (1970)
+        9. On the Statistical Validation of Computer Programs (1970)
+        10. OS/ 360 Programming (1970)
+        11. Top Down Programming in Large Systems (1970)
+        12. Programming Techniques: From Private Art to Public Practice (1970)
+        13. Mathematical Foundations for Structured Programming (1972)
+        14. Reading Programs as a Managerial Activity (1972)
+        15. How to Buy Quality Software (1974)
+        16. How to Write Correct Programs and Know It (1975)
+        17. The New Math of Computer Programming (1975)
+        18. Software Development (1976)
+        19. Software Engineering Education (1980)
+        20. Software Productivity in the Enterprise (1981)
+
+    === "**Sprint**"
+        - O método usado no Google para testar e aplicar novas ideias em apenas cinco dias - Jake Knapp (Autor), John Zeratsky, Braden Kowitz, Andrea Gottlieb de Castro Neves
+
+    === "**Accelerate**"
+        - The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations - by Nicole Forsgren PhD (Author), Jez Humble (Author)
+
+    === "**Team Topologies**"
+        - Organizing Business and Technology Teams for Fast Flow  -  por Matthew Skelton, Manuel Pais, Ruth Malan;
+
+    === "**A coragem de ser Imperfeito**"
+        - Como aceitar a própria vulnerabilidade, vencer a vergonha e ousar ser quem você é - Brené Brown
+
+    === "**A arte da imperfeição**"
+        - Abandone a pessoa que você acha que deve ser e seja você mesmo - Brené Brown
+
+    === "**The Mythical Man-Month**"
+        - Essays on Software Engineering -  Frederick P. Brooks Jr.
+
+    === "**The Cathedral & the Bazaar**"
+        - Musings on Linux and Open Source by an Accidental Revolutionary  - Eric S. Raymond;
+        - O estilo de Linus Torvalds de desenvolvimento -- libere cedo e freqüentemente, delegue tudo que você possa, esteja aberto ao ponto da promiscuidade.
+        - Tratar seus usuários como co-desenvolvedores é seu caminho mais fácil para uma melhora do código e depuração eficaz.
+        -  Liberece cedo. Libere freqüentemente. E ouça seus fregueses.
+
+    === "**Scrum**"
+        - A arte de fazer o dobro do trabalho na metade do tempo**: Jeff Sutherland
+
+    === "**The Scrum Anti-Patterns Guide**"
+        -  Challenges Every Scrum Team Faces and How to Overcome Them**: Stefan Wolpers
+
+    === "**[noprojects](https://noprojects.org/)**"
+        - Evan Leybourn & Shane Hastie
+
+    === "C4 Model"
+        - Simon Brown
+  
+    === "Devops"
+        - Caixa de Ferramentas - Gleicon Moraes
+
+    === "Git Flow"
+        - https://nvie.com/posts/a-successful-git-branching-model/
+        - Se sua equipe está fazendo entrega contínua de software, eu sugeriria adotar um fluxo de trabalho muito mais simples (como o GitHub flow ) em vez de tentar calçar o git-flow em sua equipe.
+
+    === "A perfeição é inimiga do pronto" 
+        - https://basecamp.com/gettingreal
+        - 
+brew install prettier
+brew install commitlint
+brew install eslint
+npm install --save-dev jest
+
+snyk
+
+Jest is a delightful JavaScript Testing Framework with a focus on simplicity. It works with projects using: Babel, TypeScript, Node, React, Angular, Vue and more!
+
+
+
+
+
+O objetivo final é que qualquer pessoa possa verificar tudo o que se relaciona a um aplicativo e recriá-lo localmente ou em qualquer outro ambiente alternativo.
+Um antipadrão comum que vemos são implantações acontecendo com um script especial que está disponível apenas em uma máquina específica ou na estação de trabalho de um membro específico da equipe, ou mesmo um anexo em uma página wiki, e assim por diante.
+
+O controle de versão também significa que todos esses recursos são auditados e têm um histórico detalhado de todas as alterações. Se você quiser ver como o aplicativo parecia 6 meses atrás, você pode facilmente usar os recursos do seu sistema de controle de versão para obter essas informações.
+
+
+Observe que, embora todos esses recursos devam ser controlados por versão, eles não precisam estar no mesmo repositório. Se você usa vários repositórios ou um único, é uma decisão que precisa de consideração cuidadosa e não tem uma resposta definitiva. A parte importante, no entanto, é garantir que tudo seja realmente controlado por versão.
+Embora o GitOps seja a prática emergente de usar operações do Git para promoções e implantações, você não precisa seguir o GitOps especificamente para seguir esta prática recomendada. Ter informações históricas e de auditoria para seus ativos de projeto é sempre uma coisa boa, independentemente do paradigma de software real que você segue.
+
+Melhor prática 2
+Um único artefato é produzido para todos os ambientes
+Uma das principais funcionalidades de um pipeline de CI/CD é verificar se um novo recurso é adequado para implantação na produção. Isso acontece gradualmente, pois cada etapa em um pipeline está essencialmente realizando verificações adicionais para esse recurso.
+Para que esse paradigma funcione, no entanto, você precisa ter certeza de que o que está sendo testado e estimulado dentro de um pipeline também é a mesma coisa que é implantada. Na prática, isso significa que um recurso/lançamento deve ser empacotado uma vez e implantado em todos os ambientes sucessivos da mesma maneira.
+
+Source Code -Build-> QA(Artifact from hash 5d23f) --Promotion--> Stage(Same artifact) --Promotion--> Prod (Same artifact) 
+
+
+Infelizmente, muitas organizações caem na armadilha comum de criar artefatos diferentes para ambientes dev/staging/prod porque não adotaram uma infraestrutura comum para configuração. Isso implica que elas implantam uma versão ligeiramente diferente do que foi testado durante o pipeline. Discrepâncias de configuração e alterações de última hora são alguns dos maiores culpados quando se trata de implantações com falha, e ter um pacote diferente por ambiente agrava esse problema.
+
+QA
+Stage
+Artifact from
+hash 5d23f
+Build
+Prod
+Artifact from hash 6sds3f
+Source
+Artifact from
+Build
+Build
+Code
+hash 23f45c
+X Don't
+
+Em vez de criar várias versões por ambiente, a prática aceita é ter um único artefato que apenas altera a configuração entre diferentes ambientes. Com o surgimento dos contêineres e a capacidade de criar um pacote autossuficiente de um aplicativo na forma de imagens Docker, não há desculpa para não seguir essa prática.
+Em relação à configuração, há duas abordagens:
+1. O artefato/contêiner binário tem todas as configurações incorporadas dentro dele e altera a ativa de acordo com o ambiente em execução (fácil de iniciar, mas não muito flexível. Não recomendamos essa abordagem)
+2. O contêiner não tem configuração alguma. Ele busca a configuração necessária durante o tempo de execução sob demanda usando um mecanismo de descoberta, como variáveis ​​ambientais passadas por manifestos do Kubernetes, um banco de dados de chave/valor, um volume de sistema de arquivos, um mecanismo de descoberta de serviço, etc. (a abordagem recomendada)
+
+O resultado é a garantia de que o binário/pacote exato que é implantado na produção é o mesmo que foi testado no pipeline.
+Melhor prática 3
+Artefatos se movem dentro de pipelines (e não revisões de origem)
+Um corolário do ponto anterior (o mesmo artefato/pacote deve ser implantado em todos os ambientes) é o fato de que um artefato de implantação deve ser construído apenas uma vez.
+Todo o conceito em torno de contêineres (e imagens de VM no passado) é ter artefatos imutáveis. Um aplicativo é construído apenas uma vez com o recurso ou recursos mais recentes que serão lançados em breve.
+Depois que esse artefato é construído, ele deve passar de cada etapa do pipeline para a próxima como uma entidade inalterada. Os contêineres são o veículo perfeito para essa imutabilidade, pois permitem que você crie uma imagem apenas uma vez (no início do pipeline) e a promova para a produção com cada etapa sucessiva do pipeline.
+
+
+Git hash is promoted and rebuilt multiple times
+Git hash
+Git
+Git
+Git
+Git
+Artifact X Don't
+hash
+hash
+hash
+hash
+CI/CD pipeline that creates artifact at the end
+Artifact is built once and then promoted in all steps
+Git
+Artifact Artifact Artifact Artifact
+Artifact
+Do
+hash
+CI/CD pipeline that creates artifact as first step
+
+
+Infelizmente, o antipadrão comum visto aqui são empresas promovendo confirmações em vez de imagens de contêiner. Uma confirmação de código-fonte está viajando nos estágios do pipeline e cada etapa está sendo reconstruída verificando o código-fonte repetidamente.
+Em teoria, os contêineres reconstruídos a partir da mesma confirmação devem ser idênticos, mas na prática, às vezes, pequenas variações podem ocorrer.
+É uma prática ruim por dois outros motivos. Primeiro, torna o pipeline muito lento, pois empacotar e compilar software é um processo muito longo e repeti-lo em cada etapa é um desperdício de tempo e recursos.
+Segundo, quebra a regra anterior. Recompilar uma confirmação de código em cada etapa do pipeline deixa a janela aberta para resultar em um artefato diferente do anterior. Você perde a garantia de que o que está sendo implantado na produção é a mesma coisa que foi testada no pipeline.
+Melhor prática 4
+O desenvolvimento de aplicativos acontece com ramificações de curta duração (uma por recurso)
+Um pipeline sólido tem vários portões de qualidade (como testes de unidade ou varreduras de segurança) que testam a qualidade de um recurso e sua aplicabilidade a implantações de produção. Em um ambiente de desenvolvimento com alta velocidade (e uma grande equipe de desenvolvimento), não se espera que todos os recursos cheguem à produção imediatamente. Alguns recursos podem até entrar em conflito entre si em sua versão de implantação inicial.
+Para permitir uma classificação de qualidade refinada entre os recursos, um pipeline deve ter o poder de vetar recursos individuais e ser capaz de selecionar apenas um subconjunto deles para implantação de produção. A maneira mais fácil de obter essa garantia é seguir a metodologia de recurso por ramificação, em que recursos de curta duração (ou seja, que podem caber em um único sprint de desenvolvimento) correspondem a ramificações de controle de versão individuais.
+
+Do
+Merge back after
+Long feature branch
+weeks or months
+DEV
+X Don't
+Do
+DEV
+Short feature branch
+Mainline branch
+Mainline branch
+Merge back after hours or max 2 days
+Do
+
+
+Isso torna o design do pipeline muito simples, pois tudo gira em torno de recursos individuais. Executar conjuntos de testes em um branch de código testa apenas o novo recurso. A verificação de segurança de um branch revela problemas com um novo recurso.
+As partes interessadas do projeto podem então implantar e reverter recursos individuais ou bloquear branches completos de serem mesclados ao código principal.
+Infelizmente, ainda há empresas que têm branches de recursos de longa duração que coletam vários recursos não relacionados em um único lote. Isso não apenas torna a mesclagem uma dor, mas também se torna problemático caso um único recurso tenha problemas (pois é difícil revertê-lo individualmente).
+A evolução de branches de curta duração é seguir o desenvolvimento baseado em tronco e alternâncias de recursos. Este pode ser seu objetivo final, mas apenas se você tiver dominado os branches de curta duração primeiro.
+Melhor prática 5
+As compilações podem ser executadas em uma única etapa
+Os pipelines de CI/CD são todos sobre automação. É muito fácil automatizar algo que já era muito fácil de executar em primeiro lugar.
+Idealmente, uma compilação simples de um projeto deve ser um único comando. Esse comando geralmente chama o sistema de compilação ou um script (por exemplo, bash, PowerShell) que é responsável por pegar o código-fonte, executar alguns testes básicos e empacotar o artefato/contêiner final.
+
+Д
+Do
+How do I build this app?
+DEV 1
+DEV 2
+Run "make build"
+
+
+Não tem problema se verificações mais avançadas (como testes de carga) precisarem de etapas adicionais. A compilação básica, no entanto (que resulta em um artefato implantável) deve envolver apenas um único comando. Um novo desenvolvedor deve ser capaz de verificar uma cópia totalmente nova do código-fonte, executar este único comando e obter imediatamente um artefato implantável.
+Para atender a essa prática recomendada, a maioria das equipes opta por usar um arquivo make (bom) ou um dockerfile (melhor). Como um dockerfile bem construído (ou outro padrão de contêiner) é essencialmente autocontido, ele elimina variações potenciais em máquinas de usuários individuais.
+A mesma abordagem é verdadeira para implantações (as implantações devem acontecer com um único comando). Então, se você precisar criar qualquer pipeline, pode simplesmente inserir essa única etapa em qualquer parte do pipeline.
+Infelizmente, ainda há empresas que sofrem com muitas etapas manuais para executar uma compilação básica. Baixar arquivos extras, alterar propriedades e, em geral, ter grandes listas de verificação que precisam ser seguidas são etapas que devem ser automatizadas dentro desse mesmo script.
+
+Д
+How do I build this app?
+DEV 1
+1. Copie as propriedades dos modelos 2. Descomente as linhas 34 e 56
+3. Execute a etapa de geração de código
+4. Baixe as dependências
+5. Entre na pasta do backend
+6. Execute a compilação
+7. Entre na pasta do frontend
+8. Crie ativos
+9. Execute a minificação
+10. ...
+X Don't
+DEV 2
+
+
+
+Se um novo contratado em sua equipe de desenvolvimento precisar de mais de 15 minutos para a compilação básica (após verificar o código em sua estação de trabalho), então você quase certamente sofre com esse problema.
+Um pipeline de CI/CD bem construído apenas repete o que já é possível na estação de trabalho local. O processo básico de compilação e implantação já deve estar bem lubrificado antes de ser movido para uma plataforma de CI/CD.
+Melhor prática 6
+As compilações são rápidas (menos de 5 minutos)
+Ter uma compilação rápida é uma grande vantagem para desenvolvedores e operadores/administradores de sistemas.
+Os desenvolvedores ficam felizes quando o ciclo de feedback entre uma confirmação e seus efeitos colaterais é o mais curto possível. É muito fácil corrigir um bug no código que você acabou de confirmar, pois ele está muito fresco em sua mente. Ter que esperar uma hora antes que os desenvolvedores possam detectar compilações com falha é uma experiência muito frustrante.
+As compilações devem ser rápidas tanto na plataforma de CI quanto na estação local. A qualquer momento, vários recursos estão tentando entrar na linha principal do código. O servidor Cl pode ser facilmente sobrecarregado se a construção levar muito tempo.
+Os operadores também ganham enormes benefícios com compilações rápidas. Enviar hot fixes na produção ou reverter para versões anteriores é sempre uma experiência estressante. Quanto mais curta for essa experiência, melhor. Reversões que levam 30 minutos são muito mais difíceis de trabalhar do que aquelas que levam três minutos.
+Em resumo, uma compilação básica deve ser muito rápida. Idealmente, menos de cinco minutos. Se levar mais de 10 minutos, sua equipe deve investigar as causas e encurtar esse tempo. Os sistemas de compilação modernos têm ótimos mecanismos de cache.
+• As dependências da biblioteca devem ser obtidas de um repositório proxy interno em vez da Internet
+• Evite o uso de geradores de código, a menos que seja necessário
+• Divida seus testes de unidade (rápidos) e de integração (lentos) e use apenas testes de unidade para a compilação básica
+• Ajuste suas imagens de contêiner para aproveitar ao máximo o cache da camada Docker
+Obter compilações mais rápidas também é um dos motivos que você deve explorar se estiver migrando para microsserviços.
+
+
+Melhor Prática 7
+Armazene suas Dependências
+O incidente do left-pad e o hack de confusão de dependências demonstram a necessidade de ter controle sobre dependências. Embora ambos os incidentes tenham grandes implicações de segurança, a verdade é que armazenar suas dependências também é um princípio muito importante e fundamental para a estabilidade de suas compilações.
+Cada pedaço considerável de código usa dependências externas na forma de bibliotecas ou ferramentas associadas. Seu código deve, é claro, ser sempre armazenado no Git. Mas todas as bibliotecas externas também devem ser armazenadas por você em algum tipo de repositório de artefatos.
+
+Private NPN Registry
+Private JAR Registry
+Get NPM packages
+Get JAR libraries
+Build Frontend
+Build Backend
+Private Docker Registry
+Get Dockerhub images
+Do
+Create Containers
+Gaste algum tempo para coletar nossas dependências e entender de onde elas vêm. Além das bibliotecas de código, outras partes móveis não tão óbvias são necessárias para uma compilação completa, como suas imagens docker base ou quaisquer utilitários de linha de comando.
+A melhor maneira de testar sua compilação para estabilidade é cortar completamente o acesso à internet em seus servidores de compilação (essencialmente simulando um ambiente air-gapped). Tente iniciar uma compilação de pipeline onde todos os seus serviços internos (git, bancos de dados, armazenamento de artefatos, registro de contêiner) estejam disponíveis, mas nada mais da internet pública esteja acessível, e veja o que acontece.
+
+# Questionário
+
+## Liderança e facilitadores culturais
+- [x] A liderança fornece uma visão unificada do produto, garantindo que as equipes entendam os objetivos gerais e como seu trabalho se encaixa no cenário geral?
+- [x] Líderes treinam ativamente, removem impedimentos e equilibram a supervisão estratégica com a autonomia da equipe. Eles defendem o sucesso a longo prazo em vez de vitórias rápidas?
+- [x] As decisões são descentralizada quando apropriado; as partes interessadas confiam equipes para possuir seus domínios sem microgerenciamento.
+- [x] A cultura apoia a experimentação e a melhoria iterativa. Erros são usados para aprendizado, não para culpar?
+- [ ] Os gerentes intermediários coordenam equipes cruzadas esforços, ajudar a alinhar prioridades e reforçar a visão do produto - em vez de proteger seu próprio silo?
+## Alinhamento estratégico e priorização
+- [x] Há objetivos claros e centrados no usuário guiando a estratégia do produto. As equipes sabem o “porquê” por trás de cada iniciativa?
+- [ ] Pressões de curto prazo (prazos/receita) não ofuscam o investimento em saúde técnica, pesquisa de usuários ou resultados mais amplos para os usuários.
+- [ ] Incentivos e medidas de desempenho recompensam a entrega de resultados significativos não apenas a entrega de recursos.
+- [ ] Os backlogs são refinados regularmente, priorizados por valor/impacto e não são desorganizados com “coisas boas de se ter” sem foco?
+## Estruturas de Governança e Decisão
+- [x] As equipes têm autoridade de tomada de decisão suficiente para agir rapidamente, com a governança essencial (funções, responsabilidades) ainda bem definida?
+- [ ] A organização entende quem decide o que, como as prioridades são definidas e como os conflitos são resolvido sem confusão ou sem fim aprovações.
+- [ ] Práticas de produtos ou ágeis vão além de meros rituais; há um suporte cultural genuíno (não reuniões de “lista de verificação” ou sprints).
+## Saúde Organizacional e Estrutural
+- [ ] As equipes são estruturadas em torno de produtos ou jornadas de usuários, não funções estreitas. A colaboração entre engenharia, design, etc. é tranquila.
+- [ ] Arquitetura e o design organizacional minimiza as pesadas dependências entre as equipes; as equipes podem entregar resultados finais recursos de ponta a ponta rapidamente.
+- [ ] Proprietários/gerentes de produtos, líderes técnicos, desenvolvedores e outras funções têm  responsabilidades claras e trabalham harmoniosamente, sem mandatos conflitantes.
+## Competências e Capacidades
+- [ ] As equipes têm treinamento ou coaching em descoberta de produtos, técnicas ágeis, pesquisa de usuários. Novas contratações aprenda rapidamente essas abordagens.
+- [ ] Gerentes de produto se destacam em descoberta, priorização centrada no usuário, análise de dados e alinhamento de partes interessadas. Eles fornecem uma visão clara do produto
+- [ ] As equipes de engenharia seguem práticas modernas (CI/CD, código limpo, automação, etc.) e aprimoram a base técnica para agilidade/confiabilidade.
+## Processos e métodos de trabalho
+- [ ] Daily, sprints e retrospectivas são genuinamente apreciados e usados para inspeção/adaptação, não apenas como um exercício de "marcar caixas".
+- [ ] As equipes validam ativamente as ideias com os usuários, testam hipóteses e aceitam que alguns experimentos podem falhar, mas geram aprendizado?
+- [ ] Atualizações multifuncionais e informações importantes são compartilhadas  prontamente; pessoas de fora da equipe também sabem das prioridades, do progresso e dos obstáculos.
+## Alinhamento e incentivos das partes interessadas
+- [ ] As partes interessadas respeitam o papel do PO/PM e não promovem agendas conflitantes nem ignoram o backlog? 
+- [ ] A cultura incentiva o trabalho em equipe entre departamentos; o sucesso é medido coletivamente, não colocando equipes/gerentes uns contra os outros?
+- [ ] Os executivos apoiam publicamente a abordagem do produto, defendem recursos e removem os principais impedimentos?
+## Excelência em execução e implementação
+- [ ] Os planos consideram complexidade e capacidade; “esforços heróicos” ou crises não são o padrão e considerar prejudicial a longo prazo. 
+- [ ] A mudança para um modelo de produto é vista como uma jornada evolutiva com um claro “por que agora”, envolvimento ativo e reforço de novos normas.
+- [ ] As equipes têm orçamento suficiente, ferramentas modernas e suporte técnico efetivamente. infraestrutura para entregar?
+- [ ] As equipes monitoram métricas significativas de usuários/ negócios (por exemplo, satisfação, retenção) e refinam abordagens com base em insights de dados.
+## Inovação e Adaptação Contínua
+- [ ] As falhas são tratadas como momentos de aprendizagem; as equipes se sentem seguras propondo novas ideias e enviando testes em pequena escala.
+- [ ] A organização analisa frequentemente os resultados dos produtos, o feedback dos usuários e os processos internos para melhorar de forma rápida e contínua.
+- [ ] A base técnica é atualizada ou refatorada regularmente; as equipes não são forçadas a construir sobre sistemas frágeis e desatualizados.
+## Prontidão externa e ambiental
+- [ ] As obrigações de conformidade são tratadas cuidadosamente; elas não prejudicam a iteração ou os lançamentos frequentes.
+- [ ] A organização fica atenta às mudanças do mercado, aos movimentos dos concorrentes e às tendências dos usuários sem recorrendo à surra reativa?
+- [ ] Como o negócio expande, o modelo do produto pode se adaptar sem recorrer a silos ou custos indiretos punitivos.
+
+Obtendo a pontuação:
+- [x] Some os fatores de cada sessão e os divida pelo numero de questionamentos;
+- [ ] Some as sessões e divida pelo numero de sessões;
+
+| Quadro | Tipo |
+| -----  | ---- |
+| 1,0 – 1,9 | Saúde mínima — A mentalidade do produto não está bem estabelecida; provavelmente é necessário um roteiro de transformação mais formal. |
+| 2,0 – 2,9 | Saúde emergente — Existem algumas práticas básicas, mas lacunas críticas permanecem Estabelecer bases mais fortes ajudará você progresso. |
+| 3,0 – 3,9 | Saúde Moderada — Muitas práticas estão em vigor, mas a consistência varia. Ao mirar áreas mais fracas, você pode ver uma melhora significativa. |
+| 4,0 – 5,0 | High Health — A abordagem do produto é bem integrada. Você provavelmente tem algumas áreas avançadas para refinar, 
+
+
+https://github.com/dec0dOS/amazing-github-template?tab=readme-ov-file
+https://www.atlassian.com/br/git/tutorials/making-a-pull-request
+https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716
+https://github.com/dec0dOS/amazing-github-template?tab=readme-ov-file
+https://github.github.com/gfm/
+
+https://github.com/features/actions
+https://pre-commit.com/
+https://www.makeareadme.com/
+
+
+brew install markdownlint-cli
+
+markdownlint --help
+
+Usage: markdownlint [options] [files|directories|globs...]
+
+MarkdownLint Command Line Interface
+
+Arguments:
+  files|directories|globs                    files, directories, and/or globs to lint
+
+Options:
+  -V, --version                              output the version number
+  -c, --config <configFile>                  configuration file (JSON, JSONC, JS, YAML, or TOML)
+  --configPointer <pointer>                  JSON Pointer to object within configuration file (default: "")
+  -d, --dot                                  include files/folders with a dot (for example `.github`)
+  -f, --fix                                  fix basic errors (does not work with STDIN)
+  -i, --ignore <file|directory|glob>         file(s) to ignore/exclude (default: [])
+  -j, --json                                 write issues in json format
+  -o, --output <outputFile>                  write issues to file (no console)
+  -p, --ignore-path <file>                   path to file with ignore pattern(s)
+  -q, --quiet                                do not write issues to STDOUT
+  -r, --rules <file|directory|glob|package>  include custom rule files (default: [])
+  -s, --stdin                                read from STDIN (does not work with files)
+  --enable <rules...>                        Enable certain rules, e.g. --enable MD013 MD041 --
+  --disable <rules...>                       Disable certain rules, e.g. --disable MD013 MD041 --
+  -h, --help                                 display help for command
+
+  markdownlint '**/*.md' --ignore node_modules
+
+

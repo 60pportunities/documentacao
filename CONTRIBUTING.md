@@ -129,17 +129,35 @@ Você deve seguir as diretrizes relacionadas à segurança e ao desempenho. Voc�
 | [Changelog-Snippets](https://marketplace.visualstudio.com/items?itemName=dzgmelody.vscode-changelog-snippets) | [Keep a Changelog](https://marketplace.visualstudio.com/items?itemName=RLNT.keep-a-changelog) | [Comandos Git](https://www.freecodecamp.org/news/git-cheat-sheet/) | [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/)  | 
 | [Versionamento Semântico](https://semver.org/lang/pt-BR/) | [Google](https://google.github.io/styleguide/) | [Contributor Covenant](https://www.contributor-covenant.org/pt-br/version/2/0/code_of_conduct/) | [HTML](https://html.spec.whatwg.org/multipage/) | Nomenclatura Branch | 
 | [Catalogo de APIs]() |  [DaC](https://www.writethedocs.org/guide/docs-as-code/)  | CEMLI | [git-cliff](https://git-cliff.org/) |
+| [Semantic Commit Messages](https://sparkbox.com/foundry/semantic_commit_messages) | [Karma-Semantic Messages](https://karma-runner.github.io/6.4/intro/installation.html) | | |
+
 <!--contributing-end02-->
 # Convenções de Documentação
 | Conceito                                                  | Conceito                                               | Conceito                                     | Conceito                               |
 | --------                                                  | --------                                               | --------                                     | --------                               |
 | [Character Sets](https://www.iana.org/assignments/character-sets/character-sets.xhtml) | [DaC](https://www.writethedocs.org/guide/docs-as-code/)  | [MKDocs](https://www.mkdocs.org/) | [Make-ReadME](https://www.makeareadme.com/) |
 | [markdown-badges](https://ileriayo.github.io/markdown-badges/) | | | |
+| [Markdown](https://github.github.com/gfm/) | [MarkdownLint](https://www.npmjs.com/package/markdownlint) | | |
 
 # Modelagem são relacional, dimensional e entidade-relacionamento (E-R)
 | Conceito       | Conceito                           | Conceito                         | Conceito                       |
 | --------       | --------                           | --------                         | --------                       |
 |                |                                    |                                  |                                |
+
+# Faça um **bom** README
+| Conceito       | Conceito                           | Conceito                         | Conceito                       |
+| --------       | --------                           | --------                         | --------                       |
+| [Makeareadme](https://www.makeareadme.com/) | [Exemplos](https://github.com/matiassingers/awesome-readme) | [standard-readme](https://github.com/RichardLitt/standard-readme?tab=readme-ov-file)  |    |
+
+# Padronize os Projetos 
+| Conceito       | Conceito                           | Conceito                         | Conceito                       |
+| --------       | --------                           | --------                         | --------                       |
+| [Amazing GitHub](https://github.com/dec0dOS/amazing-github-template?tab=readme-ov-file) | | |
+
+# Scan for passwords
+| Conceito       | Conceito                           | Conceito                         | Conceito                       |
+| --------       | --------                           | --------                         | --------                       |
+| [Git-secrets](https://github.com/awslabs/git-secrets)| [SpectralOps](https://github.com/SpectralOps/vscode-extension) | [GitGuardian](https://github.com/GitGuardian) | [hawkscan/](https://docs.stackhawk.com/hawkscan/) | [Pré-Commit](https://pre-commit.com/) |
 
 ## Timesheet
 <!--contributing-start03-->
@@ -150,9 +168,9 @@ Utilizar o lançamento de horas traz mais transparência e precisão para a gest
 - [x] Alocação eficiente da Equipe;
 - [x] Estimativa de Tempo médio para a realização de uma tarefa ou atividade;
 - [x] Maior assertividade nos prazos acordados;
-- [x] Melhorar a organização da equipe
-- [x] Ter suporte para o planejamento
-- [x] Tomar decisões baseadas em dados
+- [x] Melhorar a organização da equipe;
+- [x] Ter suporte para o planejamento;
+- [x] Tomar decisões baseadas em dados;
 
 Sugere-se que o lançamento de horas seja realizada de forma diária e com 10 minutos antes de suspender e/ou finalizar as atividades diárias.
 <!--contributing-end03-->

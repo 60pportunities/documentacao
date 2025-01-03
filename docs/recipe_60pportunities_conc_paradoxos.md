@@ -56,3 +56,6 @@ A empresa, produto tem que existir além de seu criador. Entenda que **criação
 - [x] **Fábrica de Botas**: Fábrica de Botas um botando a culpa no outro.
 - [x] **Paradoxo Homer Simpson**: "CULPA É MINHA E COLOCO EM QUEM EU QUISER"? 
 - [x] **Paradoxo da Laranja** : Bolo de Limão (casca) e Suco de Laranja (Sumo). Apenas UM LARANJA.
+
+## Commenting For Better Reach (CFBR)
+O CFBR, também conhecido como “Commenting For Better Reach” é uma estratégia de usada por usuários ou empresas para comentar as postagens de outras pessoas para melhorar seu próprio alcance e visibilidade.

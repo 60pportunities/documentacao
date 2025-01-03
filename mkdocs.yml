@@ -245,6 +245,7 @@ nav:
       - 'Application Program Interface'              : 'recipe_60pportunities_conf_arquitetura_api.md'
       - 'Microserviços'                              : 'recipe_60pportunities_conf_arquitetura_microservico.md'
       - 'Programação'                                : 'recipe_60pportunities_conc_arquitetura_programacao.md'
+      - 'Previsibilidade'                            : 'recipe_60pportunities_conc_previsibilidade.md'
    - 'Time'                                          :
       - 'Pensamento'                                 : 'recipe_60pportunities_time.md'
    - 'Configuração Plataforma Projeto'               :

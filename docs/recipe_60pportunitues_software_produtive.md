@@ -86,7 +86,8 @@ Em segundo lugar, a universidade desempenhou um papel central na criação de no
 -~'fundações em metodologia de software Durante esse tempo na IBM, tive.
 também atuou, graças à IBM, no corpo docente da Universidade Johns Hopkins
 e a Universidade de Maryland. As interações com professores e alunos.
-a essas universidades e os universitários de ciência da computação em outros lugares foram muito benéficos, para dizer o mínimo. Os principais avanços nos fundamentos da metodologia de software vieram da universidade, não da indústria. Graças a Edsger Dijkstra, Tony Hoare, David Parnas, David Gries, Niklaus Wirth e outros, pelo trabalho em programação estruturada, entendemos e programam a correção, agora temos muitas simplicidades profundas sobre ideias que antes estavam envoltas no mistério e na complexidade do conhecimento da programação.
+a essas universidades e os universitários de ciência da computação em outros lugares foram muito benéficos, para dizer o mínimo. 
+Os principais avanços nos fundamentos da metodologia de software vieram da universidade, não da indústria. Graças a Edsger Dijkstra, Tony Hoare, David Parnas, David Gries, Niklaus Wirth e outros, pelo trabalho em programação estruturada, entendemos e programam a correção, agora temos muitas simplicidades profundas sobre ideias que antes estavam envoltas no mistério e na complexidade do conhecimento da programação.
 Uma busca por produtividade em software
 O tema subjacente desta história tem sido a busca por produtividade
 em software. Minha abordagem ao software tem sido a de um estudo em gestão,
@@ -101,6 +102,7 @@ matemática Minha segunda surpresa foi descobrir quão próxima e facilmente.
 a produtividade cresce a partir da capacidade de gerenciamento com controle intelectual.
 desenvolvimento de software, as melhorias na produtividade são medidas em
 fatores, não porcentagens.
+
 Em 1968, escrevi um artigo para uma publicação interna de notícias da IBM
 (ver artigo 2.º não existia então uma programação estruturada, mas sim o artigo).
 mostra que eu buscava, já naquela época, produtividade de software por meio

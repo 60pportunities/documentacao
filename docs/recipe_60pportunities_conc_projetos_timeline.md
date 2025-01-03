@@ -40,11 +40,13 @@
 - [X] 1951: O matemático Christopher Strachey (futuro diretor do Departamento de Software da Universidade de Oxford) escreve o primeiro programa de IA para jogar damas em um computador de tubo de vácuo.
 - [x] 1952: Autocode;
 - [X] 1956: Durante a conferência de Dartmouth, os pesquisadores John McCarthy, Marvin Minsky, Nathaniel Rochester e Claude Shannon cunham o termo **"Inteligência Artificial"**.
+- [X] 1956: O governo dos EUA proíbe a AT&T de entrar no comércio de software (isso levou, posteriormente, o Bell Labs a distribuir livremente o seu Unix). 
 - [x] 1957: FORTRAN: FORmula TRANslation foi criada por John Backus é considerada a linguagem de programação mais antiga em uso atualmente.
 - [x] 1958: ALGOL (Linguagem algorítmica)
 - [x] 1958: McCarthy desenvolve o LISP (List Processing). O LISP libertou os hackers do ITS ('Incompatible Time-sharing System'). 
 - [x] 1959: COBOL (Common Business Oriented Language)
 - [x] 1960: Introdução ao Fluxo de Dados e Processos. Larry Constantine foi um dos pioneiros dessa técnica, e o DFD.
+- [x] 1960: O software é distribuído com seu código-fonte e sem nenhuma restrição em grupos de software como SHARE (IBM) e DECUS (DEC). 
 - [x] 1961: MIT adquiriu o primeiro PDP-1. O termo "hackers" do Tech Model Railroad Club se tornaram o núcleo do Laboratório de Inteligência Artificial do MIT;
 - [X] 1961: Unimate, o primeiro robô industrial;
 - [x] 1964: BASIC (Beginners All-Purpose Symbolic Instruction Code). Thomas Kurtz, co-inventor da linguagem de programação BASIC, aos 96 anos, 17/11/2024.
@@ -62,6 +64,7 @@
 - [x] A ideia central era oferecer aos profissionais de projetos um fórum para troca de conhecimentos e melhores práticas, além de desenvolver **padrões e certificações**. Desde então, o PMI se expandiu globalmente e se tornou uma referência para a prática de gerenciamento de projetos. 
 - [x] Uma das contribuições mais importantes do PMI é o PMBOK, que descreve um conjunto de processos e áreas de conhecimento que são considerados essenciais para gerenciar projetos de forma eficaz.
  - [x] 1970: Metodologias Estruturadas e Yourdon -  Métodos Estruturados, que defendiam a decomposição de sistemas em partes menores e bem definidas.
+ - [ ] 1970: Surge a ARPANET, precursora da Internet; A IBM começa a vender seu software separadamente, estabelecendo assim o início da indústria do software restrito.
 - [x] 1970: PASCAL (Nomeado após o matemático francês Blaise Pascal, Niklaus Wirth desenvolveu a linguagem de programação em sua homenagem).
 - [x] 1970: Consolidação do Modelo Waterfall - "Managing the Development of Large Software Systems - Winston W. Royce";
 - [X] 1970: IBM's System R — A IBM desenvolveu o System R, um dos primeiros sistemas de banco de dados relacional, que foi uma das inspirações para a criação de SQL (Structured Query Language).
@@ -69,21 +72,26 @@
 - [x] 1971: Conectado à ARPANET, versão ~670
 - [X] 1971, eles começaram a reescrever o Unix em C, uma linguagem de programação que Dennis Ritchie.
 - [x] 1972: Smalltalk, C, 1972: SQL (SEQUEL na época)
-- [X] 1973: Ingres — Criado por pesquisadores da Universidade da Califórnia, Berkeley, 
+- [ ] 1972: Portagem do Unix para outros PDP. A equipe de Ken Thompson tenta reescrever o Unix em outra linguagem (B ou BCPL). A equipe melhora a linguagem B e cria a linguagem C para reescrever o Unix; Unix começa a ser distribuído em universidades e centros de pesquisa. 
+- [X] 1973: Ingres — Criado por pesquisadores da Universidade da Califórnia, Berkeley. Inicia-se a história do Unix BSD com a chegada do Unix à Universidade de Berkeley, na Califórnia; SPICE é colocado por Donald Pederson em domínio público. 
  - [x] 1973–1975: A primeira lista de gíria, as primeiras sátiras, as primeiras discussões autoconscientes sobre a ética hacker, 1973–1975. The Dicionário do Hacker em 1983; 
  - [X] 1973: O Unix foi reescrito em C, o que facilitou a portabilidade e a distribuição do sistema. 
  - [X] 1975: A MITS Altair 8800 é lançada e considerada por muitos como o primeiro verdadeiro "computador pessoal".
- - [X] 1975: The Mythical Man-month Fred Brook’s
+- [X] 1975: Lançada a primeira versão do Ingres, banco de dados livre (o ancestral do PostgreSQL). 
+- [X] 1975: The Mythical Man-month Fred Brook’s
        - [X] `Feature Teams`, multidisciplinar com um Líder Técnico, de no máximo 10 pessoas; (Vertical Slice)
        - [x] Principal causa de fiasco de projetos - COMUNICAÇÃO (Scrum Daily, Review, Retrospective): Open Project, Jira, Trello, Slack, Basecamp, Github, Portfolio Management e etc.
        - [x] **Harlan Mills** programação deveria ser um processo público, e que expor todo o trabalho  pra todo mundo ajuda o controle de qualidade (para mim início **OSS**).
        - [x] Cunha o conceito de ˜Integridade conceitual" é a coisa MAIS importante  a se considerar em design de sistemas. É melhor um sistema omitir certas features e melhorias, mas  refletir apenas Um conjunto de idéias de design.
        - [ ] Aristocrata (poder político e privilégios) - Ditador Benevolente - PRODUCT OWNER;
        - [ ] Planeje jogar um FORA (A primeira versão será sempre a pior). Prepare o gerenciamento do PROJETO para aceitar as MUDANÇAS.
- - [X] 1977: A Apple Computer, fundada por Steve Jobs e Steve Wozniak, lança o Apple II;
- - [X] 1977: A Commodore lança o Commodore PET;
- - [X] 1977: O TRS-80 é lançado pela Tandy/RadioShack;
- - [X] 1979: Oracle Database — Lançado pela Oracle Corporation, fundado por Larry Ellison, Bob Miner e Ed Oates;
+- [X] 1976: Bill Gates escreve a “carta aberta aos hobistas”. 
+- [X] 1977: A Apple Computer, fundada por Steve Jobs e Steve Wozniak, lança o Apple II;
+- [X] 1977: A Commodore lança o Commodore PET;
+- [X] 1977: O TRS-80 é lançado pela Tandy/RadioShack;
+- [X] 1978: Donald Knuth, da Universidade de Stanford, começou a trabalhar no TeX, distribuído como software livre.
+- [X] 1979: AT&T começa a forçar licenças restritivas ao decidir que poderia lucrar através do sistema Unix. 
+- [X] 1979: Oracle Database — Lançado pela Oracle Corporation, fundado por Larry Ellison, Bob Miner e Ed Oates;
 - [x] 1980/81: Ada - Início do Ágil
 - [x] 1980: PMBOK (Project Management Body of Knowledge): Criado pelo PMI na década de 1980, com a primeira edição publicada em 1996, como um guia de boas práticas para gerenciamento de projetos. 
 - [X] 1980: A IA começa a se revitalizar com a introdução de Redes Neurais Artificiais (RNAs);
