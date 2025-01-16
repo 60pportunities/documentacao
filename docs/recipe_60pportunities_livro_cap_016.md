@@ -11,3 +11,12 @@ calendário bate-papo todas essas coisas que costumávamos fazer em nosso deskto
 100% do fluxo de valor para os titulares, como Google, Facebook, Amazon, eles são donos de todos esses negócios, pessoal
 esqueça que assim como o Google Docs não foi a única empresa que tentou colocar o Microsoft Office online, 
 
+
+
+https://www.totvs.com/blog/gestao-para-assinatura-de-documentos/controle-de-documentos/
+https://www.totvs.com/blog/gestao-para-assinatura-de-documentos/como-organizar-documentos-de-uma-empresa/
+https://brainly.com.br/tarefa/58433422
+
+
+ihttps://docs.open-metadata.org/latest/quick-start/local-docker-deployment
+
