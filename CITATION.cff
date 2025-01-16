@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "Se você usar esta documentação, cite-a conforme abaixo:"
+authors:
+- family-names: "Vasconcellos"
+  given-names: "Horácio"
+  orcid: "https://orcid.org/0000-0000-0000-0000"
+title: "Documentação Espontânea"
+version: 0.0.4
+doi: 00.1962/hvasconcellos.1962
+date-released: 2024-11-09
+url: "https://github.com/60pportunities/documentacao"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Vasconcellos"
+    given-names: "Horácio"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+    doi: "00.1962/hvasconcellos.1962"
+  journal:  "Documentação Espontânea"
+  month: 11
+  start: 1
+  end: 10
+  title: "Documentação Espontânea"
+  issue: 1
+  volume: 1
+  year: 2024

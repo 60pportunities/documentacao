@@ -1,0 +1,21 @@
+name: Validate manifest
+on:
+# The GITHUB_TOKEN secret is used to create a PR
+# The pull_request event will not be triggered by it
+# That's one of the reasons we need the schedule to validate the versions-manifest.json file
+  schedule:
+    - cron: '0 8,20 * * *'
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'versions-manifest.json'
+
+jobs:
+  manifest:
+    uses: actions/versions-package-tools/.github/workflows/validate-manifest.yml@main
+    with:
+      tool-name: "Python"
+      image-url: "https://avatars.githubusercontent.com/u/1525981?s=200&v=4"
+    secrets: inherit

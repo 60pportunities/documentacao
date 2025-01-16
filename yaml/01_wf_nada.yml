@@ -1,0 +1,21 @@
+name: 01_wf_nada
+on:
+  push:
+    branches:
+      - main
+      - develop
+jobs:
+
+  job_01_wf_nada:
+    name: job_01_wf_nada
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show Env
+        run: echo "Env ${{ env.ENV_ID }}"
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Executa o Comando
+        run: echo "Hello, GitHub Workflow!"

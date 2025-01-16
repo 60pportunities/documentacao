@@ -1,0 +1,17 @@
+- Criando um repositório
+  - Selecionar um template ou sem template.
+  - Nome do repositóeio
+  - Descricao
+  - Tipo de Repositório - Publico o Provado
+  - READMD.md
+  - License
+  - Arquivo gitignore
+- Repositórios Especiais no GitHub
+  - username.github.io: Hospeda páginas estáticas (GitHub Pages).
+  - Repositórios de Template: Repositórios marcados como template permitem a criação de novos repositórios baseados na sua estrutura.
+  - Repositório username: Identificado pelo nome de usuário, usado para projetos pessoais.
+  - .github: Contém arquivos de configuração globais para uma organização ou usuário. (Público)
+  - .github-private: Contém arquivos de configuração globais para uma organização ou usuário. (Privado)
+  
+  - Repositório username/.gitignore: Usado para armazenar arquivos .gitignore compartilhados.
+  - 

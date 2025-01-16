@@ -1,0 +1,99 @@
+name: Build and Push to ECR
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4.1.1
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4.0.2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Login to Amazon ECR
+      id: login-ecr
+      run: |
+        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 825223353827.dkr.ecr.us-east-1.amazonaws.com
+
+    - name: Build and Push Docker Image
+      run: |
+        cd application
+        docker build -t 825223353827.dkr.ecr.us-east-1.amazonaws.com/new-comments:v1 .
+        docker push 825223353827.dkr.ecr.us-east-1.amazonaws.com/new-comments:v1
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    needs: build-and-push
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4.1.1
+
+    - name: Set up AWS CLI
+      uses: aws-actions/configure-aws-credentials@v4.0.2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Run Terraform
+      run: |
+        cd terraform-eks
+        terraform init
+        terraform apply -auto-approve
+
+    - name: Update Kubeconfig
+      run: |
+        aws eks --region us-east-1 update-kubeconfig --name duarte
+        chmod 600 ~/.kube/config
+
+    - name: Install metrics server
+      run: |
+        kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml --validate=false
+
+    - name: Check if namespace exists
+      run: |
+        kubectl create namespace app || true
+        if [ $? -ne 0 ]; then
+          echo "Namespace app already exists"
+        fi
+
+    - name: Deploy applications comments to EKS
+      run: |
+        kubectl apply -f manifests/deployment.yaml
+        kubectl apply -f manifests/service.yaml
+        kubectl apply -f manifests/hpa.yaml
+        kubectl apply -f manifests/deploy-nginx-ingress-controller.yaml
+        kubectl create namespace jaeger
+        kubectl create namespace otel
+
+    - name: Install Helm
+      run: |
+        curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+        chmod +x get_helm.sh
+        ./get_helm.sh
+
+    - name: Add repo kube-prometheus and Update Helm Repository
+      run: |
+        helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+        helm repo update
+
+    - name: Deploy Helm Chart
+      run: |
+        helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace
+
+    - name: Install OpenTelemetry Collector
+      run: |
+        kubectl apply -f https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector/v0.94.0/examples/k8s/otel-config.yaml -n otel
+        

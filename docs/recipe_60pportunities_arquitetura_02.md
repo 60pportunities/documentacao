@@ -1,0 +1,76 @@
+## Problemas a serem vistos
+- [x] Havíamos **automatizado a criação de Projetos no GitLab e voltávamos para o Manual** no Azure-Devops;
+- [x] **Gestão de Recursos**: Como alocar as pessoas certas nas atividades certas? Como efetuar a distribuição equilibrada de tarefas?
+- [x] **Monitoramento de Progresso**: Como controlar a relação ao cronograma e ao orçamento? Como detectar atrasos ou problemas antes que se tornem críticos?
+- [x] **Cálculo de Custos**: Como calcular os custos de mão de obra baseados no tempo efetivamente dedicado a cada atividade ou fase do projeto? 
+- [x] **Cumprimento de Prazos**: Como o controle de atividades poderá  auxiliar no cumprimento de marcos, reduzindo o risco de atrasos?
+- [x] **Identificação de Gargalos e Melhorias**: Como identificar atividades que consomem mais tempo do que o planejado?
+- [x] Como poderíamos controlar as horas em um determinado **PROJETO**?
+      - [x] Boards, Columns e Fields?
+      - [x] Como o Time efetua o preenchimento das WITs? No horário? Posteriormente?
+- [x] Como controlar os Estados de fluxo no Board, no SCRUM?
+      - [x] Como marcar os itens para gerar um BI?
+      - [x] Como controlar os commits, identificando os ICs mais alterados?
+- [x] Como controlar os Estados de fluxo no Board, pelas atividades da Instituição?
+- [x] Como fazer o processo de Deploy, sendo que a maioria dos desenvolvimentos eram **legados** e dificilmente entrariam em uma esteira **DevSecOps**;
+- [x] Qual a estratégia de ramificação?
+      - [x] Comprometa-se com pequenas mudanças?
+      - [x] Como efetuar as revisões de código para fortalecer a colaboração?
+      - [x] Como automatizar os testes com integração contínua?
+      - [x] Como padronizar as diretrizes de controle de versão?
+      - [x] Como manter o repositório limpo e organizado?
+- [x] O que fazer quando um projeto de software essencial está atrasado?
+      - [x] Reserve tempo suficiente no novo cronograma para garantir que o trabalho possa ser feito de formacuidadosa e completa e que a reprogramação não precise ser feita novamente.
+- [x] Mudança de Percepção
+      - [x] Qual a intenção? 
+      - [x] Qual o design?
+      - [x] Qual o código?
+- [x] Desorganização <> Bagunça
+      - [x] Qual é a diferença entre desorganização e bagunça?
+      - [x] A desorganização é quando você não tem um lugar define para as coisas. 
+      - [x] A bagunça é quando você tem o lugar mas não coloca. 
+- [x] Eficiência vs Eficácia
+      - [x] Eficiência é fazer certas coisas;
+      - [x] Eficácia é fazer as coisas certas;
+- [x] OnBoarding vs OffBoarding:
+      - [x] Como garantir que os novos sejam produtivos, engajados e conectados.
+      - [x] Como garantir que não perdessemos produtividade com por exemplo, o término de contrato de terceiros? Saída por cessão? 
+## Produtividade
+<p align="justify">Refere-se a eficiência e eficácia com que time consegue entregar software de qualidade, atingindo os requisitos e prazos, utilizando de forma eficaz os recursos disponíveis, como tempo, ferramentas, tecnologias e conhecimento,  estando relacionada à capacidade de produzir código de alta qualidade e entregar funcionalidades ou produtos de software de forma rápida e eficiente, minimizando desperdícios.</p>
+- [x] Onde estão os grandes ladrões de ineficiência?
+- [x] Onde o processo parou? 
+      - [x] Parou em requisitos?
+      - [x] Parou em codificação?
+      - [x] Parou em Teste de Aceitação?
+- [x] Explicite o seu fluxo de trabalho;
+- [x] A única maneira de controlar um projeto grande e de agenda apertada é tendo uma agenda.Defina milestones, datas, prioridades.
+- [x] Mítico Homem-mês: Ensaios Sobre Engenharia de Software;
+      - [x] Conhecer as dificuldades inerentes ao trabalho torna mais fácil suportá-las quando elas surgirem;
+      - [x] Projeto de software depende de pessoas;
+      - [x] Não se pode dimensionar um software em termos de homem-mês; A adição de mais força de trabalho não implica na redução do tempo de entrega daquela tarefa;
+- [x] Melhoria do Product Manager/Owner/Key User
+      - [x] Como conseguir engajar a área demandante e a área usuária, para evitar destruição do Time;
+      - [x] Integridade Conceitual - Alguém definiu exatamente o que seria cada produto.
+      - [x] O PO simplesmente ignora a fase de homologação e esta é uma restrição para a próxima fase;
+      - [x] Cada release é uma surpresa, por falta de engajamento do PO;
+      - [x] Aumento do Pacote, ou seja, não entrego na Sprint correta e aumento o risco na Sprint seguinte;
+- [x] Comunicação
+      - [x] Comunicação franca entre equipe de arquitetura e equipe de construção, sem influenciar a clara divisão de tarefas.
+- [x] Se esta pronto, porque esperar até o final da SPRINT? Usar Feature Toggle ou Flag.
+      - [x] Deploy é o processo técnico de colocar ou instalar uma versão do software em um ambiente específico, como servidores de produção ou de staging, para que ele esteja disponível para execução.
+      - [x] Release refere-se ao processo de tornar o software disponível para os usuários. 
+- [x] Quais as pessoas de gargalo no Time de Desenvolvimento?
+      - [x] O que dependente dele.
+      - [x] Só ele conhece.
+      - [x] A quantidade de trabalho em paralelo.
+- [x] Como CONFIRMAR, que o GARGALO é o TIME DE DESENVOLVIMENTO?
+      - [x] Como atacar o sintoma e não a causa? O gargalo é móvel?
+      - [x] A Teoria das Restrições foi desenvolvida por Eliyahu Goldratt em 1984.
+      - [x] O gargalo é um ponto no processo onde a capacidade é menor que a demanda, o que significa que ele limita o desempenho do sistema como um todo.
+      - [x] Você resolve Requisitos, para em Código, Code Review e assim vai.
+- [X] Contratação de MAIS desenvolvedores resolve o problema?
+      - [x] Quem não passou pela experiência de contratar um Developer ficar um tempão pensando cara tem tanto trabalho para fazer?
+      - [x]  Quem nunca contratou por conhecimento e demitiu por atitude?
+      - [x] Começa a colocar item no backlog mas item no backlog que não agrega valor.
+      - [x] Features que NÃO entregam valor e colocar para ele fazer.
+      - [x] O Time tem a capacidade de PUXAR tarefas?

@@ -1,0 +1,22 @@
+# Definir o evento que será sempre disparado
+
+# Definir o arquivo de segredos padrão
+--secret-file "~/.act/secrets.env"
+
+# Definir o arquivo de variáveis padrão
+--var-file ~/.act/variables.env
+--env-file ~/.act/variables.env
+
+# Habilitar saída detalhada (verbose)
+--verbose
+
+--container-architecture linux/amd64
+
+# Usar uma imagem Docker específica para o runner
+--platform ubuntu-latest
+
+# Definir um arquivo de artefatos
+#--artifact-server http://localhost:3000
+
+# Não usar cache (caso precise de uma execução limpa)
+#--no-cache

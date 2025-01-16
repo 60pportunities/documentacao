@@ -1,0 +1,20 @@
+name: 03_wf_nada
+
+on:
+  workflow_dispatch:
+    inputs:
+      NAME:
+        description: "A random input name for the workflow"
+        type: string
+      SOME_VALUE:
+        description: "Some other input to pass"
+        type: string
+jobs:
+  job_03_wf_nada:
+    name: job_03_wf_nada
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test with inputs
+        run: |
+          echo "Hello ${{ github.event.inputs.NAME }} and ${{ github.event.inputs.SOME_VALUE }}!"
+

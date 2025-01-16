@@ -1,0 +1,42 @@
+name: Publish GitHub Actions Artifacts Example
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  mkdocs-documentacao-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List of the GitHub Actions environment variables on Windows
+        run: env
+        shell: bash
+      - name: Print secrets
+        run: |
+          echo "O valor do Token VALOR eh: ${{ secrets.TOKEN }}"
+        shell: bash
+      - name: Validação do Código de Bump
+        uses: actions/checkout@v3.0.2
+      - name: Shellcheck
+        run: |
+          shellcheck 60opt_github.sh 
+      - name: Deploy docs
+        uses: 60pportunities/documentacao/@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          CUSTOM_DOMAIN: 60pportunities.com.br
+          #CONFIG_FILE: mkdocs.yml
+          #EXTRA_PACKAGES: build-base
+          #GITHUB_DOMAIN: 60pportunities.github.io/documentacao/
+          REQUIREMENTS: requirements.txt
+  github-actions-environment-variables-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Ubuntu GitHub Actions environment variables List
+        run: env
+
+  github-actions-environment-variables-macos:
+    runs-on: macos-latest
+    steps:
+      - name: MacOs List of GitHub Actions environment variables
+        run: env

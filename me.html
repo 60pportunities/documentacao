@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformação ME em WE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            font-size: 24px;
+            text-align: center;
+        }
+        p {
+            font-size: 20px;
+        }
+        h1 {
+            color: #3498db;
+        }
+        .emphasis {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="titulo">meu</h1>
+    <p id="paragrafo">
+        Eu sempre acreditei que meu esforço poderia fazer a diferença. 
+        Quando comecei o projeto, meus objetivos eram claros e sempre procurei atingir meus propósitos de forma focada. 
+        Ao longo do tempo, percebi que, embora meu empenho fosse importante, o apoio de outras pessoas seria essencial para o sucesso. 
+        Por isso, decidi compartilhar meu trabalho com os outros, pois sabia que juntos poderíamos alcançar mais.
+    </p>
+
+    <script>
+        function transformarTexto() {
+            var titulo = document.getElementById("titulo");
+            var paragrafo = document.getElementById("paragrafo");
+            var textoTitulo = titulo.innerText;
+            if (textoTitulo === "meu") {
+                titulo.innerText = "nosso";
+                paragrafo.innerHTML = paragrafo.innerHTML.replace(/meu/g, "nosso");
+                paragrafo.innerHTML = paragrafo.innerHTML.replace(/meu/g, "<span class='emphasis'>nosso</span>");
+            } else {
+                titulo.innerText = "meu";
+                paragrafo.innerHTML = paragrafo.innerHTML.replace(/nosso/g, "meu");
+                paragrafo.innerHTML = paragrafo.innerHTML.replace(/nosso/g, "<span class='emphasis'>nosso</span>");
+            }
+        }
+        setInterval(transformarTexto, 5000);
+    </script>
+
+</body>
+</html>
+

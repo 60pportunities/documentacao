@@ -1,0 +1,36 @@
+name: Validate 'versions-manifest.json' file
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'versions-manifest.json'
+
+jobs:
+  setup-versions-from-manifest:
+    name: Setup ${{ matrix.python }} ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-20.04, ubuntu-22.04, macos-13]
+        python: [3.9.13, 3.10.11, 3.11.8, 3.12.7, 3.13.0]
+    steps:
+    - name: setup-python ${{ matrix.python }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python }}
+
+    - name: Validate version
+      run: |
+        $pythonVersion = (python --version)
+        if ("Python ${{ matrix.python }}" -ne "$pythonVersion"){
+          Write-Host "The current version is $pythonVersion; expected version is ${{ matrix.python }}"
+          exit 1
+        }
+        $pythonVersion
+      shell: pwsh
+
+    - name: Run simple code
+      run: python -c 'import math; print(math.factorial(5))'
