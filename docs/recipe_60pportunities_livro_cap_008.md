@@ -1196,41 +1196,23 @@ Quando iniciamos um projeto, podemos seguir algumas práticas recomendadas para 
 ##### Trabalho em Equipe
 O trabalho em equipe envolve diferentes estratégias de pensamento: criativo, compreensivo e decisivo. 
 
-115-
 - [x] O pensamento criativo envolve desafiar o status quo e propor novas ideias;
 - [x] O pensamento compreensivo é a capacidade de focar em uma tarefa e entender um problema em profundidade. 
-- [ ] Para planejar reuniões eficazes, um padrão de início, engajamento e conclusão. Por exemplo, reuniões de ideação para projetos podem incluir: identificar o problema, debater soluções, estruturar ideias e selecionar as melhores para testar.
+- [x] Para planejar reuniões eficazes, um padrão de início, engajamento e conclusão. 
 
-A estratégia de mainline branch é a mais simples, onde os desenvolvedores fazem commits em um único branch central, que está sempre pronto para implantação. 
 
-O branch principal deve conter apenas trabalho testado e nunca deve ser quebrado. 
-
-Em projetos pequenos, pode não ser necessário separar as ideias em diferentes branches.
-
-À medida que o projeto amadurece, o número de branches aumenta. É importante encontrar um número de tipos de branches que funcione bem para a equipe. 
-
-Estratégias mais complexas envolvem branches de features e de integração. Documentar o processo da equipe é crucial para manter a consistência e facilitar a compreensão do histórico do código.
-
-Documentar as decisões codificadas é outra prática importante, utilizando um sistema de tickets para capturar todos os requisitos. A progressão do ticket deve seguir estados como "Em Progresso", "Necessita Teste" e "Concluído". 
-
-O ideal é não exagerar na categorização e permitir que o time adicione estados conforme necessário.
-
-O review de código faz parte do fluxo, com merge realizado pelo revisor.  
-
-Quando uma versão do software é lançada, um novo branch chamado main é criado a partir do commit aprovado, e um tag de versão é adicionado. Para hotfixes, um branch é criado a partir do último lançamento, e segue o mesmo processo de review.
-
-O workflow pode mudar antes e depois do lançamento do produto. 
-
-O versionamento baseado em issues é destacado, com cada tarefa sendo uma maneira de ajudar alguém. 
-
-O processo de trabalho deve incluir a criação do ticket, um novo branch com o número do ticket, o trabalho no ticket, testes e o commit.
-
-É importante saber exatamente o que se quer mudar e como deve ser depois.
-
-O capítulo também aborda como reverter commits, incluindo o uso de revert para reverter um merge. O rebase é abordado como uma ferramenta para reorganizar commits, mas com risco de criar conflitos. O comando git reflog permite visualizar o histórico local de todas as ações. 
-
-O nome do projeto e a estrutura da equipe afetam o acesso ao repositório. É importante decidir se os membros da equipe podem fazer commits diretamente ou precisam de review. 
-
+- [x] Reuniões de ideação para projetos podem incluir: identificar o problema, debater soluções, estruturar ideias e selecionar as melhores para testar.
+- [x] O branch principal deve conter apenas trabalho testado e nunca deve ser quebrado. 
+- [x] À medida que o projeto amadurece, o número de branches pode aumentar, é importante encontrar um número de tipos de branches que funcionem bem para a equipe. 
+- [x] Documentar o processo da equipe é crucial para manter a consistência e facilitar a compreensão do histórico do código.
+- [x] Documentar as decisões codificadas é outra prática importante, utilizando um sistema de tickets para capturar todos os requisitos.
+- [x] O ideal é não exagerar na categorização e permitir que o time adicione estados conforme necessário;
+- [x] O review de código faz parte do fluxo, com merge realizado pelo revisor.  
+- [x] Quando uma versão do software é lançada, um novo branch chamado main é criado a partir do commit aprovado, e um tag de versão é adicionado. 
+- [x] Para hotfixes, um branch é criado a partir do último lançamento, e segue o mesmo processo de review.
+- [x] O versionamento baseado em issues é destacado, com cada tarefa sendo uma maneira de ajudar alguém. 
+- [x] O processo de trabalho deve incluir a criação do ticket, um novo branch com o número do ticket, o trabalho no ticket, testes e o commit.
+![](img/git-flow-60pportunities.png)
 ##### Git Hooks
 Como os scripts são infinitamente personalizáveis, você pode usar ganchos Git para automatizar ou otimizar virtualmente qualquer aspecto de seu fluxo de trabalho de desenvolvimento.
 
