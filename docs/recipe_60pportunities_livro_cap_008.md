@@ -1192,7 +1192,45 @@ Quando iniciamos um projeto, podemos seguir algumas práticas recomendadas para 
         - [x] git submodule update --remote
         
         ![](img/repositorio_dac.png)
- 
+
+##### Trabalho em Equipe
+O trabalho em equipe envolve diferentes estratégias de pensamento: criativo, compreensivo e decisivo. 
+
+115-
+- [x] O pensamento criativo envolve desafiar o status quo e propor novas ideias;
+- [x] O pensamento compreensivo é a capacidade de focar em uma tarefa e entender um problema em profundidade. 
+- [ ] Para planejar reuniões eficazes, um padrão de início, engajamento e conclusão. Por exemplo, reuniões de ideação para projetos podem incluir: identificar o problema, debater soluções, estruturar ideias e selecionar as melhores para testar.
+
+A estratégia de mainline branch é a mais simples, onde os desenvolvedores fazem commits em um único branch central, que está sempre pronto para implantação. 
+
+O branch principal deve conter apenas trabalho testado e nunca deve ser quebrado. 
+
+Em projetos pequenos, pode não ser necessário separar as ideias em diferentes branches.
+
+À medida que o projeto amadurece, o número de branches aumenta. É importante encontrar um número de tipos de branches que funcione bem para a equipe. 
+
+Estratégias mais complexas envolvem branches de features e de integração. Documentar o processo da equipe é crucial para manter a consistência e facilitar a compreensão do histórico do código.
+
+Documentar as decisões codificadas é outra prática importante, utilizando um sistema de tickets para capturar todos os requisitos. A progressão do ticket deve seguir estados como "Em Progresso", "Necessita Teste" e "Concluído". 
+
+O ideal é não exagerar na categorização e permitir que o time adicione estados conforme necessário.
+
+O review de código faz parte do fluxo, com merge realizado pelo revisor.  
+
+Quando uma versão do software é lançada, um novo branch chamado main é criado a partir do commit aprovado, e um tag de versão é adicionado. Para hotfixes, um branch é criado a partir do último lançamento, e segue o mesmo processo de review.
+
+O workflow pode mudar antes e depois do lançamento do produto. 
+
+O versionamento baseado em issues é destacado, com cada tarefa sendo uma maneira de ajudar alguém. 
+
+O processo de trabalho deve incluir a criação do ticket, um novo branch com o número do ticket, o trabalho no ticket, testes e o commit.
+
+É importante saber exatamente o que se quer mudar e como deve ser depois.
+
+O capítulo também aborda como reverter commits, incluindo o uso de revert para reverter um merge. O rebase é abordado como uma ferramenta para reorganizar commits, mas com risco de criar conflitos. O comando git reflog permite visualizar o histórico local de todas as ações. 
+
+O nome do projeto e a estrutura da equipe afetam o acesso ao repositório. É importante decidir se os membros da equipe podem fazer commits diretamente ou precisam de review. 
+
 ##### Git Hooks
 Como os scripts são infinitamente personalizáveis, você pode usar ganchos Git para automatizar ou otimizar virtualmente qualquer aspecto de seu fluxo de trabalho de desenvolvimento.
 
@@ -1218,76 +1256,7 @@ Os ganchos podem residir em repositórios locais e/ou globais ou do lado do serv
 - [x] Os primeiros 4 ganchos permitem que você se conecte a todo o ciclo de vida do commit, e os 2 finais permitem que você execute algumas ações extras ou verificações de segurança para os comandos git checkoute git rebase, respectivamente.
 - [x] Todos os pre-ganchos permitem alterar a ação que está prestes a ocorrer, enquanto os post-ganchos são usados ​​apenas para notificações.
 
-#### Trabalho em Equipe e Mentalidades:
-O trabalho deve ser sempre motivado por um desejo de melhorar a experiência do usuário final, evitando regressões e mantendo a segurança.
-Controlo de Acesso: O Git em si não possui controlo de acesso, mas este pode ser implementado via sistemas de hospedagem como Bitbucket ou GitLab.
-Modelo de acesso: O Git permite que todos em uma equipe tenham acesso de escrita, e depende de outras ferramentas para controlar isso.
-"O Git não acomoda permissões e, em vez disso, depende de outros sistemas para conceder ou negar acesso de escrita a um repositório."
-"As regras que restringem a distribuição e obras derivadas de uma base de código são definidas pela sua licença de software."
-Estratégias de Branching:
-Definição de Branch: Uma branch é uma maneira de separar diferentes linhas de pensamento sobre a evolução do código.
 
-Mainline Branch Development: Desenvolvimento direto na branch principal (main).
-Branch-per-Feature: Criação de branches separadas para cada funcionalidade.
-State Branching: Uso de branches para refletir estados do projeto (por exemplo, "maint", "main", "next", "pu" usado no Git).
-"Em controlo de versão, uma branch é uma forma de separar pensamentos paralelos sobre como uma parte do código pode evoluir."
-Fluxos de Trabalho:
-Documentação: A importância de documentar o processo de trabalho, incluindo decisões codificadas e progressão de tickets.
-Fluxo de Trabalho Básico: O livro apresenta um exemplo de fluxo de trabalho que visa colaboração eficaz.
-Evolução: Os fluxos de trabalho devem evoluir com a equipe e o projeto.
-Trabalhando Sozinho:
-Controlo de Versão Baseado em Issues: O uso de issues como base para o trabalho individual.
-Criação de Repositórios Locais: O livro descreve como criar repositórios Git a partir de repositórios existentes, pastas de arquivos não rastreados ou diretórios vazios.
-git clone [URL] - para clonar repositório remoto.
-git init - para iniciar um novo repositório em um diretório.
-Adição e Commits: O livro detalha o processo de adicionar arquivos ao repositório, incluindo staging, commits e uso de mensagens de commit.
-Ignorar Arquivos: Como configurar arquivos e padrões a serem ignorados pelo Git através de .gitignore.
-Tags: Como utilizar tags para marcar commits específicos.
-Comandos Git: Uma lista de comandos básicos do Git, tais como clone, init, status, add, commit, log, branch, checkout, tag, etc.
-Rollbacks, Reverts, Resets e Rebasing:
-Comandos: O livro descreve como utilizar comandos como reset, revert e rebase para desfazer, corrigir e remodelar o histórico de commits.
-Atenção ao Detalhe: É importante usar diagramas para visualizar os efeitos dos comandos antes de os executar.
-Reflog: O reflog é uma história privada que rastreia tudo o que foi feito, incluindo coisas que não impactaram o código, como o checkout de uma branch.
-"Esta é uma história privada. Só você pode vê-la, graças a Deus! Ela conterá tudo o que você fez, incluindo coisas que não têm impacto no código, como verificar uma branch."
-Reset: O comando reset é utilizado para apontar para o HEAD de um branch, e pode ser utilizado para simular um squash em commits.
-Equipes com Mais de Uma Pessoa:
-Configuração do Projeto: Como configurar um projeto para múltiplos colaboradores, incluindo permissões, uploads e documentação.
-README: A importância de documentar o projeto num ficheiro README.
-Licença: A necessidade de usar uma licença para que seja claro como o seu projeto pode ser utilizado.
-Consumidores e Contribuidores: Diferentes maneiras pelas quais os developers podem interagir com um projeto no Git.
-"Um consumidor de um projeto não tem intenção consciente de contribuir para um projeto. Eles não esperam ter acesso de escrita à base de código e não conseguem imaginar um futuro possível onde gostariam de fazer upload de suas mudanças para um projeto."
-Revisão de Código:
-Tipos de Revisão: O livro aborda diferentes formas de revisão e como prepará-las.
-Formatos de Patch: Utilização de git diff para visualizar alterações propostas num ficheiro de "patch".
-"Um patch permite que você compare uma versão de um código com outra para ver o que foi alterado. Os patches podem então ser aplicados ao código."
-Revisores: O livro discute diferentes tipos de revisores e seus impactos.
-Encontrando e Corrigindo Bugs:
-Stash: O uso do stash para colocar trabalho em andamento de lado temporariamente.
-Blame: Como usar o blame para ver a história das mudanças linha a linha.
-Bisect: Como usar o bisect para encontrar o commit que introduziu um bug.
-“Depois que encontrar o ponto onde as coisas deram errado, poderá corrigir o histórico nesse exato momento. É como ‘De Volta para o Futuro’— e o Git é o seu DeLorean.'
-"O comando blame permite analisar um arquivo linha a linha, mostrando a última vez que cada linha foi alterada, por quem e em qual commit ela foi alterada"
-Projetos de Código Aberto no GitHub:
-GitHub: Uma breve descrição da plataforma.
-Repositórios: Como criar repositórios pessoais e adicionar arquivos.
-Snapshots: Como baixar snapshots de repositórios.
-Colaboração: Como colaborar com outros em um projeto, incluindo forks e pull requests.
-git remote add [nome-de-usuario] git://github.com/[nome-de-usuario]/[nome-do-repositorio] - adicionar o repositório remoto.
-git fetch [nome-de-usuario] - baixar as branches de um repositório remoto.
-Colaboração Auto-Hospedada com GitLab:
-GitLab: Uma breve descrição da plataforma, com configurações e painel administrativo.
-Milestones: Como gerir marcos em um projeto.
-Apêndices:
-
-Receitas: Uma comparação entre duas receitas de butter tarts para ilustrar a ideia de branch, diferentes variantes da mesma receita.
-Instalação do Git: Detalhes sobre como instalar e atualizar o Git em diferentes sistemas operacionais.
-Configuração do Git: Detalhes sobre como configurar o Git, incluindo nome, email, configurações do .gitignore e line endings.
-git config --global user.name 'Seu Nome' - Definir o nome global.
-git config --global user.email 'seu-email@example.com' - Definir o email global.
-Chaves SSH: Como gerar e configurar chaves SSH para conexões seguras.
-Conclusão:
-
-Este livro oferece uma visão completa sobre o uso do Git em equipes, cobrindo desde conceitos básicos até funcionalidades mais avançadas. O foco na experiência do usuário e nas melhores práticas torna-o um guia valioso para qualquer equipe que deseje trabalhar de forma eficiente e colaborativa com Git.
 
 
 Criando develop
@@ -1335,3 +1304,4 @@ git checkout develop
 git merge hotfix_branch
 git checkout main
 git merge hotfix_branch
+

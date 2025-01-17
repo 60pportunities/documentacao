@@ -249,7 +249,7 @@ nav:
       - 'Vamos dar uma espiada (Observabilidade)'                    : 'recipe_60pportunities_livro_cap_013.md'
       - 'Inteligência Artificial no Desenvolvimento de Software'     : 'recipe_60pportunities_livro_cap_014.md'
       - 'Metas e Métricas: A Importância de Medir'                   : 'recipe_60pportunities_livro_cap_015.md'
-      - 'Conclusão: Do Passado ao Futuro da Engenharia de Software'  : 'recipe_60pportunities_livro_cap_conclusao.md'
+      - 'Engenharia de Software'                                     : 'recipe_60pportunities_livro_cap_conclusao.md'
 #  - 'Pessoas'                                       :
 #     - 'Fluxo/Contexto/Developer'                   : 'recipe_60pportunities_frameworks_fluxo.md'
 #     - 'Ferramentas CI/CD'                          : 'recipe_60pportunities_frameworks_tools.md'
