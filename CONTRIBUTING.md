@@ -129,7 +129,7 @@ Você deve seguir as diretrizes relacionadas à segurança e ao desempenho. Voc�
 | [Changelog-Snippets](https://marketplace.visualstudio.com/items?itemName=dzgmelody.vscode-changelog-snippets) | [Keep a Changelog](https://marketplace.visualstudio.com/items?itemName=RLNT.keep-a-changelog) | [Comandos Git](https://www.freecodecamp.org/news/git-cheat-sheet/) | [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/)  | 
 | [Versionamento Semântico](https://semver.org/lang/pt-BR/) | [Google](https://google.github.io/styleguide/) | [Contributor Covenant](https://www.contributor-covenant.org/pt-br/version/2/0/code_of_conduct/) | [HTML](https://html.spec.whatwg.org/multipage/) | Nomenclatura Branch | 
 | [Catalogo de APIs]() |  [DaC](https://www.writethedocs.org/guide/docs-as-code/)  | CEMLI | [git-cliff](https://git-cliff.org/) |
-| [Semantic Commit Messages](https://sparkbox.com/foundry/semantic_commit_messages) | [Karma-Semantic Messages](https://karma-runner.github.io/6.4/intro/installation.html) | | |
+| [Semantic Commit Messages](https://sparkbox.com/foundry/semantic_commit_messages) | [Karma-Semantic Messages](https://karma-runner.github.io/6.4/intro/installation.html) | [.gitignore](https://github.com/github/gitignore) | |
 
 <!--contributing-end02-->
 # Convenções de Documentação

@@ -8,6 +8,7 @@
 - [x] Em 1980, Tim Berners-Lee, do laboratório de física do CERN, cria o Enquire, um sistema de hipertexto em rede usado para gerenciamento de projetos, mas com ambições muito maiores. 
 - [X] 1981: A IBM lança o IBM PC;
 - [X] 1981: O sistema operacional MS-DOS da Microsoft é lançado,MS-DOS, ou Microsoft Disk Operating System, o software básico para o recém-lançado IBM PC, é o início de uma longa parceria entre a IBM e a Microsoft, que Bill Gates e Paul Allen fundaram apenas seis anos antes. 
+- [x] 1980s: Introdução do paradigma Cliente-Servidor, promovendo a separação entre consumidores de serviços e provedores.
 - [x] 1981: A Sony apresenta as primeiras unidades de disquete e disquetes de 3 ½ polegadas.
 - [x] Joyce Worley Katz, Arnie Katz e Bill Kunkel co-fundaram a Electronic Games , a primeira revista de videogame dos Estados Unidos.
 - [x] O IBM PC revolucionou a computação empresarial ao se tornar o primeiro PC a ganhar ampla adoção pela indústria. 
@@ -40,6 +41,10 @@
 - [x] Phil Moorby e Prabhu Goel da Gateway Design Automation criam o Verilog, uma linguagem de descrição de hardware que é usada no design de circuitos digitais.
 - [x] Em 1984, Michael Dell cria a PC's Limited enquanto ainda era estudante da Universidade do Texas em Austin. 
 - [x] 1984: MacWrite – Primeiro editor de texto gráfico, lançado para Macintosh.
+- [x] 1984: Publicação dos padrões iniciais do protocolo DNS (Domain Name System) em dois artigos principais:
+      - [x] RFC 882: “Domain Names - Concepts and Facilities” por P. Mockapetris.
+      - [x] RFC 883: “Domain Names - Implementation and Specification” por P. Mockapetris.
+- [x] 1985: Publicação do livro “Distributed Operating Systems” por Andrew S. Tanenbaum, uma referência inicial para a área de sistemas distribuídos.
 - [X] 1985: A Microsoft lança o Windows 1.0;
 - [X] 1985: Stallman publica o Manifesto do Software Livre, no qual define a filosofia por trás do movimento.
 - [x] 1985: A linguagem de programação C++ surge como a linguagem orientada a objetos dominante na indústria de computadores quando Bjarne Stroustrup publica o livro The C++ Programming Language . 
@@ -47,7 +52,7 @@
 - [x] Denning, de Boston, projetou o robô Sentry como um guarda de segurança patrulhando por até 14 horas a 3 mph. 
 - [x] Fundação Media Lab foi inaugurado em um prédio projetado por IM Pei, inicialmente com foco na "Revolução Digital";
 - [x] Nintendo lança o Nintendo Entertainment System (NES) nos EUA;
-- [x] O brinquedo robô programável controlado remotamente Omnibot 2000 podia se mover, falar e carregar objetos. 
+- [x] O brinquedo robô programável controlado remotamente Omnibot 2000 podia se mover, falar e carregar objetos.
 - [x] O termo SCRUM, ele foi retirado do livro [Wicked problems, righteous solutions](https://books.google.com.br/books/about/Wicked_Problems_Righteous_Solutions.html?id=__omAAAAMAAJ&redir_esc=y), de 1990. Sendo neste livro que trouxe pela primeira vez a ideia de utilizarmos no desenvolvimento de software o conjunto de práticas descritas pelos dois autores japoneses na reconhecida revista. E foi nesse mesmo livro que seus autores, DeGrace e Stahl, batizaram essa nova forma de trabalhar de “Scrum“.
 - [x] 1985: Excel (Versão Mac) – A Microsoft lançou o Excel para Macintosh, destacando-se por sua interface gráfica e facilidade de uso.
 - [x] 1985: LaTeX – Ferramenta avançada para a produção de documentos científicos e técnicos.

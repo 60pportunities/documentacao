@@ -26,7 +26,8 @@
 - [x] 1961: LANPAR (LANguage for Programming Arrays at Random) – Um dos primeiros sistemas de planilha, desenvolvido para mainframes. Utilizado principalmente em empresas de telecomunicação.
 - [x] 1964: BASIC (Beginners All-Purpose Symbolic Instruction Code). Thomas Kurtz, co-inventor da linguagem de programação BASIC, aos 96 anos, 17/11/2024.
 - [X] 1964: O computador ELIZA, criado por Joseph Weizenbaum, é um dos primeiros programas a simular uma conversa em linguagem natural;
-- [X] 1964: RUNOFF – Primeiro editor de texto formatado, criado para o sistema CTSS.
+- [X] 1964:RUNOFF – Primeiro editor de texto formatado, criado para o sistema CTSS.
+- [x] 1965: Lawrence Roberts e Thomas Marill realizaram a primeira comunicação entre dois computadores usando uma linha telefônica dedicada. O experimento foi publicado no artigo “Toward a Cooperative Network of Time-Shared Computers” na Fall Joint Computer Conference (FJCC).
 - [x] 1966: A memória Moby é adquirida e o dispositivo TTY adiciona mais quatro teletipos; preparando-se para o compartilhamento de tempo?
 - [X] 1966: O chatbot SHRDLU, desenvolvido por Terry Winograd, é um dos primeiros sistemas de IA a manipular objetos em um ambiente virtual utilizando linguagem natural.
 - [x] Em 1966, Böhm e Jacopini publicaram o teorema que é considerado a base teórica da programação estruturada, mostrando que qualquer programa pode ser escrito usando apenas três estruturas de controle:
@@ -51,35 +52,6 @@ As indústrias começaram, incorretamente, a ver o **desenvolvimento de software
 
 <p align="justify">Fundada em 1969, nos Estados Unidos, Project Management Institute (PMI),  por um grupo de profissionais que reconheceu a necessidade de uma abordagem mais estruturada e eficiente para gerenciar projetos, que estavam se tornando cada vez mais complexos à medida que as indústrias e tecnologias evoluíam.</p>
 O PMI é uma organização global dedicada à prática e ao desenvolvimento da Gestão de Projetos. 
-
-- [x] Em 1970, o conceito ganhou força com a publicação de artigos e livros de Edsger W. Dijkstra, um dos pioneiros da programação estruturada, que argumentava contra o uso indiscriminado de comandos goto e defendendo a organização do código em blocos estruturados.
-      - [x] Pascal (1970): Projetada por Niklaus Wirth, focava na simplicidade e na estruturação do código.
-      - [x] C (1972): Ampliou a programação estruturada em sistemas de software, consolidando seu uso.
-- [x] 1970: Os Beatles anunciam seu próprio fim e lançam o derredeiro album, Let it Be.
-- [x] 1970: IBM e HP começam a vender diretamente ao público microcomputadores baseados em transistores e microchips;
-- [x] 1970: O Brasil conquista o tricampeonato mundial de futebol;
-- [x] 1971: Adquiri da Inglaterra as fragatas da classe Niteroi;
-- [x] 1971: Ray Tomlinson, envia uma mensagem para si mesmo, mas de outro computador, criando assim ium novo meio de comunicação via computadores: eletronic mail, ou simplesmente, e-mail. Foi Ray que decidiu que o nome do usuario, seria separado do nome do computador, pelo simbolo "@".
-- [x] 1971: O parque de computadores instalado no Brasil, chega a impressionante marca de seiscentas máquinas, com o valore estimado em 60 milhões de dolares;
-- [x] 1971: Abertura da filial da HP Brasil em Porto Alegre 
-- [x] 1971: ED – Um editor de texto simples para Unix.
-- [x] 1972: JUnit predecessor (Conceitos iniciais) – Embora o JUnit só surgisse nos anos 90, conceitos de teste unitário começaram a ser explorados nessa época, especialmente no desenvolvimento de sistemas embarcados e metodologias estruturadas.
-- [x] 1972: Criada pelo governo brasileiro a Comissão de Coordenação das Atividades de Processamento Eletrônico (CAPRE), destinada a controlar a importação e exportação de componentes eletrônicos para equipamentos de processamento de dados e também traçar diretrizes para um Programa Nacional de Ensino da Computação, para diminuir o déficit de profissionais na área de informática no país.
-- [x] Nasce o G-10 ou vulgarmente conhecido como "Patinho Feio", o primeiro microcomputador brasileiro, criado pelos professores e alunos da Escola Politécnica da USP, como resultado de um curso ministrado pelo professor Glen Langdon Jr. O "G" era uma homenagem ao Comandante Guaranys, que morrera quase ao final da empreitada.
-- [x] O [Patinho Feio](https://pt.wikisource.org/wiki/Contos_de_Andersen/O_patinho_feio), numa óbvia referencia a fábula do autor dinamarques do século XIX, Hans Christian Andersen,escrita em 1844.
-- [x] Primeira demonstração pública da Arpanet conecta quarenta computadores;
-- [x] O Brasil ingressa na era da TV em cores e oo Bem Amado, de Dias Gomes, é a primeira telenovela nacional totalmente colorida.
-- [x] 1973: Primeira conexão internacional da Arpanet, liga a Inglaterra à Noruega;
-- [x] Engenheiros da Xerox, desenvolvem uma interface gráfica, bem próximas dos atuais Windows e MAC OS, chamado de ALTO, usando mouse, ícones para representar programas e documentos, e apta a operar em rede. Ela nunca foi lançada, pois a empres não acreditava naquela ideia.
-- [x] Criação do Curso de formação de tecnologos em processamento de dados na PUC-RJ;
-- [x] 1974: Nasce em 18 de julho a Empresa Computadores Brasileiros - COBRA -, da União do BNDES, EE Eletrônica e da inglesa Ferranti;
-- [x] Criada a empresa Dataprev, o centro de processamento de dados da Previdência.O presidente Ernesto Geisel sanciona a lei 6.125, que constitui a Empresa de Processamento de Dados da Previdência Social (Dataprev).
-- [x] 1975: A Cobra lança seu Cobra 700;
-- [x] 1975: Criada a primeira unidade produtiva da HP Brasil, em Campinas - SP, para a produção da linha de instrumentação eletrônica e de calculadoras voltadas à área de computação, como a HP-35 e a HP-45.
-- [x] Dois amigos de infancia, Bill Gates e Paul Allen, fundam a Microsoft, cujo primeiro software foi uma versão de BASIC para microcomputadores, produzida ainda quando Bill Gates estudava em Harvard.
-- [x] Operando apenas no pequeno trecho de sete estações, entre Jabaquara e Vila Mariana, entra em circulação a primeira linha de metrô do Brasil, em São Paulo.
-- [x] O contrato entre o INPS e a Burroughs Eletrônica é transferido para a Dataprev, que passa a gerir o parque de computadores instalados no Rio de Janeiro e em São Paulo.
-- [x] O primeiro protótipo da empresa foi o Apple I que foi demonstrado na Homebrew Computer Club em 1975.
 
 ![](img/livro-001.png){width="400" height="500" style="display: block; margin: 0 auto"}
 
@@ -106,14 +78,43 @@ Analisando o modelo e sua publicação Royce, ele consegue incluir alguns pensam
 
 Quando essas limitações começam a impactar a eficiência e a entrega de valor aos stakeholders, as organizações buscam métodos mais flexíveis, como o modelo Incremental.
 
+- [x] Em 1970, o conceito ganhou força com a publicação de artigos e livros de Edsger W. Dijkstra, um dos pioneiros da programação estruturada, que argumentava contra o uso indiscriminado de comandos goto e defendendo a organização do código em blocos estruturados.
+      - [x] Pascal (1970): Projetada por Niklaus Wirth, focava na simplicidade e na estruturação do código.
+      - [x] C (1972): Ampliou a programação estruturada em sistemas de software, consolidando seu uso.
+- [x] 1970: Os Beatles anunciam seu próprio fim e lançam o derredeiro album, Let it Be.
+- [x] 1970: IBM e HP começam a vender diretamente ao público microcomputadores baseados em transistores e microchips;
+- [x] 1970: O Brasil conquista o tricampeonato mundial de futebol;
 - [X] 1970: IBM's System R — A IBM desenvolveu o System R, um dos primeiros sistemas de banco de dados relacional, que foi uma das inspirações para a criação de SQL (Structured Query Language).
 - [x] 1971: Conectado à ARPANET, versão ~670
 - [X] 1971, eles começaram a reescrever o Unix em C, uma linguagem de programação que Dennis Ritchie.
+- [x] 1971: Adquiri da Inglaterra as fragatas da classe Niteroi;
+- [x] 1971: Ray Tomlinson, envia uma mensagem para si mesmo, mas de outro computador, criando assim ium novo meio de comunicação via computadores: eletronic mail, ou simplesmente, e-mail. Foi Ray que decidiu que o nome do usuario, seria separado do nome do computador, pelo simbolo "@".
+- [x] 1971: O parque de computadores instalado no Brasil, chega a impressionante marca de seiscentas máquinas, com o valore estimado em 60 milhões de dolares;
+- [x] 1971: Abertura da filial da HP Brasil em Porto Alegre 
+- [x] 1971: ED – Um editor de texto simples para Unix.
+- [x] 1972: JUnit predecessor (Conceitos iniciais) – Embora o JUnit só surgisse nos anos 90, conceitos de teste unitário começaram a ser explorados nessa época, especialmente no desenvolvimento de sistemas embarcados e metodologias estruturadas.
+- [x] 1972: Criada pelo governo brasileiro a Comissão de Coordenação das Atividades de Processamento Eletrônico (CAPRE), destinada a controlar a importação e exportação de componentes eletrônicos para equipamentos de processamento de dados e também traçar diretrizes para um Programa Nacional de Ensino da Computação, para diminuir o déficit de profissionais na área de informática no país.
+- [x] Nasce o G-10 ou vulgarmente conhecido como "Patinho Feio", o primeiro microcomputador brasileiro, criado pelos professores e alunos da Escola Politécnica da USP, como resultado de um curso ministrado pelo professor Glen Langdon Jr. O "G" era uma homenagem ao Comandante Guaranys, que morrera quase ao final da empreitada.
+- [x] O [Patinho Feio](https://pt.wikisource.org/wiki/Contos_de_Andersen/O_patinho_feio), numa óbvia referencia a fábula do autor dinamarques do século XIX, Hans Christian Andersen,escrita em 1844.
+- [x] Primeira demonstração pública da Arpanet conecta quarenta computadores;
+- [x] O Brasil ingressa na era da TV em cores e oo Bem Amado, de Dias Gomes, é a primeira telenovela nacional totalmente colorida.
 - [x] 1972: Smalltalk, C, 1972: SQL (SEQUEL na época)
 - [x] 1972: Portagem do Unix para outros PDP. A equipe de Ken Thompson tenta reescrever o Unix em outra linguagem (B ou BCPL). A equipe melhora a linguagem B e cria a linguagem C para reescrever o Unix; Unix começa a ser distribuído em universidades e centros de pesquisa. 
 - [X] 1973: Ingres — Criado por pesquisadores da Universidade da Califórnia, Berkeley. Inicia-se a história do Unix BSD com a chegada do Unix à Universidade de Berkeley, na Califórnia; SPICE é colocado por Donald Pederson em domínio público. 
 - [x] 1973–1975: A primeira lista de gíria, as primeiras sátiras, as primeiras discussões autoconscientes sobre a ética hacker, 1973–1975. The Dicionário do Hacker em 1983; 
 - [X] 1973: O Unix foi reescrito em C, o que facilitou a portabilidade e a distribuição do sistema. 
+- [x] 1973: Primeira conexão internacional da Arpanet, liga a Inglaterra à Noruega;
+- [x] Engenheiros da Xerox, desenvolvem uma interface gráfica, bem próximas dos atuais Windows e MAC OS, chamado de ALTO, usando mouse, ícones para representar programas e documentos, e apta a operar em rede. Ela nunca foi lançada, pois a empres não acreditava naquela ideia.
+- [x] Criação do Curso de formação de tecnologos em processamento de dados na PUC-RJ;
+- [x] 1974: Nasce em 18 de julho a Empresa Computadores Brasileiros - COBRA -, da União do BNDES, EE Eletrônica e da inglesa Ferranti;
+- [x] Criada a empresa Dataprev, o centro de processamento de dados da Previdência.O presidente Ernesto Geisel sanciona a lei 6.125, que constitui a Empresa de Processamento de Dados da Previdência Social (Dataprev).
+- [ ] 1974: Vint Cerf e Bob Kahn publicaram o artigo seminal “A Protocol for Packet Network Intercommunication” no IEEE Transactions on Communications, introduzindo o conceito de TCP/IP, que se tornaria o padrão para comunicação em redes distribuídas.
+- [x] 1975: A Cobra lança seu Cobra 700;
+- [x] 1975: Criada a primeira unidade produtiva da HP Brasil, em Campinas - SP, para a produção da linha de instrumentação eletrônica e de calculadoras voltadas à área de computação, como a HP-35 e a HP-45.
+- [x] Dois amigos de infancia, Bill Gates e Paul Allen, fundam a Microsoft, cujo primeiro software foi uma versão de BASIC para microcomputadores, produzida ainda quando Bill Gates estudava em Harvard.
+- [x] Operando apenas no pequeno trecho de sete estações, entre Jabaquara e Vila Mariana, entra em circulação a primeira linha de metrô do Brasil, em São Paulo.
+- [x] O contrato entre o INPS e a Burroughs Eletrônica é transferido para a Dataprev, que passa a gerir o parque de computadores instalados no Rio de Janeiro e em São Paulo.
+- [x] O primeiro protótipo da empresa foi o Apple I que foi demonstrado na Homebrew Computer Club em 1975.
 - [X] 1975: A MITS Altair 8800 é lançada e considerada por muitos como o primeiro verdadeiro "computador pessoal".
 - [X] 1975: Lançada a primeira versão do Ingres, banco de dados livre (o ancestral do PostgreSQL). 
 - [X] 1975: **The Mythical Man-month**, Fred Brook’s
@@ -155,6 +156,7 @@ Seria a evolução do modelo em cascata, onde a validação ocorre ao longo de t
 - [x] 1977: Criação da Edisa Eletrônica Digital S/A com a participação de 16 empresas nacionais, com apoio do Banco Nacional de Desenvolvimento Econômico Social – BNDES.
 - [x] 1977:  A TELESP lançou para Bebedouro a oferta do serviço automático de telefonia, com a implantação do sistema de DDD e DDI – Discagem Direta à Distância e Discagem Direta Internacional.
 - [X] 1978: Donald Knuth, da Universidade de Stanford, começou a trabalhar no TeX, distribuído como software livre.
+- [x] 1978-1980: Proposta do modelo OSI (Open Systems Interconnection) pela ISO. O documento final foi publicado em 1980 como uma recomendação técnica para comunicação entre sistemas heterogêneos.
 - [X] 1979: AT&T começa a forçar licenças restritivas ao decidir que poderia lucrar através do sistema Unix. 
 - [X] 1979: Oracle Database — Lançado pela Oracle Corporation, fundado por Larry Ellison, Bob Miner e Ed Oates;
 - [x] 1979: VisiCalc – Criado por Dan Bricklin e Bob Frankston, foi o primeiro software de planilha eletrônica amplamente popular, lançado para o Apple II. É frequentemente considerado o precursor das planilhas modernas.
