@@ -79,21 +79,21 @@
 - [x] A Internet conecta mais de um milhão de pessoas até o final da década de 1980 e está crescendo rapidamente. 
 - [x] Nintendo lança o console portátil Game Boy;
 
-## Modelo Iterativo/Incremental  (1980-2000)
+## 1980-2000: Modelo Iterativo/Incremental
 <p align="justify">O Modelo Iterativo foi descrito pela primeira vez de forma significativa na publicação de Barry W. Boehm, no artigo intitulado [A Spiral Model of Software Development and Enhancement](pdf/A_spiral_model_of_software_development_a.pdf), publicado em 1986.</p>
 
 <p align="justify">Embora o modelo iterativo já existisse em teoria, a descrição de Barry W. Boehm o formalizou ao integrar ciclos iterativos e gerenciamento de riscos. Com uma abordagem dinâmica e flexível para o desenvolvimento de software, basicamente, divide o projeto em pequenos ciclos (iterações), onde cada iteração resulta em uma versão funcional do produto que pode ser avaliada e aprimorada.</p>
 
-## Prototipação - Final dos anos 1980
+## 1980-Final doa Anos: Prototipação
 ![](img/livro-016.png){width="200" height="200" style="display: block; margin: 0 auto"}
 
 <p align="justify">A prototipação, nasce em resposta à crescente complexidade dos sistemas de software e às limitações dos métodos tradicionais de desenvolvimento, como o Modelo em Cascata. Durante esse período, as demandas por sistemas mais interativos e adaptados às necessidades do usuário começaram a crescer, especialmente em áreas como design de interfaces gráficas e desenvolvimento de sistemas de informação.</p>
 
-O conceito de prototipação já era utilizado em áreas como design industrial e engenharia antes de ser adaptado ao desenvolvimento de software.
+<p align="justify">O conceito de prototipação já era utilizado em áreas como design industrial e engenharia antes de ser adaptado ao desenvolvimento de software.</p>
 
-A prototipação envolve a criação de versões preliminares (protótipos) do sistema para ajudar na definição de requisitos e funcionalidades. O protótipo é desenvolvido rapidamente para que os usuários possam interagir com ele e dar feedback, o que ajuda na refinamento contínuo dos requisitos.
+<p align="justify">A prototipação envolve a criação de versões preliminares (protótipos) do sistema para ajudar na definição de requisitos e funcionalidades. O protótipo é desenvolvido rapidamente para que os usuários possam interagir com ele e dar feedback, o que ajuda na refinamento contínuo dos requisitos.</p>
 
-É um processo que tem como objetivo facilitar o entendimento dos requisitos de uma aplicação. Além disso, ele permite apresentar conceitos e funcionalidades do software de modo simplificado. Com a prototipação, é possível propor uma solução adequada para o problema do cliente, aumentando sua percepção de valor.
+<p align="justify">É um processo que tem como objetivo facilitar o entendimento dos requisitos de uma aplicação. Além disso, ele permite apresentar conceitos e funcionalidades do software de modo simplificado. Com a prototipação, é possível propor uma solução adequada para o problema do cliente, aumentando sua percepção de valor.</p>
 
 A prototipação dá-se basicamente com a comunicação que ocorre através de uma reunião com todos os envolvidos, a fim de definir objetivos gerais do software e identificar quais requisitos já estão bem conhecidos, e esquematizar as áreas que realmente necessitam de uma definição mais ampla.
 

@@ -8,7 +8,7 @@
 - [x] 1990: Quattro Pro – Lançado pela Borland, era conhecido por sua interface gráfica inovadora e funcionalidades avançadas.
 - [x] 1990: Notepad – Incluído no Windows 1.0, um editor de texto básico.
 
-## RAD (Rapid Application Development) - 1991
+## 1991: RAD (Rapid Application Development)
 ![](img/livro-015.png){width="400" height="500" style="display: block; margin: 0 auto"}
 <p align="justify">O desenvolvimento rápido de aplicativos, geralmente abreviado como RAD, refere-se a uma metodologia de desenvolvimento de software adaptável e focada no desenvolvimento acelerado de aplicativos por meio de várias iterações e rodadas rápidas de feedback.</p>
 
@@ -46,7 +46,7 @@ Limitações: Pode ser difícil de aplicar em projetos grandes e complexos devid
 - [x] 1994: Quando o principal inventor da Web, Tim Berners-Lee, forma o World Wide Web Consortium (W3C) em 1994, a sede europeia é programada para o local de nascimento da Web, o CERN na Suíça, com a sede nos EUA no MIT em Boston.
 - [x] 1994: SilkTest – Ferramenta para automação de testes de interface gráfica.
 
-## DSDM(Dynamic Systems Development Method) - 1994
+## 1994: DSDM(Dynamic Systems Development Method)
 ![](img/livro-014.png){width="400" height="500" style="display: block; margin: 0 auto"}
 O DSDM foi criado em 1994 como uma alternativa ao método de Desenvolvimento Rápido de Aplicações (RAD). O DSDM foi a primeira estrutura ágil a incorporar recursos de gerenciamento de projetos
 O DSDM não é um método tradicional, mas sim um framework de controles, com o objetivo de entregar soluções rapidamente. 
@@ -97,7 +97,7 @@ Não prescreve técnicas específicas, mas oferece caminhos sugeridos para imple
 
 <p align="justify">O DSDM é um framework ágil que se concentra na entrega rápida de valor ao negócio. Ao aplicar os seus princípios, técnicas e processos, as equipas podem criar sistemas que satisfazem as necessidades dos utilizadores e que podem evoluir em conjunto com o negócio. A ênfase na colaboração, no envolvimento dos utilizadores e na entrega iterativa e incremental, permite que os projetos sejam bem-sucedidos num ambiente de constante mudança. A obra também destaca a importância da adaptação do método para diferentes contextos, como e-business ou ambientes offshore.</p>
 
-## SCRUM - 1995
+## 1995: SCRUM
 ![](img/livro-006.png){width="400" height="500" style="display: block; margin: 0 auto"}
 <p align="justify">O Scrum foi inserido pela primeira vez em um artigo publicado pela The Harvard Business Review,, em 1986. A obra foi realizada por Hirotaka Takeuchi e Ikujiro Nonaka, nomeado de "The New New Product Development Game", que traduzido para o português significa "O Novo Jogo de Desenvolvimento de Novos Produtos".</p>
 
@@ -158,7 +158,7 @@ O Scrum pode ser escalado e aplicado em grandes organizações, abordando temas 
 
 <p align="justify">O sucesso do Scrum depende de um planejamento flexível, da autonomia da equipe, da liderança servidora, da adaptação contextual e, acima de tudo, do compromisso com a entrega contínua de valor. Ao aplicar os conceitos e técnicas apresentados, as organizações podem aumentar a eficiência, a qualidade e a satisfação de seus clientes e usuários.</p>
 
-## XP (Extreme Programming) - 1996
+## 1996: XP (Extreme Programming)
 ![](img/livro-005.png){width="400" height="500" style="display: block; margin: 0 auto"}
 A agilidade é apresentada como uma resposta à necessidade de adaptabilidade em projetos de software.
 
@@ -200,7 +200,7 @@ Testes como Guia: Os testes não são apenas uma ferramenta de verificação; el
 - [x] Base de Dados de Defeitos: O uso de uma base de dados de defeitos como uma fonte de informações para medir a qualidade e comparar a eficácia de diferentes equipes é sugerido.
 - [x] Qualidade da Implementação: Métricas como tamanho do código, média de métodos por classe e complexidade ciclômática são usadas para avaliar a qualidade da implementação.
 
-## Feature Driven Development (FDD) - 1997     
+## 1997: Feature Driven Development (FDD)
 ![](img/livro-013.png){width="400" height="500" style="display: block; margin: 0 auto"}
 <p align="justify">Ele é apresentado como uma metodologia de desenvolvimento de software que divide projetos complexos em partes menores e gerenciáveis, chamadas "funcionalidades" ou "features". O FDD é descrito como um "abordagem sistemática e orientada ao cliente que transforma projetos complexos em uma série de marcos alcançáveis". O objetivo principal é entregar essas funcionalidades de forma incremental, com foco na melhoria contínua e na demonstração de progresso passo a passo.</p>
 

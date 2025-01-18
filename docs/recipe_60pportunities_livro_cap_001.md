@@ -36,7 +36,7 @@
       - [x] iteração: Executar repetidamente um subprograma enquanto uma expressão booleana for verdadeira;
 - [x] 1966: PERT (Program Evaluation Review Technique) – Popularizado pela Marinha dos EUA;
 - [X] 1967: TECO (Text Editor and Corrector) – Um dos primeiros editores amplamente usados em sistemas DEC.
-## A Crise do Software (1968): O Início de uma Nova Era
+## 1968: A Crise do Software
 <p align="justify">Evidenciado a necessidade urgente de novos processos, metodologias e técnicas para o desenvolvimento de software, surge a Conferência de Garmisch, realizada em 1968 na Alemanha, que foi organizada pela ACM (Association for Computing Machinery).</p>
 <p align="justify">Como resultado desta conferência, houve a publicação de "Software Engineering", que descrevia os desafios da indústria de software e sugeria que a engenharia de software se tornasse uma disciplina acadêmica formal, com metodologias e práticas rigorosas.</p>
 - [x] Em 1969, a OTAN (Organização do Tratado do Atlântico Norte) organizou outra conferência, focada no desenvolvimento de software e suas deficiências. Nesse evento, discutiu-se a criação da *Engenharia de Software* como uma resposta à crescente crise. Neste encontro enfatizou-se a necessidade em desenvolver software de maneira científica, utilizando métodos formais de análise e design estruturado.
@@ -55,15 +55,16 @@ O PMI é uma organização global dedicada à prática e ao desenvolvimento da G
 
 ![](img/livro-001.png){width="400" height="500" style="display: block; margin: 0 auto"}
 
-## Modelo Cascata: A Primeira Estrutura Formal (1970)
+## 1970: Modelo Cascata: A Primeira Estrutura Formal
 "Acredito nesse conceito, mas a implementação descrita acima é arriscada e convida ao fracasso." -  Winston Royce.
 
 A conceituação do modelo Waterfall foi supostamente "inventado" pelo artigo [Managing the Development of Large Software Systems](pdf/royce1970.pdf) do Dr. Winston W. Royce em 1970.
 
-Winston Royce,  propõe o que é agora popularmente designado no modelo em cascata como um conceito inicial, um modelo no qual ele argumentava ser defeituoso e defendia uma abordagem iterativa para o desenvolvimento de software, porém há citações da criação do  Modelo em Cascata (Waterfall) sendo criado por ele Winston Royce. 
+<p align="justify">Winston Royce,  propõe o que é agora popularmente designado no modelo em cascata como um conceito inicial, um modelo no qual ele argumentava ser defeituoso e defendia uma abordagem iterativa para o desenvolvimento de software, porém há citações da criação do  Modelo em Cascata (Waterfall) sendo criado por ele Winston Royce.</p>
 
 Pois bem, nesta publicação, ele propõe o que é agora popularmente designado no modelo em Waterfall como um conceito inicial, um modelo no qual ele argumentava ser **defeituoso** e defendia uma abordagem iterativa para o desenvolvimento de software, porém há citações da criação do Modelo em Waterfall sendo criado por ele Winston Royce.
-De certa forma, acredito que todos os processos de Engenharia, mesmo não documentados explicitamente existam e ele apenas transcreve o que vê. Suas preocupações estavam focadas principalmente em testes ocorrendo no final do processo, com isso sua conclusão me parece óbvia, é que testes tardios poderiam levar a estouro do cronograma e dos custos.
+
+<p align="justify">De certa forma, acredito que todos os processos de Engenharia, mesmo não documentados explicitamente existam e ele apenas transcreve o que vê. Suas preocupações estavam focadas principalmente em testes ocorrendo no final do processo, com isso sua conclusão me parece óbvia, é que testes tardios poderiam levar a estouro do cronograma e dos custos.</p>
 
 Analisando o modelo e sua publicação Royce, ele consegue incluir alguns pensamentos,  que poderíamos classifica-lo como **pensamentos ágeis**, tais como: design do programa, planejar, controlar,monitorar testes, envolva o cliente e descarte a primeira versão e produto de software for original, a versão entregue ao seu cliente deve ser, na verdade, a segunda versão do produto.
 
@@ -128,20 +129,11 @@ Quando essas limitações começam a impactar a eficiência e a entrega de valor
 - [x] 1976: A CAPRE lança a Resolução no.1, ínicio da política de reserva de mercado no Brasil;
 - [x] A Apple foi fundada em 1 de abril de 1976 por Steve Wozniak, Steve Jobs e Ronald Wayne com o nome de Apple Computers, na Califórnia. 
 - [ ] 1976: Emacs – Criado por Richard Stallman, um editor de texto avançado e extensível, ainda popular entre programadores.
-- [x] 1978: Implantação dos sistemas de processamento, possibilitando a centralização das atividades administrativas da HP Brasil em Alphaville SP.
-- [x] Lançamento do COBRA 400 II
-- [x] O primeiro bebê de proveta do mundo foi Louise Joy Brown, nascida em 25 de julho de 1978, em Bristol, na Inglaterra.
-- [x] O LaserDisc é introduzido como “Discovision” pela MCA e Philips. O primeiro LaserDisc vendido na América do Norte foi o filme Jaws.
-- [x] A unidade de disco flexível de 5 ¼ polegadas e o disquete foram introduzidos pela Shugart Associates em 1976. Isso foi o resultado de uma solicitação da Wang Laboratories para produzir uma unidade de disco pequena o suficiente para ser usada com um computador de mesa, já que unidades de disquete de 8 polegadas eram consideradas grandes demais para esse propósito. Em 1978, mais de 10 fabricantes estavam produzindo unidades de disquete de 5 ¼ polegadas.
-- [x] Rob Barnaby cria o WordStar enquanto estava na MicroPro International. 
-- [ ] 1978: WordStar – Um dos primeiros editores comerciais populares para CP/M e, posteriormente, MS-DOS.
+
 ## Modelo em V (V-Model)
 Seria a evolução do modelo em cascata, onde a validação ocorre ao longo de todo o desenvolvimento. Cada etapa da esquerda corresponde a uma validação na direita. Veja que o fluxo é um enorme V, fazendo jus ao nome.
 
 ![](img/livro-002.png){width="400" height="500" style="display: block; margin: 0 auto"}
-
-- [x] 1979: O microprocessador Motorola 68000 exibia uma velocidade de processamento muito maior do que seus contemporâneos.
-- [x] Ascensão dos serviços online e BBSs. A maioria dos donos de computadores não se incomoda, mas em 1979 um subconjunto de corajosos ou teimosos está assinando os primeiros serviços online como MicroNet (mais tarde CompuServe Information Service) e The Source, ou se conectando a Bulletin Board Services (BBSs) hospedados no minicomputador ou PC de outra pessoa.
 
 - [X] 1977: A Apple Computer, fundada por Steve Jobs e Steve Wozniak, lança o Apple II; Lançamento do Apple II, primeiro projeto de computador pessoal da Apple Computers, baseado no Apple I, protótipo criado por Steve Jobs na garagem de sua casa.
 - [X] 1977: A Commodore lança o Commodore PET;
@@ -155,8 +147,17 @@ Seria a evolução do modelo em cascata, onde a validação ocorre ao longo de t
 - [x] 1977: O Commodore 1530 Datasette (dados+cassete) integrado é o dispositivo de armazenamento primário para o recém-lançado Commodore PET. 
 - [x] 1977: Criação da Edisa Eletrônica Digital S/A com a participação de 16 empresas nacionais, com apoio do Banco Nacional de Desenvolvimento Econômico Social – BNDES.
 - [x] 1977:  A TELESP lançou para Bebedouro a oferta do serviço automático de telefonia, com a implantação do sistema de DDD e DDI – Discagem Direta à Distância e Discagem Direta Internacional.
+- [x] 1978: Implantação dos sistemas de processamento, possibilitando a centralização das atividades administrativas da HP Brasil em Alphaville SP.
+- [x] Lançamento do COBRA 400 II
+- [x] O primeiro bebê de proveta do mundo foi Louise Joy Brown, nascida em 25 de julho de 1978, em Bristol, na Inglaterra.
+- [x] O LaserDisc é introduzido como “Discovision” pela MCA e Philips. O primeiro LaserDisc vendido na América do Norte foi o filme Jaws.
+- [x] A unidade de disco flexível de 5 ¼ polegadas e o disquete foram introduzidos pela Shugart Associates em 1976. Isso foi o resultado de uma solicitação da Wang Laboratories para produzir uma unidade de disco pequena o suficiente para ser usada com um computador de mesa, já que unidades de disquete de 8 polegadas eram consideradas grandes demais para esse propósito. Em 1978, mais de 10 fabricantes estavam produzindo unidades de disquete de 5 ¼ polegadas.
+- [x] Rob Barnaby cria o WordStar enquanto estava na MicroPro International. 
 - [X] 1978: Donald Knuth, da Universidade de Stanford, começou a trabalhar no TeX, distribuído como software livre.
+- [ ] 1978: WordStar – Um dos primeiros editores comerciais populares para CP/M e, posteriormente, MS-DOS.
 - [x] 1978-1980: Proposta do modelo OSI (Open Systems Interconnection) pela ISO. O documento final foi publicado em 1980 como uma recomendação técnica para comunicação entre sistemas heterogêneos.
+- [x] 1979: O microprocessador Motorola 68000 exibia uma velocidade de processamento muito maior do que seus contemporâneos.
+- [x] Ascensão dos serviços online e BBSs. A maioria dos donos de computadores não se incomoda, mas em 1979 um subconjunto de corajosos ou teimosos está assinando os primeiros serviços online como MicroNet (mais tarde CompuServe Information Service) e The Source, ou se conectando a Bulletin Board Services (BBSs) hospedados no minicomputador ou PC de outra pessoa.
 - [X] 1979: AT&T começa a forçar licenças restritivas ao decidir que poderia lucrar através do sistema Unix. 
 - [X] 1979: Oracle Database — Lançado pela Oracle Corporation, fundado por Larry Ellison, Bob Miner e Ed Oates;
 - [x] 1979: VisiCalc – Criado por Dan Bricklin e Bob Frankston, foi o primeiro software de planilha eletrônica amplamente popular, lançado para o Apple II. É frequentemente considerado o precursor das planilhas modernas.

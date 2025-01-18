@@ -1,40 +1,40 @@
 ![](img/git_000.png){width="200" height="200" style="display: block; margin: 0 auto"}
 ## Version Control System (SCCS, RCS, CVS, VCS e DVCS)
-Segundo Bolinger e Bronson (1995), o primeiro sistema de controle de versões foi desenvolvido em 1972, no laboratório Bell Labs, por Marc. J Rochkind e se chamava Source Code Control System (SCCS). 
+<p align="justify">Segundo Bolinger e Bronson (1995), o primeiro sistema de controle de versões foi desenvolvido em 1972, no laboratório Bell Labs, por Marc. J Rochkind e se chamava Source Code Control System (SCCS).</p>
 
-Apesar de ser considerado obsoleto, ele foi o principal sistema de controle de versão até o surgimento do RCS (Revision Control System) e uma de suas principais contribuições foi uma técnica de armazenamento chamada interleaved deltas, considerada por vários desenvolvedores de SCVs como a chave para o surgimento de técnicas de junção.
+<p align="justify">Apesar de ser considerado obsoleto, ele foi o principal sistema de controle de versão até o surgimento do RCS (Revision Control System) e uma de suas principais contribuições foi uma técnica de armazenamento chamada interleaved deltas, considerada por vários desenvolvedores de SCVs como a chave para o surgimento de técnicas de junção.</p>
 
-O RCS foi desenvolvido em 1982 por Walter F. Tichy, utilizando técnicas mais avançadas do que o SCCS e ainda é mantido pelo GNU Project. Segundo Spain (2001), o CVS (Concurrent Versions System) foi desenvolvido com base no RCS, mas com a possibilidade de gerenciar projetos inteiros e não só um arquivo individualmente, como no RCS. Seu projeto foi iniciado em 1986 por Dick Grune e tinha o nome de CMT. 
+<p align="justify">O RCS foi desenvolvido em 1982 por Walter F. Tichy, utilizando técnicas mais avançadas do que o SCCS e ainda é mantido pelo GNU Project. Segundo Spain (2001), o CVS (Concurrent Versions System) foi desenvolvido com base no RCS, mas com a possibilidade de gerenciar projetos inteiros e não só um arquivo individualmente, como no RCS. Seu projeto foi iniciado em 1986 por Dick Grune e tinha o nome de CMT.</p>
 
-O atual CVS, que se tornou muito popular, teve início com Brian Berliner em 1989. O Subversion, desenvolvido, pela empresa CollabNet, foi desenvolvido com a proposta de melhorar as funcionalidades do CVS e também obteve uma grande aceitação no mercado (SUSSMAN, FITZPATRICK e PILATO, 2009).
+<p align="justify">O atual CVS, que se tornou muito popular, teve início com Brian Berliner em 1989. O Subversion, desenvolvido, pela empresa CollabNet, foi desenvolvido com a proposta de melhorar as funcionalidades do CVS e também obteve uma grande aceitação no mercado (SUSSMAN, FITZPATRICK e PILATO, 2009).</p>
 
-Paralelamente ao desenvolvimento e surgimento de novas ferramentas de controle de versão, que trabalhavam de forma centralizada, a SUN começou a desenvolver o TeamWare, para controlar projetos internos da empresa. Ele trabalhava de forma distribuída e posteriormente passou a não ser mais utilizado, devido à comunidade de desenvolvedores da SUN ter optado por softwares que trabalhavam com o mesmo conceito de distribuição, mas com funcionalidades mais modernas, como o Mercurial. 
+<p align="justify">Paralelamente ao desenvolvimento e surgimento de novas ferramentas de controle de versão, que trabalhavam de forma centralizada, a SUN começou a desenvolver o TeamWare, para controlar projetos internos da empresa. Ele trabalhava de forma distribuída e posteriormente passou a não ser mais utilizado, devido à comunidade de desenvolvedores da SUN ter optado por softwares que trabalhavam com o mesmo conceito de distribuição, mas com funcionalidades mais modernas, como o Mercurial.</p>
 
-Dos sistemas de controle de versão que trabalham de forma distribuída, dois dos que mais ganharam adeptos e tiveram maior aceitação, foram o Mercurial, criado por Matt Mackall e o Git, criado por Linus Torvalds, o também criador do sistema operacional Linux.
+<p align="justify">Dos sistemas de controle de versão que trabalham de forma distribuída, dois dos que mais ganharam adeptos e tiveram maior aceitação, foram o Mercurial, criado por Matt Mackall e o Git, criado por Linus Torvalds, o também criador do sistema operacional Linux.</p>
 
-Historicamente, o Git era fornecido como um conjunto de muitos aplicativos simples, distintos e autonomos comandos desenvolvidos de acordo com a filosofia Unix toolkitb: build ferramentas pequenas e interoperaveis. Cada comando ostentava um nome hifenizado, como como git-commit e git-log.
+<p align="justify">Historicamente, o Git era fornecido como um conjunto de muitos aplicativos simples, distintos e autonomos comandos desenvolvidos de acordo com a filosofia Unix toolkitb: build ferramentas pequenas e interoperaveis. Cada comando ostentava um nome hifenizado, como como `git-commit` e `git-log`.</p>
 
-No entanto, as instalacoes modernas do Git nao suportam os comandos hifenizados e, em vez disso, usam um unico git com um subcomando.
+No entanto, as instalacoes modernas do Git não suportam os comandos hifenizados e, em vez disso, usam um unico git com um subcomando.
 
 ### Que acrônimo é este?
 Um Sistema de Controle de Versão (Version Control System - VCS) é uma metodologia ou ferramenta que ajuda a rastrear alterações dos arquivos. 
 
 Um Sistema de Controle de Versão Distribuído (ou Distributed Version Control Systems - DVCSs) não é diferente do Sistema de Controle de Versão nesse sentido. 
 
-No controle de origem centralizado, há um servidor e um cliente. O servidor é o repositório principal que contém todas as versões do código. Para trabalhar em qualquer projeto, primeiro o usuário ou cliente precisa obter o código do repositório mestre ou servidor.  Assim, depois de obter a versão mais recente do código, você começa a fazer suas próprias alterações no código e, depois disso, simplesmente precisa enviar essas alterações diretamente para o repositório principal.
+<p align="justify">No controle de origem centralizado, há um servidor e um cliente. O servidor é o repositório principal que contém todas as versões do código. Para trabalhar em qualquer projeto, primeiro o usuário ou cliente precisa obter o código do repositório mestre ou servidor.  Assim, depois de obter a versão mais recente do código, você começa a fazer suas próprias alterações no código e, depois disso, simplesmente precisa enviar essas alterações diretamente para o repositório principal.</p>
 
-Com isso, haverá apenas um repositório e que conterá todo o histórico ou versão do código e diferentes ramos do código. Portanto, o fluxo de trabalho básico envolve o controle centralizado de origem, obtendo a versão mais recente do código de um repositório central que conterá o código de outras pessoas também, fazendo suas próprias alterações no código e, em seguida, consolidando ou mesclando essas alterações no repositório central.
+<p align="justify">Com isso, haverá apenas um repositório e que conterá todo o histórico ou versão do código e diferentes ramos do código. Portanto, o fluxo de trabalho básico envolve o controle centralizado de origem, obtendo a versão mais recente do código de um repositório central que conterá o código de outras pessoas também, fazendo suas próprias alterações no código e, em seguida, consolidando ou mesclando essas alterações no repositório central.</p>
 
 No controle de versão distribuída, a maior parte do mecanismo ou modelo se aplica da mesma forma que o centralizado.
 
 ### Qual é a diferença?
-A grande diferença é que em vez de um único repositório que é o servidor, aqui cada desenvolvedor ou cliente terá seu próprio servidor e eles terão uma cópia de todo o histórico ou versão do código e todos os seus ramos em seu servidor ou máquina local.
+<p align="justify">A grande diferença é que em vez de um único repositório que é o servidor, aqui cada desenvolvedor ou cliente terá seu próprio servidor e eles terão uma cópia de todo o histórico ou versão do código e todos os seus ramos em seu servidor ou máquina local.</p>
 
-Basicamente, cada cliente ou usuário pode trabalhar localmente e desconectado, o que é mais conveniente do que o controle de origem centralizado e é por isso que é chamado de distribuído.
+<p align="justify">Basicamente, cada cliente ou usuário pode trabalhar localmente e desconectado, o que é mais conveniente do que o controle de origem centralizado e é por isso que é chamado de distribuído.</p>
 
 Ah, tá então: __Você não precisa depender do servidor central, você pode clonar todo o histórico ou copiar o código para o seu disco rígido. Então, você confirma todas as alterações em seu próprio servidor ou repositório e, em seguida, o "conjunto de alterações" irá mesclar para o repositório mestre__.
 
-![](img/git_004.png)
+![](img/git_004.png){width="500" height="500" style="display: block; margin: 0 auto"}
 
 | Controle de Versão | Vantagens | Desvantagens |
 | ---- | ---- | ---- |
@@ -44,42 +44,36 @@ Ah, tá então: __Você não precisa depender do servidor central, você pode cl
 | Mercurial (hg) (Distribuído) | Velocidade de operação; Árvore de histórico completo disponível off-line; Modelo distribuído.| |
 | Fóssil (Distribuído) | Rastreamento de bugs integrado, Wiki, Robusto e confiável | |
 
-O Subversion, Git e o Mercurial possuem dezenas de comandos, porem nem todos são usado:s com a mesma frequência. Os que normalmente são utilizados, são: Os comandos selecionados são: add, backout, blame, branch, cat, checkout, clone, commit, copy, diff, log, merge, mv, pull, push, rebase, reset, revert, rm, show, status, update e tag.
+<p align="justify">O Subversion, Git e o Mercurial possuem dezenas de comandos, porem nem todos são usados com a mesma frequência. Os que normalmente são utilizados, são: Os comandos selecionados são: add, backout, blame, branch, cat, checkout, clone, commit, copy, diff, log, merge, mv, pull, push, rebase, reset, revert, rm, show, status, update e tag.</p>
 
 ### Como auxilia o desenvolvedor?
-Os sistemas de controle de versões são responsáveis pela identificação de itens de configuração e devem permitir que eles evoluam de forma distribuída, concorrente e disciplinada.
-
-O Controle de versão apoia o desenvolvimento de diversas maneiras:
+<p align="justify">Os sistemas de controle de versões são responsáveis pela identificação de itens de configuração e devem permitir que eles evoluam de forma distribuída, concorrente e disciplinada. O Controle de versão apoia o desenvolvimento de diversas maneiras:</p>
 
 - [x] **Registro do Histórico**: Registra toda a evolução do projeto, cada alteração sobre cada arquivo. (Features, Bugs, Hotfix ou Support);
 - [x] **Colaboração**: Possibilita que vários desenvolvedores trabalhem em paralelo sobre os mesmos arquivos sem que um sobrescreva o código de outro.
 - [x] **Ramificação de projeto**: a maioria das implementações possibilita a divisão do projeto em várias linhas de desenvolvimento, que podem ser trabalhadas paralelamente, sem que uma interfira na outra.
-- [x] **Marcação e resgate de versões estáveis**: a maioria dos sistemas permite marcar onde é que o documento estava com uma versão estável, podendo ser facilmente resgatado no futuro.
-
-| Espaço de Trabalho | Ambiente de Desenvolvimento de Software | | | | |
-| ---- | ---- | ---- | ---- | ---- | ---- |
-| Processos | Identificação | Controle | Contabilização | Avaliação |Liberação |
-| Sistemas  | Controle de Modificações | | | | |
-|           | Controle de Versões | | | | | |
-|           | Gerenciamento de Contrução | | | | |
+- [x] **Marcação e resgate de versões estáveis**: A maioria dos sistemas permite marcar onde é que o documento estava com uma versão estável, podendo ser facilmente resgatado no futuro.
 
 A perspectiva de desenvolvimento é dividida em três diferentes sistemas:
 
-- [x] Sistema de controle de versões, que deve permitir a identificação dos Itens de Configuração e a evolução dos mesmos, de forma distribuída, concorrente e disciplinada. Ele é o responsável por cuidar que as diversas solicitações de modificação possam ser tratadas em paralelo, sem corromper o sistema de GCS;
-- [x] Sistema de controle de modificações, que é responsável pelo controle da configuração, armazenando as informações das solicitações de modificação e relatando essas informações aos outros participantes;
-- [x] Sistema de gerenciamento de construção, que é responsável por automatizar o processo de transformação dos artefatos de software em um arquivo executável e estruturar as linhas bases selecionadas para a liberação.
+- [x] **Sistema de controle de versões**, que deve permitir a identificação dos Itens de Configuração e a evolução dos mesmos, de forma distribuída, concorrente e disciplinada. Ele é o responsável por cuidar que as diversas solicitações de modificação possam ser tratadas em paralelo, sem corromper o sistema de GCS;
+- [x] **Sistema de controle de modificações**, que é responsável pelo controle da configuração, armazenando as informações das solicitações de modificação e relatando essas informações aos outros participantes;
+- [x] **Sistema de gerenciamento de construção**, que é responsável por automatizar o processo de transformação dos artefatos de software em um arquivo executável e estruturar as linhas bases selecionadas para a liberação.
 
-### Andam dizendo *Git História*
-[BitKeeper, Linux e disputas de licenciamento: como Linus escreveu o Git em 14 dias](https://graphite.dev/blog/bitkeeper-linux-story-of-git-creation)
+### Histórico
+[BitKeeper, Linux e disputas de licenciamento: como Linus escreveu o Git em 14 dias.](https://graphite.dev/blog/bitkeeper-linux-story-of-git-creation)
 <p align="justify">Durante os primeiros dez anos de desenvolvimento, antes do uso do BitKeeper, a ferramenta de controle de versão do Linux Kernel escolhida era o próprio Linus.</p>
-
 <p align="justify">O sistema funcionava assim: os desenvolvedores enviavam tarballs e patches para um punhado de tenentes de confiança de Linus. Após a verificação, os patches que passavam na revisão eram enviados para Linus. Finalmente, o próprio Linus os incorporava manualmente em sua própria árvore de código-fonte e, então, cortava o lançamento.</p>
 
 Claro, o Linus-como-um-serviço-de-controle-de-versão estava longe de ser um produto perfeito. Em 1998, quando Larry McVoy [esboçou pela primeira vez a ideia por trás do BitKeeper](https://lkml.org/lkml/1998/9/30/122) na Linux Kernel Mailing List, ele escreveu "Está claro que nosso líder destemido [Linus] está, no momento, um pouco sobrecarregado, então os patches podem estar se perdendo".
 
 Embora esse fluxo de trabalho manual pareça estúpido, para nós hoje, na época, Linus via esse fluxo de trabalho como superior às alternativas — ou seja, CVS. Muito mais tarde, [quando Linus deu uma palestra no Google em 2007 sobre o Git](https://www.youtube.com/watch?v=4XpnKHJAok8) , ele mencionou um de seus princípios básicos de design: "WWCVSND" ou "O que o CVS não faria?" Claro que esse ódio naturalmente se estendeu ao SVN também; na mesma palestra, ele continuou dizendo com um sorriso: 
 
-- [x] Se houver usuários do Subversion na plateia, você pode querer sair. Meu ódio pelo CVS significa que vejo o Subversion como o projeto mais inútil já iniciado. O slogan inteiro do Subversion por um tempo foi CVS feito corretamente ou algo assim. E se você começar com esse slogan, não há para onde ir. É como se não houvesse maneira de fazer o CVS corretamente.
+- [x] Se houver usuários do Subversion na plateia, você pode querer sair. 
+- [x] Meu ódio pelo CVS significa que vejo o Subversion como o projeto mais inútil já iniciado. 
+- [x] O slogan inteiro do Subversion por um tempo foi CVS feito corretamente ou algo assim.
+- [x] E se você começar com esse slogan, não há para onde ir. 
+- [x] É como se não houvesse maneira de fazer o CVS corretamente.
 
 <p align="justify">O cerne da crítica de Linus contra o CVS era sua natureza centralizada. Dadas as centenas de desenvolvedores Linux por aí, Linus sentiu que era essencial que cada um deles tivesse sua própria cópia discreta do repositório em que pudessem desenvolver suas próprias ramificações.</p>
 
@@ -87,7 +81,7 @@ Embora esse fluxo de trabalho manual pareça estúpido, para nós hoje, na époc
 
 <p align="justify">O BitKeeper contrastava fortemente com o CVS. No pitch de 1998 mencionado anteriormente para o BitKeeper, Larry McVoy esboçou um sistema que, embora lembrasse como pensamos sobre controle de versão hoje, era radicalmente diferente para a época. McVoy escreveu:</p>
 
-O mecanismo que permite que tudo isso aconteça é uma fonte distribuída sistema de gestão. As principais características do sistema são:
+<p align="justify">O mecanismo que permite que tudo isso aconteça é uma fonte distribuída sistema de gestão. As principais características do sistema são:</p>
 
 - [x] Todos recebem um repositório (contraste com o repositório único modelo de CVS);
 - [x] As alterações podem ser enviadas por correio como 'super-patches', também conhecidos como conjuntos de alterações. Um conjunto de alterações é apenas um arquivo de patch que contém:
@@ -95,21 +89,15 @@ O mecanismo que permite que tudo isso aconteça é uma fonte distribuída sistem
 - [x] Um identificador que mostra onde o patch deve ser aplicado na árvore (os patches falharão se você não estiver atualizado como o remetente do patch)
 - [x] Todo o histórico de revisão das alterações
 - [x] Metadados como alterações de nome de caminho, tags simbólicas (como alpha2 ou linux-2.1.133), etc.
-- [x] Um novo conceito chamado linha de desenvolvimento (LOD).
-
-É logicamente um branch, mas não precisa estar em um branch.
-
-<p align="justify">Os patches podem (e irão) ser seu próprio LOD. Você pode executar operações em um LOD como 'aplicar isto ao tronco'.</p>
-
-<p align="justify">Mais tarde, Linus daria grande crédito ao BitKeeper por mudar sua visão e inspirar o Git: </p>
-
-<p align="justify">'O BitKeeper não foi apenas o primeiro sistema de controle de versão que eu senti que valia a pena usar, mas também foi o sistema de controle de versão que me ensinou por que há um ponto neles e como você realmente pode fazer as coisas. Então o Git, de muitas maneiras, embora de um ângulo técnico seja muito, muito diferente do BitKeeper, que era outro objetivo de design porque eu queria deixar claro que não era um clone do BitKeeper, muitos dos fluxos que usamos com o Git vêm diretamente dos fluxos que aprendemos com o BitKeeper.'</p>
+- [x] Um novo conceito chamado linha de desenvolvimento (**LOD**).
+- [x] Os patches podem (e irão) ser seu próprio **LOD**.Você pode executar operações em um LOD como 'aplicar isto ao tronco'.
+- [x] Mais tarde, Linus daria grande crédito ao BitKeeper por mudar sua visão e inspirar o Git: O BitKeeper não foi apenas o primeiro sistema de controle de versão que eu senti que valia a pena usar, mas também foi o sistema de controle de versão que me ensinou por que há um ponto neles e como você realmente pode fazer as coisas. Então o Git, de muitas maneiras, embora de um ângulo técnico seja muito, muito diferente do BitKeeper, que era outro objetivo de design porque eu queria deixar claro que não era um clone do BitKeeper, muitos dos fluxos que usamos com o Git vêm diretamente dos fluxos que aprendemos com o BitKeeper.
 
 <p align="justify">Embora o próprio Linus tivesse o BitKeeper em alta conta, sua decisão de usar a ferramenta internamente para Linux em 2002 levou a grandes discussões na Lista de Discussão do Kernel Linux.</p>
 
 <p align="justify">Por que os problemas? Quando Larry McVoy construiu o BitKeeper, ele o fez como parte de um empreendimento comercial de código fechado (BitMover). Embora as pessoas pudessem usar a versão comunitária gratuita do BitKeeper, isso veio com uma licença restritiva.</p>
 
-<p align="justify">Da entrada da Wikipédia do BitKeeper : A licença para a versão 'comunitária' do BitKeeper permitiu que desenvolvedores usassem a ferramenta sem custo para projetos de software livre ou de código aberto, desde que esses desenvolvedores não participassem do desenvolvimento de uma ferramenta concorrente (como Concurrent Versions System, GNU arch, Subversion ou ClearCase) durante o uso do BitKeeper mais um ano. Essa restrição se aplicava independentemente de a ferramenta concorrente ser gratuita ou proprietária.</p>
+<p align="justify">Da entrada da Wikipédia do BitKeeper: A licença para a versão 'comunitária' do BitKeeper permitiu que desenvolvedores usassem a ferramenta sem custo para projetos de software livre ou de código aberto, desde que esses desenvolvedores não participassem do desenvolvimento de uma ferramenta concorrente (como Concurrent Versions System, GNU arch, Subversion ou ClearCase) durante o uso do BitKeeper mais um ano. Essa restrição se aplicava independentemente de a ferramenta concorrente ser gratuita ou proprietária.</p>
 
 <p align="justify">Até mesmo Richard Stallman, o último dos verdadeiros hackers e evangelista do software livre, entrou na conversa : </p>
 
@@ -129,14 +117,11 @@ O mecanismo que permite que tudo isso aconteça é uma fonte distribuída sistem
 
 <p align="justify">Ele brincou sobre a história — “Não é como se minha escolha de BK tivesse sido totalmente livre de conflitos ('Não, sério? Conte! Ah, você quer dizer os gigabytes e mais gigabytes de flames que tínhamos?')' — e enfatizou sua contínua gratidão à equipe do BitKeeper.</p>
 
-<p align="justify">
-Na verdade, um impacto que o BK teve foi nos fazer (e a mim em particular) mudar fundamentalmente a maneira como fazemos as coisas. Isso varia do rastreamento de conjunto de alterações de granulação fina até como acabei confiando a submantenedores coisas muito maiores, e não tendo mais que trabalhar em uma base de patch por patch. Então os três anos com o BK definitivamente não foram desperdiçados: estou convencido de que ele nos fez fazer as coisas de maneiras melhores, e uma das coisas que estou analisando é garantir que essas coisas continuem funcionando.
-</p>
+<p align="justify">Na verdade, um impacto que o BK teve foi nos fazer (e a mim em particular) mudar fundamentalmente a maneira como fazemos as coisas. Isso varia do rastreamento de conjunto de alterações de granulação fina até como acabei confiando a submantenedores coisas muito maiores, e não tendo mais que trabalhar em uma base de patch por patch. Então os três anos com o BK definitivamente não foram desperdiçados: estou convencido de que ele nos fez fazer as coisas de maneiras melhores, e uma das coisas que estou analisando é garantir que essas coisas continuem funcionando.</p>
 
-<p align="justify">Então, eu só queria dizer que estou pessoalmente muito feliz com o BK [BitKeeper], e com o Larry. Não deu certo, mas com certeza fez uma grande diferença no desenvolvimento do kernel. E resolveremos o problema temporário de ter que descobrir um conjunto de ferramentas que nos permita continuar a fazer as coisas que o BK nos permitiu fazer.
-</p>
+<p align="justify">Então, eu só queria dizer que estou pessoalmente muito feliz com o BK [BitKeeper], e com o Larry. Não deu certo, mas com certeza fez uma grande diferença no desenvolvimento do kernel. E resolveremos o problema temporário de ter que descobrir um conjunto de ferramentas que nos permita continuar a fazer as coisas que o BK nos permitiu fazer.</p>
 
-#### Linus sai de férias
+#### Linus **sai de férias**
 <p align="justify">Na realidade, enquanto ele postava a notícia pública do rompimento na lista de discussão em 6 de abril, Linus já estava trabalhando duro. Três dias antes, logo após o lançamento do 2.6.12-rc2, ele havia interrompido seu trabalho no kernel do Linux e mudado seu foco total para encontrar uma alternativa ao BitKeeper.</p>
 
 <p align="justify">O objetivo de Linus era ter "algo utilizável em duas semanas". Como parte do e-mail de 6 de abril, ele anunciou "Vou ficar efetivamente off-line por uma semana (pense nisso como um evento normal "Linus saiu de férias") e estou apenas pedindo que as pessoas que continuam a manter as árvores BK pelo menos tentem também se certificar de que podem me enviar o resultado como patches (individuais), já que eventualmente terei que mesclar de outra forma".</p>
@@ -149,7 +134,7 @@ Na verdade, um impacto que o BK teve foi nos fazer (e a mim em particular) mudar
 
 <p align="justify">A principal consideração, especialmente de Linus, parecia ser o desempenho geral de cada uma dessas ferramentas. No geral, de todos os 205 e-mails, houve muita conversa sobre desempenho e eficiência das várias ferramentas.</p>
 
-A maior questão na mente de todos parecia ser: alguma das ferramentas existentes funcionaria para um projeto do tamanho do kernel do Linux?
+<p align="justify">A maior questão na mente de todos parecia ser: alguma das ferramentas existentes funcionaria para um projeto do tamanho do kernel do Linux?</p>
 
 <p align="justify">Em 8 de abril, dois dias após seu e-mail inicial e cinco dias após começar a trabalhar seriamente, Linus compartilhou uma atualização: “Enquanto isso (e porque o monotone realmente é muito lento), aqui vai um desafio rápido para você e qualquer hacker maluco por aí: se você quiser brincar com algo realmente desagradável (mas também muito, muito rápido), dê uma olhada em kernel.org :/pub/linux/kernel/people/torvalds/.'</p>
 
@@ -160,8 +145,7 @@ A maior questão na mente de todos parecia ser: alguma das ferramentas existente
 
 <p align="justify">O Git original de Linus era muito mais um sistema de arquivos endereçável por conteúdo do que um sistema de gerenciamento de controle de fonte completo. Aqui está sua explicação de outro e-mail:</p>
 
-<p align="justify">
-(*) Eu chamo isso de "commit", mas é algo muito mais simples. É realmente apenas um "Agora tenho <estado deste diretório>, cheguei aqui de <coleção de estados de diretório anteriores> e o motivo foi <motivo>".</P>
+<p align="justify">(*) Eu chamo isso de "commit", mas é algo muito mais simples. É realmente apenas um "Agora tenho <estado deste diretório>, cheguei aqui de <coleção de estados de diretório anteriores> e o motivo foi <motivo>".</p>
 
 <p align="justify">Aliás, esse é o tipo de design. "git" realmente não se importa com coisas como mesclagens. Você pode usar qualquer SCM para fazer uma mesclagem. O que "git" faz é rastrear o estado do diretório (e como você chegou a esse estado), e nada mais. Ele não mescla, ele realmente não faz muita coisa.</p>
 
@@ -222,7 +206,6 @@ Uma resposta foi postada por outro usuário do HN, **luckydude** — o próprio 
 <p align="justify">Foi uma jornada interessante e, no mínimo, BK foi a inspiração para Git e Hg, o que é uma contribuição para o campo.</p>
 
 ### Origem do Nome
-
 Git é uma variação do Inglês britânico para a palavra de origem escocesa **get**, significa **um filho ilegítimo**.
 
 E dependendo do humor do Linus, o nome também pode significar: 
@@ -269,35 +252,23 @@ A utilização dessa terminologia em analogia, para separar os comandos de baixo
 #### Repositório
 Olhando para o Sistema Operacional, uma pasta de trabalho, diretório e repositório, servem para armazenar arquivos e consequentemente é um local para armazenar arquivos, no final todos são sinônimos mesmo, porém a grande diferença é que no controle de versão (git ou outros),  um repositório é um local onde **os arquivos são armazenados e monitorados**, já em uma pasta ou diretório qualquer da sua máquina isso não acontece a menos que você inicialize um no repositório. O controle de versão é composto de duas partes:
 
-- [x] Repositório e a área de trabalho. O repositório armazena todo o histórico de evolução do projeto, registrando toda e qualquer alteração feita em cada item versionado. O desenvolvedor não trabalha diretamente nos arquivos do repositório. Ao invés disso, usa uma área de trabalho que contém a cópia dos arquivos do projeto e que é monitorada para identificar as mudanças realizadas. Essa área é individual e isolada das demais áreas de trabalho.
+- [x] **Repositório e a área de trabalho**: O repositório armazena todo o histórico de evolução do projeto, registrando toda e qualquer alteração feita em cada item versionado. O desenvolvedor não trabalha diretamente nos arquivos do repositório. Ao invés disso, usa uma área de trabalho que contém a cópia dos arquivos do projeto e que é monitorada para identificar as mudanças realizadas. Essa área é individual e isolada das demais áreas de trabalho.
 - [x] Uma pasta que contém um repositório Git inicializado é um diretório de trabalho. Você pode mover o diretório de trabalho em seu sistema de arquivos sem perder ou corromper o repositório.
 - [x] No diretório de trabalho, você também entedeu que existe um diretório .git. Vamos chamá-lo de diretório `git` de agora em diante. No diretório `git`, existem arquivos e pastas que compõem nosso repositório.
 - [x] Normalmente, você cria um novo repositório baixando outro repositório que já existe (conhecido como clonagem pelo Git mas vamos começar inicializando um novo repositório local vazio.
-
-```
-Exemplo:
-cd ~ && mkdir workDirectory1 && cd ~/workDirectory1 && git init
-OU
-cd ~ && git init workDirectory1
-OU
-cd ~ && mkdir workDirectory1 && cd ~/workDirectory1 && git init --bare
-OU
-cd ~ && git init workDirectory1 –bare
-```
-
 - [x] Quando inicializamos um repositório com o `git init`, vários arquivos e diretórios, são criados:
 
-| Arquivo/Diretório |  Descrição                                                                                         |
-| ----              | ----                                                                                               |
-| .git/config       | Arquivo de configuração                                                                            |
-| .git/description  | Arquivo de Descrição                                                                               |
-| .git/HEAD         | Apontador HEAD                                                                                     |
-| .git/hooks/       | Diretório de scripts Hooks                                                                         |
-| .git/info/exclude | Contém arquivos que devem ser excluídos do repositório.                                            |
-| .git/objects/info | Contêm informações de objeto que são usados para armazenamento de objeto e referência.             |
+| Arquivo/Diretório |  Descrição                                                                             |
+| ----              | ----                                                                                   |
+| .git/config       | Arquivo de configuração                                                                |
+| .git/description  | Arquivo de Descrição                                                                   |
+| .git/HEAD         | Apontador HEAD                                                                         |
+| .git/hooks/       | Diretório de scripts Hooks                                                             |
+| .git/info/exclude | Contém arquivos que devem ser excluídos do repositório.                                |
+| .git/objects/info | Contêm informações de objeto que são usados para armazenamento de objeto e referência. |
 | .git/objects/pack | Contêm informações de arquivos de pacote, que são usados para armazenamento de objeto e referência |
-| .git/refs/heads   | Contem ponteiro para os branchs.                                                                   |
-| . git/refs/tags   | Contem ponteiro para as tags.                                                                      |
+| .git/refs/heads   | Contem ponteiro para os branchs.                                                       |
+| . git/refs/tags   | Contem ponteiro para as tags.                                                          |
 
 ![](img/git_007.png){width="600" height="400" style="display: block; margin: 0 auto"}
 
@@ -644,7 +615,10 @@ O git pull na realidade, executa `git fetch` no remoto para o branch atual, atua
 <p align="justify">E o Git irá sugerir que você primeiro faça o `pull` para resolver as discrepâncias e produzir uma atualização aceitável.</p>
 
 ##### Removendo Arquivos
-<p align="justify">Git efetua a remoção da entrada do arquivo do índice, agendando-o para remoção no próximo commit e exclui o arquivo de trabalho. Exemplo: git rm arquivo02.txt; git status
+<p align="justify">Git efetua a remoção da entrada do arquivo do índice, agendando-o para remoção no próximo commit e exclui o arquivo de trabalho. 
+
+- [x] Exemplo: git rm arquivo02.txt; git status
+  
 A remoção só vale para arquivos que já estão no controle do Git, arquivos que não estiverem no controle do Git, poderão ser removidos com o comando `rm`ou `delete`;</p>
 ##### Renomeando Arquivos
 Renomear um arquivo é, de certa forma, equivalente a excluir esse arquivo e criar um novo com um nome diferente e o mesmo conteúdo - mas isso também pode ocorrer sem que você queira renomear nada, se o novo arquivo apenas coincidir com o antigo.
@@ -654,7 +628,8 @@ Renomear um arquivo é, de certa forma, equivalente a excluir esse arquivo e cri
 A distinção é de intenção e,portanto, deve ser representada separadamente pelo sistema para que seja capturada. 
 
 E pode ser muito importante fazer isso, porque as pessoas geralmente desejam que o histórico de um arquivo renomeado seja preservado; até mesmo chamando o que fizemos de "renomear", estamos implicitamente dizendo que este é realmente "o mesmo arquivo, apenas com um nome diferente".
-Após o rename, verifique o status e observe o que o git faz.
+
+- [x] Após o rename, verifique o status e observe o que o git fez.
 
 ##### Unstaging Alterações
 O git reset redefine o índice para corresponder ao commit atual, desfazendo quaisquer alterações feitas com git add. git reset relata os arquivos com alterações pendentes após sua ação. Exemplo: `git reset`
@@ -669,39 +644,41 @@ Um “patch” é uma representação compacta das diferenças entre dois arquiv
 
 Aqui está um patch simples, gerado por git diff:
 
-- [x] Este é o cabeçalho Git diff; 
-- [x] diff --git não é um comando literal, mas apenas sugere a noção de um diff específico do Git no estilo de comando Unix. a / foo.c eb / foo.c 
-- [x] São os arquivos que estão sendo comparados, com nomes de diretórios iniciais adicionados a e b para distingui-los no caso de serem iguais (como estão aqui; este patch mostra as mudanças de uma versão para outra do mesmo arquivo). Para gerar esse patch, mudei o arquivo foo.c e executei git diff, que mostra as mudanças não testadas entre a árvore de trabalho e o índice. Na verdade, não há diretórios nomeados a e b no repositório; eles são apenas convenção:
+- [x] Este é o cabeçalho git diff; 
+- [x] git diff não é um comando literal, mas apenas sugere a noção de um diff específico do git no estilo de comando Unix. 
+- [x] São os arquivos que estão sendo comparados, com nomes de diretórios iniciais adicionados a e b para distingui-los no caso de serem iguais (como estão aqui; este patch mostra as mudanças de uma versão para outra do mesmo arquivo). 
+- [ ] Para gerar esse patch, mudei o arquivo foo.c e executei git diff, que mostra as mudanças não testadas entre a árvore de trabalho e o índice. Na verdade, não há diretórios nomeados a e b no repositório; eles são apenas convenção:
 
 índice 30cfd169..8de130c2 100644
 
-- [x] Esta é uma linha de cabeçalho estendida, uma das várias formas possíveis, embora haja apenas uma neste patch. Esta linha fornece informações do índice Git sobre este arquivo: 30cfd169 e 8de130c2 são os IDs de blob das versões A e B do conteúdo do arquivo sendo comparados e 100644 são os "bits de modo", indicando que este é um arquivo normal: não executável e não um link simbólico (o uso de .. aqui entre os IDs de blob é apenas um separador e não tem nada a ver com seu uso na nomeação de conjuntos de rotações ou para git diff). Outras linhas de cabeçalho podem indicar os modos antigo e novo se isso tiver mudado, nomes de arquivo novos e antigos se o arquivo estiver sendo renomeado, etc.  
-- [x] Os IDs de blob são úteis se este patch for aplicado posteriormente pelo Git ao mesmo projeto e houver conflitos ao aplicá-lo. Se esses blobs estiverem no banco de dados de objetos, o Git pode usá-los para realizar uma fusão de três vias com essas duas versões e a cópia de trabalho, para ajudá-lo a resolver os conflitos. O patch ainda faz sentido para outras ferramentas além do Git; eles simplesmente ignorarão esta linha e não poderão usar as informações extras.
-
-Os patches formatados são muito semelhantes aos diffs de arquivo gerados por outras ferramentas, contendo muito mais informações, incluindo seu nome e endereço de e-mail, e para cada commit, o carimbo de data/hora do commit, a mensagem, o autor e etc. 
-         
-Eles permitem que qualquer pessoa importe os *changesets* incluídos diretamente no Git, onde todas as informações de commit são preservadas.
+- [x] Esta é uma linha de cabeçalho estendida, uma das várias formas possíveis, embora haja apenas uma neste patch. Esta linha fornece informações do índice Git sobre este arquivo: 30cfd169 e 8de130c2 são os IDs de blob das versões A e B do conteúdo do arquivo sendo comparados e 100644 são os "bits de modo", indicando que este é um arquivo normal: não executável e não um link simbólico (o uso de .. aqui entre os IDs de blob é apenas um separador e não tem nada a ver com seu uso na nomeação de conjuntos de rotações ou para git diff). 
+- [x] Outras linhas de cabeçalho podem indicar os modos antigo e novo se isso tiver mudado, nomes de arquivo novos e antigos se o arquivo estiver sendo renomeado, etc.  
+- [x] Os IDs de blob são úteis se este patch for aplicado posteriormente pelo Git ao mesmo projeto e houver conflitos ao aplicá-lo. Se esses blobs estiverem no banco de dados de objetos, o Git pode usá-los para realizar uma fusão de três vias com essas duas versões e a cópia de trabalho, para ajudá-lo a resolver os conflitos. 
+- [x] O patch ainda faz sentido para outras ferramentas além do Git; eles simplesmente ignorarão esta linha e não poderão usar as informações extras.
+- [x] Os patches formatados são muito semelhantes aos diffs de arquivo gerados por outras ferramentas, contendo muito mais informações, incluindo seu nome e endereço de e-mail, e para cada commit, o carimbo de data/hora do commit, a mensagem, o autor e etc. 
+- [x] Eles permitem que qualquer pessoa importe os *changesets* incluídos diretamente no Git, onde todas as informações de commit são preservadas.
 
 - [x] `$ git format-patch --binary --stdout origin/master..HEAD > feature_branch.patch` 
 
-Após gerar o arquivo de patch, você pode anexá-lo ao um relatório de ISSUE. Os desenvolvedores ou outros usuários podem importar esse conjunto de patches para seus repositórios locais usando o seguinte comando, substituindo novamente o nome de arquivo apropriado:
+- [x] Após gerar o arquivo de patch, você pode anexá-lo ao um relatório de ISSUE. 
+- [x] Os desenvolvedores ou outros usuários podem importar esse conjunto de patches para seus repositórios locais usando o seguinte comando, substituindo novamente o nome de arquivo apropriado:
 
-- [x] `$ git am --signoff feature_branch.patch`
+- [x] Exemplo: `$ git am --signoff feature_branch.patch`
 
 ##### Cherry-pick
 O comando `git cherry-pick` permite que os desenvolvedores selecionem e apliquem commits específicos de uma branch para outra. Isso é especialmente útil quando um desenvolvedor deseja incorporar alterações específicas sem a necessidade de mesclar todas as mudanças de uma branch, evitando assim a introdução de alterações indesejadas ou não testadas.
 
-Exemplo: `git cherry-pick <commit_hash>`
+- [x] Exemplo:  `git cherry-pick <commit_hash>`
 
 ##### Rebase
 O comando `git rebase` é utilizado para reorganizar o histórico de commits. Ele permite que você aplique commits de uma branch em outra, mantendo um histórico linear e mais limpo. Isso é especialmente útil quando você deseja incorporar alterações da branch principal sem criar um commit de merge.
 
-Exemplo: `git rebase <branch_destino>`
+- [x] Exemplo: `git rebase <branch_destino>`
 
 ##### Reset
 O comando git reset permite desfazer alterações e manipular o histórico de commits. Você pode usá-lo para voltar o HEAD para um commit específico, desfazendo os commits indesejados.
 
-Exemplo: `git reset --hard <commit_hash>`
+- [x] Exemplo:  `git reset --hard <commit_hash>`
 
 ##### Stash
 O git stash é utilizado para salvar temporariamente alterações não comprometidas, permitindo que você mude de branch ou aplique correções emergenciais sem perder seu trabalho atual.
@@ -736,7 +713,9 @@ O comando git reflog mantém um registro de todas as ações que afetaram a estr
 - [x] Identifique o commit perdido, Com base na saída do reflog, identifique o hash do commit que você deseja recuperar. Neste caso, vamos recuperar. 
 - [x] Para retornar ao estado desse commit, use o comando git checkout com o hash do commit: `git checkout hash`
 - [x] Agora você está no estado do repositório correspondente ao commit perdido.
-- [x] Crie uma nova branch, se você quiser manter esse estado e continuar trabalhando a partir dele, crie uma nova branch: `git checkout -b recuperado-feature`
+- [x] Crie uma nova branch, se você quiser manter esse estado e continuar trabalhando a partir dele, crie uma nova branch: 
+
+- [x] Exemplo: `git checkout -b recuperado-feature`
 
 ##### Submodule
 O git submodule permite incluir repositórios Git dentro de outro repositório, sendo útil para gerenciar dependências ou bibliotecas externas. Um exemplo típico da utilização do submodule, poderia ser a de Integração.
@@ -766,9 +745,10 @@ O comando git worktree permite que você crie múltiplas árvores de trabalho a 
 - [x] Quando você terminar de trabalhar em um worktree, pode removê-lo com: `git worktree remove <caminho/para/worktree>`
 
 Possibilidades do seu uso:
-- [x] Hotfixes: Se um bug crítico for descoberto enquanto você está trabalhando em uma nova funcionalidade, você pode rapidamente criar um novo worktree para implementar o hotfix sem interromper seu trabalho atual.
-- [x] Desenvolvimento Paralelo: Quando estiver desenvolvendo várias funcionalidades que não estão interligadas, crie um worktree separado para cada uma delas. Isso evita a necessidade de alternar entre branches e mantém seu ambiente de desenvolvimento limpo.
-- [x] Testes: Você pode criar um ambiente dedicado para testar uma branch específica sem afetar seu espaço de trabalho principal.
+
+- [x] **Hotfixes**: Se um bug crítico for descoberto enquanto você está trabalhando em uma nova funcionalidade, você pode rapidamente criar um novo worktree para implementar o hotfix sem interromper seu trabalho atual.
+- [x] **Desenvolvimento Paralelo**: Quando estiver desenvolvendo várias funcionalidades que não estão interligadas, crie um worktree separado para cada uma delas. Isso evita a necessidade de alternar entre branches e mantém seu ambiente de desenvolvimento limpo.
+- [x] **Testes**: Você pode criar um ambiente dedicado para testar uma branch específica sem afetar seu espaço de trabalho principal.
 
 ##### Sparse-checkout
 O comando git sparse-checkout permite que você faça checkouts de um subconjunto de arquivos em um repositório Git, em vez de baixar todos os arquivos. Isso é útil em repositórios grandes, como monorepos, onde você pode não precisar de todos os arquivos para trabalhar em uma parte específica do projeto. 
@@ -779,44 +759,13 @@ O comando git sparse-checkout permite que você faça checkouts de um subconjunt
 - [x] Se você já estiver em um modo de sparse checkout e quiser adicionar mais diretórios: `git sparse-checkout add <novo_diretorio>`
 - [x] Para repopular seu diretório de trabalho com todos os arquivos novamente: `git sparse-checkout disable`
 
-##### Resolvendo alguns Problemas
-###### Conflitos
-- [x] Após tentar realizar um merge ou pull que resultou em conflitos, o primeiro passo é verificar o status do seu repositório. Use o comando: `git status`, esse comando mostrará quais arquivos estão em conflito.
-- [x] Os arquivos que estão em conflito serão listados sob "Unmerged paths". Você pode também usar o comando git diff para ver as diferenças entre as versões e entender melhor os conflitos: `git diff`
-- [x] Abra os arquivos listados em conflito em um editor de texto. O Git marca as seções conflitantes com os seguintes delimitadores: 
-
-```<<<<<<< HEAD
-Conteúdo da sua branch atual
-=======
-Conteúdo da branch que está sendo mesclada
->>>>>>> nome-da-branch
-```
-- [x] Você deve editar o arquivo para resolver o conflito, mantendo apenas as partes desejadas e removendo os marcadores.
-- [x] Após resolver os conflitos, adicione os arquivos resolvidos ao stage: `git add <nome_do_arquivo>`
-- [x] Depois, finalize o merge com um commit: `git commit -m "Resolvendo conflitos"`
-- [x] Para garantir que tudo foi resolvido corretamente, você pode verificar o histórico de commits: `git log`
-###### Quebrando de Produto na Branch sprint
-- [x] Identifique o último commit estável;
-- [x] Crie uma nova ramificação com base neste commit estável: `git checkout -b develop-fix hash`;
-- [x] Envie esta ramificação "estável" como o novo desenvolvimento: `git push origin develop-fix --force`
-###### Revertendo uma implementação
-- [x] Identifique o hash de confirmação da mesclagem problemática;
-- [x] Reverter a mesclagem: `git revert -m 1 merge123` O sinalizador -m 1 indica que o primeiro pai (geralmente o principal) deve ser a base para a reversão.
-- [x] Empurre o commit de reversão: `git push origin main`
-- [x] Mais tarde, quando o recurso estiver pronto para ser relançado, use uma mesclagem reversa para reintroduzi-lo:` git checkout feature-branch git merge main`
-###### Ressuscitando `após git reset --hard`
-- [x] Execute `git reflog` para visualizar o histórico do seu repositório
-- [x] Encontre o hash de confirmação que você deseja recuperar;
-- [x] Restaure-o usando `git reset --hard: `git reset --hard hash`
-- [x] Seus commits perdidos estão de volta, e você pode respirar novamente.
-
-##### Merge e Rebase
+## Merge e Rebase
 No Git, **merge** e **rebase** são duas técnicas utilizadas para integrar alterações de diferentes branches. Ambas têm seus próprios propósitos, vantagens e desvantagens. Abaixo, apresentamos uma comparação detalhada entre merge e rebase.
 
 - [x] O **merge** é uma operação que combina as alterações de duas branches. Ao realizar um merge, o Git cria um novo commit que une as duas linhas de desenvolvimento. `git checkout main && git merge feature-branch`
 - [x] O **rebase** é uma operação que aplica as alterações de uma branch em cima de outra branch, reescrevendo o histórico de commits. Em vez de criar um commit de merge, o rebase "move" a base da branch. `git checkout feature-branch && git rebase main` 
 
-A integração de código em projetos colaborativos é uma parte essencial do desenvolvimento de software, e tanto o GitHub quanto o Azure DevOps oferecem métodos para realizar merges. Abaixo, apresentamos uma comparação entre os métodos de merge disponíveis em ambas as plataformas.
+- [x] A integração de código em projetos colaborativos é uma parte essencial do desenvolvimento de software, e tanto o GitHub quanto o Azure DevOps oferecem métodos para realizar merges. Abaixo, apresentamos uma comparação entre os métodos de merge disponíveis em ambas as plataformas.
 
 | **Característica**          | **GitHub**                                      | **Azure DevOps**                               |
 |-----------------------------|-------------------------------------------------|------------------------------------------------|
@@ -829,391 +778,7 @@ A integração de código em projetos colaborativos é uma parte essencial do de
 | **Notificações e Relatórios**| Notificações por email e integração com outras ferramentas como Slack. Relatórios sobre Pull Requests disponíveis. | Notificações configuráveis por email e integração com Teams/Slack. Relatórios detalhados sobre builds e Pull Requests. |
 | **Suporte a Branch Policies**| Permite definir políticas para branches, como exigência de revisões ou builds bem-sucedidos antes do merge. | Suporte robusto a políticas de branch, permitindo configurações detalhadas para controle de qualidade antes do merge. |
 
-##### Fluxos de Trabalho com Git
-<p align="justify">A realização de pipelines requer uma abordagem estruturada, semelhante a projetar, desenvolver, testar e implementar aplicações, mas não há muitas informações disponíveis que possam ajudá-lo nessa jornada. Como faço para projetar um pipeline caso a equipe use estratégia de ramificação X, estratégia de teste Y e estratégia de lançamento Z? Com a introdução da infraestrutura como código (IaC), o pipeline deve tratar o código da infraestrutura de forma semelhante ao código da aplicação. O código da infraestrutura deve ser validado de acordo com as políticas de segurança e diretrizes da organização.</p>
-
-<p align="justify">Ao começar, é melhor manter as coisas simples e, portanto, inicialmente o GitHub Flow ou o desenvolvimento baseado em Trunk podem funcionar melhor. Eles também são ideais para equipes menores que exigem a manutenção de apenas uma única versão de um lançamento.</p>
-
-| Tipo de produto e seu método de lançamento                                   | Equipe                          | Maturidade                       | Modo de filial                                  |
-| -------------                                                                | -----                           | -------------                    | -------------                                   |
-| Todos                                                                        | Equipe pequena	                 | Alto	                            | Trunk-Based Development (TBD)                   |
-| Produtos que suportam implantação e lançamento contínuos, como produtos SaaS | Meio	                           | Moderado	                        | GitHub-Flow e TBD                               |
-| Produtos com uma janela de lançamento definida e uma cadência periódica      | Meio	                           | Moderado	                        | Git-Flow and GitLab-Flow com release branch     |
-| Produtos que exigem qualidade e suportam implantação e lançamento contínuos, | Meio	                           | Moderado	                        | GitLab-Flow                                     |
-| Produtos que exigem qualidade e longo ciclo de manutenção                    |	Grande                         | Moderado	                        | Git-Flow                                        |
-
-Não existe estratégia perfeita. A estratégia que você escolher dependerá da sua equipe e da natureza e complexidade do seu projeto e por isso deve ser avaliada caso a caso.
-## Estruturas de Repositório Git
-Quando iniciamos um projeto, podemos seguir algumas práticas recomendadas para organizar o repositório para uma melhor contribuição da equipe e uma estrutura de projeto mais elegante. Utilizamos para a criação dos repositórios GIT, conforme configuração dos servidores, que são mantidos pelo 60pportunities.
-
-!!! Definições
-
-    === "Monorepo"
-        É um único repositório que armazena todo o seu código e recursos para cada projeto;
-        O repositório contém mais de um projeto lógico (por exemplo, um cliente iOS, Android e um aplicativo da Web);
-        Esses projetos provavelmente **não estão relacionados**, estão conectados livremente ou podem ser conectados por outros meios (por exemplo, via dependência ferramentas de gerenciamento).
-        O repositório é grande de várias maneiras:
-        
-        - [x] Número de commits;
-        - [x] Número de ramificações e/ou tags;
-        - [x] Número de arquivos rastreados;
-        - [x] Tamanho do conteúdo rastreado (conforme medido observando o diretório .git do repositório);
-        - [x] Empresas usam monorepo, porque ele tem bons benefícios relacionados à manutenção de código, integração, reutilização de código, refatoração e mudanças em larga escala.
-        - [x] Código compartilhado: Reutilize código de validação, componentes de interface do usuário e tipos na base de código. 
-        - [x] Reutilize o código entre o back-end e o front-end.
-        - [x] Revisões de código mais eficaz: A maioria dos desenvolvedores agora entende a plataforma de ponta a ponta, levando a que mais bugs sejam identificados e corrigidos no estágio de revisão do código.
-        - [x] **Mudanças atômicas**: Mude a API de um servidor e modifique os clientes que consomem essa API no mesmo commit. Você pode alterar um componente de botão em uma biblioteca  compartilhada e os aplicativos que usam esse componente no mesmo commit. Isso evita o incômodo de tentar coordenar confirmações em vários repositórios.
-        - [x] Compartilhamento de componentes comuns. Os desenvolvedores têm uma visão do que está acontecendo em todos os serviços e podem efetivamente criar componentes comuns.
-
-        === "Ferramentas Monorepo"
-
-            |  Tool | Entenda                 |
-            | ----- | --------------          |
-            | [Bazel](https://bazel.build/?hl=pt-br)  | Se destaca em repositórios grandes e multilíngues com processos de construção complexos. |
-            | Gradle Build Tool                       | É particularmente adequado para linguagens JVM e fornece suporte nativo para caches de construção locais, o que pode acelerar significativamente o tempo de construção. |
-            | Lerna |   otimiza o fluxo de trabalho de gerenciamento de repositórios de vários pacotes com git e npm.  |
-            | Nx    | completo de ferramentas de desenvolvimento que oferece uma gama impressionante de recursos, como orquestração avançada de tarefas, execução distribuída de tarefas e cache de construção inteligente. |
-            | Pants Build | Sistema de construção projetado para grandes monorepos que podem conter múltiplas linguagens e frameworks.      |
-            | Rush        | orquestrador de construção escalonável para monorepos, que pode gerenciar projetos JavaScript e não JavaScript. |
-            | Turborepo   | Alto desempenho para bases de código JavaScript e TypeScript.  |
-            | Bit         | Ferramenta de gerenciamento de monorepo, mas oferece uma experiência tão excelente que pode resolver todas as “dificuldades” de monorepo com o novo fluxo de trabalho que fornece. |
-
-    === "Multi-repos ou Polyrepo" 
-        Refere-se à organização de seus projetos, cada um em seus próprios repositórios separados.
-        Esta é a arquitetura **mais comum em uso** e pode ser vista em grandes empresas e possui algumas vantagens:
-       
-        - [x] Propriedade: Como a base de código imita a arquitetura, uma pequena equipe pode possuir e desenvolver e implantar de forma independente a pilha completa de um microsserviço.
-        - [x] Melhor escala: Bases de código menores são mais fáceis de gerenciar e levam a menos instâncias de ""Ninguém gosta de um conflito de mesclagem. (merge hell)"".
-        - [x] Clones pequenos: A maioria dos SCMs, incluindo git, não oferece suporte à clonagem de partes de um repositório. Para grandes bases de código, clones, pulls e pushs levam   uito tempo, o que é ineficiente.
-        - [x] Controle de acesso: Pode ser aplicado no nível do projeto, pois cada funcionário tem acesso a uma pequena seção de projetos.
-   
-    === "Estratégia 60pportunities - Nomenclatura do Repositório"
-        Por padrão iremos impedir que certos caracteres sejam incluídos no nome do repositório.
-        Embora não haja uma maneira errada de nomear um repositório, alguns nomes são melhores que outros.
-        O comprimento   do repositório não deve conter mais de 64 caracteres Unicode e não pode ser idêntico a nenhum outro nome de repositório Git no projeto.
-        Todas essas sugestões estão sendo seguidas pelo criador automático.
-        Usando isso como diretriz, dividimos o repositório em 3(três) seções separadas por underscore. Esse formato consiste em seções que definem:
-        
-        * PRODUTO, FINALIDADE e ESTRUTURA DA LINGUAGEM.
-        
-        | Definição  |Conceito                                                      |
-        | ----       |------                                                        |
-        | PRODUTO    | Informe a SIGLA do Sistema.                                  |
-        | FINALIDADE | Utilizado para aplicações monolíticas (MONO),BACK_END, FRONT_END, MOBILE e LIB (Biblioteca de Documentos). |
-        | ESTRUTURA  | Linguagem(PHP,JAVA,Python),Sistema |Operacional(IOS,Android),DOC(Documentaçao).  |
-        
-        Deve se perceber as seguintes características:  descritivo, legibilidade, consistência, contextual, extensibilidade, reuzabilidade e sucinto.
-        
-        | ----          | SEÇÃO 01      | ----               | SEÇÃO 02            | SEÇÃO 03   |
-        | ----          | ----          | ----               | ----                | ----       |
-        | PRODUTO       | SIGLA         | FINALIDADE         | SIGLA               | LINGUAGEM  |
-        | ----          | -----         | ------             | -----               | --------   |
-        | PPPPPPPPPPP   | XXXXXXX       | RESTAPI            | RESTAPI             | JAVA       |
-        | PPPPPPPPPPP   | XXXXXXX       | BACK-END           | BACK                | PHP        |
-        | PPPPPPPPPPP   | XXXXXXX       | FRONT-END          | FRONT               | NODE       |
-        | PPPPPPPPPPP   | XXXXXXX       | SCRIPT             | SCRIPT              | SHELL      |
-        | PPPPPPPPPPP   | XXXXXXX       | MOBILE             | MOBILE              |  IOS       |
-        | PPPPPPPPPPP   | XXXXXXX       | LIB                | DOCUMENTACAO        | DOC        |
-            
-        | SEÇÃO 01      | SEÇÃO 02      | SEÇÃO 03           | SIGLA               |            |
-        | ----          | ----          | ----               | ----                |            |
-        | SSSSSSSSSS    | RESTAPI       | JAVA               | SSSS_RESTAPI_JAVA    |            |
-        | SSSSSSSSSS    | BACK          | PHP                | SSSS_BACK_PHP        |            |
-        | SSSSSSSSSS    | LIB           | DOC                | SSSS_LIB_DOC         |            |
-        | SSSSSSSSSS    | LIB           | DOC                | GESCON_LIB_DOC      |            | 
-
-!!! Estratégias
-
-    === "Branch"
-        <p align="justify">As ramificações do Git permitem que os desenvolvedores diverjam da ramificação principal criando ramificações separadas para isolar alterações de código. O branch padrão no Git é o branch `main`. A maior vantagem de um branch Git é que ele é 'leve', o que significa que os dados consistem em uma série de snapshots, portanto, a cada commit que você faz, o Git tira uma foto da aparência dos seus arquivos naquele momento e armazena uma referência para esse snapshot. Isso significa que essas ramificações não são apenas cópias do sistema de arquivos, mas simplesmente um ponteiro para o commit mais recente. Um branch é essencialmente uma referência ou um ponteiro para o último commit em um determinado contexto. À medida que você cria novos commits no novo branch, o Git cria novos ponteiros para rastrear as alterações. As ramificações do Git, então, podem ser vistas como um ponteiro para um instantâneo de suas alterações.</p>
-
-        | Nome           | Descrição da Branch                                                                                                                                  | SVN    | Gitflow | GitHubFlow | TBD  |
-        | -------------- | ------------------                                                                                                                                   | :----: | :----:  | :----:     | :----: |
-        | main           | É a ramificação que estará com o código da versão do ambiente de produção. Uma versão já testada e validada.                                                   | - | X | X | X |
-        | develop        | Tem objetivo de manter os desenvolvimentos realizados pela equipe. Podemos chamar de branch de integração, pois nela a equipe centralizam os desenvolvimentos. | - | X | X | - |
-        | sprint         | Tem objetivo de manter os desenvolvimentos realizados pela equipe. Podemos chamar de branch de integração, pois nela a equipe centralizam os desenvolvimentos. | - | X | X | - |
-        | trunk          | Esta área representa o desenvolvimento do trabalho em andamento em uma solução.                                                                                | X | - | - | - |
-        | branch         | Normalmente criada a partir do Tronco, esta área representa as versões testadas e aprovadas dos objetos pós-desenvolvimento.                                   | X | - | - | - |
-        | hotfix         | É uma branch de emergência para correções de bug diagnosticado do ambiente de produção.                                                                        | - | X | X | - |
-        | feature        | Cada funcionalidade desenvolvida é uma branch feature criada.                                                                                                  | - | X | X | - |
-        | release        | É a branch antes de levar a versão para o ambiente de produção (ou para a branch main). Em outras palavras, podemos considerar como a versão do ambiente de homologação.| - | X | X | - |
-        | wip/usuario-feature-nnnn | São conhecidos como branches de tópico. Os branches de recursos isolam o trabalho em andamento do trabalho concluído no branch principal.                     | - | - | - | X |
-        | wit/usuario-feature-nnnn | São conhecidos como branches de tópico. Os branches de recursos isolam o trabalho em andamento do trabalho concluído no branch principal.                     | - | - | - | X |
-        | tags           | Esta é uma maneira conveniente de declarar um instantâneo no tempo de um projeto no tronco ou em uma ramificação. Eles são úteis para marcos no desenvolvimento do seu projeto, permitindo que você tenha um registro do estado de um projeto em um momento importante. | X | - | - | - |
-        | qualidade      | Pré-Produção, qualidade processo de homologação independente da pipeline.                                                                             | - | X | X | X |
-
-    === "Gitando"
-
-        | Id   | emoji	     | Tipo      | Descricao                                        |
-        | --   | -----       | -----     | ------------------------                         |
-        | ✨    | :sparkles: | feat	    | Introduzir novos recursos                        |
-        | 🐛    | :bug:	     | bug	     | Corrigir bug                                     |
-        | 🚑    | :ambulance:| hotfix	   | Correção crítica                                 |
-        | 📝    | :memo:	   | docs      | Adicionar ou atualizar documentação              |
-        | 🌀    | :cyclone:  | refactor  | Refatorar código                                 |
-        | ⏪	   | :rewind:   | revert    | Reverter alterações                              |
-        | 🔨    | :hammer:   | script	   | Adicione ou atualize scripts de desenvolvimento  |
-        | 🔖    | :bookmark: | release   | Tags de lançamento/versão                        |
-        | 🚮    | :trash:    | deadcode  | Remover código morto                             |
-        | 🔇    | :mute:	   | rmlog	   | Remover registros                                |
-
-    === "Segurança"
-        Imaginemos que tenhamos um repositório em: http://localhost:3000/horacio.vasconcellos/casa.git, e gostaria de alem de ter um backup no repositório central, pudesse ficar com um repositório fora do meu hd/ssd? Efetuo a clonagem do meu repositório remoto, para um disco local de trabalho.
-        
-        * git clone http://localhost:3000/horacio.vasconcellos/casa.git ou git clone --branch "main" http://localhost:3000/horacio.vasconcellos/casa.git
-
-        Criado o repositório local, vou para o diretório criado e efetuo o clone para um outro diretório, de preferencia um pendrive ou um hd/ssd externo.
-        
-        * cd casa
-        * git clone --bare . /Volumes/SAMSUNG_T3/backupgit/casa.git
-        
-        Informo ao repositório, que existirão dois remotos: O origin que será o meu remoto do repositório central e um local, que será o meu backup local.
-        
-        * git remote add local /Volumes/SAMSUNG_T3/backupgit/casa.git
-        * git remote -v
-        
-        ```
-        local	/Volumes/SAMSUNG_T3/backupgit/casa.git (fetch)
-        local	/Volumes/SAMSUNG_T3/backupgit/casa.git (push)
-        origin	http://localhost:3000/horacio.vasconcellos/casa.git (fetch)
-        origin	http://localhost:3000/horacio.vasconcellos/casa.git (push)
-        ```
-        Agora vamos construir uma aplicaçõa e verificar se esta tudo de acordo, como imaginávamos. Criaremos um arquivo unico chamado horacio.txt e efetuaremos os passos normais.
-
-        
-        ```
-        > vi horacio.txt
-        > ls -al
-        drwxr-xr-x⠀staff⠀224 ⠀Feb  1 08:37:12⠀ﱮ⠀.
-        drwxr-xr-x⠀staff⠀1536⠀Feb  1 08:14:00⠀ﱮ⠀..
-        drwxr-xr-x⠀staff⠀384 ⠀Feb  1 08:27:06⠀⠀.git/
-        -rw-r--r--⠀staff⠀394 ⠀Feb  1 08:14:00⠀⠀.gitignore
-        -rw-r--r--⠀staff⠀32  ⠀Feb  1 08:37:12⠀⠀horacio.txt
-        -rw-r--r--⠀staff⠀1077⠀Feb  1 08:14:00⠀⠀LICENSE
-        -rw-r--r--⠀staff⠀13  ⠀Feb  1 08:14:00⠀⠀README.md
-        
-        > git add horacio.txt
-        > git status
-        On branch main
-        Your branch is up to date with 'origin/main'.
-        
-        Changes to be committed:
-          (use "git restore --staged <file>..." to unstage)
-        	new file:   horacio.txt
-        
-        > git commit -m "<doc>(ptb) Inclusão do arquivo horacio.txt"
-        [main 193b33b] <doc>(ptb) Inclusão do arquivo horacio.txt
-         1 file changed, 3 insertions(+)
-         create mode 100644 horacio.txt
-        
-        > git push (irá sempre mandar para o origin)
-        Enumerating objects: 5, done.
-        Counting objects: 100% (5/5), done.
-        Delta compression using up to 10 threads
-        Compressing objects: 100% (2/2), done.
-        Writing objects: 100% (3/3), 970 bytes | 970.00 KiB/s, done.
-        Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
-        To http://localhost:3000/horacio.vasconcellos/casa.git
-           193b33b..be3129f  main -> main
-        
-        > git push local
-        Enumerating objects: 5, done.
-        Counting objects: 100% (5/5), done.
-        Delta compression using up to 10 threads
-        Compressing objects: 100% (2/2), done.
-        Writing objects: 100% (3/3), 970 bytes | 970.00 KiB/s, done.
-        Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
-        To /Volumes/SAMSUNG_T3/backupgit/casa.git
-           193b33b..be3129f  main -> main
-        ```
-
-         === "Recuperando o repositório perdido"
-             Aqui é outro chopp, mas vamos iniciar explicando o que é o Ngrok. Ngrok é uma ferramenta que te permite a criação de um túnel seguro, atrás de NATs(Network Address Translation) e Firewalls, que expõem serviços locais para a Internet.
-
-         === "Compartilhando o diretório com outras pessoas"
-             Entre no diretório `/Volumes/SAMSUNG_T3/backupgit/horacio/.git` e execute o comando `git --bare update-server-info` e depois "mv hooks/post-update.sample hooks/post-update".
-
-    === "Solicitações Pull Request"
-        <p align="justify">Escrever boas descrições de solicitações pull request é uma ótima maneira de ajudar os revisores a saber o que esperar ao revisar o código e documentações obrigatórias. Um modelo de solicitação pull é um arquivo contendo texto Markdown que é adicionado à descrição da solicitação pull quando a solicitação pull é criada. O Azure Repos permite criar diversos tipos de templates, porem iremos utilizar Modelos de pull request para específicas branches.Os modelos de solicitação pull específicos de ramificação podem ser configurados para solicitações pull direcionadas a uma ramificação específica, ```<repositoryroot>/.azuredevops/pull_request_template/branches/```, como exemplo foram criados:</p>
-
-        | Arquivo                  | Branch    | Entenda                                                                                               |
-        | -------                  | ------    | -------                                                                                               |
-        | develop.md               | develop   | Este é normalmente o modelo padrão, mas pode ser substituido pelo modelo específico - nome da branch. |
-        | additional.md            | -         | Este é um modelo adicional.                                                                           |
-        | main.md                  | main      | Este é o modelo específico do branch main.                                                            |
-        | wip.md                   | wip/xxxxx | Work in Progress acordado.                                                                            |
-        | wit.md                   | wit/xxxxx | Item de trabalho finalizado.                                                                          |
-
-!!! Exemplo
-
-    === "Template de Documentos"
-        Verifique se já há no repositório(s) os templates criados para as branches `<repository root>/.azuredevops/pull_request_template/branches/`.
-
-        ![](img/prj_int_branches_001.png)
-
-        - [x] Efetue a criação dos templates do Pull Request
-                - [x] `git add . `
-                - [x] `git commit -m "<feat> :sparkles: : Inclusão de Templates do Pull Request"`
-
-        ![](img/prj_int_branches_002.png)
-
-    === "Exemplo de Template"
-
-        ``` 
-        #  Inclusão da funcionalidade cadastrar funcionario
-        
-        ## Descrição
-        Termindo o desenvolvimento em golang da tela de cadastramento de fornecedor.
-        
-        ## Contexto
-        -
-        
-        ## Mudanças Propostas
-        -
-        
-        ## Impacto nas Tabelas e Dados
-        Criado a tabela PO_VENDORS
-        
-        ## Testes Realizados
-        Foram realizados os testes conforme atachado no material/
-        
-        ## Screenshots (se aplicável)
-        Se possível e relevante, adicione capturas de tela que mostrem o resultado ou comportamento após a execução do código PL/SQL.
-        
-        ## Problemas Relacionados
-        Adicione links para problemas (issues) relacionados a este Pull Request, se houver.
-        
-        ## Checklist
-        - [X] O código PL/SQL foi revisado quanto à segurança e otimização, seguindo os padrões SQUALE.
-        - [X] Os comentários no código estão atualizados e são claros para facilitar a compreensão.
-        - [ ] As queries de exemplo foram testadas e fornecem resultados corretos.
-        - [X] A documentação foi atualizada para refletir as mudanças implementadas, se aplicável.
-        - [X] Os testes automatizados foram executados e estão passando.
-        - [ ] Testes manuais foram realizados para verificar as mudanças.
-        - [ ] Todos os testes foram documentados.
-        - [ ] Aprovado por revisor (ou revisores) da equipe de especialistas em Banco de Dados Oracle.
-        
-        ## Notas do Revisor (não preencha)
-        Esta seção será preenchida pelo revisor durante a análise do Pull Request.
-        ```
-
-        ![](img/prj_int_branches_009.png)
-        
-        * Após a validação do pessoal de Qualidade, este deverá efetuar um cherry-pick, da branch de Qualidade para a Sprint.
-        
-        ![](img/prj_int_branches_010.png)
-        
-        * Após a validação do pessoal de Qualidade, este deverá efetuar um cherry-pick, da branch de Sprint para a main.
-        
-        ![](img/prj_int_branches_011.png)
-        
-        Em resumo: 
-        
-        * Durante o sprint, todas as alterações de código são enviadas para esse branch.
-        * E sempre que o código quiser ser testado no ambiente de desenvolvimento, basta criar Pull Request para o branch qualidade;
-
-    === "Branches"
-        - [x] Quando o sprint começar, crie um conjunto de branches, que serão aqui discutidas.
-               - [x] sprint (Inicial e que deverá ser atualizado no término da Sprint)
-               - [x] O Tech Leader deverá efetuar a criação das branches diretamente da main;
-        - [x] wit|wip/ (Static Application Security Testing (SAST) e Unit Test devem ser realizados.)
-               - [x] wip (Working in progress): O desenvolvedor esta efetuando a criação de um objeto.
-               - [x] wit (Working Item): Work Item liberado para o pessoal de qualidade.         
-        - [x] qualidade (Processo de qualidade, onde os testes: PlanTest, CyPress e Security Test (IAST(Interactive Application Security Testing), MAST(Mobile Application Security Test), DAST(Dynamic Application Security Testing)), RAST (Re Application Security Testing);
-
-        ![](img/prj_int_branches_003.png)
-
-        ![](img/prj_int_branches_004.png)
-
-        O desenvolvedor deverá efetuar o clone do repositório criado :  `git clone --branch <branchname> --single-branch <remote-repo-url>`
-
-        ```
-        * git clone --branch <branchname> --single-branch <remote-repo-url>
-        * git clone --branch "wip/horacio-cadfornecedor-1010" https://bbts-lab@dev.azure.com/bbts-lab/EXEMPLO_PROJETO_PLSQL/_git/PRODUTO_FRONTEND
-        * git branch -a
-            * wip/horacio-cadfornecedor-1010
-              remotes/origin/HEAD -> origin/main
-              remotes/origin/main
-              remotes/origin/qualidade
-              remotes/origin/sprint
-              remotes/origin/wip/cristiane-cadfornecedor-1010
-              remotes/origin/wip/horacio-cadfornecedor-1010
-              remotes/origin/wip/leonam-cadfornecedor-1011
-        * git fetch
-        * git pull 
-        ```
-        * Ao terminar o desenvolvimento, o desenvolvedor deverá renomear a branch `wip` e torna-la `wit`, indicando que o mesmo foi finalizado.
-        ```
-        * vi horacio.txt
-        * git add horacio.txt
-        * git commit -m "<feat> :sparkles: - Inclusão da funcionalidade cadastrar funcionario"
-        * git push origin main
-        ```
-
-        ![](img/prj_int_branches_005.png)
-
-        * Continuei as atividades até completa-la, efetuando os Testes Unitários e de validação. (Não demonstrarei o SAST);
-        * Como nós terminamos o trabalho, precisamos renomear a branch
-
-        ```
-        * git branch -m "wit/horacio-cadfornecedor-1010"
-        * git push origin -u "wit/horacio-cadfornecedor-1010"
-        ```
-        
-        ![](img/prj_int_branches_006.png)
-        
-        * Repare que ao subir a nova branch, a antiga branch, ficou lá também, por isso há a necessidade de exclui-la do repositório.
-        
-        * `git push origin --delete "wip/horacio-cadfornecedor-1010"`
-        
-        * Deleta a branch de trabalho, podemos agora solicitar um Pull Request para informar ao pessoal de Qualidade, que o processo, finalizou e agora há a necessidade de validação por esta equipe. O pessoal de qualidade, acatará o recebimento do Pull Request.
-
-        ![](img/prj_int_branches_007.png)
-        
-        Observação: Eu esqueci de efetuar o arquivo Markdown, Qualidade e Sprint. Como NÃO havia sido criado, podemos optar em utilizar o template pull_request_template.md
-        
-        ![](img/prj_int_branches_008.png)
-
-!!! Exemplo
-
-    === "Modifiable off-the-shelf Software (MOTS)"
-
-        ![](img/repositorio_mots.png)
-
-    === "Documentation as Code (DaC)"
-        Usar um repositório de sistema de controle de versão de gerenciamento de documentação unificada. A ideia deste repositório é simular um monorepo significa usar um repositório, em vez de vários repositórios.
-        Este repositório contem um diretório de `documentacao` para os outros repositórios de documentação.
-        Como efetuar esta configuração:
-        
-        - [x] git clone https://bbts-lab@dev.azure.com/bbts-lab/CESUC_ADMINISTRACAO/_git/PORTIFOLIO
-        - [x] cd PORTIFOLICO/
-        - [x] cd documentacao/
-        - [x] git submodule add --name NOME_DO_DIRETORIO https://dev.azure.com/bbts-lab/ANALYTICS_SOLUTIONS/_git/ANALYTICS_DOCUMENTACAO_LIB NOME_DO_DIRETORIO
-        - [x] git submodule update --remote
-        
-        ![](img/repositorio_dac.png)
-
-##### Trabalho em Equipe
-O trabalho em equipe envolve diferentes estratégias de pensamento: criativo, compreensivo e decisivo. 
-
-- [x] O pensamento criativo envolve desafiar o status quo e propor novas ideias;
-- [x] O pensamento compreensivo é a capacidade de focar em uma tarefa e entender um problema em profundidade. 
-- [x] Para planejar reuniões eficazes, um padrão de início, engajamento e conclusão. 
-
-
-- [x] Reuniões de ideação para projetos podem incluir: identificar o problema, debater soluções, estruturar ideias e selecionar as melhores para testar.
-- [x] O branch principal deve conter apenas trabalho testado e nunca deve ser quebrado. 
-- [x] À medida que o projeto amadurece, o número de branches pode aumentar, é importante encontrar um número de tipos de branches que funcionem bem para a equipe. 
-- [x] Documentar o processo da equipe é crucial para manter a consistência e facilitar a compreensão do histórico do código.
-- [x] Documentar as decisões codificadas é outra prática importante, utilizando um sistema de tickets para capturar todos os requisitos.
-- [x] O ideal é não exagerar na categorização e permitir que o time adicione estados conforme necessário;
-- [x] O review de código faz parte do fluxo, com merge realizado pelo revisor.  
-- [x] Quando uma versão do software é lançada, um novo branch chamado main é criado a partir do commit aprovado, e um tag de versão é adicionado. 
-- [x] Para hotfixes, um branch é criado a partir do último lançamento, e segue o mesmo processo de review.
-- [x] O versionamento baseado em issues é destacado, com cada tarefa sendo uma maneira de ajudar alguém. 
-- [x] O processo de trabalho deve incluir a criação do ticket, um novo branch com o número do ticket, o trabalho no ticket, testes e o commit.
-![](img/git-flow-60pportunities.png)
-##### Git Hooks
+## Git Hooks
 Como os scripts são infinitamente personalizáveis, você pode usar ganchos Git para automatizar ou otimizar virtualmente qualquer aspecto de seu fluxo de trabalho de desenvolvimento.
 
 - [x] pre-commit: O hook pre-commit é executado antes de um commit ser criado. Ele é ideal para realizar verificações ou validações nos arquivos que estão prestes a ser comitados.
@@ -1231,59 +796,9 @@ Os ganchos podem residir em repositórios locais e/ou globais ou do lado do serv
 - [x] Os ganchos precisam ser executáveis, portanto, você pode precisar alterar as permissões de arquivo do script se estiver criando do zero. 
 - [x] Os scripts embutidos são principalmente scripts de shell e PERL, mas você pode usar qualquer linguagem de script que desejar, desde que possa ser executada como um executável.
 
-##### Ganchos Locais
+## Ganchos Locais
 - [x] Os ganchos locais afetam apenas o repositório no qual residem. 
 - [ ] Conforme você lê esta seção, lembre-se de que cada desenvolvedor pode alterar seus próprios ganchos locais, então você não pode usá-los como uma forma de impor uma política de commit. 
 - [ ] Eles podem, no entanto, tornar muito mais fácil para os desenvolvedores aderir a certas diretrizes.
 - [x] Os primeiros 4 ganchos permitem que você se conecte a todo o ciclo de vida do commit, e os 2 finais permitem que você execute algumas ações extras ou verificações de segurança para os comandos git checkoute git rebase, respectivamente.
 - [x] Todos os pre-ganchos permitem alterar a ação que está prestes a ocorrer, enquanto os post-ganchos são usados ​​apenas para notificações.
-
-
-
-
-Criando develop
-
-git branch develop
-git push -u origin develop
-Criando feature
-git checkout develop
-git checkout -b feature_branch
-....
-git checkout develop
-git merge feature_branch
-Release branch
-git checkout develop
-git checkout -b release/0.1.0
-...
-git checkout main
-git merge release/0.1.0
-...
-Hotfix
-git checkout main
-git checkout -b hotfix_branch
-...
-git checkout main
-git merge hotfix_branch
-git checkout develop
-git merge hotfix_branch
-git branch -D hotfix_branch
-
-
-git checkout main
-git checkout -b develop
-git checkout -b feature_branch
-# work happens on feature branch
-git checkout develop
-git merge feature_branch
-git checkout main
-git merge develop
-git branch -d feature_branch
-
-git checkout main
-git checkout -b hotfix_branch
-# work is done commits are added to the hotfix_branch
-git checkout develop
-git merge hotfix_branch
-git checkout main
-git merge hotfix_branch
-
