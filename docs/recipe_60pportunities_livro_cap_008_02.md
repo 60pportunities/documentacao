@@ -3,7 +3,8 @@
 - [x] Os arquivos que estão em conflito serão listados sob "Unmerged paths". Você pode também usar o comando git diff para ver as diferenças entre as versões e entender melhor os conflitos: `git diff`
 - [x] Abra os arquivos listados em conflito em um editor de texto. O Git marca as seções conflitantes com os seguintes delimitadores: 
 
-```<<<<<<< HEAD
+```
+<<<<<<< HEAD
 Conteúdo da sua branch atual
 =======
 Conteúdo da branch que está sendo mesclada
@@ -29,15 +30,12 @@ Conteúdo da branch que está sendo mesclada
 - [x] Restaure-o usando `git reset --hard: `git reset --hard hash`
 - [x] Seus commits perdidos estão de volta, e você pode respirar novamente.
 
-
 ## Trabalho em Equipe
 O trabalho em equipe envolve diferentes estratégias de pensamento: criativo, compreensivo e decisivo. 
 
 - [x] O pensamento criativo envolve desafiar o status quo e propor novas ideias;
 - [x] O pensamento compreensivo é a capacidade de focar em uma tarefa e entender um problema em profundidade. 
 - [x] Para planejar reuniões eficazes, um padrão de início, engajamento e conclusão. 
-
-
 - [x] Reuniões de ideação para projetos podem incluir: identificar o problema, debater soluções, estruturar ideias e selecionar as melhores para testar.
 - [x] O branch principal deve conter apenas trabalho testado e nunca deve ser quebrado. 
 - [x] À medida que o projeto amadurece, o número de branches pode aumentar, é importante encontrar um número de tipos de branches que funcionem bem para a equipe. 
