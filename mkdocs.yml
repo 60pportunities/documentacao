@@ -223,6 +223,10 @@ nav:
       - 'Notas'                                      : 'notas.md'
       - 'Políticas'                                  : 'politicas.md'
       - 'Segurança'                                  : 'SECURITY.md'
+   - 'Felicidade do imperfeito'                      :
+      - 'Gerações'                                   : 'recipe_60pportunities_conc_geracao.md'
+      - 'Aprender, desaprender e reaprender'         : 'recipe_60pportunities_conc_desafios.md'
+      - 'Mantenha o Equilíbrio'                      : 'recipe_60pportunities_conc_equilibrio.md'
    - 'Conceitos'                                     :
       - 'Definições'                                 : 'recipe_60pportunities_conc_definicao.md'
       - 'Fundação'                                   : 'recipe_60pportunities_conc_foundation.md'
@@ -254,13 +258,12 @@ nav:
       - 'Inteligência Artificial no Desenvolvimento de Software'     : 'recipe_60pportunities_livro_cap_014.md'
       - 'Metas e Métricas: A Importância de Medir'                   : 'recipe_60pportunities_livro_cap_015.md'
       - 'Engenharia de Software'                                     : 'recipe_60pportunities_livro_cap_conclusao.md'
+   - 'Certificação Perguntas'                                        :
+      - 'Certiprof DevOps Essentials'                                : 'recipe_60pportunities_certiprof_depc.md'
+      - 'GitHub Foundations'                                         : 'recipe_60pportunities_ghf_90_questions.md'
 #  - 'Pessoas'                                       :
 #     - 'Fluxo/Contexto/Developer'                   : 'recipe_60pportunities_frameworks_fluxo.md'
 #     - 'Ferramentas CI/CD'                          : 'recipe_60pportunities_frameworks_tools.md'
-#  - 'Felicidade do imperfeito'                      :
-#     - 'Gerações'                                   : 'recipe_60pportunities_conc_geracao.md'
-#     - 'Aprender, desaprender e reaprender'         : 'recipe_60pportunities_conc_desafios.md'
-#     - 'Mantenha o Equilíbrio'                      : 'recipe_60pportunities_conc_equilibrio.md'
 #   - 'Projetos'                                      :   
 #      - 'Timeline'                                   : 'recipe_60pportunities_projetos_timeline.md'
 #      - 'PMI e Standish Group'                       : 'recipe_60pportunities_projetos_standishgroup.md'

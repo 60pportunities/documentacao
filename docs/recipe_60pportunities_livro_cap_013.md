@@ -1,4 +1,19 @@
 ## Fundamentos de Observabilidade 
+Embora os conceitos de monitoramento e observabilidade sejam frequentemente usados de forma intercambiável, eles possuem diferenças fundamentais, especialmente no contexto de sistemas modernos e complexos.
+
+- [x] O monitoramento é o processo de coletar, analisar e exibir dados predefinidos sobre a saúde, o desempenho e o comportamento de um sistema. Ele se baseia em métricas e logs conhecidos para identificar problemas;
+      - [x] Focado em indicadores conhecidos (métricas, alertas e logs predefinidos);
+      - [x] Detecta sintomas de problemas específicos;
+      - [x] Usa ferramentas como Dashboards e Alertas para notificar falhas;
+      - [x] Depende de modelos de referência predefinidos, como SLAs e SLIs;
+- [x] A observabilidade é a capacidade de inferir o estado interno de um sistema com base nos dados que ele gera, como logs, métricas e traces. Diferentemente do monitoramento, a observabilidade permite investigar problemas desconhecidos ou inesperados.
+      - [x] Focado em entender o comportamento interno do sistema.
+      - [x] Ajuda a identificar causas raiz de problemas complexos.
+      - [x] Baseado em três pilares principais:
+      - [x] Métricas: Dados quantitativos (e.g., latência, uso de recursos).
+      - [x] Logs: Registro de eventos detalhados.
+      - [x] Traces: Rastreamento de fluxos de transações ou solicitações em sistemas distribuídos.
+      - [x] Permite responder a questões não previstas no design inicial.
 ### O que é observabilidade?  
 - [x] Diferença entre monitoramento e observabilidade.  
 - [x] Importância em sistemas distribuídos e arquiteturas modernas (microservices e cloud).  
@@ -59,3 +74,5 @@
 - [x] Implementação de observabilidade em uma aplicação real.  
 - [x] Análise de incidentes com logs, métricas e traces.  
 - [x] Resolução de problemas de performance.  
+
+

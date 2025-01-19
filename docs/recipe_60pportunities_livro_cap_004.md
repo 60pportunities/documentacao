@@ -142,3 +142,30 @@ No ATDD, os testes de aceitação geralmente são mais detalhados e orientados p
 - [x] O Amazon Kindle é lançado;
 - [x] A Apple lança o iPhone - uma combinação de navegador da web, tocador de música e telefone celular - que podia baixar novas funcionalidades na forma de "apps" (aplicativos) da loja online da Apple. 
 - [x] 2008: A Apple apresenta seu primeiro ultra notebook – um laptop leve e fino com bateria de alta capacidade. 
+- [x] 2008: Large-Scale Scrum (LeSS) - Criado por Craig Larman e Bas Vodde, o LeSS baseia-se na simplicidade e no foco nos princípios do Scrum, mantendo a essência do ágil mesmo em escalas maiores.
+
+## 2008:  Large-Scale Scrum (LeSS)
+O LeSS utiliza o mínimo necessário de processos e regras, incentivando o uso eficiente de recursos e evitando complexidade desnecessária.
+
+Todas as equipes trabalham em um único Backlog do Produto, coordenadas para entregar um único incremento a cada Sprint.
+
+Promove ciclos curtos de feedback e melhoria contínua, tanto no nível do time quanto no nível organizacional.
+
+O LeSS possui dois modelos principais, dependendo do número de equipes envolvidas:
+
+### LeSS Básico:
+- [x] Para 2 a 8 equipes, cada uma com até 10 membros.
+- [x] Todas as equipes compartilham um único Product Owner e um Backlog do Produto.
+- [x] As reuniões do Scrum (Daily, Sprint Planning, Review, e Retrospective) são adaptadas para envolver todas as equipes de forma coordenada.
+
+### LeSS Huge:
+- [x] Para mais de 8 equipes.
+- [x] Divide o trabalho em Áreas de Requisito, com cada área possuindo seu próprio Backlog.
+- [x] Um Product Owner principal é responsável pelo produto como um todo, enquanto os Area Product Owners gerenciam Backlogs específicos.
+
+O LeSS é ideal para organizações que desejam escalar o Scrum mantendo os valores ágeis e a simplicidade, promovendo alta eficiência e colaboração em ambientes complexos.
+
+- [x] Simplicidade Escalável: Mantém o núcleo do Scrum intacto, mesmo em grande escala.
+- [x] Colaboração entre Equipes: Promove forte alinhamento e coordenação.
+- [x] Maior Foco no Cliente: As entregas frequentes garantem que o feedback seja incorporado rapidamente.
+- [x] Redução de Complexidade: Evita a criação de estruturas pesadas e burocráticas.

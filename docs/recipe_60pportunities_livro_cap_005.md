@@ -20,6 +20,7 @@ Limitações: Exige forte mudança cultural e adaptação de processos para ser 
 - [x] 2010: Softomotive – Lança o WinAutomation, uma ferramenta de automação de processos baseada em desktop.
 - [x] 2011: Markdown Editors – Ferramentas como Typora ganharam popularidade com suporte para Markdown, voltado para escritores e desenvolvedores.
 - [x] 2011: SoapUI – Focado em testes de APIs, especialmente serviços web SOAP e REST.
+- [x] 2011: Scaled Agile Framework (SAFe), desenvolvido por Dean Leffingwell, o SAFe surgiu como uma estrutura detalhada para escalar ágil em grandes empresas. Ele combina princípios ágeis, lean e DevOps para atender organizações com múltiplas equipes.
 - [x] 2012: LibreOffice Calc – Um fork do OpenOffice, desenvolvido pela comunidade para fornecer uma alternativa robusta de código aberto.
 - [x] 2012: Trello – Introduziu o modelo de quadros Kanban para gerenciar projetos.
 - [x] 2011: Markdown Editors – Ferramentas como Typora ganharam popularidade com suporte para Markdown, voltado para escritores e desenvolvedores.
