@@ -45,7 +45,6 @@ theme:
   name: material
   icon:
     logo: img/favicon.ico
-
   palette:
    # Palette toggle for light mode
    - media: "(prefers-color-scheme: light)"
@@ -236,6 +235,12 @@ nav:
       - 'Vulnerabilidade'                            : 'recipe_60pportunities_conc_vulnerabilidade.md'
       - 'Innersource/Boilerplate'                    : 'recipe_60pportunities_conc_innersource.md'
       - 'Pensamento'                                 : 'recipe_60pportunities_time.md'
+   - 'Registro'                                      :
+      - 'Registrando um Domínio'                     : 'recipe_60pportunities_conf_registrobr_dominio.md'
+      - 'Configurando o Github'                      : 'recipe_60pportunities_conf_github.md'
+      - 'Conta no GitHub'                            : 'recipe_60pportunities_conf_github_conta.md'
+      - 'Configurando Pages'                         : 'recipe_60pportunities_conf_github_pages.md'
+      - 'Publicando Pages no Domínio'                : 'recipe_60pportunities_conf_github_dominio_pages.md'
    - 'Livro'                                         :
       - 'Introdução'                                                 : 'recipe_60pportunities_livro_introducao.md'
       - 'Crise do Software (1960-1979)'                              : 'recipe_60pportunities_livro_cap_001.md'
@@ -258,46 +263,26 @@ nav:
       - 'Inteligência Artificial no Desenvolvimento de Software'     : 'recipe_60pportunities_livro_cap_014.md'
       - 'Metas e Métricas: A Importância de Medir'                   : 'recipe_60pportunities_livro_cap_015.md'
       - 'Engenharia de Software'                                     : 'recipe_60pportunities_livro_cap_conclusao.md'
+      - 'Agilidade'                                                  : 'recipe_60pportunities_livro_cap_017.md'
    - 'Certificação Perguntas'                                        :
       - 'Certiprof DevOps Essentials'                                : 'recipe_60pportunities_certiprof_depc.md'
       - 'GitHub Foundations'                                         : 'recipe_60pportunities_ghf_90_questions.md'
-#  - 'Pessoas'                                       :
-#     - 'Fluxo/Contexto/Developer'                   : 'recipe_60pportunities_frameworks_fluxo.md'
-#     - 'Ferramentas CI/CD'                          : 'recipe_60pportunities_frameworks_tools.md'
-#   - 'Projetos'                                      :   
-#      - 'Timeline'                                   : 'recipe_60pportunities_projetos_timeline.md'
-#      - 'PMI e Standish Group'                       : 'recipe_60pportunities_projetos_standishgroup.md'
-#      - 'Modelo Antigo'                              : 'recipe_60pportunities_projetos_antigo.md'
-#      - 'Modelo'                                     : 'recipe_60pportunities_projetos_modelo.md'
-#      - 'Método'                                     : 'recipe_60pportunities_projetos_metodo.md'
-#      - 'Centrados'                                  : 'recipe_60pportunities_projetos_centrados.md'
-#      - 'Modificados'                                : 'recipe_60pportunities_projetos_modificados.md'
+   - 'Projetos'                                      :   
+      - 'Timeline'                                   : 'recipe_60pportunities_projetos_timeline.md'
+      - 'PMI e Standish Group'                       : 'recipe_60pportunities_projetos_standishgroup.md'
+      - 'Modelo Antigo'                              : 'recipe_60pportunities_projetos_antigo.md'
+      - 'Modelo'                                     : 'recipe_60pportunities_projetos_modelo.md'
+      - 'Método'                                     : 'recipe_60pportunities_projetos_metodo.md'
+      - 'Centrados'                                  : 'recipe_60pportunities_projetos_centrados.md'
+      - 'Modificados'                                : 'recipe_60pportunities_projetos_modificados.md'
    - 'Arquitetura'                                   :
-      - 'Arquitetura Original'                       : 'recipe_60pportunities_arquitetura_01.md'
-      - 'Problemas Arquiteturais'                    : 'recipe_60pportunities_arquitetura_02.md'
-      - 'Arquitetura Prevista'                       : 'recipe_60pportunities_arquitetura_04.md'
       - 'Application Program Interface'              : 'recipe_60pportunities_conf_arquitetura_api.md'
       - 'Microserviços'                              : 'recipe_60pportunities_conf_arquitetura_microservico.md'
-      - 'Programação'                                : 'recipe_60pportunities_conc_arquitetura_programacao.md'
       - 'Previsibilidade'                            : 'recipe_60pportunities_conc_previsibilidade.md'
-#   - 'Configuração Plataforma Projeto'               :
-#      - 'Github'                                     : 'recipe_60pportunities_conf_github.md'
-#      - 'Azure-Devops'                               : 'recipe_60pportunities_conf_azuredevops.md'
-#      - 'Jira'                                       : 'recipe_60pportunities_conf_jira.md'
-#   - 'Aplicação'                                     :
-#      - 'Definições Arquitetônicas'                  : 'recipe_60pportunities_design_application.md'
-#   - 'Registro'                                      :
-#      - 'Registrando um Domínio'                     : 'recipe_60pportunities_conf_registrobr_dominio.md'
-#   - 'Documentação'                                  :
-#      - 'Documentação'                               : 'recipe_60pportunities_conf_documentacao.md'
-#      - 'Usando o MkDocs'                            : 'recipe_60pportunities_conf_mkdocs.md'
-#      - 'Publicando MkDocs no Github'                : 'recipe_60pportunities_conf_mkdocs_publicacao.md'
-#   - 'Git'                                           : 
-#      - 'Histórico Git'                              : 'recipe_60pportunities_treino_git_00_historia.md'
-#      - 'Git-Pro'                                    : 'recipe_60pportunities_treino_git_00_gitpro.md'
-#      - 'Versionamento'                              : 'recipe_60pportunities_treino_git_01_version.md'
-#      - 'Estratégia de Branch'                       : 'recipe_60pportunities_treino_git_02_branch.md'
-#      - 'Jujutsu'                                    : 'recipe_60pportunities_treino_git_04_jj.md'
+   - 'Documentação'                                  :
+      - 'Documentação'                               : 'recipe_60pportunities_conf_documentacao.md'
+      - 'Usando o MkDocs'                            : 'recipe_60pportunities_conf_mkdocs.md'
+      - 'Publicando MkDocs no Github'                : 'recipe_60pportunities_conf_mkdocs_publicacao.md'
 #   - 'GitHub'                                        :    
 #      - 'Conta no GitHub'                            : 'recipe_60pportunities_conf_github_conta.md'
 #      - 'Configurando Pages'                         : 'recipe_60pportunities_conf_github_pages.md'
@@ -317,13 +302,12 @@ nav:
 #          - 'Exemplo Prova'                          : 'recipe_60pportunities_gha_90_questions.md'
 #        - 'Advanced Security'                        :
 #          - 'Guide'                                  : 'recipe_60pportunities_ghas_guide.md'
-#   - 'Dados'                                         :
-#      - 'Segregation of Duties'                      : 'recipe_60pportunities_conf_data_sod.md'
-#      - 'Mascaramento de dados'                      : 'recipe_60pportunities_conf_data_mask.md'
-#      - 'Dados Mestres/Referência'                   : 'recipe_60pportunities_conf_data_master.md'
-#      - 'Central de Cadastro'                        : 'recipe_60pportunities_conf_data_ccadastro.md'
-#      - 'Dados Ética'                                : 'recipe_60pportunities_conf_data_etica.md'
-#      - 'Dados Mestres e Referencia'                 : 'recipe_60pportunities_conf_data_master.md'
+   - 'Dados'                                         :
+      - 'Segregation of Duties'                      : 'recipe_60pportunities_conf_data_sod.md'
+      - 'Dados Mestres/Referência'                   : 'recipe_60pportunities_conf_data_master.md'
+      - 'Central de Cadastro'                        : 'recipe_60pportunities_conf_data_ccadastro.md'
+      - 'Dados Ética'                                : 'recipe_60pportunities_conf_data_etica.md'
+      - 'Dados Mestres e Referencia'                 : 'recipe_60pportunities_conf_data_master.md'
 #   - 'Desenvolvedor'                                 :
 #      - 'Backstage'                                  : 'recipe_60pportunities_dev_backstage.md'
 #      - 'Docker'                                     : 'recipe_60pportunities_dev_docker.md'
@@ -336,15 +320,11 @@ nav:
 #      - 'Hacker do Bem'                              : 'recipe_60pportunities_dev_hacker_etico.md'
 #      - 'Linguagem'                                  :
 #         - 'PHP'                                     : 'recipe_60pportunities_dev_doc_php.md'
-#      - 'Métricas'                                   :
-#         - 'Métricas Internas'                       : 'recipe_60pportunities_conf_metricas.md'
-#   - 'Estudos/Aprendizado'                            : 
-#      - 'Inteligencia Artificial'                    : 'recipe_60pportunities_conf_inteligencia_artificial.md'
-#   - 'Dicionário'                                    :
-#      - 'Termos'                                     : 'recipe_60pportunities_tesauro.md'
-#   - 'Estudo pessoal'                                :
-#      - 'ERO vs MES'                                 : 'recipe_60pportunities_esc_erp.md'
-#   - 'Links Úteis para o Aprendizado'                :
-#      - 'Faça você mesmo'                            : 'recipe_60pportunities_lic_software.md'
-#      - 'Inteligência Artificial'                    : 'recipe_links_inteligencia_artificial.md'
-#      - 'Biblioteca Virtual'                         : 'recipe_links_biblioteca_virtual.md'
+   - 'Estudos/Aprendizado'                            : 
+      - 'Inteligencia Artificial'                    : 'recipe_60pportunities_conf_inteligencia_artificial.md'
+   - 'Dicionário'                                    :
+      - 'Termos'                                     : 'recipe_60pportunities_tesauro.md'
+   - 'Links Úteis para o Aprendizado'                :
+      - 'Faça você mesmo'                            : 'recipe_60pportunities_lic_software.md'
+      - 'Inteligência Artificial'                    : 'recipe_links_inteligencia_artificial.md'
+      - 'Biblioteca Virtual'                         : 'recipe_links_biblioteca_virtual.md'

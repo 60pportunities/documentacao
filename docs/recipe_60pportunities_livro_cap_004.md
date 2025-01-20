@@ -80,6 +80,7 @@ Baseado nos princípios do Lean Manufacturing (Toyota), o Lean Software Developm
 ![](img/linha-do-tempo.png){width="600" height="20" style="display: block; margin: 0 auto"}
 
 - [x] 2003: Blue Prism – Fundado no Reino Unido, é considerado o pioneiro em RPA empresarial, introduzindo o conceito de “trabalhadores digitais”.
+- [ ] 2003: Lean Software Development, Mary e Tom Poppendieck, sete princípios "lean" fundamentais, adaptam-nos para o mundo do desenvolvimento de software e mostram como eles podem servir como base para abordagens de desenvolvimento ágil que funcionam. 
 - [x] 2004: Em 2004, o Google é a primeira grande empresa da Web a lançar uma ação negociada publicamente desde os dias de euforia do boom das pontocom. 
 - [x] 2004: HP Quality Center (anteriormente TestDirector) – Uma plataforma robusta para gestão de testes e qualidade.
 
@@ -169,3 +170,16 @@ O LeSS é ideal para organizações que desejam escalar o Scrum mantendo os valo
 - [x] Colaboração entre Equipes: Promove forte alinhamento e coordenação.
 - [x] Maior Foco no Cliente: As entregas frequentes garantem que o feedback seja incorporado rapidamente.
 - [x] Redução de Complexidade: Evita a criação de estruturas pesadas e burocráticas.
+
+## 2009: Scrumban: Essays on Kanban Systems for Lean Software Development
+A ideia central era proporcionar uma transição mais gradual do Scrum para o Kanban, principalmente para equipes que queriam evoluir seus processos ágeis de forma incremental.
+
+O Scrumban aproveita a estrutura bem definida do Scrum, como sprints, papéis e cerimônias, e adiciona a flexibilidade e o foco no fluxo contínuo do Kanban. Essa combinação atende equipes que buscam equilibrar planejamento estruturado com a adaptabilidade para responder às demandas do projeto.
+
+Ele é especialmente útil para equipes que trabalham em ambientes dinâmicos, onde as prioridades podem mudar rapidamente.
+
+- [x] Planejamento por demanda: Ao invés de sprints fixos, o planejamento ocorre quando necessário, geralmente quando o backlog atinge um limite mínimo.
+- [x] Limites de trabalho em progresso (WIP): Importado do Kanban, esse conceito limita o número de tarefas que podem estar em andamento ao mesmo tempo, melhorando o foco e a eficiência.
+- [x] Quadro visual: Assim como no Kanban, o uso de um quadro visual para gerenciar tarefas (to do, doing, done) é fundamental.
+- [x] Melhoria contínua: Promove revisões frequentes para identificar gargalos e ajustar os processos, usando práticas como retrospectivas e análises de fluxo.
+- [x] Flexibilidade: O Scrumban é menos rígido que o Scrum, permitindo que as equipes adaptem seus métodos de trabalho de acordo com as necessidades.
