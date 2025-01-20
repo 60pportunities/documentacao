@@ -2,19 +2,27 @@
 <p align="justify">Todos os produtos de desenvolvimento de software, sejam eles criados por uma pequena equipe ou por uma grande corporação, exigem alguma documentação relacionada e os difetentes tipos de documentos são criados ao longo de todo o ciclo de vida de desenvolvimento de software (SDLC).</p>
 Os métodos Àgeis não requerem documentações abrangentes no início - **Software funcional em vez de documentação abrangente**, logo a ideia é produzir documentação com informações essenciais para avançar quando fizer mais sentido.
 
-Michael Nygard, em uma publicação de 2011, **Os métodos ágeis não se opõem à documentação, apenas à documentação sem valor**. Documentos que auxiliam a própria equipe podem ter valor, mas somente se estiverem atualizados. Documentos grandes nunca são mantidos atualizados. Documentos pequenos e modulares têm pelo menos uma chance de serem atualizados.
-## linguagem de Marcação Leve
-A "linguagem de marcação leve" que permite formatar texto simples, é destacada pela simplicidade e a facilidade de aprendizado do `Markdown`, que o diferencia de outros métodos de formatação como editores WYSIWYG ("What You See Is What You Get", ou "o que você vê é o que você obtém").
+Michael Nygard, em uma publicação de 2011, **Os métodos ágeis não se opõem à documentação, apenas à documentação sem valor**. 
+
+Documentos que auxiliam a própria equipe podem ter valor, mas somente se estiverem atualizados. Documentos grandes nunca são mantidos atualizados. 
+
+Documentos pequenos e modulares têm pelo menos uma chance de serem atualizados.
+
+<p align="justify">No cenário de desenvolvimento ágil e de constante inovação tecnológica, a relação entre o código e documentação  para o usuário e desenvolvedores — é frequentemente considerada um ponto crítico.</p>
+<p align="justify">Em uma análise simples, podemos adotar boas práticas de desenvolvimento e da documentação, sendo possível evitar essa defasagem, mantendo a documentação sempre alinhada com as alterações.</p>
+
+<p align="justify">As aplicações e documentações, quando mantidas de acordo com padrões e processos adequados, não apresentam defasagem em seu conteúdo e de suas alterações.</p>
+
+## Linguagem Leve
+<p align="justify">A "linguagem de marcação leve" que permite formatar texto simples, é destacada pela simplicidade e a facilidade de aprendizado do `Markdown`, que o diferencia de outros métodos de formatação como editores WYSIWYG ("What You See Is What You Get", ou "o que você vê é o que você obtém").</p>
 
 - [x] Markdown é uma ferramenta versátil e poderosa para formatação de texto, adequada para uma ampla gama de aplicações, que vão desde a criação de simples notas até a produção de livros e documentação técnica;
 - [x] A simplicidade e a facilidade de aprendizado do Markdown são vantagens importantes em comparação com outras ferramentas de formatação;
 - [x] O conceito de "processadores Markdown" para converter texto formatado em HTML é crucial para entender como Markdown funciona;
 - [x] A capacidade de estender a sintaxe básica do Markdown com funcionalidades adicionais aumenta a flexibilidade e aplicabilidade da ferramenta;
 - [x] O guia serve como uma referência abrangente, adequado para iniciantes e usuários experientes, e fornece exemplos práticos e recursos úteis;
-- [x] Esta publicação esta acompanhada de um convite para experimentar o Markdown através do editor online [Dillinger](https://dillinger.io/), que mostra uma pré-visualização do texto formatado;
+- [x] Este texto da um convite para experimentar o Markdown através do editor online [Dillinger](https://dillinger.io/), que mostra uma pré-visualização do texto formatado;
 - [x] O texto formatado em Markdown é armazenado em arquivos com extensão `.md` ou `.markdown`;
-- [x] Um "processador Markdown" converte esses arquivos para HTML para exibição em navegadores da web;
-- [x] Este guia sugere um processo de quatro partes para trabalhar com Markdown: **Criação do arquivo, Abertura em um editor, Conversão para HTML e Visualização**;
 - [x] Markdown pode ser usado para uma ampla variedade de finalidades, incluindo websites, documentos, notas, livros, apresentações, e-mails e documentação;
 - [x] Plataformas de criação de websites (blot.im, Jekyll), aplicativos de escrita de documentos (iA Writer, Ulysses, MarkdownPad), aplicativos de anotações (Simplenote, Bear, Boostnote), serviços de publicação de livros (Leanpub) e ferramentas para criação de apresentações (Remark, Cleaver);
 - [x] A flexibilidade e a portabilidade do Markdown são destacadas como vantagens significativas;
@@ -27,14 +35,14 @@ NÃO SE DEVE escrever as documentações nas ferrametas **Office-Microsoft**, **
 - [x] Ferramentas centradas no desenvolvedor para documentação são freqüentemente chamadas de **Docs-as-Code**. Tratar documentos como código geralmente significa fazer o seguinte:
 
 - [x] Trabalhar em arquivos de texto simples;
-- [x] Usar um gerador de site estático;
-- [x] Trabalhar com arquivos por meio de um editor de texto;
+- [x] Usar um gerador de site estático (SSG);
+- [x] Trabalhar com arquivos por meio de um editor de texto (VS Code);
 - [x] Armazenamento de documentos em um repositório de controle de versão;
 - [x] Automatizar o processo de construção do site ou Portable Document Format (PDF) com entrega contínua;
 - [x] Com esta definição de documentação, nós podemos expressar alguns princípios:
-      - [x] Conhecimento que é de interesse por  uma grandes período de Tempo DEVE ser documentado.
-      - [x] Conhecimento que é de interesse para um  amplo número de pessoas  DEVE ser documentado.
-      - [x] Conhecimento que é valioso ou crítico DEVE ser documentado.
+      - [x] Conhecimento que é de interesse por  uma grandes período de Tempo DEVE ser documentado;
+      - [x] Conhecimento que é de interesse para um  amplo número de pessoas  DEVE ser documentado;
+      - [x] Conhecimento que é valioso ou crítico DEVE ser documentado;
   
 <p align="justify">Em vez de criar a documentação em um sistema separado, os analistas de requisitos e desenvolvedores simplesmente adicionam o documento no mesmo projeto em repositórios diferentes ou no mesmo repositório do código, através do uso de markdown. Esse local garante que qualquer pessoa que esteja usando o código também possa encontrar a documentação.</p>
 
@@ -55,10 +63,11 @@ NÃO SE DEVE escrever as documentações nas ferrametas **Office-Microsoft**, **
 <p align="justify">Entre os diversos SSG(Static Site Generatos), foram escolhidos o HUGO e o MkDocs.Como seria uma coisa muito simples, não requerendo conhecimento específico, escolhi o MkDocs por ser mais rápido, simples e gerador voltado para a construção de documentação de projetos. Orientei a TODOS que tivessem um repositório separado de documentação, o que facilitaria a automatização e unificação dos mesmos.</p>
 
 ## [Documentação Técnica no Desenvolvimento de Software](https://www.altexsoft.com/blog/technical-documentation-in-software-development-types-best-practices-and-tools/#utm_source=MediumCom&utm_medium=referral)
-É o termo genérico que abrange todos os documentos e materiais escritos que tratam do desenvolvimento de produtos de software. 
+É o termo genérico que abrange todos os documentos e materiais escritos que tratam do desenvolvimento de produtos de software. A documentação de qualquer sistema/produto, consiste em:
 
-- [x] A documentação de qualquer sistema/produto, consiste em:
-    - [x] Documentação do Produto
+???+ info "Documentação"
+
+    === "Produto"
         - [x] Sistema (Inclui documentos de requisitos, decisões de design, descrições de arquitetura, código-fonte do programa e perguntas frequentes);
             - [x] Requisitos (Informações sobre a funcionalidade do sistema);
             - [x] UX (Inclui pesquisa, prototipagem, testes de usabilidade e a própria parte do design, durante a qual são produzidos muitos documentos e resultados);
@@ -69,33 +78,76 @@ NÃO SE DEVE escrever as documentações nas ferrametas **Office-Microsoft**, **
         - [x] Usuário (Inclui tutoriais, guias do usuário, manuais de solução de problemas, instalação e manuais de referência);
             - [x] Usuário Final (Explicar da forma mais simples possível como o software pode ajudar a resolver seus problemas);
             - [x] System Admin (Documentos de administração cobrem a instalação e atualizações que ajudam o administrador do sistema na manutenção do produto);
-    - [x] Documentação do Processo (Documentos produzidos durante o desenvolvimento e manutenção)
+  
+    === "Processo"
+        - [x] Documentos produzidos durante o desenvolvimento e manutenção
         - [x] Roadmap de Produto(Sprint);
         - [x] Estimativas;
         - [x] Agendas de Reuniões e Decisões;
 
-A melhor prática é escrever um documento de requisitos usando um modelo único e consistente que todos os membros da equipe aderem - [Gherkin](https://cucumber.io/docs/gherkin/reference/). 
+    === "Escrevendo"
+        <p align="justify">A melhor prática é escrever um documento de requisitos usando um modelo único e consistente que todos os membros da equipe aderem - [Gherkin](https://cucumber.io/docs/gherkin/reference/).</p>
 
-Como regra, as documentações deveriam ser escritas em Markdown, as imagens/fluxos em [Mermaid](https://mermaid.js.org/intro/getting-started.html).
+        Como regra, as documentações deveriam ser escritas em Markdown, as imagens/fluxos em [Mermaid](https://mermaid.js.org/intro/getting-started.html).
 
-A documentação os arquivos de origem são escritos em Markdown e configurados com um único YAML arquivo de configuração. 
-<div class="center-table" markdown>
-```mermaid
-flowchart TD
-A(Desenvolver) --> B(Controle</br>de versão)
-B              --> C(Pull Request)
-C              --> D(Pipeline</br>Código) & E(Pipeline</br>Documentação)
-D & E          --> F(Aprovação)
-F              --> G(Geração Container) & H(Construção Automatizada)
-H              --> I(Ativos estáticos)
-I              --> J(Implantação atômica)
-J              --> K(Pré-render e invalidar cache)
-K              --> L(Entrega e </br>Distribuição de</br> conteúdo)
-```
-</div>
+        | Dica            | Entenda    |
+        | -----           | -------    |
+        | Confiável       | A documentação viva é precisa e sincronizada com o software que esta sendo entregue. |
+        | Baixo esforço   | A documentação viva minimiza a quantidade de trabalho a ser feito na documentação, mesmo em caso de alterações, exclusões ou acréscimos. |
+        | Colaborativo    | A documentação viva promove conversas e conhecimento compartilhamento entre todos envolvidos. |
+        | Perspicaz       | Ao chamar a atenção para cada aspecto do trabalho, documentação ofertas oportunidades por comentários e encorajar Deeper pensamento. |
 
-### Vantagens
-Nosso manual é novo e mantê-lo relevante é uma parte importante do trabalho de todos. É uma parte vital de quem somos e de como nos comunicamos. Estabelecemos esses processos porque vimos estes benefícios:
+        === "Confiável"
+
+            | Dica  | Entenda                                                                     |
+            | ----- |  -------                                                                    |
+            | Explorando o conhecimento disponível|  A maioria do conhecimento já está presente nos artefatos do projeto, ele só precisa ser explorado, aumentado e curado por propósitos. |
+            | Precisão      | Necessário garantir que o conhecimento é sempre mantido e sincronizado por bugs, modificações ou extensões. |
+
+        === "Sustentável"
+            Uma documentação viva deve ser de baixo esforço para ser viável e sustentável.
+
+            | Dica                         | Entenda  |
+            | -----                        | -------            |
+            | Simplicidade                 | Apenas óbvio. |
+            | Documentação interna         | O conhecimento adicional sobre uma coisa é mais bem localizado em a coisa em si, ou como perto como possível.                           |
+            | Esqueci Disso                | Não se sinta mal sobre não manter um registro e todas as discussões. |
+            | Conhecimento Acessível       | É frequentemente declarados em artefatos técnicos em um sistema de controle. Portanto, tu deve fornecer ferramentas para tornar esse conhecimento acessível a todos os públicos sem esforço adicional. |
+            | Propriedade coletiva        | Não é porque todo o conhecimento está na fonte que os desenvolvedores o possuem. Os desenvolvedores não possuem a documentação; |
+
+            Em um projeto de software, a maior parte do conhecimento está presente de alguma forma em algum lugar nos artefatos.
+
+        === "Artefatos"
+
+            | Dica                         | Entenda      |
+            | -----                        | -------      |
+            | Inacessível                  | O conhecimento armazenado no código-fonte e outros artefatos é não acessível para não técnico pessoas.                                  |
+            | Abundante                    | Grandes quantidades de conhecimento são armazenadas nos artigos do projeto. O que impossibilita o uso eficiente do conhecimento.        |
+            | Fragmentado                  | Há conhecimento que pensamos como uma peça única, mas que está de fato espalhado por vários lugares nos artefatos do projeto.           |
+            | Implícito                    | Muito conhecimento está presente de forma implícita nos artefatos existentes.                                                           |
+            | Irrecuperável                | Pode ser que o conhecimento esteja lá, mas não há como recuperá-lo porque está escondido no codigo fonte.                               |
+            | Não escrito                  | O conhecimento está apenas no cérebro das pessoas.                                                                                      |
+
+        === "Fluxo"
+            A documentação os arquivos de origem são escritos em Markdown e configurados com um único YAML arquivo de configuração. 
+
+            <div class="center-table" markdown>
+            ```mermaid
+            flowchart TD
+            A(Desenvolver) --> B(Controle</br>de versão)
+            B              --> C(Pull Request)
+            C              --> D(Pipeline</br>Código) & E(Pipeline</br>Documentação)
+            D & E          --> F(Aprovação)
+            F              --> G(Geração Container) & H(Construção Automatizada)
+            H              --> I(Ativos estáticos)
+            I              --> J(Implantação atômica)
+            J              --> K(Pré-render e invalidar cache)
+            K              --> L(Entrega e </br>Distribuição de</br> conteúdo)
+            ```
+            </div>
+
+## Vantagens
+<p align="justify">Nosso manual é novo e mantê-lo relevante é uma parte importante do trabalho de todos. É uma parte vital de quem somos e de como nos comunicamos. Estabelecemos esses processos porque vimos estes benefícios:</p>
 
 - [x] Equilíbrio entre nenhuma documentação e documentação excessiva;
 - [x] Ler é muito mais rápido do que ouvir;
@@ -107,8 +159,8 @@ Nosso manual é novo e mantê-lo relevante é uma parte importante do trabalho d
 - [x] Comunicar a mudança é mais fácil se você puder apenas apontar para a diferença;
 - [x] Todos podem contribuir propondo uma mudança por meio de uma solicitação pull;
 
-# Pensamento - “Foco não é nada, foco é tudo, (WoW - ways of working - Forma de Trabalhar)
-Sou um defensor do foco no trabalho, na vida e na liderança. No entanto, o assunto tem uma nuance e profundidade que muitas pessoas não percebem. Para começar, a maioria das pessoas pensa que existe apenas um tipo de foco.
+## “Foco não é nada, foco é tudo"
+<p align="justify">Sou um defensor do foco no trabalho, na vida e na liderança. No entanto, o assunto tem uma nuance e profundidade que muitas pessoas não percebem. Para começar, a maioria das pessoas pensa que existe apenas um tipo de foco.</p>
 
 - [x] **Foco como substantivo**: Geralmente se referem a ter um único objetivo. É algo estático, algo que você tem;
 - [x] **Foco como verbo**      : não é apenas algo que você tem, é também algo que você faz. é um processo intenso, dinâmico, contínuo e iterativo;
@@ -131,49 +183,15 @@ Arquivos contendo texto formatado em Markdown podem ser abertos usando virtualme
 ## Origem de Conhecimento
 <p align="justify">O conhecimento vem principalmente de conversas, durante o trabalho coletivo, como programação em pares, no máquina de café, por telefone ou por meio de bate-papo ou e-mails da empresa. O desenvolvimento de software tem tudo a ver com conhecimento e tomada de decisão.</p>
 
-**Conhecimento vem a partir de conversas com pessoas e experimentos com máquinas dentro a observável contexto**.
+- [x] **Conhecimento vem a partir de conversas com pessoas e experimentos com máquinas dentro a observável contexto**.
 
-### Por que conhecimento é necessário?
+## Por que conhecimento é necessário?
 
 - [x] Que problema estamos tentando resolver? Todos deveriam saber disso a partir de agora?
 - [x] Falta de conhecimento manifesta dois custos:
       - [x] Desperdiçado Tempo;
       - [x] Decisões abaixo do ideal;
 - [x] O tero documentação viva tornou-se popular pela primeira vez no livro [**Specification by Example de Gojko Adzic**](https://www.amazon.com.br/Specification-Example-Successful-Deliver-Software/dp/1617290084/ref=sr_1_5?qid=1702164016&refinements=p_27%3AGojko+Adzic&s=books&sr=1-5&ufe=app_do%3Aamzn1.fos.4bb5663b-6f7d-4772-84fa-7c7f565ec65b).  Vivendo documentação envolve uma definir de quatro princípios:
-
-| Dica                         | Entenda                                                                                                                                 |
-| -----                        | -------                                                                                                                                 |
-| Confiável                    | A documentação viva é precisa e sincronizada com o software que esta sendo entregue. |
-| Baixo esforço                | A documentação viva minimiza a quantidade de trabalho a ser feito na documentação, mesmo em caso de alterações, exclusões ou acréscimos. |
-| Colaborativo                 | A documentação viva promove conversas e conhecimento compartilhamento entre todos envolvidos. |
-| Perspicaz                    | Ao chamar a atenção para cada aspecto do trabalho, documentação ofertas oportunidades por comentários e encorajar Deeper pensamento. |
-
-### Confiável
-| Dica                         | Entenda                                                                                                                                 |
-| -----                        | -------                                                                                                                                 |
-| Explorando o conhecimento disponível|  A maioria do conhecimento já está presente nos artefatos do projeto, ele só precisa ser explorado, aumentado e curado por propósitos. |
-| Precisão                    | Necessário garantir que o conhecimento é sempre mantido e sincronizado por bugs, modificações ou extensões. |
-
-Uma documentação viva deve ser de baixo esforço para ser viável e sustentável.
-
-| Dica                         | Entenda                                                                                                                                 |
-| -----                        | -------                                                                                                                                 |
-| Simplicidade                 | Apenas óbvio. |
-| Documentação interna         | O conhecimento adicional sobre uma coisa é mais bem localizado em a coisa em si, ou como perto como possível.                           |
-| Esqueci Disso                | Não se sinta mal sobre não manter um registro e todas as discussões. |
-| Conhecimento Acessível       | É frequentemente declarados em artefatos técnicos em um sistema de controle. Portanto, tu deve fornecer ferramentas para tornar esse conhecimento acessível a todos os públicos sem esforço adicional. |
-| Propriedade coletiva        | Não é porque todo o conhecimento está na fonte que os desenvolvedores o possuem. Os desenvolvedores não possuem a documentação; |
-
-Em um projeto de software, a maior parte do conhecimento está presente de alguma forma em algum lugar nos artefatos.
-
-| Dica                         | Entenda                                                                                                                                 |
-| -----                        | -------                                                                                                                                 |
-| Inacessível                  | O conhecimento armazenado no código-fonte e outros artefatos é não acessível para não técnico pessoas.                                  |
-| Abundante                    | Grandes quantidades de conhecimento são armazenadas nos artigos do projeto. O que impossibilita o uso eficiente do conhecimento.        |
-| Fragmentado                  | Há conhecimento que pensamos como uma peça única, mas que está de fato espalhado por vários lugares nos artefatos do projeto.           |
-| Implícito                    | Muito conhecimento está presente de forma implícita nos artefatos existentes.                                                           |
-| Irrecuperável                | Pode ser que o conhecimento esteja lá, mas não há como recuperá-lo porque está escondido no codigo fonte.                               |
-| Não escrito                  | O conhecimento está apenas no cérebro das pessoas.                                                                                      |
 
 ## Fonte de Documentação
 
@@ -194,7 +212,7 @@ Em um projeto de software, a maior parte do conhecimento está presente de algum
 Como uma **BOA PRÁTICA**, devemos **ISOLAR** os códigos de documentos, pois com o passar do tempo, o processo de check-out, branch, fetch e clone do código, aumentarão drasticamente o tempo.
 Lembre-se que documentação pode carregar imagens, gráficos,apresentações e pdfs que são importantes para o entendimento. 
 
-# Treinamento em MkDocs
+## Treinamento em MkDocs
 Fácil de instalar e usar, ótimos resultados com mínimo esforço,desenvolvidos ativo e de código aberto.
 
 ???+ tip "Configurando o MkDocs"
@@ -235,3 +253,34 @@ Fácil de instalar e usar, ótimos resultados com mínimo esforço,desenvolvidos
         - [x] Efetue a instalação dos Plugins utilizados na documentação : `pip install -r requirements.txt`
         - [x] Execute o mkdocs... mkdocs serve
                - [x] [Localhost](http://127.0.0.1:8000)
+
+## Documentação Contínua e Acompanhamento Ágil
+A documentação de software deve ser tratada de forma contínua e DaC (Documentation as Code)  e não como uma atividade pontual após o desenvolvimento do código. 
+
+Ao longo do ciclo de vida de um projeto, a documentação (tanto técnica quanto voltada para o usuário) deve ser constantemente atualizada, paralelamente ao progresso do desenvolvimento da aplicação.
+
+A documentação "viva" é atualizada com a mesma frequência do código, garantindo que os engenheiros, gestores de qualidade e até mesmo os usuários, tenham acesso a informações precisas, em tempo real. 
+
+Em nossa aboardagem, trateremos de uma documentação contínua, que inclui:
+
+- [x] Documentação de código:
+      - [x] Commit Conventional (Comentários explicativos);
+      - [x] Testes e cobertura de testes;
+      - [x] Documentação de Código (Javadoc, Docstrings, JSDOC, PLDoc, RDoc,PHPDoc + phpDocumentor, GoDoc, Rustdoc)
+      - [x] Documentação de APIs (OAS, Swagger ou ReDoc);
+      - [x] Geradores de Dependencia e Vulnerabilidades;
+      - [x] Preenchimento de Templates durante o processo de Pull-Request;
+      - [x] Documentação de releases;
+
+- [x] Documentação do usuário, em um primeiro momento deverão ser utilizados as issues ou wits para a criação de épicos, pbis ou issues e mantidas na Wiki apenas o manual de operação da Aplicação.
+      - [x] Wiki
+      - [x] Planejamento do Projeto;
+      - [x] Documentação do usuário final orientada a processos;
+      - [x] Changelog (O que foi corrigido, adicionado e alterado nas releases);
+      - [x] Documentação técnica para manutenção;
+      - [x] Portifólio de Produtos
+      - [x] A documentação do Portifólio, será a unificação da Wiki (Manual do usuário - wiki2mkdocs);
+      - [x] Pull Request/Code Review efetuará a geração de chagelogs e republicação do Portifólio;
+ - [x] Geração do Report Book;
+ - [x] Geração de Catálogo de APIs por grupo;
+

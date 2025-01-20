@@ -47,7 +47,7 @@ mindmap
       ::icon(fa-brands fa-dev)
       NOPROJECTS
       ::icon(fa-solid fa-fire-burner)
-      FLOWCHAIN
+      SCRUMBAN
       ::icon(fa-solid fa-recycle)
     TESTE
       ::icon(fa-solid fa-masks-theater)

@@ -29,19 +29,19 @@
              - [x] Ferramentas - Supravizio, OTRS, Gitlab, Azure-Devops, TEAMS, Outlook e ÁREAS INTERNAS (COBAN, BOTs, OLAP/DATA LAKES).
              - [x] Recursos em outros projetos e NÃO estão sendo vistos?
         ## Como melhorar?
-         - [x] MÉTRICAS DE FLUXO - KANBAN
-           - [x] Quais metas e métricas a utilizar? Fluxo, Codificação,  Qualidade e/ou Produção ?
+        - [x] MÉTRICAS DE FLUXO - KANBAN
+             - [x] Quais metas e métricas a utilizar? Fluxo, Codificação,  Qualidade e/ou Produção ?
            - [x] Peças unificadas do NOC/SOC/Central de Incidentes a Equipe de Sustentação.
     
            ![](img/auditoria_002.png)
          
-         - [x] Scrum
-             - [x] Iterativo e Incremental(Definição de Papéis, Cerimônias e Artefato)
-             - [x] Resumimos o Scrum, fizemos um framework CESUC, Treinamento e foco.
-             - [x] Sprints com 2(duas) semanas;
-             - [x] Nenhuma alteração seria realizada, para colocar risco na meta da Sprint;
+        - [x] Scrum
+           - [x] Iterativo e Incremental(Definição de Papéis, Cerimônias e Artefato)
+           - [x] Resumimos o Scrum, fizemos um framework CESUC, Treinamento e foco.
+           - [x] Sprints com 2(duas) semanas;
+           - [x] Nenhuma alteração seria realizada, para colocar risco na meta da Sprint;
          
-             ![](img/auditoria_001.png)
+           ![](img/auditoria_001.png)
          
          | Dica 1                                      | Motivo                                            |
          | ------                                      | --------                                          |
@@ -50,7 +50,33 @@
          | Falta de acompanhamento e feedback contínuo | Feedback adequado ou acompanhamento no início da   jornada. |
          | Nenhum experiência para manter o legado     | Inexistencia de conhecimento.                    |
     
-    === "Arquitetura Original"
+        !!! pied-piper "Modelo Pensado"
+
+            === "Principal"
+                 ![](img/01_FluxoPrincipal.png)
+
+            === "Desenvolver Requisitos"
+                 ![](img/02_DesenvolverRequisitos.png)
+
+            === "Desenvolver Tarefas"
+                 ![alt text](img/03_DesenvolverTarefas.png) 
+
+            === "Identificar Projetos"
+                 ![alt text](img/04_IdentificarProjeto.png)
+
+            === "Desenvolver Solução"
+                 ![alt text](img/05_DesenvolverSolucao.png) 
+
+            === "Implementar Solução"
+                 ![alt text](img/06_ImplementarSolucao.png) 
+
+            === "Planejar Deploy"
+                 ![alt text](img/07_PlanejarSubida.png) 
+
+            === "Estratégia de Branch"
+                 ![alt text](img/08_Branch_Developer.jpg)
+
+    === "Origem"
  
          <p align="justify">A Equipe do XXXXXX, passou a adotar o Supravizio como ferramenta  - ITSM e   DEMANDAS, tendo para cada tipo de TICKET, um fluxo diferenciado. Os fluxos na maioria das vezes, estavam desassociados do processo de desenvolvimento de software.</p>
          
@@ -150,7 +176,7 @@
 
         [![](https://mermaid.ink/img/pako:eNplks2O2jAQgF9l5ENlJCiwR1StShJ-dllVdGFVqcplSAaS4sSRf7RFiIepeugD9BF4sTreBC3Uhyj2fPPZY8-RJTIlNmJbIV-TDJWBp-e4BDfGA76M1g9hB6DXg6WSP8hI7f57vXsIPh9BZ1jRCFKZ6C4I3JAYQcy-5QZKWfOpNTJmp8Y25KuDHudpp7YFdqf7ERUfJz8rRVojtN43OoDL8KtDHsnEFlQaTFB2_oM8FfJAYZlkTTi8iQ75lNBYRdBg8AHCO-6OAtd5Qx9o8yIeZpTspTUQuqtqoOhaPuFr0obgpczN-ZfK2yNOrrEprxXw1aLIzaFhptfMjD-TINSk-4HNRdpQs2tq7jeEtZRCf-pv1P1UYUGvUu0bfn7Du8cktZWqcJVSXfrc3Ska3Lid_PSOj5cPUFtbw8BTPuY-wdCLHvk4odyVmkp40fZ9sY9w8yALHlEl5AEqVOhP6buifkEnXAz4jBSe_5x_u3aRyuTb819xsS088s72xL9Ix-TJW4r3rQzuaS5FSkrXeXHJuqwgV2WeuqY-1qqYmYwKilndnSlt0QoTs7g8ORRdi64OZcJGRlnqMiXtLmOjLQrtZrZK0VCU485d7mW1wvK7lO389A9jEexr?type=png)](https://mermaid.live/edit#pako:eNplks2O2jAQgF9l5ENlJCiwR1StShJ-dllVdGFVqcplSAaS4sSRf7RFiIepeugD9BF4sTreBC3Uhyj2fPPZY8-RJTIlNmJbIV-TDJWBp-e4BDfGA76M1g9hB6DXg6WSP8hI7f57vXsIPh9BZ1jRCFKZ6C4I3JAYQcy-5QZKWfOpNTJmp8Y25KuDHudpp7YFdqf7ERUfJz8rRVojtN43OoDL8KtDHsnEFlQaTFB2_oM8FfJAYZlkTTi8iQ75lNBYRdBg8AHCO-6OAtd5Qx9o8yIeZpTspTUQuqtqoOhaPuFr0obgpczN-ZfK2yNOrrEprxXw1aLIzaFhptfMjD-TINSk-4HNRdpQs2tq7jeEtZRCf-pv1P1UYUGvUu0bfn7Du8cktZWqcJVSXfrc3Ska3Lid_PSOj5cPUFtbw8BTPuY-wdCLHvk4odyVmkp40fZ9sY9w8yALHlEl5AEqVOhP6buifkEnXAz4jBSe_5x_u3aRyuTb819xsS088s72xL9Ix-TJW4r3rQzuaS5FSkrXeXHJuqwgV2WeuqY-1qqYmYwKilndnSlt0QoTs7g8ORRdi64OZcJGRlnqMiXtLmOjLQrtZrZK0VCU485d7mW1wvK7lO389A9jEexr)
 
-    === "Migrando"
+    === "Mudando"
  
          - [x] Havíamos **automatizado a criação de Projetos no GitLab e voltávamos para o Manual** no Azure-Devops;
          - [x] **Gestão de Recursos**: Como alocar as pessoas certas nas atividades certas? Como efetuar a distribuição equilibrada de tarefas?
@@ -187,9 +213,16 @@
                - [x] Eficácia é fazer as coisas certas;
          - [x] OnBoarding vs OffBoarding:
                - [x] Como garantir que os novos sejam produtivos, engajados e conectados.
-               - [x] Como garantir que não perdessemos produtividade com por exemplo, o término de contrato de terceiros? Saída por cessão? 
-         ## Produtividade
+               - [x] Como garantir que não perdessemos produtividade com por exemplo, o término de contrato de terceiros? Saída por cessão?
+         - [x] Priorização por Decibéis
+               - [x] Vamos fazer isso...aquilo...prioridade é esta...
+               - [x] Atende aquilo e não isso.
+         - [x] Entrega de Valor alinhado com a Vida.
+               - [ ] Lobotomia (Egas Moniz em 1935), passa por desordem mental, não consegue pensar onde você tá, só sabe que esta cheio de demanda e não termina nada.
+
+        ## Produtividade
          <p align="justify">Refere-se a eficiência e eficácia com que time consegue entregar software de qualidade, atingindo os requisitos e prazos, utilizando de forma eficaz os recursos disponíveis, como tempo, ferramentas, tecnologias e conhecimento,  estando relacionada à capacidade de produzir código de alta qualidade e entregar funcionalidades ou produtos de software de forma rápida e eficiente, minimizando desperdícios.</p>
+
          - [x] Onde estão os grandes ladrões de ineficiência?
          - [x] Onde o processo parou? 
                - [x] Parou em requisitos?
@@ -229,7 +262,6 @@
                - [x] O Time tem a capacidade de PUXAR tarefas?
 
     === "Ciclo de Vida"
- 
          <p align="justify">Tudo o que faz parte do ciclo de vida do aplicativo deve ser verificado no controle de versão.Isso inclui, mas não está limitado a:</p>
     
          - [x] Código-fonte;
@@ -242,6 +274,7 @@
          - [x] Scripts de definição de infraestrutura;
          - [x] Scripts de limpeza/instalação/expurgo;
          - [x] Documentação associada;
+         - [x] Requisitos Não Funcionais(cross) 
      
          | Sq  |  Melhores práticas | Categoria | Importância |
          | ----: | :----            | :-----:   | :----:      |
@@ -269,8 +302,38 @@
          | 22   | Reversões automáticas estão em vigor                | Implantações | Médio  |
          | 23   | A preparação corresponde à produção                 | Implantações  | Médio |
 
-    === "Static Site Generator(SSG)/Document as Code(Dac)"
+        ## Requisitos NÃO funcionais
 
+         | Requisitos Cross | Exemplo  |
+         | ------           | ------   |
+         | Desempenho       | Tempo de resposta esperado para diferentes funcionalidades. |
+         |                  | Capacidade de lidar com uma quantidade específica de usuários ou transações simultâneas. |
+         |Segurança         |  Controle de acesso e autenticação de usuários. |
+         |                  | Proteção contra ataques, como injeção de código, negação de serviço e ataques de força bruta. |
+         |                  | Criptografia de dados sensíveis em repouso e em trânsito. |
+         | Usabilidade      | Interface amigável e intuitiva para os usuários. |
+         |                  | Conformidade com padrões de acessibilidade, como Web Content Accessibility Guidelines (WCAG). |
+         |                  | Disponibilidade de tutoriais e suporte ao usuário. |
+         | Manutenibilidade | Código modular, legível e documentado. |
+         |                  | Facilidade de atualização e correção de bugs. |
+         |                  | Uso de padrões de design e boas práticas de programação. |
+         | Escalabilidade   | Capacidade de adicionar recursos ou aumentar o número de usuários sem afetar o desempenho. |
+         |                  | Suporte a escalabilidade horizontal (adição de servidores) ou vertical (upgrade de servidores existentes). |
+         | Portabilidade    | Compatibilidade com diferentes sistemas operacionais e navegadores. |
+         |                  | Suporte para migração entre diferentes ambientes ou plataformas. |
+         | Confiabilidade   | Tolerância a falhas e capacidade de recuperação. |
+         |                  | Alta disponibilidade (SLA para uptime, como 99,9%). |
+         |                  | Testes rigorosos para minimizar erros. |
+         |  Interoperabilidade | Integração com outros sistemas ou APIs. |
+         |                     | Adesão a padrões abertos para comunicação, como REST ou SOAP. |
+         | Conformidade        | Atendimento a regulamentações legais e normas específicas (por exemplo, LGPD, GDPR, HIPAA). |
+         |                     | Respeito a padrões da indústria, como ISO ou IEEE.                  |
+         | Auditabilidade      | Registro de logs detalhados para rastreamento de atividades.        |
+         |                     | Facilidade para auditorias e geração de relatórios.                 |
+         | Sustentabilidade    | Eficiência energética no uso de hardware e recursos computacionais. |
+         |                     | Design voltado para minimizar o impacto ambiental.                  |
+
+    === "SSG com Dac"
         Os geradores de sites estáticos (SSGs) são mecanismos de software que usam arquivos de entrada de texto para gerar páginas da Web estáticas.
 
         | Característica                    | MkDocs                                 |          Hugo                                 |
@@ -298,13 +361,13 @@
         - [x] Colaboração e Controle de Qualidade;
         - [x] Escalabilidade e Manutenção (Tudo em ÚNICO ponto, mas mantendo a INDEPENDÊNCIA).
   
-    === "Estrutura do Banco de Dados"
+    === "Banco de Dados"
    
         <p align="justify">Padronizar System Identifier, ServiceName, DBName e DB Unique Name é crucial paragarantir consistência, facilidade de gerenciamento e integração entre sistemas em ambientes corporativos.A padronização desses elementos facilita a automação de processos, como backup, recuperação emonitoramento, minimizando erros humanos e garantindo que os serviços de banco de dados sejam acessíveisde maneira uniforme. A uniformidade também contribui para uma gestão mais eficiente, especialmente em ambientes complexos e de grande escala.</p>
 
         ![](img/60pportunities-oracle-sid.png){width="900" height="600" style="display: block; margin: 0 auto"}
     
-    === "Estrutura do IaM/IdM"
+    === "IaM/IdM"
 
         <p align="justify">O Keycloak é uma plataforma de gerenciamento de identidades e acesso (IAM) que ofereceautenticação e autorização centralizadas. Com a utilização de três Realms, é possível separar e gerenciardiferentes domínios de usuários de forma isolada.</p> 
         <p align="justify">O Realm Administrativo é utilizado para gerenciar a infraestrutura do Keycloak e controlar permissões deadmin. O Realm B2B serve para gerenciar acesso de usuários externos, como parceiros e clientes, comdiferentes requisitos de segurança.</p>
@@ -312,12 +375,12 @@
         
         ![](img/60pportunities-realm.png){width="900" height="600" style="display: block; margin: 0 auto"}
 
-    === "Padrão CQRS"
+    === "CQRS"
 
         <p align="justify">A estrutura CQRS (Command Query Responsibility Segregation) visa separar claramente asoperações de leitura (queries) e escrita (commands) dentro de um sistema, melhorando a escalabilidade e amanutenção. Com essa abordagem, diferentes modelos de dados podem ser usados para otimizar cada tipo deoperação, resultando em maior eficiência e desempenho. A padronização facilita o desenvolvimento e aintegração, pois define convenções para a organização de handlers, repositórios e eventos. Também promoveuma melhor segurança e controle, já que comandos e consultas podem ser isolados e auditados de formaindependente. Em sistemas complexos, essa estrutura permite evoluções mais ágeis e maior flexibilidadenas soluções implementadas.</p>
         ![](img/60opt_padrao_arquitetura_cqrs.png){width="900" height="600" style="display: block; margin: 0auto"}
 
-    === "Padrão SAGA"
+    === "SAGA"
 
         <p align="justify">É uma abordagem para gerenciar transações distribuídas em arquiteturas de Microserviços, garantindoconsistência sem a necessidade de um banco de dados centralizado.</p> 
         Existem duas abordagens principais: **Coreografia**, onde os microserviços se comunicam diretamente entresi, e **Orquestração**, onde um serviço central coordena as transações. 
@@ -335,7 +398,7 @@
         | ![](img/60pportunities-apm-003.png){width="450" height="300" style="display: block; margin: 0 auto"} | ![](img/60pportunities-apm-004.png){width="450" height="300" style="display: block; margin: 0 auto"} |
 
 
-    === "Ciclo de Vida de um Produto"
+    === "Produto"
  
          <p align="justify">O Ciclo do software, começa com a ideia, onde identificam-se necessidades ou problemasque o software irá resolver, levando à definição dos requisitos iniciais. Em seguida, entra-se na fase dedesenvolvimento, que envolve o design, programação, testes e implementação do software, garantindo queele atenda aos requisitos definidos. Após a implementação, o software passa pela manutenção, onde são feitas correções, atualizações e melhorias.</p>
          <p align="justify">Com o tempo, o software pode se tornar obsoleto devido anovas tecnologias ou mudanças nas necessidades de mercado, levando à sua descontinuação. Durante todo ociclo, é importante realizar revisões contínuas para garantir que o software permaneça relevante e eficazaté seu fim.</p>
@@ -351,14 +414,14 @@
 
          - [x] Dorothy Sayers, em seu excelente livro, **A mente do criador (The Mind of the Maker)**, divide a atividade criativa em três estágios: a ideia, a implementação e a interação.
 
-    === "Estruturação do Azure-Devops"
+    === "Estruturação Azure-Devops"
 
-        <p align="justify">ÉPara estruturar ideias em um projeto no Azure DevOps sem uma **SQUAD**, mas com pessoas alocadas adiversos times de desenvolvimento, é essencial criar um planejamento flexível e organizado. Entendeu-seque a URL base para acessar os recursos de um Azure DevOps Organization e seus projects na plataforma.</p>
+        <p align="justify">Para estruturar ideias em um projeto no Azure DevOps sem uma **SQUAD**, mas com pessoas alocadas adiversos times de desenvolvimento, é essencial criar um planejamento flexível e organizado. Entendeu-seque a URL base para acessar os recursos de um Azure DevOps Organization e seus projects na plataforma.</p>
 
         - [x] https://devops.azure.com/: Esta é a URL base para acessar os serviços de DevOps na nuvem daMicrosoft. Todos os recursos relacionados ao Azure DevOps estão acessíveis por meio dessa URL.
         - [x] {organization}: Representa o nome da organização dentro do Azure DevOps. Uma organização no AzureDevOps é uma coleção de projetos e recursos, geralmente vinculada a uma empresa ou equipe. Exemplo:https://devops.azure.com/mycompany.
         - [x] {projects}: Refere-se ao nome do projeto específico dentro da organização. Cada organização podeter múltiplos projetos, que são as unidades de trabalho e colaboração no Azure DevOps, com diferentesrepositórios, pipelines, boards e outros recursos. Exemplo: https://devops.azure.com/mycompany/myproject.
-        - [x] [Outras informações importantes](recipe_60pportunities_conc_projetos_modelo.md)
+
         - [x] Um produto no Azure DevOps representa uma **solução contínua** que está em desenvolvimentoconstante, com evolução, melhorias e manutenção regulares. Em vez de ter uma data de término definidacomo em um projeto, o produto é algo que existe de forma contínua, que precisa ser mantido, evoluído edocumentado.
         
         ![](img/estrutura-azure-devops.png){width="700" height="500" style="display: block; margin: 0 auto" }
@@ -460,7 +523,7 @@
          | Síncrono   | O ponto importante aqui é que o protocolo (HTTP/HTTPS) é síncrono e o código do cliente só          pode continuar sua tarefa quando receber a resposta do servidor HTTP. |    <= 2  |
          | Assíncrono | O código do cliente ou remetente da mensagem geralmente não espera por uma resposta. Ele          apenas envia a mensagem como se estivesse enviando uma mensagem para uma fila ou qualquer outro          intermediário de mensagens. | > 2 |
          
-         ### Processamento Sincrono
+        ### Processamento Sincrono
          - [x] No processamento síncrono, uma requisição é enviada ao servidor e o cliente aguarda a resposta antes          de continuar sua execução.
          - [x] Durante o tempo de espera pela resposta do servidor, a execução do cliente fica bloqueada, o que          significa que ele não pode prosseguir com outras tarefas.
          - [x] O cliente só pode iniciar uma nova requisição após receber a resposta da requisição anterior.
@@ -477,15 +540,62 @@
          - [x] O cliente pode lidar com a resposta quando ela chegar, mas pode continuar realizando outras tarefas enquanto espera.
          - [x] Não há limite de Processamento;
 
+        ### **Desafios**
+         Configurar um recurso para ser protegido por um privilégio específico requer a criação de um mapeamento de privilégios.
+
+         Um mapeamento de privilégios define um conjunto de padrões que identifica os recursos que um privilégio protege. Podemos dizer que existem dois desafios que atrapalham os esforços de segurança da API:
+
+         | Desafio             | Entenda                                                                                                   |
+         | -------             | ----------                                                                                                |
+         | Padronização de API |  Existem cinco etapas fundamentais a serem seguidas ao desenvolver sua estratégia de segurança de API.    |
+         | Expansão de APIs    |  Um aumento drástico no número de APIs resultou em menos visibilidade das APIs em seu patrimônio digital. |
+         | Telemetria          |  Refere-se aos dados emitidos por um sistema, sobre seu comportamento. Os dados podem vir na forma de rastreamentos , métricas e logs.     |
+
+         <p align="justify">Devemos orientar a organização no desenvolvimento de uma estratégia abrangente de segurança de API e demonstrar por que sua estratégia deve ser desenvolvida o mais rápido possível.</p>
+
+         | Etapas                   | Entenda                 |
+         | ------                   | ---------               |
+         | Proteção de API          | Definir as permissões e controle quanto acesso um indivíduo/aplicação tem ao acessar uma API.                             |
+         | Governança de API        | As equipes de TI devem abordar proativamente a segurança de API por meio da padronização.                                 |
+         | Segurança de dados da API| Ao controlar quais dados estão acessíveis em uma API, as equipes de TI podem empregar uma camada adicional de proteção, garantindo que a API não libere todos os dados para todos os |suários que a acessam.|
+         | Teste de segurança de API| Os testes contínuos para identificar vulnerabilidades de APIs.                                                           |
+         | Descoberta de API        | **APIs ocultas** ficam escondidas e as equipes de TI não conseguem proteger o que você não consegue encontrar.           |
+
+        ### Monitorando Oracle REST Data Services
+        <p align="justify">ORDS pode ser configurado para fornecer dados de telemetria (métricas, logs e rastreamentos) por meio do OpenTelemetry. OpenTelemetry, também conhecido como OTEL, é uma estrutura de observabilidade de código aberto, neutra em termos de fornecedor, para instrumentação, geração, coleta e exportação de dados de telemetria para auxiliar na análise e ajuste de sistemas de software. Como padrão da indústria, ele é suportado nativamente por vários fornecedores.</p>
+
+        ### **Desempenho dos Serviços ORDS-REST**
+        <p align="justify">Os problemas de desempenho podem estar ligados ao SQL ou PL/SQL com baixo desempenho, antes de liberar um endpoint, execute uma análise com um plano SQL.</p>
+
+        ### Divisão das APIs
+        Em geral, os dados estão classificados em três categorias:
+
+        | Tipo | Descrição                                                               |
+        | ----- | -----                                                                  |
+        | Dados Transacionais | São dados gerados por vários aplicativos durante a execução ou suporte de processos de negócios diários.                                                                           |
+        | Dados Analíticos    | São dados que surgem por meio de cálculos ou análises executados nos dados transacionais.                                                                     |
+        | Dados Mestres       | São os objetos de negócios reais e críticos sobre os quais essas transações são realizadas, levando em consideração também os parâmetros nos quais a análise de dados é conduzida. |
+
+        ### **REPR - Request-Endpoint-Response**
+         <p align="justify">É um padrão muito mais simples para desenvolver endpoints de API. Os únicos modelos com os quais você se importa são a Solicitação e a Resposta.</p>
+
+         | Componente API REST	      | Definição	                                                                                                 | Melhores Práticas |
+         | -----------               | -----------                                                                                                | -----------       |
+         | HTTPS	                    | Um protocolo de segurança para comunicação entre aplicações web	                                           | Proteja as credenciais de autenticação em trânsito fornecendo apenas endpoints HTTPS e adicione segurança adicional por meio de certificados do lado do cliente autenticados mutuamente. |
+         | Tokens da Web JSON (JWT)	| Um formato padrão para tokens de segurança que carregam declarações de autenticação                        |	Sempre proteja a integridade do JWT com assinaturas criptográficas.                                                                                                                     |
+         | Controle de acesso	      | Um método de segurança para regular quais usuários ou sistemas acessam um dispositivo, software ou recurso |	Use um provedor de identidade (IdP) para gerar tokens de autenticação e localizar decisões de controle de acesso para endpoints REST.                                                   |
+
+         Observação: Estabeleça um padrão para REVOGAÇÃO DO SECRET_ID.
+
     === "Mudança de Rumo"
  
         <p align="justify">Explorar a mentalidade lean como um modelo mental para design e entrega de produtos que encantam os clientes, podem mudar a nossa forma de desenvolver sistemas.</p>
 
         - [x] Qual é o propósito de um negócio? 
         - [x] Que tipo de sistemas de trabalho são mais adequados para atingir esse propósito?
-        - [ ] Como criar ambientes de trabalho que energizem os colaboradores, cujas inteligências e criatividade são essenciais para criar ótimos produtos.
-        - [ ] Como obter a eficiência genuína no desenvolvimento de produtos significa construir o produto certo, criar um fluxo constante de novos conhecimentos e ligar os processos de design e entrega para obter feedback rápido do cliente?
-        - [ ] Foco em trabalhadores energizados buscando atingir seu potencial máximo por meio de desafios que requerem habilidades e conhecimentos.
+        - [x] Como criar ambientes de trabalho que energizem os colaboradores, cujas inteligências e criatividade são essenciais para criar ótimos produtos.
+        - [x] Como obter a eficiência genuína no desenvolvimento de produtos significa construir o produto certo, criar um fluxo constante de novos conhecimentos e ligar os processos de design e entrega para obter feedback rápido do cliente?
+        - [x] Foco em trabalhadores energizados buscando atingir seu potencial máximo por meio de desafios que requerem habilidades e conhecimentos.
 
         - [x] Confirmação de que nós confundimos ser ágil, em ser rápido, agilidada não é isso, e sim Adaptável.
         - [x] Nós queremos aqui trazer é a rapidez de se adaptar a uma situação diferente, a rapidez de se adaptar é a alma circunstância externa e interna.

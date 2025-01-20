@@ -117,7 +117,7 @@ Como efetuar esta configuração:
 - [x] `git submodule add --name NOME_DO_DIRETORIO https://servidor/repositorio.gitNOME_DO_DIRETORIO`
 - [x] `git submodule update --remote`
 
-![](img/repositorio_dac.png)
+![](img/60pportunities-dac.png)
 
 ### Branches
 - [x] Quando o sprint começar, crie um conjunto de branches, que serão aqui discutidas.

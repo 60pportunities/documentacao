@@ -83,3 +83,103 @@ mindmap
        MNT (Mentorias)
        BLG (Blogs)
 ```
+
+**Introdução ao InnerSource**
+O InnerSource é uma metodologia que aplica os princípios e as práticas do desenvolvimento de software de código aberto dentro dos limites de uma organização. O conceito foi cunhado por Tim O’Reilly em 2000, refletindo uma adaptação de práticas de código aberto para código proprietário, acessível apenas dentro de uma empresa ou um grupo colaborativo restrito de empresas. Em essência, o InnerSource permite que desenvolvedores de software contribuam para os esforços de outras equipes, promovendo a transparência e a abertura.
+
+**Por que Adotar o InnerSource?**
+
+As empresas adotam o InnerSource por diversas razões, incluindo:
+
+*   **Quebrar silos e gargalos:** O InnerSource ajuda a superar silos em grandes organizações, que muitas vezes se formam devido à especialização e à cultura de propriedade. A comunicação entre as equipes pode ser minimizada após a definição de interfaces, levando a uma alta especialização e uma atitude de "nós contra eles".
+*   **Aumento da mobilidade da equipe e padronização de processos:** A padronização de ferramentas, como plataformas de desenvolvimento distribuídas (GitHub Enterprise, Bitbucket, etc.) facilita a integração de novos funcionários ou a transferência de colaboradores. O ambiente de desenvolvimento e os processos tornam-se mais padronizados.
+*   **Melhoria na documentação:** O InnerSource promove a criação de documentação acionável, indexada e pesquisável, que facilita a integração de novos contribuidores. A comunicação é arquivada, o que suporta a documentação de forma gradual.
+*   **Aumento da velocidade devido à documentação:** O InnerSource permite uma velocidade maior devido à acumulação de documentação útil.
+*   **Compreensão mais profunda:** O InnerSource promove uma compreensão mais profunda de como modularizar e construir conhecimento completo (full-stack), pois os contribuidores tornam-se Trusted Committers (TCs).
+*   **Satisfação dos desenvolvedores:** A implementação de InnerSource aumenta a satisfação dos desenvolvedores.
+*   **Inovação e melhoria da qualidade:** O InnerSource fomenta a inovação e permite que os funcionários proponham novas ideias. A colaboração e a transparência melhoram a qualidade do código.
+
+**Como Implementar o InnerSource**
+
+A implementação de InnerSource não é um método definido como Scrum, mas sim um paradigma que precisa ser adaptado ao contexto específico de cada organização. O "Apache Way" é um modelo base para o InnerSource, com os seguintes fundamentos:
+
+*   **Comunicação aberta:** Toda a comunicação relacionada ao projeto deve ser pública, arquivada e pesquisável.
+*   **Revisão de código:** As contribuições devem ser revistas por alguém com conhecimento suficiente para garantir a qualidade e orientar o contribuinte.
+*   **Meritocracia:** As contribuições devem ser valorizadas com base no mérito.
+*   **Transparência:** Todas as decisões e discussões devem ser transparentes.
+
+**Checklist para InnerSource**
+
+Antes de iniciar um projeto InnerSource, é importante considerar um checklist.  Este é um exemplo de checklist, adaptado de várias fontes:
+
+*   **Preparação Pessoal:**
+    *   Acreditar na viabilidade da estratégia para a empresa.
+    *   Compreender as mudanças necessárias para o sucesso do InnerSource.
+*   **Comunidade:**
+    *   Existência de um líder de projeto com habilidades técnicas e sociais.
+    *   Disponibilidade de mentores para guiar os contribuidores.
+    *   Disposição para participar em fóruns e responder a perguntas.
+    *   Disposição para fazer revisões de código.
+    *   Entendimento por parte dos desenvolvedores que podem contribuir para projetos InnerSource.
+    *   Entendimento por parte dos desenvolvedores do valor de contribuir para outros projetos.
+    *   Presença de um espírito meritocrático.
+*   **Processos e Ferramentas:**
+    *   Processos claros para contribuições.
+    *   Uso de ferramentas de gestão de código que permitam acesso transparente (GitHub, GitLab, etc.).
+    *   Implementação de Integração Contínua (CI) e Desenvolvimento Orientado por Testes (TDD).
+*   **Documentação:**
+    *   Documentação acessível e organizada.
+    *   Criação de arquivos `CONTRIBUTING.md`, `README.md` e `COMMUNICATION.md` para guiar contribuidores.
+*   **Recursos Humanos:**
+    *   Recompensas e critérios de promoção com base nos valores do InnerSource.
+    *   Caminhos de progressão de carreira que respeitem o papel na comunidade.
+*   **Configuração Organizacional:**
+    *   Equipe de coordenação central.
+    *   Processo para registro de projetos InnerSource.
+    *   Tempo e recursos para os funcionários contribuírem para projetos externos.
+    *   Capacidade de medir e demonstrar ganhos e perdas das equipes.
+    *   Possibilidade de os funcionários escolherem projetos com base na sua experiência e motivação.
+*   **Liderança e Coordenação**
+    *   Identificação de "campeões" ou entusiastas do InnerSource.
+    *   Definição clara do papel do Trusted Committer.
+    *   Definição de regras da casa (etiqueta) para reduzir atritos.
+*   **Transparência:**
+    *   Canais de comunicação abertos (chat, listas de e-mail, etc.).
+    *   Documentação das decisões em listas de e-mail.
+    *   Portal central que forneça informações sobre os recursos.
+*   **Métricas:**
+    *   Definição de métricas para monitorar o progresso (linhas de código, histórias de InnerSource, etc.).
+    *   Monitoramento do uso dos componentes InnerSource.
+
+**Padrões de InnerSource**
+
+O InnerSource Commons cataloga padrões para ajudar a implementar o InnerSource de forma eficaz. Alguns exemplos incluem:
+
+*   **Ferramentas de comunicação:** Utilização de ferramentas de comunicação assíncrona.
+*   **Contribuidores Contratados:** Envolvimento de colaboradores com um acordo de contribuição formal.
+*   **Líder de comunidade dedicado:** Seleção de pessoas com habilidades de comunicação e técnicas.
+*   **Documentação dos princípios:** Documentação e publicação dos princípios do InnerSource.
+*   **Extensões para crescimento sustentável:** Oferecer mecanismos de extensão fora do projeto principal.
+*   **Mercado de "gigs":** Criação de um mercado interno para anunciar necessidades de projetos InnerSource.
+*   **Suporte de grupo:** Formação de um grupo de indivíduos interessados para manter um projeto.
+*   **Licença InnerSource:** Criação de uma licença para partilhar código dentro da organização.
+*   **Portal InnerSource:** Criação de um site para descobrir projetos InnerSource.
+*   **Modelo de Maturidade:** Modelo para as equipes fazerem um auto-check e descobrirem padrões.
+*   **Elogiar participantes:** Agradecer os contribuidores pelo seu tempo e esforço.
+*   **Comitê de revisão:** Estabelecer um comitê para dar suporte à iniciativa e familiarizar gestores.
+*   **Serviço vs. Biblioteca:** Definir se um projeto InnerSource é um serviço ou uma biblioteca.
+*   **Documentação base:** Fornecer documentação em arquivos padrão.
+*   **Processo de lançamento padrão:** Publicação consistente de notas de lançamento.
+*   **Começar como um experimento:** Iniciar como um experimento com tempo limitado.
+*   **Decisão transparente usando RFCs:** Utilização de Requests for Comments (RFCs).
+*   **Pontuação de atividade do repositório:** Criação de pontuação para mostrar projetos ativos.
+
+**Considerações Finais**
+
+*   O InnerSource é um meio, não um fim, e deve estar alinhado com os objetivos de longo prazo da organização.
+*   É importante monitorar o processo para identificar áreas de melhoria.
+*   A implementação do InnerSource requer tempo, paciência e persistência.
+*   O InnerSource pode coexistir com outras iniciativas como Agile.
+*   O InnerSource Commons é um recurso valioso para quem procura implementar o InnerSource.
+
+Este resumo oferece uma visão geral dos principais conceitos e etapas envolvidas na implementação do InnerSource. Para um estudo mais aprofundado, é aconselhável consultar as fontes originais e outros materiais de referência disponíveis.
