@@ -41,6 +41,41 @@ Todas essas sugestões estão sendo seguidas pelo criador automático.
 | SSSSSSSSSS    | LIB           | DOC                | SSSS_LIB_DOC        |            |
 | SSSSSSSSSS    | LIB           | DOC                | GESCON_LIB_DOC      |            | 
 
+```mermaid
+mindmap
+  root((repositorio))
+    Monolito
+      RepositorioAPP
+         README.md
+         package.json
+         utils
+           DigitoCpf.java
+         libs
+           jdbc.jar
+         Documentacao
+           Excel
+           Word
+    Monorepo
+      Repositorio
+        diretorioshared
+        diretorioapps
+        package.json
+        webpack.config.js
+        yarn.lock
+    Polyrepo
+      RepositorioDocumentacao
+         Excel
+         Word
+      RepositorioFrontEnd
+         html
+         css
+         js
+      RepositorioBackEnd
+         java
+            src
+            test
+```
+
 ### Monorepo
 É um único repositório que armazena todo o seu código e recursos para cada projeto;
 
@@ -121,6 +156,7 @@ Um branch é essencialmente uma referência ou um ponteiro para o último commit
 | wit/usuario-feature-nnnn | São conhecidos como branches de tópico. Os branches de recursos isolam o trabalho em andamento do trabalho concluído no branch principal. | - | - | - | X |
 | tags           | Esta é uma maneira conveniente de declarar um instantâneo no tempo de um projeto no tronco ou em uma ramificação. Eles são úteis para marcos no desenvolvimento do seu projeto, permitindo que você tenha um registro do estado de um projeto em um momento importante. | X | - | - | - |
 
+<!--
 ```mermaid
 gitGraph
    commit id: "Início Main"
@@ -149,6 +185,8 @@ gitGraph
    checkout wit/usuario-cadfun-1080
    merge main id: "Merge wit/usuario-cadfun-1080 -> main"
 ```
+-->
+[![](https://mermaid.ink/img/pako:eNqVlMFSgzAQhl8lk3Ox9aYcvOiMeuipN4fLmgTYEbIYEq3T6SP5FL6YKTBChgL2Rjb___3ZHZIDFyQVj3mG9tFAlSeaMSaoLNEylDFL-LP--RZIbAuoE97svxrQImd1ZVDb1pEr8UbOBrWQgifIrt0OMJ9o1652YJAiATJ1Orre3GymJEYVreR2E0bPcYKz3LcLDZMWPk0exS-Th5ag83cHBUqQ6v-NlMpkqjd2udumOuFj0d0g6YLWulPmZFPcL89_STcc1FOjZZoWBnW-3c4tyBjMUBJTnfBMp10TFrK1xyuoVfSxv9qHRz-7OzfqvuojR24-T2cDfOlvVUAeiX1A2V-9C36SEXrm_2gT-Ip7q_-W_kU4nFAJt7kq_SxPFKlScEVze49eCs7S7ksLHlvj1IobclnO4xSK2q9cJcGqB4TMQPlXrUC_EPVrJdGS2bZvUPMUHX8BmNiO8A?type=png)](https://mermaid.live/edit#pako:eNqVlMFSgzAQhl8lk3Ox9aYcvOiMeuipN4fLmgTYEbIYEq3T6SP5FL6YKTBChgL2Rjb___3ZHZIDFyQVj3mG9tFAlSeaMSaoLNEylDFL-LP--RZIbAuoE97svxrQImd1ZVDb1pEr8UbOBrWQgifIrt0OMJ9o1652YJAiATJ1Orre3GymJEYVreR2E0bPcYKz3LcLDZMWPk0exS-Th5ag83cHBUqQ6v-NlMpkqjd2udumOuFj0d0g6YLWulPmZFPcL89_STcc1FOjZZoWBnW-3c4tyBjMUBJTnfBMp10TFrK1xyuoVfSxv9qHRz-7OzfqvuojR24-T2cDfOlvVUAeiX1A2V-9C36SEXrm_2gT-Ip7q_-W_kU4nFAJt7kq_SxPFKlScEVze49eCs7S7ksLHlvj1IobclnO4xSK2q9cJcGqB4TMQPlXrUC_EPVrJdGS2bZvUPMUHX8BmNiO8A)
 
 ### Gitando
 
