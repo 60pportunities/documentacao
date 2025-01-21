@@ -388,7 +388,7 @@
 
         ![](img/60pportunities-sagga.png){width="900" height="600" style="display: block; margin: 0 auto"}
 
-    === "Observabilidade com OpenTelemetry"
+    === "Observabilidade"
 
         <p align="justify">OpenTelemetry coleta métricas, logs e traces de aplicações distribuídas, enquanto oSignOz fornece ferramentas avançadas de visualização e análise. Com isso, é possível monitorar odesempenho e identificar problemas rapidamente em sistemas complexos. A integração facilita orastreamento de requisições, análise de latências e diagnóstico de erros. Juntas, as ferramentas oferecemuma solução poderosa para melhorar a eficiência operacional e a resolução de incidentes.</p>
 
@@ -414,8 +414,8 @@
 
          - [x] Dorothy Sayers, em seu excelente livro, **A mente do criador (The Mind of the Maker)**, divide a atividade criativa em três estágios: a ideia, a implementação e a interação.
 
-    === "Estruturação Azure-Devops"
-
+    === "Azure-Devops"
+        
         <p align="justify">Para estruturar ideias em um projeto no Azure DevOps sem uma **SQUAD**, mas com pessoas alocadas adiversos times de desenvolvimento, é essencial criar um planejamento flexível e organizado. Entendeu-seque a URL base para acessar os recursos de um Azure DevOps Organization e seus projects na plataforma.</p>
 
         - [x] https://devops.azure.com/: Esta é a URL base para acessar os serviços de DevOps na nuvem daMicrosoft. Todos os recursos relacionados ao Azure DevOps estão acessíveis por meio dessa URL.
@@ -423,9 +423,54 @@
         - [x] {projects}: Refere-se ao nome do projeto específico dentro da organização. Cada organização podeter múltiplos projetos, que são as unidades de trabalho e colaboração no Azure DevOps, com diferentesrepositórios, pipelines, boards e outros recursos. Exemplo: https://devops.azure.com/mycompany/myproject.
 
         - [x] Um produto no Azure DevOps representa uma **solução contínua** que está em desenvolvimentoconstante, com evolução, melhorias e manutenção regulares. Em vez de ter uma data de término definidacomo em um projeto, o produto é algo que existe de forma contínua, que precisa ser mantido, evoluído edocumentado.
-        
-        ![](img/estrutura-azure-devops.png){width="700" height="500" style="display: block; margin: 0 auto" }
 
+        ## Treinamento Em Agile E Scrum
+        <p align="justify">O 60PPORTUNITIES possui colaboradores capacitados e certificados em Scrum Master e Scrum Product Owner (Scrum.org, ScrumStudy), e estamos focando no treinamento *Agile for Teams e Leaders* para que entendamos e apoiemos mais as equipes.</p>
+        ## Melhoria no 60PPORTUNITIES
+        - [x] Para usar o Scrum com eficácia, fizemos um  planejamento inicial para garantir que teríamos as pessoas, processos, suporte e ferramentas certas. Este planejamento contou com: Cristiane Valardan (Scrum Leader) com diversos treinamento em SCRUM e lançamento de Horas, Marcus Pessoa (Capacitação em Teste de Software) e Antonio Aureliano/Denis Medina (Gráficos).
+        - [x] Definimos que iríamos utilizar o Microsoft Azure-Devops e que havia a necessidade em treinar o pessoal. Todos passaram a ter licenças de Stakeholder para Basic;
+        - [x] No início criamos PROJETOS e posteriormente chamamos de PRODUTOS. Pedimos que TODOS os PRODUTOS, fossem devidamente migrados do Gitlab para o Azure-Devops.
+        - [x] Melhoramos, não mudamos o processo MÃE do Azure-Devops e mantivemos TUDO em Inglês, igualamos as queries, Dashboards e a forma de pensar.
+        - [x] Todos os produtos com pelo menos 2(dois) repositórios, sendo:
+                - [x] Front-End;
+                - [x] Back-End;
+                - [x] Documentação;
+        - [x] Os projetos com DOCUMENTAÇÃO deveriam se ligar ao repositório de PORTIFÓLIO.
+
+        ## Defina o Produto
+        <p align="justify">O problema não está na eficiência do time e sim na eficácia das suas entregas, ou seja, entregar algo de valor e impacto para o cliente, dessa forma, ele utiliza o produto e só então consegue dar feedback sobre o quão próximo ou distante estamos de resolver seus problemas.</p>
+
+        Meça o progresso com base no valor entregue:
+ 
+        - [x] Sucesso não é marcar uma caixinha;
+        - [x] Sucesso é ter impacto;
+ 
+        Se você completa todas as tarefas e nada melhora, isso não é sucesso.
+
+        ## Time multidisciplinar
+        <p align="justify">Com o tempo, deixamos de ter profissionais do tipo Especialistas em parte, passamos a ter Profissionais do Tipo Especialistas-Generalistas e podemos até ter profissionais do Tipo Especialista em várias áreas do Produto.</p>
+
+        ![](img/estrutura-azure-devops.png){width="700" height="500" style="display: block; margin: 0 auto" }
+         
+        ## Produto no Azure-DevOps
+        <p align="justify">Um PRODUTO é local para os usuários planejarem, acompanharem o progresso e colaborarem na criação de soluções de software. Um PRODUTO representa um contêiner fundamental em que você pode armazenar dados e código-fonte.</p>
+        <p align="justify">Um PRODUTO terá pelo menos DOIS times/equipes BASE, um sendo SUSTENTAÇÃO e pelo menos UM TIME para a realização de NOVAS FEATURES e/ou PROJETOS controlados na BBTS.</p>
+
+        - [x] Exemplo: `https://dev.azure.com/ORGANIZAÇÃO/PRODUTO`
+
+        ## Equipe/Time
+        <p align="justify">Você cria uma equipe que corresponde a um grupo de colaboradores focado em produtos, serviços ou áreas de recursos específicos.  Você adiciona equipes para fornecer as ferramentas necessárias para gerenciar a lista de pendências, planejar sprints, configurar painéis, definir alertas e definir favoritos da equipe.</p>
+
+         - [x] Equipe **SUSTENTAÇÃO** : As Sprints serão MENSAIS, lançamentos de horas;
+         - [x] Equipe **PROJETO**     : As Sprints serão de 2(duas) semanas.
+        
+        ## Diferença de Modelos
+        
+        - [x] [Waterfall](https://agile.pub/assuntos-diversos/a-grande-mentira-do-waterfall/)
+        - [x] [Ágeis](https://www.lumis.com.br/a-lumis/blog/metodos-ageis.htm#:~:text=uma%20cultura%20ágil.-,O%20que%20são%20métodos%20ágeis%3F,e%20os%20planejamentos%20serem%20revistos.)
+        - [x] [#NoProjects](https://noprojects.org) e [A Culture of Continuous Value](https://www.infoq.com/minibooks/noprojects-value-culture/)
+        - [x] [IT4IT](https://pubs.opengroup.org/it4it/3.0/standard/)
+       
         ## Criação de Projetos
          Desenvolvido duas scripts para a uniformização dos projetos,  que seguem a estrutura:
 
@@ -648,4 +693,48 @@
             A140                           --> A150(Ajuste Arquitetura</br>Baseada no Feedback)
             A150                           <--> A130
         ```
+    === "Em resumo"
+        [Por que 95% dos novos produtos lançados no mercado falham (e como você pode evitar que isso aconteça com você)](https://www.larazon.es/educacion/20211213/qez3zu3nyfgaborsrn44ngvvey.html)
 
+         No saco dos fracassos estão o Google Glass (depois de milhões de dólares de investimento ninguém sabe o que aconteceu com eles), a New Coke que a Coca-Cola lançou no mercado em 1985 (na verdade era uma nova fórmula na qual substituiu o açúcar comum pelo milho rico em frutose) ou o lançamento em 1982 da Colgate Kitchen Entrees (aliás, a Colgate, empresa que se dedica à venda de produtos de higiene oral, decidiu lançar a sua gama de alimentos prontos).
+
+         Por esta razão, 92% das startups afundam nos primeiros 3 anos após o início.
+
+          “Muitas inovações falham porque introduzem produtos e/ou soluções sem que haja realmente necessidade. “Não há mercado para as soluções que eles criaram.”
+
+          Steve Jobs levou a Apple ao topo porque sabia o que o consumidor queria . O que era importante para ele não era a tecnologia, mas sim a experiência do usuário . Em 2006 ele disse: “Há muita tecnologia em busca de cliente . 
+ 
+          Por outras palavras, muitas empresas fazem coisas porque é tecnicamente possível, mas no final ninguém se importa e ninguém quer comprá-las. Acho que o difícil é descobrir o que pode ser feito e o que as pessoas querem.”
+
+          ## Se você tem que motivar funcionários, você não está contratando direito.
+           - [x] **CRIE** um ambiente onde profissionais motivados:
+           - [x] **Produto em si**: A chave é identificar e comunicar o que torna seu produto significativo, seja qual for esse significado. Quando os desenvolvedores entendem completamente essa responsabilidade e importância, isso geralmente leva a um engajamento e dedicação mais profundos ao seu trabalho. Eu vi equipes transformarem sua atitude quando realmente entenderam como seu código impacta a vida de pessoas reais.
+           - [x] **Artesanato Técnico**: Equipes se orgulham de construir um código excelente. Resolvendo problemas algorítmicos complexos ou implementando soluções arquitetônicas elegantes, a excelência técnica.
+           - [x] **Espírito de Equipe**: Senso de pertencimento a algo especial. Envolve construir uma cultura onde a participação na equipe seja significativa e valorizada.
+
+           ## Dizer “não” não é tão ruim
+           Consistência de Compromisso (CC): O desafio é fazer perguntas que permitam respostas positivas e negativas, onde um "não" naturalmente convida à explicação.
+ 
+           - [x] Você gosta de picles em conserva? Elaborar perguntas para encorajar explicações em vez de respostas rápidas de "sim" é uma ótima maneira de aprofundar conversa. PENSE NISSO.
+           - [x] Baca-Motes, K., Brown, A., Gneezy, A., Keenan, E., & Nelson, L. (2013). Comprometimento e mudança de comportamento: evidências do campo. Journal of Consumer Research , 1070 - 1084.
+           - [x] Fisher, W., Ury, WL, & Patton, B. (2011). Chegando ao Sim: Negociando Acordos Sem Ceder. Penguin Books.
+
+           ## Product Owner a uma equipe, por que não capacitá-lo?
+           Ela tinha uma visão cristalina e metas fortes, mas não escrevia cada item do Product Backlog sozinha. Limitar um Product Owner a uma equipe em um produto grande não torna as coisas mais fáceis – cria mais burocracia. Em vez de pensar em limitar, pense em empoderar! 
+ 
+           Deixe o Product Owner guiar várias equipes quando fizer sentido e dê a eles os recursos para delegar. Dessa forma, eles permanecem focados na visão e as equipes permanecem alinhadas na entrega de valor.
+
+           ## Pensamento de Produto
+           - [x] As equipes recebem problemas para resolver em vez de projetos para concluir. 
+           - [x] Se envolvem na entrega de soluções que beneficiam os clientes e os negócios.
+           - [x] Ponderam as decisões sobre novos recursos e trabalho de suporte em relação ao valor geral do produto.
+           - [x] Se adaptam às necessidades do cliente continuamente, criando melhores resultados para todos.
+           - [x] Criando uma Visão de Produto
+                  - [x] Quem eles VOCÊS veêm como seus usuários e quais desafios específicos esses usuários enfrentavam?
+                  - [x] Como vocês poderiam fornecer **valor** que abordasse diretamente esses desafios?
+                  - [x] Quais seriam os benefícios comerciais, para esta visão?
+           - [x] Definida a jornada, qual seria a a Meta do Produto?
+                  - [x] O Time define uma meta concreta e atingível;
+           - [x] Os primeiros itens identificados focaram no que os usuários queriam fazer. 
+           - [x] A equipe construiu mais itens do Product Backlog em torno do trabalho de infraestrutura
+           - [x] Se a equipe está enfrentando dificuldades com prioridades pouco claras e dívida técnica crescente, é hora de abandonar a mentalidade de projeto e adotar uma abordagem focada no produto, liberando o potencial da sua equipe e entregar valor contínuo.
