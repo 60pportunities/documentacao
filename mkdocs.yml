@@ -262,19 +262,16 @@ nav:
       - 'Vamos dar uma espiada (Observabilidade)'                    : 'recipe_60pportunities_livro_cap_013.md'
       - 'Inteligência Artificial no Desenvolvimento de Software'     : 'recipe_60pportunities_livro_cap_014.md'
       - 'Metas e Métricas: A Importância de Medir'                   : 'recipe_60pportunities_livro_cap_015.md'
-      - 'Engenharia de Software'                                     : 'recipe_60pportunities_livro_cap_conclusao.md'
+      - 'IA Verticais'                                               : 'recipe_60pportunities_livro_cap_016.md'
       - 'Agilidade'                                                  : 'recipe_60pportunities_livro_cap_017.md'
+      - 'Estimativa'                                                 : 'recipe_60pportunities_livro_cap_018.md'
+      - 'Modelito'                                                   : 'recipe_60pportunities_livro_cap_019.md'
+      - 'Engenharia de Software'                                     : 'recipe_60pportunities_livro_cap_conclusao.md'
    - 'Certificação Perguntas'                                        :
       - 'Certiprof DevOps Essentials'                                : 'recipe_60pportunities_certiprof_depc.md'
       - 'GitHub Foundations'                                         : 'recipe_60pportunities_ghf_90_questions.md'
    - 'Projetos'                                      :   
-      - 'Timeline'                                   : 'recipe_60pportunities_projetos_timeline.md'
       - 'PMI e Standish Group'                       : 'recipe_60pportunities_projetos_standishgroup.md'
-      - 'Modelo Antigo'                              : 'recipe_60pportunities_projetos_antigo.md'
-      - 'Modelo'                                     : 'recipe_60pportunities_projetos_modelo.md'
-      - 'Método'                                     : 'recipe_60pportunities_projetos_metodo.md'
-      - 'Centrados'                                  : 'recipe_60pportunities_projetos_centrados.md'
-      - 'Modificados'                                : 'recipe_60pportunities_projetos_modificados.md'
    - 'Arquitetura'                                   :
       - 'Application Program Interface'              : 'recipe_60pportunities_conf_arquitetura_api.md'
       - 'Microserviços'                              : 'recipe_60pportunities_conf_arquitetura_microservico.md'
