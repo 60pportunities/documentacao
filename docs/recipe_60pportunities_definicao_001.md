@@ -25,39 +25,15 @@
         | Extensão          | Extensões são maneiras de estender um domínio sem alterar sua implementação e confiabilidade. |
         |                   | Extensões lógicas são destinadas a permitir a extensão lógica de um serviço subjacente.  |
         |                   | Extensões de dados fornecem uma maneira de anexar novos dados a uma interface ao inchar os modelos de dados da plataforma. |
-
-        ### Classificação de Sistemas
-        | Tipo                                                                           | Descrição                                                                          |
-        | -----                                                                          | --------                                                                           |
         | Desenvolvidos Internamente (Sistemas Internos  SI)                            | São desenvolvidos dentro da empresa.                                               |
         | Prontos para uso (Components off-the-shelf-COTS/Modifiable off-the-shelf-MOTS) | São adquiridos externamente de outra empresa/fornecedor.                           |
         | Software de código aberto (Open Source Software (OSS))                         | São obtidos externamente da comunidade OSS. [OpenSource](https://opensource.org/history), [gnu.org](https://www.gnu.org/philosophy/free-sw.pt-br.html#History) e [hacktoberfest](https://hacktoberfest.digitalocean.com/) |
         | Componentes Terceirizados (Desenvolvidos por subcontratação)                   | São obtidos por um processo de subcontrato ou de terceirizado. |
         | Mobile COTS	                                                                 | São softwares SoE, que são liberados em função de um COTS.     |
         | [Digital Public Goods Standard (DPG)](https://www.digitalpublicgoods.net/digital-public-goods)                                           | São softwares de código aberto, padrões abertos, dados abertos, sistemas de IA abertos e coleções de conteúdo aberto que respeitam a privacidade e outras leis e práticas recomendadas aplicáveis, não causam danos e ajudam a atingir os Objetivos de Desenvolvimento Sustentável (ODS). |
-
-        | Tipo De Sistema                       |  Objetivo |
-        | ----                                  | -----     |
         | Sistemas de Registro (SoR)            | Estes sistemas incluem um sistema de armazenamento e acesso de dados e são a fonte oficial de dados corporativos. Idealmente, para integridade de dados, governança e segurança, tenha uma única fonte de dados em um sistema de registro para quaisquer dados específicos. Essa configuração oferece o que é conhecido como **versão única da verdade**, um recurso muito procurado que garante que a entrada para a tomada de decisão seja a mais precisa possível. Para dados **_históricos e estáticos_**, os sistemas de registro oferecem um caminho rastreável para os dados originais. Para dados que **_continuam a mudar_**, como níveis de estoque e saldos de contas bancárias, os sistemas de registro fornecem as informações mais recentes. |
         | Sistemas de Engajamento (SoE)         | Esses sistemas usam tecnologias que se comunicam com eficiência entre várias organizações e redes dentro da empresa para fornecer a experiência colaborativa necessária para que os negócios tenham sucesso no ambiente competitivo. Os sistemas de engajamento referem-se a sistemas centrados no cliente que incentivam ativamente as interações e a colaboração entre pares. Portais web para interações com clientes; e acesso a dispositivos móveis para clientes e funcionários. Um requisito fundamental do sistema de engajamento é a integração entre aplicativos como gerenciamento da cadeia de suprimentos, ERP, sistemas de RH e gerenciamento de produtos. |
         | Sistemas de Interaction/Insight (SoI) |  Integram dados do engajamento e de registros para encontrar novos relacionamentos e padrões analisando dados históricos, avaliando a situação atual, aplicando regras de negócios, prevendo resultados e propondo a próxima melhor ação. São sistemas de análise que facilitam a coleta, mineração, organização, transformação, consumo e análise de diversos conjuntos de dados com ferramentas de modelagem estatística para detectar padrões, relatar o que aconteceu, prever resultados com alto grau de confiança, aplicar regras de negócios e políticas, além de fornecer insights acionáveis. |
-
-        ### Segregação de Ambientes Operacionais
-        A segregação consiste na disponibilidade de bases distintas para cada ambiente. Esta segregação tem como objetivo **isolar** as diversas alterações solicitadas de modo diminuir riscos de novas implementações com isso gerando impactos menores nos processos já funcionais.
-
-        Entender que as práticas convencionais para definição e documentação total da arquitetura e design antes do início da codificação, já se provaram ineficazes, por isso devemos estabelecer claramente estes ambientes para que consigamos entregar no período correto, um produto estável e necessário.
-
-        Elaborado um quadro abaixo com o objetivo de fornecer uma maneira clara a identificação e responsabilidade de cada área.
-
-        - [x] Os ambientes na qual não se desenvolve, apenas para aplicação de atualizações disponibilizadas pelo Fornecedor, só terão a **HOMOLOGAÇÃO**.
-        - [x] Os Sistemas Internos, que não possuam volumetria e não apresentem riscos operacionais, deverão possuir apenas o ambiente de **DESENVOLVIMENTO**.
-        - [x] Salvo contrário, os demais ambiente possuirão **DESENVOLVIMENTO** e **HOMOLOGAÇÃO**.
-        - [x] Ambientes de **PROJETO** deverão ser disponibilizados através de solicitação e com data de término ativada. Não poderá haver **2(duas) prorrogações** na continuidade do ambiente operacional.
-        - [x] Deverá haver uma ambiente de **SIT**, para que os dados de **PRODUÇÃO**, sejam mascarados e purgados por um período máximo de 12 meses (**1 ano**).
-        - [x] Para a PORTA quanto **mais alta**, mais longe da produção e sufixo do servidor não há regras.
-
-        |  Ambiente         | Definição                  |
-        | -----             | -----                      |
         | Development (DEV) | Ambiente de Desenvolvimento;        |
         |                   | História do Usuário atribuídas ao desenvolvedor;        |
         |                   | Código completo e de acordo com os padrões;        |
@@ -74,6 +50,24 @@
         | Production(PROD)           |  Ambiente Público, controlodo por perfil de acesso.
         |                            |  Documentação do usuário entregue;
         |                            |  Release criada e armazenada no Repository Management. |
+        | Customização               | É o processo de adaptar um produto, serviço, ou experiência para atender às necessidades, preferências ou exigências específicas de um indivíduo ou grupo. **Sem alterar o código fonte do produto principal**. Isso pode incluir ajustes na interface do usuário, relatórios personalizados ou regras de negócios específicas.|
+        | Modificações (Modifications) | **Alterações no código fonte ou na estrutura do sistema** para atender a requisitos muito específicos que não podem ser atendidos pelas customizações ou extensões. |
+        | Extensões (Extensions)       | Adições ao sistema que expandem suas funcionalidades, muitas vezes por meio de novos módulos ou aplicativos que interagem com o sistema principal. As **extensões não modificam diretamente o código fonte**, mas complementam e ampliam as capacidades do software. |
+        | Integrações (Integrations)   | Conexões ou interfaces entre o sistema Oracle e outros sistemas de TI usados pela empresa. Isso pode envolver a troca de dados entre o ERP Oracle e outros softwares, como sistemas de CRM, de gerenciamento de inventário ou de bancos de dados externos. |
+
+        ### Segregação de Ambientes Operacionais
+        A segregação consiste na disponibilidade de bases distintas para cada ambiente. Esta segregação tem como objetivo **isolar** as diversas alterações solicitadas de modo diminuir riscos de novas implementações com isso gerando impactos menores nos processos já funcionais.
+
+        Entender que as práticas convencionais para definição e documentação total da arquitetura e design antes do início da codificação, já se provaram ineficazes, por isso devemos estabelecer claramente estes ambientes para que consigamos entregar no período correto, um produto estável e necessário.
+
+        Elaborado um quadro abaixo com o objetivo de fornecer uma maneira clara a identificação e responsabilidade de cada área.
+
+        - [x] Os ambientes na qual não se desenvolve, apenas para aplicação de atualizações disponibilizadas pelo Fornecedor, só terão a **HOMOLOGAÇÃO**.
+        - [x] Os Sistemas Internos, que não possuam volumetria e não apresentem riscos operacionais, deverão possuir apenas o ambiente de **DESENVOLVIMENTO**.
+        - [x] Salvo contrário, os demais ambiente possuirão **DESENVOLVIMENTO** e **HOMOLOGAÇÃO**.
+        - [x] Ambientes de **PROJETO** deverão ser disponibilizados através de solicitação e com data de término ativada. Não poderá haver **2(duas) prorrogações** na continuidade do ambiente operacional.
+        - [x] Deverá haver uma ambiente de **SIT**, para que os dados de **PRODUÇÃO**, sejam mascarados e purgados por um período máximo de 12 meses (**1 ano**).
+        - [x] Para a PORTA quanto **mais alta**, mais longe da produção e sufixo do servidor não há regras.
 
     === "Fatos"
         ![](img/remote-hibrido-001.png)

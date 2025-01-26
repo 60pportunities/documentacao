@@ -318,8 +318,6 @@ nav:
 #         - 'PHP'                                     : 'recipe_60pportunities_dev_doc_php.md'
    - 'Estudos/Aprendizado'                            :
       - 'Inteligencia Artificial'                    : 'recipe_60pportunities_conf_inteligencia_artificial.md'
-   - 'Dicionário'                                    :
-      - 'Termos'                                     : 'recipe_60pportunities_tesauro.md'
    - 'Links Úteis para o Aprendizado'                :
       - 'Faça você mesmo'                            : 'recipe_60pportunities_lic_software.md'
       - 'Inteligência Artificial'                    : 'recipe_links_inteligencia_artificial.md'
