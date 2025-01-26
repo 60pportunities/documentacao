@@ -3,12 +3,10 @@ site_name: 60portunities
 site_description: Documentação 60pportunities
 site_author: Horacio Vasconcellos
 site_url: https://60pportunities.com.br
-
 repo_name: documentacao
 repo_url: https://github.com/60pportunities/
 edit_uri: tree/master/docs
 docs_dir: docs
-
 copyright:  >
    Copyright &copy; 2024 Documentação
    <a href="#__consent">Change cookie settings</a>
@@ -214,7 +212,7 @@ extra:
 
 nav:
    - 'Inicio'                                                        :
-      - 'Licença'                                                    : 'LICENSE.md'
+      - 'Licença'                                                    : 'LICENSE'
       - 'Changelog'                                                  : 'CHANGELOG.md'
       - 'Contribuições'                                              : 'CONTRIBUTING.md'
       - 'Codigo de Conduta'                                          : 'CODE_OF_CONDUCT.md'
@@ -227,13 +225,12 @@ nav:
    - 'Conceitos'                                                     :
       - 'Definições'                                                 : 'recipe_60pportunities_definicao_001.md'
    - 'Registro'                                                      :
-      - 'Registrando um Domínio'                                     : 'recipe_60pportunities_conf_registrobr_dominio.md'
-      - 'Configurando o Github'                                      : 'recipe_60pportunities_conf_github.md'
-      - 'Conta no GitHub'                                            : 'recipe_60pportunities_conf_github_conta.md'
-      - 'Configurando Pages'                                         : 'recipe_60pportunities_conf_github_pages.md'
-      - 'Publicando Pages no Domínio'                                : 'recipe_60pportunities_conf_github_dominio_pages.md'
+      - 'Domínio'                                                    : 'recipe_60pportunities_registro_001.md'
+      - 'Conta no GitHub'                                            : 'recipe_60pportunities_registro_002.md'
+      - 'Pages'                                                      : 'recipe_60pportunities_registro_004.md'
+      - 'Pages no Domínio'                                           : 'recipe_60pportunities_registro_005.md'
    - 'Livro'                                                         :
-      - 'Introdução'                                                 : 'recipe_60pportunities_livro_introducao.md'
+      - 'Introdução'                                                 : 'recipe_60pportunities_livro_cap_000.md'
       - 'Crise do Software (1960-1979)'                              : 'recipe_60pportunities_livro_cap_001.md'
       - 'Abertura Política (1980-1989)'                              : 'recipe_60pportunities_livro_cap_002.md'
       - 'Globalização e capitalismo (1990-1999)'                     : 'recipe_60pportunities_livro_cap_003.md'
@@ -266,18 +263,13 @@ nav:
       - 'Estimativa'                                                 : 'recipe_60pportunities_livro_cap_018.md'
       - 'Engenharia de Software'                                     : 'recipe_60pportunities_livro_cap_conclusao.md'
    - 'Certificação Perguntas'                                        :
-      - 'Certiprof DevOps Essentials'                                : 'recipe_60pportunities_certiprof_depc.md'
-      - 'GitHub Foundations'                                         : 'recipe_60pportunities_ghf_90_questions.md'
+      - 'Certiprof DevOps Essentials'                                : 'recipe_60pportunities_certificacao_depc.md'
+      - 'GitHub Foundations'                                         : 'recipe_60pportunities_certificacao_ghf.md'
    - 'Projetos'                                      :
       - 'PMI e Standish Group'                       : 'recipe_60pportunities_projetos_standishgroup.md'
    - 'Arquitetura'                                   :
       - 'Application Program Interface'              : 'recipe_60pportunities_conf_arquitetura_api.md'
       - 'Microserviços'                              : 'recipe_60pportunities_conf_arquitetura_microservico.md'
-      - 'Previsibilidade'                            : 'recipe_60pportunities_conc_previsibilidade.md'
-   - 'Documentação'                                  :
-      - 'Documentação'                               : 'recipe_60pportunities_conf_documentacao.md'
-      - 'Usando o MkDocs'                            : 'recipe_60pportunities_conf_mkdocs.md'
-      - 'Publicando MkDocs no Github'                : 'recipe_60pportunities_conf_mkdocs_publicacao.md'
 #   - 'GitHub'                                        :
 #      - 'Conta no GitHub'                            : 'recipe_60pportunities_conf_github_conta.md'
 #      - 'Configurando Pages'                         : 'recipe_60pportunities_conf_github_pages.md'
