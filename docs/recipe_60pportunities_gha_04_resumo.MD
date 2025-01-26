@@ -4,7 +4,7 @@ https://codefresh.io/learn/github-actions/working-with-github-actions-steps-opti
 https://learn.microsoft.com/pt-br/training/modules/authenticate-authorize-user-identities-github/5-team-synchronization
 
 
-O que é o GitHub Actions?
+## O que é o GitHub Actions?
 GitHub Actions é uma plataforma para integração contínua/entrega contínua (CI/CD). Ela permite que você automatize pipelines de build, teste e implantação. Ela também permite que você execute código arbitrário em um repositório especificado quando um evento ocorre. Actions usa pacotes de código em contêineres Docker que são executados em servidores GitHub. Eles são compatíveis com todas as linguagens de programação para garantir que você possa executá-los em nuvens públicas, bem como em servidores locais. Isso faz parte de uma extensa série de guias sobre CI/CD .
 
 Arquitetura e conceitos de ações do GitHub
