@@ -17,4 +17,28 @@ Existem várias ferramentas de secret scanning que ajudam a identificar e evitar
       - [ ] brew install --cask git-credential-manager
 ## Configuração Básica
 - [x] No repositório do projeto git, execute:  `pre-commit install`;
-- [ ] pre-commit sample-config > .pre-commit-config.yaml
+- [x] pre-commit sample-config > .pre-commit-config.yaml
+- [x] detect-secrets scan > .secrets.baseline
+- [x] pre-commit run --all-files
+
+
+```
+# .pre-commit-config.yaml
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v5.0.0
+      hooks:
+          - id: trailing-whitespace
+          - id: end-of-file-fixer
+          - id: check-yaml
+            exclude: mkdocs.yml
+          - id: check-added-large-files
+
+    - repo: https://github.com/Yelp/detect-secrets
+      rev: v1.5.0
+      hooks:
+          - id: detect-secrets
+            args: ['--baseline', '.secrets.baseline']
+            exclude: package.lock.json
+
+```
