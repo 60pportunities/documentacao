@@ -1,5 +1,5 @@
 É uma sentença declarativa aparentemente verdadeira mas que leva a uma contradição lógica ou simplesmente a algo que contradiz a intuição.
-## Paradoxo do Pinóquio 
+## Paradoxo do Pinóquio
 <p align="justify">Pinóquio é reconhecidamente um dos ícones da cultura moderna, criado como um boneco de madeira que sonha em ser um menino de verdade, ele é mais conhecido por suas mentiras.</p>
 <p align="justify">Trata-se de um conflito de lógica baseado na famosa história infantil do boneco Pinóquio, cujo nariz crescia sempre que o mesmo contava uma mentira.</p>
 
@@ -30,7 +30,7 @@ Essa ideia pode soar contraditória, mas é exatamente isso que acontece na ment
 - [x] Quanto tempo você passa escolhendo o que assistir na Netflix, Apple TV, Disney+, etc?
       - [x] Resposta: É provável que o consumo tome muito mais tempo na sua vida hoje em dia, porque o número de opções aumentou.
       - [x] Resposta: Ou, deixei de escolhar, o software de Stream, escolhe para mim.
-  
+
 A responsabilidade é enorme, **pois cabe a você** entender as características de cada produto, comparar marcas, pesquisar preços e definir prioridades.
 
 - [x] Paralisia                          - Aprendizado e ao desenvolvimento intelectual.
@@ -42,7 +42,7 @@ A responsabilidade é enorme, **pois cabe a você** entender as características
 <div class="center-table" markdown>
 ```mermaid
 flowchart LR
-    id1((Propósito)) --> id2((Conhecimento)) 
+    id1((Propósito)) --> id2((Conhecimento))
     id2 --> id3((Método)) --> id4((estrutura))
     id4 --> id5((Indicadores)) --> id6((Governança)) -->id7((Execução))
     id7 --> id8((Relaxamento)) --> id1
@@ -54,7 +54,7 @@ A empresa, produto tem que existir além de seu criador. Entenda que **criação
 ## Outros Paradoxos
 
 - [x] **Fábrica de Botas**: Fábrica de Botas um botando a culpa no outro.
-- [x] **Paradoxo Homer Simpson**: "CULPA É MINHA E COLOCO EM QUEM EU QUISER"? 
+- [x] **Paradoxo Homer Simpson**: "CULPA É MINHA E COLOCO EM QUEM EU QUISER"?
 - [x] **Paradoxo da Laranja** : Bolo de Limão (casca) e Suco de Laranja (Sumo). Apenas UM LARANJA.
 - [x] **Paradoxo do KuDum**: Se você não estimula, tira de um cú de um, coloca no cú de outro.
 ## Commenting For Better Reach (CFBR)

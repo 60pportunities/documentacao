@@ -86,7 +86,7 @@ Em segundo lugar, a universidade desempenhou um papel central na criação de no
 -~'fundações em metodologia de software Durante esse tempo na IBM, tive.
 também atuou, graças à IBM, no corpo docente da Universidade Johns Hopkins
 e a Universidade de Maryland. As interações com professores e alunos.
-a essas universidades e os universitários de ciência da computação em outros lugares foram muito benéficos, para dizer o mínimo. 
+a essas universidades e os universitários de ciência da computação em outros lugares foram muito benéficos, para dizer o mínimo.
 Os principais avanços nos fundamentos da metodologia de software vieram da universidade, não da indústria. Graças a Edsger Dijkstra, Tony Hoare, David Parnas, David Gries, Niklaus Wirth e outros, pelo trabalho em programação estruturada, entendemos e programam a correção, agora temos muitas simplicidades profundas sobre ideias que antes estavam envoltas no mistério e na complexidade do conhecimento da programação.
 Uma busca por produtividade em software
 O tema subjacente desta história tem sido a busca por produtividade
@@ -1653,7 +1653,7 @@ Lista de termos de qualificação). As variáveis ​​sintáticas exibidas sã
 g solicitações e exibições são constantes sintáticas.
 Ocabulário de itens de solicitação, todos menos um dos quais são constantes, representa
 .:. meios simples e de fácil compreensão para acessar qualquer informação desejada
-· o Tesauro 
+· o Tesauro
 
 Dicionário de sinônimos.
 Criação e Manutenção do esaurus
@@ -2724,7 +2724,7 @@ e fornece um veículo para manter a integridade do desenvolvimento
 sistema passo a passo. A codificação é produzida "de cima para baixo", em vez de
 "de baixo para cima", como exigido pelos padrões tradicionais. O código de integração e controle
 é produzido antes do código funcional, e nenhuma verificação de unidade de
-módulos ocorre. 
+módulos ocorre.
 Alguns antecedentes
 E. W. Dijkstra forneceu vários argumentos esclarecedores para as ideias
 de programação estruturada [2, 3, 4] e exibiu uma aplicação substancial
@@ -3781,7 +3781,7 @@ componentes de instrução. O nó de instrução exibido na Figura 13-1
 então tem a forma na Figura 13-2, onde o diamante (nó de controle) representa
 uma função de identidade para valores no espaço de dados e um quadrado
 (nó de processo) representa uma função constante para valores no programa
-(próxima instrução). Como o programa (conjunto) é finito, esta partição pode ser 
+(próxima instrução). Como o programa (conjunto) é finito, esta partição pode ser
 
 Uma execução de programa é uma sequência de valores de estado, digamos,
 S;=(d;,/;) , i=O, 1, ...

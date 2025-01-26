@@ -191,7 +191,7 @@
 - [x] Peter is a developer who wants to explore the forks of a repository on GitHub to find active and popular forks. Which page should Peter visit to view the forks of a repository and filter them based on various criteria? `Forks page`
 - [x] Peter is a project manager for a startup company looking for software solutions that offer flexibility, customization, and cost savings. Which advantage of open source software would be most appealing to Peter's requirements? `No vendor lock-in`
 - [x] Peter is a software developer who wants to acknowledge the community members who have contributed to his project's Python dependencies. Where can Peter find a list of people who have contributed to his project's Python dependencies on GitHub? `By visiting https://github.com/REPO-OWNER/REPO-NAME/graphs/contributors.`
-- [x] Peter is experiencing issues opening github.dev. `Which of the following steps should he try first to troubleshoot the problem? Disable any ad blockers`. 
+- [x] Peter is experiencing issues opening github.dev. `Which of the following steps should he try first to troubleshoot the problem? Disable any ad blockers`.
 - [x] Peter is managing a large repository on GitHub, and he's noticed that the CODEOWNERS file size is exceeding the limit. What approach should Peter take to address this issue effectively? `Peter should use wildcard patterns to consolidate multiple entries into a single entry in the CODEOWNERS file`.
 - [x] Peter is reviewing a pull request for a project on GitHub. He notices a section of code in one of the files that he has a question about. Which of the following actions can Peter take to address his question? `Peter can comment on specific files or sections of a file in the pull request's Files changed tab`.
 - [x] Peter is searching for issues created before March 2024 in the "family-guy" project owned by QuizExperts. Which search query should he use? `repo:quiz-experts/family-guy created:<2024-03-01 type:issue`
@@ -219,7 +219,7 @@
 - [x] The difference between GitHub Desktop and github.com is that Desktop? `is a standalone software application.`
 - [x] The involves qualifier is a logical OR between the author, assignee, mentions, and commenter qualifiers for a single user.`True`
 - [x] Tom Tucker wants to create a template repository for his project to ensure that future repositories have the same directory structure, branches, and files. Which of the following statements is true regarding creating a template repository on GitHub? `Branches created from a template repository have unrelated histories, so you cannot create pull requests or merge between them`.
-- [x] Tricia Takanawa wants to stay updated on the activity in a specific repository on GitHub. `What action should she take? Watch the repository`. 
+- [x] Tricia Takanawa wants to stay updated on the activity in a specific repository on GitHub. `What action should she take? Watch the repository`.
 - [x] Under what conditions can a workflow use a reusable workflow? `If the called workflow is stored in a public repository or a private repository with appropriate access settings`.
 - [x] What action will pin a discussion to the top of the discussions page in a GitHub repository? `Using the "Pin discussion" option`
 - [x] What action will pin an issue to the top of the issues page on a GitHub repository? `Using the "Pin issue" option`
@@ -338,7 +338,7 @@
 - [x] What happens if a GitHub Pages deployment takes longer than 10 minutes? `The deployment fails.`
 - [x] What happens if a poll is edited after some votes have been cast? `The votes are reset, and users need to vote again.`
 - [x] What happens if a workflow tries to use a reusable workflow from a repository that has changed its name? `The workflow will fail because redirects are not supported.`
-- [x] What happens if Lois places the README file in the root directory of her repository and also in the .github directory? `Only the README file in the .github directory will be shown`. 
+- [x] What happens if Lois places the README file in the root directory of her repository and also in the .github directory? `Only the README file in the .github directory will be shown`.
 - [x] What happens if someone discovers the URL of a secret gist on GitHub? `They can view the gist regardless of the author's permissions`.
 - [x] What happens if you delete a branch after its pull request has been merged into the main branch? `GitHub automatically updates pull requests targeting the deleted branch.`
 - [x] What happens regarding code owner review when a pull request is marked as a draft? `Code owners are not automatically requested to review the draft pull request`.
@@ -361,7 +361,7 @@
 - [x] What is a function you can execute on GitHub Mobile? `Manage, triage, and clear notifications from github.com`.
 - [x] What is a gist? `git repository`
 - [x] What is a Github Project Template? `It's a pre-built layout for organizing and managing tasks in a GitHub Project`
-- [x] What is a Github Project Template? `It's a pre-built layout for organizing and managing tasks in a GitHub Project` 
+- [x] What is a Github Project Template? `It's a pre-built layout for organizing and managing tasks in a GitHub Project`
 - [x] What is a job in the context of GitHub Actions? `A set of steps that are executed sequentially`.
 - [x] What is a key characteristic of draft pull requests in GitHub? `They cannot be merged until they are converted to regular pull requests.`
 - [x] What is a key feature available in GitHub Enterprise but not in GitHub Team? `GitHub Enterprise Support`
@@ -376,7 +376,7 @@
 - [x] What is GitHub primarily used for? `Collaborating on work`.
 - [x] What is GitHub Sponsors? `A program that financially supports open source contributors`
 - [x] What is GitHub? `a cloud-based hosting service for version control and collaboration, focused on creating a safe and collaborative environment for developers`
-- [x] What is GitHub? `A web-based platform for hosting Git repositories`. 
+- [x] What is GitHub? `A web-based platform for hosting Git repositories`.
 - [x] What is InnerSource? `A strategy that applies open source practices to proprietary code to enhance collaboration.`
 - [x] What is InnerSource? `Sharing of source code within the organization`.
 - [x] What is Markdown in GitHub? `A lightweight markup language`.
@@ -398,7 +398,7 @@
 - [x] What is the difference between GitHub Projects and GitHub Projects Classic? `GitHub Projects use a board layout while Projects Classic uses a list layout`
 - [x] What is the difference between GitHub Projects and GitHub Projects Classic? `GitHub Projects use a board layout while Projects Classic uses a list layout`
 - [x] What is the difference between InnerSource vs OpenSource? `OpenSource involves building open software within a closed team while InnerSource involves using open source practices within an organizations`
-- [x] What is the difference between InnerSource vs OpenSource? `OpenSource involves building open software within a closed team while InnerSource involves using open source practices within an organizations` 
+- [x] What is the difference between InnerSource vs OpenSource? `OpenSource involves building open software within a closed team while InnerSource involves using open source practices within an organizations`
 - [x] What is the difference between pinning and starring for a GitHub Repo? `Pinning is for public display on your profile, starring is for private tracking of repositories you find interesting.`
 - [x] What is the easiest way to add automation to your Project? `Built-in Automation`
 - [x] What is the first step in ensuring secure software development in an enterprise? `Configuring authentication using tools available with the identity provider (IdP).`
@@ -448,7 +448,7 @@
 - [x] What is the primary purpose of GitHub Projects? `To offer a project management tool that organizes tasks, issues, and pull requests.`
 - [x] What is the primary purpose of milestones in GitHub? `To track progress on groups of issues or pull requests.`
 - [x] What is the primary purpose of the 'Insights' tab in a GitHub repository? `To show statistics and metrics about the repository's usage, such as traffic, contributions, and code frequency.`
-- [x] What is the primary purpose of the 'Insights' tab in a GitHub repository? `To show statistics and metrics about the repository's usage, such as traffic, contributions, and code frequency.` 
+- [x] What is the primary purpose of the 'Insights' tab in a GitHub repository? `To show statistics and metrics about the repository's usage, such as traffic, contributions, and code frequency.`
 - [x] What is the primary purpose of the "https://github.com/watching" page on GitHub? `To manage and configure notification settings for repositories a user is watching.`
 - [x] What is the primary purpose of the github.dev editor? `It provides a lightweight, web-based editor for quick edits and previews of code in your repository.`
 - [x] What is the primary purpose of the github.dev editor? `It provides a lightweight, web-based editor for quick edits and previews of code in your repository.`
@@ -591,7 +591,7 @@
 - [x] Which of the following accurately describes the different statuses of a pull request? `Closed,Draft, Merged`
 - [x] Which of the following accurately describes the events that can trigger workflows in GitHub Actions? `Workflows can be triggered by specific activity on GitHub, scheduled times, or events from external sources`.
 - [x] Which of the following actions can you perform with GitHub Pages? `Host a static website directly from a repository. AND Customize the site's appearance using themes.`
-- [x] Which of the following are actual push notifications that you can receive from GitHub Mobile? `Direct Mentions, 
+- [x] Which of the following are actual push notifications that you can receive from GitHub Mobile? `Direct Mentions,
 - [x] Which of the following are actual push notifications that you can receive from GitHub Mobile? `Direct Mentions, Review Requested abd Pull Request Review`
 - [x] Which of the following are advantages of saved replies? `Saved replies allow you to create a reusable response to issues and pull requests.`
 - [x] Which of the following are attributes that can be defined in a GitHub Actions workflow file? `steps AND on AND jobs`
@@ -903,7 +903,7 @@
 - [x] Peter is a developer who wants to explore the forks of a repository on GitHub to find active and popular forks. Which page should Peter visit to view the forks of a repository and filter them based on various criteria? `Forks page`
 - [x] Peter is a project manager for a startup company looking for software solutions that offer flexibility, customization, and cost savings. Which advantage of open source software would be most appealing to Peter's requirements? `No vendor lock-in`
 - [x] Peter is a software developer who wants to acknowledge the community members who have contributed to his project's Python dependencies. Where can Peter find a list of people who have contributed to his project's Python dependencies on GitHub? `By visiting https://github.com/REPO-OWNER/REPO-NAME/graphs/contributors.`
-- [x] Peter is experiencing issues opening github.dev. `Which of the following steps should he try first to troubleshoot the problem? Disable any ad blockers`. 
+- [x] Peter is experiencing issues opening github.dev. `Which of the following steps should he try first to troubleshoot the problem? Disable any ad blockers`.
 - [x] Peter is managing a large repository on GitHub, and he's noticed that the CODEOWNERS file size is exceeding the limit. What approach should Peter take to address this issue effectively? `Peter should use wildcard patterns to consolidate multiple entries into a single entry in the CODEOWNERS file`.
 - [x] Peter is reviewing a pull request for a project on GitHub. He notices a section of code in one of the files that he has a question about. Which of the following actions can Peter take to address his question? `Peter can comment on specific files or sections of a file in the pull request's Files changed tab`.
 - [x] Peter is searching for issues created before March 2024 in the "family-guy" project owned by QuizExperts. Which search query should he use? `repo:quiz-experts/family-guy created:<2024-03-01 type:issue`
@@ -931,7 +931,7 @@
 - [x] The difference between GitHub Desktop and github.com is that Desktop? `is a standalone software application.`
 - [x] The involves qualifier is a logical OR between the author, assignee, mentions, and commenter qualifiers for a single user.`True`
 - [x] Tom Tucker wants to create a template repository for his project to ensure that future repositories have the same directory structure, branches, and files. Which of the following statements is true regarding creating a template repository on GitHub? `Branches created from a template repository have unrelated histories, so you cannot create pull requests or merge between them`.
-- [x] Tricia Takanawa wants to stay updated on the activity in a specific repository on GitHub. `What action should she take? Watch the repository`. 
+- [x] Tricia Takanawa wants to stay updated on the activity in a specific repository on GitHub. `What action should she take? Watch the repository`.
 - [x] Under what conditions can a workflow use a reusable workflow? `If the called workflow is stored in a public repository or a private repository with appropriate access settings`.
 - [x] What action will pin a discussion to the top of the discussions page in a GitHub repository? `Using the "Pin discussion" option`
 - [x] What action will pin an issue to the top of the issues page on a GitHub repository? `Using the "Pin issue" option`
@@ -1050,7 +1050,7 @@
 - [x] What happens if a GitHub Pages deployment takes longer than 10 minutes? `The deployment fails.`
 - [x] What happens if a poll is edited after some votes have been cast? `The votes are reset, and users need to vote again.`
 - [x] What happens if a workflow tries to use a reusable workflow from a repository that has changed its name? `The workflow will fail because redirects are not supported.`
-- [x] What happens if Lois places the README file in the root directory of her repository and also in the .github directory? `Only the README file in the .github directory will be shown`. 
+- [x] What happens if Lois places the README file in the root directory of her repository and also in the .github directory? `Only the README file in the .github directory will be shown`.
 - [x] What happens if someone discovers the URL of a secret gist on GitHub? `They can view the gist regardless of the author's permissions`.
 - [x] What happens if you delete a branch after its pull request has been merged into the main branch? `GitHub automatically updates pull requests targeting the deleted branch.`
 - [x] What happens regarding code owner review when a pull request is marked as a draft? `Code owners are not automatically requested to review the draft pull request`.
@@ -1073,7 +1073,7 @@
 - [x] What is a function you can execute on GitHub Mobile? `Manage, triage, and clear notifications from github.com`.
 - [x] What is a gist? `git repository`
 - [x] What is a Github Project Template? `It's a pre-built layout for organizing and managing tasks in a GitHub Project`
-- [x] What is a Github Project Template? `It's a pre-built layout for organizing and managing tasks in a GitHub Project` 
+- [x] What is a Github Project Template? `It's a pre-built layout for organizing and managing tasks in a GitHub Project`
 - [x] What is a job in the context of GitHub Actions? `A set of steps that are executed sequentially`.
 - [x] What is a key characteristic of draft pull requests in GitHub? `They cannot be merged until they are converted to regular pull requests.`
 - [x] What is a key feature available in GitHub Enterprise but not in GitHub Team? `GitHub Enterprise Support`
@@ -1088,7 +1088,7 @@
 - [x] What is GitHub primarily used for? `Collaborating on work`.
 - [x] What is GitHub Sponsors? `A program that financially supports open source contributors`
 - [x] What is GitHub? `a cloud-based hosting service for version control and collaboration, focused on creating a safe and collaborative environment for developers`
-- [x] What is GitHub? `A web-based platform for hosting Git repositories`. 
+- [x] What is GitHub? `A web-based platform for hosting Git repositories`.
 - [x] What is InnerSource? `A strategy that applies open source practices to proprietary code to enhance collaboration.`
 - [x] What is InnerSource? `Sharing of source code within the organization`.
 - [x] What is Markdown in GitHub? `A lightweight markup language`.
@@ -1110,7 +1110,7 @@
 - [x] What is the difference between GitHub Projects and GitHub Projects Classic? `GitHub Projects use a board layout while Projects Classic uses a list layout`
 - [x] What is the difference between GitHub Projects and GitHub Projects Classic? `GitHub Projects use a board layout while Projects Classic uses a list layout`
 - [x] What is the difference between InnerSource vs OpenSource? `OpenSource involves building open software within a closed team while InnerSource involves using open source practices within an organizations`
-- [x] What is the difference between InnerSource vs OpenSource? `OpenSource involves building open software within a closed team while InnerSource involves using open source practices within an organizations` 
+- [x] What is the difference between InnerSource vs OpenSource? `OpenSource involves building open software within a closed team while InnerSource involves using open source practices within an organizations`
 - [x] What is the difference between pinning and starring for a GitHub Repo? `Pinning is for public display on your profile, starring is for private tracking of repositories you find interesting.`
 - [x] What is the easiest way to add automation to your Project? `Built-in Automation`
 - [x] What is the first step in ensuring secure software development in an enterprise? `Configuring authentication using tools available with the identity provider (IdP).`
@@ -1160,7 +1160,7 @@
 - [x] What is the primary purpose of GitHub Projects? `To offer a project management tool that organizes tasks, issues, and pull requests.`
 - [x] What is the primary purpose of milestones in GitHub? `To track progress on groups of issues or pull requests.`
 - [x] What is the primary purpose of the 'Insights' tab in a GitHub repository? `To show statistics and metrics about the repository's usage, such as traffic, contributions, and code frequency.`
-- [x] What is the primary purpose of the 'Insights' tab in a GitHub repository? `To show statistics and metrics about the repository's usage, such as traffic, contributions, and code frequency.` 
+- [x] What is the primary purpose of the 'Insights' tab in a GitHub repository? `To show statistics and metrics about the repository's usage, such as traffic, contributions, and code frequency.`
 - [x] What is the primary purpose of the "https://github.com/watching" page on GitHub? `To manage and configure notification settings for repositories a user is watching.`
 - [x] What is the primary purpose of the github.dev editor? `It provides a lightweight, web-based editor for quick edits and previews of code in your repository.`
 - [x] What is the primary purpose of the github.dev editor? `It provides a lightweight, web-based editor for quick edits and previews of code in your repository.`
@@ -1303,7 +1303,7 @@
 - [x] Which of the following accurately describes the different statuses of a pull request? `Closed,Draft, Merged`
 - [x] Which of the following accurately describes the events that can trigger workflows in GitHub Actions? `Workflows can be triggered by specific activity on GitHub, scheduled times, or events from external sources`.
 - [x] Which of the following actions can you perform with GitHub Pages? `Host a static website directly from a repository. AND Customize the site's appearance using themes.`
-- [x] Which of the following are actual push notifications that you can receive from GitHub Mobile? `Direct Mentions, 
+- [x] Which of the following are actual push notifications that you can receive from GitHub Mobile? `Direct Mentions,
 - [x] Which of the following are actual push notifications that you can receive from GitHub Mobile? `Direct Mentions, Review Requested abd Pull Request Review`
 - [x] Which of the following are advantages of saved replies? `Saved replies allow you to create a reusable response to issues and pull requests.`
 - [x] Which of the following are attributes that can be defined in a GitHub Actions workflow file? `steps AND on AND jobs`

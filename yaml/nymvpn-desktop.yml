@@ -43,7 +43,7 @@ jobs:
             libnftnl-dev \
             protobuf-compiler \
             zip \
-      - name: install cargo dependencies 
+      - name: install cargo dependencies
         continue-on-error: true
         run: |
             cargo install cargo-deb
@@ -89,7 +89,7 @@ jobs:
           security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
           security import certificate.p12 -P "$APPLE_CERTIFICATE_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
           security list-keychain -d user -s $KEYCHAIN_PATH
-      - name: build macos pkg 
+      - name: build macos pkg
         if: matrix.platform == 'macos-latest'
         run: cargo make pkg
         working-directory: .${{ env.working-directory }}

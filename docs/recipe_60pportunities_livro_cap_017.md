@@ -14,7 +14,7 @@
                - [x] NÃO FIZ e NÃO CONHEÇO;
         ## Onde esta(áva)mos desperdiçando tempo, falhando nos Prazos ou Bloqueados?
          - [x] William Thomson: "Aquilo que não se pode medir, não se pode melhorar."
-         - [x] Será que? 
+         - [x] Será que?
              - [x] Ausência de Engajamento?
              - [x] WIP desbalanceado?
              - [x] Débito Técnico?
@@ -22,9 +22,9 @@
              - [x] Trabalho Remoto?
          - [x] O conceito de Projeto esta alinhado?
              - [x] O gerenciamento de recurso compartilhado - O QUE RECEBÍAMOS PARA DAR UM PRAZO?
-         - [x] Histórico: 
+         - [x] Histórico:
              - [x] Incidente (Supravizio, OTRS, Outlook, GERENCIA, e TEAMS);
-             - [x] Demanda   (Supravizio, OTRS, Outlook, GERENCIA, TEAMS, PDTIC (PEOPLE ANALYTICS, OPERADOR  LOGISTICO, PROVISÃO E REVERSÃO) E ÁREAS INTERNAS (COBAN, BOTs, OLAP/DATA LAKES). 
+             - [x] Demanda   (Supravizio, OTRS, Outlook, GERENCIA, TEAMS, PDTIC (PEOPLE ANALYTICS, OPERADOR  LOGISTICO, PROVISÃO E REVERSÃO) E ÁREAS INTERNAS (COBAN, BOTs, OLAP/DATA LAKES).
          - [x] Ausência de Planejamento
              - [x] Ferramentas - Supravizio, OTRS, Gitlab, Azure-Devops, TEAMS, Outlook e ÁREAS INTERNAS (COBAN, BOTs, OLAP/DATA LAKES).
              - [x] Recursos em outros projetos e NÃO estão sendo vistos?
@@ -32,24 +32,24 @@
         - [x] MÉTRICAS DE FLUXO - KANBAN
              - [x] Quais metas e métricas a utilizar? Fluxo, Codificação,  Qualidade e/ou Produção ?
            - [x] Peças unificadas do NOC/SOC/Central de Incidentes a Equipe de Sustentação.
-    
+
            ![](img/auditoria_002.png)
-         
+
         - [x] Scrum
            - [x] Iterativo e Incremental(Definição de Papéis, Cerimônias e Artefato)
            - [x] Resumimos o Scrum, fizemos um framework CESUC, Treinamento e foco.
            - [x] Sprints com 2(duas) semanas;
            - [x] Nenhuma alteração seria realizada, para colocar risco na meta da Sprint;
-         
+
            ![](img/auditoria_001.png)
-         
+
          | Dica 1                                      | Motivo                                            |
          | ------                                      | --------                                          |
          | Integração inadequada de novos membros      | Sem o devido treinamento ou clareza sobre processos,     ferramentas ou expectativas                   |
-         | Falta de documentação ou processos claros   | Não tem uma boa documentação ou processos definidos     para a integração de novos colaboradores. | 
+         | Falta de documentação ou processos claros   | Não tem uma boa documentação ou processos definidos     para a integração de novos colaboradores. |
          | Falta de acompanhamento e feedback contínuo | Feedback adequado ou acompanhamento no início da   jornada. |
          | Nenhum experiência para manter o legado     | Inexistencia de conhecimento.                    |
-    
+
         !!! pied-piper "Modelo Pensado"
 
             === "Principal"
@@ -59,31 +59,31 @@
                  ![](img/02_DesenvolverRequisitos.png)
 
             === "Desenvolver Tarefas"
-                 ![alt text](img/03_DesenvolverTarefas.png) 
+                 ![alt text](img/03_DesenvolverTarefas.png)
 
             === "Identificar Projetos"
                  ![alt text](img/04_IdentificarProjeto.png)
 
             === "Desenvolver Solução"
-                 ![alt text](img/05_DesenvolverSolucao.png) 
+                 ![alt text](img/05_DesenvolverSolucao.png)
 
             === "Implementar Solução"
-                 ![alt text](img/06_ImplementarSolucao.png) 
+                 ![alt text](img/06_ImplementarSolucao.png)
 
             === "Planejar Deploy"
-                 ![alt text](img/07_PlanejarSubida.png) 
+                 ![alt text](img/07_PlanejarSubida.png)
 
             === "Estratégia de Branch"
                  ![alt text](img/08_Branch_Developer.jpg)
 
     === "Origem"
- 
+
          <p align="justify">A Equipe do XXXXXX, passou a adotar o Supravizio como ferramenta  - ITSM e   DEMANDAS, tendo para cada tipo de TICKET, um fluxo diferenciado. Os fluxos na maioria das vezes, estavam desassociados do processo de desenvolvimento de software.</p>
-         
+
          ![](img/projeto-inicial-rj.png){width="600" height="350" style="display: block; margin: 0 auto"}
-         
+
           **Observação**: O processo de diferimento de software é uma estratégia frequentemente adotada por  equipes de desenvolvimento para adiar ou postergar a implementação de certas funcionalidades   ou melhorias em        software. Este processo pode ser aplicado tanto em projetos de longo prazo   quanto em demandas expressas        (geralmente solicitadas por clientes ou usuários internos de   forma mais imediata).
-         
+
          As Equipes de Desenvolvimento, NÃO acolheram o modelo apresentado em 2014. Cada Equipe desenvolveu o seu próprio processo e a utilizaram de inúmeras ferramentas:
 
          - [x] **Projetos**: [Redmine](https://www.redmine.org/)
@@ -94,20 +94,20 @@
 
         ## Controle de Processo GitHub
          <p align="justify">A estrutura de Organização no GitHub é menos hierárquica, mas permite   gerenciar        múltiplos repositórios com configurações e permissões centralizadas:</p>
-         
+
          - [x] **Organização**: É uma conta compartilhada que permite gerenciar repositórios e permissões em   um        único lugar.
          - [x] **Repositórios**: Representam os projetos de código dentro da organização, podendo ser   atribuídos a        uma ou mais equipes, cada uma com suas permissões.
-         
+
          ![](img/github-projeto.png){width="225" height="125" style="display: block; margin: 0 auto"}
-         
+
         ## Controle de Processo [GitLab](https://scm.bbts.com.br/users/sign_in)
          <p align="justify">A estrutura de Grupos e Subgrupos no GitLab é hierárquica e organiza os projetos   de        forma aninhada:</p>
          - [x] **Grupo**: É o nível mais alto da hierarquia. Agrupa projetos relacionados e permite   gerenciar        permissões e configurações compartilhadas entre eles.
          - [x] **Subgrupos**: São grupos dentro de um grupo principal. Servem para organizar melhor   projetos        complexos, dividindo-os por áreas, equipes ou módulos específicos.
          - [x] **Projetos**: Ficam dentro dos grupos ou subgrupos. Representam o repositório de código e   incluem        todas as ferramentas de desenvolvimento, como issues, merge requests e CI/CD   pipelines.
-         
+
          ![](img/gitlab-projeto.png){width="225" height="125" style="display: block; margin: 0 auto"}
-         
+
          <p align="justify">É um gerenciador de repositório de software baseado em git, com suporte a Wiki, gerenciamento de tarefas e CI/CD. Similar ao GitHub, mas o GitLab permite que os desenvolvedores armazenem o código em seus próprios servidores, ao invés da nuvem.</p>
 
         ### Constatação
@@ -115,7 +115,7 @@
          - [x] Nenhuma norma de Dados, estavam sendo seguidas;
          - [x] Não havia uniformização das áreas;
          - [x] Documentos, Códigos espalhados.
-       
+
         ![](img/o-tempo-001.jpg){width="900" height="500" style="display: block; margin: 0 auto"}
 
         ## Togaf/IT4IT
@@ -134,17 +134,17 @@
          | *Adesão a Ferramentas*    | Independente de ferramentas específicas, permitindo maior flexibilidade.  | Promove o uso de ferramentas integradas para automação e rastreamento. |
          | *Alinhamento com Padrões* | Baseado em padrões amplamente aceitos para arquitetura corporativa.        | Baseado na IT Value Chain e no IT Operating Model.            |
          | *Cenários Ideais de Uso*  | - Transformação digital.<br>- Integração de negócios e TI.<br>- Estruturação de arquiteturas complexas. | - Operações de TI orientadas à eficiência.<br>- Melhorias contínuas no ciclo de vida de serviços de TI.<br>- Integração de ferramentas DevOps e ITSM. |
-        
+
         ## Migração para Azure-Devops
          <p align="justify">A migração do GitLab para o Azure DevOps foi uma decisão estratégica tomada com  base em diversos fatores que visam melhorar a eficiência, integração e escalabilidade dos   nossos processos de  desenvolvimento.</p>
-        
+
         ### Integração e Ecossistema Microsoft
          <p align="justify">O Azure DevOps oferece uma integração nativa com outras ferramentas do   ecossistema        Microsoft, como o Teams, Power BI e Office 365.</p>
          ![](img/time-scrum-trabalho.png){width="370" height="320" style="display: block; margin: 0 auto"}
-        
+
         ### Segurança e Governança
          <p align="justify">O Azure DevOps possui fortes controles de segurança e governança, incluindo   autenticação        multifatorial (MFA), integrações com Azure Active Directory (AAD), e opções   avançadas de controle de        permissões.</p>
-        
+
         ### Custo
          <p align="justify">Embora o GitLab ofereça uma solução de código aberto com boas funcionalidades, o Azure DevOps se destaca pois toda a instituição já estava usando esta ferramenta.</p>
         ### Gerenciamento de Projetos e Work Items
@@ -153,10 +153,10 @@
          |                                         |                                  |
          |                                         |                                  |
          | ![](img/alm_pt_scrum_wit_artifacts.png) | ![](img/alm-pt-scrum-wf-pbi.png) |
-         
+
         ## Problemas a serem enfrentados
          - [x] Não tínhamos **conhecimento** no Azure-Devops;
-         - [x] Temos **Product Manager, Owner ou Usuário Chave**? 
+         - [x] Temos **Product Manager, Owner ou Usuário Chave**?
          - [x] Não **sabíamos como efetuar alteração e adicionar campos** que eram necessários para atender a unificação das Demandas (Projetos, Demanda Expressa e Bugs);
          - [x] O que seriam **épicos e features**, no conceita da Empresa?
          - [x] Tínhamos a cultura, ou seria, melhor começar de **PBI, Bug, Task, Spike**?
@@ -171,17 +171,17 @@
          - [x] Framework DevEx como estabelecer um método que se concentra na satisfação dos desenvolvedores  em  relação ao seu trabalho?
          - [x] Framework Space como criar um espaço centralizado onde times podem colaborar, acessar recursos e compartilhar conhecimento?
          - [x] InnerSource como quebrar silos internos e permitir que diferentes equipes colaborem em   projetos internos como fariam em um ambiente open source?
-         
+
         ## Qual era o foco?
 
         [![](https://mermaid.ink/img/pako:eNplks2O2jAQgF9l5ENlJCiwR1StShJ-dllVdGFVqcplSAaS4sSRf7RFiIepeugD9BF4sTreBC3Uhyj2fPPZY8-RJTIlNmJbIV-TDJWBp-e4BDfGA76M1g9hB6DXg6WSP8hI7f57vXsIPh9BZ1jRCFKZ6C4I3JAYQcy-5QZKWfOpNTJmp8Y25KuDHudpp7YFdqf7ERUfJz8rRVojtN43OoDL8KtDHsnEFlQaTFB2_oM8FfJAYZlkTTi8iQ75lNBYRdBg8AHCO-6OAtd5Qx9o8yIeZpTspTUQuqtqoOhaPuFr0obgpczN-ZfK2yNOrrEprxXw1aLIzaFhptfMjD-TINSk-4HNRdpQs2tq7jeEtZRCf-pv1P1UYUGvUu0bfn7Du8cktZWqcJVSXfrc3Ska3Lid_PSOj5cPUFtbw8BTPuY-wdCLHvk4odyVmkp40fZ9sY9w8yALHlEl5AEqVOhP6buifkEnXAz4jBSe_5x_u3aRyuTb819xsS088s72xL9Ix-TJW4r3rQzuaS5FSkrXeXHJuqwgV2WeuqY-1qqYmYwKilndnSlt0QoTs7g8ORRdi64OZcJGRlnqMiXtLmOjLQrtZrZK0VCU485d7mW1wvK7lO389A9jEexr?type=png)](https://mermaid.live/edit#pako:eNplks2O2jAQgF9l5ENlJCiwR1StShJ-dllVdGFVqcplSAaS4sSRf7RFiIepeugD9BF4sTreBC3Uhyj2fPPZY8-RJTIlNmJbIV-TDJWBp-e4BDfGA76M1g9hB6DXg6WSP8hI7f57vXsIPh9BZ1jRCFKZ6C4I3JAYQcy-5QZKWfOpNTJmp8Y25KuDHudpp7YFdqf7ERUfJz8rRVojtN43OoDL8KtDHsnEFlQaTFB2_oM8FfJAYZlkTTi8iQ75lNBYRdBg8AHCO-6OAtd5Qx9o8yIeZpTspTUQuqtqoOhaPuFr0obgpczN-ZfK2yNOrrEprxXw1aLIzaFhptfMjD-TINSk-4HNRdpQs2tq7jeEtZRCf-pv1P1UYUGvUu0bfn7Du8cktZWqcJVSXfrc3Ska3Lid_PSOj5cPUFtbw8BTPuY-wdCLHvk4odyVmkp40fZ9sY9w8yALHlEl5AEqVOhP6buifkEnXAz4jBSe_5x_u3aRyuTb819xsS088s72xL9Ix-TJW4r3rQzuaS5FSkrXeXHJuqwgV2WeuqY-1qqYmYwKilndnSlt0QoTs7g8ORRdi64OZcJGRlnqMiXtLmOjLQrtZrZK0VCU485d7mW1wvK7lO389A9jEexr)
 
     === "Mudando"
- 
+
          - [x] Havíamos **automatizado a criação de Projetos no GitLab e voltávamos para o Manual** no Azure-Devops;
          - [x] **Gestão de Recursos**: Como alocar as pessoas certas nas atividades certas? Como efetuar a distribuição equilibrada de tarefas?
          - [x] **Monitoramento de Progresso**: Como controlar a relação ao cronograma e ao orçamento? Como detectar atrasos ou problemas antes que se tornem críticos?
-         - [x] **Cálculo de Custos**: Como calcular os custos de mão de obra baseados no tempo efetivamente dedicado a cada atividade ou fase do projeto? 
+         - [x] **Cálculo de Custos**: Como calcular os custos de mão de obra baseados no tempo efetivamente dedicado a cada atividade ou fase do projeto?
          - [x] **Cumprimento de Prazos**: Como o controle de atividades poderá  auxiliar no cumprimento de marcos, reduzindo o risco de atrasos?
          - [x] **Identificação de Gargalos e Melhorias**: Como identificar atividades que consomem mais tempo do que o planejado?
          - [x] Como poderíamos controlar as horas em um determinado **PROJETO**?
@@ -201,13 +201,13 @@
          - [x] O que fazer quando um projeto de software essencial está atrasado?
                - [x] Reserve tempo suficiente no novo cronograma para garantir que o trabalho possa ser feito de          formacuidadosa e completa e que a reprogramação não precise ser feita novamente.
          - [x] Mudança de Percepção
-               - [x] Qual a intenção? 
+               - [x] Qual a intenção?
                - [x] Qual o design?
                - [x] Qual o código?
          - [x] Desorganização <> Bagunça
                - [x] Qual é a diferença entre desorganização e bagunça?
-               - [x] A desorganização é quando você não tem um lugar define para as coisas. 
-               - [x] A bagunça é quando você tem o lugar mas não coloca. 
+               - [x] A desorganização é quando você não tem um lugar define para as coisas.
+               - [x] A bagunça é quando você tem o lugar mas não coloca.
          - [x] Eficiência vs Eficácia
                - [x] Eficiência é fazer certas coisas;
                - [x] Eficácia é fazer as coisas certas;
@@ -224,7 +224,7 @@
          <p align="justify">Refere-se a eficiência e eficácia com que time consegue entregar software de qualidade, atingindo os requisitos e prazos, utilizando de forma eficaz os recursos disponíveis, como tempo, ferramentas, tecnologias e conhecimento,  estando relacionada à capacidade de produzir código de alta qualidade e entregar funcionalidades ou produtos de software de forma rápida e eficiente, minimizando desperdícios.</p>
 
          - [x] Onde estão os grandes ladrões de ineficiência?
-         - [x] Onde o processo parou? 
+         - [x] Onde o processo parou?
                - [x] Parou em requisitos?
                - [x] Parou em codificação?
                - [x] Parou em Teste de Aceitação?
@@ -244,7 +244,7 @@
                - [x] Comunicação franca entre equipe de arquitetura e equipe de construção, sem influenciar a clara divisão de tarefas.
          - [x] Se esta pronto, porque esperar até o final da SPRINT? Usar Feature Toggle ou Flag.
                - [x] Deploy é o processo técnico de colocar ou instalar uma versão do software em um ambiente específico, como servidores de produção ou de staging, para que ele esteja disponível para execução.
-               - [x] Release refere-se ao processo de tornar o software disponível para os usuários. 
+               - [x] Release refere-se ao processo de tornar o software disponível para os usuários.
          - [x] Quais as pessoas de gargalo no Time de Desenvolvimento?
                - [x] O que dependente dele.
                - [x] Só ele conhece.
@@ -263,7 +263,7 @@
 
     === "Ciclo de Vida"
          <p align="justify">Tudo o que faz parte do ciclo de vida do aplicativo deve ser verificado no controle de versão.Isso inclui, mas não está limitado a:</p>
-    
+
          - [x] Código-fonte;
          - [x] Scripts de construção;
          - [x] Definição de pipeline;
@@ -274,8 +274,8 @@
          - [x] Scripts de definição de infraestrutura;
          - [x] Scripts de limpeza/instalação/expurgo;
          - [x] Documentação associada;
-         - [x] Requisitos Não Funcionais(cross) 
-     
+         - [x] Requisitos Não Funcionais(cross)
+
          | Sq  |  Melhores práticas | Categoria | Importância |
          | ----: | :----            | :-----:   | :----:      |
          |  1  | Todos os ativos do projeto estão no controle de versão | Artefatos | Crítico |
@@ -360,19 +360,19 @@
         - [x] Testes de Documentação;
         - [x] Colaboração e Controle de Qualidade;
         - [x] Escalabilidade e Manutenção (Tudo em ÚNICO ponto, mas mantendo a INDEPENDÊNCIA).
-  
+
     === "Banco de Dados"
-   
+
         <p align="justify">Padronizar System Identifier, ServiceName, DBName e DB Unique Name é crucial paragarantir consistência, facilidade de gerenciamento e integração entre sistemas em ambientes corporativos.A padronização desses elementos facilita a automação de processos, como backup, recuperação emonitoramento, minimizando erros humanos e garantindo que os serviços de banco de dados sejam acessíveisde maneira uniforme. A uniformidade também contribui para uma gestão mais eficiente, especialmente em ambientes complexos e de grande escala.</p>
 
         ![](img/60pportunities-oracle-sid.png){width="900" height="600" style="display: block; margin: 0 auto"}
-    
+
     === "IaM/IdM"
 
-        <p align="justify">O Keycloak é uma plataforma de gerenciamento de identidades e acesso (IAM) que ofereceautenticação e autorização centralizadas. Com a utilização de três Realms, é possível separar e gerenciardiferentes domínios de usuários de forma isolada.</p> 
+        <p align="justify">O Keycloak é uma plataforma de gerenciamento de identidades e acesso (IAM) que ofereceautenticação e autorização centralizadas. Com a utilização de três Realms, é possível separar e gerenciardiferentes domínios de usuários de forma isolada.</p>
         <p align="justify">O Realm Administrativo é utilizado para gerenciar a infraestrutura do Keycloak e controlar permissões deadmin. O Realm B2B serve para gerenciar acesso de usuários externos, como parceiros e clientes, comdiferentes requisitos de segurança.</p>
         <p align="justify">Já o Realm de Aplicações Internas gerencia os acessos dos usuários internos, proporcionando controlesobre sistemas corporativos e garantindo a segurança das interações internas.</p>
-        
+
         ![](img/60pportunities-realm.png){width="900" height="600" style="display: block; margin: 0 auto"}
 
     === "CQRS"
@@ -382,8 +382,8 @@
 
     === "SAGA"
 
-        <p align="justify">É uma abordagem para gerenciar transações distribuídas em arquiteturas de Microserviços, garantindoconsistência sem a necessidade de um banco de dados centralizado.</p> 
-        Existem duas abordagens principais: **Coreografia**, onde os microserviços se comunicam diretamente entresi, e **Orquestração**, onde um serviço central coordena as transações. 
+        <p align="justify">É uma abordagem para gerenciar transações distribuídas em arquiteturas de Microserviços, garantindoconsistência sem a necessidade de um banco de dados centralizado.</p>
+        Existem duas abordagens principais: **Coreografia**, onde os microserviços se comunicam diretamente entresi, e **Orquestração**, onde um serviço central coordena as transações.
         É essencial para a escalabilidade e a resiliência de sistemas baseados em microserviços, mantendo aconsistência eventual sem comprometer o desempenho.
 
         ![](img/60pportunities-sagga.png){width="900" height="600" style="display: block; margin: 0 auto"}
@@ -399,7 +399,7 @@
 
 
     === "Produto"
- 
+
          <p align="justify">O Ciclo do software, começa com a ideia, onde identificam-se necessidades ou problemasque o software irá resolver, levando à definição dos requisitos iniciais. Em seguida, entra-se na fase dedesenvolvimento, que envolve o design, programação, testes e implementação do software, garantindo queele atenda aos requisitos definidos. Após a implementação, o software passa pela manutenção, onde são feitas correções, atualizações e melhorias.</p>
          <p align="justify">Com o tempo, o software pode se tornar obsoleto devido anovas tecnologias ou mudanças nas necessidades de mercado, levando à sua descontinuação. Durante todo ociclo, é importante realizar revisões contínuas para garantir que o software permaneça relevante e eficazaté seu fim.</p>
          <p align="justify">Tudo começa com ideias,necessidades ou hipóteses. Em um fluxo de valor não há requisitos, apenas ideiasnecessidades ou hipóteses e quais serão os resultados.</p>
@@ -415,7 +415,7 @@
          - [x] Dorothy Sayers, em seu excelente livro, **A mente do criador (The Mind of the Maker)**, divide a atividade criativa em três estágios: a ideia, a implementação e a interação.
 
     === "Azure-Devops"
-        
+
         <p align="justify">Para estruturar ideias em um projeto no Azure DevOps sem uma **SQUAD**, mas com pessoas alocadas adiversos times de desenvolvimento, é essencial criar um planejamento flexível e organizado. Entendeu-seque a URL base para acessar os recursos de um Azure DevOps Organization e seus projects na plataforma.</p>
 
         - [x] https://devops.azure.com/: Esta é a URL base para acessar os serviços de DevOps na nuvem daMicrosoft. Todos os recursos relacionados ao Azure DevOps estão acessíveis por meio dessa URL.
@@ -441,17 +441,17 @@
         <p align="justify">O problema não está na eficiência do time e sim na eficácia das suas entregas, ou seja, entregar algo de valor e impacto para o cliente, dessa forma, ele utiliza o produto e só então consegue dar feedback sobre o quão próximo ou distante estamos de resolver seus problemas.</p>
 
         Meça o progresso com base no valor entregue:
- 
+
         - [x] Sucesso não é marcar uma caixinha;
         - [x] Sucesso é ter impacto;
- 
+
         Se você completa todas as tarefas e nada melhora, isso não é sucesso.
 
         ## Time multidisciplinar
         <p align="justify">Com o tempo, deixamos de ter profissionais do tipo Especialistas em parte, passamos a ter Profissionais do Tipo Especialistas-Generalistas e podemos até ter profissionais do Tipo Especialista em várias áreas do Produto.</p>
 
         ![](img/estrutura-azure-devops.png){width="700" height="500" style="display: block; margin: 0 auto" }
-         
+
         ## Produto no Azure-DevOps
         <p align="justify">Um PRODUTO é local para os usuários planejarem, acompanharem o progresso e colaborarem na criação de soluções de software. Um PRODUTO representa um contêiner fundamental em que você pode armazenar dados e código-fonte.</p>
         <p align="justify">Um PRODUTO terá pelo menos DOIS times/equipes BASE, um sendo SUSTENTAÇÃO e pelo menos UM TIME para a realização de NOVAS FEATURES e/ou PROJETOS controlados na BBTS.</p>
@@ -463,14 +463,14 @@
 
          - [x] Equipe **SUSTENTAÇÃO** : As Sprints serão MENSAIS, lançamentos de horas;
          - [x] Equipe **PROJETO**     : As Sprints serão de 2(duas) semanas.
-        
+
         ## Diferença de Modelos
-        
+
         - [x] [Waterfall](https://agile.pub/assuntos-diversos/a-grande-mentira-do-waterfall/)
         - [x] [Ágeis](https://www.lumis.com.br/a-lumis/blog/metodos-ageis.htm#:~:text=uma%20cultura%20ágil.-,O%20que%20são%20métodos%20ágeis%3F,e%20os%20planejamentos%20serem%20revistos.)
         - [x] [#NoProjects](https://noprojects.org) e [A Culture of Continuous Value](https://www.infoq.com/minibooks/noprojects-value-culture/)
         - [x] [IT4IT](https://pubs.opengroup.org/it4it/3.0/standard/)
-       
+
         ## Criação de Projetos
          Desenvolvido duas scripts para a uniformização dos projetos,  que seguem a estrutura:
 
@@ -520,60 +520,60 @@
          Identifica os commits realizados a partir de uma determinada data e os arquivos alterados.
          - Follow de Code.
         ```
-         
+
         ## Uma Lista De Parar De Fazer E Começar A Fazer Para Liderança
-         
+
          | Fazendo agora/Por favor pare  | Não estou fazendo agora/por favor comece |
          | -----                         | -----                                    |
          | Mudando as prioridades dentro de um sprint  | Não mude as prioridades: proteja as equipes para quepossam          se concentrar. Aprenda e apoie as regras do scrum |
          | Substituindo as prioridades que o proprietário do negócio definiu para a equipe     | Colabore com          onegócio |
          | Forçar as equipes a cumprir prazos irrealistas e criar dívidas técnicas             | Definir data          ouescopo, não ambos |
          | Retirar pessoas das equipes para trabalhar em simulações de incêndio ou projetos especiais | Deixe          asequipes trabalharem em seu ritmo ideal |
-         
+
         ## Desenvolvimento
-         - [x] Primeiro, minimizar a reinvenção; 
-         - [x] Segundo , minimizar  o retrabalho; 
+         - [x] Primeiro, minimizar a reinvenção;
+         - [x] Segundo , minimizar  o retrabalho;
          - [x] Terceiro, trabalhar de forma inteligente quando necessário, em vez de trabalhar duro.
          - [x] Regra prática para agendar uma tarefa de desenvolvimento de software;
-         
+
          | Atividade      | Plano e tempo gasto |    %     | Objetivo                           |
          | -----          | -----               | -----    | ----                               |
          | Planejamento   | tempo / 3           | 0,33     | Produzir uma especificação detalhada e sólida, e nãoo          suficiente para incluir a pesquisa ou exploração de técnicas totalmente novas.         |
          | Codificação    | tempo / 6           | 0,17     |                                    |
          | Teste Inicial  | tempo / 4           | 0,25     | O nosso e não repetitível          |
-         | Teste Sistema  | tempo / 4           | 0,25     | ATDD ou UAT                        | 
-                  
+         | Teste Sistema  | tempo / 4           | 0,25     | ATDD ou UAT                        |
+
         ## Sustentação
-         
-         - [x] Porque defeitos não são corrigidos melhor? 
+
+         - [x] Porque defeitos não são corrigidos melhor?
                - [x] Primeiro, porque mesmo um defeito pequeno que parece local tem ramificações pelo sistema todo.
                - [x] Qualquer tentativa de consertar com pouco esforço vai reparar o defeito local e  óbvio, mas a          menos que a estrutura seja pura ou muito bem documentada, os efeitos  do reparo vão passar          despercebidos.
-               - [x] Segundo, porque o reparador é normalmente  alguém que não escreveu o código original e          normalmente é um junior ou trainee. … Como consequência da introdução de novos bugs,  
-               - [x] Programas de manutenção requerem mais testes de  sistemas. 
-               - [x] Teoricamente, depois de cada correção você deve rodar a suíte inteira de casos de teste,  para          garantir que o sistema não foi danificado. 
-         
+               - [x] Segundo, porque o reparador é normalmente  alguém que não escreveu o código original e          normalmente é um junior ou trainee. … Como consequência da introdução de novos bugs,
+               - [x] Programas de manutenção requerem mais testes de  sistemas.
+               - [x] Teoricamente, depois de cada correção você deve rodar a suíte inteira de casos de teste,  para          garantir que o sistema não foi danificado.
+
         ## Camada de Persistência (PL/SQL)
          Estratégia CI/CD (Integração Contínua/Entrega Contínua) para a camada de persistência utilizandoLiquibase,          será da seguinte forma.
          ![](img/60opt-sgbd_ci_cd.png){width="600" height="300" style="display: block; margin: 0 auto"}
-         
+
         ## ORDS Padronização
 
         ### Requisições síncronas e assíncronas
          Uma plataforma de microsserviço é um sistema distribuído executado em vários processos ou serviços, em          vários servidores ou hosts. Por um processo de entendimento, hoje, temos apenas um servidor para que possui          inúmeros pools de conexão.
-         
+
          Os serviços podem se comunicar por meio de diversos tipos de comunicação, cada um visando um cenário e          objetivos diferentes. Inicialmente, esses tipos de comunicações podem ser classificados em dois eixos. O          primeiro eixo define se o protocolo é síncrono ou assíncrono:
-         
+
          |  Eixo                |           Entenda                                                                                                                                                                        | Qtdade   |
          | ------------         |           ------------                                                                                                                                                                   |  ------- |
          | Síncrono   | O ponto importante aqui é que o protocolo (HTTP/HTTPS) é síncrono e o código do cliente só          pode continuar sua tarefa quando receber a resposta do servidor HTTP. |    <= 2  |
          | Assíncrono | O código do cliente ou remetente da mensagem geralmente não espera por uma resposta. Ele          apenas envia a mensagem como se estivesse enviando uma mensagem para uma fila ou qualquer outro          intermediário de mensagens. | > 2 |
-         
+
         ### Processamento Sincrono
          - [x] No processamento síncrono, uma requisição é enviada ao servidor e o cliente aguarda a resposta antes          de continuar sua execução.
          - [x] Durante o tempo de espera pela resposta do servidor, a execução do cliente fica bloqueada, o que          significa que ele não pode prosseguir com outras tarefas.
          - [x] O cliente só pode iniciar uma nova requisição após receber a resposta da requisição anterior.
          - [x] Limitado a 50 Registros de Processamento;
-         
+
         #### Diagrama de Sequencia
 
          [![](https://mermaid.ink/img/pako:eNplks1qwkAUhV_lMtuqlS5TEESlFCmKka6yuczc6GAyY-dHsOLDlC58EF-sN8bUvyyGMDnnO_dkZiekVSQS4ekrkpE01LhwWGYG-BkUmkygdq_3NKatLCyukmYTvC201AEBLTRfIZYQ7IoMKAKU5L2tSY2gfcv6JKdzLRGkI8XxGrW_M_R658DkkkKl5gEes6Da5IFCxEJ_4_Fw_LWwRodgIfp4_HHa3jcbW7O4lDpxEPrTd1g74omWZJQFaUtG3KW9nidlQF3rRKpW2HC-wkfLlYMNc1tKDGdLcGh8To6l_7_2poAnt9HHg61o88nHoD-vaTWl4k1mwzSBUU7c38GMT1R7XTO4Q3r2165KW3lGRk2tNjzF22gOz9Dp8JJe59f6Rnd9Hi_dLov7zuEWuO2NCzIjWqIkV6JWfL92FSYTYUklZSLhV0U5xiJkIjN7lmIMNt0aKZLgIrVEXCsMzXUUSY6Fp_0fg-rwTQ?type=png)](https://mermaid.live/edit#pako:eNplks1qwkAUhV_lMtuqlS5TEESlFCmKka6yuczc6GAyY-dHsOLDlC58EF-sN8bUvyyGMDnnO_dkZiekVSQS4ekrkpE01LhwWGYG-BkUmkygdq_3NKatLCyukmYTvC201AEBLTRfIZYQ7IoMKAKU5L2tSY2gfcv6JKdzLRGkI8XxGrW_M_R658DkkkKl5gEes6Da5IFCxEJ_4_Fw_LWwRodgIfp4_HHa3jcbW7O4lDpxEPrTd1g74omWZJQFaUtG3KW9nidlQF3rRKpW2HC-wkfLlYMNc1tKDGdLcGh8To6l_7_2poAnt9HHg61o88nHoD-vaTWl4k1mwzSBUU7c38GMT1R7XTO4Q3r2165KW3lGRk2tNjzF22gOz9Dp8JJe59f6Rnd9Hi_dLov7zuEWuO2NCzIjWqIkV6JWfL92FSYTYUklZSLhV0U5xiJkIjN7lmIMNt0aKZLgIrVEXCsMzXUUSY6Fp_0fg-rwTQ)
@@ -633,10 +633,10 @@
          Observação: Estabeleça um padrão para REVOGAÇÃO DO SECRET_ID.
 
     === "Mudança de Rumo"
- 
+
         <p align="justify">Explorar a mentalidade lean como um modelo mental para design e entrega de produtos que encantam os clientes, podem mudar a nossa forma de desenvolver sistemas.</p>
 
-        - [x] Qual é o propósito de um negócio? 
+        - [x] Qual é o propósito de um negócio?
         - [x] Que tipo de sistemas de trabalho são mais adequados para atingir esse propósito?
         - [x] Como criar ambientes de trabalho que energizem os colaboradores, cujas inteligências e criatividade são essenciais para criar ótimos produtos.
         - [x] Como obter a eficiência genuína no desenvolvimento de produtos significa construir o produto certo, criar um fluxo constante de novos conhecimentos e ligar os processos de design e entrega para obter feedback rápido do cliente?
@@ -646,9 +646,9 @@
         - [x] Nós queremos aqui trazer é a rapidez de se adaptar a uma situação diferente, a rapidez de se adaptar é a alma circunstância externa e interna.
 
         ### "Pense, Construa, Envie e Ajuste"
-        - [x] Cada estágio tem seu próprio propósito e a duração de cada estágio varia por projeto. 
+        - [x] Cada estágio tem seu próprio propósito e a duração de cada estágio varia por projeto.
         - [x] Precisamos entender profundamente as vidas, necessidades e valores dos clientes e projetar produtos e serviços que atendam a essas necessidades.
-        - [x] O lucro não deve ser o foco primário, mas sim a consequência de atender às necessidades dos clientes de forma eficaz. 
+        - [x] O lucro não deve ser o foco primário, mas sim a consequência de atender às necessidades dos clientes de forma eficaz.
         - [x] "Eles não estavam nisso pelas opções de ações. Eles não estavam nisso pela fama. Eles estavam nisso porque não suportavam a ideia de um mundo não ter o que eles estavam construindo. Era essa profunda orientação de missão para entregar algo que fosse útil." -  Todd Park
 
         ![](img/image-017-01.png)
@@ -663,9 +663,9 @@
         ### Enviar
         Agora podemos finalmente testar se a hipótese definida no estágio Enviar era verdadeira e melhorar iterativamente o produto conforme necessário. É quase impossível acertar na primeira tentativa, e parte da força dessa abordagem é que não precisamos fazer isso.
         ### Tweak it
-        Este é o estágio mais importante, pois é onde todos os produtos acabam — e, portanto, passam a maior parte de sua vida útil digital. Claro, o produto já se provou no estágio Ship It, mas sempre há espaço para melhorias. 
+        Este é o estágio mais importante, pois é onde todos os produtos acabam — e, portanto, passam a maior parte de sua vida útil digital. Claro, o produto já se provou no estágio Ship It, mas sempre há espaço para melhorias.
         ## Re-pense-o
-        Chegará um momento no futuro em que o produto será ótimo. A maioria das melhorias são feitas e — com base nas métricas — a relação custo/benefício do desenvolvimento de novos recursos é menos atraente. Pode ser que o produto esteja atingindo seu máximo local. 
+        Chegará um momento no futuro em que o produto será ótimo. A maioria das melhorias são feitas e — com base nas métricas — a relação custo/benefício do desenvolvimento de novos recursos é menos atraente. Pode ser que o produto esteja atingindo seu máximo local.
 
         ```mermaid
         flowchart TD
@@ -684,7 +684,7 @@
             A40 & A50                      --> A60(MVP Interno)
             A60                            --> A70(Entrega para</br>Usuários</br>Feedback)
             A70                            --> A80(Revisão Arquitetural)
-            A80                            --> A90(Revisão de</br> Domínio) & A92(Experimentação</br>RFCs) & A91(Nova</br>Jornada) 
+            A80                            --> A90(Revisão de</br> Domínio) & A92(Experimentação</br>RFCs) & A91(Nova</br>Jornada)
             A90 & A92                      --> A100(Ajustes</br>Necessários)
             A91                            --> A110(Configuração</br>Setup</br>Observabilidade)
             A100 & A110                    --> A120(Liberação Aplicação</br>Usuários Externos)
@@ -696,45 +696,46 @@
     === "Em resumo"
         [Por que 95% dos novos produtos lançados no mercado falham (e como você pode evitar que isso aconteça com você)](https://www.larazon.es/educacion/20211213/qez3zu3nyfgaborsrn44ngvvey.html)
 
-         No saco dos fracassos estão o Google Glass (depois de milhões de dólares de investimento ninguém sabe o que aconteceu com eles), a New Coke que a Coca-Cola lançou no mercado em 1985 (na verdade era uma nova fórmula na qual substituiu o açúcar comum pelo milho rico em frutose) ou o lançamento em 1982 da Colgate Kitchen Entrees (aliás, a Colgate, empresa que se dedica à venda de produtos de higiene oral, decidiu lançar a sua gama de alimentos prontos).
+        No saco dos fracassos estão o Google Glass (depois de milhões de dólares de investimento ninguém sabe o que aconteceu com eles), a New Coke que a Coca-Cola lançou no mercado em 1985 (na verdade era uma nova fórmula na qual substituiu o açúcar comum pelo milho rico em frutose) ou o lançamento em 1982 da Colgate Kitchen Entrees (aliás, a Colgate, empresa que se dedica à venda de produtos de higiene oral, decidiu lançar a sua gama de alimentos prontos).
 
-         Por esta razão, 92% das startups afundam nos primeiros 3 anos após o início.
+        Por esta razão, 92% das startups afundam nos primeiros 3 anos após o início.
 
-          “Muitas inovações falham porque introduzem produtos e/ou soluções sem que haja realmente necessidade. “Não há mercado para as soluções que eles criaram.”
+        “Muitas inovações falham porque introduzem produtos e/ou soluções sem que haja realmente necessidade. “Não há mercado para as soluções que eles criaram.”
 
-          Steve Jobs levou a Apple ao topo porque sabia o que o consumidor queria . O que era importante para ele não era a tecnologia, mas sim a experiência do usuário . Em 2006 ele disse: “Há muita tecnologia em busca de cliente . 
- 
-          Por outras palavras, muitas empresas fazem coisas porque é tecnicamente possível, mas no final ninguém se importa e ninguém quer comprá-las. Acho que o difícil é descobrir o que pode ser feito e o que as pessoas querem.”
+        Steve Jobs levou a Apple ao topo porque sabia o que o consumidor queria . O que era importante para ele não era a tecnologia, mas sim a experiência do usuário . Em 2006 ele disse: “Há muita tecnologia em busca de cliente .
 
-          ## Se você tem que motivar funcionários, você não está contratando direito.
-           - [x] **CRIE** um ambiente onde profissionais motivados:
-           - [x] **Produto em si**: A chave é identificar e comunicar o que torna seu produto significativo, seja qual for esse significado. Quando os desenvolvedores entendem completamente essa responsabilidade e importância, isso geralmente leva a um engajamento e dedicação mais profundos ao seu trabalho. Eu vi equipes transformarem sua atitude quando realmente entenderam como seu código impacta a vida de pessoas reais.
-           - [x] **Artesanato Técnico**: Equipes se orgulham de construir um código excelente. Resolvendo problemas algorítmicos complexos ou implementando soluções arquitetônicas elegantes, a excelência técnica.
-           - [x] **Espírito de Equipe**: Senso de pertencimento a algo especial. Envolve construir uma cultura onde a participação na equipe seja significativa e valorizada.
+        Por outras palavras, muitas empresas fazem coisas porque é tecnicamente possível, mas no final ninguém se importa e ninguém quer comprá-las. Acho que o difícil é descobrir o que pode ser feito e o que as pessoas querem.”
 
-           ## Dizer “não” não é tão ruim
+        ## Se você tem que motivar funcionários, você não está contratando direito.
+
+        - [x] **CRIE** um ambiente onde profissionais motivados:
+        - [x] **Produto em si**: A chave é identificar e comunicar o que torna seu produto significativo, seja qual for esse significado. Quando os desenvolvedores entendem completamente essa responsabilidade e importância, isso geralmente leva a um engajamento e dedicação mais profundos ao seu trabalho. Eu vi equipes transformarem sua atitude quando realmente entenderam como seu código impacta a vida de pessoas reais.
+        - [x] **Artesanato Técnico**: Equipes se orgulham de construir um código excelente. Resolvendo problemas algorítmicos complexos ou implementando soluções arquitetônicas elegantes, a excelência técnica.
+        - [x] **Espírito de Equipe**: Senso de pertencimento a algo especial. Envolve construir uma cultura onde a participação na equipe seja significativa e valorizada.
+
+        ## Dizer “não” não é tão ruim
            Consistência de Compromisso (CC): O desafio é fazer perguntas que permitam respostas positivas e negativas, onde um "não" naturalmente convida à explicação.
- 
-           - [x] Você gosta de picles em conserva? Elaborar perguntas para encorajar explicações em vez de respostas rápidas de "sim" é uma ótima maneira de aprofundar conversa. PENSE NISSO.
-           - [x] Baca-Motes, K., Brown, A., Gneezy, A., Keenan, E., & Nelson, L. (2013). Comprometimento e mudança de comportamento: evidências do campo. Journal of Consumer Research , 1070 - 1084.
-           - [x] Fisher, W., Ury, WL, & Patton, B. (2011). Chegando ao Sim: Negociando Acordos Sem Ceder. Penguin Books.
 
-           ## Product Owner a uma equipe, por que não capacitá-lo?
-           Ela tinha uma visão cristalina e metas fortes, mas não escrevia cada item do Product Backlog sozinha. Limitar um Product Owner a uma equipe em um produto grande não torna as coisas mais fáceis – cria mais burocracia. Em vez de pensar em limitar, pense em empoderar! 
- 
-           Deixe o Product Owner guiar várias equipes quando fizer sentido e dê a eles os recursos para delegar. Dessa forma, eles permanecem focados na visão e as equipes permanecem alinhadas na entrega de valor.
+          - [x] Você gosta de picles em conserva? Elaborar perguntas para encorajar explicações em vez de respostas rápidas de "sim" é uma ótima maneira de aprofundar conversa. PENSE NISSO.
+          - [x] Baca-Motes, K., Brown, A., Gneezy, A., Keenan, E., & Nelson, L. (2013). Comprometimento e mudança de comportamento: evidências do campo. Journal of Consumer Research , 1070 - 1084.
+          - [x] Fisher, W., Ury, WL, & Patton, B. (2011). Chegando ao Sim: Negociando Acordos Sem Ceder. Penguin Books.
 
-           ## Pensamento de Produto
-           - [x] As equipes recebem problemas para resolver em vez de projetos para concluir. 
-           - [x] Se envolvem na entrega de soluções que beneficiam os clientes e os negócios.
-           - [x] Ponderam as decisões sobre novos recursos e trabalho de suporte em relação ao valor geral do produto.
-           - [x] Se adaptam às necessidades do cliente continuamente, criando melhores resultados para todos.
-           - [x] Criando uma Visão de Produto
-                  - [x] Quem eles VOCÊS veêm como seus usuários e quais desafios específicos esses usuários enfrentavam?
-                  - [x] Como vocês poderiam fornecer **valor** que abordasse diretamente esses desafios?
-                  - [x] Quais seriam os benefícios comerciais, para esta visão?
-           - [x] Definida a jornada, qual seria a a Meta do Produto?
-                  - [x] O Time define uma meta concreta e atingível;
-           - [x] Os primeiros itens identificados focaram no que os usuários queriam fazer. 
-           - [x] A equipe construiu mais itens do Product Backlog em torno do trabalho de infraestrutura
-           - [x] Se a equipe está enfrentando dificuldades com prioridades pouco claras e dívida técnica crescente, é hora de abandonar a mentalidade de projeto e adotar uma abordagem focada no produto, liberando o potencial da sua equipe e entregar valor contínuo.
+        ## Product Owner a uma equipe, por que não capacitá-lo?
+          Ela tinha uma visão cristalina e metas fortes, mas não escrevia cada item do Product Backlog sozinha. Limitar um Product Owner a uma equipe em um produto grande não torna as coisas mais fáceis – cria mais burocracia. Em vez de pensar em limitar, pense em empoderar!
+
+          Deixe o Product Owner guiar várias equipes quando fizer sentido e dê a eles os recursos para delegar. Dessa forma, eles permanecem focados na visão e as equipes permanecem alinhadas na entrega de valor.
+
+        ## Pensamento de Produto
+          - [x] As equipes recebem problemas para resolver em vez de projetos para concluir.
+          - [x] Se envolvem na entrega de soluções que beneficiam os clientes e os negócios.
+          - [x] Ponderam as decisões sobre novos recursos e trabalho de suporte em relação ao valor geral do produto.
+          - [x] Se adaptam às necessidades do cliente continuamente, criando melhores resultados para todos.
+          - [x] Criando uma Visão de Produto
+          - [x] Quem eles VOCÊS veêm como seus usuários e quais desafios específicos esses usuários enfrentavam?
+          - [x] Como vocês poderiam fornecer **valor** que abordasse diretamente esses desafios?
+          - [x] Quais seriam os benefícios comerciais, para esta visão?
+          - [x] Definida a jornada, qual seria a a Meta do Produto?
+          - [x] O Time define uma meta concreta e atingível;
+          - [x] Os primeiros itens identificados focaram no que os usuários queriam fazer.
+          - [x] A equipe construiu mais itens do Product Backlog em torno do trabalho de infraestrutura
+          - [x] Se a equipe está enfrentando dificuldades com prioridades pouco claras e dívida técnica crescente, é hora de abandonar a mentalidade de projeto e adotar uma abordagem focada no produto, liberando o potencial da sua equipe e entregar valor contínuo.

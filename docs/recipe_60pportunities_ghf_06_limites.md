@@ -2,7 +2,7 @@ Uma maneira de se conectar é seguir um projeto específico. Quando o projeto pr
 Outra maneira de mostrar apreço por um projeto é marcá-lo com uma estrela. É semelhante a curtir um conteúdo nas redes sociais.
 GitHub também oferece um feed de notícias. O feed de notícias também é personalizado analisando sua linguagem ou ferramentas mais usadas, fornecendo atualizações e informações relevantes.
 Um repositório público, no entanto, não significa que qualquer um pode editá-lo livremente; significa simplesmente que qualquer um pode lê-lo, e usuários logados podem propor alterações nele. No entanto, você ainda é o mantenedor do projeto e o proprietário do repositório.
-    
+
 
 | **Recurso**                                | **GitHub Free**                                    | **GitHub Pro**                                    | **GitHub Team**                                    | **GitHub Enterprise**                             |
 |--------------------------------------------|---------------------------------------------------|--------------------------------------------------|---------------------------------------------------|---------------------------------------------------|
@@ -30,7 +30,7 @@ Um repositório público, no entanto, não significa que qualquer um pode editá
 ### **Observações Adicionais:**
 
 - **Limites de Tamanho de Pull Requests:** Embora o GitHub não tenha um limite explícito de **tamanho de pull request**, se um PR contiver **muitas alterações (mais de 10.000 linhas)**, a interface do GitHub pode ter dificuldades para exibir todas as diferenças (diffs) de forma eficiente.
-  
+
 - **GitHub Actions:** Cada plano possui limites para o uso de **GitHub Actions**, tanto em termos de **minutos de execução** quanto de **armazenamento de artefatos** gerados pelas ações. Usuários de planos gratuitos têm uma cota mais restrita, enquanto usuários de planos pagos (Team e Enterprise) têm mais recursos.
 
 - **Git LFS (Large File Storage):** Para arquivos grandes (>100 MB), o **Git LFS** é necessário. O uso do LFS tem uma cota de armazenamento e banda mensal, que varia conforme o plano de assinatura. O GitHub oferece armazenamento adicional por meio de compras extras.

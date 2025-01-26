@@ -17,9 +17,9 @@
 No entanto, as instalacoes modernas do Git não suportam os comandos hifenizados e, em vez disso, usam um unico git com um subcomando.
 
 ### Que acrônimo é este?
-Um Sistema de Controle de Versão (Version Control System - VCS) é uma metodologia ou ferramenta que ajuda a rastrear alterações dos arquivos. 
+Um Sistema de Controle de Versão (Version Control System - VCS) é uma metodologia ou ferramenta que ajuda a rastrear alterações dos arquivos.
 
-Um Sistema de Controle de Versão Distribuído (ou Distributed Version Control Systems - DVCSs) não é diferente do Sistema de Controle de Versão nesse sentido. 
+Um Sistema de Controle de Versão Distribuído (ou Distributed Version Control Systems - DVCSs) não é diferente do Sistema de Controle de Versão nesse sentido.
 
 <p align="justify">No controle de origem centralizado, há um servidor e um cliente. O servidor é o repositório principal que contém todas as versões do código. Para trabalhar em qualquer projeto, primeiro o usuário ou cliente precisa obter o código do repositório mestre ou servidor.  Assim, depois de obter a versão mais recente do código, você começa a fazer suas próprias alterações no código e, depois disso, simplesmente precisa enviar essas alterações diretamente para o repositório principal.</p>
 
@@ -67,12 +67,12 @@ A perspectiva de desenvolvimento é dividida em três diferentes sistemas:
 
 Claro, o Linus-como-um-serviço-de-controle-de-versão estava longe de ser um produto perfeito. Em 1998, quando Larry McVoy [esboçou pela primeira vez a ideia por trás do BitKeeper](https://lkml.org/lkml/1998/9/30/122) na Linux Kernel Mailing List, ele escreveu "Está claro que nosso líder destemido [Linus] está, no momento, um pouco sobrecarregado, então os patches podem estar se perdendo".
 
-Embora esse fluxo de trabalho manual pareça estúpido, para nós hoje, na época, Linus via esse fluxo de trabalho como superior às alternativas — ou seja, CVS. Muito mais tarde, [quando Linus deu uma palestra no Google em 2007 sobre o Git](https://www.youtube.com/watch?v=4XpnKHJAok8) , ele mencionou um de seus princípios básicos de design: "WWCVSND" ou "O que o CVS não faria?" Claro que esse ódio naturalmente se estendeu ao SVN também; na mesma palestra, ele continuou dizendo com um sorriso: 
+Embora esse fluxo de trabalho manual pareça estúpido, para nós hoje, na época, Linus via esse fluxo de trabalho como superior às alternativas — ou seja, CVS. Muito mais tarde, [quando Linus deu uma palestra no Google em 2007 sobre o Git](https://www.youtube.com/watch?v=4XpnKHJAok8) , ele mencionou um de seus princípios básicos de design: "WWCVSND" ou "O que o CVS não faria?" Claro que esse ódio naturalmente se estendeu ao SVN também; na mesma palestra, ele continuou dizendo com um sorriso:
 
-- [x] Se houver usuários do Subversion na plateia, você pode querer sair. 
-- [x] Meu ódio pelo CVS significa que vejo o Subversion como o projeto mais inútil já iniciado. 
+- [x] Se houver usuários do Subversion na plateia, você pode querer sair.
+- [x] Meu ódio pelo CVS significa que vejo o Subversion como o projeto mais inútil já iniciado.
 - [x] O slogan inteiro do Subversion por um tempo foi CVS feito corretamente ou algo assim.
-- [x] E se você começar com esse slogan, não há para onde ir. 
+- [x] E se você começar com esse slogan, não há para onde ir.
 - [x] É como se não houvesse maneira de fazer o CVS corretamente.
 
 <p align="justify">O cerne da crítica de Linus contra o CVS era sua natureza centralizada. Dadas as centenas de desenvolvedores Linux por aí, Linus sentiu que era essencial que cada um deles tivesse sua própria cópia discreta do repositório em que pudessem desenvolver suas próprias ramificações.</p>
@@ -191,7 +191,7 @@ Por fim, a BitMover tornou o BitKeeper de código aberto. Amarrando um laço em 
 
 Então, por um lado, você pode ver a história do BitKeeper com relação ao código aberto como quase grega em seu escopo trágico: cada razão que Larry descreveu para **sourceware** para a Sun se aplicava tanto ao BK quanto ao SunOS — com até mesmo o mesmo tecnólogo (Torvalds) liderando a alternativa de código aberto!
 
-E você pode dizer ao BK e a Larry agora que é **tarde demais**, assim como Larry disse à Sun em 2005, mas também acho que isso representa uma dicotomia forçada de "vencedores" e "perdedores". 
+E você pode dizer ao BK e a Larry agora que é **tarde demais**, assim como Larry disse à Sun em 2005, mas também acho que isso representa uma dicotomia forçada de "vencedores" e "perdedores".
 
 <p align="justify">Ao contrário, eu gostaria de acreditar que a inovação contínua nas comunidades illumos (SmartOS, OmniOS, etc.) prova que nunca é tarde demais para software de código aberto -- que comunidades de código aberto (como cidades) podem ser pequenas, mas vibrantes, desempenhando um papel crítico para seus constituintes.</p>
 
@@ -208,7 +208,7 @@ Uma resposta foi postada por outro usuário do HN, **luckydude** — o próprio 
 ### Origem do Nome
 Git é uma variação do Inglês britânico para a palavra de origem escocesa **get**, significa **um filho ilegítimo**.
 
-E dependendo do humor do Linus, o nome também pode significar: 
+E dependendo do humor do Linus, o nome também pode significar:
 
 - [x] Apenas uma combinação randômica de letras;
 - [x] Estúpido, abjeto, desprezível;
@@ -273,11 +273,11 @@ Olhando para o Sistema Operacional, uma pasta de trabalho, diretório e reposit�
 ![](img/git_007.png){width="600" height="400" style="display: block; margin: 0 auto"}
 
 #### Status do Arquivo em um diretório de Trabalho
-Quando você cria ou copia um novo arquivo no diretório de trabalho, o primeiro estado do arquivo não é rastreado (**untracked**). 
-Isso significa que o Git vê que há algo **novo**, mas não cuidará disso (**não rastreará o novo arquivo**). 
-Se você deseja incluir o arquivo em seu repositório, você deve adicioná-lo usando o comando `git add nome_do_arquivo`. 
+Quando você cria ou copia um novo arquivo no diretório de trabalho, o primeiro estado do arquivo não é rastreado (**untracked**).
+Isso significa que o Git vê que há algo **novo**, mas não cuidará disso (**não rastreará o novo arquivo**).
+Se você deseja incluir o arquivo em seu repositório, você deve adicioná-lo usando o comando `git add nome_do_arquivo`.
 
-Depois de adicionado, o estado do arquivo não é modificado (**unmodified**). Isso significa que o arquivo é novo (o Git diz que não foi modificado porque nunca rastreou as alterações) e está pronto para ser confirmado ou atingiu a **staging area** (também **chamada de índice**). 
+Depois de adicionado, o estado do arquivo não é modificado (**unmodified**). Isso significa que o arquivo é novo (o Git diz que não foi modificado porque nunca rastreou as alterações) e está pronto para ser confirmado ou atingiu a **staging area** (também **chamada de índice**).
 Se você modificar um arquivo que já foi adicionado ao índice, ele mudará seu status para modificado (**modified**). A captura de tela a seguir explica o ciclo de vida do status do arquivo:
 
 ![](img/git_008.png){width="600" height="400" style="display: block; margin: 0 auto"}
@@ -295,9 +295,9 @@ Para retornar para retornar o arquivo ao status não rastreado:  `git reset HEAD
 - [x] Observe agora, no diretório .git, a criação do arquivo index e a arvore criada no diretório objects.
 
 #### Conceituando
-- [x] Todas as informações necessárias para representar a história do projeto são armazenados em arquivos referenciados por um "nome do objeto" de 40 dígitos. 
+- [x] Todas as informações necessárias para representar a história do projeto são armazenados em arquivos referenciados por um "nome do objeto" de 40 dígitos.
 - [x] Em cada caso, o nome é calculado baseado no valor hash SHA-1(Secure Hash Algorithm) do conteúdo do objeto, o que torna impossível de encontrar dois objetos diferentes com o mesmo nome.
-- [x] Todo objeto consiste de 3 coisas - um tipo, um tamanho e conteúdo. 
+- [x] Todo objeto consiste de 3 coisas - um tipo, um tamanho e conteúdo.
 - [x] O tamanho é simplesmente o tamanho do conteúdo, o conteúdo depende do tipo que o objeto é, e existem quatro tipos diferentes de objetos: “blob", "tree", "commit", and “tag".
 - [x] Um "blob" é usado para armazenar dados do arquivo - é geralmente um arquivo. Um objeto "blob" não é nada mais que um grande pedaço de dados binários. Ele não se referencia a nada ou possui atributos de qualquer tipo, nem mesmo um nome de arquivo.
 - [x] Um "tree" é basicamente como um diretório - ele referencia um conjunto de outras trees e/ou blobs. Ele possui um conjunto de ponteiros para blobs e outras trees - ele geralmente representa o conteúdo de um diretório ou sub diretório
@@ -307,7 +307,7 @@ Para retornar para retornar o arquivo ao status não rastreado:  `git reset HEAD
 Usando `git gc`, o Git fará alguma limpeza interna, incluindo compressão de arquivos de revisão.
 
 #### A metáfora do tempo
-- [x] Usando o comando `git reset`, também entramos em contato com outro elemento fundamental do Git, o ponteiro HEAD. 
+- [x] Usando o comando `git reset`, também entramos em contato com outro elemento fundamental do Git, o ponteiro HEAD.
 ##### Passado
 - [x] O passado é representado pelos commits anteriores que fizemos, conforme mostrado por C1 e C2 na tabela:
 ![](img/git_009.png){width="4   00" height="400" style="display: block; margin: 0 auto"}
@@ -323,13 +323,13 @@ Usando `git gc`, o Git fará alguma limpeza interna, incluindo compressão de ar
 
 ![](img/git_011.png){width="400" height="400" style="display: block; margin: 0 auto"}
 
-- [x] Temos uma referência HEAD que aponta de onde viemos (o commit 2). 
-- [x] Reiniciar para HEAD como fizemos anteriormente é uma maneira de voltar a este estado inicial, onde ainda não houve modificações. 
+- [x] Temos uma referência HEAD que aponta de onde viemos (o commit 2).
+- [x] Reiniciar para HEAD como fizemos anteriormente é uma maneira de voltar a este estado inicial, onde ainda não houve modificações.
 - [x] Então, temos o diretório de trabalho. Este diretório coleta arquivos adicionados ao repositório nos commits anteriores. Agora, está no estado UNTRACKED. Neste local, fazemos nosso trabalho em arquivos e pastas, adicionando, removendo ou modificando-os.
 
 ![](img/git_012.png){width="400" height="400" style="display: block; margin: 0 auto"}
 
-- [x] Nosso trabalho permanece no diretório de trabalho até decidirmos colocá-lo no próximo commit que realizaremos. 
+- [x] Nosso trabalho permanece no diretório de trabalho até decidirmos colocá-lo no próximo commit que realizaremos.
 - [x] Usando o comando `git add`, adicionamos o que queremos promover para o próximo commit, marcando-os no índice, conforme mostrado neste diagrama:
 
 ![](img/git_013.png){width="400" height="400" style="display: block; margin: 0 auto"}
@@ -338,7 +338,7 @@ Com `git rm --cached <arquivo ou pasta>`, você pode descompactar um arquivo rem
 
 ![](img/git_014.png){width="400" height="400" style="display: block; margin: 0 auto"}
 
-- [x] Com `git reset --hard HEAD`, voltaremos ao estado inicial, perdendo todas as mudanças que fizemos no diretório de trabalho. 
+- [x] Com `git reset --hard HEAD`, voltaremos ao estado inicial, perdendo todas as mudanças que fizemos no diretório de trabalho.
 - [x] No final, uma vez que você se commita, o presente se torna parte do passado. O diretório de trabalho volta ao estado inicial, onde tudo é intocado e o índice é esvaziado, conforme mostrado neste diagrama:
 
 ![](img/git_015.png){width="400" height="400" style="display: block; margin: 0 auto"}
@@ -353,8 +353,8 @@ Com `git rm --cached <arquivo ou pasta>`, você pode descompactar um arquivo rem
 - [x] [Diretrizes Angular](https://github.com/angular/angular.js/blob/main/DEVELOPERS.md#-git-commit-guidelines)
 - [x] [Semantic Commit Messages](https://sparkbox.com/foundry/semantic_commit_messages)
 - [x] [Karma-Semantic Messages](https://karma-runner.github.io/6.4/intro/installation.html)
-- [x] Adicionar uma mensagem de confirmação não é apenas uma boa prática, é obrigatório. 
-- [x] Como sugestão, monte um arquivo padrão de mensagem. 
+- [x] Adicionar uma mensagem de confirmação não é apenas uma boa prática, é obrigatório.
+- [x] Como sugestão, monte um arquivo padrão de mensagem.
       - [x] Não suponha que o revisor entenda qual era o problema original.
       - [x] Não presuma que o revisor tenha acesso a sites / serviços da web externos.
       - [x] Não assuma que o código é auto-evidente / auto-documentado.
@@ -366,7 +366,7 @@ Com `git rm --cached <arquivo ou pasta>`, você pode descompactar um arquivo rem
 
 A principal regra a seguir é:
 
-- [x] A mensagem de confirmação deve conter todas as informações necessárias para entender e revisar completamente o patch para correção. 
+- [x] A mensagem de confirmação deve conter todas as informações necessárias para entender e revisar completamente o patch para correção.
 - [x] Menos não é mais. Mais é mais;
 - [x] Utilize no comentário : (refs | references | IssueID) #Numero_da_tarefa ou #Numero_do_chamados Incidente/Demanda;
 - [x] O sucesso de longo prazo de um projeto repousa em sua manutenção e um mantenedor, tem poucas ferramentas, a maior delas é o log de seu projeto;
@@ -382,7 +382,7 @@ A principal regra a seguir é:
       - [x] Use o corpo para explicar o que e por que versus como;
 
 ###### Mudando o Ultimo Commit
-Após a execução de um git commit, você  percebe que cometeu um erro - talvez você tenha esquecido de incluir um novo arquivo ou tenha deixado alguns comentários de fora. 
+Após a execução de um git commit, você  percebe que cometeu um erro - talvez você tenha esquecido de incluir um novo arquivo ou tenha deixado alguns comentários de fora.
 
 - [x] Exemplo: git commit –amend
 
@@ -397,12 +397,12 @@ Após a execução de um git commit, você  percebe você só quer “descomitar
 
 - [x] Exemplo: `git reset HEAD ~`
 
-O HEAD ref refere-se à ponta do branch atual como sempre, e o til final nomeia o commit anterior àquele. 
+O HEAD ref refere-se à ponta do branch atual como sempre, e o til final nomeia o commit anterior àquele.
 
 Assim, o efeito deste comando é mover o branch para trás um commit, descartando o último. Uma vez que ele também redefine o índice para coincidir, quaisquer alterações correspondentes em sua árvore de trabalho agora não são testadas novamente.
-	
+
 ###### Descartando o Qualquer numero de Commits
-Após a execução de um git commit, você  percebe você só quer “descomitar” e continuar trabalhando. Isso é simples; apenas faça: 
+Após a execução de um git commit, você  percebe você só quer “descomitar” e continuar trabalhando. Isso é simples; apenas faça:
 
 - [x] Exemplo: `git reset HEAD ~n`
 - [x] HEAD ~ n refere-se ao n-ésimo commit de volta, porque essa sintaxe de numeração começa em zero; HEAD e HEAD ~ 0 são equivalentes.
@@ -415,23 +415,23 @@ Suponha que você queira desfazer o efeito de um commit anterior - você não qu
 Isto irá computar a diferença entre aquele commit e o anterior, reverter, e então tentar aplicá-lo à sua árvore de trabalho. O Git irá preparar uma mensagem de commit indicando o commit sendo revertido e seu assunto, que você pode editar.
 
 ##### Ignorando Arquivos e Diretórios
-Frequentemente, trabalhamos com arquivos temporários ou pessoais que não queremos enviar para o repositório, no git, há a possibilidade de se pular certos tipos de arquivos ou pastas. 
-Para alcançar este resultado, podemos criar um arquivo .gitignore no repositório. 
+Frequentemente, trabalhamos com arquivos temporários ou pessoais que não queremos enviar para o repositório, no git, há a possibilidade de se pular certos tipos de arquivos ou pastas.
+Para alcançar este resultado, podemos criar um arquivo .gitignore no repositório.
 
 O Git irá lê-lo e então pular os arquivos e pastas que listamos dentro dele.
 
-A variável de configuração opcional core. excludesFileindica um caminho para um arquivo que contém padrões de nomes de arquivo a serem excluídos, semelhantes aos `$GIT_DIR/info/exclude`. 
+A variável de configuração opcional core. excludesFileindica um caminho para um arquivo que contém padrões de nomes de arquivo a serem excluídos, semelhantes aos `$GIT_DIR/info/exclude`.
 Os padrões no arquivo de exclusão são usados além daqueles em `$GIT_DIR/info/exclude`.
 
-OBSERVAÇÃO: 
+OBSERVAÇÃO:
 
 - [x] Há padrões já desenvolvidos que podem ser utilizados, bastando que você encontre o modelo em [.gitignore](https://github.com/github/gitignore)
 - [x] Observe que o arquivo `.gitignore` não é retroativo, OU SEJA, se você adicionou alguns arquivos `* .tmp` ao índice antes de introduzir o arquivo `.gitignore`, eles permanecerão sob controle de revisão.
 
 ##### Diretórios vazios
-Git não rastreia diretórios como entidades separadas; em vez disso, ele cria diretórios na árvore de trabalho conforme necessário para criar os caminhos para os arquivos retirados e remove diretórios se não houver mais nenhum arquivo neles. 
+Git não rastreia diretórios como entidades separadas; em vez disso, ele cria diretórios na árvore de trabalho conforme necessário para criar os caminhos para os arquivos retirados e remove diretórios se não houver mais nenhum arquivo neles.
 
-Isso implica que você não pode representar um **diretório vazio** diretamente para o Git; 
+Isso implica que você não pode representar um **diretório vazio** diretamente para o Git;
 
 Você precisa colocar pelo menos um arquivo de espaço reservado no diretório para que o Git crie a entrada.
 
@@ -454,8 +454,8 @@ Os números das versões irão refletir fatos ocorridos dentro do processo de de
 - [x] Definição de versões em múltiplos escopos, desde pequenas alterações até versões terminadas;
 - [x] Ramificação de versões, permitindo uma linha paralela de desenvolvimento.
 
-##### Tipos de Versionamento 
-**Versionamento linear** : Dentro de uma determinada categoria de número de versão (maior, menor), esses números são geralmente atribuídos em ordem crescente e correspondem a modificações realizadas em um diretório, como o de um software. 
+##### Tipos de Versionamento
+**Versionamento linear** : Dentro de uma determinada categoria de número de versão (maior, menor), esses números são geralmente atribuídos em ordem crescente e correspondem a modificações realizadas em um diretório, como o de um software.
 **Versionamento distribuído**: Cada conjunto de modificações (chamado de changeset) recebe um hash que identifica unicamente aquele conjunto. Permite aos usuários combinar livremente as modificações, sem restrição de ordem como no versionamento linear.
 
 ###### Regras de Versionamento
@@ -488,7 +488,7 @@ Os números das versões irão refletir fatos ocorridos dentro do processo de de
 ### Trabalhando com Branches
 <p align="justify">Branches são ramos de desenvolvimento onde podemos alterar nossos arquivos de modo que fiquem separados uns dos outros, para que mais tarde possamos fundir o seu conteúdo com outra outra branch, de por exemplo, código de produção, ou apagar a branch se fizemos alguma coisa que não ficou correta, sem alterar qualquer outro ponto.</p>
 
-Um branch Git é a coisa mais simples possível: **um ponteiro para um commit**, como um **ref**. O branch em si é definido como todos os pontos alcançáveis no gráfico de commit. 
+Um branch Git é a coisa mais simples possível: **um ponteiro para um commit**, como um **ref**. O branch em si é definido como todos os pontos alcançáveis no gráfico de commit.
 
 A referência especial **HEAD** determina em qual branch você está; se HEAD for uma referência simbólica para uma ramificação existente, então você está “nessa” ramificação.
 
@@ -511,8 +511,8 @@ Em outras palavras, o Git adiciona o novo commit ao final do branch usando o pon
 Observe algumas consequências deste modelo:
 
 - [x] Considerado individualmente, um commit não é intrinsecamente parte de nenhum branch. Não há nada no próprio commit para informar pelo nome em quais branches ele está ou pode ter estado; a associação do branch é uma consequência do gráfico de confirmação e dos ponteiros do branch atual.
-- [x] “Excluir” um branch significa simplesmente excluir a referência correspondente; não tem efeito imediato no armazenamento de objetos. Em particular, deletar um branch não deleta nenhum commit. 
-- [x] O que ele pode fazer, entretanto, é tornar certos commits desinteressantes, pois eles não estão mais em nenhum branch (ou seja, não podem mais ser acessados ​​no gráfico de commit a partir de qualquer ponta ou tag do branch). 
+- [x] “Excluir” um branch significa simplesmente excluir a referência correspondente; não tem efeito imediato no armazenamento de objetos. Em particular, deletar um branch não deleta nenhum commit.
+- [x] O que ele pode fazer, entretanto, é tornar certos commits desinteressantes, pois eles não estão mais em nenhum branch (ou seja, não podem mais ser acessados ​​no gráfico de commit a partir de qualquer ponta ou tag do branch).
 
 ##### Navegando pelas Branches
 A maneira usual de fazer um novo branch chamado novo_branch é:
@@ -548,7 +548,7 @@ O `git add` ele adiciona o conteúdo do arquivo atual ao banco de dados de objet
 
 <p align="justify">Semelhante ao git commit, git diff sem argumentos também possui o índice como um operando implícito; ele mostra as diferenças entre sua árvore de trabalho e o índice, ao invés do commit atual.</p>
 
-Inicialmente, eles são os mesmos, já que o índice corresponde ao último commit após um checkout limpo ou commit. 
+Inicialmente, eles são os mesmos, já que o índice corresponde ao último commit após um checkout limpo ou commit.
 
 <p align="justify">Conforme você faz alterações em seus arquivos de trabalho, eles aparecem na saída do git diff e desaparecem conforme você adiciona os arquivos correspondentes.</p>
 
@@ -565,16 +565,16 @@ O que significa **mesclar** com sucesso dois ou mais conjuntos de alterações n
 
 <p align="justify">Para lidar com mesclagens complexas, o Git funciona perfeitamente com ferramentas de mesclagem externas, emerge e kdiff, ou com ferramentas de mesclagem personalizadas que você mesmo escreve.</p>
 
-Lembre-se de **The Object Store** que um commit tem uma lista de zero ou mais **commits pai**. 
+Lembre-se de **The Object Store** que um commit tem uma lista de zero ou mais **commits pai**.
 
-O commit inicial em um repositório não tem pais, e um commit simples em um branch tem apenas um. 
+O commit inicial em um repositório não tem pais, e um commit simples em um branch tem apenas um.
 
-Quando você faz um commit como parte de um merge, o Git lista os commits de ponta de todos os branches envolvidos no merge como os pais do novo commit. 
+Quando você faz um commit como parte de um merge, o Git lista os commits de ponta de todos os branches envolvidos no merge como os pais do novo commit.
 
 ##### Push e Pull
-Use os comandos `git pull` e `git push` para atualizar o estado de um repositório. 
+Use os comandos `git pull` e `git push` para atualizar o estado de um repositório.
 
-O ponto central a lembrar é que, em relação ao conteúdo, um repositório consiste em duas coisas: 
+O ponto central a lembrar é que, em relação ao conteúdo, um repositório consiste em duas coisas:
 
 - [x] Um armazenamento de objeto e um conjunto de refs - ou seja, um gráfico de commit;
 - [x] Um conjunto de nomes de branch e tags que chamam aqueles commits que são de interesse;
@@ -594,7 +594,7 @@ Quando você clona um repositório, como com git clone, Git faz:
 
 O valor de busca aqui, chamado de refspec, especifica uma correspondência entre conjuntos de refs nos dois repositórios:
 
-- [x] No lado esquerdo dos dois pontos nomes refs no remoto e a especificação indica com o padrão 
+- [x] No lado esquerdo dos dois pontos nomes refs no remoto e a especificação indica com o padrão
 - [x] No lado direito onde o correspondente refs deve aparecer no repositório local.
 - [x] Nesse caso, significa: “Mantenha cópias dos refs do branch da origem remota em seu namespace local neste repositório, refs / remotes/origin/.”
 - [x] Executa git fetch origin, que atualiza nossos refs locais para os branches do remoto (criando-os neste caso), e pede ao remoto para enviar todos os objetos que precisamos para completar o histórico para esses refs (no caso deste novo repositório, todos eles).
@@ -615,17 +615,17 @@ O git pull na realidade, executa `git fetch` no remoto para o branch atual, atua
 <p align="justify">E o Git irá sugerir que você primeiro faça o `pull` para resolver as discrepâncias e produzir uma atualização aceitável.</p>
 
 ##### Removendo Arquivos
-<p align="justify">Git efetua a remoção da entrada do arquivo do índice, agendando-o para remoção no próximo commit e exclui o arquivo de trabalho. 
+<p align="justify">Git efetua a remoção da entrada do arquivo do índice, agendando-o para remoção no próximo commit e exclui o arquivo de trabalho.
 
 - [x] Exemplo: git rm arquivo02.txt; git status
-  
+
 A remoção só vale para arquivos que já estão no controle do Git, arquivos que não estiverem no controle do Git, poderão ser removidos com o comando `rm`ou `delete`;</p>
 ##### Renomeando Arquivos
 Renomear um arquivo é, de certa forma, equivalente a excluir esse arquivo e criar um novo com um nome diferente e o mesmo conteúdo - mas isso também pode ocorrer sem que você queira renomear nada, se o novo arquivo apenas coincidir com o antigo.
 
 - [x] Exemplo: `git mv arquivo004.txt arquivo04.txt`
 
-A distinção é de intenção e,portanto, deve ser representada separadamente pelo sistema para que seja capturada. 
+A distinção é de intenção e,portanto, deve ser representada separadamente pelo sistema para que seja capturada.
 
 E pode ser muito importante fazer isso, porque as pessoas geralmente desejam que o histórico de um arquivo renomeado seja preservado; até mesmo chamando o que fizemos de "renomear", estamos implicitamente dizendo que este é realmente "o mesmo arquivo, apenas com um nome diferente".
 
@@ -637,30 +637,30 @@ O git reset redefine o índice para corresponder ao commit atual, desfazendo qua
 ##### Entendendo os Patches
 Um “patch” é uma representação compacta das diferenças entre dois arquivos, destinada ao uso com arquivos de texto orientados por linha.
 
-- [x] Ele descreve como transformar um arquivo em outro, e é assimétrico: o patch de file1 para file2 não é o mesmo que o patch para a outra direção (diria para deletar e adicionar linhas opostas, como veremos). 
-- [x] O formato do patch usa contexto, bem como números de linha para localizar regiões de arquivo diferentes, de modo que um patch pode frequentemente ser aplicado a uma versão um pouco anterior ou posterior do primeiro arquivo do que aquela de onde foi derivado, desde que o programa aplicador ainda pode localizar o contexto da mudança. 
-- [x] Os termos “patch” e “diff” são frequentemente usados de forma intercambiável, embora haja uma distinção, pelo menos historicamente. 
+- [x] Ele descreve como transformar um arquivo em outro, e é assimétrico: o patch de file1 para file2 não é o mesmo que o patch para a outra direção (diria para deletar e adicionar linhas opostas, como veremos).
+- [x] O formato do patch usa contexto, bem como números de linha para localizar regiões de arquivo diferentes, de modo que um patch pode frequentemente ser aplicado a uma versão um pouco anterior ou posterior do primeiro arquivo do que aquela de onde foi derivado, desde que o programa aplicador ainda pode localizar o contexto da mudança.
+- [x] Os termos “patch” e “diff” são frequentemente usados de forma intercambiável, embora haja uma distinção, pelo menos historicamente.
 - [x] Um diff precisa apenas mostrar as diferenças entre dois arquivos e pode ser mínimo ao fazê-lo. Um patch é uma extensão de um diff, acrescido de informações adicionais, como linhas de contexto e nomes de arquivos, que permitem que seja aplicado de forma mais ampla. Atualmente, o programa diff do Unix pode produzir patches de vários tipos.
 
 Aqui está um patch simples, gerado por git diff:
 
-- [x] Este é o cabeçalho git diff; 
-- [x] git diff não é um comando literal, mas apenas sugere a noção de um diff específico do git no estilo de comando Unix. 
-- [x] São os arquivos que estão sendo comparados, com nomes de diretórios iniciais adicionados a e b para distingui-los no caso de serem iguais (como estão aqui; este patch mostra as mudanças de uma versão para outra do mesmo arquivo). 
+- [x] Este é o cabeçalho git diff;
+- [x] git diff não é um comando literal, mas apenas sugere a noção de um diff específico do git no estilo de comando Unix.
+- [x] São os arquivos que estão sendo comparados, com nomes de diretórios iniciais adicionados a e b para distingui-los no caso de serem iguais (como estão aqui; este patch mostra as mudanças de uma versão para outra do mesmo arquivo).
 - [ ] Para gerar esse patch, mudei o arquivo foo.c e executei git diff, que mostra as mudanças não testadas entre a árvore de trabalho e o índice. Na verdade, não há diretórios nomeados a e b no repositório; eles são apenas convenção:
 
 índice 30cfd169..8de130c2 100644
 
-- [x] Esta é uma linha de cabeçalho estendida, uma das várias formas possíveis, embora haja apenas uma neste patch. Esta linha fornece informações do índice Git sobre este arquivo: 30cfd169 e 8de130c2 são os IDs de blob das versões A e B do conteúdo do arquivo sendo comparados e 100644 são os "bits de modo", indicando que este é um arquivo normal: não executável e não um link simbólico (o uso de .. aqui entre os IDs de blob é apenas um separador e não tem nada a ver com seu uso na nomeação de conjuntos de rotações ou para git diff). 
-- [x] Outras linhas de cabeçalho podem indicar os modos antigo e novo se isso tiver mudado, nomes de arquivo novos e antigos se o arquivo estiver sendo renomeado, etc.  
-- [x] Os IDs de blob são úteis se este patch for aplicado posteriormente pelo Git ao mesmo projeto e houver conflitos ao aplicá-lo. Se esses blobs estiverem no banco de dados de objetos, o Git pode usá-los para realizar uma fusão de três vias com essas duas versões e a cópia de trabalho, para ajudá-lo a resolver os conflitos. 
+- [x] Esta é uma linha de cabeçalho estendida, uma das várias formas possíveis, embora haja apenas uma neste patch. Esta linha fornece informações do índice Git sobre este arquivo: 30cfd169 e 8de130c2 são os IDs de blob das versões A e B do conteúdo do arquivo sendo comparados e 100644 são os "bits de modo", indicando que este é um arquivo normal: não executável e não um link simbólico (o uso de .. aqui entre os IDs de blob é apenas um separador e não tem nada a ver com seu uso na nomeação de conjuntos de rotações ou para git diff).
+- [x] Outras linhas de cabeçalho podem indicar os modos antigo e novo se isso tiver mudado, nomes de arquivo novos e antigos se o arquivo estiver sendo renomeado, etc.
+- [x] Os IDs de blob são úteis se este patch for aplicado posteriormente pelo Git ao mesmo projeto e houver conflitos ao aplicá-lo. Se esses blobs estiverem no banco de dados de objetos, o Git pode usá-los para realizar uma fusão de três vias com essas duas versões e a cópia de trabalho, para ajudá-lo a resolver os conflitos.
 - [x] O patch ainda faz sentido para outras ferramentas além do Git; eles simplesmente ignorarão esta linha e não poderão usar as informações extras.
-- [x] Os patches formatados são muito semelhantes aos diffs de arquivo gerados por outras ferramentas, contendo muito mais informações, incluindo seu nome e endereço de e-mail, e para cada commit, o carimbo de data/hora do commit, a mensagem, o autor e etc. 
+- [x] Os patches formatados são muito semelhantes aos diffs de arquivo gerados por outras ferramentas, contendo muito mais informações, incluindo seu nome e endereço de e-mail, e para cada commit, o carimbo de data/hora do commit, a mensagem, o autor e etc.
 - [x] Eles permitem que qualquer pessoa importe os *changesets* incluídos diretamente no Git, onde todas as informações de commit são preservadas.
 
-- [x] `$ git format-patch --binary --stdout origin/master..HEAD > feature_branch.patch` 
+- [x] `$ git format-patch --binary --stdout origin/master..HEAD > feature_branch.patch`
 
-- [x] Após gerar o arquivo de patch, você pode anexá-lo ao um relatório de ISSUE. 
+- [x] Após gerar o arquivo de patch, você pode anexá-lo ao um relatório de ISSUE.
 - [x] Os desenvolvedores ou outros usuários podem importar esse conjunto de patches para seus repositórios locais usando o seguinte comando, substituindo novamente o nome de arquivo apropriado:
 
 - [x] Exemplo: `$ git am --signoff feature_branch.patch`
@@ -688,7 +688,7 @@ O git stash é utilizado para salvar temporariamente alterações não compromet
 - [x] Isso cria um novo stash e limpa seu diretório de trabalho, revertendo-o ao último commit.
 - [x] Para ver os stashes que você criou, execute: `git stash list`
 - [x] Agora que suas alterações estão salvas, você pode mudar para a branch main: `git checkout main`
-- [x] Aqui, você pode fazer as correções necessárias e realizar commits conforme necessário. 
+- [x] Aqui, você pode fazer as correções necessárias e realizar commits conforme necessário.
 - [x] Após resolver o problema, volte para a branch onde estava trabalhando: `git checkout feature`
 - [x] Para aplicar as alterações que você salvou anteriormente, use: `git stash apply`
 - [x] Isso aplicará o stash mais recente ao seu diretório de trabalho. Se você quiser aplicar um stash específico, use: `git stash apply stash@{0}`
@@ -710,10 +710,10 @@ O comando git reflog mantém um registro de todas as ações que afetaram a estr
 
 - [x] Primeiro, verifique o estado atual do seu repositório: `git status`
 - [x] Para visualizar o histórico das referências, execute: `git reflog`
-- [x] Identifique o commit perdido, Com base na saída do reflog, identifique o hash do commit que você deseja recuperar. Neste caso, vamos recuperar. 
+- [x] Identifique o commit perdido, Com base na saída do reflog, identifique o hash do commit que você deseja recuperar. Neste caso, vamos recuperar.
 - [x] Para retornar ao estado desse commit, use o comando git checkout com o hash do commit: `git checkout hash`
 - [x] Agora você está no estado do repositório correspondente ao commit perdido.
-- [x] Crie uma nova branch, se você quiser manter esse estado e continuar trabalhando a partir dele, crie uma nova branch: 
+- [x] Crie uma nova branch, se você quiser manter esse estado e continuar trabalhando a partir dele, crie uma nova branch:
 
 - [x] Exemplo: `git checkout -b recuperado-feature`
 
@@ -737,7 +737,7 @@ Repositório Back-office e outro de Repositório de Integração com o Banco de 
     url = https://github.com/InseeFr/Queen-Back-Office
 ```
 ##### Worktree
-O comando git worktree permite que você crie múltiplas árvores de trabalho a partir de um único repositório  Git. Isso significa que você pode trabalhar em diferentes branches simultaneamente, cada uma em seu próprio diretório, sem precisar alternar entre elas constantemente. 
+O comando git worktree permite que você crie múltiplas árvores de trabalho a partir de um único repositório  Git. Isso significa que você pode trabalhar em diferentes branches simultaneamente, cada uma em seu próprio diretório, sem precisar alternar entre elas constantemente.
 
 - [x] Para criar um novo worktree a partir de uma branch existente, você pode usar o seguinte comando: `git worktree add <caminho/para/novo/worktree> <nome-da-branch>`
 - [x] Você também pode criar uma nova branch diretamente a partir de um worktree. Para isso, use a opção -b: `git worktree add -b nova-feature ../nova-feature`
@@ -751,7 +751,7 @@ Possibilidades do seu uso:
 - [x] **Testes**: Você pode criar um ambiente dedicado para testar uma branch específica sem afetar seu espaço de trabalho principal.
 
 ##### Sparse-checkout
-O comando git sparse-checkout permite que você faça checkouts de um subconjunto de arquivos em um repositório Git, em vez de baixar todos os arquivos. Isso é útil em repositórios grandes, como monorepos, onde você pode não precisar de todos os arquivos para trabalhar em uma parte específica do projeto. 
+O comando git sparse-checkout permite que você faça checkouts de um subconjunto de arquivos em um repositório Git, em vez de baixar todos os arquivos. Isso é útil em repositórios grandes, como monorepos, onde você pode não precisar de todos os arquivos para trabalhar em uma parte específica do projeto.
 
 - [x] Para começar a usar o sparse checkout, você deve inicializá-lo: `git sparse-checkout init`
 - [x] Após a inicialização, você pode definir quais arquivos ou diretórios deseja incluir: `git sparse-checkout set <padrão1> <padrão2>`, por exemplo: `git sparse-checkout set 'src/**/*.js' 'docs/**'`
@@ -763,7 +763,7 @@ O comando git sparse-checkout permite que você faça checkouts de um subconjunt
 No Git, **merge** e **rebase** são duas técnicas utilizadas para integrar alterações de diferentes branches. Ambas têm seus próprios propósitos, vantagens e desvantagens. Abaixo, apresentamos uma comparação detalhada entre merge e rebase.
 
 - [x] O **merge** é uma operação que combina as alterações de duas branches. Ao realizar um merge, o Git cria um novo commit que une as duas linhas de desenvolvimento. `git checkout main && git merge feature-branch`
-- [x] O **rebase** é uma operação que aplica as alterações de uma branch em cima de outra branch, reescrevendo o histórico de commits. Em vez de criar um commit de merge, o rebase "move" a base da branch. `git checkout feature-branch && git rebase main` 
+- [x] O **rebase** é uma operação que aplica as alterações de uma branch em cima de outra branch, reescrevendo o histórico de commits. Em vez de criar um commit de merge, o rebase "move" a base da branch. `git checkout feature-branch && git rebase main`
 
 - [x] A integração de código em projetos colaborativos é uma parte essencial do desenvolvimento de software, e tanto o GitHub quanto o Azure DevOps oferecem métodos para realizar merges. Abaixo, apresentamos uma comparação entre os métodos de merge disponíveis em ambas as plataformas.
 
@@ -787,18 +787,18 @@ Como os scripts são infinitamente personalizáveis, você pode usar ganchos Git
 - [x] post-commit:  O hook post-commit é executado após um commit ter sido criado com sucesso. Ele é útil para executar ações que não devem interferir no processo de commit.
 - [x] post-checkout: O hook post-checkout é chamado após uma operação de checkout ter sido concluída. Ele pode ser usado para executar ações específicas quando uma branch ou um arquivo específico é verificado.
 - [x] pre-rebase: O hook pre-rebase é executado antes de um rebase ser iniciado. Ele permite que você execute verificações ou ações antes que as alterações sejam reordenadas.
-  
-Os ganchos podem residir em repositórios locais e/ou globais ou do lado do servidor e só são executados em resposta a ações nesse repositório. 
 
-- [x] Os ganchos residem no diretório `.git/hooks` de cada repositório Git. 
-- [x] Git preenche automaticamente este diretório com scripts de exemplo quando você inicializa um repositório. 
+Os ganchos podem residir em repositórios locais e/ou globais ou do lado do servidor e só são executados em resposta a ações nesse repositório.
+
+- [x] Os ganchos residem no diretório `.git/hooks` de cada repositório Git.
+- [x] Git preenche automaticamente este diretório com scripts de exemplo quando você inicializa um repositório.
 - [x] Se você der uma olhada dentro `.git/hooks`, encontrará os seguintes arquivos:
-- [x] Os ganchos precisam ser executáveis, portanto, você pode precisar alterar as permissões de arquivo do script se estiver criando do zero. 
+- [x] Os ganchos precisam ser executáveis, portanto, você pode precisar alterar as permissões de arquivo do script se estiver criando do zero.
 - [x] Os scripts embutidos são principalmente scripts de shell e PERL, mas você pode usar qualquer linguagem de script que desejar, desde que possa ser executada como um executável.
 
 ## Ganchos Locais
-- [x] Os ganchos locais afetam apenas o repositório no qual residem. 
-- [ ] Conforme você lê esta seção, lembre-se de que cada desenvolvedor pode alterar seus próprios ganchos locais, então você não pode usá-los como uma forma de impor uma política de commit. 
+- [x] Os ganchos locais afetam apenas o repositório no qual residem.
+- [ ] Conforme você lê esta seção, lembre-se de que cada desenvolvedor pode alterar seus próprios ganchos locais, então você não pode usá-los como uma forma de impor uma política de commit.
 - [ ] Eles podem, no entanto, tornar muito mais fácil para os desenvolvedores aderir a certas diretrizes.
 - [x] Os primeiros 4 ganchos permitem que você se conecte a todo o ciclo de vida do commit, e os 2 finais permitem que você execute algumas ações extras ou verificações de segurança para os comandos git checkoute git rebase, respectivamente.
 - [x] Todos os pre-ganchos permitem alterar a ação que está prestes a ocorrer, enquanto os post-ganchos são usados ​​apenas para notificações.

@@ -1,6 +1,6 @@
-A abordagem da Tesla? 
+A abordagem da Tesla?
 
-Mova-se rápido, 
+Mova-se rápido,
 Automatize tudo
 Descentralizar a tomada de decisões.
 
@@ -18,15 +18,15 @@ Descentralizar a tomada de decisões.
 | ----                  | -------         |
 | Para medir o lead time , você precisa personalizar seu CFD para medir os dados a partir do momento em que um novo trabalho entra na coluna “Solicitado” (coluna de espera). | Para medir o tempo de ciclo , você precisa personalizar seu CFD para medir os dados a partir do momento em que um novo trabalho entra em uma coluna “Em andamento” (coluna de atividade). |
 | O tempo de ciclo começa quando um novo trabalho entra na área “em andamento” de um processo de trabalho e alguém está realizando um trabalho real nele. | O lead time mede o período entre o aparecimento de uma nova solicitação de trabalho em um fluxo de trabalho e sua saída final do sistema. |
-| Fornece informações sobre a taxa de produção de valor agregado da equipe. | Fornece informações sobre o processo geral de entrega de valor.| 
-| Com a ajuda do tempo de ciclo, você pode obter informações sobre as áreas do processo em que o trabalho permanece ocioso por muito tempo, para que você possa descobrir os gargalos. | Acompanhar o lead time ajudará você a comunicar acordos de nível de serviço realistas com seus clientes. Além disso, trabalhar para tornar seus prazos de entrega mais estáveis resultará na melhoria de sua previsibilidade geral de entrega.| 
+| Fornece informações sobre a taxa de produção de valor agregado da equipe. | Fornece informações sobre o processo geral de entrega de valor.|
+| Com a ajuda do tempo de ciclo, você pode obter informações sobre as áreas do processo em que o trabalho permanece ocioso por muito tempo, para que você possa descobrir os gargalos. | Acompanhar o lead time ajudará você a comunicar acordos de nível de serviço realistas com seus clientes. Além disso, trabalhar para tornar seus prazos de entrega mais estáveis resultará na melhoria de sua previsibilidade geral de entrega.|
 </div>
 <div class="center-table" markdown>
 | Dica                              | Descrição                                                                                                            |
 | -----                             | -----                                                                                                                |
 | Tempo de atendimento (Lead Time)  | É o tempo necessário para percorrer todo o ciclo de produção, desde o pedido do cliente até a entrega do produto.    |
 | Tempo de um Ciclo (Cycle Time)    | É usado normalmente para medir o tempo de uma atividade (mudança de coluna no quadro).                               |
-| Trabalho em Andamento (WIP)       | É como chamamos TODAS as tarefas iniciadas que ainda estão em processo.                                              | 
+| Trabalho em Andamento (WIP)       | É como chamamos TODAS as tarefas iniciadas que ainda estão em processo.                                              |
 | Tempo de Vazão (Throughput)       | É a quantidade média de entregas que o time consegue fazer em um período de tempo.                                   |
 | Tempo de Processo                 | Cycle Time = Somatório dos Trabalhos;                                                                                |
 | Tempo de Desperdício              |  Mudança do Cycle Time = Aguardando;                                                                                 |

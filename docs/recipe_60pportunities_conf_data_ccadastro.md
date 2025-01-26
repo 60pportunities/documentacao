@@ -1,22 +1,22 @@
-Os dados se tornaram tão vitais para o sucesso de todas as organizações (Grandes, Médias e Pequenas) que muitas estão tentando implementar um programa de Governança de Dados. Quando feito corretamente, um programa de Governança de Dados fornece os meios para gerenciar a coleta geral de dados (o "ativo de dados"), incluindo a estrutura, os processos, as pessoas e a organização necessários para gerenciar os principais elementos de dados. 
+Os dados se tornaram tão vitais para o sucesso de todas as organizações (Grandes, Médias e Pequenas) que muitas estão tentando implementar um programa de Governança de Dados. Quando feito corretamente, um programa de Governança de Dados fornece os meios para gerenciar a coleta geral de dados (o "ativo de dados"), incluindo a estrutura, os processos, as pessoas e a organização necessários para gerenciar os principais elementos de dados.
 
 O objetivo desta publicação é abordarmos o tema de **GERENCIAMENTO DE DADOS – CENTRAL DE CADASTRO**, dentro de uma organização, sendo uma estratégia crucial, para reconhecermos que a eficácia desse processo, não depende apenas de Ferramentas e Tecnologias, mas sim da colaboração ativa de todos os envolvidos.
 
 Gerenciar dados de forma eficiente exige um esforço conjunto, onde cada pessoa traz sua expertise, insights e experiências para enriquecer nossas estratégias.
 
-O cenário atual nos desafia a sermos não apenas gestores, mas também inovadores, capazes de transformar dados em um ativo estratégico que impulsionem nossas decisões e fortaleçam nossa competitividade no mercado. 
+O cenário atual nos desafia a sermos não apenas gestores, mas também inovadores, capazes de transformar dados em um ativo estratégico que impulsionem nossas decisões e fortaleçam nossa competitividade no mercado.
 
 Para isso, precisamos do seu envolvimento.
 
-Cada um de nós lida com diferentes aspectos dos dados em nosso dia a dia – seja na coleta, análise, segurança ou aplicação. 
+Cada um de nós lida com diferentes aspectos dos dados em nosso dia a dia – seja na coleta, análise, segurança ou aplicação.
 
 Essa diversidade de perspectivas é o que nos permitirá construir um sistema de GERENCIAMENTO DE DADOS, que seja robusto, flexível e capaz de atender às diversas demandas da empresa.
 
-Por isso, convido todos a se engajarem nessa análise prepositiva, compartilhando suas experiências e ideias sobre como podemos aprimorar nossos processos de Gerenciamento de Dados. 
+Por isso, convido todos a se engajarem nessa análise prepositiva, compartilhando suas experiências e ideias sobre como podemos aprimorar nossos processos de Gerenciamento de Dados.
 
 Queremos ouvir suas sugestões sobre como garantir a qualidade dos dados, melhorar nossa governança, e explorar novas formas de integrar e utilizar as informações de maneira eficaz.
 
-Juntos, podemos construir uma abordagem inovadora, onde cada voz contribui para o fortalecimento do nosso gerenciamento de dados, resultando em melhores resultados. 
+Juntos, podemos construir uma abordagem inovadora, onde cada voz contribui para o fortalecimento do nosso gerenciamento de dados, resultando em melhores resultados.
 
 Junte-se a Modernização de Dados Mestres interseção do MDM/MDG (Master Data Management/Governance) com  Retrieval-Augmented Generation (RAG).
 
@@ -30,15 +30,15 @@ Como gostamos de acrônimos, elaboramos o **ODAT-C**, como uma forma de engajar 
 | A	    | Assertividade (confiança, clareza)	     | Assertividade na comunicação e na execução de tarefas; |
 | C	    | Conexão	                                 | Conexão entre todos os elementos para atingir objetivos comuns. |
 
-Assim, abre-se um conceito ou abordagem que integra e unifica dados de diversas fontes e formatos, proporcionando uma visão holística e abrangente das informações disponíveis. 
+Assim, abre-se um conceito ou abordagem que integra e unifica dados de diversas fontes e formatos, proporcionando uma visão holística e abrangente das informações disponíveis.
 
 Essa abordagem permite que organizações identifiquem, coletem, analisem e utilizem dados de maneira eficiente, favorecendo uma tomada de decisão mais informada e estratégica.
 
-ODTA-C representa uma abordagem estratégica para a gestão e utilização de dados, visando maximizar o valor das informações disponíveis e impulsionar a eficiência operacional e a inovação nas organizações, aplicando em toda a organização à maneira como os dados são obtidos, rastreados, usados, entregues e descartados. 
+ODTA-C representa uma abordagem estratégica para a gestão e utilização de dados, visando maximizar o valor das informações disponíveis e impulsionar a eficiência operacional e a inovação nas organizações, aplicando em toda a organização à maneira como os dados são obtidos, rastreados, usados, entregues e descartados.
 
-Dados são um ativo estratégico e devem ser gerenciados. Se os dados não forem gerenciados, eles frequentemente acabam sendo duplicados, de baixa qualidade e não suportam os insights que são produtos valiosos de bons dados. 
+Dados são um ativo estratégico e devem ser gerenciados. Se os dados não forem gerenciados, eles frequentemente acabam sendo duplicados, de baixa qualidade e não suportam os insights que são produtos valiosos de bons dados.
 
-Os dados exigem administração e responsabilização, este princípio exige que indivíduos sejam designados como administradores e zeladores dos dados. 
+Os dados exigem administração e responsabilização, este princípio exige que indivíduos sejam designados como administradores e zeladores dos dados.
 
 A administração de dados consiste nas pessoas, na organização e nos processos necessários para garantir que os administradores devidamente designados sejam responsáveis pela governança.
 
@@ -52,13 +52,13 @@ Eles raramente são definidos, sua qualidade é desconhecida, suas regras de neg
 ## O Jargão continua: Mudar para Inovar
 Os Sistemas de Planejamento de Recursos Empresariais (ERP) são frequentemente considerados a solução definitiva para a gestão integrada de processos e informações em uma organização, no entanto, a implementação de um ERP não garante automaticamente a resolução das questões relacionadas aos Dados Mestres/Referência.
 
-Um dos principais motivos é que os ERPs, por natureza, são sistemas complexos e abrangentes, que exigem uma adaptação significativa das práticas e estruturas de dados já existentes nas empresas. 
+Um dos principais motivos é que os ERPs, por natureza, são sistemas complexos e abrangentes, que exigem uma adaptação significativa das práticas e estruturas de dados já existentes nas empresas.
 
 Essa adaptação pode resultar em dificuldades na harmonização dos Dados Mestres/Referência, que são fundamentais para a operação eficiente de qualquer sistema.
 
-Ao se estruturar um projeto, deparamos com esta fragmentação, processos altamente manuais e que estão dispersos em diferentes sistemas legados, com variações nas definições, formatos e estruturas. 
+Ao se estruturar um projeto, deparamos com esta fragmentação, processos altamente manuais e que estão dispersos em diferentes sistemas legados, com variações nas definições, formatos e estruturas.
 
-Além disso, a falta de governança de dados e a resistência cultural a mudanças podem agravar o problema, levando a inconsistências e à duplicação de informações. 
+Além disso, a falta de governança de dados e a resistência cultural a mudanças podem agravar o problema, levando a inconsistências e à duplicação de informações.
 
 A mudança nos processos atuais é vital para garantir que a nova estrutura de dados seja eficaz e não apenas garantam a continuidade da operação, mas também criem uma base sólida para a qualidade dos dados, permitindo que a organização opere de forma mais ágil e competitiva no mercado.
 
@@ -91,7 +91,7 @@ Estruturamos o levantamento das informações em QUATRO etapas:
 | Definição de Critérios | Estabelecer critérios claros para a seleção de dados que serão considerados como fontes seguras, levando em conta fatores como frequência de atualização, legitimidade da origem e relevância para a operação. |
 
 ## EXEMPLOS DE FONTES EXTERNAS
- 
+
 ## Central de Cadastro
 Em um cenário empresarial em constante evolução, a gestão eficaz de informações tornou-se um fator crucial para o sucesso das organizações.
 
@@ -113,7 +113,7 @@ Essa fragmentação de informações causa inconsistências com a análise de da
 - [x] Várias bases de dados Analíticas e acesso a informações que não refletem a realidade atual da organização.
 
 ## Proposta
-A proposta de criação de uma Central de Cadastro ou a sua remodelagem, surge como uma solução eficaz para esses desafios. Este espaço dedicado permitirá a centralização e padronização das informações e responsabilização (indicadores de acurácia e tempo atendimento). 
+A proposta de criação de uma Central de Cadastro ou a sua remodelagem, surge como uma solução eficaz para esses desafios. Este espaço dedicado permitirá a centralização e padronização das informações e responsabilização (indicadores de acurácia e tempo atendimento).
 
 | Expectativa         | Entenda                                                                   |
 | ----                | ----                                                                      |
@@ -148,7 +148,7 @@ Precisão e Consistência	 | Reduz erros e duplicidades nos dados. | Melhora a p
 - [x] Observabilidade de dados engloba atividades como monitoramento, alerta, acompanhamento, comparações, análises, registro, acompanhamento de SLA, todos trabalhando juntos para entender a qualidade de dados de ponta a ponta, incluindo confiabilidade de dados.
 
 ## Planoe de Ação
-A implementação de um plano de ação de Governança de Dados estruturado ajudará a sua organização a gerenciar dados de forma eficaz, garantindo qualidade, segurança e conformidade. Identificação dos processos de cadastros, responsabilização e autorização em dados Mestres/Referência, Transacional. 
+A implementação de um plano de ação de Governança de Dados estruturado ajudará a sua organização a gerenciar dados de forma eficaz, garantindo qualidade, segurança e conformidade. Identificação dos processos de cadastros, responsabilização e autorização em dados Mestres/Referência, Transacional.
 
 |  Avaliação dos Cadastros – Processos |
 | -------                              |

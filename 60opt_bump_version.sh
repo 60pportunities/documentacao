@@ -7,7 +7,7 @@ CHANGELOG="CHANGELOG.md";
 TEMP_FILE="$(mktemp /tmp/gitlab.XXXXXX)"
 
 git_mike() {
-# para excluir qualquer documentação - mike delete --all 
+# para excluir qualquer documentação - mike delete --all
 # mike deploy 1.0
 # Faça uma alteração em docs/index.md e publique a primeira versão: mike deploy --push --update-aliases 0.1 latest
 # Define a versão como Latest: mike set-default --push latest

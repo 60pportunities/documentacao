@@ -1,4 +1,4 @@
-name: Data Refresh - R + Python 
+name: Data Refresh - R + Python
 
 on:
   schedule:

@@ -4,9 +4,9 @@ Como estabelecer a noção de justiça?
 - [x] Os fins não justificam os meios: mais importante do que definir métricas de sucesso para a sua empresa é o que você coloca em prática pra atingir esses resultados.
 - [x] Em algum lugar, há alguém fazendo algo totalmente novo e disruptivo que, potencialmente, pode mudar a vida de bilhões de pessoas, as tecnologias estão surgindo e se popularizando em uma velocidade estonteante, ou seja, pressão por inovação.
 ## Transformação digital e inovação constante
-- [x] Two Pizza Teams - Equipes pequenas e autônomas 
-- [x] A tecnologia é uma ferramenta poderosa, mas o segredo é usá-la com inteligência e estratégia. 
-- [x] Experimentar e aprender: Errar faz parte do processo! 
+- [x] Two Pizza Teams - Equipes pequenas e autônomas
+- [x] A tecnologia é uma ferramenta poderosa, mas o segredo é usá-la com inteligência e estratégia.
+- [x] Experimentar e aprender: Errar faz parte do processo!
 - [x] Tecnologia com propósito: A inovação deve estar alinhada com a visão da sua empresa.
 - [x] Invista em conhecimento: Treinamentos e capacitação são essenciais para preparar sua equipe para o futuro.
 ## Habilidades humanas e inteligência emocional
@@ -14,7 +14,7 @@ Como estabelecer a noção de justiça?
 - [x] Como desenvolver e incentivar a inteligência emocional?
       - [x] Feedback contínuo: positivo ou construtivo
       - [x] Empatia estruturada:  compreender profundamente as necessidades de clientes e colaboradores. (DevEx, Innersource)
-- [x] Treinamentos focados em inteligência emocional: empatia, gestão de conflitos e autoconhecimento. 
+- [x] Treinamentos focados em inteligência emocional: empatia, gestão de conflitos e autoconhecimento.
 ## Sustentabilidade e responsabilidade social
 - [x] A Geração Z e os Millennials exercem influência cada vez maior, exigindo que as empresas não sejam apenas rentáveis, mas também ambiental e socialmente comprometidas.
 - [x] Incorporar valores sustentáveis em todos os níveis — da cultura interna às políticas de fornecimento, comunicar com transparência, Equilibrar lucro e propósito.

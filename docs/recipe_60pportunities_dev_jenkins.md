@@ -1,6 +1,6 @@
-Jenkins é um servidor de automação de código aberto, baseado em Java e possui um enormidade de plugins que auxiliam na criação, implantação e automação dos projetos. 
-Outra característica peculiar é que Jenkins foi desenvolvido para Integração Contínua (Continuous Integration – CI) e Entrega Contínua (Continuous Delivery – CD), conceitos que juntos com uma cultura DevOps aceleram a conclusão de softwares. 
-Tem como uma função principal atuar em toda a pipeline de entrega do software: Construção, Documentação, Teste, Implantação e Análise, facilitando os trabalhos do desenvolvedor. 
+Jenkins é um servidor de automação de código aberto, baseado em Java e possui um enormidade de plugins que auxiliam na criação, implantação e automação dos projetos.
+Outra característica peculiar é que Jenkins foi desenvolvido para Integração Contínua (Continuous Integration – CI) e Entrega Contínua (Continuous Delivery – CD), conceitos que juntos com uma cultura DevOps aceleram a conclusão de softwares.
+Tem como uma função principal atuar em toda a pipeline de entrega do software: Construção, Documentação, Teste, Implantação e Análise, facilitando os trabalhos do desenvolvedor.
 Utilizaremos o Docker para efetuar a montagem do ambiente de desenvolvimento, para tal siga os passos de instalação do [Docker](https://docs.docker.com/get-started/get-docker/) ou [60portunities](recipe_60pportunities_conf_docker).
 
 ## Pré-instalação de plugins
@@ -12,7 +12,7 @@ Para listar os plugins instalados no jenkins, Painel de controle --> Gerenciar J
 println "Lista de plugins instalados"
 def plugins = jenkins.model.Jenkins.instance.getPluginManager().getPlugins()
 plugins.each {
-  println "[${it.getShortName()}]: ${it.getVersion()}" 
+  println "[${it.getShortName()}]: ${it.getVersion()}"
 }
 println "\nCantidad de plugins instalados: ${plugins.size()}"
 ```
@@ -182,7 +182,7 @@ println "\nCantidad de plugins instalados: ${plugins.size()}"
 ### Dockerfile
 ```
 FROM jenkins/jenkins:lts-jdk17
-LABEL Author="60portunities" 
+LABEL Author="60portunities"
 USER root
 RUN apt-get update && apt-get install -y make git
 RUN mkdir /srv/backup && chown jenkins:jenkins /srv/backup
@@ -197,7 +197,7 @@ COPY --chown=jenkins:jenkins config_jenkins /var/jenkins_home
 ### Script Shell
 ```
 #!/bin/bash
-docker system df  # 
+docker system df  #
 docker build . --tag <usuario-dockerhub.com>/devops-jenkins:1.0.0
 #docker build . --tag <usuario-dockerhub.com>/devops-jenkins:1.0.0
 docker login <usuario-dockerhub.com>
@@ -206,12 +206,12 @@ docker run --detach --name <usuario-dockerhub.com>-jenkins -e PLUGINS_FORCE_UPGR
 ```
 
 ### Executando
-Para publicar no docker-hub e posteriormente executa-lo efetuamos os seguintes passos: 
+Para publicar no docker-hub e posteriormente executa-lo efetuamos os seguintes passos:
 
 - [x] Acesse o repositório: `https://hub.docker.com/repositories/<usuario-dockerhub.com>`
 - [x] Efetua o login no docker-hub: `docker login <usuario-dockerhub.com>`
 - [x] Cria a imagem : `docker build . --tag <usuario-dockerhub.com>/devops-jenkins:1.0.0`
-- [x] Publica a imagem no Docker-hub: `docker push <usuario-dockerhub.com>/devops-jenkins:1.0.0` 
+- [x] Publica a imagem no Docker-hub: `docker push <usuario-dockerhub.com>/devops-jenkins:1.0.0`
 - [x] Para remover a imagem : `docker build . --tag <usuario-dockerhub.com>/devops-jenkins:1.0.0`
 - [x] Agora vamos subir container Jenkins: `docker run --detach --name docker-jenkins -v jenkins_home:/var/jenkins_home -v jenkins_backup:/srv/backup -p 8082:8080 <usuario-dockerhub.com>/devops-jenkins:1.0.0`
 - [x] Listar as imagens no docker: `docker images`

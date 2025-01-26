@@ -8,7 +8,7 @@ Uma API é um conjunto de protocolos, rotinas e ferramentas para criar aplicativ
   - [x] APIs compostas: combine várias APIs de dados ou serviços
 
 ## Estilos de API
-Os estilos de arquitetura definem como diferentes componentes de uma interface de programação de aplicativos (API) interagem uns com os outros. Como resultado, eles garantem eficiência, confiabilidade e facilidade de integração com outros sistemas, fornecendo uma abordagem padrão para projetar e criar APIs. Aqui estão os estilos mais usados: 
+Os estilos de arquitetura definem como diferentes componentes de uma interface de programação de aplicativos (API) interagem uns com os outros. Como resultado, eles garantem eficiência, confiabilidade e facilidade de integração com outros sistemas, fornecendo uma abordagem padrão para projetar e criar APIs. Aqui estão os estilos mais usados:
 
 - [x] SOAP (Simple Object Access Protocol): Um protocolo para troca de dados estruturados. Maduro, abrangente, baseado em XML.
 - [x] RESTful (Representational State Transfer): um estilo de arquitetura amplamente usado para APIs da Web. Métodos HTTP populares e fáceis de implementar, sendo ideal para serviços da web.
@@ -39,7 +39,7 @@ Os estilos de arquitetura definem como diferentes componentes de uma interface d
 - [x] Postman: Uma ferramenta popular para desenvolvimento e documentação de API
 - [x] ReDoc: Uma ferramenta para gerar uma bela documentação de API
 
-## Teste de API 
+## Teste de API
 
 - [x] Postman: Permite criar e executar testes de API
 - [x] SoapUI: Uma ferramenta para testar APIs SOAP e REST
@@ -53,7 +53,7 @@ Os estilos de arquitetura definem como diferentes componentes de uma interface d
 - [x] Análise e monitoramento de API: Moesif. Datadog, pilha ELK (Elasticsearch, Logstash, Kibana)
 
 ## Regras
-- [x] no 1: Use substantivos plurais para coleções:É uma convenção arbitrária, mas está bem estabelecida e eu descobri que as violações tendem a ser um indicador principal de "esta API terá arestas". 
+- [x] no 1: Use substantivos plurais para coleções:É uma convenção arbitrária, mas está bem estabelecida e eu descobri que as violações tendem a ser um indicador principal de "esta API terá arestas".
 ```
 GET /products              # get all the products
 GET /products/{product_id} # get one product
@@ -64,7 +64,7 @@ GET /products/{product_id} # get one product
 GET /v3/application/listings/{listing_id}
 ```
 - [x] no 3: Não adicione .json ou outras extensões à url
- 
+
 # API Security Checklist
 
 Lista das mais importantes medidas de segurança para o desenvolvimento, teste e publicação da sua API.
@@ -200,7 +200,7 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [apistar](https://github.com/encode/apistar): A smart Web API framework, designed for Python3.
 - [sanic](https://github.com/channelcat/sanic): Sanic is a Flask-like Python 3.5+ web server that's written to go fast.
 - [hug](https://github.com/timothycrosley/hug): hug aims to make developing Python driven APIs as simple as possible, but no simpler.
-- [FastAPI](https://github.com/tiangolo/fastapi): FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.6+ based on standard Python type hints. 
+- [FastAPI](https://github.com/tiangolo/fastapi): FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.6+ based on standard Python type hints.
 
 ### Javascript
 - [hapi.js](https://hapijs.com/): Web and services application framework for Node.js.
@@ -309,7 +309,7 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [WebAnchor](https://github.com/mattiasnordqvist/Web-Anchor): Web Anchor provides type-safe, testable and flexible access to web resources.
 
 ### .Dart
-- [Frog](https://dartfrog.vgv.dev/docs/overview): Dart Frog is built on top of shelf and mason and is inspired by many tools including remix.run, next.js, and express.js. 
+- [Frog](https://dartfrog.vgv.dev/docs/overview): Dart Frog is built on top of shelf and mason and is inspired by many tools including remix.run, next.js, and express.js.
 - [Serverpod](https://github.com/serverpod/serverpod): Serverpod is a next-generation app and web server, built for the Flutter community. It allows you to write your server-side code in Dart, automatically generate your APIs, and hook up your database with minimal effort. Serverpod is open-source, and you can host your server anywhere.
 
 
@@ -361,7 +361,7 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [Svix Play](https://www.svix.com/play/): Easily inspect, test, and debug incoming webhooks.
 </div>
 
-### Desktop 
+### Desktop
 <div class="mdx-columns2" markdown>
 - [Postman](https://www.getpostman.com/docs/postman/mock_servers/setting_up_mock): Desktop API client and mocking tool.
 - [Json-Server](https://github.com/typicode/json-server) Full fake REST API with zero coding.

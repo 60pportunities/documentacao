@@ -1,5 +1,5 @@
-Previsibilidade versus Flexibilidade 
-Os gastos com nuvem são altamente flexíveis. 
+Previsibilidade versus Flexibilidade
+Os gastos com nuvem são altamente flexíveis.
 Você não está mais incorrendo em grandes despesas de capital iniciais (CapEx) para comprar e manter sua própria infraestrutura de TI.
 
 Os gastos com serviços de nuvem podem ser incrementais
@@ -25,11 +25,11 @@ A terceira chave é o espírito de equipe: Senso de pertencimento a algo especia
 
 Essas três chaves não são mutuamente exclusivas - na verdade, elas frequentemente se reforçam.
 
-Três principais observações dos desafios: 
+Três principais observações dos desafios:
 As organizações devem determinar seus produtos e quanto investir neles;
-Cada produto pode ter um modelo operacional diferente; Todos os processos ágeis devem ser de propriedade das equipes que os usam. 
-A Autoridade do Produto é distribuída: Há muitas nuances em torno do título, autoridade e posição. Se você quer uma tomada de decisão mais rápida, ela precisa estar mais próxima da entrega (onde as coisas são aprendidas) e envolver menos pessoas (idealmente uma). Guard rails como meta e pequenos incrementos podem reduzir o risco. Não importa qual seja o título, desde que tenham autoridade para tomar decisões. 
- 
+Cada produto pode ter um modelo operacional diferente; Todos os processos ágeis devem ser de propriedade das equipes que os usam.
+A Autoridade do Produto é distribuída: Há muitas nuances em torno do título, autoridade e posição. Se você quer uma tomada de decisão mais rápida, ela precisa estar mais próxima da entrega (onde as coisas são aprendidas) e envolver menos pessoas (idealmente uma). Guard rails como meta e pequenos incrementos podem reduzir o risco. Não importa qual seja o título, desde que tenham autoridade para tomar decisões.
+
 
 Uma visão de produto bem elaborada define o que você pretende alcançar e inspira e alinha todos os envolvidos na jornada em direção à criação de algo notável.
 

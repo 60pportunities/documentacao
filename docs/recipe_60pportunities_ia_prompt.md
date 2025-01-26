@@ -10,7 +10,7 @@ Antes de explorar estratégias específicas, vamos primeiro entender os princíp
 
 Governança de TI como ferramenta estratégica para a empresa X
 
-A governança de TI desempenha um papel fundamental no progresso das organizações, garantindo que os recursos tecnológicos sejam utilizados de forma eficiente, alinhados aos objetivos estratégicos. 
+A governança de TI desempenha um papel fundamental no progresso das organizações, garantindo que os recursos tecnológicos sejam utilizados de forma eficiente, alinhados aos objetivos estratégicos.
 
 No caso da empresa X, considerando os desafios apontados, a implementação de uma estrutura de governança pode oferecer benefícios significativos.
 

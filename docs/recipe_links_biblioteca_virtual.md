@@ -9,7 +9,7 @@
 - [x] [Refatoração](https://g.co/kgs/Hf2eY3)
 - [x] [Arquitertura Limpa](https://g.co/kgs/Hf2eY3)
 - [x] [O programador pragmático](https://g.co/kgs/5nbqB3)
-- [x] [Figma](https://www.figma.com/) 
+- [x] [Figma](https://www.figma.com/)
 - [x] Deciphering Data Architectures: Choosing Between a Modern Data Warehouse, Data Fabric, Data Lakehouse, and Data Mesh
 - [x] [Data Warehouse, Modern Data Warehouse, Data Lake e Lakehouse”, no qual estas estruturas de análise de dados são explicadas](https://www.cdbdatasolutions.com.br/blog/data-warehouse-modern-data-warehouse-data-lake-e-lakehouse/)
 - [x] [SWITCH_ Como mudar as coisas quando a mudança é difícil-Alta Books (2019)](file:///Users/horaciovasconcellos/Downloads/Chip%20Heath,%20Dan%20Heath%20-%20SWITCH_%20Como%20mudar%20as%20coisas%20quando%20a%20mudan%C3%A7a%20%C3%A9%20dif%C3%ADcil-Alta%20Books%20(2019).pdf)
@@ -35,7 +35,7 @@
 - [x] Retrospectivas Ágeis - K21- Ebook da K21
 - [x] Scrum: Gestão ágil para projetos de sucesso - Rafael Sabbagh
 - [x] Simplesmente Lean: Desenvolvendo a Cultura Organizacional Lean em seu Negócio - Carlos Eduardo Moretti
-- [x] The DevOps Story: Unleash the Power of DevOps Kindle Edition 
+- [x] The DevOps Story: Unleash the Power of DevOps Kindle Edition
 - [x] Value Proposition Design - Alexander Osterwalder, Yves Pigneur, Gregory Bernarda e Alan Smith
 - [x] Value Stream Mapping: How to Visualize Work and Align Leadership for Organizational Transformation - Karen Martin, Mike Osterling
 
@@ -49,7 +49,7 @@
 - [x] [Open Source Helpers](https://www.codetriage.com/roshanjossey/first-contributions/badges/users.svg)
 - [ ] [CodeTriage](https://www.codetriage.com/roshanjossey/first-contributions)
 </div>
-  
+
 ## Github
 <div class="mdx-columns2" markdown>
 </div>
@@ -153,7 +153,7 @@
 - https://patterns.innersourcecommons.org/p/base-documentation
 - https://patterns.innersourcecommons.org/p/innersource-portal
 - https://patterns.innersourcecommons.org/p/transparent-cross-team-decision-making-using-rfcs
-- https://pypl.github.io/PYPL.html 
+- https://pypl.github.io/PYPL.html
 - https://resources.github.com/events/
 - https://resources.github.com/learn/certifications/Resources
 - https://resources.github.com/learn/pathways/copilot/essentials/essentials-of-github-copilot/
@@ -297,3 +297,130 @@ https://www.linkedin.com/pulse/microgerenciamento-trabalho-remoto-richard-heiras
 
 https://www.deeplearning.ai/the-batch/new-opportunities-for-the-new-year/?utm_campaign=The%20Batch&utm_medium=email&_hsenc=p2ANqtz-_xyRZU6UV-8cRbbo04Ow2BxS0TX7bqdky-VUf8JJ75EBdb0DqJnqbQOxt5q0S76BS-5TF36C0BeaqmAIWTmlMyiuuiR-lWZkpIdQk529xuO1iPFbQ&_hsmi=341652784&utm_content=341651488&utm_source=hs_email
 
+
+
+Continuous Integration: Improving Software Quality and Reducing Risk
+Continuous Delivery: Reliable Software Release through Build, Test and Deployment Automation
+
+
+| Links      |
+| :----------: |
+| [.NET Fiddle](https://dotnetfiddle.net/) |
+| [1PageRank](http://www.1pagerank.com/) |
+| [Any API](https://any-api.com/) |
+| [Autoprefixer CSS](http://autoprefixer.github.io/) |
+| [Browser diet](https://browserdiet.com/pt/) |
+| [Can I email...](https://www.caniemail.com/) |
+| [Can I use...](https://caniuse.com/) |
+| [CloudFlare](https://www.cloudflare.com/pt-br/) |
+| [CMDER](https://cmder.net/) |
+| [CodePen](https://codepen.io/) |
+| [CodeSandbox](https://codesandbox.io/) |
+| [CSS Formatter](https://www.cleancss.com/css-beautify/) |
+| [CSS Minifier](https://cssminifier.com/) |
+| [CSS W3.org](https://jigsaw.w3.org/css-validator/) |
+| [docsify](https://docsify.js.org/#/) |
+| [Editor.md](https://pandao.github.io/editor.md/en.html) |
+| [ES6console](https://es6console.com/) |
+| [Firebase](https://firebase.google.com/?hl=pt-BR) |
+| [generatedata](http://www.generatedata.com/) |
+| [GitHub Gist](https://gist.github.com/) |
+| [Grader](https://website.grader.com/) |
+| [How to Center in CSS](http://howtocenterincss.com/) |
+| [Hyper](https://hyper.is/) |
+| [Joomla](https://www.joomla.org/) |
+| [JS Bin](https://jsbin.com/) |
+| [JSCompress](https://jscompress.com/) |
+| [JSFiddle](https://jsfiddle.net/) |
+| [JSONLint](https://jsonlint.com/) |
+| [KeyCDN Tools](https://tools.keycdn.com/) |
+| [Liveweave](https://liveweave.com/) |
+| [Lorem Ipsum](https://br.lipsum.com/) |
+| [Mapbox](https://www.mapbox.com/) |
+| [Memcached](https://memcached.org/) |
+| [Mockaroo](https://www.mockaroo.com/) |
+| [Mussum Ipsum](https://mussumipsum.com/) |
+| [NPM HTTP-Server](https://www.npmjs.com/package/http-server) |
+| [Online C Compiler](https://www.onlinegdb.com/online_c_compiler) |
+| [React Hook Form](https://react-hook-form.com/) |
+| [RelaX](http://dbis-uibk.github.io/relax/index.htm) |
+| [Responsive](http://www.codeorama.com/responsive/) |
+| [SSL Server Test](https://www.ssllabs.com/ssltest/) |
+| [Tabela ASCII](https://web.fe.up.pt/~ee96100/projecto/Tabela%20ascii.htm) |
+| [Telegram](https://telegram.org/) |
+| [TinyJPG](https://tinyjpg.com/) |
+| [TinyPNG](https://tinypng.com/) |
+| [W3.org](https://validator.w3.org/) |
+| [WakaTime](https://wakatime.com/) |
+| [Web.dev](https://web.dev/) |
+| [WebPageTest](https://www.webpagetest.org/) |
+| [Wedsites](https://wedsites.com/) |
+| [WordPress](https://wordpress.org/) |
+| [XML Sitemaps](https://www.xml-sitemaps.com/) |
+
+## 📝 IDEs y editores de código
+
+| Links      |
+| :----------:
+| [Atom](https://atom.io/) |
+| [BBEdit](https://www.barebones.com/products/bbedit/) |
+| [Brackets](http://brackets.io/) |
+| [CodeBlocks](http://www.codeblocks.org/) |
+| [Dev C++](https://sourceforge.net/projects/orwelldevcpp/) |
+| [Eclipse](https://www.eclipse.org/downloads/) |
+| [IntelliJ IDEA](https://www.jetbrains.com/idea/) |
+| [NetBeans](https://netbeans.org/) |
+| [Notepad++](https://notepad-plus-plus.org/) |
+| [PHPStorm](https://www.jetbrains.com/phpstorm/) |
+| [PyCharm](https://www.jetbrains.com/pycharm/) |
+| [Sublime Text](https://www.sublimetext.com/) |
+| [Visual Studio](https://visualstudio.microsoft.com/pt-br/vs/) |
+| [Visual Studio Code](https://code.visualstudio.com/) |
+
+## 🔤 Lenguajes de programación
+
+| Links      |
+| :----------: |
+| [C#](https://docs.microsoft.com/pt-br/dotnet/csharp/) |
+| [Clojure](https://clojure.org/) |
+| [Dart](https://dart.dev/) |
+| [Elixir](https://elixir-lang.org/) |
+| [F#](https://docs.microsoft.com/pt-br/dotnet/fsharp/) |
+| [Go](https://golang.org/) |
+| [Java](https://www.java.com/pt_BR/) |
+| [JavaScript](http://brasil.js.org) |
+| [Perl](https://www.perl.org/) |
+| [PHP](https://www.php.net/) |
+| [Python](https://www.python.org/) |
+| [Ruby](https://www.ruby-lang.org/pt/) |
+| [Rust](https://www.rust-lang.org/pt-BR/) |
+| [Swift](https://www.apple.com/br/swift/) |
+| [Visual Basic](https://docs.microsoft.com/pt-br/dotnet/visual-basic/) |
+
+## 🏨 Hospedaje
+
+| Links      |
+| :----------: |
+| [1FreeHosting](http://www.1freehosting.com/) |
+| [2FreeHosting](https://www.2freehosting.com/) |
+| [Amazon Web Services](https://aws.amazon.com/pt/) |
+| [BlueHost](https://www.bluehost.com/) |
+| [DigitalOcean](https://www.digitalocean.com/) |
+| [DreamHost](https://www.dreamhost.com/) |
+| [Embratel](https://www.embratel.com.br/cloud/hospedagem-de-sites) |
+| [GoDaddy](https://br.godaddy.com/) |
+| [Google Cloud](https://cloud.google.com/solutions/smb/web-hosting/) |
+| [Heroku](https://www.heroku.com/) |
+| [HostGator](https://www.hostgator.com/) |
+| [Hostinger](https://www.hostinger.com.br/) |
+| [Hostoo](https://hostoo.io/) |
+| [iPage](https://www.ipage.com/) |
+| [KingHost](https://king.host/) |
+| [Netlify](https://www.netlify.com/) |
+| [One.com](https://www.one.com/pt-BR/) |
+| [Surge](https://surge.sh/) |
+| [Umbler](https://www.umbler.com/br) |
+| [Vercel](https://vercel.com/) |
+
+
+Docs for Developers: An Engineer's Guide to Technical Writing

@@ -1,6 +1,6 @@
 ## Conferência
 <div class="mdx-columns3" markdown>
-- [x] https://ai4.io/vegas/register/ 
+- [x] https://ai4.io/vegas/register/
 </div>
 
 ## Cursos

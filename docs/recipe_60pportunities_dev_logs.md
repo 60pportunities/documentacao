@@ -35,9 +35,9 @@ NIVL11                       --> NIVL115[Legibilidade]
 NIVL11                       --> NIVL116[Autodescrição]
 NIVL11                       --> NIVL117[Rastreabilidade]
 NIVL12                       --> NIVL121[Estruturação]
-NIVL12                       --> NIVL122[Concisão]           
+NIVL12                       --> NIVL122[Concisão]
 NIVL13                       --> NIVL131[Completude]
-NIVL13                       --> NIVL132[Independência de Dispositivo]           
+NIVL13                       --> NIVL132[Independência de Dispositivo]
 NIVL14                       --> NIVL141[Estruturação]
 NIVL14                       --> NIVL142[Legitimidade]
 NIVL14                       --> NIVL143[Rastreabilidade]
@@ -89,7 +89,7 @@ operadores e administradores na operação de produção, como os aplicativos,  
 
         === "Monitoramento"
 
-            A maior parte do monitoramento é sobre a mesma coisa: **eventos** e os eventos também têm **contexto**. 
+            A maior parte do monitoramento é sobre a mesma coisa: **eventos** e os eventos também têm **contexto**.
 
             - Observar o comportamento [não funcional] das funções de negócios / aplicativos em tempo [quase] real;
             - Disponibilidade e saúde;
@@ -125,9 +125,9 @@ operadores e administradores na operação de produção, como os aplicativos,  
 
         === "Tipo de métrica"
             HELP é uma descrição do que é a métrica, e geralmente não deve
-            mude de raspar paras a scrape to scrape. 
+            mude de raspar paras a scrape to scrape.
             TYPE é um de contador, medidor, resumo, histograma ou não tipado. sem tipo é usado quando você não sabe o tipo de métrica e é o padrão se nenhum tipo for especificado.
-            
+
             - Métricas primárias;
             - Vinculado a indicadores de SLA;
             - Relevante - representante dos principais indicadores de desempenho;
@@ -135,7 +135,7 @@ operadores e administradores na operação de produção, como os aplicativos,  
             - Rendimento da atividade de negócios.
 
     === "Métricas secundárias"
-        
+
         - Métricas técnicas;
         - Fatores de Saúde - não diretamente ligados a indicadores específicos de negócios;
         - Temperatura, armazenamento, carga de rede e etc.
@@ -154,11 +154,11 @@ operadores e administradores na operação de produção, como os aplicativos,  
     === "Servidor Prometheus"
 
         Optei por uma instalação em /opt/prometheus, tando do server como dos exportadores.
-        
+
         | Objetos | Propósitos | Serviço | Porta | Abrv | Padrão |
         | ------ | ------ |------ |------ |------ | :------: |
         | [Prometheus](http://192.168.56.120:9099/) | O sistema de monitoramento Prometheus e banco de dados de séries temporais. | prometheus.service | 9099 | srv | 9090 |
-        
+
         Observação: Optei por uma instalação em /opt, em usuário prometheus.
 
         === "Arquitetura de Instalação"
@@ -175,15 +175,15 @@ operadores e administradores na operação de produção, como os aplicativos,  
         === "Pushgateway"
 
             O Pushgateway permite que você envie métricas para empurrar o endpoint do gateway, então configuramos o prometheus para realizar scrape do  gateway de push para consumir as             métricas expostas no prometheus. Iremos utilizar para os Concurrents do e-Business.
-            
+
             | Objetos | Propósitos | Serviço | Porta | Abrv |
             | ------ | ------ |------ |------ |------ |
             | [pushgateway](http://192.168.56.120:9197/metrics) | O Pushgateway é um cache de métricas para trabalhos em lote de nível de serviço. | pushgateway.service  | 9195 |             pushgt | 9091 |
-            
-            
+
+
             ```mermaid
             graph TD
-            
+
                A[Concurrents] --> |Single push|C[Pushgateway]
                B[JOBs]        --> |Single push|C[Pushgateway]
                D[SFTPs]       --> |Single push|C[Pushgateway]
@@ -194,10 +194,10 @@ operadores e administradores na operação de produção, como os aplicativos,  
         === "Exportadores"
 
             Um Exportador é um software que você implanta ao lado do aplicativo que você deseja obter métricas, ou seja, ele reúne o os dados necessários do aplicativo, transforma-os no             formato correto e finalmente os retorna em uma resposta a Prometeu. Podemos pensar em um exportador como um pequeno proxy um para um, convertendo dados entre a interface de             métricas de um aplicativo e o formato de exposição do Prometheus.
-            
+
             | Objetos | Propósitos | Serviço | Porta | Abrv |
             | ------ | ------ |------ |------ |------ |
-            | [blackbox_exporter](http://192.168.56.120:9195/metrics) | Produz métricas derivadas de protocolos como HTTP e HTTPS para determinar a disponibilidade do endpoint, o tempo             de resposta e entre outros. | blackbox_exporter.service  | 9195 | blck | 
+            | [blackbox_exporter](http://192.168.56.120:9195/metrics) | Produz métricas derivadas de protocolos como HTTP e HTTPS para determinar a disponibilidade do endpoint, o tempo             de resposta e entre outros. | blackbox_exporter.service  | 9195 | blck |
             | [memcached_exporter](http://192.168.56.120:9196/metrics) | Exporta métricas de servidores memcached para consumo pelo Prometheus. | memcached_exporter.service | 9196 |             mencach |
             | [node_exporter](http://192.168.56.120:9190/metrics) | Produz métricas sobre infraestrutura, incluindo a CPU atual, memória e uso de disco, bem como estatísticas de E / S e             rede, como o número de bytes lidos de um disco ou a carga média de um servidor. | node_exporter.service | 9190 | node |
             | windows_exporter | Um exportador da Prometheus para máquinas Windows. | - | |
@@ -208,13 +208,13 @@ operadores e administradores na operação de produção, como os aplicativos,  
             | Jenkins exporter       | - | - | - |
             | PostgreSQL exporter    | - | - | - |
             | Kafka Consumer Group exporter| - | - | - |
-            
+
         === "Exportador Node"
 
              Este expõe métricas no nível do kernel e da máquina em sistemas Unix, como Linux. Ele fornece todas as métricas padrão, como CPU, memória, espaço em disco, disco E/S e              largura de banda da rede.
-             
+
              Além disso, fornece uma infinidade de métricas adicionais exposta pelo kernel, da média de carga à temperatura da placa-mãe.
-             
+
              Observação: Ele não expõe são métricas sobre processos individuais, nem
              métricas proxy de outros exportadores ou aplicativos. (rate(node_network_receive_bytes_total[1m]))
 
@@ -227,25 +227,25 @@ operadores e administradores na operação de produção, como os aplicativos,  
             A primeira adicionando regras de alerta ao Prometheus, definindo
             a lógica do que constitui um alerta.
             A segunda o Alertmanager converte alertas  em notificações, como e-mails, páginas e mensagens de bate-papo.
-            
-            
+
+
             | Objetos | Propósitos | Serviço | Porta | Abrv |
             | ------ | ------ |------ |------ |------ |
             | [Alertmanager](http://192.168.56.120:9193/) | Prometheus Alertmanager |  alertmanager.service  | 9193  | alert | 9093 |
             | Alertmanager clustering | Prometheus Alertmanager clustering |  -   | - | alertct | 9094 |
             | pagerduty-exporter | Não configurado | pagerduty.service | - | pgdty |
-            
+
             Observação: Pode haver personalização de [templates](https://golang.org/pkg/text/template/)
-            
-            Observação: 
+
+            Observação:
             - Os serviços estão no /etc/systemd/system/.
             - O link simbólico __latest_abrev__ , apontará para a última versão instalada e possivelmente não haverá quebra das scripts.
-            
+
         === "Monitoramento MySQL"
 
             Não sei quais bancos são usados o MariaDB e/ou MySQL.. Mas a história é a mesma da Oracle.
-            
-            
+
+
             | Objetos | Propósitos | Serviço | Porta | Abrv |
             | ------ | ------ |------ |------ |------ |
             | [mysqld_exporter](http://192.168.56.120:9194/metrics)  | Produz métricas relacionadas a um servidor MySQL, como o número de consultas executadas, tempo médio de resposta             da consulta e status de replicação do cluster. |  mysql_exporter.service   | 9194 | mysqldb |
@@ -253,55 +253,55 @@ operadores e administradores na operação de produção, como os aplicativos,  
 
         === "Monitoramento Oracle"
 
-            Os usuários têm relatado erros causados ​​por consultas lentas ou demoradas  no banco de dados, levando ao ambiente "TOPAR" 100%. 
-            
+            Os usuários têm relatado erros causados ​​por consultas lentas ou demoradas  no banco de dados, levando ao ambiente "TOPAR" 100%.
+
             Os desenvolvedores não conseguem reproduzir o problema, por estes ambientes não são concorrentes, logo as perguntas são passíveis de serem feitas:
-            
-            - É causado pela falta de recursos? 
+
+            - É causado pela falta de recursos?
               - Mal dimensionamento de Sizing ?
               - Péssima estrutura do hosting?
               - Arquitetura descentralizada desestruturada ?
-            
-            - Degradação de Performance 
+
+            - Degradação de Performance
               - Revisão dos Parâmetros de Inicialização do Banco de Dados;
               - Revisão da System Managed Undo;
               - Revisão da System Managed Undo;
               - Revisão da Temporary Tablespace;
               - Revisão de Clean-ups e execução de Estatisticas;
-              - Consultas mal otimizadas retornando muitos resultados? 
+              - Consultas mal otimizadas retornando muitos resultados?
               - etc.
-            
+
              Este é um ponto a ser levantado pelo Engenheiro de Confiabilidade da Instituição (SRE).
-             
-             Há sempre a discussão sobre a necessidade em **MONITORAR** com alertas automáticos, para que a equipe de SRE possa solucionar esses erros quando eles surgirem e cumprir seus              objetivos de nível de serviço. 
-             
+
+             Há sempre a discussão sobre a necessidade em **MONITORAR** com alertas automáticos, para que a equipe de SRE possa solucionar esses erros quando eles surgirem e cumprir seus              objetivos de nível de serviço.
+
              Além disso, um melhor monitoramento do banco de dados Oracle ajudará a avaliar o tamanho das tabelas e espaços de tabela e revelará onde o crescimento está acontecendo.
 
 
-             O Oracle Instant Client é uma implementação distribuída gratuitamente de um cliente Oracle. 
-             
+             O Oracle Instant Client é uma implementação distribuída gratuitamente de um cliente Oracle.
+
              | RPM | Instalado |
              | ----- | ------ |
              | JDBC | oracle-instantclient-jdbc-21.1.0.0.0-1.x86_64.rpm |
              | Devel | oracle-instantclient-devel-21.1.0.0.0-1.x86_64.rpm |
              | SQLPlus | oracle-instantclient-sqlplus-21.1.0.0.0-1.x86_64.rpm |
              | Drives | oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm |
-             
+
              ### Prometheus OracleDB
-             
+
              | Objetos | Propósitos | Serviço | Porta | Abrv |
              | ------ | ------ |------ |------ |------ |
              | [oracledb_exporter](http://http://192.168.56.120:9161/metrics)  | Produz métricas relacionadas ao Banco de Dados - Oracle, como o número de consultas executadas, tempo              médio de resposta da consulta e status de replicação do cluster. |  oracledb_exporter.service   | 9194 | oradb |
-             
+
              > https://github.com/iamseth/oracledb_exporter/releases
-             
-             
+
+
              Observação: **Default port allocations -  https://github.com/prometheus/prometheus/wiki/Default-port-allocations**
-             
+
         === "O que devo instrumentar"
 
             Em linhas gerais existem três tipos de serviços, cada um com suas próprias métricas principais:
-            
+
             - Sistemas de serviço online;
              - servidores da web e bancos de dados
                - Taxa de solicitação, latência e Taxa de erro.
@@ -319,14 +319,14 @@ operadores e administradores na operação de produção, como os aplicativos,  
 
             Você também precisará instalar a biblioteca cliente Python mais recente.
             Isso pode ser feito com
-            
+
             pip install prometheus_client
 
 ???+ tip "Nomenclaturas"
 
     === "Como devo nomear minhas métricas"
 
-         Bem, pelo que pude perceber a estrutura geral de um nome de métrica geralmente é **biblioteca_nome_unidade_sufixo**. 
+         Bem, pelo que pude perceber a estrutura geral de um nome de métrica geralmente é **biblioteca_nome_unidade_sufixo**.
          Devem começar com uma letra e podem ser seguidos por qualquer
          número de letras, números e sublinhados.
 
@@ -335,7 +335,7 @@ operadores e administradores na operação de produção, como os aplicativos,  
         A convenção é usar SNAKE CASE para nomes de métricas cada componente do nome deve ser minúsculo e separado por um sublinhado.
 
     === "Sufixos"
- 
+
         Os sufixos _total, _count, _sum e _bucket são usados pelas métricas de contador, resumo e histograma. Além de sempre ter um sufixo _total nos contadores, você deve evitar colocar esses sufixos no final dos nomes das métricas para evitar confusão.
 
     === "Unidades"
@@ -359,8 +359,8 @@ operadores e administradores na operação de produção, como os aplicativos,  
 
     === "Monitoramento da infraestrutura"
 
-        A Arquitetura Prometheus cada um dos seus serviços irá expor suas próprias métricas, usando um exportador. 
-        
+        A Arquitetura Prometheus cada um dos seus serviços irá expor suas próprias métricas, usando um exportador.
+
         O exportador do Node é projetado para ser executado como um usuário não root e deve ser executado diretamente na máquina da mesma forma que você executa um daemon do sistema         como sshd ou cron.
 
     === "Monitoramento de Servidores"
@@ -376,23 +376,23 @@ operadores e administradores na operação de produção, como os aplicativos,  
         | node_boot_time | Acheio meio confuso, é um pouco confuso, fornece métricas de /proc/stat |
         | node_uname_info | É o nome do host da máquina, que pode ser diferente do rótulo de destino da instância |
         | node_load  | Expõe o número de processos esperando em a fila de execução ou  aqueles que aguardam E/S.  |
-        
+
     === "Monitoramento de e-Business"
 
         | Métrica | Tempo  | Local |
         | ------ | ------: | ------ |
-        | Tempo Médio de Execução                       |  1 | 
+        | Tempo Médio de Execução                       |  1 |
         | Tempo Máximo de Execução                      |  1 |
         | Solicitações concluídas com sucesso           |  1 |
         | Solicitações concluídas com erros             |  1 |
         | Solicitações concluídas com Advrtencia        |  1 |
         | Nº de solicitações incompletas por status     |  1 |
         | Solicitações simultâneas inativas             | 15 |
-        | Solicitações simultâneas inativas (em espera) |    | 
+        | Solicitações simultâneas inativas (em espera) |    |
         | Solicitações simultâneas pendentes (normal)   |    |
         | Execução de solicitações simultâneas          |    |
         | Solicitações simultâneas programadas          |    |
-        | Nº de solicitações concluídas por hora por status  | 60 Minutos | 
+        | Nº de solicitações concluídas por hora por status  | 60 Minutos |
         | Solicitações simultâneas concluídas com erro       |  |
         | Solicitações simultâneas concluídas com aviso      |  |
         | Taxa de erros de solicitações simultâneas (%)      |  |
@@ -404,11 +404,11 @@ operadores e administradores na operação de produção, como os aplicativos,  
     === "File Integrity Monitoring"
 
         File Integrity Monitoring (FIM) ou monitoramento de integridade de arquivos, no português, é um controle essencial de segurança que analisa e alerta alterações suspeitas na         integridade de arquivos de configuração e sistema, com o objetivo de identificar possíveis ataques cibernéticos.
-        
-        O cenário de TI se alterou drasticamente, com as organizações adotando massivamente a cultura de Agile e DevOps,  arquitetura de microsserviços, "containerização" e migração         de aplicações para a nuvem. 
-        
-        Nesse novo contexto, com os containers sendo efêmeros na sua essência e com novas versões de aplicações sendo entregues mais frequentemente, a quantidade de alterações         aumentou consideravelmente. 
-        
+
+        O cenário de TI se alterou drasticamente, com as organizações adotando massivamente a cultura de Agile e DevOps,  arquitetura de microsserviços, "containerização" e migração         de aplicações para a nuvem.
+
+        Nesse novo contexto, com os containers sendo efêmeros na sua essência e com novas versões de aplicações sendo entregues mais frequentemente, a quantidade de alterações         aumentou consideravelmente.
+
         Seria **FIM** ainda uma solução relevante de segurança? Como evitar que as mudanças tão frequentes causem a chamada "Fadiga de Alerta", que é perigosa porque incidentes         legítimos de segurança podem ser ignorados?
 
 ???+ tip "Sinais Dourados"
@@ -441,17 +441,17 @@ operadores e administradores na operação de produção, como os aplicativos,  
         A maneira mais simples de diferenciar entre uma média lenta e uma "cauda" muito lenta de solicitações é coletar contagens de solicitações divididas por latências (adequadas         para renderizar um histograma), em vez de latências reais: quantas solicitações atendi que levaram entre 0 ms e 10 ms, entre 10 ms e 30 ms, entre 30 ms e 100 ms, entre 100         ms e 300 ms, e assim por diante? Distribuir os limites do histograma de forma aproximadamente exponencial (neste caso, por fatores de aproximadamente 3), geralmente é uma         maneira fácil de visualizar a distribuição de suas solicitações.
 
     === "Escolha de uma resolução apropriada para as medições"
-        
+
         Diferentes aspectos de um sistema devem ser medidos com diferentes níveis de granularidade. Por exemplo:
-      
+
         Observar a carga da CPU no intervalo de tempo de um minuto não revelará nem mesmo picos de longa duração que geram latências de cauda altas.
-        
+
         Por outro lado, para um serviço da web que visa não mais do que 9 horas de tempo de inatividade agregado por ano (99,9% de tempo de atividade anual), a verificação de um  status de 200 (sucesso) mais de uma ou duas vezes por minuto é provavelmente desnecessariamente frequente.
-        
+
         Da mesma forma, verificar se o disco rígido está cheio para um serviço que visa 99,9% de disponibilidade mais de uma vez a cada 1–2 minutos é provavelmente desnecessário.
-        
-        Tome cuidado ao estruturar a granularidade de suas medições. Coletar medições por segundo da carga da CPU pode render dados interessantes, mas essas medições frequentes podem ser muito caras para coletar, armazenar e analisar. Se sua meta de monitoramento exige alta resolução, mas não exige latência extremamente baixa, você pode reduzir esses custos realizando amostragem interna no servidor e, em seguida, configurando um sistema externo para coletar e agregar essa distribuição ao longo do tempo ou entre servidores. 
-    
+
+        Tome cuidado ao estruturar a granularidade de suas medições. Coletar medições por segundo da carga da CPU pode render dados interessantes, mas essas medições frequentes podem ser muito caras para coletar, armazenar e analisar. Se sua meta de monitoramento exige alta resolução, mas não exige latência extremamente baixa, você pode reduzir esses custos realizando amostragem interna no servidor e, em seguida, configurando um sistema externo para coletar e agregar essa distribuição ao longo do tempo ou entre servidores.
+
     === "Registre a utilização atual da CPU a cada segundo"
 
         Usando intervalos de granularidade de 5%, incremente o intervalo de utilização de CPU apropriado a cada segundo.
@@ -463,66 +463,66 @@ operadores e administradores na operação de produção, como os aplicativos,  
     === "Tão simples quanto possível, não mais simples"
 
         Empilhar todos esses requisitos uns sobre os outros pode resultar em um sistema de monitoramento muito complexo - seu sistema pode acabar com os seguintes níveis de         complexidade:
-        
+
         Alertas em diferentes limites de latência, em diferentes percentis, em todos os tipos de métricas diferentes
-        
+
         Código extra para detectar e expor as possíveis causas
         Painéis associados para cada uma dessas possíveis causas
         As fontes de complexidade potencial são infinitas. Como todos os sistemas de software, o monitoramento pode se tornar tão complexo que se torna frágil, complicado de mudar e         um fardo de manutenção.
-        
+
         Portanto, projete seu sistema de monitoramento tendo em vista a simplicidade. Ao escolher o que monitorar, tenha em mente as seguintes diretrizes:
-        
+
         As regras que detectam incidentes reais na maioria das vezes devem ser o mais simples, previsíveis e confiáveis ​​possível.
         A coleta de dados, agregação e configuração de alerta que raramente é realizada (por exemplo, menos de uma vez por trimestre para algumas equipes SRE) devem ser removidos.
         Os sinais que são coletados, mas não expostos em nenhum painel pré-elaborado nem usados ​​por qualquer alerta, são candidatos à remoção.
         Na experiência do Google, a coleta e agregação básicas de métricas, emparelhadas com alertas e painéis, funcionou bem como um sistema relativamente autônomo. (Na verdade, o         sistema de monitoramento do Google é dividido em vários binários, mas normalmente as pessoas aprendem sobre todos os aspectos desses binários.) Pode ser tentador combinar o         monitoramento com outros aspectos da inspeção de sistemas complexos, como perfis de sistema detalhados, depuração de processo único , rastreando detalhes sobre exceções ou         travamentos, teste de carga, coleta e análise de log ou inspeção de tráfego. Embora a maioria desses assuntos compartilhe semelhanças com o monitoramento básico, combinar         muitos resultados em sistemas excessivamente complexos e frágeis. Como em muitos outros aspectos da engenharia de software, manter sistemas distintos com
-        
+
         Vinculando esses princípios
         Os princípios discutidos neste capítulo podem ser agrupados em uma filosofia de monitoramento e alerta amplamente endossada e seguida pelas equipes de SRE do Google. Embora         essa filosofia de monitoramento seja um tanto aspiracional, é um bom ponto de partida para escrever ou revisar um novo alerta e pode ajudar sua organização a fazer as         perguntas certas, independentemente do tamanho de sua organização ou da complexidade de seu serviço ou sistema.
-        
+
         Ao criar regras para monitoramento e alerta, fazer as seguintes perguntas pode ajudá-lo a evitar falsos positivos e esgotamento do pager: 24
-        
+
         Esta regra detecta uma condição não detectada que é urgente, acionável e ativa ou iminentemente visível para o usuário? 25
         Serei capaz de ignorar esse alerta, sabendo que é benigno? Quando e por que poderei ignorar esse alerta e como posso evitar esse cenário?
         Este alerta indica definitivamente que os usuários estão sendo afetados negativamente? Existem casos detectáveis ​​em que os usuários não estão sendo afetados negativamente,         como tráfego drenado ou implantações de teste, que devem ser filtrados?
         Posso agir em resposta a este alerta? Essa ação é urgente ou pode esperar até de manhã? A ação poderia ser automatizada com segurança? Essa ação será uma solução de longo         prazo ou apenas uma solução alternativa de curto prazo?
         Outras pessoas estão sendo avisadas por este problema, tornando pelo menos uma das páginas desnecessária?
         Essas perguntas refletem uma filosofia fundamental em páginas e pagers:
-        
+
         Cada vez que o pager tocar, devo ser capaz de reagir com um senso de urgência. Só consigo reagir com urgência algumas vezes por dia antes de ficar cansado.
         Cada página deve ser acionável.
         Cada resposta de página deve exigir inteligência. Se uma página meramente merece uma resposta robótica, não deveria ser uma página.
         As páginas devem ser sobre um problema novo ou um evento que não tenha sido visto antes.
         Essa perspectiva dissipa certas distinções: se uma página satisfaz os quatro marcadores anteriores, é irrelevante se a página é acionada por monitoramento de caixa branca ou         caixa preta. Essa perspectiva também amplifica certas distinções: é melhor despender muito mais esforço em detectar os sintomas do que as causas; quando se trata de causas,         preocupe-se apenas com causas muito definidas e iminentes.
-        
+
         Monitoramento de Longo Prazo
         Em sistemas de produção modernos, os sistemas de monitoramento rastreiam um sistema em constante evolução com mudanças na arquitetura de software, características de carga e         metas de desempenho. Um alerta que atualmente é excepcionalmente raro e difícil de automatizar pode se tornar frequente, talvez até merecendo um script hackeado para         resolvê-lo. Nesse ponto, alguém deve encontrar e eliminar as causas básicas do problema; se tal resolução não for possível, a resposta do alerta merece ser totalmente         automatizada.
-        
+
         É importante que as decisões sobre monitoramento sejam tomadas com objetivos de longo prazo em mente. Cada página que acontece hoje distrai o ser humano de melhorar o         sistema para amanhã, então muitas vezes é o caso de dar um golpe de curto prazo na disponibilidade ou no desempenho para melhorar a perspectiva de longo prazo para o         sistema. Vamos dar uma olhada em dois estudos de caso que ilustram essa compensação.
-        
+
         Bigtable SRE: A Tale of Over-Alerting
         A infraestrutura interna do Google é normalmente oferecida e medida em relação a um objetivo de nível de serviço (SLO; consulte Objetivos de nível de serviço ). Muitos anos         atrás, o SLO do serviço Bigtable era baseado no desempenho médio de um cliente sintético bem comportado. Devido a problemas no Bigtable e nas camadas inferiores da pilha de         armazenamento, o desempenho médio foi impulsionado por uma cauda "grande": os piores 5% das solicitações costumavam ser significativamente mais lentos do que o resto.
-        
+
         Alertas de e-mail eram acionados conforme o SLO se aproximava, e alertas de paging eram acionados quando o SLO era excedido. Ambos os tipos de alertas foram disparados de         forma volumosa, consumindo uma quantidade inaceitável de tempo de engenharia: a equipe gastou uma quantidade significativa de tempo fazendo a triagem dos alertas para         encontrar os poucos que eram realmente acionáveis ​​e muitas vezes perdemos os problemas que realmente afetavam os usuários, porque poucos fez. Muitas das páginas não eram         urgentes, devido a problemas bem conhecidos na infraestrutura, e tiveram respostas automáticas ou não receberam resposta.
-        
+
         Para remediar a situação, a equipe usou uma abordagem em três vertentes: ao fazer grandes esforços para melhorar o desempenho do Bigtable, também reduzimos temporariamente         nossa meta de SLO, usando a latência de solicitação do 75º percentil. Também desabilitamos os alertas de e-mail, pois eram tantos que perder tempo diagnosticando-os era         inviável.
-        
+
         Essa estratégia nos deu espaço para respirar para realmente consertar os problemas de longo prazo no Bigtable e nas camadas inferiores da pilha de armazenamento, em vez de         consertar constantemente os problemas táticos. Os engenheiros de plantão podiam realmente realizar o trabalho quando não eram acompanhados por pajens o tempo todo. Por fim,         o recuo temporário de nossos alertas nos permitiu progredir mais rapidamente em direção a um serviço melhor.
-        
+
         Gmail: respostas previsíveis e programáveis ​​de humanos
         Nos primeiros dias do Gmail, o serviço foi construído em um sistema de gerenciamento de processo distribuído adaptado chamado Workqueue, que foi originalmente criado para         processamento em lote de partes do índice de pesquisa. O Workqueue foi "adaptado" a processos de longa duração e posteriormente aplicado ao Gmail, mas alguns bugs na base de         código relativamente opaca do agendador se mostraram difíceis de superar.
-        
+
         Naquela época, o monitoramento do Gmail era estruturado de forma que alertas fossem disparados quando tarefas individuais fossem “canceladas” pelo Workqueue. Essa         configuração não era ideal porque, mesmo naquela época, o Gmail tinha muitos, muitos milhares de tarefas, cada tarefa representando uma fração de um por cento de nossos         usuários. Nós nos preocupávamos profundamente em fornecer uma boa experiência do usuário aos usuários do Gmail, mas essa configuração de alerta era impossível de manter.
-        
+
         Para resolver esse problema, o Gmail SRE construiu uma ferramenta que ajudou a “cutucar” o programador da maneira certa para minimizar o impacto para os usuários. A equipe         teve várias discussões sobre se deveríamos ou não simplesmente automatizar todo o loop, desde a detecção do problema até o ajuste do reescalonador, até que uma solução         melhor de longo prazo fosse alcançada, mas alguns temiam que esse tipo de solução alternativa atrasaria uma correção real.
-        
+
         Este tipo de tensão é comum dentro de uma equipe e muitas vezes reflete uma desconfiança subjacente da autodisciplina da equipe: enquanto alguns membros da equipe querem         implementar um "hack" para dar tempo para uma correção adequada, outros temem que um hack seja esquecido ou que a correção adequada será despriorizada indefinidamente. Essa         preocupação é verossímil, pois é fácil construir camadas de dívidas técnicas insustentáveis ​​corrigindo os problemas em vez de fazer correções reais. Gerentes e líderes         técnicos desempenham um papel fundamental na implementação de correções verdadeiras de longo prazo, apoiando e priorizando correções de longo prazo potencialmente demoradas,         mesmo quando a “dor” inicial do paging diminui.
-        
+
         Páginas com respostas automáticas e algorítmicas devem ser uma bandeira vermelha. A falta de vontade da sua equipe em automatizar essas páginas implica que a equipe não tem         confiança de que pode limpar seu débito técnico. Este é um grande problema que vale a pena escalar.
-        
+
         The Long Run
         Um tema comum conecta os exemplos anteriores de Bigtable e Gmail: uma tensão entre disponibilidade de curto e longo prazo. Freqüentemente, a força total do esforço pode         ajudar um sistema raquítico a atingir alta disponibilidade, mas esse caminho geralmente é de curta duração e repleto de esgotamento e dependência de um pequeno número de         membros heróicos da equipe. Assumir uma redução controlada e de curto prazo na disponibilidade costuma ser uma troca dolorosa, mas estratégica para a estabilidade de longo         prazo do sistema. É importante não pensar em cada página como um evento isolado, mas considerar se o nível geralde paging leva a um sistema saudável e apropriadamente         disponível com uma equipe saudável e viável e perspectiva de longo prazo. Revisamos as estatísticas sobre a frequência da página (geralmente expressa como incidentes por         turno, em que um incidente pode ser composto de algumas páginas relacionadas) em relatórios trimestrais com a gerência, garantindo que os tomadores de decisão sejam mantidos         atualizados sobre o carregamento do pager e a integridade geral de seus equipes.
-    
+
 
 # Logs de eventos
 Um log de evento é um registro imutável com carimbo de data/hora de eventos discretos que aconteceram ao longo do tempo. Os logs de eventos em geral vêm em 3 formas, mas são fundamentalmente os mesmos: um carimbo de data/hora e uma carga útil de algum contexto. As três 3 formas são:
@@ -534,10 +534,10 @@ Um log de evento é um registro imutável com carimbo de data/hora de eventos di
 | Binário     | Pense em logs no formato Protobuf, binlogs MySQL usados para replicação e point-in-time recovery, systemd journal logs, o formato pflog usado pelo firewall BSD pf que frequentemente serve como um frontend para a ferramenta tcpdump. |
 
 # Logs
-Log de dados é uma expressão utilizada para descrever o processo de registro de eventos relevantes num sistema computacional. 
+Log de dados é uma expressão utilizada para descrever o processo de registro de eventos relevantes num sistema computacional.
 Os logs do sistema operacional fornecem muitas informações de diagnóstico sobre o os equipamentos servidores/computadores.
 <p align="justify">Os arquivos de log são normalmente utilizados como a principal fonte de informações quando um sistema está com algum incidente ou problema.
-Um formato de log é um formato estruturado que permite que os logs sejam legíveis por máquina e facilmente analisados. 
+Um formato de log é um formato estruturado que permite que os logs sejam legíveis por máquina e facilmente analisados.
 A capacidade de traduzir dados brutos em algo imediatamente compreensível e fácil de ler é um dos  recursos obrigatórios do software de gerenciamento de logs.</p>
 
 ## Por que o registro é importante?
@@ -553,7 +553,7 @@ A capacidade de traduzir dados brutos em algo imediatamente compreensível e fá
 [![](https://mermaid.ink/img/pako:eNpdU92K4jAYfZWQiyXCCNY6N14sRI2hTMdKU2Z3oBBCG7XQppLG3R2GefdNk3Rl9aLKOd_P-c6xn7DqawnX8NT2v6uL0AakOSgVsJ9igfBVVBfJi76rhJkBMJ9_B0WEtsKItlFiBr6BYolwVclh4G1_dkCMsnzHZmFI7JtiW3YkP_-hywmOHM7xtkjekuKdpxn1U5a-g__I8hd2xFvyf83D-AgNRqhatL2SgSP5kZMNcwV4YWfShSfweNiVSf1r5km7KUs5vtWNKbRo2lEAjhFr1HmeqWlV5K512iKvMHyNGHYPr4agrVRGiza1jvjmfbASSGDBtBmMVFL79cSX0AXabe6iaIQK3bQXAZyuXjfObrpE7J09YNZxxtnHEBKgK0T4ZkqARmGedXrsAv7EQPocqI3B9vuxE-WPobGj7qfQlTctssT-sBvD4K-EMUwJc8ZFNuuTqsf_A7cuqEFUpukVr3pl5B8TauKpOTlMbas7xHPCjnyf5a8T-fxAZgeWbJI0KRJyvzRyDrmny2gUGSSFrWFTmAnAlAB8gp3UnWhq-zJ8jvNKaC6ykyVc25-1PIlba0pYqi9bKm6mZx-qgmujb_IJ3q61MHLXiLMWHVyfRDvIr7_Ou-kH?type=png)](https://mermaid.live/edit#pako:eNpdU92K4jAYfZWQiyXCCNY6N14sRI2hTMdKU2Z3oBBCG7XQppLG3R2GefdNk3Rl9aLKOd_P-c6xn7DqawnX8NT2v6uL0AakOSgVsJ9igfBVVBfJi76rhJkBMJ9_B0WEtsKItlFiBr6BYolwVclh4G1_dkCMsnzHZmFI7JtiW3YkP_-hywmOHM7xtkjekuKdpxn1U5a-g__I8hd2xFvyf83D-AgNRqhatL2SgSP5kZMNcwV4YWfShSfweNiVSf1r5km7KUs5vtWNKbRo2lEAjhFr1HmeqWlV5K512iKvMHyNGHYPr4agrVRGiza1jvjmfbASSGDBtBmMVFL79cSX0AXabe6iaIQK3bQXAZyuXjfObrpE7J09YNZxxtnHEBKgK0T4ZkqARmGedXrsAv7EQPocqI3B9vuxE-WPobGj7qfQlTctssT-sBvD4K-EMUwJc8ZFNuuTqsf_A7cuqEFUpukVr3pl5B8TauKpOTlMbas7xHPCjnyf5a8T-fxAZgeWbJI0KRJyvzRyDrmny2gUGSSFrWFTmAnAlAB8gp3UnWhq-zJ8jvNKaC6ykyVc25-1PIlba0pYqi9bKm6mZx-qgmujb_IJ3q61MHLXiLMWHVyfRDvIr7_Ou-kH)
 
 ## Logs do Linux/MacOS
-Nestes sistemas operacionais temos um diretório especial para armazenar logs chamado /var/log. Este diretório contém logs do próprio sistema operacional, serviços e vários aplicativos em execução no sistema. 
+Nestes sistemas operacionais temos um diretório especial para armazenar logs chamado /var/log. Este diretório contém logs do próprio sistema operacional, serviços e vários aplicativos em execução no sistema.
 
 | Caminho               | Descrição                           |
 | ------                | ------                              |
@@ -575,7 +575,7 @@ Nestes sistemas operacionais temos um diretório especial para armazenar logs ch
 
 ### SYSLOG
 É um padrão para criar e transmitir logs. O serviço syslog, que recebe e processa mensagens syslog.
-O protocolo syslog (RFC 5424), que é um protocolo de transporte que especifica como transmitir logs em uma rede. 
+O protocolo syslog (RFC 5424), que é um protocolo de transporte que especifica como transmitir logs em uma rede.
 Por padrão, ele usa a porta 514 para mensagens de texto simples e a porta 6514 para mensagens criptografadas.
 
 ### SystemD
@@ -585,27 +585,27 @@ O Systemd implementa seu próprio serviço de registro denominado journald que p
 O log do Apache registra eventos que foram manipulados pelo servidor da web Apache, incluindo solicitações de outros computadores, respostas enviadas pelo Apache e ações internas ao servidor Apache. O Apache gera dois tipos de logs: logs de **acesso e erro**.
 Não irei falar sobre todos os níveis de log, mas segue uma lista resumida, onde este ajusta o detalhamento das mensagens registradas nos logs de erros.
 
-| Nível  | Descrição                                                   | 
+| Nível  | Descrição                                                   |
 |--------|-------------------------------------------------------------|
-| emerg  | Emergências - o sistema está inutilizável.                  | 
-| alert  | A ação deve ser tomada imediatamente.                       | 
-| crit   | Condições críticas.                                         | 
-| error  | Condições de erro.                                          | 
-| warn   | Condições de aviso.                                         | 
-| notice | Condição normal, mas significativa.                         | 
+| emerg  | Emergências - o sistema está inutilizável.                  |
+| alert  | A ação deve ser tomada imediatamente.                       |
+| crit   | Condições críticas.                                         |
+| error  | Condições de erro.                                          |
+| warn   | Condições de aviso.                                         |
+| notice | Condição normal, mas significativa.                         |
 | info   | Informativo.                                                |
-| debug  | Mensagens de nível de depuração                             | 
-| trace1 | Rastrear mensagens                                          | 
-| trace2 | Rastrear mensagens                                          | 
-| trace3 | Rastrear mensagens                                          | 
-| trace4 | Rastrear mensagens                                          | 
-| trace5 | Rastrear mensagens                                          | 
-| trace6 | Rastrear mensagens                                          | 
-| trace7 | Rastreie mensagens, despejando grandes quantidades de dados | 
-| trace8 | Rastreie mensagens, despejando grandes quantidades de dados | 
+| debug  | Mensagens de nível de depuração                             |
+| trace1 | Rastrear mensagens                                          |
+| trace2 | Rastrear mensagens                                          |
+| trace3 | Rastrear mensagens                                          |
+| trace4 | Rastrear mensagens                                          |
+| trace5 | Rastrear mensagens                                          |
+| trace6 | Rastrear mensagens                                          |
+| trace7 | Rastreie mensagens, despejando grandes quantidades de dados |
+| trace8 | Rastreie mensagens, despejando grandes quantidades de dados |
 
 ## Rsyslog
-É um sistema de processamento de log, projetado em uma arquitetura cliente/servidor. 
+É um sistema de processamento de log, projetado em uma arquitetura cliente/servidor.
 Com ferramentas como especialistas em segurança RSYSLOG, administradores de sistema e gerentes de devops podem centralizar todas as mensagens de log provenientes de servidores, dispositivos de rede, aplicativos e muitas outras fontes (até mesmo impressoras e periféricos).
 O arquivo de configuração rsyslog principal está localizado em /etc/rsyslog.conf.
 
@@ -634,7 +634,7 @@ graph LR
     B[Fluentd]                -->|Analysis| MongoDB
     B[Fluentd]                -->|Analysis| MySQL
     B[Fluentd]                -->|Analysis| Hadoop
-    B[Fluentd]                -->|Archiving| AmazonS3 
+    B[Fluentd]                -->|Archiving| AmazonS3
 ```
 
 ## Logrotate
@@ -659,9 +659,9 @@ size 10M  --  size para girar o arquivo de log quando ele exceder um determinado
 weekly  -- rotação baseada no tempo - monthly, weekly or daily
 rotate 7  -- Qantos arquivos serão mantidos após a rotação
 maxage 14 -- Número máximo de arquivos serão mantidos após a rotação
-compress  -- Arquivos de log que foram girados podem ser compactados para economizar espaço em disco. Gzip é usado por padrão. 
+compress  -- Arquivos de log que foram girados podem ser compactados para economizar espaço em disco. Gzip é usado por padrão.
 compresscmd /bin/bzip2 -- Qual o programa de compressão
-missingok -- palavra-chave  missingok para evitar esse cenário e instruir logrotate a ignorar o arquivo de log se ele não existir. 
+missingok -- palavra-chave  missingok para evitar esse cenário e instruir logrotate a ignorar o arquivo de log se ele não existir.
 copytruncate -- A  palavra-chave copytruncate copia todo o log do arquivo para um novo arquivo e, a seguir, trunca o arquivo original. Isso mantém o arquivo de log original no lugar e também permite que a rotação continue.
 notifempty -- não gire o arquivo de log se estiver vazio.
 postrotate -- cada vez que gira um log especificado em um bloco de configuração.
@@ -744,7 +744,7 @@ endscript
 Comandos em execução:
 
 -  logrotate --force --verbose /etc/logrotate.conf
--  logrotate --debug           /etc/logrotate.conf 
+-  logrotate --debug           /etc/logrotate.conf
 -  logrotate --force          /etc/logrotate.conf --state /home/60pportunities/logrotate-state
 
 
@@ -769,7 +769,7 @@ FROM DUAL 
 SELECT count(*) FROM EXEMPLO ;
 ```
 #### Pacote DBMS_ERRLOG
-Fornece um procedimento que permite criar uma tabela de log de erros para que as operações DML possam continuar depois de encontrar erros, em vez de abortar e reverter. 
+Fornece um procedimento que permite criar uma tabela de log de erros para que as operações DML possam continuar depois de encontrar erros, em vez de abortar e reverter.
 Isso permite que você economize tempo e recursos do sistema.
 
 ```
@@ -794,7 +794,7 @@ LOG ERRORS
 REJECT LIMIT UNLIMITED;
 ```
 #### Pacote PG_60OPT_UTILITARIO_ERRO
-Pacote em PL/SQL desenvolvido pela 60OPT, objetivando o controle background de rotinas. 
+Pacote em PL/SQL desenvolvido pela 60OPT, objetivando o controle background de rotinas.
 
 | Metodo | Descrição |
 | ------ | --------- |
@@ -815,7 +815,7 @@ A capacidade de medir o estado atual de um sistema com base em sua saída ou nos
 
 ## Observabilidade de Dados versus Observabilidade de Banco de Dados
 
-- [x] Observabilidade de dados é a capacidade de compreender os componentes, a estrutura e a integridade dos dados mantidos em seus sistemas de armazenamento. A forma como os dados em si são estruturados é uma parte essencial da observabilidade dos dados (juntamente com qualidade, atualização, volume e linhagem). 
+- [x] Observabilidade de dados é a capacidade de compreender os componentes, a estrutura e a integridade dos dados mantidos em seus sistemas de armazenamento. A forma como os dados em si são estruturados é uma parte essencial da observabilidade dos dados (juntamente com qualidade, atualização, volume e linhagem).
 - [x] Observabilidade do banco de dados analisa o processo de mudança do esquema do banco de dados para compreender as evoluções estruturais ao longo do tempo.
 
 ## Métricas de Dados
@@ -846,5 +846,3 @@ A observabilidade do banco de dados também se estende ao desempenho do próprio
 - [x] Uso de memória;
 - [x] Taxa de transferência de E/S de disco;
 - [x] Latência do usuário final;
-
-

@@ -27,4 +27,4 @@ jobs:
     - name: Información del job actual
       run: echo ${{ job.status }}
     - name: Información de la rama
-      run: echo ${{ github.ref }} 
+      run: echo ${{ github.ref }}

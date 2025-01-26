@@ -5,7 +5,7 @@
 
 <p align="justify">Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazêmo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.</p>
 
-Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. 
+Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado.
 
 <p align="justify">Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.</p>
 
@@ -13,7 +13,7 @@ Apenas retemos as informações coletadas pelo tempo necessário para fornecer o
 
 <p align="justify">Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.</p>
 
-O nosso site pode ter links para sites externos que não são operados por nós. 
+O nosso site pode ter links para sites externos que não são operados por nós.
 
 <p align="justify">Esteja ciente de que não temos controle sobre o conteúdo e práticas desses sites e não podemos aceitar responsabilidade por suas respectivas políticas de privacidade.</p>
 

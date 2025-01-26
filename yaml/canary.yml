@@ -16,7 +16,7 @@ env:
   ARTIFACT_NAME: docker-java-app
   RESOURCE_GROUP: Gaurav-RG
   AKS_CLUSTER_NAME: Gaurav-AKS-cluster
-  
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -35,7 +35,7 @@ jobs:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
           cluster-name: ${{ env.AKS_CLUSTER_NAME }}
           resource-group: ${{ env.RESOURCE_GROUP }}
-      
+
       - name: Deploy app
         uses: azure/k8s-deploy@v1.3
         with:

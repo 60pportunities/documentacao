@@ -40,7 +40,7 @@ Ferramentas de Integração e Entrega Contínua, não há inovação nessa área
 | [Docker](https://www.docker.com/products/docker-desktop/) | |
 | [Rancher Desktop](https://rancherdesktop.io/) | |
 | [Podman](https://podman.io/)
-| [Nerdctl](https://github.com/containerd/nerdctl) | | 
+| [Nerdctl](https://github.com/containerd/nerdctl) | |
 |[chainguard](https://www.chainguard.dev/chainguard-images)| |
 
 ## Portais para desenvolvedores

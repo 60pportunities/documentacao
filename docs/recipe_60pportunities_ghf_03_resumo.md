@@ -1,7 +1,7 @@
 GitHub é uma plataforma popular para hospedagem e colaboração em projetos de programação, permitindo que desenvolvedores trabalhem juntos de forma eficaz, para iniciar o seu uso, crie uma [Conta](recipe_60pportunities_ghf_02_conta).
 O GitHub foi criado em 2008 para hospedar projetos Git e agora é uma subsidiária da Microsoft. O GitHub não se limita a projetos de código aberto; empresas e desenvolvedores individuais podem criar repositórios privados acessíveis somente a eles.
 
-## Como o Git e o GitHub funcionam juntos? 
+## Como o Git e o GitHub funcionam juntos?
 <p align="justify">GitHub hospeda repositórios do Git e fornece aos desenvolvedores ferramentas para enviar um código melhor por meio das funcionalidades de linha de comando, problemas(discussões encadeadas), pull requests, revisão de código ou o uso de uma coleção de aplicativos grátis e para compra em GitHub Marketplace. </p>
 
 <p align="justify">Ao enviar arquivos para o GitHub, você os armazenará em um "repositório Git". Isso significa que quando você fizer alterações (ou "commits") nos seus arquivos no GitHub, o Git começará automaticamente a rastrear e gerenciar suas alterações.</p>
@@ -63,7 +63,7 @@ Hi horaciovasconcellos! You've successfully authenticated, but GitHub does not p
 - [x] Assinar Commits e Tags: Configure seu Git para assinar commits e tags com sua chave GPG;
 - [x] Isso garante a integridade e autenticidade dos seus commits;
 - [x] Proteger a Chave Privada: Assim como com SSH, mantenha sua chave privada em segredo e protegida por uma senha adicional;
-- [x] O GPG usa o método de chaves pública e privada (secreta) para assegurar a transferência de informações entre pares. 
+- [x] O GPG usa o método de chaves pública e privada (secreta) para assegurar a transferência de informações entre pares.
 
 ```
 gpg --list-keys
@@ -82,14 +82,14 @@ Existem dois tipos de PAT: Tokens (clássico) e tokens refinados (versão beta e
 
 - [x] Imagem --> Settings --> Developer Settings --> Tokens (Use token refinados)
 
-PAT é usado quando você estabelece uma conexão HTTPS com seu Repositório Remoto. 
+PAT é usado quando você estabelece uma conexão HTTPS com seu Repositório Remoto.
 Através dos comandos: `git clone, git remote, git push e git pull`.
 
 - [x] Criar e Usar PATs: Crie tokens de acesso pessoal no GitHub para substituir senhas ao autenticar-se em APIs e na linha de comando;
 - [x] Defina permissões mínimas necessárias para a tarefa em questão;
 - [x] Tratar PATs como Senhas: Sempre trate seus PATs como senhas e nunca compartilhe com ninguém;
 - [x] Rotacione regularmente e remova tokens que não são mais necessários.
-- [X] GitHub possuoi dois tipos de PATs: 
+- [X] GitHub possuoi dois tipos de PATs:
       - [x] Tokens clássicos: Eles são menos seguros e não são mais recomendados para uso. Clientes com sistemas legados podem ainda estar usando token clássico
       - [x] Tokens de acesso pessoal refinados: Concederam permissões específicas. Deve ter uma data de expiração, pode acessar apenas repositórios específicos, pode acessar apenas recursos de propriedade de um único usuário ou organização.
 
@@ -125,7 +125,7 @@ Dentro de um repositório do Github, você terá uma barra de navegação para o
 |                 | GitHub.com                          | github.dev                           | Codespaces                                         | GitHub Desktop               | IDE ou Edito | GitHub CLI                                                 | GitHub API                                                                                               |
 | ----            | ----                                | ----                                 | -----                                              | ----                         | -------      | ----                                                       | ----                                                                                                     |
 | Acesso          | Browser                             |  Browser                             | Browser ou desktop                                 | Desktop                      |  Desktop     | Desktop                                                    | Browser ou desktop                                                                                       |
-|                 | Mudanças Rápidas                    | Mudanças Complexas                   | Nuvem, Testes, Complexos                           | Local e interface visual Git | Um só lugar  | Git complexo que não está integrado em interfaces visuais. | Automatizar tarefas comuns, como fazer backup de seus dados, ou criar integrações que estendam o GitHub. | 
+|                 | Mudanças Rápidas                    | Mudanças Complexas                   | Nuvem, Testes, Complexos                           | Local e interface visual Git | Um só lugar  | Git complexo que não está integrado em interfaces visuais. | Automatizar tarefas comuns, como fazer backup de seus dados, ou criar integrações que estendam o GitHub. |
 | Custo           | Ver contas                          | Gratuita	                           | Cota mensal gratuita de uso para contas pessoais.  |                              |              |                                                            |                                                                                                          |
 | Disponibilidade | Todos com conta.                    | Todos com conta.                     | Todos com conta.                                   |                              |              |                                                            |                                                                                                          |
 | Start           |                                     | Não configuração ou instalação.      | Container base em arquivo: `devcontainer.json`     |                              |              |                                                            |                                                                                                          |
@@ -144,7 +144,7 @@ Explore o GitHub para encontrar: repositórios, tópicos, códigos, pessoas e or
 | Contribua            | Para o projeto de outro usuário abrindo uma solicitação de pull.                          |
 
 ### Permissões de acesso
-Uma permissão é a capacidade de executar uma ação específica. 
+Uma permissão é a capacidade de executar uma ação específica.
 
 |  Tipo           | Permissão        | Ação
 | -------         | ----------       | ----------                                            |
@@ -172,11 +172,11 @@ Uma permissão é a capacidade de executar uma ação específica.
 - [x] Admin: Recomendado para pessoas que precisam de acesso total ao projeto, incluindo ações sensíveis e destrutivas, como gerenciar a segurança ou excluir um repositório.
 
 ### Comunicação
-GitHub fornece ferramentas de comunicação colaborativa embutidas que permitem que você interaja de perto com sua comunidade. 
+GitHub fornece ferramentas de comunicação colaborativa embutidas que permitem que você interaja de perto com sua comunidade.
 
 | Ferramenta         | Discutir detalhes               |
 | ------             | ----------                      |
-| GitHub Issues      | Relatórios de bugs, melhorias e feedbacks planejados, específicos para um repositório e geralmente têm um proprietário claro. | 
+| GitHub Issues      | Relatórios de bugs, melhorias e feedbacks planejados, específicos para um repositório e geralmente têm um proprietário claro. |
 | Pull requests      | Propor alterações específicas, comente diretamente as alterações propostas por outros e específicos para um repositório |
 | [GitHub Discussions](https://github.com/orgs/community/discussions) | fórum e são mais utilizados para ideias e discussões de formato aberto, muitos repositórios,  não têm um proprietário claro e muitas vezes não resultam em uma tarefa prática. |
 
@@ -198,7 +198,7 @@ Você pode usar a visualização de recursos para ver produtos ou recursos que e
 O GitHub possui uma ferramenta de teste de validação de rede, chamada [GitHub Debug](https://github-debug.com/)
 ```
 GIT_TRACE=1 GIT_TRANSFER_TRACE=1 GIT_CURL_VERBOSE=1 clone git https://github.com/github/debug-repo /tmp/debug-repo-http
-GIT_TRACE=1 GIT_TRANSFER_TRACE=1 GIT_CURL_VERBOSE=1 clone do git git@github.com:github/debug-repo /tmp/debug-repo-ssh          
+GIT_TRACE=1 GIT_TRANSFER_TRACE=1 GIT_CURL_VERBOSE=1 clone do git git@github.com:github/debug-repo /tmp/debug-repo-ssh
 ping -c 10 github.com
 traceroute github.com
 curl -s -o/dev/null -w "velocidade de download: %{speed_download} | dnslookup: %{time_namelookup} | conexão: %{time_connect} | conexão de aplicativo: %{time_appconnect} | pré-transferência: %{time_pretransfer} | transferência inicial: %{time_starttransfer} | total: %{time_total} | tamanho: %{size_download}\n" https://github.com
@@ -208,13 +208,13 @@ O GitHub Advanced Security está disponível para contas corporativas no GitHub 
 
 - [x] Alguns deles estão incluídos em todos os planos, como gráfico de dependência e alertas do Dependabot.
 - [x] O GitHub limita o número de pessoas que podem ser convidadas para um repositório dentro de um período de 24 horas.
-      - [x] Settings --> Colaboradores --> Adicionar pessoas 
+      - [x] Settings --> Colaboradores --> Adicionar pessoas
 
 - [x] GitHub Advanced Security:
       - [x] Code scanning: Potenciais vulnerabilidades de segurança e erros de codificação em seu código
       - [x] CodeQL CLI: Localmente em projetos de software ou para gerar resultados de varredura de código para upload no GitHub Enterprise Cloud.
       - [x] Secret scanning: Detecte segredos, por exemplo, chaves e tokens, que foram verificados no repositório.
-      - [x] Regras de triagem automática personalizadas (Custom auto-triage rules): gerenciar seus alertas do Dependabot em escala. 
+      - [x] Regras de triagem automática personalizadas (Custom auto-triage rules): gerenciar seus alertas do Dependabot em escala.
       - [x] Revisão de dependência (Dependency review): Mostre o impacto total das alterações nas dependências e veja detalhes de quaisquer versões vulneráveis ​​antes de mesclar uma solicitação de pull.
 - [x] Os recursos do GitHub Advanced Security estão habilitados para todos os repositórios públicos no GitHub.com. Organizações que usam o GitHub Enterprise Cloud com Advanced Security podem habilitar adicionalmente esses recursos para repositórios privados e internos.
 - [x] Com uma licença do GitHub Copilot Enterprise, você também pode pedir ajuda ao GitHub Copilot Chat para entender melhor os alertas de segurança em repositórios na sua organização
@@ -252,16 +252,16 @@ Isso permite que um grupo inicial dentro da sua empresa se familiarize  e constr
 Você deve criar uma documentação interna que defina processos para as equipes seguirem.
 
 - [x] precisam saber o que fazer quando recebem um alerta de segurança;
-- [x] use as experiências e o feedback das equipes envolvidas nesses pilotos para influenciar sua documentação. 
+- [x] use as experiências e o feedback das equipes envolvidas nesses pilotos para influenciar sua documentação.
 - [x] A educação é provavelmente a parte mais crucial da implementação, pois ensina aos desenvolvedores o que fazer em diferentes situações.
 #### Fase 5: Implementação e digitalização de código em escala
 #### Fase 6: Implementação e dimensionamento da varredura secreta
 - [x] Concentre-se nos segredos recentemente revelados
-      - [x] Notificar : Use webhooks para garantir que quaisquer novos alertas secretos sejam vistos pelas equipes certas o mais rápido possível. 
+      - [x] Notificar : Use webhooks para garantir que quaisquer novos alertas secretos sejam vistos pelas equipes certas o mais rápido possível.
       - [x] Acompanhamento : Crie um processo de correção de alto nível que funcione para todos os tipos de segredo.
-      - [x] Educar : Crie um documento de treinamento interno atribuído ao desenvolvedor que cometeu o segredo. 
+      - [x] Educar : Crie um documento de treinamento interno atribuído ao desenvolvedor que cometeu o segredo.
 - [x] Habilitar proteção push: A varredura secreta verifica os pushs para segredos suportados e bloqueia os pushs para o GitHub antes que os segredos sejam expostos a outros usuários.
-      - [x] Fornecer orientação : configure um link personalizado na mensagem que os colaboradores verão se o push deles for bloqueado por varredura secreta. 
+      - [x] Fornecer orientação : configure um link personalizado na mensagem que os colaboradores verão se o push deles for bloqueado por varredura secreta.
       - [x] Notificar : Defina um webhook que rastreie especificamente alertas de varredura secreta criados quando alguém ignora a proteção push usando a propriedade alerta.
       - [x] Monitor : Use a visão geral de segurança para visualizar métricas sobre o desempenho da proteção por push em repositórios em sua organização.
 - [x] Corrija os segredos previamente comprometidos, começando pelos mais críticos
@@ -274,7 +274,7 @@ Você deve criar uma documentação interna que defina processos para as equipes
 <details>
 <summary>Tips for collapsed sections</summary>
 ### You can add a header
-You can add text within a collapsed section. 
+You can add text within a collapsed section.
 You can add an image or a code block, too.
 </details>
 ```
@@ -318,7 +318,7 @@ Folhas de dicas, exames práticos e flash cards. O tamanho máximo do arquivo é
 
 - [x] 10 MB para imagens e gifs;
 - [x] 10 MB para vídeos enviados para um repositório de propriedade de um usuário ou organização em um plano gratuito do GitHub;
-- [x] 100 MB para vídeos enviados para um repositório de propriedade de um usuário ou organização em um plano pago do GitHub; 
+- [x] 100 MB para vídeos enviados para um repositório de propriedade de um usuário ou organização em um plano pago do GitHub;
 - [x] 25 MB para todos os outros arquivos;
 
 Arquivos suportados:
@@ -351,12 +351,12 @@ O GitHub Enterprise Cloud tenta fornecer armazenamento abundante para todos os r
 - [x] O GitHub Enterprise Cloud limita o tamanho dos arquivos permitidos em repositórios.
 - [x] O github possui uma ferramenta para verificar o tamanho do repositorio, chamado: `git-sizer`.
 - [x] Para evitar o preenchimento de um repositório com dependências externas, recomenda-se o uso de um gerenciador de pacotes.
-- [x] Idealmente inferior a 1 GB, e o tamanho inferior a 1 GB é altamente recomendado. 
+- [x] Idealmente inferior a 1 GB, e o tamanho inferior a 1 GB é altamente recomendado.
 - [x] Diferentes limites de tamanho máximo para o Git LFS se aplicam conforme o seu plano do GitHub.
 - [x] Limites de diff 20 mil linhas ou  500 KB de dados de comparação brutos.
 - [x] O número máximo de arquivos em uma só comparação é limitado a 300.
 - [x] O número máximo de arquivos renderizáveis (como imagens, PDFs e arquivos GeoJSON) em uma só comparação é limitado a 25.
-- [x] Limites de listas de commits: são limitadas a 250 commits. 
+- [x] Limites de listas de commits: são limitadas a 250 commits.
 - [x] Arquivos
       - [x] Um arquivo a um repositório por meio de um navegador, o arquivo não poderá ser maior que 25 MiB.
       - [x] Um arquivo adicionado ou atualizado um arquivo maior do que 50 MiB, você receberá um aviso do Git.
@@ -375,10 +375,10 @@ O GitHub Enterprise Cloud tenta fornecer armazenamento abundante para todos os r
 - [x] Quando você excede o limite por arquivo de 5 GB, o arquivo é rejeitado pelo Git LFS com uma mensagem de erro.
 - [x] O Git LFS está disponível para cada repositório do GitHub, sua conta ou organização tendo ou não uma assinatura paga.
 
-- [x] Largura de banda e uso de armazenamento contam apenas na conta do proprietário do repositório. Na bifurcação, largura de banda e o uso do armazenamento contam contra a raiz da rede do repositório. 
+- [x] Largura de banda e uso de armazenamento contam apenas na conta do proprietário do repositório. Na bifurcação, largura de banda e o uso do armazenamento contam contra a raiz da rede do repositório.
 - [x] Qualquer pessoa com acesso para gravação a um repositório pode fazer push de arquivos para o Git LFS sem afetar suas compras de pacotes de dados ou cotas de bandwidth e armazenamento pessoais
 - [x] Dependências externas podem fazer com que os repositórios Git fiquem muito grandes. Para evitar encher um repositório com dependências externas, recomendamos que você use um gerenciador de pacotes.
-- [x] O Git não foi projetado para servir como uma ferramenta de backup. 
+- [x] O Git não foi projetado para servir como uma ferramenta de backup.
 #### Removendo arquivos do histórico de um repositório
 ##### Antes de Envia-lo para o principal
 ```
@@ -388,7 +388,7 @@ $ git push
 ```
 ##### Antes de Enviado para o principal
 Se você adicionou um arquivo em um commit anterior, você precisa removê-lo do histórico do repositório, para recriar o histórico e o DAG do commit.
-você pode usar o BFG Repo-Cleaner ou o git filter-repocomando. 
+você pode usar o BFG Repo-Cleaner ou o git filter-repocomando.
 ```
 git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 cd YOUR-REPOSITORY
@@ -399,9 +399,9 @@ git commit -m "Add YOUR-FILE-WITH-SENSITIVE-DATA to .gitignore"
 git remote add origin https://github.com/OWNER/REPOSITORY.git
 git push origin --force --all
 git push origin --force --tags
-``` 
+```
 
-OU 
+OU
 ```
 bfg --strip-blobs-bigger-than 100M --replace-text banned.txt repo.git
 ```
@@ -446,17 +446,17 @@ Você pode criar um Codespace no GitHub.com, no Visual Studio Code ou usando a C
 
  - [x] O período de tempo limite de inatividade padrão é de **30 minutos**.
  - [x] Você pode definir sua configuração de tempo limite pessoal para os Codespaces que criar, mas isso pode ser anulado por uma política de tempo limite da organização.
- 
+
 ### Codespaces versus editor GitHub.dev
 <p align="justify">Você pode usar GitHub.dev para navegar por arquivos e repositórios de código-fonte do GitHub e fazer e confirmar alterações de código. Você pode abrir qualquer repositório, bifurcação ou PR no editor GitHub.dev.</p>
 
-- [x] Inicialização: GitHub.dev abre instantaneamente com o pressionar de uma tecla e você pode começar a usá-lo imediatamente, sem ter que esperar pela configuração ou instalação.	
+- [x] Inicialização: GitHub.dev abre instantaneamente com o pressionar de uma tecla e você pode começar a usá-lo imediatamente, sem ter que esperar pela configuração ou instalação.
 - [x] Inicialização: Quando você cria ou retoma um Codespace, uma VM é atribuída ao Codespace. O contêiner é então configurado com base no conteúdo de um arquivo `devcontainer.json`. Essa configuração leva alguns minutos para criar o ambiente de desenvolvimento.
-- [x] Computação: Não há recursos de computação associados, portanto você não pode criar e executar seu código ou usar o terminal integrado.	
+- [x] Computação: Não há recursos de computação associados, portanto você não pode criar e executar seu código ou usar o terminal integrado.
 - [x] Computação: Com o GitHub Codespaces, você tem a potência de uma VM dedicada para executar e depurar seu aplicativo.
-- [x] Acesso ao terminal:	Nenhum	
+- [x] Acesso ao terminal:	Nenhum
 - [x] Acesso ao terminal: O GitHub Codespaces fornece um conjunto comum de ferramentas por padrão, o que significa que você pode usar o Terminal exatamente como faria no ambiente local.
-- [x] Extensões: Apenas um subconjunto de extensões que podem ser executadas na Web aparecerão na visualização de extensões e poderão ser instaladas	
+- [x] Extensões: Apenas um subconjunto de extensões que podem ser executadas na Web aparecerão na visualização de extensões e poderão ser instaladas
 - [x] Extensões: Com o GitHub Codespaces, você pode usar a maioria das extensões do Marketplace do Visual Studio Code.
 
 ### [Gists](https://gist.github.com/)
@@ -468,11 +468,11 @@ https://gist.github.com/
 - [x] Não pode converter publico para privado, mas pode privado para publico. Os gists ficam associados a conta pessoal.
 - [x] Você pode incorporar gists, clonar e compartilhar, por ele ser um repositório.
 - [x] Você pode favoritar os gists, https://gist.github.com/YOUR_USERNAME/starred.
-- [x] São uma característica do GitHub, que os define como "uma maneira simples de compartilhar trechos e pastas com os outros". Este estudo de três partes explora como os usuários estão usando o Gists. 
-- [x] A primeira parte é uma análise quantitativa de metadados e conteúdos de Gist. 
-- [x] A segunda parte investiga as informações contidas em um Gist: Amostramos 750 mil usuários e seus Gists (totalizando 762k Gists), depois categorizamos manualmente o conteúdo de 398. 
-- [x] A terceira parte do estudo investiga o que os usuários estão dizendo que Gists são para leitura do conteúdo de páginas da web e feeds do Twitter. 
-- [x] Os resultados indicam que os Gists são usados por uma pequena porção dos usuários do GitHub, e aqueles que os usam normalmente têm apenas alguns. 
+- [x] São uma característica do GitHub, que os define como "uma maneira simples de compartilhar trechos e pastas com os outros". Este estudo de três partes explora como os usuários estão usando o Gists.
+- [x] A primeira parte é uma análise quantitativa de metadados e conteúdos de Gist.
+- [x] A segunda parte investiga as informações contidas em um Gist: Amostramos 750 mil usuários e seus Gists (totalizando 762k Gists), depois categorizamos manualmente o conteúdo de 398.
+- [x] A terceira parte do estudo investiga o que os usuários estão dizendo que Gists são para leitura do conteúdo de páginas da web e feeds do Twitter.
+- [x] Os resultados indicam que os Gists são usados por uma pequena porção dos usuários do GitHub, e aqueles que os usam normalmente têm apenas alguns.
 
 ![](img/gist-001.png)
 
@@ -506,7 +506,7 @@ Se um Gist for um arquivo markdown, ele renderizará o HTML. Esta é uma ótima 
 - [x] Para repositórios Gist diferentes do seu, você os bifurca.
 </div>
 
-### InnerSource 
+### InnerSource
 - [x] InnerSource é a organização e as melhores práticas de desenvolvimento de software não open-source e/ou proprietário.
 - [x] InnerSource não é uma diretriz rígida, mas uma estratégia flexível para estabelecer uma cultura de código aberto dentro das organizações.
 - [x] O [InnerSourceCommons](https://Innersourcecommons.org) fornece vários recursos estruturados gratuitos para ajudar a entender como adotar InnerSource.
@@ -534,16 +534,16 @@ Os repositórios de bifurcação permitem que você crie uma cópia de um reposi
 - [x] Usando o **Network Graph em Repo Insights**, você pode frequentemente encontrar soluções da comunidade para bugs ou recursos ausentes.
 
 ### Descobrindo Repositorios
-- [x] O Github Repos pode ser definido como público, tornando os repositórios facilmente pesquisáveis ​​no GitHub e por meio de mecanismos de busca. 
+- [x] O Github Repos pode ser definido como público, tornando os repositórios facilmente pesquisáveis ​​no GitHub e por meio de mecanismos de busca.
 - [x] Os repositórios públicos atendem a um propósito comunitário para compartilhamento de conhecimento, recursos educacionais e projetos de código aberto.
 - [x] Além de apenas pesquisar, o Github seleciona conteúdo por meio de suas páginas da comunidade:
       - [x] https://github.com/explore
       - [x] https://github.com/trending
 
 ### Respostas salvas
-- [x] Profile --> Settings --> Code, planning, and automation --> Saved Replies  
-- [x] As respostas salvas permitem criar uma resposta reutilizável para problemas e pull requests. Uma resposta salva é adicionada, ela pode ser usada em problemas, solicitações de pull e discussões.  
-- [x] As respostas salvas são associadas a sua conta pessoal no máximo, **100 respostas salvas**.  
+- [x] Profile --> Settings --> Code, planning, and automation --> Saved Replies
+- [x] As respostas salvas permitem criar uma resposta reutilizável para problemas e pull requests. Uma resposta salva é adicionada, ela pode ser usada em problemas, solicitações de pull e discussões.
+- [x] As respostas salvas são associadas a sua conta pessoal no máximo, **100 respostas salvas**.
 - [x] Saved Replies: Propósito: Criar respostas reutilizáveis para problemas e solicitações de pull.
 - [x] Templates: Propósito: Criar modelos de mensagens que podem ser usados em diferentes contextos.
 
@@ -564,7 +564,7 @@ Cada time pode ter funções (roles) atribuídas aos seus **membros**, como "Mem
 - [x] Explique claramente como contribuir , usando seu arquivo CONTRIBUTING e mantendo seus problemas atualizados.
 - [x] Bons primeiros problemas : para ajudar novos colaboradores a começar, considere rotular explicitamente os problemas que são simples o suficiente para iniciantes resolverem.
 - [x] Uma boa documentação convida as pessoas a interagir com seu projeto. Eventualmente, alguém abrirá um problema ou pull request. Use essas interações como oportunidades para movê-los para baixo no funil.
-- [x] Quando alguém novo chega ao seu projeto, agradeça pelo interesse! 
+- [x] Quando alguém novo chega ao seu projeto, agradeça pelo interesse!
 - [x] Seja responsivo. Se você não responder ao problema deles por um mês, é provável que eles já tenham esquecido do seu projeto.
 - [x] Tenha a mente aberta sobre os tipos de contribuições que você aceitará. Muitos colaboradores começam com um relatório de bug ou uma pequena correção. Há muitas maneiras de contribuir para um projeto. Deixe as pessoas ajudarem como quiserem.
 - [ ] Se houver alguma contribuição com a qual você não concorda, agradeça pela ideia e explique por que ela não se encaixa no escopo do projeto, vinculando-a à documentação relevante, se houver.
@@ -582,25 +582,25 @@ Cada time pode ter funções (roles) atribuídas aos seus **membros**, como "Mem
 ## Perfil
 Informações pessoais sobre si mesmo na bio, como locais em que trabalhou, os projetos com os quais contribuiu ou interesses que você tem que outras pessoas talvez gostem de saber. Você pode ocultar em `Achievements` e inibir a visualização.
 
-- [x] Repositórios e gists que você possui ou com os quais contribui. 
-- [x] Repositórios que você marcou com estrela e organizou em listas. 
+- [x] Repositórios e gists que você possui ou com os quais contribui.
+- [x] Repositórios que você marcou com estrela e organizou em listas.
 - [x] Visão Geral das atividades (vc pode ocultar).
 
 ## Recursos no perfil do usuário
 Para usar um arquivo CODEOWNERS, crie um arquivo chamado CODEOWNERS na raiz, em .github/ ou no diretório docs/ do repositório, no branch em que deseja adicionar os proprietários de código.
 
 |Arquivo                    | Descrição                                                                                                                           |
-| ----------                | ---------                                                                                                                           | 
-| CODE_OF_CONDUCT.md        | Um arquivo CODE_OF_CONDUCT define padrões de como se envolver em uma comunidade. Possui duas templates.                             | 
-| CONTRIBUTING.md	          | Um arquivo CONTRIBUINDO comunica como as pessoas devem contribuir para seu projeto. Contém diretrizes para contribuir com o projeto.| 
-| Discussion category forms | Os formulários de categorias de discussão personalizam os modelos que estão disponíveis para os membros da comunidade usarem quando abrem novas discussões no seu repositório.| 
+| ----------                | ---------                                                                                                                           |
+| CODE_OF_CONDUCT.md        | Um arquivo CODE_OF_CONDUCT define padrões de como se envolver em uma comunidade. Possui duas templates.                             |
+| CONTRIBUTING.md	          | Um arquivo CONTRIBUINDO comunica como as pessoas devem contribuir para seu projeto. Contém diretrizes para contribuir com o projeto.|
+| Discussion category forms | Os formulários de categorias de discussão personalizam os modelos que estão disponíveis para os membros da comunidade usarem quando abrem novas discussões no seu repositório.|
 | CODEOWNERS                | Os arquivos CODEOWNERS devem ter menos de 3 MB. Um arquivo CODEOWNERS acima deste limite não será carregado, o que significa que as informações do proprietário do código não serão mostradas e não será solicitado que os proprietários do código apropriado revise as alterações em um pull request.@username ou o formato @org/team-name. |
-| FUNDING.yml               | Um arquivo FUNDING exibe um botão de patrocinador no seu repositório para aumentar a visibilidade das opções de financiamento para seu projeto de código aberto.                      | 
-| GOVERNANCE.md             | Um arquivo de GOVERNANÇA permite que as pessoas saibam como seu projeto é governado. Por exemplo, ele pode discutir as funções do projeto e como as decisões são tomadas.           | 
-| Issue and pull request templates and config.yml | Os modelos de problemas e solicitações de pull personalizam e padronizam as informações que você gostaria que os colaboradores incluíssem quando abrissem problemas e solicitações de pull no seu repositório.                                                                  | 
-| README.md	                | Um arquivo README é um guia que fornece aos usuários uma descrição detalhada do seu projeto.                                     |  
-| SECURITY.md               | Um arquivo SECURITY fornece instruções sobre como relatar uma vulnerabilidade de segurança em seu projeto.                       | 
-| SUPPORT.md                | Um arquivo de SUPORTE permite que as pessoas saibam sobre maneiras de obter ajuda com seu projeto.                               | 
+| FUNDING.yml               | Um arquivo FUNDING exibe um botão de patrocinador no seu repositório para aumentar a visibilidade das opções de financiamento para seu projeto de código aberto.                      |
+| GOVERNANCE.md             | Um arquivo de GOVERNANÇA permite que as pessoas saibam como seu projeto é governado. Por exemplo, ele pode discutir as funções do projeto e como as decisões são tomadas.           |
+| Issue and pull request templates and config.yml | Os modelos de problemas e solicitações de pull personalizam e padronizam as informações que você gostaria que os colaboradores incluíssem quando abrissem problemas e solicitações de pull no seu repositório.                                                                  |
+| README.md	                | Um arquivo README é um guia que fornece aos usuários uma descrição detalhada do seu projeto.                                     |
+| SECURITY.md               | Um arquivo SECURITY fornece instruções sobre como relatar uma vulnerabilidade de segurança em seu projeto.                       |
+| SUPPORT.md                | Um arquivo de SUPORTE permite que as pessoas saibam sobre maneiras de obter ajuda com seu projeto.                               |
 | LICENCE.md                | Especifica os termos sob os quais o código do projeto pode ser utilizado, modificado e redistribuído. Vc pode escolher o modelo. |
 
 .github
@@ -676,7 +676,7 @@ updates:
       # v7 requires ESM
       - dependency-name: "del"
         versions: ["^7.0.0"]
-      # This is broken due to the way configuration files have changed. 
+      # This is broken due to the way configuration files have changed.
       # This might be fixed when we move to eslint v9.
       - dependency-name: "eslint-plugin-import"
         versions: [">=2.30.0"]
@@ -824,9 +824,9 @@ runs:
 ### Contas Usuário
 Não é possível criar contas pessoais em nome de outra pessoa.
 Depois que você tiver nomes de usuário para cada pessoa que deseja adicionar à sua organização, você poderá adicionar os usuários às equipes.
-As organizações que usam o GitHub Enterprise Cloud podem usar o logon único do SAML para gerenciar centralmente o acesso que as contas pessoais têm aos recursos da organização por meio de um IdP (provedor de identidade). 
+As organizações que usam o GitHub Enterprise Cloud podem usar o logon único do SAML para gerenciar centralmente o acesso que as contas pessoais têm aos recursos da organização por meio de um IdP (provedor de identidade).
 
-- [x] Contas Pessoais: se você se inscreveu para sua própria conta no GitHub.com, você está usando uma conta pessoal. 
+- [x] Contas Pessoais: se você se inscreveu para sua própria conta no GitHub.com, você está usando uma conta pessoal.
 - [x] Contas usuários Gerenciadas: se sua conta foi criada para você por uma empresa no GitHub Enterprise Nuvem, você está usando uma conta de usuário gerenciada.
 ### Contas Organizações
 Organizações são contas compartilhadas onde empresas e projetos de código aberto podem colaborar em muitos projetos ao mesmo tempo, com recursos sofisticados de segurança e administrativos.
@@ -838,11 +838,11 @@ Para simplificar o gerenciamento de acesso e aprimorar a colaboração, é poss�
 #### Painel da sua organização
 Atividade recentes(feed de notícias,Alguém fez um comentário,um problema ou pull request,roblema ou pull request foi reaberto,revisão foi solicitada em uma pull request.Você foi atribuído a um problema ou uma pull request,referenciou um problema ou uma pull request por meio de um commit, fez comentários em um problema ou em uma pull request.)
 ### Organizações e contas corporativas
-As contas corporativas são um recurso do GitHub Enterprise Cloud que permitem que os proprietários gerenciem centralmente a política e a cobrança para várias organizações. 
+As contas corporativas são um recurso do GitHub Enterprise Cloud que permitem que os proprietários gerenciem centralmente a política e a cobrança para várias organizações.
 o GitHub Enterprise Cloud e o GitHub Enterprise Server incluem contas corporativas, que permitem que os administradores gerenciem centralmente as políticas e o faturamento de várias organizações e possibilitem o internalsourcing entre as organizações
 #### Melhores práticas para organizações
-- [x] Atribua a pelo menos duas pessoas em cada organização a função de proprietário. 
-- [ ] Uso de equipes para facilitar a colaboração na organização. 
+- [x] Atribua a pelo menos duas pessoas em cada organização a função de proprietário.
+- [ ] Uso de equipes para facilitar a colaboração na organização.
       - [ ] Recomenda-se manter as equipes visíveis sempre que possível e reservar equipes secretas para situações confidenciais.
 #### Perfil da Organização
 Exibição member ou public dos repositórios fixados e do LEIAME quando visitarem a página de perfil da sua organização.
@@ -852,29 +852,29 @@ Os usuários que não são membros da sua organização verão uma exibição pu
 ##### Personalizando o perfil da sua organização
 Público: Crie um repositório .github          e adicione um arquivo no diretório: profile/README.md
 Membros: Crire um repositorio .github-private e adicione um arquivo no diretório: profile/README.md
-##### Feed de notícias 
+##### Feed de notícias
 O feed de notícias de uma organização mostra a atividade de outras pessoas nos repositórios que pertencem a essa organização.
 ##### Visualizando métricas do GitHub Actions para sua organização ()
 As métricas do GitHub Actions fornecem insights sobre como seus fluxos de trabalho e tarefas estão se saindo nos níveis de organização e repositório.
-- [x] Métricas de uso do GitHub Actions : as métricas de uso ajudam você a rastrear quantos minutos seus fluxos de trabalho e trabalhos consomem. 
+- [x] Métricas de uso do GitHub Actions : as métricas de uso ajudam você a rastrear quantos minutos seus fluxos de trabalho e trabalhos consomem.
 - [x] Métricas de desempenho do GitHub Actions (Actions Performance Metrics): as métricas de desempenho focam na eficiência e confiabilidade dos seus fluxos de trabalho e trabalhos.
 
  Você pode exibir informações de uso relacionadas a: Workflows, Jobs, Repositórios, RunTime OS e Runner Type.
 #### Gerenciar a associação
 Os integrantes removidos perderão o acesso às bifurcações privadas dos repositórios privados da sua organização, mas ainda poderão ter cópias locais. No entanto, eles não conseguem sincronizar as cópias locais com os repositórios da organização.
 Quando repositórios privados são bifurcados para outras organizações, elas são capazes de controlar o acesso à rede de bifurcação.
-### O SSO (logon único) do SAML 
+### O SSO (logon único) do SAML
 Proporciona aos proprietários da organização e da empresa que usam o GitHub Enterprise Cloud uma forma de controlar e proteger o acesso aos recursos da organização, como repositórios, problemas e solicitações de pull. Os membros de sua organização continuarão fazendo logon nas respectivas contas pessoais do GitHub.com. o GitHub o redireciona para seu IdP a fim de realizar a autenticação.
 SAML e SCIM disponíveis para GitHub Enterprise Cloud e GitHub Enterprise Server.
-o GitHub cria automaticamente um registro que vincula sua organização, a conta do membro no GitHub e a conta do membro no seu IdP. 
+o GitHub cria automaticamente um registro que vincula sua organização, a conta do membro no GitHub e a conta do membro no seu IdP.
 Se os integrantes estiverem conectados com uma sessão SAML SSO, ao criarem um novo repositório, a visibilidade-padrão desse repositório será privada.
 ### Sistema para gerenciamento de identidades entre domínios (SCIM, System for Cross-domain Identity Management),
-Se organização usa o SSO do SAML, você pode implementar o SCIM para adicionar, gerenciar e remover o acesso dos membros da organização ao GitHub Enterprise Cloud. 
+Se organização usa o SSO do SAML, você pode implementar o SCIM para adicionar, gerenciar e remover o acesso dos membros da organização ao GitHub Enterprise Cloud.
 
-### Funções 
+### Funções
 Uma função é um conjunto de permissões que você pode atribuir a indivíduos ou equipes.
 Os proprietários da organização podem atribuir funções a indivíduos e equipes, dando-lhes diferentes conjuntos de permissões na organização.
-Uma permissão é a capacidade de executar uma ação específica. 
+Uma permissão é a capacidade de executar uma ação específica.
 #### Nível de repositório:
 Proprietário: Possui plenos direitos administrativos
 Admin: Pode gerenciar as configurações do repositório
@@ -902,7 +902,7 @@ Você pode conceder aos integrantes da organização, colaboradores externos, e 
 - [x] Manutenção: recomendado para gerentes de projetos que precisam gerenciar o repositório sem acesso a ações confidenciais ou destrutivas
 - [x] Administrador: recomendado para aqueles que precisam ter acesso completo ao projeto, incluindo ações confidenciais e destrutivas como gerenciar a segurança ou excluir um repositório
 
-- [x] Se a sua organização usar o GitHub Enterprise Cloud, você poderá criar funções de repositórios personalizadas. 
+- [x] Se a sua organização usar o GitHub Enterprise Cloud, você poderá criar funções de repositórios personalizadas.
 - [x] Os proprietários da organização têm acesso de administrador a todos os repositórios pertencentes à organização.
 
 ## Funções predefinidas
@@ -919,7 +919,7 @@ Você pode conceder aos integrantes da organização, colaboradores externos, e 
 
 ## Times/Equipes
 As equipes são grupos de membros da organização que refletem a estrutura da sua empresa ou do grupo com menções e permissões de acesso em cascata.
-Os proprietários da organização e os mantenedores da equipe podem conceder às equipes acesso de administrador, de leitura ou de gravação aos repositórios da organização. 
+Os proprietários da organização e os mantenedores da equipe podem conceder às equipes acesso de administrador, de leitura ou de gravação aos repositórios da organização.
 As equipes só podem ser compostas por membros da sua organização. **Colaboradores externos não podem estar em uma equipe**.
 
 ## Tipos de Repositórios
@@ -957,7 +957,7 @@ Uma vez que sua conta estiver ativa, você poderá criar repositórios. Existem 
 | Clone      | Para fazer uma cópia completa dos dados de um repositório, incluindo todas as versões de cada arquivo e pasta. | Você deseja trabalhar em uma cópia dos arquivos no computador local, usando o Git para rastrear e gerenciar suas alterações.  |
 | Fork       | Para criar um novo repositório no GitHub, vinculado à sua conta pessoal, que compartilhe configurações de código e visibilidade com o repositório original ("upstream"). | Você deseja usar os dados do repositório original como base para seu próprio projeto no GitHub. |
 
-- 
+-
 - [x] [GitHub Exemplo](github.com/horaciovasconcellos/estudo)
 - [x] Você pode atribuir proprietários de código diferentes para diferentes branches, como @octo-org/codeowners-team para uma base de código no branch padrão e @octocat para um site do GitHub Pages no branch gh-pages.
 - [x] Para proteger totalmente um repositório contra alterações não autorizadas, você também precisa definir um proprietário para o próprio arquivo CODEOWNERS. O método mais seguro é definir um arquivo CODEOWNERS no diretório .github do repositório e definir o proprietário do repositório como o proprietário do arquivo CODEOWNERS (/.github/CODEOWNERS @owner_username) ou de todo o diretório (/.github/ @owner_username).
@@ -974,7 +974,7 @@ Uma vez que sua conta estiver ativa, você poderá criar repositórios. Existem 
 Colaboração: Repositórios, Problemas, Pull Requests e outras ferramentas ajudam a habilitar desenvolvedores, gerentes de projeto, líderes de operações e outros na mesma empresa.
 - [x] Produtividade: a plataforma oferece aos usuários a capacidade de configurar tarefas e esquecê-las, cuidando da administração rotineira e acelerando o trabalho diário.
 - [x] Segurança: recursos de segurança nativos e internos que minimizam o risco de segurança com uma solução de segurança criada internamente.seu código permanece privado dentro da sua organização. usufruir da visão geral de segurança e o Dependabot.
-Escala: 
+Escala:
 
 Na sua página de repositório do Github você pode:
 
@@ -986,7 +986,7 @@ Na sua página de repositório do Github você pode:
 |                                             | Explorar arquivos do repositório                   |
 |                                             | Ver releases                                       |
 |                                             | Ver detalhamento da linguagem da base de código    |
-| Ver os arquivos markdown de nível superior  | Readme.md                                          | 
+| Ver os arquivos markdown de nível superior  | Readme.md                                          |
 |                                             | Licence.md                                         |
 | Você pode executar ações como:              | Fixar (Pinning)                                    |
 |                                             | Observar (Watching)                                |
@@ -1026,7 +1026,7 @@ Danger Zone
 - [x] Desabilitar a aplicação de regras de proteção de branch e APIs
 - [x] Transferir propriedade
 - [x] Alterar a visibilidade
-- [x] Desabilitar regras de proteção de branch 
+- [x] Desabilitar regras de proteção de branch
 ## Como criar um modelo de repositório
 - [x] Crie um repositório: comece criando um novo repositório ou usando um existente que você deseja transformar em um modelo.
 Marcar como modelo: vá para as configurações do repositório e marque a caixa rotulada "Repositório de modelo".
@@ -1041,7 +1041,7 @@ Use o modelo: ao criar um novo repositório, você pode selecionar o repositóri
 - [x] Melhores práticas: Incorpore as melhores práticas e as configurações necessárias no modelo para garantir que todos os projetos as sigam.
 
 - [x] Os modelos de repositório são uma ótima maneira de otimizar seu fluxo de trabalho e manter a consistência em vários projetos. Se você tiver alguma dúvida específica sobre o uso de modelos de repositório, sinta-se à vontade para perguntar!
-- [ ] 
+- [ ]
 ## Repositório Especial do Perfil
 Crie um repositório com o MESMO nome do usuario e adicione o arquivo README.md, ele sempre aparecerá no perfil do usuário logado, não sendo apenas um BIO e podendo escrever mais sobre você.
 ## Arquivos Comuns
@@ -1063,7 +1063,7 @@ Crie um repositório com o MESMO nome do usuario e adicione o arquivo README.md,
 | `.devcontainer`                  | .devcontainer.json  | .devcontainer/devcontainer.json ou .devcontainer.json ou .devcontainer/SUBDIRECTORY/devcontainer.json  |
 
 ## Repositórios
-Um repositório é o elemento mais básico do GitHub. 
+Um repositório é o elemento mais básico do GitHub.
 
 | Termo	 | Definição |
 | ------ | ------    |
@@ -1082,7 +1082,7 @@ Um repositório é o elemento mais básico do GitHub.
 - [ ] O uso de fork é mais adequado para aceitar contribuições de **pessoas não afiliadas a um projeto**, como colaboradores de código aberto.
 - [ ] Para otimizar o desempenho recomenda-se usar o Git Large File Storage (Git LFS).
 - [x] Você pode criar um repositório através de uma URL, por exemplo: `https://github.com/new?name=sabado&owner=xxxxx&description=sabado+manha&visibility=private`
-  
+
 ### Repositórios de modelos
 Você pode criar um modelo a partir de um repositório existente. Qualquer pessoa com acesso ao repositório de modelos pode criar um novo repositório baseado no modelo com a mesma estrutura de diretórios, branchs e arquivos.
 
@@ -1123,14 +1123,14 @@ Para transferir um repositório que você possui para uma organização, é prec
 O proprietário original do repositório é adicionado como colaborador no repositório transferido. Outros colaboradores do repositório transferido ficam intactos.
 #### O que é transferido com um repositório?
 Quando você transfere um repositório, também são transferidos problemas, pull requests, wiki, estrelas e inspetores.
-Quando você transfere um repositório de uma organização para uma conta pessoal, os colaboradores somente leitura do repositório não serão transferidos. 
+Quando você transfere um repositório de uma organização para uma conta pessoal, os colaboradores somente leitura do repositório não serão transferidos.
 ### Transferências de repositório e organizações
-Para transferir repositórios para uma organização, é preciso ter permissões de criação de repositórios na organização recebedora. 
+Para transferir repositórios para uma organização, é preciso ter permissões de criação de repositórios na organização recebedora.
 ### Transferir um repositório pertencente à sua conta pessoal
 Quando um repositório é transferido entre duas contas pessoais, o proprietário e os colaboradores do repositório original são automaticamente adicionados como colaboradores ao novo repositório.
 ## Excluir um repositório
 Você poderá excluir qualquer repositório ou bifurcação se for proprietário da organização ou tiver permissões de administrador para o repositório ou a bifurcação. A exclusão de um repositório bifurcado não elimina o repositório upstream.
-Alguns repositórios excluídos podem ser restaurados **dentro de 90 dias de exclusão**. 
+Alguns repositórios excluídos podem ser restaurados **dentro de 90 dias de exclusão**.
 ## Gerenciar configurações do repositório
 ### README
 Adicionar um arquivo README a um repositório para comunicar informações importantes sobre o seu projeto.
@@ -1147,7 +1147,7 @@ Os arquivos README geralmente incluem informações sobre:
 ## Stars Repo
 Semelhante ao bookmarking, é uma maneira de marcar um repositório como interessante ou de acompanhá-lo para referência. As estrelas são públicas e podem ser vistas por todos, geralmente usadas como uma medida da popularidade de um projeto.
 Você encontra facilmente as páginas que marcou com estrela em: https://github.com/stars
-## Watch Repo 
+## Watch Repo
 Observar um repositório permite que você fique informado sobre as atividades que ocorrem dentro de um repositório.
 Na sua conta do Github, você pode especificar como deseja ser notificado: On Github ou e-mail.
 ## Features Preview
@@ -1155,7 +1155,7 @@ As visualizações de recursos permitem que você habilite ou desabilite recurso
 ## Tags
 A marcação(tag) é usada para capturar um ponto no histórico para marcar o lançamento da versão da sua base de código.
 O GitHub facilita a exploração de versões marcadas do repositório Git.
-Versões são iterações de software implementáveis que você pode empacotar e disponibilizar para um público mais amplo para baixar e usar. As versões são baseadas em tags do Git, que marcam um ponto específico no histórico do repositório. 
+Versões são iterações de software implementáveis que você pode empacotar e disponibilizar para um público mais amplo para baixar e usar. As versões são baseadas em tags do Git, que marcam um ponto específico no histórico do repositório.
 Qualquer pessoa com acesso de leitura a um repositório pode ver e comparar versões, mas somente pessoas com permissões de gravação a um repositório podem gerenciar versões.
 Se uma versão consertar uma vulnerabilidade de segurança, você deverá publicar uma consultoria de segurança no seu repositório, pode enviar notificação aos repositórios através dependabot alert.
 
@@ -1172,9 +1172,9 @@ Ver as versões lançadas: `gh release view`
 
 #### Pesquisar sintaxe para versões em um repositório
 
-- [x] draft:true	  
-- [x] draft:false	
-- [x] prerelease:true	
+- [x] draft:true
+- [x] draft:false
+- [x] prerelease:true
 - [x] prerelease:false
 - [x] tag:TAG
 - [x] created:DATE
@@ -1191,7 +1191,7 @@ Você pode permitir ou impedir a criação de fork de um repositório particular
 
 #### Gerenciando avaliações de pull request no seu repositório
 Por padrão, em repositórios públicos, qualquer usuário pode enviar análises que aprovem ou solicitem alterações em um pull request.
-Você pode limitar os usuários que podem enviar análises que aprovem ou solicitem alterações em pull requests no seu repositório público. 
+Você pode limitar os usuários que podem enviar análises que aprovem ou solicitem alterações em pull requests no seu repositório público.
 
 **Ao habilitar os limites de revisão de código, qualquer pessoa pode comentar sobre pull requests no seu repositório público, mas apenas as pessoas com acesso de leitura ou superior podem aprovar pull requests ou solicitar alterações.**
 
@@ -1202,24 +1202,24 @@ As aprovações de commit permitem que os usuários afirmem que um commix    t e
 É possível limitar o número de branches e marcas que podem ser atualizados em um único push para bloquear pushes potencialmente destrutivos. Isso pode evitar ou limitar a perda de dados. O default é 5. O valor mínimo é 2 porque o Git requer duas atualizações de branch para renomear um branch em um único push: excluir branch e criar branch.
 
 #### Gerenciando objetos LFS do Git
-Por padrão, os objetos Git LFS não estão incluídos nesses arquivos, apenas os arquivos de ponteiro para esses objetos. 
-Para serem incluídos, os objetos Git LFS devem ser cobertos por regras de rastreamento em um arquivo .gitattributes com commit no repositório. Cada download desses arquivos contará para o uso de largura de banda de sua conta. 
+Por padrão, os objetos Git LFS não estão incluídos nesses arquivos, apenas os arquivos de ponteiro para esses objetos.
+Para serem incluídos, os objetos Git LFS devem ser cobertos por regras de rastreamento em um arquivo .gitattributes com commit no repositório. Cada download desses arquivos contará para o uso de largura de banda de sua conta.
 
 ##### Cota de largura de banda
 Se você usar mais de 1 GiB de largura de banda por mês sem comprar um pacote de dados, o suporte do Git LFS será desabilitado na sua conta até o próximo mês.
 
 #### Notificações de e-mail para pushes no seu repositório
-Você pode optar por enviar notificações por email automaticamente para um endereço de email específico quando alguém fizer push para o repositório. 
+Você pode optar por enviar notificações por email automaticamente para um endereço de email específico quando alguém fizer push para o repositório.
 
 #### links automáticos para fazer referência a recursos externos
 Os links automáticos estão disponíveis em repositórios com o GitHub Pro, o GitHub Team, o GitHub Enterprise Cloud e o GitHub Enterprise Server
 
 ### Arquivar repositórios
-Arquivar um repositório a fim de torná-lo somente leitura para todos os usuários e indicar que ele não está mais sendo mantido ativamente. 
+Arquivar um repositório a fim de torná-lo somente leitura para todos os usuários e indicar que ele não está mais sendo mantido ativamente.
 Quando um repositório é arquivado, seus problemas, pull requests, código, etiquetas, marcos, projetos, wiki, versões, commits, tags, branches, reações, alertas de varredura de código, comentários e permissões tornam-se somente leitura.
 
 ### Referenciar e citar conteúdo
-Você pode usar ferramentas de terceiros para citar e referenciar conteúdo no GitHub. 
+Você pode usar ferramentas de terceiros para citar e referenciar conteúdo no GitHub.
 
 - [x] Use a ferramenta de arquivamento de dados Zenodo para arquivar um repositório no GitHub e emitir um DOI para os arquivos.
 - [x] Os projetos de pesquisa acadêmica podem usar o serviço de gerenciamento de dados Figshare
@@ -1241,7 +1241,7 @@ O branch-padrão é o branch de base para pull requests e commits de código.
 Você pode permitir que os contribuidores com acesso push no repositório mesclem as pull requests com diferentes opções de mesclagem ou apliquem um método de mesclagem específico a todas as pull requests do repositório.
 
 Para mesclar as solicitações de pull, você precisa ter permissões de gravação no repositório.
-O método de merge padrão cria um commit de mesclagem. 
+O método de merge padrão cria um commit de mesclagem.
 
 #### Combinar por squash os commits de merge
 Combinar por squash e mesclar em uma solicitação de pull, os commits da solicitação de pull são combinados por squash em um só commit.
@@ -1292,7 +1292,7 @@ changelog:
 ### Licenciar ([LICENSE.md](https://choosealicense.com/))
 Uma licença de software descreve o que pode e não pode ser feito com seu código-fonte, assim é importante tomar uma decisão fundamentada.
 
-Alguns projetos incluem as informações sobre a licença no README. 
+Alguns projetos incluem as informações sobre a licença no README.
 
 | Licença                                                         | Palavra-chave da licença |
 | ----------                                                      | -----------------------  |
@@ -1317,7 +1317,7 @@ Alguns projetos incluem as informações sobre a licença no README.
 | Licença Pública Geral do LGNU Affero v3.0	                      | AGPL-3.0                 |
 | Família de Licenças Públicas Gerais do GNU	                  | GPL                      |
 | Família de Licenças Públicas Gerais Menores do GNU              |	LGPL                     |
-| Licença Pública Geral Menor do GNU v2.1	                      | LGPL-2.1                 | 
+| Licença Pública Geral Menor do GNU v2.1	                      | LGPL-2.1                 |
 | Licença Pública Geral Menor do GNU v3.0	                      | LGPL-3.0                 |
 | ISC	                                                          | ISC                      |
 | Licença Pública do LaTeX Project v1.3c	                      | LPPL-1.3c                |
@@ -1327,16 +1327,16 @@ Alguns projetos incluem as informações sobre a licença no README.
 
 ### Botão de patrocinador no repositório
 Pode adicionar um botão do patrocinador no repositório para aumentar a visibilidade das opções de financiamento do seu projeto de código aberto.
-Configure o botão de patrocinador editando um arquivo `FUNDING.yml` na pasta .github do repositório, no branch padrão. 
+Configure o botão de patrocinador editando um arquivo `FUNDING.yml` na pasta .github do repositório, no branch padrão.
 ### Classificando seu repositório com tópicos
 Para ajudar outras pessoas a encontrar e contribuir com seu projeto, você pode adicionar tópicos ao seu repositório relacionados à finalidade pretendida do seu projeto, área de assunto, grupos de afinidade ou outras qualidades importantes.
 Os administradores do repositório podem adicionar quaisquer tópicos que desejarem a um repositório.
 Repositórios públicos e privados podem ter tópicos, embora você só verá repositórios privados aos quais você tem acesso nos resultados da pesquisa de tópicos.
 Você pode contribuir para o conjunto de tópicos em destaque do GitHub no repositório github/explore.
-Os administradores de repositório podem adicionar qualquer tópico que desejarem a um repositório. 
+Os administradores de repositório podem adicionar qualquer tópico que desejarem a um repositório.
 Os repositórios público e privado podem ter tópicos, embora você veja apenas repositórios privados aos quais você tem acesso nos resultados de pesquisa de tópicos.x`
-### CODEOWNERS 
-Para definir indivíduos ou equipes responsáveis ​​pelo código em um repositório. As pessoas que você escolher como donos do código devem ter permissões de gravação para o repositório. 
+### CODEOWNERS
+Para definir indivíduos ou equipes responsáveis ​​pelo código em um repositório. As pessoas que você escolher como donos do código devem ter permissões de gravação para o repositório.
 Pessoas com permissões de administrador ou proprietário podem exigir que as solicitações de pull sejam aprovadas pelos donos do código antes que possam ser mescladas.
 Os proprietários do código são automaticamente solicitados para revisão quando alguém abre uma solicitação de pull que modifica o código que eles possuem.
 Quando você marca uma **solicitação de pull de rascunho** como pronta para revisão, os proprietários do código são automaticamente notificados. Se você converter uma solicitação de pull em um
@@ -1349,7 +1349,7 @@ usa um padrão que segue a maioria das mesmas regras usadas em arquivos `.gitign
 O padrão é seguido por um ou mais nomes de usuário ou nomes de equipes do GitHub usando o padrão @username ou o formato @org/team-name ou user@example.com.Não é possível usar um endereço de email para se referir a um conta de usuário gerenciada.
 Quando houver MAIS proprietários de código precisam estar na mesma linha.
 Os usuários e as equipes precisam ter acesso write explícito ao repositório, mesmo se os membros da equipe já têm acesso.
-Os caminhos dos CODEOWNERS diferenciam maiúsculas de minúsculas, porque GitHub usa um sistema de arquivos que diferencia maiúsculas e minúsculas. 
+Os caminhos dos CODEOWNERS diferenciam maiúsculas de minúsculas, porque GitHub usa um sistema de arquivos que diferencia maiúsculas e minúsculas.
 
 O método mais seguro é definir um arquivo CODEOWNERS no diretório `.github` do repositório e definir o proprietário do repositório como o proprietário do arquivo CODEOWNERS `(/.github/CODEOWNERS @owner_username)` ou de todo o diretório `(/.github/ @owner_username)`.
 ### Proteger seu repositório
@@ -1370,7 +1370,7 @@ Se contiver uma sintaxe inválida, essa linha será ignorada.
 Para reduzir o tamanho do seu arquivo CODEOWNERS, considere o uso de padrões curinga para consolidar múltiplas entradas em uma única entrada.
 
 ##### Proteção de branch e de CODEOWNERS
-Para proteger totalmente um repositório contra alterações não autorizadas, você também precisa definir um proprietário para o próprio arquivo CODEOWNERS. 
+Para proteger totalmente um repositório contra alterações não autorizadas, você também precisa definir um proprietário para o próprio arquivo CODEOWNERS.
 O método mais seguro é definir um arquivo CODEOWNERS no diretório .github do repositório e definir o proprietário do repositório como o proprietário do arquivo CODEOWNERS (/.github/CODEOWNERS @owner_username) ou de todo o diretório (/.github/ @owner_username).
 
 ### Linguagens do repositório
@@ -1384,13 +1384,13 @@ Você pode adicionar um arquivo `CITATION.cff` à raiz de um repositório para q
 
 ### Desabilitar problemas
 Se você não aceita contribuições ou relatórios de erros, convém desativar problemas do seu repositório.
-Configurações --> "Recursos", desmarque Problemas. 
+Configurações --> "Recursos", desmarque Problemas.
 ### Desabilitar projetos em um repositório
 Os administradores do repositório poderão desativar projects para um repositório se você ou sua equipe tiverem optado por não usar projetos.
 ### Gerenciando as configurações do GitHub Actions para um repositório
-Por padrão, o GitHub Actions é habilitado em todos os repositórios e organizações. 
+Por padrão, o GitHub Actions é habilitado em todos os repositórios e organizações.
 ### GitHub Discussions
-Como GitHub Discussions é um fórum aberto, há a oportunidade de trazer uma colaboração que não seja de código para o repositório ou a organização de um projeto e coletar diversos comentários e ideias mais rapidamente. 
+Como GitHub Discussions é um fórum aberto, há a oportunidade de trazer uma colaboração que não seja de código para o repositório ou a organização de um projeto e coletar diversos comentários e ideias mais rapidamente.
 
 Pessoas com **permissões de administrador** para um repositório podem habilitar as Discussões do GitHub para o repositório.
 Você também pode usar discussões de organização para facilitar conversas que abrangem vários repositórios em sua organização.
@@ -1401,27 +1401,27 @@ Você também pode usar discussões de organização para facilitar conversas qu
 - [ ] Verifique se o repositório tem diretrizes de colaboração - CONTRIBUTING.md
 - [ ] É possível acessar facilmente todas as discussões que você criou ou participou. (home --> Discussions)
 - [ ] Contribuidores mais úteis dos últimos 30 dias são destacados;
-- [ ] Fechar uma discussão quando a discussão foi resolvida, não é mais relevante ou é uma duplicata. 
-- [ ] Se um administrador de repositório ou mantenedor do projeto habilitar GitHub Discussions para um repositório, qualquer pessoa que tiver acesso ao repositório poderá criar e participar de discussões do repositório. 
+- [ ] Fechar uma discussão quando a discussão foi resolvida, não é mais relevante ou é uma duplicata.
+- [ ] Se um administrador de repositório ou mantenedor do projeto habilitar GitHub Discussions para um repositório, qualquer pessoa que tiver acesso ao repositório poderá criar e participar de discussões do repositório.
 - [ ] Os administradores de repositório e mantenedores de projetos podem gerenciar as discussões e categorias de discussão em um repositório e fixar discussões para aumentar a visibilidade da discussão.
 - [ ] Pessoas com **acesso de leitura* a um repositório** podem participar de discussões e enquetes no repositório. - - [ ] Pessoas com acesso de leitura ao repositório de origem para discussões da organização podem participar de discussões e enquetes naquela organização.
-- [ ] Você pode bloquear usuários e reportar conteúdo disruptivo para manter um ambiente seguro e agradável para você mesmo em GitHub. 
-- [ ] Administradores de repositório e pessoas com triagem ou maior acesso a um repositório podem gerenciar discussões no repositório. 
+- [ ] Você pode bloquear usuários e reportar conteúdo disruptivo para manter um ambiente seguro e agradável para você mesmo em GitHub.
+- [ ] Administradores de repositório e pessoas com triagem ou maior acesso a um repositório podem gerenciar discussões no repositório.
 - [ ] Administradores de repositório e pessoas com triagem ou maior acesso ao repositório de origem para discussões da organização podem gerenciar discussões na organização.
-- [ ] Os proprietários da organização podem escolher as permissões necessárias para criar uma discussão em repositórios pertencentes à organização. 
+- [ ] Os proprietários da organização podem escolher as permissões necessárias para criar uma discussão em repositórios pertencentes à organização.
 #### Práticas recomendadas para GitHub Discussions
-- [x] Como integrante ou mantenedor da comunidade, inicie uma discussão para fazer uma pergunta ou discutir informações que afetem a comunidade. 
-- [ ] Se um problema for uma pergunta ou conversa aberta em vez de um item de trabalho para rastrear e priorizar, você poderá converter o problema em uma discussão. 
+- [x] Como integrante ou mantenedor da comunidade, inicie uma discussão para fazer uma pergunta ou discutir informações que afetem a comunidade.
+- [ ] Se um problema for uma pergunta ou conversa aberta em vez de um item de trabalho para rastrear e priorizar, você poderá converter o problema em uma discussão.
 - [ ] você pode criar um novo problema a partir de uma discussão.
 
 ### Configurações de segurança e análise do repositório
 Pessoas com permissões de administrador para um repositório podem gerenciar as configurações de segurança e análise do repositório.
-Os alertas de segurança de um repositório são visíveis para pessoas com acesso de gravação, manutenção ou administração ao repositório e, quando o repositório pertencer a uma organização, para os proprietários da organização. 
+Os alertas de segurança de um repositório são visíveis para pessoas com acesso de gravação, manutenção ou administração ao repositório e, quando o repositório pertencer a uma organização, para os proprietários da organização.
 ### Gerenciar configurações do repositório
 #### Tornar um repositório privado
 - [x] GitHub desanexará os forks públicos do repositório público e os colocará em uma nova rede.(Bifurcações públicas não se tornam privadas).
 - [ ] Alguns recursos não estarão disponíveis no repositório depois de alterar a visibilidade para privada. (Free vs Pro)
-- [x] Qualquer site publicado do GitHub Pages terá sua publicação cancelada automaticamente. 
+- [x] Qualquer site publicado do GitHub Pages terá sua publicação cancelada automaticamente.
 - [ ] Code scanning, irão parar de funcionar Para obter mais informações.
 #### Tornar um repositório público
 - [x] Receberá acesso aos recursos de GitHub Advanced Security;
@@ -1457,7 +1457,7 @@ Proprietários de organizações e administradores de repositórios podem exigir
 ### Gerenciando objetos LFS do Git em arquivos do seu repositório
 Estão incluídos nos arquivos de código-fonte, como arquivos ZIP e tarballs que GitHub cria para seu repositório.
 ### Notificações de e-mail para pushes no seu repositório
-Pessoas com permissões de administrador em um repositório podem habilitar notificações por e-mail para envios para seu repositório. Cada notificação de e-mail para um push no repositório lista os novos commits e os vincula a um diff contendo apenas esses commits. 
+Pessoas com permissões de administrador em um repositório podem habilitar notificações por e-mail para envios para seu repositório. Cada notificação de e-mail para um push no repositório lista os novos commits e os vincula a um diff contendo apenas esses commits.
 ## Pesquisa no GitHub
 É possível criar consultas que correspondam a palavras e números específicos. Com qualificadores de código especializados, expressões regulares e operações boolianas.
 ### Repositórios
@@ -1465,7 +1465,7 @@ Pessoas com permissões de administrador em um repositório podem habilitar noti
 | ----                                         | ----                                                 |
 | fork:true ou fork:only ou forks:>n           | Repositórios forqueados.                             |
 | language:LANGUAGE                            | Repositórios que tenham a LANGUAGE.                  |
-| xxxxx in:name ou in:description ou in:topics ou in:readme ou repo:owner/name | Contenha na :LOCAL.  | 
+| xxxxx in:name ou in:description ou in:topics ou in:readme ou repo:owner/name | Contenha na :LOCAL.  |
 | user:USERNAME ou org:ORGNAME                 | Usuario X com Y forks. `user:defunkt forks:>=100`    |
 | size:n ou size:<n ou size:>n ou size:n..n    | Tamanho <, >, = ou entre.                            |
 | followers:>=n ou followers:n..n              | Seguidores >=N ou entre.                             |
@@ -1482,7 +1482,7 @@ Pessoas com permissões de administrador em um repositório podem habilitar noti
 
 - [x] Good First Issue : Identificar problemas que são adequados para novos contribuidores ou aqueles que não têm muita experiência com o projeto. Use este rótulo quando você tiver problemas que deseja que novos contribuidores abordem.
 - [x] Help Wanted :  Indicar que um projeto precisa de ajuda em geral, podendo ser para uma variedade de tarefas. Use este rótulo quando precisar de ajuda adicional no projeto, seja para problemas mais complexos ou tarefas que ainda não foram atribuídas a ninguém.
-  
+
 | Search Syntax             | Descrição                                 |
 | -----                     | ----                                      |
 | language:python           |  Finds repositories written in Python.    |
@@ -1493,7 +1493,7 @@ Pessoas com permissões de administrador em um repositório podem habilitar noti
 | epo:username/repository   | Specific repository from a user.          |
 | filename:file.ext         |   Search for a specific file.             |
 | path:/docs/               |  Files in a specific directory.           |
-| extension:py              | Files with a .py extension. Open issues.  | 
+| extension:py              | Files with a .py extension. Open issues.  |
 | s:issue is:open           | Open Issues                               |
 | s:pr is:closed            | Closed pull requests.                     |
 
@@ -1564,7 +1564,7 @@ Você pode utilizar as palavras chaves no PR e terá ação, quando este for exe
 | Palavra                    | Ação                                                         |
 | ---------                  | ------------                                                 |
 | fix, fixes, fixed          | fix #NUMEBER                                                 |
-| close, closes, closed      | Fixes octo-org/octo-repo#100                                 | 
+| close, closes, closed      | Fixes octo-org/octo-repo#100                                 |
 | resolve, resolves,resolved | Resolves #10, resolves #123, resolves octo-org/octo-repo#100 |
 
 ## Criando um link permanente para um snippet de código
@@ -1580,7 +1580,7 @@ Acrescente #Lo número da linha ou números no final da url. Por exemplo, github
 Para vincular uma solicitação de pull a um problema para mostrar que uma correção está em andamento e para fechar o problema automaticamente quando alguém mesclar a solicitação de pull, digite uma das seguintes palavras-chave seguidas por uma referência ao problema. Por exemplo, Closes #10ou Fixes octo-org/octo-repo#100.
 
 | Problema vinculado | Sintaxe | Exemplo |
-| ----               |  ----   |  ----   | 
+| ----               |  ----   |  ----   |
 | Problema no mesmo repositório	| PALAVRA-CHAVE #NÚMERO-DA-EDIÇÃO | Closes #10 |
 | Problema em um repositório diferente	| PALAVRA-CHAVE PROPRIETÁRIO/REPOSITÓRIO#NÚMERO-DE-EDIÇÃO	| Fixes octo-org/octo-repo#100 |
 |  Múltiplos problemas	| Use a sintaxe completa para cada problema | Resolves #10, resolves #123, resolves octo-org/octo-repo#100 |
@@ -1597,7 +1597,7 @@ Os comandos Slash (dentro das caixas de comentários) no GitHub.com fornecem rec
 | /details      | Insere uma área de detalhes recolhível. Você escolhe o título e o conteúdo.                    |
 | /saved-replies| Insere uma resposta salva. Você escolhe entre as respostas salvas para sua conta de usuário.   |
 | /table        | Insere uma tabela Markdown. Você escolhe o número de colunas e linhas.                         |
-| /template     | Mostra todos os modelos no repositório. Você escolhe o modelo para inserir.                    | 
+| /template     | Mostra todos os modelos no repositório. Você escolhe o modelo para inserir.                    |
 
 ## Github FLow
 - [x] Comece criando uma ramificação para que as alterações, recursos e correções que você criar não afetem a ramificação principal.
@@ -1606,10 +1606,10 @@ Os comandos Slash (dentro das caixas de comentários) no GitHub.com fornecem rec
 - [x] Em seguida, revise e implemente o feedback dos seus colaboradores.
 - [x] Quando você se sentir satisfeito com suas alterações, é hora de aprovar sua solicitação de pull e mesclá-la ao branch principal.
 - [x] Por fim, você pode excluir sua ramificação. Excluir sua ramificação sinaliza que seu trabalho nela foi concluído e evita que você ou outras pessoas usem ramificações antigas acidentalmente.
-O fluxo de GitHub é um fluxo de trabalho leve e baseado no branch. 
+O fluxo de GitHub é um fluxo de trabalho leve e baseado no branch.
 Por meio de plataformas como GitHub, o Git também oferece mais oportunidades para transparência e colaboração do projeto. Repositórios públicos ajudam as equipes a trabalhar juntas para criar o melhor produto final possível.
 ### Desenvolvimento Colaborativo
-Existem duas formas principais por meio das quais as pessoas colaboram em GitHub: 
+Existem duas formas principais por meio das quais as pessoas colaboram em GitHub:
 - [x] Repositório compartilhado:  os indivíduos e as equipes são explicitamente designados como contribuidores com acesso de leitura, gravação ou administrador
 - [x] Bifurcação e pull
 
@@ -1666,12 +1666,12 @@ Se você adicionar um repositório privado a uma lista, o repositório privado s
 Ao seguir as organizações em GitHub, você verá a atividade pública no painel pessoal. Essa atividade inclui novas discussões, patrocínios e repositórios. Para obter mais informações, confira "Sobre seu painel pessoal".
 
 # Issues (Problemas)
-Os problemas do GitHub foram criados para acompanhar ideias, comentários, tarefas ou bugs relacionados ao trabalho no GitHub. 
+Os problemas do GitHub foram criados para acompanhar ideias, comentários, tarefas ou bugs relacionados ao trabalho no GitHub.
 Se você for um mantenedor de projeto, poderá atribuir o problema a alguém, adicioná-lo a um quadro de projetos, associá-lo a um marco ou aplicar um rótulo.
 ## Para a criação de Milestone e Lables, tenho que ir nos repositorios e depois issues.
 Controlar a visibilidade do seu projeto
-- [x] Projeto será público ou privado. 
-      - [ ] Quando seu projeto é público, todos na Internet podem exibi-lo. 
+- [x] Projeto será público ou privado.
+      - [ ] Quando seu projeto é público, todos na Internet podem exibi-lo.
       - [ ] Quando o projeto é privado, somente os usuários que receberam pelo menos acesso de leitura podem vê-lo.
 
 Você verá uma barra de progresso no topo da página do marco. Esta barra de progresso indica quantas issues já foram fechadas em comparação com o total de issues associadas ao marco. Essa barra de progresso fornece uma visão rápida do percentual de conclusão.
@@ -1767,7 +1767,7 @@ Um fluxo de trabalho comum é criar branches de Recurso ou Bug. Ao definir seus 
 
 - [x] Definir Recurso ou Bug como Problema
 - [x] Criar Branch de Recurso/Bug
-- [ ] 
+- [ ]
 ## Label
 GitHub Labels are used to categorize issues, pull requests, and discussions enhancement
 You can manage your labels or create new labels on the Labels page for your repo
@@ -1776,7 +1776,7 @@ https://github.com/<username/org>/<repo-name>/labels
 
 Creating a label as simple as providing a:
 Name
-Description 
+Description
 Colour
 
 Github CLI provides commands for labels:
@@ -1843,7 +1843,7 @@ Um Draft Pull Request no GitHub é um recurso que permite que você abra um pull
 
 Equipe Aprenda a abrir um rascunho de pull request sem pedir revisão formal ou correr o risco de mesclagens indesejadas:
 
-- [x] Indicando Work-in-Progress: Comunica que o pull request não está pronto para revisão ou mesclagem. 
+- [x] Indicando Work-in-Progress: Comunica que o pull request não está pronto para revisão ou mesclagem.
 - [x] Impedindo mesclagem prematura: Garante que o trabalho incompleto não seja mesclado acidentalmente.
 - [x] Facilitando o feedback e a colaboração antecipados: Permite o compartilhamento e a discussão antecipados de alterações de código.
 - [x] Teste de integração contínua: Habilita testes de Cl durante o processo de desenvolvimento.
@@ -1874,7 +1874,7 @@ Se você não for o autor, mas também um revisor designado, você pode solicita
 #### Commentando Pull Request
 
 Ao mesclar uma solicitação de pull, há algumas opções
-1. Criar um commit de mesclagem: 
+1. Criar um commit de mesclagem:
 Todos os commits serão adicionados
 Mesclar solicitação de pull
 2. Esmagar e mesclar 1 commit será adicionado
@@ -1973,12 +1973,12 @@ Os modelos de solicitação de pull são semelhantes aos modelos de problema. El
 
 
 Solicitação de pull é o mecanismo usado para sinalizar que as confirmações de um branch estão prontas para serem mescladas em outro branch.
-Uma pull request é uma proposta para mesclar as alterações de um branch em outro. Os colaboradores podem revisar e discutir o conjunto de alterações proposto antes de integrá-las à base de código principal. 
+Uma pull request é uma proposta para mesclar as alterações de um branch em outro. Os colaboradores podem revisar e discutir o conjunto de alterações proposto antes de integrá-las à base de código principal.
 
 |  pull requests |  pull requests de rascunho |
 | ----             | ----                       |
 | trabalho está pronto para revisão | trabalhando em uma funcionalidade e não está pronto para revisão formal. |
-| revisores podem comentar, sugerir alterações e eventualmente aprovar ou rejeitar o PR. | Revisores podem ver o rascunho e dar feedback, mas o rascunho não é considerado para mesclagem até que seja marcado como pronto. |  
+| revisores podem comentar, sugerir alterações e eventualmente aprovar ou rejeitar o PR. | Revisores podem ver o rascunho e dar feedback, mas o rascunho não é considerado para mesclagem até que seja marcado como pronto. |
 
 É possível criar solicitações de pull no GitHub.com, com o GitHub Desktop, em GitHub Codespaces, no GitHub Mobile e por meio da CLI do GitHub.
 
@@ -1987,7 +1987,7 @@ Uma pull request é uma proposta para mesclar as alterações de um branch em ou
 
 - [x] As páginas de pull request mostram a diferença entre a ponta do ref principal e o ancestral comum do ref principal e de base no momento em que o pull request foi criado. Consequentemente, a base de merge utilizada para a comparação pode ser diferente.
 
-Depois de realizar o merge do seu pull request, exclua o branch. Isso indica que o trabalho no branch foi concluído e impede que você ou outras pessoas de usar os branches antigos acidentalmente. 
+Depois de realizar o merge do seu pull request, exclua o branch. Isso indica que o trabalho no branch foi concluído e impede que você ou outras pessoas de usar os branches antigos acidentalmente.
 
 # Discussões
 Se destinam a conversas que precisam ser acessíveis a todos e não estão relacionadas ao código.
@@ -2021,8 +2021,8 @@ Filter notifications
 ```
 repo: filter by repository
 is: filter by status or discussion type
-reason: filter by notification reason 
-author: filter by notification author 
+reason: filter by notification reason
+author: filter by notification author
 org: filter by organization
 ```
 There are predefined saved filters
@@ -2051,7 +2051,7 @@ As assinaturas permitem que você acompanhe atividades para um Pull Request ou I
 Você pode ver todas as suas assinaturas em Notificações.
 https://github.com/notifications/subscriptions
 ### Habilitar uma discussão em seu repositório
-Os proprietários do repositório e as pessoas com acesso de gravação podem habilitar o GitHub Discussions. 
+Os proprietários do repositório e as pessoas com acesso de gravação podem habilitar o GitHub Discussions.
 Configurações --> Recursos e, em Discussões, selecione Configurar as discussões.
 ### Criar uma nova discussão
 **Qualquer usuário** autenticado que possa visualizar um repositório pode criar uma discussão nesse repositório.
@@ -2062,7 +2062,7 @@ Uma conversa em um problema específico, pull request ou gist, atividade de CI, 
 Integrações são ferramentas que estendem os recursos de GitHub. As integrações podem realizar tarefas em GitHub como abrir problemas, fazer comentários sobre solicitações de pull e gerenciar projetos.
 
 ## Integrações do GitHub em destaque
-Com o GitHub para a extensão do Visual Studio, você pode trabalhar em repositórios do GitHub sem sair do Visual Studio. 
+Com o GitHub para a extensão do Visual Studio, você pode trabalhar em repositórios do GitHub sem sair do Visual Studio.
 ### Integração com o Microsoft Teams e GitHub
 O aplicativo GitHub para Teams permite que você assine seus repositórios ou organizações e obtenha atualizações em tempo real sobre a atividade para os recursos a seguir em sua GitHub.com.
 
@@ -2082,7 +2082,7 @@ Github Actions permite automatizar:
 Você pode configurar um fluxo de trabalho do GitHub Actions para ser acionado quando um evento ocorrer no seu **repositório, como uma solicitação de pull sendo aberta ou um problema sendo criado**.
 
 ### Fluxos de Trabalho (Workflow)
-Um fluxo de trabalho é um processo automatizado configurável que executará um ou mais trabalhos. 
+Um fluxo de trabalho é um processo automatizado configurável que executará um ou mais trabalhos.
 Definidos por um arquivo YAML;
 Os fluxos de trabalho são definidos no `.github/workflows`.
 Reutilizar fluxos de trabalho evita duplicação.
@@ -2138,9 +2138,9 @@ Exemplos de ações comuns do GitHub que podem ser acionadas:
 - [x] Scheduled Events: agende ações para serem executadas em horários específicos.
 - [x] Manual Triggers: permita o acionamento manual de ações por meio da interface do usuário do GitHub
 
-Olhar: 
+Olhar:
 
-- [x] O GitHub Actions é habilitado em todos os repositórios e organizações. 
+- [x] O GitHub Actions é habilitado em todos os repositórios e organizações.
 - [x] O GitHub Actions é uma plataforma de integração e entrega contínua (CI/CD) que permite automatizar seu pipeline de construção, teste e - [x]implantação.
 - [x] Você pode configurar um fluxo de trabalho do GitHub Actions para ser acionado quando um evento ocorrer em seuAÇÕES DO GITHUB repositório, como uma solicitação de pull sendo aberta ou um problema sendo criado.
 
@@ -2151,7 +2151,7 @@ Os fluxos de trabalho são definidos no diretório `.github/workflows` em um rep
 
 ##### Evento
 Um evento é uma atividade específica em um repositório que aciona uma execução de fluxo de trabalho.
-Por exemplo, uma atividade pode se originar do GitHub quando alguém cria uma solicitação de pull, abre um problema ou envia um commit para um repositório. 
+Por exemplo, uma atividade pode se originar do GitHub quando alguém cria uma solicitação de pull, abre um problema ou envia um commit para um repositório.
 
 Eventos que acionam fluxos de trabalho
 
@@ -2168,10 +2168,10 @@ Eventos que acionam fluxos de trabalho
 |                                | -requested_action      |                                 |                    |
 | check_suite	                   | -completed	            | Último commit no branch padrão	| Ramificação padrão |
 | create	                       | Não aplicável	        | Último commit no branch ou tag criado	| Ramificação ou tag criada |
-| 
+|
 | delete	                       | Não aplicável	| Último commit no branch padrão	|  Ramificação padrão |
 | deployment	                   | Não aplicável	| Comprometa-se a ser implantado	| Ramificação ou tag a ser implantada (vazio se criado com um commit SHA)|
-| deployment_status 	           | Não aplicável	| Comprometa-se a ser implantado	| Ramificação ou tag a ser implantada (vazio se confirmado)| 
+| deployment_status 	           | Não aplicável	| Comprometa-se a ser implantado	| Ramificação ou tag a ser implantada (vazio se confirmado)|
 |discussion	                      | - created      | Último commit no branch padrão	| Ramificação padrão |
                                   | - edited       |    |
                                   | - deleted      |   |
@@ -2182,7 +2182,7 @@ Eventos que acionam fluxos de trabalho
                                   | - unlabeled    |     |
                                   | - locked       |   |
                                   | - unlocked     |   |
-                                  | - category_changed |   |    
+                                  | - category_changed |   |
                                   | - answered     |   |
                                   | -unanswered    |   |
 | discussion_comment	            |- created    | Último commit no branch padrão	Ramificação padrão |
@@ -2190,9 +2190,9 @@ Eventos que acionam fluxos de trabalho
 |                                 | - deleted    |   |
 | fork	| Não aplicável	| Último commit no branch padrão	| Ramificação padrão |
 | issue_comment	                 | - created | Último commit no branch padrão | Ramificação padrão |
-|                                | - edited |  | 
-|                                |  -deleted |  | 
-| label                          |    
+|                                | - edited |  |
+|                                |  -deleted |  |
+| label                          |
 
 
 
@@ -2202,7 +2202,7 @@ Um job é um conjunto de etapas em um fluxo de trabalho que é executado no mesm
 Uma ação é um aplicativo personalizado para a plataforma GitHub Actions que executa uma tarefa complexa, mas frequentemente repetida. Uma ação pode extrair seu repositório Git do GitHub, configurar a cadeia de ferramentas correta para seu ambiente de build ou configurar a autenticação para seu provedor de nuvem.
 ##### Runners
 Um runner é um servidor que executa seus fluxos de trabalho quando eles são acionados. Cada runner pode executar um único trabalho de cada vez.
-O GitHub fornece runners do Ubuntu Linux, Microsoft Windows e macOS para executar seus fluxos de trabalho .   
+O GitHub fornece runners do Ubuntu Linux, Microsoft Windows e macOS para executar seus fluxos de trabalho .
 Os executores criam e testam automaticamente as alterações de código em resposta a eventos como pushes, pull solicitações ou gatilhos agendados, garantindo que o novo código não interrompa a funcionalidade existente.
 Os corredores também podem lidar com a implantação de aplicativos para ambientes de preparação ou produção.
 No seu arquivo de fluxo de trabalho do GitHub Actions, especifique runner na chave runs-on: `runs-on: [self-hosted, linux, x64, gpu]`
@@ -2242,10 +2242,10 @@ Você precisa criar um repositório público com o nome do repositório sendo <u
 - [x] Jekyll integra-se diretamente com GitHub Pages e é um projeto GitHub
 
 ### GitHub Pages oferece duas opções principais para sites
-- [x] **Site de usuário ou organização** (username.github.io ou organization.github.io): Esse tipo de site está associado ao nome de usuário ou à organização no GitHub. 
+- [x] **Site de usuário ou organização** (username.github.io ou organization.github.io): Esse tipo de site está associado ao nome de usuário ou à organização no GitHub.
     - [ ] Criar um repositório com o nome da organização, seguido por .github.io (exemplo: organization.github.io).
 - [ ] **Site de repositório** (username.github.io/repository-name): Esse tipo de site é associado a um repositório específico no GitHub e é usado para hospedar um site para um único projeto ou produto.
-- [ ] 
+- [ ]
 
 # GitHub Copilot
 O GitHub Copilot é uma ferramenta de desenvolvedor AI que pode ser usada com vários IDEs por meio de uma extensão
@@ -2275,12 +2275,12 @@ AVALIAÇÃO O GitHub Copilot é gratuito para uso por alunos, professores e mant
 | Audit logs                                | X  |                   ✓ |
 | HTTP proxy support via custom certificates| X  |                   ✓ |
 
-## GitHub Copilot 
+## GitHub Copilot
 Ferramenta de desenvolvedor de IA em escala do mundo que pode ajudar você a escrever código mais rapidamente com menos trabalho.
-O OpenAI criou modelo de linguagem pré-treinado generativo do GitHub Copilot, da plataforma **OpenAI Codex**. 
+O OpenAI criou modelo de linguagem pré-treinado generativo do GitHub Copilot, da plataforma **OpenAI Codex**.
 A extensão está disponível para Visual Studio Code, Visual Studio, Neovim e o pacote JetBrains de IDEs (ambientes de desenvolvimento integrados).
 
-O GitHub Copilot é um serviço que fornece um programador em pares de IA que funciona com todas as linguagens de programação populares e acelera drasticamente a produtividade geral do desenvolvedor. 
+O GitHub Copilot é um serviço que fornece um programador em pares de IA que funciona com todas as linguagens de programação populares e acelera drasticamente a produtividade geral do desenvolvedor.
 
 ### GitHub Copilot Business
 - [x] **Foco em equipes**           : Destinado a equipes de desenvolvimento em empresas de médio a grande porte.
@@ -2292,7 +2292,7 @@ O GitHub Copilot é um serviço que fornece um programador em pares de IA que fu
 - [x] **Gerenciamento avançado**  : Oferece controle mais rigoroso sobre a implementação e uso do Copilot, com suporte a políticas corporativas.
 - [x] **Segurança e conformidade**: Pode incluir opções de segurança adicionais, como integração com sistemas de autenticação empresarial e conformidade com regulamentos específicos.
 
-Desde ler documentos a escrever código até enviar solicitações de pull e além, o GitHub está trabalhando para personalizar o GitHub Copilot para cada equipe, projeto e repositório em que ele é usado, criando um ciclo de vida de desenvolvimento de software radicalmente aprimorado. 
+Desde ler documentos a escrever código até enviar solicitações de pull e além, o GitHub está trabalhando para personalizar o GitHub Copilot para cada equipe, projeto e repositório em que ele é usado, criando um ciclo de vida de desenvolvimento de software radicalmente aprimorado.
 
 # Projetos
 Embora nem todos os projetos tenham os documentos CONTRIBUTING e CODE_OF_CONDUCT, a presença deles é uma boa indicação do quanto um projeto é amigável e acolhedor.
@@ -2307,8 +2307,8 @@ Projetos versus Projetos Clássicos
 | O que             | Projetos	                                                                                                           | Projetos (Clássico) |
 | -----             | -----                                                                                                                | --------            |
 | Tabelas e quadros	| Quadros, Listas, Layout da Linha do Tempo	                                                                           | Boards              |
-| Dados             | Classificar, priorizar e agrupar itens por campos personalizados, como texto, número, data, iteração e seleção única.| Colunas e Cartões   | 
-| Insights	        | Crie visuais para ajudar a entender seu trabalho por meio de gráficos históricos e atuais com Projetos	             | Barra de progresso  | 
+| Dados             | Classificar, priorizar e agrupar itens por campos personalizados, como texto, número, data, iteração e seleção única.| Colunas e Cartões   |
+| Insights	        | Crie visuais para ajudar a entender seu trabalho por meio de gráficos históricos e atuais com Projetos	             | Barra de progresso  |
 | Automação	        | Use a API do GraphQL, ações e predefinições de coluna para gerenciar seu projeto.	| Configurar Predefinições de coluna para quando problemas e solicitações pull forem adicionados, editados ou fechados|
 
 ### Tabelas e Quadros
@@ -2324,7 +2324,7 @@ Projetos versus Projetos Clássicos
 - [x] Eventos de webhooks para atualizações de metadados de itens do * projeto
 - [x] GitHub Action para automatizar a adição de problemas a projetos
 ## Projeto no nível da organização
-- [x] Sem acesso: Somente os proprietários e usuários da organização que receberam acesso individual podem ver o projeto. 
+- [x] Sem acesso: Somente os proprietários e usuários da organização que receberam acesso individual podem ver o projeto.
 - [ ] Os **proprietários da organização também são administradores do projeto**.
       - [x] Ler: Todos na organização podem ver o projeto. Os proprietários da organização também são administradores do projeto.
       - [x] Gravação: Todos na organização podem ver e editar o projeto. Os proprietários da organização também são administradores do projeto.
@@ -2379,7 +2379,7 @@ Insights contém:
 - [x] Commits: Histórico de todos os commits no repositório.
       - [ ] Número de commits por semana nas últimas 52 semanas. (por um ano)
       - [ ] O número médio de commits por dia da semana para a semana selecionada
-- [x] Frequência do código: Gráfico de adições e exclusões de código ao longo do tempo. 
+- [x] Frequência do código: Gráfico de adições e exclusões de código ao longo do tempo.
       - [ ] A quantidade de adições e exclusões de código em um relatório por mês.
 - [x] Gráfico de dependência: Visualiza dependências de código.
       - [ ] Lista de dependências
@@ -2452,7 +2452,7 @@ Revisões de código: exija solicitações de pull e revisões de código antes 
 ## CodeQL (O que é varredura de código)
 Sua empresa acabou de adquirir uma licença do **GitHub Advanced Security** que ajuda a economizar tempo e esforço, permitindo que você use a varredura de código.
 CodeQL para analisar o código em um repositório GitHub para encontrar vulnerabilidades de segurança e erros de codificação.
-Varredura de código **está disponível para todos os repositórios públicos e para repositórios privados pertencentes a organizações em que a Segurança Avançada do GitHub está habilitada**. 
+Varredura de código **está disponível para todos os repositórios públicos e para repositórios privados pertencentes a organizações em que a Segurança Avançada do GitHub está habilitada**.
 
 Você pode **agendar** varreduras para determinados dias e horas ou disparar varreduras **quando ocorre um evento específico no repositório** como um push.
 
@@ -2464,7 +2464,7 @@ Você pode **agendar** varreduras para determinados dias e horas ou disparar var
 
 ```
 name: "CodeQL config"
-queries: 
+queries:
   - name: Run custom queries
     uses: ./queries
   - uses: security-experimental
@@ -2475,14 +2475,14 @@ paths-ignore:
   - lib
 ```
 
-O CodeQL trata o código como dados, permitindo que você encontre possíveis vulnerabilidades em seu código com maior confiança do que os analisadores estáticos tradicionais.  
+O CodeQL trata o código como dados, permitindo que você encontre possíveis vulnerabilidades em seu código com maior confiança do que os analisadores estáticos tradicionais.
 
 Segurança --> Code Scan Alerts
 
 ### Habilitar a verificação de código com ferramentas de Terceiros
 Você pode carregar arquivos **SARIF (Static Analysis Results Interchange Format  - Formato de Intercâmbio de Resultados de Análise Estáticos)** gerados fora do GitHub ou com GitHub Actions para ver alertas de verificação de código de ferramentas de terceiros em seu repositório.
 
-Por padrão, somente os alertas com o nível de gravidade Error ou o nível de gravidade de segurança Critical ou High causam uma falha de verificação de pull request. 
+Por padrão, somente os alertas com o nível de gravidade Error ou o nível de gravidade de segurança Critical ou High causam uma falha de verificação de pull request.
 
 #### API de Verificação de Código
 
@@ -2499,21 +2499,21 @@ brew install codeql
 https://docs.github.com/pt/code-security/codeql-cli
 
 codeql database create /codeql-dbs/example-repo --language=javascript-typescript --source-root /checkouts/example-repo
-A CLI do CodeQL é um produto autônomo que você pode usar para analisar o código. 
+A CLI do CodeQL é um produto autônomo que você pode usar para analisar o código.
 
 | Idioma                 | Identificador          | Identificadores alternativos opcionais (se houver)   |
 | ------                 | ---------              | -----------                                          |
 | C/C++	                 | c-cpp	                | c ou cpp                                             |
-| C#	                   | csharp	                |                                                      | 
+| C#	                   | csharp	                |                                                      |
 | go 	                   | go	                    |                                                      |
 | Java/Kotlin	           | java-kotlin	          | java ou kotlin                                       |
-| JavaScript/TypeScript	 | javascript-typescript	| javascript ou typescript                             | 
+| JavaScript/TypeScript	 | javascript-typescript	| javascript ou typescript                             |
 | Python                 | python		              |                                                      |
 | Ruby	                 | ruby		                |                                                      |
 | Swift	                 | swift	                |                                                      |
 
 ```
-codeql database create codeql-js --source-root=. --no-run-unnecessary-builds --language=javascript-typescript 
+codeql database create codeql-js --source-root=. --no-run-unnecessary-builds --language=javascript-typescript
 codeql database analyze codeql-dbs/python python-code-scanning.qls   --format=sarif-latest --sarif-category=python --output=python-results.sarif
 codeql database create codeql-dbs --source-root=src --db-cluster     --language=java,python --command=./myBuildScript
 codeql database analyze codeql-dbs/java java-code-scanning.qls       --format=sarif-latest --sarif-category=java --output=java-results.sarif
@@ -2538,8 +2538,8 @@ Dependabot alerts. Com regras de triagem automática personalizadas você tem co
 ### Dependabot
 É uma ferramenta de automação integrada ao GitHub que ajuda a manter as dependências de projetos de código-fonte atualizadas e seguras.
 Principais Funcionalidades: Atualizações de Dependências, Segurança de Dependências, Compatibilidade de versões, Suporte a múltiplos ecossistemas (linguagens)
-Arquivo de configuração do Dependabot (dependabot.yml): O arquivo `dependabot.yml` permite personalizar como o Dependabot funcionará no seu repositório. 
-Esse arquivo é colocado no diretório `.github` do seu repositório e permite definir aspectos: 
+Arquivo de configuração do Dependabot (dependabot.yml): O arquivo `dependabot.yml` permite personalizar como o Dependabot funcionará no seu repositório.
+Esse arquivo é colocado no diretório `.github` do seu repositório e permite definir aspectos:
 Frequência das verificações de dependência (diária, semanal, mensal), versões, Excluir determinados pacotes de serem atualizados.
 o Dependabot cria um pull request com a atualização necessária. O pull request inclui informações sobre o que foi alterado, links para a documentação relevante e, se for o caso, detalhes sobre a correção de segurança.
 
@@ -2572,7 +2572,7 @@ O GitHub CLI (gh) é uma ferramenta de linha de comando oficial do GitHub que pe
 - [x] Exemplo:
       - [ ] gh auth login
       - [ ] gh repo create nome_do_repositorio --public
-      - [ ] gh issue create --title "Issue title" --body "Issue body" 
+      - [ ] gh issue create --title "Issue title" --body "Issue body"
       - [ ] gh pr review --comment -b "interesting"
 
 Você pode instalar rapidamente a CLI para GitHub Codespaces por meio de Recursos: "features": {"ghcr.io/devcontainers/features/github-cli:1": {} }
@@ -2678,7 +2678,7 @@ O editor do github.dev é executado inteiramente na área restrita do navegador.
 - [x] Para chama-lo, basta ir para o repositório e digitar `.` ou `https://github.dev/USERNAME/repositorio`.
 
 ## GitHub Codespaces
-Um codespace é um ambiente de desenvolvimento hospedado na nuvem. Cada codespace criado é hospedado por GitHub em um contêiner do Docker em execução em uma máquina virtual. 
+Um codespace é um ambiente de desenvolvimento hospedado na nuvem. Cada codespace criado é hospedado por GitHub em um contêiner do Docker em execução em uma máquina virtual.
 Não há suporte para sistemas operacionais **Windows e macOS** para o contêiner de desenvolvimento remoto.
 Você pode trabalhar em um codespace usando seu navegador, Visual Studio Code, um IDE JetBrains ou um shell de comando.
 Você pode verificar os seus codespaces em : `https://github.com/codespaces`
@@ -2760,7 +2760,7 @@ Você pode se conectar aos seus codespaces por meio do navegador, por meio do Vi
 Você pode criar um codespace no GitHub, no Visual Studio Code, ou usando a GitHub CLI.
 A clonagem é feita no diretório `/workspaces` da VM e, posteriormente, montada no contêiner de desenvolvimento.
 
-- [x] Escolha seu editor 
+- [x] Escolha seu editor
       - [ ] Visual Studio Code (aplicativo da área de trabalho - Editor padrão)
       - [ ] Visual Studio Code (aplicativo Web cliente)
       - [ ] JetBrains Gateway – Para abrir codespaces em um IDE do JetBrains
@@ -2777,8 +2777,8 @@ A clonagem é feita no diretório `/workspaces` da VM e, posteriormente, montada
 - [x] ![DevContainer](https://containers.dev/implementors/json_reference/#lifecycle-scripts)
 - [x] ![DevContainer](https://containers.dev/supporting)
 - [x] ![Repositório de Modelos](https://github.com/codespaces)
-  
-Observação: 
+
+Observação:
 
 - Você não pode excluir um codespace de dentro do JetBrains Gateway ou do aplicativo cliente do JetBrains nem de dentro do JupyterLab.
 - Em configuração vc pode modificar o período de retenção, timeout e a região.
@@ -2786,21 +2786,21 @@ Observação:
 - O Visual Studio Live Share permite fazer edição e depuração colaborativamente com outras pessoas em tempo real, dentro de um codespace. Você pode compartilhar com segurança o codespace atual ou acessar um codespace criado por outra pessoa.
 - Todas as tarefas do git ou comandos do VSCode, são os mesmos.
 - Por padrão, GitHub Codespaces usa o protocolo HTTPS para transferir dados de e para um repositório remoto e autentica com um GITHUB_TOKEN;
-- Você não precisa bifurcar o repositório antes de criar o codespace.   
+- Você não precisa bifurcar o repositório antes de criar o codespace.
 - gh codespace stop - Interrompe o codespace
 - gh codespace code ou gh codespace open --web -  Reinicializa
 - gh codespace create -b  main -l EastUs --repo "60pportunities/documentacao" --web
 - gh codespace ports forward CODESPACE-PORT:LOCAL-PORT
 
 ### Ciclo de vida do codespace
-O ciclo de vida de um codespace começa quando você cria um código e termina quando você o exclui. 
+O ciclo de vida de um codespace começa quando você cria um código e termina quando você o exclui.
 Você pode desconectar-se e reconectar-se, parar e reiniciar.
 
-- Há limites de codespaces. 
+- Há limites de codespaces.
 - Você pode  e deve, trabalhar com o codespace em branchs diferentes da main.
 - No entanto, se você excluir um codespace não publicado ou ele for excluído automaticamente por não ser usado durante o período de retenção, seu trabalho também será excluído. Para manter seu trabalho e permitir que outras pessoas trabalhem no projeto, publique o codespace em um repositório no GitHub.
 
-### Limites de tempo 
+### Limites de tempo
 30 minutos de inatividade.
 
 Interrompendo um codespace: o histórico do terminal será mantido.
@@ -2834,7 +2834,7 @@ Quando você trabalha em um codespace, seu ambiente de desenvolvimento é um con
 
 | Mudança | Ex               | Semântica |
 | -----   | -------          | -------   |
-| MAJOR   | breaking-change/ |  vX.0.0   | Usada para mudanças que quebram a compatibilidade (breaking changes). Pode incluir grandes refatorações, mudanças na API ou remoções de funcionalidades existentes. | 
+| MAJOR   | breaking-change/ |  vX.0.0   | Usada para mudanças que quebram a compatibilidade (breaking changes). Pode incluir grandes refatorações, mudanças na API ou remoções de funcionalidades existentes. |
 | MINOR   | feature/         |  vX.Y.O   | Usada para novas funcionalidades que são retrocompatíveis. Não altera o comportamento atual dos consumidores, apenas adiciona melhorias ou funcionalidades. |
 | PATCH   | hotfix/          | vX.Y.Z     | Usada para correção de bugs ou pequenos ajustes que não afetam a compatibilidade do sistema. As mudanças geralmente são correções de erros em produção. |
 
@@ -2851,8 +2851,8 @@ Quando você trabalha em um codespace, seu ambiente de desenvolvimento é um con
 | GITHUB_GRAPHQL_URL	  | Retorna a URL API do GraphQL. Por exemplo, https://api.github.com/graphql. |
 | GITHUB_REPOSITORY	    | Nome do repositório e o proprietário. Por exemplo, octocat/Hello-World.    |
 | GITHUB_SERVER_URL	    | Retorna a URL do servidor GitHub. Por exemplo, https://github.com.         |
-| GITHUB_TOKEN	        | Um token de autenticação assinado que representa o usuário no codespace.   | 
-|                       | Você pode usar isso para fazer chamadas autenticadas para a API do GitHub. | 
+| GITHUB_TOKEN	        | Um token de autenticação assinado que representa o usuário no codespace.   |
+|                       | Você pode usar isso para fazer chamadas autenticadas para a API do GitHub. |
 |                       | Para obter mais informações, confira "Segurança no GitHub Codespaces".     |
 | GITHUB_USER	          | O nome do usuário que iniciou o codespace. Por exemplo, octocat.            |
 
@@ -2867,19 +2867,19 @@ Quando você trabalha em um codespace, seu ambiente de desenvolvimento é um con
 Se você tiver arquivos temporários que deseja que estejam disponíveis da próxima vez que iniciar o codespace, não os salve no diretório /tmp.
 ### Conectando-se a uma rede privada
 Você pode usar uma VPN para acessar recursos por trás de uma rede privada de dentro do seu codespace.
-Recomendamos o uso de ferramentas de VPN como o OpenVPN para acessar recursos em uma rede privada. 
+Recomendamos o uso de ferramentas de VPN como o OpenVPN para acessar recursos em uma rede privada.
 ### Aprendizado de máquina
 Você vai criar um classificador de imagens simples, aprender mais sobre algumas das ferramentas que vêm pré-instaladas no GitHub Codespaces e descobrir como abrir seu codespace no Jupyter.
 Acesse o repositório de modelos `github/codespaces-jupyter`, escolha uma `template: Open in codespace`,
 ### Visual Studio Code
-Instalar e efetuar o login na extensão dos GitHub Codespaces com as suas credenciais do GitHub. 
+Instalar e efetuar o login na extensão dos GitHub Codespaces com as suas credenciais do GitHub.
 ### Renomear um codespace
- - [x] Shift + Command + P: Codespaces: detalhes 
+ - [x] Shift + Command + P: Codespaces: detalhes
  - [x] Comandos gh-cli
        - [x[ gh codespace list
        - [x] gh codespace edit -c PERMANENT-CODESPACE-NAME -d 'NEW-DISPLAY-NAME'
  - [ ] Através da página https://github.com/codespaces
-### Configuração 
+### Configuração
 - [x] Alterar o Shell do Codespace : `"terminal.integrated.profiles.linux": {"csh": {"path": "csh"}}`
 - [ ] `"terminal.integrated.defaultProfile.OPERATING-SYSTEM": "SHELL"`
 ### Contêineres de desenvolvimento
@@ -2903,9 +2903,9 @@ Podemos configurar o contêiner de desenvolvimento para um repositório para que
       - [ ] Crie um codespace para o branch padrão do repositório: https://codespaces.new/OWNER/REPO-NAME
       - [ ] Crie um codespace para um branch específico do repositório: https://codespaces.new/OWNER/REPO-NAME/tree/BRANCH-NAME
       - [ ] Crie um codespace para o branch do tópico de uma solicitação de pull: https://codespaces.new/OWNER/REPO-NAME/pull/PR-SHA
-  
+
 - [x] [Gias](https://docs.github.com/pt/codespaces/guides)
-  
+
 
 
 ## GitHub Markdown
@@ -2932,7 +2932,7 @@ Também abordaremos recursos do GFM (GitHub-Flavored Markdown), que são extens�
 | Subscrito               | `H~2~O`                       |
 | Superscript             | `X^2^`                        |
 
-## GitHub Flavored Markdown 
+## GitHub Flavored Markdown
 Github Flavoured Markdown (GFM) é o dialeto do Markdown que atualmente é suportado para conteúdo de usuário no GitHub.com e GitHub Enterprise. O GFM fornece funcionalidade poderosa:
 
 - [x] Seções recolhíveis;
@@ -2945,13 +2945,13 @@ Github Flavoured Markdown (GFM) é o dialeto do Markdown que atualmente é supor
 - [x] Renderizar trechos de código de outra base de código por meio de vinculação
 
 A especificação detalhada do GFM está localizada aqui: [GFM](https://github.github.com/gfm/)
-Preliminaries - Characters and lines  - Tabs  - Insecure characters 
-Blocks and inlines  - Precedence  - 
-Leaf blocks 
-ATX headings 
-Setext headings 
-Indented code blocks 
-HTML blocks 
+Preliminaries - Characters and lines  - Tabs  - Insecure characters
+Blocks and inlines  - Precedence  -
+Leaf blocks
+ATX headings
+Setext headings
+Indented code blocks
+HTML blocks
 
 * `<details><summary></sumary></details>`
 * Mermaid
@@ -2959,7 +2959,7 @@ HTML blocks
 * Ascii Stl
 * Expressões Matemáticasl ($$)
 * APONTAR PARA UM COMMIT
-* 
+*
 
 - [X] [CONSULTE O MARKDOWN](docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/)
 
@@ -2968,7 +2968,7 @@ GitHub has two APIs REST API and GraphQL API
 
 |                               | REST API              | GraphQL API             |
 |                               | ----------            | -------------           |
-| Design Philosophy             | Baseado em recursos. Diferentes pontos de extremidade por recurso | Ponto de extremidade único, consulta para solicitações de dados precisas | 
+| Design Philosophy             | Baseado em recursos. Diferentes pontos de extremidade por recurso | Ponto de extremidade único, consulta para solicitações de dados precisas |
 | HTTP Methods                  | Usa GET, POST, PUT, DELETE para operações | Usa principalmente POST para todas as operações |
 | Busca de dados                | Várias solicitações para dados relacionados | Solicitação única para dados complexos e relacionados |
 | Busca excessiva/busca insuficiente | Pode ter busca excessiva ou insuficiente | Busca precisa de dados, sem busca excessiva/insuficiente |
@@ -3030,8 +3030,8 @@ GitHub Advanced Security fornece os seguintes recursos adicionais:
 - [x] Code scanning: Procure possíveis vulnerabilidades de segurança e erros de codificação no código usando CodeQL ou uma ferramenta de terceiro. Análise de código-fonte que verifica automaticamente o código em busca de vulnerabilidades de segurança e outros problemas de qualidade. pode ser configurado para rodar automaticamente em todos os pushs e pull requests no repositório.Totalmente automatizado dentro do GitHub. Code Scanning é ideal para equipes que querem uma solução simples, rápida e integrada ao GitHub.
 - [ ] CodeQL CLI - Execute processos do CodeQL localmente em projetos de software ou para gerar resultados da code scanning para upload no GitHub. (CodeQL CLI permite que você faça uma análise estática de código). CodeQL CLI é melhor para quem precisa de análises mais profundas e personalizadas, ou para projetos que exigem uma abordagem de análise fora do GitHub, como projetos privados ou repositórios que não são hospedados no GitHub, ou quem deseja escrever consultas específicas para tipos de vulnerabilidade particulares.
 - [x] Secret scanning - Detectar segredos, por exemplo, chaves e tokens, que foram verificados em repositórios privados. Se a proteção por push estiver habilitada, GitHub também detectará segredos quando eles forem enviados por push para o repositório. Estão disponíveis e são gratuitos para todos os repositórios públicos em GitHub.com
-- [ ] Regras de triagem automática personalizadas: Ajudar a gerenciar em escala seus dados 
-  
+- [ ] Regras de triagem automática personalizadas: Ajudar a gerenciar em escala seus dados
+
 - [x] Dependency review with Dependabot
 - [x] Code Scanning
 - [x] CodeQL scans from the command line
@@ -3043,8 +3043,8 @@ GitHub Advanced Security fornece os seguintes recursos adicionais:
 Os recursos a seguir do GitHub Advanced Security estão disponíveis e são gratuitos para repositórios públicos no GitHub.
 - [x] Code scanning: Detectar automaticamente vulnerabilidades de segurança e erros de codificação em códigos novos ou modificados.
 - [ ] Alertas de verificação de segredo para usuários: Detectar automaticamente tokens ou credenciais que foram verificados em um repositório.
-- [ ] Regras de triagem automática personalizadas: 
-- [ ] Análise de dependência: Mostre o impacto completo das alterações nas dependências e veja detalhes de qualquer versão vulnerável antes de fazer merge de um pull request. 
+- [ ] Regras de triagem automática personalizadas:
+- [ ] Análise de dependência: Mostre o impacto completo das alterações nas dependências e veja detalhes de qualquer versão vulnerável antes de fazer merge de um pull request.
 
 #### Números de identificação CVE
 GitHub Security Advisories baseia-se na base da lista de Vulnerabilidades e Exposições Comuns (CVE).
@@ -3095,14 +3095,14 @@ Gerenciamento e automação de tarefas: a maioria dos repositórios remotos do G
 
 Um repositório é um local onde diferentes versões de códigos são armazenadas. Existem dois tipos de repositórios:
 
-- [ ] Repositório Local: é instalado no seu computador local. 
+- [ ] Repositório Local: é instalado no seu computador local.
 - [ ] Repositório Remoto: geralmente é criado em uma plataforma web, como o GitHub, na Internet.
 - [ ] Commit cria um snapshot para registrar o status da codificação em um repositório.
 - [ ] O Git usa hashes que têm 160 bits de comprimento.
-- [ ] Objeto: um repositório Git contém quatro tipos de objetos, cada um exclusivamente identificado por um hash SHA-1. 
-      - [ ] Um objeto de blob contém um arquivo comum. 
-      - [ ] Um objeto de árvore representa um diretório; ele contém nomes, hashes e permissões. 
-      - [ ] Um objeto de commit representa uma versão específica da árvore de trabalho. 
+- [ ] Objeto: um repositório Git contém quatro tipos de objetos, cada um exclusivamente identificado por um hash SHA-1.
+      - [ ] Um objeto de blob contém um arquivo comum.
+      - [ ] Um objeto de árvore representa um diretório; ele contém nomes, hashes e permissões.
+      - [ ] Um objeto de commit representa uma versão específica da árvore de trabalho.
       - [ ] Uma marca é um nome anexado a um commit;
 - [ ] Os comandos são frequentemente acompanhados por opções, que usam hifens (-) ou hifens duplos (--). Por exemplo, git reset --hard.
 - [ ] A Working Tree (diretório de trabalho) é usada para editar seu arquivo de trabalho.Os arquivos e diretórios que você normalmente vê no diretório do projeto.
@@ -3112,7 +3112,7 @@ Um repositório é um local onde diferentes versões de códigos são armazenada
 - [ ] Um Branch no Git é uma linha independente de desenvolvimento com um histórico de commits. Cada branch fornece um espaço de gravação dedicado e tem seu próprio histórico de codificação (uma linha de commits).
 
 ## Separe
-- [x] Fork é um recurso fornecido pelo GitHub usado para criar uma réplica de um Repositório Remoto no GitHub. Após implementar o Fork, o repositório  replicado será separado do repositório original.  Fork não é um comando git. 
+- [x] Fork é um recurso fornecido pelo GitHub usado para criar uma réplica de um Repositório Remoto no GitHub. Após implementar o Fork, o repositório  replicado será separado do repositório original.  Fork não é um comando git.
 - [x] Clone: Clone é usado para criar uma cópia local de um Repositório Remoto. Para implementar Clone, você precisa executar git clone com o nome do Repositório Remoto e a URL do Repositório Remoto.
 - [x] Working Tree (Working Directory) é usado para editar seus arquivos de trabalho. Os arquivos e diretórios que você geralmente vê no diretório do projeto são a Working Tree.
 - [x] Staging Area é uma área de buffer usada para preparar seus arquivos de trabalho para commit. O comando para trazer os arquivos de trabalho para a Staging Area é git add.
@@ -3280,7 +3280,7 @@ git config --global core.autocrlf input
 # push changes to github
 git push --set-upstream origin main
 git push REMOTE-NAME LOCAL-BRANCH-NAME:REMOTE-BRANCH-NAME
-git push REMOTE-NAME TAG-NAME 
+git push REMOTE-NAME TAG-NAME
 git push REMOTE-NAME --tags (Push de todas as suas tags)
 git push REMOTE-NAME :BRANCH-NAME (Excluir uma tag)
 git remote add upstream THEIR_REMOT (Adiciona outro remoto)
@@ -3313,17 +3313,17 @@ Opcionalmente, você pode configurar um arquivo .gitattributes para gerenciar co
 - [x] text eol=lf O Git sempre converterá delimitadores de linha em LF no check-out. Você deve usar isso para arquivos que devem manter os delimitadores LF, mesmo no Windows.
 - [x] binary O Git entenderá que os arquivos especificados não são texto e não deverá tentar alterá-los. A configuração binary também é um alias para -text -diff.
 
-### .gitignore 
+### .gitignore
 - [x] Cancela o rastreamento de um determinado arquivo: `git rm --cached FILENAME`
-- [ ] Para sempre ignorar um determinado arquivo ou diretório, adicione-o a um arquivo chamado ignore que está localizado dentro do diretório ~/.config/git. 
+- [ ] Para sempre ignorar um determinado arquivo ou diretório, adicione-o a um arquivo chamado ignore que está localizado dentro do diretório ~/.config/git.
 - [ ] Como excluir arquivos locais sem criar um arquivo .gitignore
-      - [ ] Abrir o arquivo chamado .git/info/exclude na raiz do repositório Git. 
+      - [ ] Abrir o arquivo chamado .git/info/exclude na raiz do repositório Git.
 
 ## Adicionar um arquivo ao seu repositório
 No campo do nome de arquivo, digite o nome e a extensão do arquivo. Para criar subdiretórios, digite o separador de diretório .
 ## Branches
 Branch é um lugar seguro para experimentar novos recursos ou correções.
- `git checkout -b newBranchName` 
+ `git checkout -b newBranchName`
 ## Commits
 Uma confirmação é uma alteração em um ou mais arquivos de um branch. confirmação é criada, é atribuído a ela uma ID exclusiva.
 O commit semântico possui os elementos estruturais abaixo (tipos), que informam a intenção do seu commit ao utilizador(a) de seu código.
@@ -3363,7 +3363,7 @@ Configurações do usuário do Git – git config
 git config --global user.name   "nome"
 git config --global user.email  "nome"
 git config --global core.editor "nome" --wait
-git config --global --list 
+git config --global --list
 git config --global unset core.editor
 git config --global --get user.email
 ```
@@ -3669,10 +3669,10 @@ git push
 # GitHub Classroom
 É uma ferramenta de ensino que permite que professores e administradores escolares criem e gerenciem salas de aula e tarefas digitais.
 
-- [x] Modelos de tarefa: 
+- [x] Modelos de tarefa:
 Proprietários de organizações que são administradores de uma sala de aula podem criar uma tarefa a partir de um repositório de modelos que seja público ou de propriedade da organização.
 
-# GitHub Apps 
+# GitHub Apps
 Os GitHub Apps são ferramentas que estendem a funcionalidade do GitHub. Os GitHub Apps podem fazer coisas no GitHub como abrir problemas, fazer comentários sobre solicitações de pull e gerenciar projetos.
 
 ```mermaid
@@ -3680,7 +3680,7 @@ Os GitHub Apps são ferramentas que estendem a funcionalidade do GitHub. Os GitH
     WorkingDirectory->>StagingArea:staging
     StagingArea->>Repository: commiting
     Repository->>WorkingDirectory: checking out
-```    
+```
 
 # Passos de um projeto
 Quando você encontra um projeto que gosta, pode segui-lo e rastrear
@@ -3783,9 +3783,9 @@ Coordenação das Tarefas: Organizar e coordenar o trabalho entre os diferentes 
 Planejamento e Prioridade: Trabalhar com a comunidade para definir o que será desenvolvido em cada release, priorizando as funcionalidades mais importantes.
 
 
-# 
+#
 O arquivo README deve apresentar o projeto e transmitir os problemas que ele pretende resolver.
 
 man gittutorial
 
-# GitHub no Enterprise geralmente usam SCIM e funcionam com IdPs como Microsoft Entra e Okta, 
+# GitHub no Enterprise geralmente usam SCIM e funcionam com IdPs como Microsoft Entra e Okta,

@@ -17,7 +17,7 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        
+
       - name: Terraform Format
         run: terraform fmt -recursive
 

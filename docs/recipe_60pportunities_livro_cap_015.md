@@ -32,7 +32,7 @@
 </div>
 
 ## Antes que perguntem
-Foco no desenvolvedor deve ser sempre uma preocupação das organizações de software, especialmente à medida que as equipes mudam para modelos de trabalho remotos e híbridos. 
+Foco no desenvolvedor deve ser sempre uma preocupação das organizações de software, especialmente à medida que as equipes mudam para modelos de trabalho remotos e híbridos.
 
 - [x] As métricas servem só para avaliar as pessoas? NÃO, não é uma boa escolha.
 - [x] As métricas proporcionam uma percepção clara e transparente sobre os projetos;
@@ -140,16 +140,16 @@ Está na capacidade de uma empresa de remover atritos para seus desenvolvedores,
 
 |                   |  Speed                            | Effectiveness                    |  Quality |  Impact |
 | ----              | ----                              | ----                             | ----     | ----    |
-| Key metric        |  Diffs per engineer* (PRS or MRs) | Developer Experience Index (DXI) |  Change failure rate | % of time spent on new capabilities |  
+| Key metric        |  Diffs per engineer* (PRS or MRs) | Developer Experience Index (DXI) |  Change failure rate | % of time spent on new capabilities |
 |                   |  Not at individual level          | Measure of key engineering performance drivers, developed by DX | | |
 | Secondary metrics |  Lead time                        | Time to 10th PR  | Failed deployment recovery time | Initiative progress and ROI |
 |                   | Deployment frequency              | Ease of delivery | Perceived software quality  | Revenue per Engineer |
-|                   | Perceived rate of delivery        | Regrettable attrition | Operational health and security metrics | 
+|                   | Perceived rate of delivery        | Regrettable attrition | Operational health and security metrics |
 |                   | Only at organizational level      |                                    |         |  |
 
-### Cumulative Flow Diagram  (CDF) 
+### Cumulative Flow Diagram  (CDF)
 É um dos gráficos que nos dá uma visão geral do que está acontecendo em um projeto ou nas atividades de um produto.
-O eixo horizontal representa um período e o vertical indica a contagem cumulativa de itens no processo. Cada área pintada no gráfico está relacionada a uma etapa do fluxo de trabalho (por exemplo, a fazer, em andamento, concluído). 
+O eixo horizontal representa um período e o vertical indica a contagem cumulativa de itens no processo. Cada área pintada no gráfico está relacionada a uma etapa do fluxo de trabalho (por exemplo, a fazer, em andamento, concluído).
 
 | Item                         | Descrição                                                                                            |
 | ------------                 | ----------                                                                                           |
@@ -167,8 +167,8 @@ Na página Configuração , você pode selecionar a equipe, o nível do backlog 
 
 ### Simulações de Monte Carlo para Gerenciar Projetos
 H. James Harrington: "A medição é o primeiro passo que leva ao controle e, eventualmente, à melhoria. Se você não pode medir algo, você não pode entendê-lo. Se você não pode obtê-lo, você não pode controlá-lo. Se você não pode controlá-lo, não pode melhorá-lo."
-#### Modelo de Monte Carlo ou Método de Monte Carlo (MMC) 
-É uma metodologia estatística que se baseia em uma grande quantidade de amostragens aleatórias para se chegar em resultados próximos de resultados reais. 
+#### Modelo de Monte Carlo ou Método de Monte Carlo (MMC)
+É uma metodologia estatística que se baseia em uma grande quantidade de amostragens aleatórias para se chegar em resultados próximos de resultados reais.
 ### Como fazer uma Simulação
 Quando deparamos com situações de algum nível de incerteza e quiser utilizar a simulação de Monte Carlo terá que passar por 4 passos:
 
@@ -178,7 +178,7 @@ Quando deparamos com situações de algum nível de incerteza e quiser utilizar 
 - [x] Passo 4 – Obter uma estimativa para a solução do problema;
 
 ### Métricas de desempenho de entrega de software (Baseadas 2022 ACCELERATE - Relatório State of DevOps)
-#### Desempenho da entrega de software 
+#### Desempenho da entrega de software
 As quatro métricas principais do desempenho da entrega de software, que são frequência de implantação, tempo de lead para alterações, taxa de falha nas alterações e tempo de restauração do serviço.
 #### Desempenho operacional
 A quinta métrica principal, que é a confiabilidade.
@@ -198,8 +198,8 @@ Se aorganização consegue cumprir as metas de desempenho e de lucratividade.
 
 ### State of DevOps Report
 As organizações de alta confiança incentivam um bom fluxo de informações, colaboração interfuncional, responsabilidades compartilhadas, aprendizado com falhas e novas ideias;
-A satisfação no trabalho é aquele que diz antes, que prediz no nº 1 do desempenho organizacional. Um trabalho desafiador e significativo e de ter o poder de exercitar nossas habilidades e julgamento. 
-Também sabemos que onde há satisfação no trabalho, os funcionários trazem o melhor de si para o trabalho: seu engajamento, sua criatividade e seu pensamento mais forte. 
+A satisfação no trabalho é aquele que diz antes, que prediz no nº 1 do desempenho organizacional. Um trabalho desafiador e significativo e de ter o poder de exercitar nossas habilidades e julgamento.
+Também sabemos que onde há satisfação no trabalho, os funcionários trazem o melhor de si para o trabalho: seu engajamento, sua criatividade e seu pensamento mais forte.
 Isso contribui para mais inovação em qualquer área do negócio, incluindo TI.
 
 | Ano  | Empresas                                           | Respostas | N Países | Resultado |
@@ -246,7 +246,7 @@ Isso contribui para mais inovação em qualquer área do negócio, incluindo TI.
 | No caso de aplicativos ou serviços principais em que você trabalha, qual porcentagem de alterações na produção ou liberadas para os usuários resulta em queda no serviço (por exemplo, leva à deficiência ou interrupção do serviço) e, posteriormente, exige remediação (por exemplo, exige um hotfix, reversão, correção de encaminhamento, patch)? |
 
 ## Métricas DORA (DevOps Research and Assessment (DORA) metrics)
-As métricas DevOps Research and Assessment (DORA) revolucionaram a maneira como a indústria de software mede o desempenho e as capacidades de entrega da organização de software. 
+As métricas DevOps Research and Assessment (DORA) revolucionaram a maneira como a indústria de software mede o desempenho e as capacidades de entrega da organização de software.
 O gerenciamento do fluxo de valor fornece a visibilidade ponta a ponta de todo o ciclo de vida de entrega de software, permitindo que equipes e gerentes entendam todos os aspectos de produtividade, qualidade e entrega.
 ### Frequência de implantação
 A frequência de implantação é medida pelo número médio de implantações por dia em um determinado ambiente, com base no horário de término da implantação. Quantidade de implementações em um período de tempo previamente determinado.

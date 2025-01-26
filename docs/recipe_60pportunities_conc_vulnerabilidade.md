@@ -9,7 +9,7 @@ A vulnerabilidade é uma força.
 - [x] Precisamos ser os mais bonitos, ter o corpo perfeito, de ser o bastante em casa, no trabalho e na cama, não podemos ter defeitos e nem nossas fraquezas.
 - [x] Vivemos tentando negar nossos defeitos e fraquezas, resistindo à verdade e nos sucumbindo a uma vida de ilusões;
 - [x] E como dizia **Carl Gustav Jung**, "O que você RESISTE, PERSISTE".
-- [x] A mulher é muito afetada, primeiro pela aparência: 
+- [x] A mulher é muito afetada, primeiro pela aparência:
       - [x] Que mulheres sejam magras, jovens ou bonitas o bastante;
       - [x] Pressão da maternidade: se vão casar, quando vão casar, quando vão ter filhos, quando vão ter o segundo filho, como está a educação dos filhos;
       - [x] As mulheres sejam perfeitas;
@@ -23,7 +23,7 @@ A vulnerabilidade é uma força.
 6	SERVICENOW - IMPLANTAÇÃO ITSM
 ## Showciedade a Epidemia de Narcisismo
 - [x] Você compara as suas férias com as dos outros, a sua casa, a sua carreira, a sua própria vida.
-- [x] Inversão dos Pronomes pessoais: 
+- [x] Inversão dos Pronomes pessoais:
       - [x] Um grupo de pesquisadores fez uma análise em três décadas de canções que chegaram ao topo das paradas de sucesso eles registraram uma tendência estatística significativa para o **narcisismo**;
       - [x] A hostilidade na música popular em consonância com a hipótese encontrar uma diminuição expressiva do uso de **nós e nosso** e um aumento do uso de **Eu e meu** os pesquisadores também relataram um declínio das palavras relacionadas a **solidariedade** emoções positivas e um **aumento** das palavras relacionadas a **ira e comportamentos anti-sociais como ódio**;
 - [x] Epidemia do narcisismo argumentaram que a incidência do transtorno de personalidade narcisista mais que dobrou nos Estados Unidos nos últimos dez anos então é isso estão cercadas de narcisistas nós nos transformamos em uma **sociedade de pessoas egoístas e pretensiosas** que só se interessam por poder sucesso beleza e em se tornarem importantes.
@@ -37,10 +37,10 @@ A vulnerabilidade é uma força.
 - [x] E outra, você já esteve em um momento muito, mas muito feliz da sua vida, um momento de pura felicidade, mas que no momento seguinte foi tomado por imagens de coisas terríveis acontecendo com você...
 - [x] QUANDO PASSAMOS  NOSSAS VIDAS (consciente ou inconscientemente) FUGINDO DA VULNERABILIDADE, NÓS NOS FECHAMOS PARA AS INCERTEZAS, OS RISCOS E A EXPOSIÇÃO EMOCIONAL DA ALEGRIA.
 ### Não fuja de vulnerabilidade, aceite.
-- [x] E um dos problemas de não aceitar a vulnerabilidade, é que queremos ser perfeitos em tudo. 
+- [x] E um dos problemas de não aceitar a vulnerabilidade, é que queremos ser perfeitos em tudo.
       - [x] "Se não formos, o que os outros vão pensar?"
       - [x] E aí nos cobramos excessivamente e não aceitamos nossas falhas e imperfeições;
-- [x] Não que deveríamos viver totalmente zens e sem cobrança nenhuma, mas por quantas vezes você já deixou de fazer algo com medo de errar, ou ficou estressado porque estava se cobrando demais? 
+- [x] Não que deveríamos viver totalmente zens e sem cobrança nenhuma, mas por quantas vezes você já deixou de fazer algo com medo de errar, ou ficou estressado porque estava se cobrando demais?
 - [x] Sabe aquela primeira pessoa que você conversa quando acorda, aquela que  você olha no espelho... você é amigo dela? Sim, estou falando sobre você mesmo: você é seu amigo?
 - [x] Então, converse com você mesmo com o mesmo amor e compaixão que você conversa com seus maiores amigos e com as pessoas que você ama.
 
@@ -126,4 +126,3 @@ Os problemas que criamos na nossa cabeça são muito mais poderosos do que os pr
 - [x] Ter vergonha o medo do ridículo e a depreciação são usados para controlar as  pessoas e mantê-las na linha apontar culpados é uma prática comum o valor de alguém está ligado ao sucesso a produtividade ou a obediência humilhações linguagem abusiva são frequentes e quanto ao favoritismo o perfeccionismo é uma realidade comparação a competição saudável pode ser benéfica mas a comparação e disputa o tempo todo velada ou abertamente a criatividade tem sido sufocada as pessoas são confinados a padrões estreitos em vez de serem valorizadas por suas contribuições e talentos específicos a um modo ideal de ser ou um tipo de habilidade usado como medida de valor para todos As pessoas estão com medo de correr riscos ou tentar coisas novas e três desmotivação as pessoas estão com medo de correr riscos ou tentar coisas novas é mais fácil ficar quieto do que compartilhar ideias histórias e experiências a impressão geral é de que ninguém está realmente prestando atenção ou escutando todos estão se esforçando para serem vistos e ouvidos e quando vejo essas perguntas e penso sobre a nossa macro sociedade a mídia e o panorama social econômico e político minhas respostas são sim sim e sim
 
 - [x] Vulnerabilidade não é algo bom nem mau não é o que chamamos de emoção negativa e nem sempre é uma luz uma experiência positiva ela é o centro de todas as emoções e sim se sentir é estar vulnerável acreditar que vulnerabilidade seja fraqueza é o mesmo que acreditar que qualquer sentimento seja fraqueza abrir mão de nossas emoções por medo de que o custo seja muito alto significa nos afastarmos da única coisa que dá sentido e significado à vida nossa rejeição da vulnerabilidade deriva com frequência da associação que fazemos entre ela e as emoções sombrias como o medo a vergonha o sofrimento à
-

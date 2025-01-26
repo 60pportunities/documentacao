@@ -29,3 +29,25 @@
 |                                  | Estímulos constantes; |
 |                                  | Preocupação com a saúde mental; |
 |                                  | Valorização das experiências; |
+
+<!--
+
+Baby Boomers	         314   - 1946 AND 1964 Baby Boomers
+Geração X	            1281   - 1965 AND 1980 Geração X
+Geração Y (Millennials)	1496   - 1981 AND 1996 Geração Y (Millennials)
+Geração Z	             122   - 1997 AND 2012 Geração Z
+
+
+
+SELECT
+    CASE
+        WHEN to_char(birthdate,'YYYY') BETWEEN 1946 AND 1964 THEN 'Baby Boomers'
+        WHEN to_char(birthdate,'YYYY') BETWEEN 1965 AND 1980 THEN 'Geração X'
+        WHEN to_char(birthdate,'YYYY') BETWEEN 1981 AND 1996 THEN 'Geração Y (Millennials)'
+        WHEN to_char(birthdate,'YYYY') BETWEEN 1997 AND 2012 THEN 'Geração Z'
+        WHEN to_char(birthdate,'YYYY') >= 2013 THEN 'Geração Alpha'
+        ELSE 'Data de Nascimento Inválida'
+    END AS geracao,
+    count(*)
+FROM xxbbtsgate.vw_people_x_ebs
+-->

@@ -3,13 +3,13 @@ O Docker facilita o encapsulamento de seus aplicativos e serviços em contêiner
 No entanto, conforme você trabalha com o Docker, também é fácil acumular um número excessivo de imagens, contêineres e volumes de dados não utilizados que desorganizam a saída e consomem espaço em disco.
 
 Para remover completamente o Docker do seu sistema, você precisará remover quaisquer imagens , contêineres e volumes que foram criados. Para fazer isso, use os seguintes comandos:
-   
+
 | Uso                   | Comando                                    |
 | --------              | -----                                      |
 | Remove unused data    | docker system prune --all --volumes        |
 | Remove all services   | docker service rm $(docker service ls -q)  |
 | Remove all containers | docker rm -f $(docker ps -aq)              |
-| Remove all images     | docker rmi -f $(docker images -aq)         | 
+| Remove all images     | docker rmi -f $(docker images -aq)         |
 | Remove all volumes    | docker volume rm $(docker volume ls -q)    |
 
 ## Gerenciador de Container - Portainer
@@ -20,7 +20,7 @@ O Portainer consiste em dois elementos: o Portainer Server e o Portainer Agent.
 ![](img/portainer-001.png){width="900" height="600" style="display: block; margin: 0 auto"}
 
 ### Centro de dados
-O Portainer for Datacenter é a solução recomendada para usuários implantarem o Portainer para gerenciar clusters de tempo de execução de contêineres em sua própria nuvem ou datacenters locais, ou seja, na rede privada. Nesse caso, a implantação do Portainer e dos Agentes será localizada em sua própria rede privada. 
+O Portainer for Datacenter é a solução recomendada para usuários implantarem o Portainer para gerenciar clusters de tempo de execução de contêineres em sua própria nuvem ou datacenters locais, ou seja, na rede privada. Nesse caso, a implantação do Portainer e dos Agentes será localizada em sua própria rede privada.
 ![](img/portainer-002.png){width="900" height="600" style="display: block; margin: 0 auto"}
 ### Computação de Borda
 O Portainer for Edge é a solução recomendada para usuários implantarem e configurarem o Portainer para permitir que dispositivos de computação de ponta, por exemplo, dispositivos IoT, estabeleçam conexões entre os dois.
@@ -30,9 +30,9 @@ O tipo de agente Async Edge requer apenas o ponto de extremidade da API HTTPS (p
 O diagrama a seguir descreve como o Portainer e os agentes de borda devem ser implantados em seu ambiente:
 ![](img/portainer-003.png){width="900" height="600" style="display: block; margin: 0 auto"}
 ### Instalação do Portainer
-Primeiro, crie o volume que o Portainer Server usará para armazenar seu banco de dados: 
+Primeiro, crie o volume que o Portainer Server usará para armazenar seu banco de dados:
 - [x] `docker volume create portainer_data`
-Em seguida, baixe e instale o contêiner do Portainer Server: 
+Em seguida, baixe e instale o contêiner do Portainer Server:
 - [x] `docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:2.21.3`
 
 ### Install SigNoz Using Docker Compose
@@ -78,9 +78,9 @@ A seguir estão os 6 estágios de alto nível de um processo típico de iniciali
 |
 | MBR       | significa Registro mestre de inicialização.         |
 |           | Ele está localizado no primeiro setor do disco inicializável. Normalmente /dev/hda ou /dev/sda            |
-|           | O MBR tem menos de 512 bytes de tamanho. Isso tem três componentes 
+|           | O MBR tem menos de 512 bytes de tamanho. Isso tem três componentes
 |           | 1) informações do carregador de inicialização primário nos primeiros 446 bytes  |
-|           | 2)  Informações da tabela de partição nos próximos 64 bytes | 
+|           | 2)  Informações da tabela de partição nos próximos 64 bytes |
 |           | 3) verificação de validação do mbr nos últimos 2 bytes. |
 |           | Contém informações sobre o GRUB (ou LILO em sistemas antigos). |
 |           | Então, em termos simples, o MBR carrega e executa o carregador de boot GRUB. |
@@ -127,7 +127,7 @@ A seguir estão os 6 estágios de alto nível de um processo típico de iniciali
 |           | Existem números ao lado de S e K nos nomes dos programas. Esses são os números de sequência em que os programas devem ser iniciados ou encerrados. |
 |           | Por exemplo, S12syslog deve iniciar o daemon syslog, que tem o número de sequência 12. S80sendmail deve iniciar o daemon sendmail, que tem o número de sequência 80. Portanto, o programa syslog será iniciado antes do sendmail. |
 
-# Arquitetura Docker 
+# Arquitetura Docker
 
 ![](img/layers.webp){width="600" height="450" style="display: block; margin: 0 auto" }
 
@@ -142,13 +142,13 @@ A seguir estão os 6 estágios de alto nível de um processo típico de iniciali
 
 Uma imagem é um modelo somente leitura com instruções para criar um contêiner Docker.
 Um contêiner é uma instância executável de uma imagem.  Em geral, cada contêiner deve fazer uma coisa e fazê-la bem. A seguir estão alguns motivos para executar o contêiner separadamente:
- 
+
 
 Quando um contêiner é executado, ele usa as várias camadas de uma imagem para seu sistema de arquivos. Cada contêiner também obtém seu próprio "espaço de rascunho" para criar/atualizar/remover arquivos. Quaisquer alterações não serão vistas em outro contêiner, mesmo que estejam usando a mesma imagem.
 
 Os volumes fornecem a capacidade de conectar caminhos específicos do sistema de arquivos do contêiner de volta à máquina host.
 
-Uma montagem de volume é uma ótima escolha quando você precisa de um lugar persistente para armazenar os dados do seu aplicativo.  
+Uma montagem de volume é uma ótima escolha quando você precisa de um lugar persistente para armazenar os dados do seu aplicativo.
 
 Volume nomeado: `type=volume,src=my-volume,target=/usr/local/data`
 
@@ -205,7 +205,7 @@ A dockerização de seus aplicativos ou serviços oferece diversas vantagens e p
 
 * Controle de versão : as imagens do Docker podem ser versionadas, permitindo que você retorne a estados anteriores do seu aplicativo se surgirem problemas durante a implantação. Isso facilita o gerenciamento e a manutenção de diferentes versões do seu software.
 
-* Ecossistema: O Docker tem um rico ecossistema de imagens e ferramentas disponíveis no Docker Hub e no Docker Store. Isso significa que você pode facilmente encontrar e compartilhar contêineres pré-configurados para vários aplicativos e serviços, economizando tempo e esforço.* 
+* Ecossistema: O Docker tem um rico ecossistema de imagens e ferramentas disponíveis no Docker Hub e no Docker Store. Isso significa que você pode facilmente encontrar e compartilhar contêineres pré-configurados para vários aplicativos e serviços, economizando tempo e esforço.*
 
 * Gerenciamento de configuração simplificado: as imagens do Docker podem incluir variáveis ​​de ambiente e arquivos de configuração, facilitando o gerenciamento das configurações do aplicativo de forma consistente e reproduzível.
 
@@ -243,9 +243,9 @@ docker run -dp 127.0.0.1:3000:3000 getting-started
 docker stop <the-container-id>
 docker rm <the-container-id>
 docker push docker/getting-started
-docker login -u YOUR-USER-NAME 
+docker login -u YOUR-USER-NAME
 docker tag getting-started YOUR-USER-NAME/getting-started
-docker push YOUR-USER-NAME/getting-started 
+docker push YOUR-USER-NAME/getting-started
 docker build --platform linux/amd64 -t YOUR-USER-NAME/getting-started .
 docker build -t ofs:latest . --no-cache
 docker run --rm -itd --name myOFS -v=<yourintallationfolder>:/home/intelFPGA_pro/:ro -v=DataOFS:/dataofs ofs:latest /bin/bash
@@ -254,7 +254,7 @@ ENV http_proxy= #setup proxy
 ENV https_proxy=  #setup proxy
 ENV GITUSER= #setup github user
 ENV GITTOKEN= #setup github token
-ENV REDUSER= #redhat user 
+ENV REDUSER= #redhat user
 ENV REDPASS= #redhat password
 ENV DW_LICENSE_FILE= #DW license
 ENV SNPSLMD_LICENSE_FILE= #Synopsys license
@@ -265,26 +265,26 @@ Em Linux precisamos entender dois componentes fundamentais: cgroups, namespaces,
 
 Os namespaces são responsáveis por gerar o isolamento de grupos de processos em seu nível lógico, como o gerenciamento de usuários, rede, etc., garantido que o container não enxergue os processos do host e vice-versa. Logo, ao criar um container, são criados namespaces como PID (Process ID) para isolar processos, NET (Network) para controlar e isolar as redes de cada container, IPC (Inter Process Communication) que permite a comunicação entre processos, etc.
 É isso que se chama namespace, é um espaço separado de nomes, no caso de PIDs.
-``` 
+```
 ps aux
-sudo unshare --fork --pid --mount-proc /bin/bash. 
+sudo unshare --fork --pid --mount-proc /bin/bash.
 ps aux
-``` 
+```
 
 Olha só, cadê todos os meus processos? Sumiu? O bash agora tem PID 1.
 
-A diferença é que o bash que acabamos de abrir não enxerga mais o mesmo "/proc" global. Ele tem um "/proc" 
+A diferença é que o bash que acabamos de abrir não enxerga mais o mesmo "/proc" global. Ele tem um "/proc"
 
 wget https://github.com/ericchiang/containers-
 
-Cgroups são basicamente a tecnologia que nos permite definir limites de uso de recursos em processos Linux. 
+Cgroups são basicamente a tecnologia que nos permite definir limites de uso de recursos em processos Linux.
 ```
 ls /sys/fs/cgroup
 systemctl status
 cat /proc/PID/group
 ```
 
-Posso configurar outros limites, como memória, mas pra esse exemplo, só isso já funciona. 
+Posso configurar outros limites, como memória, mas pra esse exemplo, só isso já funciona.
 
 Agora vou abrir um shell dentro desse cgroup com este comando `systemd-run --slice=akita.slice --uid=akitaonrails --shell`
 
@@ -308,8 +308,8 @@ A Open Container Initiative (OCI) é uma comunidade técnica de código aberto n
 # HOW TO BUILD THIS IMAGE
 # -----------------------
 # Put the downloaded file in the same directory as this Dockerfile
-# Run: 
-#      $ docker build -t oracle/restdataservices:3.0.10 . 
+# Run:
+#      $ docker build -t oracle/restdataservices:3.0.10 .
 #
 # Pull base image
 # ---------------
@@ -360,7 +360,7 @@ RUN if [ ! -e ${ORDS_HOME}/${INSTALL_FILE} ]; then curl https://download.oracle.
     yum install -y tar && \
     rm -rf /var/cache/yum && \
     rm -rf /var/tmp/yum-*
-    
+
 # Finalize setup
 # -------------------
 USER oracle
@@ -376,22 +376,22 @@ CMD $ORDS_HOME/$RUN_FILE
 
 --------Inicio buildContainerImage.sh
 #!/bin/bash
-# 
+#
 # Since: February, 2017
 # Author: gerald.venzl@oracle.com
 # Description: Build script for building Oracle Rest Data Services Docker images.
-# 
+#
 # DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-# 
+#
 # Copyright (c) 2014-2017 Oracle and/or its affiliates. All rights reserved.
-# 
+#
 
 usage() {
   cat << EOF
 
 Usage: buildContainerImage.sh [-i] [-o] [Docker build option]
 Builds a Docker Image for Oracle Rest Data Services
-  
+
 Parameters:
    -i: ignores the MD5 checksums
    -o: passes on Docker build option
@@ -584,12 +584,12 @@ BUILD_ELAPSED=$((BUILD_END - BUILD_START))
 echo ""
 
 cat << EOF
-  Oracle Rest Data Services version $VERSION is ready to be extended: 
-    
+  Oracle Rest Data Services version $VERSION is ready to be extended:
+
     --> $IMAGE_NAME
 
   Build completed in $BUILD_ELAPSED seconds.
-  
+
 EOF
 --------Fim    buildContainerImage.sh
 
@@ -641,10 +641,10 @@ function setupOrds() {
   ORACLE_PORT=${ORACLE_PORT:-"1521"}
   ORDS_PWD=${ORDS_PWD:-"oracle"}
   APEXI=${APEXI:-"$ORDS_HOME/doc_root/i"}
-  
+
   # Make standalone dir
   mkdir -p $ORDS_HOME/config/$CONTEXT_ROOT/standalone
-  
+
   # Copy template files
   cp $ORDS_HOME/$CONFIG_PROPS $ORDS_HOME/params/ords_params.properties
   cp $ORDS_HOME/$STANDALONE_PROPS $ORDS_HOME/config/$CONTEXT_ROOT/standalone/standalone.properties
@@ -655,14 +655,14 @@ function setupOrds() {
   sed -i -e "s|###ORACLE_PORT###|$ORACLE_PORT|g" $ORDS_HOME/params/ords_params.properties
   sed -i -e "s|###ORDS_PWD###|$ORDS_PWD|g" $ORDS_HOME/params/ords_params.properties
   sed -i -e "s|###ORACLE_PWD###|$ORACLE_PWD|g" $ORDS_HOME/params/ords_params.properties
-  
+
   # Replace standalone runtime variables (standalone.properties)
   sed -i -e "s|###PORT###|8443|g" $ORDS_HOME/config/$CONTEXT_ROOT/standalone/standalone.properties
   sed -i -e "s|###HOST###|$HOSTNAME|g" $ORDS_HOME/config/$CONTEXT_ROOT/standalone/standalone.properties
   sed -i -e "s|###CONTEXT_ROOT###|$CONTEXT_ROOT|g" $ORDS_HOME/config/$CONTEXT_ROOT/standalone/standalone.properties
   sed -i -e "s|###DOC_ROOT###|$ORDS_HOME/doc_root|g" $ORDS_HOME/config/$CONTEXT_ROOT/standalone/standalone.properties
   sed -i -e "s|###APEXI###|$APEXI|g" $ORDS_HOME/config/$CONTEXT_ROOT/standalone/standalone.properties
-   
+
    # Start ODRDS setup
    java -jar $ORDS_HOME/$CONTEXT_ROOT.war install simple
 }
@@ -705,7 +705,7 @@ EXPOSE 8080
 CMD ["catalina.sh", "run"]
 
 
-OU 
+OU
 
 FROM ubuntu:16.04
 
@@ -735,7 +735,7 @@ RUN curl -O -L https://github.com/bhaskarndas/sample-war/raw/main/sampletest.war
 CMD ["https://net.cloudinfrastructureservices.co.uk/usr/local/tomcat/bin/catalina.sh", "run"]
 
 
----Fim 
+---Fim
 
 version: "3"
 
@@ -839,17 +839,17 @@ server {
 
 
 # Latencia
-Existem vários fatores que influenciam uma conexão ruim com a internet, como velocidade ou estabilidade, mas certamente há um que muitas vezes não prestamos a devida atenção: latência. 
+Existem vários fatores que influenciam uma conexão ruim com a internet, como velocidade ou estabilidade, mas certamente há um que muitas vezes não prestamos a devida atenção: latência.
 
-O tempo que leva para cada pacote transmitir é o que é conhecido como latência. A latência, medida em milissegundos, é melhor quanto menor for. Ou seja, é menos provável que você sofra cortes em sua chamada de vídeo ou videogame online se a latência da sua conexão for baixa. A latência da rede é expressa em ping. Portanto, a latência é frequentemente conhecida por este mesmo nome. 
+O tempo que leva para cada pacote transmitir é o que é conhecido como latência. A latência, medida em milissegundos, é melhor quanto menor for. Ou seja, é menos provável que você sofra cortes em sua chamada de vídeo ou videogame online se a latência da sua conexão for baixa. A latência da rede é expressa em ping. Portanto, a latência é frequentemente conhecida por este mesmo nome.
 
 
-A velocidade da conexão representa nossa largura de banda. Quanto maior a velocidade, maiores os pacotes de dados. 
+A velocidade da conexão representa nossa largura de banda. Quanto maior a velocidade, maiores os pacotes de dados.
 A latência refere-se ao tempo exato que leva para que esses pacotes sejam enviados do servidor
 
 
 # Cloud ou not cloud, is this question
-Empresas em todo o mundo estão optando por repatriar seus dados, abandonando soluções baseadas em nuvem e retornando a servidores locais. 
+Empresas em todo o mundo estão optando por repatriar seus dados, abandonando soluções baseadas em nuvem e retornando a servidores locais.
 A repatriação de dados, responde a uma necessidade crescente de controle, segurança e conformidade regulatória.
 
 
@@ -866,7 +866,7 @@ As 5 principais razões para este movimento seríam:
 
 Para aqueles que são totalmente iniciantes no ecossistema Docker, aqui estão algumas explicações para os termos usados ​​no arquivo docker.
 
-FROM  – É a imagem base sobre a qual todo o contêiner será executado. Em outras palavras, você pode dizer que ele fornece o ambiente para o contêiner ser executado dentro do ambiente docker. Neste caso, o ubuntu 16 foi usado, mas outras alternativas também podem ser usadas, como CentOS, alpine, etc. 
+FROM  – É a imagem base sobre a qual todo o contêiner será executado. Em outras palavras, você pode dizer que ele fornece o ambiente para o contêiner ser executado dentro do ambiente docker. Neste caso, o ubuntu 16 foi usado, mas outras alternativas também podem ser usadas, como CentOS, alpine, etc.
 Instalar Perquisites – eles são análogos às ferramentas básicas, frameworks e bibliotecas necessárias para configurar e executar um ambiente de desenvolvimento. O comando RUN executará a instalação, atualização e upgrade necessários relacionados a instaladores como java, tomcat, etc.
 EXPOSE – Isso permite que o usuário exponha as portas fora do contêiner.
 CMD  – O prompt de comando padrão para o contêiner. Sem isso, o contêiner não seria capaz de executar comandos e o contêiner não seria capaz de rodar. É análogo a carregar um sistema Linux em sua máquina local, que compactaria o prompt de comando e começaria a executar comandos para carregar o SO. Aqui, Bash é o shell padrão.
@@ -933,8 +933,8 @@ Alguns tipos de NEtwork
 * Bridge  - POnte entre container um fala com o outro
 * Host    - Mescla a rede docker com a rede do host da minha máquina
 * Overlay - COnsegue que todos se comuniquer (docker Swaarm - Cluster de vários doker)
-maclan  - 
-none    - 
+maclan  -
+none    -
 
 docker network ls
 
@@ -1005,7 +1005,7 @@ curl -X POST -H "Content-Type: application/json" \
      http://seu-servico-url-aqui
 Substitua http://seu-servico-url-aqui pela URL do seu serviço Oracle ORDS.
 -X POST: Especifica o método HTTP como POST.
--H "Content-Type: application/json": 
+-H "Content-Type: application/json":
 
 Define o cabeçalho para indicar que estamos enviando dados JSON.
 -d '{"clob1": "$(cat clob1.txt)", "clob2": "$(cat clob2.txt)"}': Envia os dados JSON com os conteúdos dos arquivos CLOB.
@@ -1178,7 +1178,7 @@ docker run -it --rm --name n8n -p 5678:5678 -e N8N_BASIC_AUTH_USER=admin -e N8N_
 
 
 
-    elabore um modelo relacional entre  cliente, vendedor, região, filial e vendas. Na tabela de cliente e vendedores teremos os campos serão: id, nome e email. 
+    elabore um modelo relacional entre  cliente, vendedor, região, filial e vendas. Na tabela de cliente e vendedores teremos os campos serão: id, nome e email.
     Na tabela de região teremos id e nome. Na tabela de filial, teremos id, nome, id da regiao e o endereço(Tipo de Logradouro, Logradouro, numero e complemento)
 
 Em vendas teremos o id do pedido, a data, valor da venda, id_vendedor, id_cliente e id_regiao.
@@ -1419,7 +1419,7 @@ INSERT INTO Vendas (id_pedido, data, valor_venda, id_vendedor, id_cliente, id_re
 (6, '2024-07-06', 600.00, 1, 2, 1),
 (7, '2024-07-07', 850.00, 2, 3, 2),
 (8, '2024-07-08', 400.00, 3, 4, 3),
-(9, '2024-07-09', 1200.00, 4, 5, 4),    
+(9, '2024-07-09', 1200.00, 4, 5, 4),
 (10, '2024-07-10', 550.00, 5, 1, 5);ln -sf /usr/local/bin/python
 
 
@@ -1476,7 +1476,7 @@ BEGIN
   apex_web_service.g_request_headers(1).VALUE := 'application/json';
 
   -- Build JSON used to pass the last changed date to the REST API on the Remote Server.
-  --  In this example, the remote REST API is an ORDS Service, so we are using 
+  --  In this example, the remote REST API is an ORDS Service, so we are using
   --  ORDS query syntax that produces a query string like this:
   --  q={"last_updated_utc":{"$gt":{"$date":"2023-12-03T19:56:44Z"}}}
   apex_json.initialize_clob_output();
@@ -1515,12 +1515,12 @@ BEGIN
       IF l_item_exists = 0 THEN
         -- Create the item in the local table.
         apex_automation.log_info(' > Adding Item: ' || r_item.item_number);
-        INSERT INTO mdm_items_local 
+        INSERT INTO mdm_items_local
          (item_id, item_number, item_description,
           uom_code, order_enabled, purchase_enabled,
           status_code, lead_time_days, on_hand_quantity,
           date_introduced, last_updated_utc)
-        VALUES 
+        VALUES
          (r_item.item_id, r_item.item_number, r_item.item_description,
           r_item.uom_code, r_item.order_enabled, r_item.purchase_enabled,
           r_item.status_code, r_item.lead_time_days, r_item.on_hand_quantity,
@@ -1611,7 +1611,7 @@ BEGIN
   apex_web_service.g_request_headers(1).VALUE := 'application/json';
 
   -- Build JSON used to pass the last changed date to the REST API on the Remote Server.
-  --  In this example, the remote REST API is an ORDS Service, so we are using 
+  --  In this example, the remote REST API is an ORDS Service, so we are using
   --  ORDS query syntax that produces a query string like this:
   --  q={"last_updated_utc":{"$gt":{"$date":"2023-12-03T19:56:44Z"}}}
   apex_json.initialize_clob_output();
@@ -1650,12 +1650,12 @@ BEGIN
       IF l_item_exists = 0 THEN
         -- Create the item in the local table.
         apex_automation.log_info(' > Adding Item: ' || r_item.item_number);
-        INSERT INTO mdm_items_local 
+        INSERT INTO mdm_items_local
          (item_id, item_number, item_description,
           uom_code, order_enabled, purchase_enabled,
           status_code, lead_time_days, on_hand_quantity,
           date_introduced, last_updated_utc)
-        VALUES 
+        VALUES
          (r_item.item_id, r_item.item_number, r_item.item_description,
           r_item.uom_code, r_item.order_enabled, r_item.purchase_enabled,
           r_item.status_code, r_item.lead_time_days, r_item.on_hand_quantity,
@@ -1704,7 +1704,7 @@ BEGIN
   ,      col005  MODEL
   ,      col006  NUMBER_OF_VEHICLES
   FROM   apex_data_parser.parse
-           (p_content => apex_zip.get_file_content 
+           (p_content => apex_zip.get_file_content
                           (p_zipped_blob => dbms_cloud.get_object
                                              (credential_name => 'obj_store_dbms_cloud_test',
                                               object_uri      => 'https://objectstorage.us-ashburn-1.oraclecloud.com/n/xxxxx/b/dbms_cloud_test/o/CA_EV_Sales.csv.zip'),
@@ -1727,18 +1727,18 @@ BEGIN
    (table_name      => 'EV_SALES_BY_YEAR',
     -- Credential we created above using dbms_cloud.create_credential
     credential_name => 'obj_store_dbms_cloud_test',
-    -- CSV List of fields from the CSV file, 
+    -- CSV List of fields from the CSV file,
     --   listed in the same order as columns in the table.
     -- The field names do not have to match the column names.
     -- It is a good idea to specify field sizes for VARCHAR2 columns
-    --  as I have done here. Otherwise, dbms_cloud.copy_data 
+    --  as I have done here. Otherwise, dbms_cloud.copy_data
     --  assumes a default of only 240 characters.
-    field_list      => 'data_year,county CHAR(50),fuel_type CHAR(50),make CHAR(50),model CHAR(50),number_of_vehicles',    
+    field_list      => 'data_year,county CHAR(50),fuel_type CHAR(50),make CHAR(50),model CHAR(50),number_of_vehicles',
     -- File name, CSV List of Files, or Wildcard Expression
     --  representing the file(s) to load.
     file_uri_list   => 'https://objectstorage.us-ashburn-1.oraclecloud.com/n/xxxx/b/dbms_cloud_test/o/CA_EV_Sales.gzip',
-    -- Variable returned by dbms_cloud.copy_data with 
-    --  the ID of the load. Track Progess of the load by 
+    -- Variable returned by dbms_cloud.copy_data with
+    --  the ID of the load. Track Progess of the load by
     -- querying user_load_operations WHERE id = l_operation_id
     operation_id    => l_operation_id,
     -- JSON_OBJECT containing details required to perform the load.
@@ -1770,21 +1770,21 @@ WHERE  id = 48;
 
 
 DECLARE
-  lt_parm_names      apex_application_global.VC_ARR2; 
-  lt_parm_values     apex_application_global.VC_ARR2; 
+  lt_parm_names      apex_application_global.VC_ARR2;
+  lt_parm_values     apex_application_global.VC_ARR2;
 BEGIN
-  lt_parm_names(1)  := 'lat'; 
-  lt_parm_values(1) := '32.866889'; 
-  lt_parm_names(2)  := 'lng'; 
-  lt_parm_values(2) := '-117.257139'; 
-  lt_parm_names(3)  := 'date'; 
-  lt_parm_values(3) := 'today'; 
-  lt_parm_names(4)  := 'formatted'; 
-  lt_parm_values(4) := '0'; 
+  lt_parm_names(1)  := 'lat';
+  lt_parm_values(1) := '32.866889';
+  lt_parm_names(2)  := 'lng';
+  lt_parm_values(2) := '-117.257139';
+  lt_parm_names(3)  := 'date';
+  lt_parm_values(3) := 'today';
+  lt_parm_names(4)  := 'formatted';
+  lt_parm_values(4) := '0';
 END;
 
 
--- Example ACL to allow the schema APEX_230200 
+-- Example ACL to allow the schema APEX_230200
 --   connect access to any host '*'
 BEGIN
     DBMS_NETWORK_ACL_ADMIN.APPEND_HOST_ACE(
@@ -1801,11 +1801,11 @@ https://apibldr.com/
 
 https://blog.cloudnueva.com/rad-stack-integrations-part1
 
-Elas incluem Oracle Integration Cloud (OIC), Mulesoft, Jitterbit e Dell Boomi. 
-Essas soluções oferecem conectores pré-construídos, mapeamento de dados, orquestração, 
+Elas incluem Oracle Integration Cloud (OIC), Mulesoft, Jitterbit e Dell Boomi.
+Essas soluções oferecem conectores pré-construídos, mapeamento de dados, orquestração,
 gerenciamento de API, vários protocolos de transporte, recursos de tratamento de erros,
- etc. Esses recursos, no entanto, não vêm sem um custo significativo. O custo está relacionado às 
- taxas de assinatura mensal e à contratação de engenheiros altamente pagos para construir e 
+ etc. Esses recursos, no entanto, não vêm sem um custo significativo. O custo está relacionado às
+ taxas de assinatura mensal e à contratação de engenheiros altamente pagos para construir e
  manter suas integrações.
 
 Padrões comuns de integração
@@ -1813,7 +1813,7 @@ Padrões comuns de integração
 * Recebendo dados de outros sistemas
 * Enviando dados para outros sistemas
 
-O caso de uso se concentra em um sistema Master Data Management (MDM) 
+O caso de uso se concentra em um sistema Master Data Management (MDM)
 Armazena um total de 10.000 itens.
 Possui serviços REST protegidos usando credenciais de cliente OAuth2.
 Tem uma API GET REST para buscar itens, que retorna JSON. O serviço suporta paginação, permitindo até 500 itens por página.
@@ -1881,23 +1881,23 @@ https://my-database.adb.eu-frankfurt-1.oraclecloudapps.com/ords/<schema alias>/o
     ords.enable_object(p_object => 'RACE', p_auto_rest_auth => TRUE);
     ords.enable_object(p_object => 'DRIVER_RACE_MAP', p_auto_rest_auth => TRUE);
     ords.enable_object(p_object => 'RACE_DV', p_object_type => 'VIEW', p_auto_rest_auth => TRUE);
- 
+
     ords.enable_object(p_object => 'DRIVER_DV', p_object_type => 'VIEW', p_auto_rest_auth => TRUE);
- 
+
     ords.enable_object(p_object => 'TEAM_DV', p_object_type => 'VIEW', p_auto_rest_auth => TRUE);
- 
+
     oauth.delete_client(p_name => 'Car Racing Client');
-    oauth.create_client(p_name => 'Car Racing Client', 
-                    p_grant_type => 'client_credentials', 
-                    p_description => 'Used for interacting with Car Racing Duality View Examples', 
+    oauth.create_client(p_name => 'Car Racing Client',
+                    p_grant_type => 'client_credentials',
+                    p_description => 'Used for interacting with Car Racing Duality View Examples',
                     p_owner => sys_context( 'userenv', 'current_schema' ),
-                    p_support_email => 'janus@example.com', 
+                    p_support_email => 'janus@example.com',
                     p_privilege_names => null);
   OAUTH.grant_client_role(
     p_client_name => 'Car Racing Client',
     p_role_name   => 'oracle.dbtools.role.autorest.HR.TEAM'
   );
- 
+
   OAUTH.grant_client_role(
     p_client_name => 'Car Racing Client',
     p_role_name   => 'oracle.dbtools.role.autorest.HR.DRIVER'
@@ -1922,14 +1922,14 @@ https://my-database.adb.eu-frankfurt-1.oraclecloudapps.com/ords/<schema alias>/o
     p_client_name => 'Car Racing Client',
     p_role_name   => 'oracle.dbtools.role.autorest.HR.TEAM_DV'
   );
- 
+
     COMMIT;
 END;
 /
 
 
-SELECT client_id, client_secret 
-FROM user_ords_clients 
+SELECT client_id, client_secret
+FROM user_ords_clients
 WHERE name = 'Car Racing Client';
 
 
@@ -1942,7 +1942,7 @@ curl -X 'GET' \
 --user x9mADG7hKJNlj4LNITBJ3Q..:alRNwbRmezM2E0YDPTe6eA.. \
 --data 'grant_type=client_credentials' \
 http://localhost:8080/ords/hr/oauth/token
- 
+
 {
  "access_token":"Fs5Lrsu1g6XAP1mGXMnUig",
  "token_type":"bearer",
@@ -1972,19 +1972,19 @@ curl -i -X POST --data-binary @add-team.json \
   --header 'Content-Type: application/json' \
   --header 'Authorization: Bearer Vu1AJ02QdF_13_kjjsSXRw' \
   --data '{"race_id"   : 202, "driver_id" : 119, "position" : 4}'
- 
+
 curl --request POST \
   --url http://localhost:8080/ords/hr/driver_race_map/ \
   --header 'Content-Type: application/json' \
   --header 'Authorization: Bearer Vu1AJ02QdF_13_kjjsSXRw' \
   --data '{"race_id"   : 202, "driver_id" : 115, "position" : 3}'
- 
+
 curl --request POST \
   --url http://localhost:8080/ords/hr/driver_race_map/ \
   --header 'Content-Type: application/json' \
   --header 'Authorization: Bearer Vu1AJ02QdF_13_kjjsSXRw' \
   --data '{"race_id"   : 202, "driver_id" : 103, "position" : 2}'
- 
+
 curl --request POST \
   --url http://localhost:8080/ords/hr/driver_race_map/ \
   --header 'Content-Type: application/json' \

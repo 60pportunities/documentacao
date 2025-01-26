@@ -1,8 +1,8 @@
 Entenda que hackers, não são so do mau. Existem os hackers éticos, são especialistas em segurança onde realizam análises de vulnerabilidades cibernéticas.
 
 Respeite a sensibilidade dos dados: Dependendo da sensibilidade dos dados, os hackers éticos podem ter que concordar com um acordo de confidencialidade, além de outros termos e condições exigidos pela organização avaliada.
-Defina o escopo: Determine o escopo da avaliação para que o trabalho do hacker ético permaneça legal e dentro dos limites aprovados pela organização. 
-Relatar vulnerabilidades: Notifique a organização sobre todas as vulnerabilidades descobertas durante a avaliação. 
+Defina o escopo: Determine o escopo da avaliação para que o trabalho do hacker ético permaneça legal e dentro dos limites aprovados pela organização.
+Relatar vulnerabilidades: Notifique a organização sobre todas as vulnerabilidades descobertas durante a avaliação.
 
 ## Links Maliciosos
 ![](img/hacker-bem-001.png)
@@ -22,5 +22,3 @@ Acesso um site de encurtamento de Link, como por exemolo: [IPLOGGER](https://ipl
 ![](img/hacker-bem-002.png)
 - Verifique o remetente;
 - Verifique se o link passado é o mesmo, fazendo o `check short url', como por [exemplo](https://checkshorturl.com).
-
-

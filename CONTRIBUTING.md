@@ -41,7 +41,7 @@
 ![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=Databricks&logoColor=white)
 ## Como Contribuir
 <p align="justify">Do latim contribuĕre, «contribuir». Preferencialmente utilizamos neste contexto o transitivo direto, com efeito de "ter parte em (um dado resultado)" ou  "ajudar ou participar na execução de (algo)".</p>
-## Convenções de notação e conformidade 
+## Convenções de notação e conformidade
 As palavras-chave “DEVE”, “NÃO DEVE”, “EXIGIDO”, “DEVE”, “NÃO DEVE”, “DEVE”, “NÃO DEVE”, “RECOMENDADO”, “NÃO RECOMENDADO”, “PODE” e “OPCIONAL” na especificação devem ser interpretados conforme descrito em BCP 14 [RFC2119](https://datatracker.ietf.org/doc/html/rfc2119) [RFC8174](https://datatracker.ietf.org/doc/html/rfc8174) quando, e somente quando, aparecem em todas as letras maiúsculas.
 
 <p align="justify">Uma implementação da especificação não é compatível se não atender a um ou mais dos requisitos “DEVE”, “NÃO DEVE”, “EXIGIDO”, “DEVE” ou “NÃO DEVE” definidos.</p>
@@ -66,7 +66,7 @@ Uma das tarefas desafiadoras é nomear variáveis e funções. Existem várias c
 Comentar seu código é outra maneira de tornar o código legível.
 
 - [x] Escreva seus comentários de forma que outras pessoas possam entender facilmente. Deve ser capaz de explicar o propósito, a funcionalidade ou a intenção do código.
-- [x] Coloque comentários como tal, fornece contexto. Você deve Se estiver se referindo a algo específico, forneça contexto suficiente para que outras pessoas entendam seu comentário. 
+- [x] Coloque comentários como tal, fornece contexto. Você deve Se estiver se referindo a algo específico, forneça contexto suficiente para que outras pessoas entendam seu comentário.
 - [x] Você deve escrever um comentário antes do código. Comentários in-line devem ser usados para pequenos comentários.
 - [x] Siga um estilo de comentário consistente de acordo com a linguagem de programação. Existem várias maneiras de comentar, mas escolha uma e fique com ela para fins de legibilidade.
 - [x] Seja conciso com seus comentários. Comentários longos e excessivamente explicados podem se tornar difíceis de ler.
@@ -99,7 +99,7 @@ Comentar seu código é outra maneira de tornar o código legível.
 
 | Tipo                      | Entenda                                                                                                                |
 | -----                     | -----                                                                                                                  |
-| Casos de teste            | Você pode escrever diferentes casos de teste para cenários específicos para testar diferentes aspectos do aplicativo.  | 
+| Casos de teste            | Você pode escrever diferentes casos de teste para cenários específicos para testar diferentes aspectos do aplicativo.  |
 | Rastreamento de Bug       | Durante o teste, é importante rastrear e documentar quaisquer problemas ou bugs identificados.                         |
 | Abrange diferentes testes | Você deve ser capaz de testar o aplicativo com várias técnicas de teste para garantir que o aplicativo seja confiável. |
 | Automatize os testes      | Sempre que possível, tente automatizar os testes com ferramentas. Ele verificará problemas comuns e também economizará muito tempo. |
@@ -117,7 +117,7 @@ Você deve seguir as diretrizes relacionadas à segurança e ao desempenho. Voc�
 <!--contributing-start01-->
 | Conceito                                                  | Conceito                                               | Conceito                                     | Conceito                               |
 | :--------:                                                  | :--------:                                               | :--------:                                     | :--------:                               |
-| [Java Conventions](https://www.oracle.com/technetwork/java/codeconventions-150003.pdf) | [PHP  Conventions](https://www.php-fig.org/psr/) | [PL/SQL Conventions](https://trivadis.github.io/plsql-and-sql-coding-guidelines/v4.0/3-coding-style/coding-style/) | [Python](https://www.python.org/dev/peps/pep-0008/) | 
+| [Java Conventions](https://www.oracle.com/technetwork/java/codeconventions-150003.pdf) | [PHP  Conventions](https://www.php-fig.org/psr/) | [PL/SQL Conventions](https://trivadis.github.io/plsql-and-sql-coding-guidelines/v4.0/3-coding-style/coding-style/) | [Python](https://www.python.org/dev/peps/pep-0008/) |
 | [PEP 20 – The Zen](https://peps.python.org/pep-0020/) |[Go](https://go.dev/doc/effective_go#names) | [Ruby](https://ruby-style-guide.shopify.dev/#naming)| [JavaScript Conventions](https://google.github.io/styleguide/jsguide.html)  |
 | [ShellCheck](https://unixhealthcheck.com/blog?id=470) |  [Git Commands](https://docs.gitlab.com/ee/topics/git/useful_git_commands.html) |  --- | --- |
 <!--contributing-end01-->
@@ -126,8 +126,8 @@ Você deve seguir as diretrizes relacionadas à segurança e ao desempenho. Voc�
 | Conceito                                                  | Conceito                                               | Conceito                                     | Conceito                               |
 | --------                                                  | --------                                               | --------                                     | --------                               |
 [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/)  | [Diretrizes Angular](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines) | [Udacity](https://udacity.github.io/git-styleguide/) | [Changelog](https://marketplace.visualstudio.com/items?itemName=axetroy.vscode-changelog-generator) |
-| [Changelog-Snippets](https://marketplace.visualstudio.com/items?itemName=dzgmelody.vscode-changelog-snippets) | [Keep a Changelog](https://marketplace.visualstudio.com/items?itemName=RLNT.keep-a-changelog) | [Comandos Git](https://www.freecodecamp.org/news/git-cheat-sheet/) | [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/)  | 
-| [Versionamento Semântico](https://semver.org/lang/pt-BR/) | [Google](https://google.github.io/styleguide/) | [Contributor Covenant](https://www.contributor-covenant.org/pt-br/version/2/0/code_of_conduct/) | [HTML](https://html.spec.whatwg.org/multipage/) | Nomenclatura Branch | 
+| [Changelog-Snippets](https://marketplace.visualstudio.com/items?itemName=dzgmelody.vscode-changelog-snippets) | [Keep a Changelog](https://marketplace.visualstudio.com/items?itemName=RLNT.keep-a-changelog) | [Comandos Git](https://www.freecodecamp.org/news/git-cheat-sheet/) | [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/)  |
+| [Versionamento Semântico](https://semver.org/lang/pt-BR/) | [Google](https://google.github.io/styleguide/) | [Contributor Covenant](https://www.contributor-covenant.org/pt-br/version/2/0/code_of_conduct/) | [HTML](https://html.spec.whatwg.org/multipage/) | Nomenclatura Branch |
 | [Catalogo de APIs]() |  [DaC](https://www.writethedocs.org/guide/docs-as-code/)  | CEMLI | [git-cliff](https://git-cliff.org/) |
 | [Semantic Commit Messages](https://sparkbox.com/foundry/semantic_commit_messages) | [Karma-Semantic Messages](https://karma-runner.github.io/6.4/intro/installation.html) | [.gitignore](https://github.com/github/gitignore) | |
 
@@ -149,7 +149,7 @@ Você deve seguir as diretrizes relacionadas à segurança e ao desempenho. Voc�
 | --------       | --------                           | --------                         | --------                       |
 | [Makeareadme](https://www.makeareadme.com/) | [Exemplos](https://github.com/matiassingers/awesome-readme) | [standard-readme](https://github.com/RichardLitt/standard-readme?tab=readme-ov-file)  |    |
 
-# Padronize os Projetos 
+# Padronize os Projetos
 | Conceito       | Conceito                           | Conceito                         | Conceito                       |
 | --------       | --------                           | --------                         | --------                       |
 | [Amazing GitHub](https://github.com/dec0dOS/amazing-github-template?tab=readme-ov-file) | | |

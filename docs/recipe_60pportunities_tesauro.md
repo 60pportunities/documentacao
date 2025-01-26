@@ -1,4 +1,4 @@
-Um tesauro é uma ferramenta linguística que organiza e relaciona palavras e expressões, apresentando sinônimos e, às vezes, antônimos. 
+Um tesauro é uma ferramenta linguística que organiza e relaciona palavras e expressões, apresentando sinônimos e, às vezes, antônimos.
 
 Criamos este tesauro como forma de reunir em um único lugar os acrônimos que iremos utilizar nos mais diversos documentos que serão apresentados.
 
@@ -21,7 +21,7 @@ O tesauro ou thesaurus é um vocabulário que serve para traduzir a linguagem na
 | Decomposição  | A decomposição é quebrar uma entidade grande ou inteira em partes menores e mais simples, onde é fácil integrar e formar a entidade maior.  |
 | Code smells   | São um conjunto de sinais comuns que indicam que seu código não é bom o suficiente e precisa ser refatorado para finalmente ter um código limpo. |
 
-| Categoria(CAT) | Termo Geral(TG) | Abreviação | Termo Relacionado (TR) | Nota Explicativa (NE) | 
+| Categoria(CAT) | Termo Geral(TG) | Abreviação | Termo Relacionado (TR) | Nota Explicativa (NE) |
 | ----- | ----- | ----- | ----- | ----- |
 | GERAL |  | | Alucinação | No contexto da IA, as alucinações ocorrem quando o sistema gera informações imprecisas, incoerentes ou sem sentido, geralmente devido a erros ou limitações em seus recursos de treinamento, compreensão ou processamento. |
 | GERAL |  | | Análise SWOT (SWOT Analysis) | Análise da competitividade de uma organização, considerando as variáveis Forças, Oportunidades, Fraquezas e Ameaças, popularmente chamada de “FOFA”. |
@@ -31,19 +31,19 @@ O tesauro ou thesaurus é um vocabulário que serve para traduzir a linguagem na
 | GERAL |  | | Big data | Conjuntos de dados grandes e complexos que são substanciais demais para serem processados ou analisados com o uso de ferramentas tradicionais ferramentas tradicionais de gerenciamento de dados |
 | GERAL |  | | Brainstorming | Atividade feita para explorar a potencialidade criativa de um indivíduo ou de um grupo para objetivos da organização. |
 | GERAL |  | | Break-even | “Ponto de equilíbrio”, é quando os custos da empresa são iguais às suas receitas. |
-| GERAL |  | | Budget| Orçamento. | 
+| GERAL |  | | Budget| Orçamento. |
 | GERAL |  | | Business Intelligence (Inteligência de Negócios) | É o processo de coleta, organização, análise, compartilhamento e monitoramento de informações que fornecem suporte a gestão de negócios. |
 | GERAL |  | | Buzzword | Palavra ou expressão que se torna popular por um período de tempo. |
 | GERAL |  | | Capital de Giro | Recursos financeiros utilizados para cobrir os custos do dia a dia e o prazo entre o pagamento de despesas e o recebimento da receita. |
 | GERAL |  | | CCO | Chief Communications Officer |
-| GERAL |  | | CDO | Chief Digital Officer - Diretor Digital ou Chief Design Officer - Diretor de Design ou Chief Diversity Officer - Diretor de Diversidade | 
+| GERAL |  | | CDO | Chief Digital Officer - Diretor Digital ou Chief Design Officer - Diretor de Design ou Chief Diversity Officer - Diretor de Diversidade |
 | GERAL |  | | CEO | Chief Executive Officer. É o termo usado para se referir ao diretor executivo, pessoa com maior autoridade na hierarquia operacional de uma organização. |
 | GERAL |  | | CFO | Chief Financial Officer, ou Diretor Financeiro, é responsável pela direção financeira da empresa, fazendo toda a administração e o planejamento estratégico. |
 | GERAL |  | | Chatbot | Um assistente virtual utilizado para se comunicar por texto com usuários. |
 | GERAL |  | | ChatGPT | Generative Pre-trained Transformers |
 | GERAL |  | | CIO | Chief Information Officer ou Diretor de Informação ou Informática. |
 | GERAL |  | | CMO | Chief Marketing Officer, ou Diretor de Marketing. |
-| GERAL |  | | Commodities | Produtos primários, geralmente com grande participação no comércio internacional. | 
+| GERAL |  | | Commodities | Produtos primários, geralmente com grande participação no comércio internacional. |
 | GERAL |  | | COO | Chief Operating Officer, ou Diretor de Operações, é o braço direito da presidência e cuida de perto da parte comercial |
 | GERAL |  | | CRM | Sigla para Customer Relationship Management, traduzida como Gestão de Relacionamento com o Cliente. |
 | GERAL |  | | CTO | Chief Technology Officer, ou Diretor de Tecnologia, é o diretor-chefe da área de tecnologia de uma empresa. |
@@ -75,7 +75,7 @@ O tesauro ou thesaurus é um vocabulário que serve para traduzir a linguagem na
 | TIPO BUG | | | Falha    | É quando um software não cumpre seu objetivo, com ou sem exceção. |
 | TIPO BUG | | | Exceção  | É um evento que causa a suspensão da execução normal de um programa. |
 | BANCO DE DADOS | | | Relacional | Os dados são armazenados em formatos tubulares, ou seja, o dado fica na coluna, enquanto a descrição fica em linhas e atributos. |
-| BANCO DE DADOS | | | Não-relacionais | 
+| BANCO DE DADOS | | | Não-relacionais |
 | BANCO DE DADOS | | | Orientados a objetos | As informações são organizadas em blocos de informações com identificadores.  |
 | BANCO DE DADOS | | | Autônomos | Um tipo de banco de dados gerenciado por machine learning, na nuvem. |
 | BANCO DE DADOS | | | Data warehouses | Permitem a integração de dados de diferentes fontes. Além de manter os dados atuais, também é possível consultar um histórico. Geralmente, o Data warehouse é indicado para criação de relatórios de análise. |
@@ -86,7 +86,7 @@ O tesauro ou thesaurus é um vocabulário que serve para traduzir a linguagem na
 | AGILIDADE ||| MVP (Mínimo Produto Viável) | Significa justamente algo que você consiga transmitir uma ideia, mas que também proporcione uma experiência completa para o cliente. |
 | AGILIDADE ||| DevOps | São **práticas** utilizadas para melhorar a integração entre equipes de tecnologia.DevOps são simplesmente **conceitos**. DevOps não é, nem trata de ferramentas diretamente. |
 |           ||| Integração Contínua | É um dos conceitos contidos dentro da disciplina de DevOps que viabiliza o feedback rápido aos times envolvidos (fail-fast). Conhecida como *Continous Integration (CI)*, assim como o DevOps, também não é uma ferramenta, e sim conceitos.  |
-|           ||| Jenkins | Atualmente a ferramenta mais utilizada para viabilizar os processos de integração contínua. Podemos assumir o Jenkins como o orquestrador do processo de CI, responsável por obter os códigos-fonte, avaliar, compilar, testar e prover um feedback aos interessados.  
+|           ||| Jenkins | Atualmente a ferramenta mais utilizada para viabilizar os processos de integração contínua. Podemos assumir o Jenkins como o orquestrador do processo de CI, responsável por obter os códigos-fonte, avaliar, compilar, testar e prover um feedback aos interessados.
 |           ||| Docker | Plataforma de Containers, com ela iremos construir uma imagem personalizada de Jenkins. Esta imagem, por sua vez, nos irá garantir reprodutibilidade, escala e rápida resposta a desastres.   |
 |           ||| Kubernetes |  Orquestrador de Containers, gerencia todo o processo de instalação e execução de containers, ele será responsável por gerir a execução da nossa imagem Jenkins e também prover recursos para a construção dos nossos códigos. |
 |        ||| WWW   |  WORLD WIDE WEB |
@@ -731,7 +731,7 @@ gist - Ferramenta que permite o compartilhamento de trechos de código sem a nec
 
 
 # Lock-in
-O aprisionamento tecnológico se refere a uma situação em que o custo de se trocar um fornecedor por outro diferente é tão alto que o cliente fica basicamente preso ao fornecedor original. 
+O aprisionamento tecnológico se refere a uma situação em que o custo de se trocar um fornecedor por outro diferente é tão alto que o cliente fica basicamente preso ao fornecedor original.
 
 ## Como evitar ou mitigar os riscos
 * Estratégia de multinuvem ou de nuvem híbrida:  multinuvem incorpora vários provedores de nuvem, reduzindo a dependência de qualquer fornecedor único. Em uma nuvem híbrida, alguns dados permanecerão sob o controle direto de uma organização, seja em uma nuvem privada ou armazenados localmente.
@@ -739,4 +739,3 @@ O aprisionamento tecnológico se refere a uma situação em que o custo de se tr
 * Avalie cuidadosamente os serviços em nuvem: As empresas devem fazer uma pesquisa rigorosa sobre um fornecedor de nuvem antes de assumir um compromisso, de preferência com a implantação de uma prova de conceito para ter certeza de que o nível de serviço do fornecedor é suficiente.
 
 ![](img/vendor_lock-in-multi-cloud.svg){width="900" height="600" style="display: block; margin: 0 auto"}
-

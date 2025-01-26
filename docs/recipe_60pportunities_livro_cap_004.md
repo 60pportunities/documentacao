@@ -11,7 +11,7 @@ Limitações: Pode ser difícil de adotar sem uma cultura de melhoria contínua 
 - [x] 2000: Google Sheets (início como parte de Writely) – A versão inicial das planilhas baseadas na web começou a surgir, mais tarde evoluindo para Google Sheets como parte do Google Docs em 2006.
 - [x] 2000: Basecamp – Um dos primeiros softwares de gerenciamento de projetos baseado na web.
 - [x] 2000: A SoftBank do Japão apresenta o primeiro telefone com câmera, o J-Phone J-SH04; um telefone digital fabricado pela Sharp com câmera integrada.
-- [x] O PlayStation 2 (PS2) representa uma mudança significativa no conceito de consoles de jogos. 
+- [x] O PlayStation 2 (PS2) representa uma mudança significativa no conceito de consoles de jogos.
 - [x] Pen Drive - Os drives USB Flash são introduzidos
 - [x] Bug do Milênio: O problema estava enraizado no fato de que os carimbos de data na maioria dos softwares escritos anteriormente usavam apenas dois dígitos para representar as informações do ano.
 - [ ] O conceito de Test Driven Development (TDD) foi popularizado por Kent Beck no início dos anos 2000. Ele formalizou a prática no livro "Test-Driven Development: By Example", publicado em 2002;
@@ -55,11 +55,11 @@ Variabilidade no ritmo leva a incerteza e dificuldade em planejar.
 
 ![](img/linha-do-tempo.png){width="600" height="20" style="display: block; margin: 0 auto"}
 
-- [x] 2001: BitTorrent, um serviço de compartilhamento de arquivos peer-to-peer, é lançado pela BitTorrent, Inc. 
+- [x] 2001: BitTorrent, um serviço de compartilhamento de arquivos peer-to-peer, é lançado pela BitTorrent, Inc.
 - [x] O Mac OS X é lançado.
 - [x] Idealizado pelo lendário diretor Stanley Kubrick, mas dirigido por Steven Spielberg após a morte de Kubrick, AI conta a história de David, um robô humanoide que pode sentir e expressar emoções.
 - [x] O sistema operacional Windows XP é lançado.
-- [x] O iTunes da Apple é lançado. 
+- [x] O iTunes da Apple é lançado.
 - [x] 2001: Selenium – Lançado inicialmente como Selenium Core, tornou-se uma das ferramentas de automação de testes mais populares.
 
 ## 2002: Modelo Test Driven Development (TDD)
@@ -80,8 +80,8 @@ Baseado nos princípios do Lean Manufacturing (Toyota), o Lean Software Developm
 ![](img/linha-do-tempo.png){width="600" height="20" style="display: block; margin: 0 auto"}
 
 - [x] 2003: Blue Prism – Fundado no Reino Unido, é considerado o pioneiro em RPA empresarial, introduzindo o conceito de “trabalhadores digitais”.
-- [ ] 2003: Lean Software Development, Mary e Tom Poppendieck, sete princípios "lean" fundamentais, adaptam-nos para o mundo do desenvolvimento de software e mostram como eles podem servir como base para abordagens de desenvolvimento ágil que funcionam. 
-- [x] 2004: Em 2004, o Google é a primeira grande empresa da Web a lançar uma ação negociada publicamente desde os dias de euforia do boom das pontocom. 
+- [ ] 2003: Lean Software Development, Mary e Tom Poppendieck, sete princípios "lean" fundamentais, adaptam-nos para o mundo do desenvolvimento de software e mostram como eles podem servir como base para abordagens de desenvolvimento ágil que funcionam.
+- [x] 2004: Em 2004, o Google é a primeira grande empresa da Web a lançar uma ação negociada publicamente desde os dias de euforia do boom das pontocom.
 - [x] 2004: HP Quality Center (anteriormente TestDirector) – Uma plataforma robusta para gestão de testes e qualidade.
 
 ## 2003: BDD (Behavior-Driven Development)
@@ -130,19 +130,19 @@ No ATDD, os testes de aceitação geralmente são mais detalhados e orientados p
 ![](img/linha-do-tempo.png){width="600" height="20" style="display: block; margin: 0 auto"}
 
 - [x] 2005: Kit inicial Arduino
-- [x] Hadoop é um projeto de software de código aberto desenvolvido inicialmente pelo Google como um meio de extrair resultados de pesquisa de grandes quantidades de dados não estruturados, como dados encontrados na web. 
-- [x] O veículo autônomo da Stanford Racing Team, "Stanley", vence o "Grand Challenge" da DARPA de 2005, realizado perto de Las Vegas. 
+- [x] Hadoop é um projeto de software de código aberto desenvolvido inicialmente pelo Google como um meio de extrair resultados de pesquisa de grandes quantidades de dados não estruturados, como dados encontrados na web.
+- [x] O veículo autônomo da Stanford Racing Team, "Stanley", vence o "Grand Challenge" da DARPA de 2005, realizado perto de Las Vegas.
 - [ ] 2005: UiPath (início como DeskOver) – Criado como uma empresa de automação de software em Bucareste, começou como uma ferramenta de automação simples para Windows.
 - [x] 2006: O Amazon Web Services é lançado.
-- [x] Sistema de jogo Wii da Nintendo não introduz apenas novos jogos e controles, mas novas maneiras de interagir com os sistemas de jogo. 
-- [x] Fundado por um grupo de jornalistas e registrado na Islândia, o WikiLeaks serve como uma câmara de compensação para informações secretas, vazamentos de notícias e material anônimo. 
+- [x] Sistema de jogo Wii da Nintendo não introduz apenas novos jogos e controles, mas novas maneiras de interagir com os sistemas de jogo.
+- [x] Fundado por um grupo de jornalistas e registrado na Islândia, o WikiLeaks serve como uma câmara de compensação para informações secretas, vazamentos de notícias e material anônimo.
 - [x] 2006: Automation Anywhere – Inicialmente conhecida como Tethys Solutions, lançou uma plataforma de automação com foco em integração empresarial.
 - [x] 2006: Google Docs – Lançado como parte do Google Suite, trouxe edições colaborativas na nuvem.
 
-- [x] 2007: A Hitachi Global Storage Technologies anuncia o primeiro disco rígido (HDD) de 1 TB. 
+- [x] 2007: A Hitachi Global Storage Technologies anuncia o primeiro disco rígido (HDD) de 1 TB.
 - [x] O Amazon Kindle é lançado;
-- [x] A Apple lança o iPhone - uma combinação de navegador da web, tocador de música e telefone celular - que podia baixar novas funcionalidades na forma de "apps" (aplicativos) da loja online da Apple. 
-- [x] 2008: A Apple apresenta seu primeiro ultra notebook – um laptop leve e fino com bateria de alta capacidade. 
+- [x] A Apple lança o iPhone - uma combinação de navegador da web, tocador de música e telefone celular - que podia baixar novas funcionalidades na forma de "apps" (aplicativos) da loja online da Apple.
+- [x] 2008: A Apple apresenta seu primeiro ultra notebook – um laptop leve e fino com bateria de alta capacidade.
 - [x] 2008: Large-Scale Scrum (LeSS) - Criado por Craig Larman e Bas Vodde, o LeSS baseia-se na simplicidade e no foco nos princípios do Scrum, mantendo a essência do ágil mesmo em escalas maiores.
 
 ## 2008:  Large-Scale Scrum (LeSS)

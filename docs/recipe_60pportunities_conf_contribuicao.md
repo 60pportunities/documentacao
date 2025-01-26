@@ -40,9 +40,9 @@ mkdir teste
 cd teste
 git init .
 vi horacio.txt
-git add horacio.txt 
+git add horacio.txt
 git rm --cached horacio.txt
-git add horacio.txt 
+git add horacio.txt
 git commit -m "<doc> Meu primento commit."
 vi horacio.txt
 git restore horacio.txt

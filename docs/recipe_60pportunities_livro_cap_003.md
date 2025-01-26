@@ -2,7 +2,7 @@
 ![](img/linha-do-tempo.png){width="600" height="20" style="display: block; margin: 0 auto"}
 
 - [x] 1990: A Microsoft envia o Windows 3.0. Compatível com programas DOS, a primeira versão bem-sucedida do Windows finalmente ofereceu desempenho bom o suficiente para satisfazer os usuários de PC.
-- [x] O Photoshop é lançado. Criado pelos irmãos John e Thomas Knoll, o Photoshop era um programa de edição de imagens e o programa de software mais popular publicado pela Adobe Systems. 
+- [x] O Photoshop é lançado. Criado pelos irmãos John e Thomas Knoll, o Photoshop era um programa de edição de imagens e o programa de software mais popular publicado pela Adobe Systems.
 - [x] No maior laboratório de física do mundo, o CERN na Suíça, o programador e físico inglês Tim Berners-Lee submete duas propostas para o que se tornará a Web, começando em março de 1989.
 - [x] 1990: Primeiros scripts de automação – Surgem ferramentas básicas de automação baseadas em scripts, como AutoIt, voltadas para tarefas repetitivas em sistemas operacionais.
 - [x] 1990: Quattro Pro – Lançado pela Borland, era conhecido por sua interface gráfica inovadora e funcionalidades avançadas.
@@ -16,8 +16,8 @@
 
 <p align="justify">Essencialmente, Boehm e Martin viam o software como algo que poderia ser trabalhado continuamente e não como um recurso finito, o que levou à criação do RAD.</p>
 
-- [x] Definir os requisitos do projeto: o foco não é obter uma lista detalhada de especificações de todos os envolvidos, mas sim definir os requisitos essenciais do projeto. 
-- [x] Prototipagem: A essência do RAD é agir rapidamente, portanto, logo após a definição dos requisitos do projeto, a equipe de desenvolvimento começa a criar um protótipo que pode ser apresentado às partes interessadas e aos clientes. 
+- [x] Definir os requisitos do projeto: o foco não é obter uma lista detalhada de especificações de todos os envolvidos, mas sim definir os requisitos essenciais do projeto.
+- [x] Prototipagem: A essência do RAD é agir rapidamente, portanto, logo após a definição dos requisitos do projeto, a equipe de desenvolvimento começa a criar um protótipo que pode ser apresentado às partes interessadas e aos clientes.
 - [x] Ciclo de feedback: A equipe coleta feedback detalhado sobre todos os aspectos do produto e seus recursos, desde a funcionalidade até o design.
 - [x] Implementação: Após a incorporação do feedback e o aprimoramento do protótipo – já mais funcional e com a maioria dos recursos essenciais – a equipe se concentrará na implementação final do software.
 
@@ -31,12 +31,12 @@ Limitações: Pode ser difícil de aplicar em projetos grandes e complexos devid
 - [x] O Macintosh Portable da Apple encontra pouco sucesso no mercado e leva a um redesenho completo da linha de computadores portáteis da Apple.
 - [x] O navegador-editor GUI de Tim Berners-Lee de 1990 roda apenas em raros computadores NeXT.
 - [x] 1991: WinRunner – Desenvolvido pela Mercury Interactive, uma das primeiras ferramentas comerciais para automação de testes funcionais.
-- [x] 1992: O Joint Photographic Expert Group havia determinado um conjunto de regras para o que se tornou o formato jpeg (ou .jpg). 
-- [x] Um protótipo de módulo de disco de estado sólido (SSD) é feito para avaliação pela IBM. 
+- [x] 1992: O Joint Photographic Expert Group havia determinado um conjunto de regras para o que se tornou o formato jpeg (ou .jpg).
+- [x] Um protótipo de módulo de disco de estado sólido (SSD) é feito para avaliação pela IBM.
 - [x] 1993: Doom é lançado;
 - [x] O assistente digital pessoal Apple Newton. Apelidado de “Personal Digital Assistant” pelo presidente da Apple.
 - [x] FreeBSD, um sistema operacional completo semelhante ao Unix é lançado. Era a variante BSD (Berkeley Software Distribution) de código aberto mais amplamente usada.
-- [x] O Pentium é a quinta geração da linha 'x86' de microprocessadores da Intel, a base para o IBM PC e seus clones. 
+- [x] O Pentium é a quinta geração da linha 'x86' de microprocessadores da Intel, a base para o IBM PC e seus clones.
 - [x] O Microsoft Windows NT é lançado.
 - [x] Mosaic, o primeiro navegador suportado por uma grande instituição, inicia a Web na estrada do projeto de pesquisa ao sucesso de bilheteria.
 - [x] Os anúncios online marcam o início lento da Web comercial;
@@ -49,7 +49,7 @@ Limitações: Pode ser difícil de aplicar em projetos grandes e complexos devid
 ## 1994: DSDM(Dynamic Systems Development Method)
 ![](img/livro-014.png){width="400" height="500" style="display: block; margin: 0 auto"}
 O DSDM foi criado em 1994 como uma alternativa ao método de Desenvolvimento Rápido de Aplicações (RAD). O DSDM foi a primeira estrutura ágil a incorporar recursos de gerenciamento de projetos
-O DSDM não é um método tradicional, mas sim um framework de controles, com o objetivo de entregar soluções rapidamente. 
+O DSDM não é um método tradicional, mas sim um framework de controles, com o objetivo de entregar soluções rapidamente.
 Define um processo e um conjunto de produtos, mantidos num nível alto para permitir a adaptação a qualquer ambiente técnico e de negócios.
 Não prescreve técnicas específicas, mas oferece caminhos sugeridos para implementações estruturadas e orientadas a objetos. É centrado nas pessoas, na compreensão das necessidades do negócio e na entrega de soluções que funcionam rapidamente e de forma económica.
 ### Princípios Fundamentais do DSDM
@@ -112,13 +112,13 @@ Não prescreve técnicas específicas, mas oferece caminhos sugeridos para imple
 - [x] 1995: Guerra dos navegadores II: Netscape vs. Microsoft
 - [x] 1995: Primavera Project Planner (P3) – Voltado para projetos complexos em grandes empresas.
 - [x] Homer Simpson animado por computador aparece em Os Simpsons;
-- [x] Java 1.0 é introduzido pela Sun Microsystems. 
+- [x] Java 1.0 é introduzido pela Sun Microsystems.
 - [x] JavaScript, uma linguagem de script baseada em objeto, é desenvolvida na Netscape Communications por Brendan Eich.
 - [x] O  drone MQ-1 Predator é introduzido e colocado em ação pela Força Aérea dos Estados Unidos e pela Agência Central de Inteligência.
 
 <p align="justify">O objetivo é fornecer uma visão abrangente e prática de como aplicar o Scrum, abordando desde os fundamentos até as nuances de implementação em diferentes contextos. O Scrum não propõe um plano rígido, mas sim um ciclo de planejamento contínuo e ajustável.</p>
 
-- [x] Planejamento da Release: Define o que os stakeholders podem esperar do projeto, como as equipes irão trabalhar juntas e o progresso esperado ao final de cada Sprint. 
+- [x] Planejamento da Release: Define o que os stakeholders podem esperar do projeto, como as equipes irão trabalhar juntas e o progresso esperado ao final de cada Sprint.
 - [x] Planejamento da Sprint: Detalha o trabalho a ser realizado durante a Sprint, com base nas prioridades do Product Backlog.
 - [x] Scrums Diários: Permitem ajustes diários no plano de trabalho, garantindo que a equipe esteja sempre alinhada.
 - [x] Adaptação Contínua: A flexibilidade é essencial. O "Practical Guide" enfatiza que o planejamento é indispensável, embora os planos possam mudar: "Ao me preparar para a batalha, sempre descobri que os planos são inúteis, mas o planejamento é indispensável." (Dwight D. Eisenhower)
@@ -249,7 +249,7 @@ Há uma abordagem centrada no usuário em vez de uma abordagem liderada pelo usu
 
 ### Outsourcing para FDD
 O outsourcing fornece acesso a talentos especializados e permite uma entrega mais rápida e econômica.
-Podemos concluir que o FDD é uma metodologia ágil eficaz para o desenvolvimento de software, focada na entrega de funcionalidades de forma sistemática e eficiente. Ela enfatiza a importância de um processo de desenvolvimento bem definido, melhoria contínua, design centrado no usuário e adaptabilidade. 
+Podemos concluir que o FDD é uma metodologia ágil eficaz para o desenvolvimento de software, focada na entrega de funcionalidades de forma sistemática e eficiente. Ela enfatiza a importância de um processo de desenvolvimento bem definido, melhoria contínua, design centrado no usuário e adaptabilidade.
 
 - [x] 1997: Deep Blue derrota Garry Kasparov
 - [x] Deep Blue da IBM derrota o campeão mundial de xadrez Garry Kasparov;
@@ -260,7 +260,7 @@ Podemos concluir que o FDD é uma metodologia ágil eficaz para o desenvolviment
 - [x] O iMac, uma linha de computadores de mesa Macintosh tudo-em-um, é lançado;
 - [x] 1998: Rational Robot – Ferramenta de automação de testes da IBM, integrada ao Rational Unified Process (RUP).
 - [x] 1999: Matrix foi lançado;
-- [x] A IBM lança o Microdrive em capacidades de 170 MB e 340 MB. 
+- [x] A IBM lança o Microdrive em capacidades de 170 MB e 340 MB.
 - [x] Nvidia lança a GeForce 256;
 - [x] O Sony AIBO, o “Artificial Intelligence RoBOt”, o cão de estimação robótico;
 - [x] A Web móvel chega ao Japão

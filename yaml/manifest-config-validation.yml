@@ -1,5 +1,5 @@
 name: Manifest config tests
-on: 
+on:
   pull_request:
     branches:
       - main

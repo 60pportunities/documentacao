@@ -52,7 +52,7 @@ Seus quatro pilares:
 - [x] **Plataforma de dados self-service**: As equipes de domínio precisam de uma plataforma de autoatendimento para entregar e gerenciar dados produtos. Eles precisam provisionar infraestrutura de armazenamento e computação, construir, implantar e gerenciar versões de produtos de dados, limpar e transformar dados, fornecer acesso seguro a dados e cumprir políticas e regulamentações.
 - [x] **Governança computacional Federada**: Órgão federado composto por representantes de equipes de domínio e aqueles com responsabilidades globais de dados, como conformidade regulatória e gerenciamento de qualidade. Preocupações comuns, como o que constitui qualidade,classificações de dados e como lidar com diferentes níveis de sensibilidade, modelagem de dados que abrangem domínios e padrões para metadados de produtos de dados.
 
-A malha de dados (Data Mesh) aborda essas dimensões, fundadas em quatro princípios: 
+A malha de dados (Data Mesh) aborda essas dimensões, fundadas em quatro princípios:
 
 - [x] **Arquitetura de dados descentralizada orientada ao domínio**:
       - [x] Os diferentes domínios de negócios (produtores de dados) são responsáveis ​​por curar, validar, publicar, manter e gerenciar o ciclo de vida dos dados que possuem.
@@ -73,7 +73,7 @@ A malha de dados (Data Mesh) aborda essas dimensões, fundadas em quatro princí
 
 - [x] **Controle de acesso granular e escalável**
       - [x] Os produtores especificam políticas de acesso, governança e retenção e quaisquer políticas de acesso personalizadas com base na granularidade dos dados.
-      - [x] Interoperabilidade por meio de padronização global, 
+      - [x] Interoperabilidade por meio de padronização global,
       - [x] Topologia dinâmica;
 
 ## Quais ferramentas:
@@ -84,9 +84,9 @@ A malha de dados (Data Mesh) aborda essas dimensões, fundadas em quatro princí
       - [x] Oracle Cloud Data Flow
       - [x] Snowflake Data Cloud
       - [x] Apache Kafka
-      - [x] Apache Nifi 
+      - [x] Apache Nifi
       - [x] Apache Airflow e porque não Rundeck.
-- [x] Data Catalog: 
+- [x] Data Catalog:
       - [x] [Google Cloud Data Catalog](https://cloud.google.com/data-catalog/docs/concepts/overview?hl=pt-br)
       - [x] [Microsoft Azure Purview](https://learn.microsoft.com/pt-br/purview/purview)
       - [x] [DataHub](https://datahubproject.io/)
@@ -103,11 +103,11 @@ A malha de dados (Data Mesh) aborda essas dimensões, fundadas em quatro princí
 - [x] Defina uma estratégia de dados;
       - [x] Qual é a natureza dos dados?
              - [x] Diferenciar informações sensíveis (como dados de clientes ou funcionários) de informações não sensíveis (como informações de produtos).
-      - [x] Quando os dados foram criados ou alterados? 
+      - [x] Quando os dados foram criados ou alterados?
       - [x] Quem realizou operações nos dados?
       - [x] Por que esses dados estão sendo armazenados? (Dados pessoais devem ser armazenados apenas para um propósito comercial legítimo.)
       - [x] Quanto tempo esses dados estão sendo armazenados?
-      - [x] Como esses dados estão sendo usados? 
+      - [x] Como esses dados estão sendo usados?
              - [x] Descrever todos os aplicativos que têm dependência desses dados.
 - [x] Desenvolver um modelo de governança;
 - [x] Avalie a maturidade do Agile e do DevOps;
@@ -118,7 +118,7 @@ A malha de dados (Data Mesh) aborda essas dimensões, fundadas em quatro princí
 
 <p align="justify">Gerenciamento de dados se refere tanto a processos quanto a tecnologia. Processos são geralmente definidos pela estrutura de governança de dados da organização, e cada um desses processos é implementado com as ferramentas de software relevantes.</p>
 
-## Estratégia de Gerenciamento de Dados 
+## Estratégia de Gerenciamento de Dados
 ### Definição
 
  - [x] Resumo da estratégia corporativa e de negócios;
@@ -139,7 +139,7 @@ A malha de dados (Data Mesh) aborda essas dimensões, fundadas em quatro princí
       - [x] Quais são as Tecnologias em gestão e infraestrutura de dados?
       - [x] Como posso avaliar se a implementações foi/esta bem-sucedida?
 - [x] Governança e conformidade de dados
-      - [x] Como a governança de dados permite que uma organização se torne orientada por dados? 
+      - [x] Como a governança de dados permite que uma organização se torne orientada por dados?
       - [x] Como DIVIDIR, os dados e dividir a responsabilidade da governação de dados?
       - [x] Como tratar a questão da privacidade e segurança de dados?
       - [x] Como gerir a conformidade de dados?
@@ -158,9 +158,9 @@ A malha de dados (Data Mesh) aborda essas dimensões, fundadas em quatro princí
       - [x] Como podemos criar uma infraestrutura de dados fácil de usar, consumir e distribuir?
       - [x] Como podemos fomentar a experimentação e a inovação, com os Dados?
 
-  
-|  Dimensão                               | Emergente - Nível 1  | Pré-Adoção Nível 2    | Areas - Nível 3    | Corporativa- (Nível 4)  | Maduro - (Nível 5)  | 
-|  -------                                | -------  |   -------  |   -------  |   -------   |   -------  | 
+
+|  Dimensão                               | Emergente - Nível 1  | Pré-Adoção Nível 2    | Areas - Nível 3    | Corporativa- (Nível 4)  | Maduro - (Nível 5)  |
+|  -------                                | -------  |   -------  |   -------  |   -------   |   -------  |
 | Governança e conformidade de dados      |          |            |            |             |            |
 | Gerenciamento e infraestrutura de dados |          |            |            |             |            |
 | Ferramentas e técnicas de análise       |          |            |            |             |            |
@@ -171,7 +171,7 @@ A malha de dados (Data Mesh) aborda essas dimensões, fundadas em quatro princí
 | Estratégia   | Entenda |
 | -----        | -----   |
 | Ingestão | Os dados devem ser adquiridos de fontes confiáveis, como bancos de dados de produção ou terceiros confiáveis. |
-| Data Lineage | Linhagem de dados é o nome de um tipo específico de metadados que contém o histórico completo de seu assunto. Metadados de linhagem descrevem a origem dos dados aos quais se referem e fornecem detalhes de quaisquer operações desde o início. A linhagem de dados funciona como um tipo de changelog para esses dados, registrando cada operação que ocorreu. | 
+| Data Lineage | Linhagem de dados é o nome de um tipo específico de metadados que contém o histórico completo de seu assunto. Metadados de linhagem descrevem a origem dos dados aos quais se referem e fornecem detalhes de quaisquer operações desde o início. A linhagem de dados funciona como um tipo de changelog para esses dados, registrando cada operação que ocorreu. |
 | Acesso  | Supervisionar a criação de funções de usuário e garantir que cada usuário receba acesso de leitura e gravação apropriados. |
 | Integração | Processo de pegar dados de várias fontes diferentes e agrupá-los em um único local. Processos: ETL, ELT, ETLT. |
 |            | Validação : verificar a precisão dos dados comparando-os a um esquema. |
@@ -179,7 +179,7 @@ A malha de dados (Data Mesh) aborda essas dimensões, fundadas em quatro princí
 |            | Habilitação de processo: novo processo que só é possível com uma fonte de dados integrada. |
 |            | Gerenciamento de dados mestres (MDM) : técnicas de integração para produzir dados mestres. |
 |            | Análise e inteligência empresarial (BI) : fonte de dados unificada para fins de análise, bem como outras aplicações de BI. |
-| Metadados  | Reunir e indexar metadados relevantes, e que esses metadados estejam disponíveis quando necessário.  
+| Metadados  | Reunir e indexar metadados relevantes, e que esses metadados estejam disponíveis quando necessário.
 | Conformidade | Gerenciamento de dados deve refletir todos os requisitos regulatórios e garantir que a organização permaneça no lado certo da lei. (LGPD (Regulamento Geral de Proteção de Dados), PCI DSS (Padrão de Segurança de Dados do Setor de Cartões de Pagamento), HIPAA (Portabilidade e Responsabilidade de Seguro Saúde)) e SOX (Sarbanes-Oxley) |
 | Análise  | análises para impulsionar suas tomadas de decisão. uporte aos esforços do tempo de análise e garantir que os dados disponíveis sejam oportunos, relevantes e completos. |
 | Segurança | Gerente de dados é responsável por trazer problemas de segurança à tona e também por organizar auditorias e testes regulares.  |
@@ -195,8 +195,8 @@ A malha de dados (Data Mesh) aborda essas dimensões, fundadas em quatro princí
 - [x] Visão, missão e valores da IA
 - [x] Objetivos estratégicos e KPIs para atingir nossa visão
 - [x] Princípios orientadores
-- [x] Centro de dados de IA 
-- [x] Machine Learning/Deep Learning 
+- [x] Centro de dados de IA
+- [x] Machine Learning/Deep Learning
 - [x] NLP(Natural Language Processing) & Prompt Engineering
 - [x] Equipe e Orçamento
 </div>
@@ -218,11 +218,11 @@ flowchart LR
     B --> |Sim| C(PCI DSS) & D(LGPD) & E(HIPAA) & F(SOX)
     B --> |Não| G{Retível?}
     G --> H{Necessita</br>Criptografia?}
-    H --> |Sim| H0(Criptografa) 
+    H --> |Sim| H0(Criptografa)
     H --> H1(Tag de</br>Retenção)
     H0 --> H1 --> RETER[(Retenção)]
     C --> H0 --> ARQUIVA[(Arquiva)]
-    D --> H0 
+    D --> H0
     E --> H0
     F --> H0
 ```

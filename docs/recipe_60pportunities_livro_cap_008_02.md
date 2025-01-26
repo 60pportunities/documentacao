@@ -1,7 +1,7 @@
 ## Conflitos
 - [x] Após tentar realizar um merge ou pull que resultou em conflitos, o primeiro passo é verificar o status do seu repositório. Use o comando: `git status`, esse comando mostrará quais arquivos estão em conflito.
 - [x] Os arquivos que estão em conflito serão listados sob "Unmerged paths". Você pode também usar o comando git diff para ver as diferenças entre as versões e entender melhor os conflitos: `git diff`
-- [x] Abra os arquivos listados em conflito em um editor de texto. O Git marca as seções conflitantes com os seguintes delimitadores: 
+- [x] Abra os arquivos listados em conflito em um editor de texto. O Git marca as seções conflitantes com os seguintes delimitadores:
 
 ```
 <<<<<<< HEAD
@@ -31,21 +31,21 @@ Conteúdo da branch que está sendo mesclada
 - [x] Seus commits perdidos estão de volta, e você pode respirar novamente.
 
 ## Trabalho em Equipe
-O trabalho em equipe envolve diferentes estratégias de pensamento: criativo, compreensivo e decisivo. 
+O trabalho em equipe envolve diferentes estratégias de pensamento: criativo, compreensivo e decisivo.
 
 - [x] O pensamento criativo envolve desafiar o status quo e propor novas ideias;
-- [x] O pensamento compreensivo é a capacidade de focar em uma tarefa e entender um problema em profundidade. 
-- [x] Para planejar reuniões eficazes, um padrão de início, engajamento e conclusão. 
+- [x] O pensamento compreensivo é a capacidade de focar em uma tarefa e entender um problema em profundidade.
+- [x] Para planejar reuniões eficazes, um padrão de início, engajamento e conclusão.
 - [x] Reuniões de ideação para projetos podem incluir: identificar o problema, debater soluções, estruturar ideias e selecionar as melhores para testar.
-- [x] O branch principal deve conter apenas trabalho testado e nunca deve ser quebrado. 
-- [x] À medida que o projeto amadurece, o número de branches pode aumentar, é importante encontrar um número de tipos de branches que funcionem bem para a equipe. 
+- [x] O branch principal deve conter apenas trabalho testado e nunca deve ser quebrado.
+- [x] À medida que o projeto amadurece, o número de branches pode aumentar, é importante encontrar um número de tipos de branches que funcionem bem para a equipe.
 - [x] Documentar o processo da equipe é crucial para manter a consistência e facilitar a compreensão do histórico do código.
 - [x] Documentar as decisões codificadas é outra prática importante, utilizando um sistema de tickets para capturar todos os requisitos.
 - [x] O ideal é não exagerar na categorização e permitir que o time adicione estados conforme necessário;
-- [x] O review de código faz parte do fluxo, com merge realizado pelo revisor.  
-- [x] Quando uma versão do software é lançada, um novo branch chamado main é criado a partir do commit aprovado, e um tag de versão é adicionado. 
+- [x] O review de código faz parte do fluxo, com merge realizado pelo revisor.
+- [x] Quando uma versão do software é lançada, um novo branch chamado main é criado a partir do commit aprovado, e um tag de versão é adicionado.
 - [x] Para hotfixes, um branch é criado a partir do último lançamento, e segue o mesmo processo de review.
-- [x] O versionamento baseado em issues é destacado, com cada tarefa sendo uma maneira de ajudar alguém. 
+- [x] O versionamento baseado em issues é destacado, com cada tarefa sendo uma maneira de ajudar alguém.
 - [x] O processo de trabalho deve incluir a criação do ticket, um novo branch com o número do ticket, o trabalho no ticket, testes e o commit.
 
 ![](img/git-flow-60pportunities.png)

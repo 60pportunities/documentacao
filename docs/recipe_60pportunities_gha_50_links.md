@@ -10,9 +10,9 @@
 - [ ] [Upload Release](https://github.com/actions/upload-release-asset)
 - [ ] [Zip Release](https://github.com/marketplace/actions/zip-release)
 - [ ] [Microsoft Learning](https://learn.microsoft.com/pt-br/training/paths/github-actions/)
-- [ ] [Statistics](https://github.com/anuraghazra/github-readme-stats) ➕  
-- [ ] [Summary Cards](https://github.com/vn7n24fzkq/github-profile-summary-cards) ➕  
-- [ ] [Snake animation](https://github.com/Platane/snk) ➕  
+- [ ] [Statistics](https://github.com/anuraghazra/github-readme-stats) ➕
+- [ ] [Summary Cards](https://github.com/vn7n24fzkq/github-profile-summary-cards) ➕
+- [ ] [Snake animation](https://github.com/Platane/snk) ➕
 - [ ] [Metrics](https://github.com/marketplace/actions/metrics-embed)_
 - [ ] [STEP by STEP to create a similar README profile](https://bit.ly/devtoritgithubcreateprofile)
 - [ ] [github-profile-summary-cards](https://github.com/vn7n24fzkq/github-profile-summary-cards)
@@ -59,7 +59,7 @@
 - [x] [Links Estudo GitHub Actions](https://www.youtube.com/watch?v=W_Fhjmsq7hU&t=371s)
 - [x] [Links Estudo GitHub Actions](https://www.youtube.com/watch?v=WQMz0AnJ6uU)
 - [x] [Links Estudo GitHub Actions](https://www.youtube.com/watch?v=yfBtjLxn_6k)
-- [ ] 
+- [ ]
 
 
 ![Snake animation](https://github.com/GuillaumeFalourd/GuillaumeFalourd/blob/output/github-contribution-grid-snake.svg)
@@ -80,5 +80,3 @@
 
 [![Stack Exchange reputation](https://img.shields.io/stackexchange/stackoverflow/r/8496462?color=orange&label=StackOverflow&logo=stackoverflow&style=flat-square)](https://stackoverflow.com/users/8496462)
 [![GitHub User's stars](https://img.shields.io/github/stars/GuillaumeFalourd?color=green&label=GitHub%20Stars&logo=github&style=flat-square)](https://github.com/GuillaumeFalourd?tab=repositories&q=&type=public&language=&sort=stargazers)
-
-

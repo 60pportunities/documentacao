@@ -12,7 +12,7 @@ Embora não haja uma maneira errada de nomear um repositório, alguns nomes são
 Todas essas sugestões estão sendo seguidas pelo criador automático.
 
 <p align="justify">Usando isso como diretriz, dividimos o repositório em 3(três) seções separadas porunderscore. Esse formato consiste em seções que definem:</p>
-        
+
 - [x] PRODUTO, FINALIDADE e ESTRUTURA DA LINGUAGEM.
 
 | Definição  |Conceito                                                      |
@@ -33,13 +33,13 @@ Todas essas sugestões estão sendo seguidas pelo criador automático.
 | PPPPPPPPPPP   | XXXXXXX       | SCRIPT             | SCRIPT              | SHELL      |
 | PPPPPPPPPPP   | XXXXXXX       | MOBILE             | MOBILE              | IOS        |
 | PPPPPPPPPPP   | XXXXXXX       | LIB                | DOCUMENTACAO        | DOC        |
-    
+
 | SEÇÃO 01      | SEÇÃO 02      | SEÇÃO 03           | SIGLA               |            |
 | ----          | ----          | ----               | ----                |            |
 | SSSSSSSSSS    | RESTAPI       | JAVA               | SSSS_RESTAPI_JAVA   |            |
 | SSSSSSSSSS    | BACK          | PHP                | SSSS_BACK_PHP       |            |
 | SSSSSSSSSS    | LIB           | DOC                | SSSS_LIB_DOC        |            |
-| SSSSSSSSSS    | LIB           | DOC                | GESCON_LIB_DOC      |            | 
+| SSSSSSSSSS    | LIB           | DOC                | GESCON_LIB_DOC      |            |
 
 ```mermaid
 mindmap
@@ -84,7 +84,7 @@ O repositório contém mais de um projeto lógico (por exemplo, um cliente iOS, 
 Esses projetos provavelmente **não estão relacionados**, estão conectados livremente oupodem ser conectados por outros meios (por exemplo, via dependência ferramentas degerenciamento).
 
 O repositório é grande de várias maneiras:
-    
+
 - [x] Número de commits;
 - [x] Número de ramificações e/ou tags;
 - [x] Número de arquivos rastreados;
@@ -112,12 +112,12 @@ O repositório é grande de várias maneiras:
 ### Multirepo ou Polyrepo
 Refere-se à organização de seus projetos, cada um em seus próprios repositórios separados.
 Esta é a arquitetura **mais comum em uso** e pode ser vista em grandes empresas e possui algumas vantagens:
-       
+
 - [x] **Propriedade**: Como a base de código imita a arquitetura, uma pequena equipe pode possuir e desenvolver e implantar de forma independente a pilha completa de um microsserviço.
 - [x] **Melhor escala**: Bases de código menores são mais fáceis de gerenciar e levam a menos instâncias de ""Ninguém gosta de um conflito de mesclagem. (merge hell)"".
 - [x] **Clones pequenos**: A maioria dos SCMs, incluindo git, não oferece suporte à clonagem de partes de um repositório. Para grandes bases de código, clones, pulls e pushs levam   uito tempo, o que é ineficiente.
 - [x] **Controle de acesso**: Pode ser aplicado no nível do projeto, pois cada funcionário tem acesso a uma pequena seção de projetos.
-   
+
 ## Modelo de Ramificação
 <p align="justify">Ao começar, é melhor manter as coisas simples e, portanto, inicialmente o GitHub Flow ou o desenvolvimento baseado em Trunk podem funcionar melhor. Eles também são ideais para equipes menores que exigem a manutenção de apenas uma única versão de um lançamento.</p>
 
@@ -135,9 +135,9 @@ Esta é a arquitetura **mais comum em uso** e pode ser vista em grandes empresas
 ### Estratégias Branch
 <p align="justify">A maior vantagem de um branch Git é que ele é 'leve', o que significa que os dados consistem em uma série de snapshots, portanto, a cada commit que você faz, o Git tira uma foto da aparência dos seus arquivos naquele momento earmazena uma referência para esse snapshot.</p>
 
-Isso significa que essas ramificações não são apenas cópias do sistema de arquivos, mas simplesmente um ponteiro para o commit mais recente. 
+Isso significa que essas ramificações não são apenas cópias do sistema de arquivos, mas simplesmente um ponteiro para o commit mais recente.
 
-Um branch é essencialmente uma referência ou um ponteiro para o último commit em umdeterminado contexto. 
+Um branch é essencialmente uma referência ou um ponteiro para o último commit em umdeterminado contexto.
 
 <p align="justify">À medida que você cria novos commits no novo branch, o Git cria novos ponteiros para rastrear as alterações. As ramificações do Git, então, podem ser vistas como um ponteiro para um instantâneo de suas alterações.</p>
 
@@ -154,42 +154,9 @@ Um branch é essencialmente uma referência ou um ponteiro para o último commit
 | hotfix/usuario-feature-nnnn | É uma branch de emergência para correções de bug diagnosticado do ambiente de produção.                                                                        | - | X | X | - |
 | wip/usuario-feature-nnnn | São conhecidos como branches de tópico. Os branches de recursos isolam o trabalho em andamento do trabalho concluído no branch principal.  | - | - | - | X |
 | wit/usuario-feature-nnnn | São conhecidos como branches de tópico. Os branches de recursos isolam o trabalho em andamento do trabalho concluído no branch principal. | - | - | - | X |
-| tags           | Esta é uma maneira conveniente de declarar um instantâneo no tempo de um projeto no tronco ou em uma ramificação. Eles são úteis para marcos no desenvolvimento do seu projeto, permitindo que você tenha um registro do estado de um projeto em um momento importante. | X | - | - | - |
-
-<!--
-```mermaid
-gitGraph
-   commit id: "Início Main"
-   branch sprint
-   checkout sprint
-   commit id: "Inicio Sprint"
-   branch wit/usuario-cadfun-1080
-   branch wit/usuario-relfun-1090
-   checkout wit/usuario-cadfun-1080
-   commit id: "Commit na wit/usuario-cadfun-1080"
-   checkout wit/usuario-relfun-1090
-   commit id: "Commit na wit/usuario-relfun-1090"
-   branch qualidade
-   checkout wit/usuario-cadfun-1080
-   merge qualidade id: "Merge wit/usuario-cadfun-1080 -> qualidade"
-   checkout wit/usuario-relfun-1090
-   branch hotfix/usuario-relfun-1090
-   checkout hotfix/usuario-relfun-1090
-   commit id: "Hotfix no wit/usuario-relfun-1090"
-   merge qualidade id: "Hotfix corrigido e merge -> qualidade"
-   branch tag/release-vx.x
-   checkout tag/release-vx.x
-   merge qualidade id: "Merge qualidade -> tag/release-vx.x"
-   checkout tag/release-vx.x 
-   merge main id: "Merge tag/release-vx.x -> main"
-   checkout wit/usuario-cadfun-1080
-   merge main id: "Merge wit/usuario-cadfun-1080 -> main"
-```
--->
-[![](https://mermaid.ink/img/pako:eNqVlMFSgzAQhl8lk3Ox9aYcvOiMeuipN4fLmgTYEbIYEq3T6SP5FL6YKTBChgL2Rjb___3ZHZIDFyQVj3mG9tFAlSeaMSaoLNEylDFL-LP--RZIbAuoE97svxrQImd1ZVDb1pEr8UbOBrWQgifIrt0OMJ9o1652YJAiATJ1Orre3GymJEYVreR2E0bPcYKz3LcLDZMWPk0exS-Th5ag83cHBUqQ6v-NlMpkqjd2udumOuFj0d0g6YLWulPmZFPcL89_STcc1FOjZZoWBnW-3c4tyBjMUBJTnfBMp10TFrK1xyuoVfSxv9qHRz-7OzfqvuojR24-T2cDfOlvVUAeiX1A2V-9C36SEXrm_2gT-Ip7q_-W_kU4nFAJt7kq_SxPFKlScEVze49eCs7S7ksLHlvj1IobclnO4xSK2q9cJcGqB4TMQPlXrUC_EPVrJdGS2bZvUPMUHX8BmNiO8A?type=png)](https://mermaid.live/edit#pako:eNqVlMFSgzAQhl8lk3Ox9aYcvOiMeuipN4fLmgTYEbIYEq3T6SP5FL6YKTBChgL2Rjb___3ZHZIDFyQVj3mG9tFAlSeaMSaoLNEylDFL-LP--RZIbAuoE97svxrQImd1ZVDb1pEr8UbOBrWQgifIrt0OMJ9o1652YJAiATJ1Orre3GymJEYVreR2E0bPcYKz3LcLDZMWPk0exS-Th5ag83cHBUqQ6v-NlMpkqjd2udumOuFj0d0g6YLWulPmZFPcL89_STcc1FOjZZoWBnW-3c4tyBjMUBJTnfBMp10TFrK1xyuoVfSxv9qHRz-7OzfqvuojR24-T2cDfOlvVUAeiX1A2V-9C36SEXrm_2gT-Ip7q_-W_kU4nFAJt7kq_SxPFKlScEVze49eCs7S7ksLHlvj1IobclnO4xSK2q9cJcGqB4TMQPlXrUC_EPVrJdGS2bZvUPMUHX8BmNiO8A)
+| release           | Esta é uma maneira conveniente de declarar um instantâneo no tempo de um projeto no tronco ou em uma ramificação. Eles são úteis para marcos no desenvolvimento do seu projeto, permitindo que você tenha um registro do estado de um projeto em um momento importante. | X | - | - | - |
 
 ### Gitando
-
 | Id   | emoji	     | Tipo      | Descricao                                        |
 | --   | -----       | -----     | ------------------------                         |
 | ✨    | :sparkles: | feat	    | Introduzir novos recursos                        |
@@ -226,7 +193,7 @@ Verifique se já há no repositório(s) os templates criados para as branches:
 
 #### Exemplo de Template
 
-``` 
+```
 #  Inclusão da funcionalidade cadastrar funcionario
 
 ## Descrição
@@ -266,6 +233,6 @@ Esta seção será preenchida pelo revisor durante a análise do Pull Request.
 
 - [x] Após a validação do pessoal de Qualidade, este deverá efetuar um **cherry-pick**, da branch de **qualidade** para a **sprint**.
 - [x] Após a validação do pessoal de Qualidade, este deverá efetuar um cherry-pick, da branch de **sprint** para a **main**.
-- [x] Em resumo: 
+- [x] Em resumo:
       - [x] Durante o sprint, todas as alterações de código são enviadas para esse branch;
       - [x] E sempre que o código quiser ser testado no ambiente de desenvolvimento, basta criar Pull Request para o branch qualidade;

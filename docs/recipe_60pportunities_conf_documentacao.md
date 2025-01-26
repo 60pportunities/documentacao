@@ -21,7 +21,7 @@ Ferramentas centradas no desenvolvedor para documentação são freqüentemente 
       - [x] Conhecimento que é de interesse por  uma grandes período de Tempo DEVE ser documentado.
       - [x] Conhecimento que é de interesse para um  amplo número de pessoas  DEVE ser documentado.
       - [x] Conhecimento que é valioso ou crítico DEVE ser documentado.
-  
+
 <p align="justify">Em vez de criar a documentação em um sistema separado, os analistas de requisitos e desenvolvedores simplesmente adicionam o documento no mesmo projeto em repositórios diferentes ou no mesmo repositório do código, através do uso de markdown. Esse local garante que qualquer pessoa que esteja usando o código também possa encontrar a documentação.</p>
 
 <p align="justify">Qualquer um pode ler a documentação diretamente no código-fonte do Markdown ou podem lê-la exibida em um navegador. Com a Documentação como Código, os desenvolvedores tratam a documentação como parte integrante do sistema, melhoram as mensagens de commit. A documentação, junto com o código, é construída e implantada como parte de um pipeline.</p>
@@ -41,7 +41,7 @@ Hoje, esta estrutura é utilizada  para se referir de forma mais ampla a uma abo
 <p align="justify">Entre os diversos SSG(Static Site Generatos), foram escolhidos o HUGO e o MkDocs. Como seria uma coisa muito simples, não requerendo conhecimento específico, escolhi o MkDocs por ser mais rápido, simples e gerador voltado para a construção de documentação de projetos. Orientei a TODOS os colaboradores que tivessem um repositório separado de documentação, o que facilitaria a automatização e unificação dos mesmos.</p>
 
 ## [Documentação Técnica no Desenvolvimento de Software](https://www.altexsoft.com/blog/technical-documentation-in-software-development-types-best-practices-and-tools/#utm_source=MediumCom&utm_medium=referral)
-É o termo genérico que abrange todos os documentos e materiais escritos que tratam do desenvolvimento de produtos de software. 
+É o termo genérico que abrange todos os documentos e materiais escritos que tratam do desenvolvimento de produtos de software.
 
 * A documentação de qualquer sistema/produto, consiste em:
     * Documentação do Produto
@@ -60,11 +60,11 @@ Hoje, esta estrutura é utilizada  para se referir de forma mais ampla a uma abo
         * Estimativas
         * Agendas de Reuniões e Decisões
 
-A melhor prática é escrever um documento de requisitos usando um modelo único e consistente que todos os membros da equipe aderem - [Gherkin](https://cucumber.io/docs/gherkin/reference/). 
+A melhor prática é escrever um documento de requisitos usando um modelo único e consistente que todos os membros da equipe aderem - [Gherkin](https://cucumber.io/docs/gherkin/reference/).
 
 Como regra, as documentações deveriam ser escritas em Markdown, as imagens/fluxos em [Mermaid](https://mermaid.js.org/intro/getting-started.html).
 
-A documentação os arquivos de origem são escritos em Markdown e configurados com um único YAML arquivo de configuração. 
+A documentação os arquivos de origem são escritos em Markdown e configurados com um único YAML arquivo de configuração.
 <div class="center-table" markdown>
 ```mermaid
 flowchart TD
@@ -96,12 +96,12 @@ Nosso manual é novo e mantê-lo relevante é uma parte importante do trabalho d
 # Pensamento - “Foco não é nada, foco é tudo, (WoW - ways of working - Forma de Trabalhar)
 Sou um defensor do foco no trabalho, na vida e na liderança. No entanto, o assunto tem uma nuance e profundidade que muitas pessoas não percebem. Para começar, a maioria das pessoas pensa que existe apenas um tipo de foco.
 
-* Foco como substantivo: Geralmente se referem a ter um único objetivo. É algo estático, algo que você tem. 
+* Foco como substantivo: Geralmente se referem a ter um único objetivo. É algo estático, algo que você tem.
 * Foco como verbo      : não é apenas algo que você tem, é também algo que você faz. é um processo intenso, dinâmico, contínuo e iterativo.
 
-Temos que desenvolver e valorizar ambos os tipos de foco. 
+Temos que desenvolver e valorizar ambos os tipos de foco.
 
-A estratégia deliberada, onde os líderes desenvolvem uma visão clara e a mapeiam para objetivos de longo, médio e curto prazo (foco como substantivo) e estratégia emergente, onde as pessoas respondem a problemas e oportunidades imprevistas (foco como verbo). 
+A estratégia deliberada, onde os líderes desenvolvem uma visão clara e a mapeiam para objetivos de longo, médio e curto prazo (foco como substantivo) e estratégia emergente, onde as pessoas respondem a problemas e oportunidades imprevistas (foco como verbo).
 
 Vamos ler? [Greg McKeown - Essentialism: The Disciplined Pursuit of Less](https://www.amazon.com/Essentialism-Disciplined-Pursuit-Greg-McKeown/dp/0804137382).
 
@@ -181,7 +181,7 @@ Em um projeto de software, a maior parte do conhecimento está presente de algum
 
 ## Repositório Específicos para a Documentação (LIB)
 Como uma **BOA PRÁTICA**, devemos **ISOLAR** os códigos de documentos, pois com o passar do tempo, o processo de check-out, branch, fetch e clone do código, aumentarão drasticamente o tempo.
-Lembre-se que documentação pode carregar imagens, gráficos,apresentações e pdfs que são importantes para o entendimento. 
+Lembre-se que documentação pode carregar imagens, gráficos,apresentações e pdfs que são importantes para o entendimento.
 
 # Treinamento em MkDocs
 Fácil de instalar e usar, ótimos resultados com mínimo esforço,desenvolvidos ativo e de código aberto.
@@ -201,11 +201,11 @@ Fácil de instalar e usar, ótimos resultados com mínimo esforço,desenvolvidos
 
     === "Instalando o Python"
 
-        - [x] Efetue a abertura de um chamado técnico no Sysaid para efetuar a instalação do Python; Após a instalação, há a necessidade em configurar a variável de ambiente 
+        - [x] Efetue a abertura de um chamado técnico no Sysaid para efetuar a instalação do Python; Após a instalação, há a necessidade em configurar a variável de ambiente
         - [x] Em pesquisar, digite : Editar as variáveis para sua conta
         - [x] Inclua o path: `c:\user\NOME_DO_USUARIO\AppData\Programs\Python\Python`o path pode variar de instalação, por isso procure o software pip, e coloque em sua ultima versão.
         - [x] Crie em seu computador local, a estrutura de repositórios, caso ele NÃO exista: `c:\Usuario\xxxx\repositorios`
-        - [x] Acesse o diretório repositórios ou abra o VSCode no diretório especificado: `c:\Usuario\xxxx\repositorios` 
+        - [x] Acesse o diretório repositórios ou abra o VSCode no diretório especificado: `c:\Usuario\xxxx\repositorios`
 
     === "Instalando o Mkdocs"
 

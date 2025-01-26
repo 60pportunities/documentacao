@@ -42,7 +42,7 @@
         return base;
     }
   },
-  
+
   // Converts filesize to bytes
   // Ex. filesize2num('123 KB') -> 123000
   // Ex. filesize2num('123 KiB') -> 125952

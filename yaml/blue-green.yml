@@ -14,7 +14,7 @@ env:
   ACR_NAME: pocb3.azurecr.io
   RESOURCE_GROUP: poc-b3
   AKS_CLUSTER_NAME: poc-b3
-  
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -34,7 +34,7 @@ jobs:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
           cluster-name: ${{ env.AKS_CLUSTER_NAME }}
           resource-group: ${{ env.RESOURCE_GROUP }}
-      
+
       # Runs a set of commands using the runners shell
       - name: Deploy app
         uses: azure/k8s-deploy@v1.3
@@ -99,4 +99,3 @@ jobs:
           traffic-split-method: pod
           route-method: ingress
           action: reject  #deploy is the default; we will later use this to promote/reject
-          

@@ -4,11 +4,11 @@
 
         | Tema                                          | Tema                                          |
         | -----                                         | -----                                         |
-        | Describe version control                      | Define distributed version control            | 
-        | Describe Git                                  | Describe GitHub                               | 
-        | Explain the difference between Git and GitHub | Describe a GitHub repository                  | 
-        | Describe a commit                             | Describe branching                            | 
-        | Define a remote in Git terminology            | Describe the GitHub flow                      | 
+        | Describe version control                      | Define distributed version control            |
+        | Describe Git                                  | Describe GitHub                               |
+        | Explain the difference between Git and GitHub | Describe a GitHub repository                  |
+        | Describe a commit                             | Describe branching                            |
+        | Define a remote in Git terminology            | Describe the GitHub flow                      |
         | Describe the different GitHub accounts (personal, organization, enterprise) | Describe GitHub’s products for personal accounts (free, pro) |
         | Describe GitHub's products for organization accounts (free for organizations, teams) | Describe the different deployment options for GitHub Enterprise |
         | Describe the features in the user profile (metadata, achievements, profile readme, repositories, pinned repositories, stars, etc.) |
@@ -48,7 +48,7 @@
         | Describe how to manage notification subscriptions                          | Explain how to subscribe to notification threads |
         | Describe how to find threads where you are at-mentioned                    | Identify the notification filtering options |
         | Explain the different notification configuration options                   |         |
-    
+
     === "Modern Development(13%)"
 
         | Tema                                                                       | Tema                                        |
@@ -94,4 +94,3 @@
         | Describe InnerSource                                                       | Identify the differences between         InnerSource and open source |
         | Describe forking                                                           | Describe the components of a         discoverable repository         |
         | Describe when to use issue templates                                       | Describe when to use pull request templates                  |
-

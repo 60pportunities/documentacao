@@ -25,7 +25,7 @@ Equilibrando o acesso mais rápido aos dados com potencial desatualização e ma
 Manter o estado da sessão versus interações sem estado para escalabilidade
 
 ## Bloqueio otimista vs. pessimista
-O bloqueio otimista não pressupõe conflitos, favorecendo a velocidade e a simultaneidade. 
+O bloqueio otimista não pressupõe conflitos, favorecendo a velocidade e a simultaneidade.
 O bloqueio pessimista evita conflitos adquirindo bloqueios antecipadamente, sacrificando o desempenho pela integridade dos dados.
 
 ## Data Locality vs. Data Distribution
@@ -148,7 +148,7 @@ flowchart LR
 
 - [x] Escreva uma lista dos cenários de teste que você deseja cobrir
       - [ ] listar todas as variantes esperadas no novo comportamento;
-- [x] Transforme exatamente um item da lista em um teste real, concreto e corcável 
+- [x] Transforme exatamente um item da lista em um teste real, concreto e corcável
 - [x] Altere o código para passar o teste (e todos os testes anteriores) (adicionar itens para a lista à medidaque você os descobre)
 - [x] Fatoração opcional para melhorar o projeto de implementação
 - [x] Até que a lista esteja vazia, volte para o 2o
@@ -157,7 +157,7 @@ flowchart LR
 ##  Testes de Unidades
 - [x] Menor unidade testável de código (funções, métodos, classes);
 - [x] Verificar comportamento isolado e correção de componentes individuais;
-  
+
 ## Testes de integração
 - [x] Interação entre múltiplos componentes ou módulos
 - [x] Garantir que os componentes trabalhem em conjunto corretamente, incluindo o fluxo de dados e a comunicação

@@ -19,7 +19,7 @@ Escalabilidade : Os sistemas nativos da nuvem são altamente elásticos e escal�
 
 Acessibilidade : Com um sistema de nuvem pública, os usuários podem acessar seus dados e aplicativos de qualquer dispositivo com conexão à internet. Isso pode ser especialmente útil para equipes remotas ou organizações com funcionários em diferentes locais.
 
-Segurança : Muitos provedores de nuvem fazem da segurança uma parte essencial de seus negócios e oferecem medidas de segurança avançadas integradas para proteger os dados de seus clientes, o que, devido ao seu foco e experiência, pode ser mais seguro do que manter essas medidas no local. 
+Segurança : Muitos provedores de nuvem fazem da segurança uma parte essencial de seus negócios e oferecem medidas de segurança avançadas integradas para proteger os dados de seus clientes, o que, devido ao seu foco e experiência, pode ser mais seguro do que manter essas medidas no local.
 
 Acesso mais rápido à inovação : como os provedores de nuvem são responsáveis ​​por manter e atualizar seus sistemas, as organizações que usam a nuvem podem aproveitar novos recursos e inovações sem precisar investir tempo ou recursos.
 

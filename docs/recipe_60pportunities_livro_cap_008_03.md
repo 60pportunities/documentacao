@@ -90,7 +90,7 @@ Se você deseja criar um repositório Git que possa ser acessado remotamente, co
 - [X] `git checkout -b feature_branch`
 - [X] `git checkout develop`
 - [X] `git merge feature_branch`
-  
+
 ### Release branch
 - [X] `git checkout develop`
 - [X] `git checkout -b release/0.1.0`
@@ -125,7 +125,7 @@ Como efetuar esta configuração:
       - [x] O Tech Leader deverá efetuar a criação das branches diretamente da main;
             - [x] wit|wip/ (Static Application Security Testing (SAST) e Unit Test devem ser realizados.)
             - [x] wip (Working in progress): O desenvolvedor esta efetuando a criação de um objeto.
-            - [x] wit (Working Item): Work Item liberado para o pessoal de qualidade.         
+            - [x] wit (Working Item): Work Item liberado para o pessoal de qualidade.
       - [x] qualidade (Processo de qualidade, onde os testes: PlanTest, CyPress e Security Test (IAST(Interactive Application Security Testing), MAST(Mobile Application Security Test), DAST(Dynamic Application Security Testing)), RAST (Re Application Security Testing);
 
 ![](img/prj_int_branches_003.png)
@@ -172,27 +172,28 @@ O desenvolvedor deverá efetuar o clone do repositório criado :  `git clone --b
 ![](img/prj_int_branches_008.png)
 
 ### Segurança
-Imaginemos que tenhamos um repositório em: http://servidor/repositorio.git, e gostaria de alem de ter um backup no repositório central, pudesse ficar com um repositório fora do meu hd/ssd? 
+Imaginemos que tenhamos um repositório em: http://servidor/repositorio.git, e gostaria de alem de ter um backup no repositório central, pudesse ficar com um repositório fora do meu hd/ssd?
 Efetuo a clonagem do meu repositório remoto, para um disco local de trabalho.
-        
+
 - [x] `git clone http://servidor/repositorio.git ou git clone --branch "main" http://servidor/repositorio.git`
 
 Criado o repositório local, vou para o diretório criado e efetuo o clone para um outro diretório, de preferencia um pendrive ou um hd/ssd externo.
-        
+
 - [x] cd casa
 - [x] `git clone --bare . DISCO:/repositorio.git`
-        
+
 Informo ao repositório, que existirão dois remotos: O origin que será o meu remoto do repositório central e um local, que será o meu backup local.
-        
+
 - [x] `git remote add local DISCO:/repositorio.git`
 - [x] `git remote -v`
-        
+
 ```
 local	DISCO:/repositorio.git (fetch)
 local	DISCO:/repositorio.git (push)
 origin	http://servidor/repositorio.git (fetch)
 origin	http://servidor/repositorio.git (push)
 ```
+
 - [x] Agora vamos construir uma aplicaçõa e verificar se esta tudo de acordo, como imaginávamos.Criaremos um arquivo unico chamado horacio.txt e efetuaremos os passos normais.
 
 ```
@@ -242,6 +243,5 @@ To DISCO:/repositorio.git
 ```
 ### Recuperando o repositório perdido
 <p align="justify">Aqui é outro chopp, mas vamos iniciar explicando o que é o Ngrok. Ngrok é uma ferramenta que te permite a criação de um túnel seguro, atrás de NATs(Network Address Translation) e Firewalls, que expõem serviços locais para a Internet.</p>
-
 ### Compartilhando o diretório com outras pessoas
-Entre no diretório `/DISCO:/repositorio.git` e execute o comando `git --bare update-server-info` e depois "mv hooks/post-update.sample hooks/post-update".
+Entre no diretório `/DISCO:/repositorio.git` e execute o comando `git --bare update-server-info` e depois `mv hooks/post-update.sample hooks/post-update`.

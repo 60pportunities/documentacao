@@ -39,7 +39,7 @@ Os seguintes comportamentos são considerados assédio e são inaceitáveis ​�
 - [x] Interrupção sustentada de eventos da comunidade, incluindo palestras e apresentações.
 
 ## Política de armas
-Nenhuma arma será permitida em eventos Followcode, espaços comunitários ou em outros espaços abrangidos pelo escopo deste Código de Conduta. Armas incluem, mas não estão limitadas a armas de fogo, explosivos (incluindo fogos de artifício) e facas grandes, como as usadas para caça ou exibição, bem como qualquer outro item usado com o propósito de causar ferimentos ou danos a terceiros. 
+Nenhuma arma será permitida em eventos Followcode, espaços comunitários ou em outros espaços abrangidos pelo escopo deste Código de Conduta. Armas incluem, mas não estão limitadas a armas de fogo, explosivos (incluindo fogos de artifício) e facas grandes, como as usadas para caça ou exibição, bem como qualquer outro item usado com o propósito de causar ferimentos ou danos a terceiros.
 
 Qualquer pessoa vista em posse de um desses itens será convidada a sair imediatamente e só poderá retornar sem a arma. Espera-se ainda que os membros da comunidade cumpram todas as leis estaduais e locais sobre este assunto.
 
@@ -73,7 +73,7 @@ Este código de conduta e seus procedimentos relacionados também se aplicam a c
 - [x] e-mail: s60pportunities@gmail.com
 
 ## Licença e atribuição
-O Código de Conduta do Cidadão é distribuído por [Stumptown Syndicate](http://stumptownsyndicate.org) under a [Creative Commons Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/3.0/). 
+O Código de Conduta do Cidadão é distribuído por [Stumptown Syndicate](http://stumptownsyndicate.org) under a [Creative Commons Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/3.0/).
 
 Partes do texto derivadas do [Django Code of Conduct](https://www.djangoproject.com/conduct/) and the [Geek Feminism Anti-Harassment Policy](http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy).
 

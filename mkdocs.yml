@@ -27,7 +27,7 @@ validation:
   anchors: ignore
 theme:
   icon:
-    repo: fontawesome/brands/git-alt 
+    repo: fontawesome/brands/git-alt
   logo: img/logo.jpeg
   custom_dir: theme
   highlightjs: true
@@ -43,8 +43,6 @@ theme:
     - content.footnote.tooltips
   favicon: img/favicon.ico
   name: material
-  icon:
-    logo: img/favicon.ico
   palette:
    # Palette toggle for light mode
    - media: "(prefers-color-scheme: light)"
@@ -56,12 +54,12 @@ theme:
        name: Azul da cor do mar
    # Palette toggle for dark mode
    - media: "(prefers-color-scheme: dark)"
-     scheme: default 
+     scheme: default
      primary: red        # indigo
      accent: deep purple # light blue
      toggle:
        icon: material/weather-sunny
-       name: Rock and Roll 
+       name: Rock and Roll
 plugins:
   - tags:
       enabled: true
@@ -69,7 +67,8 @@ plugins:
       #enterprise_hostname: https://github.com/s60pportunities
       repository: https://github.com/60pportunities/documentacao
       branch: main
-      token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
+  #   token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
+      token: ${MKDOCS_GIT_COMMITTERS_APIKEY}
   - git-authors
   - git-revision-date-localized:
       type: timeago
@@ -171,7 +170,7 @@ extra:
     property: G-horacio
   consent:
     title: Consentimento
-    description: >- 
+    description: >-
        Utilizamos cookies para reconhecer as suas repetidas visitas e preferências, bem como
        para medir a eficácia da nossa documentação e se os usuários
        encontre o que eles estão procurando. Com o seu consentimento, você está nos ajudando a
@@ -181,7 +180,7 @@ extra:
     default: latest
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/horaciovasconcellos 
+      link: https://github.com/horaciovasconcellos
     - icon: fontawesome/brands/gitlab
       link: https://gitlab.com/horaciovasconcellos
     - icon: fontawesome/brands/twitter
@@ -229,7 +228,6 @@ nav:
    - 'Conceitos'                                     :
       - 'Definições'                                 : 'recipe_60pportunities_conc_definicao.md'
       - 'Fundação'                                   : 'recipe_60pportunities_conc_foundation.md'
-      - 'Arquitetura'                                : 'recipe_60pportunities_conc_arquitetonicos.md'
       - 'Noosfera'                                   : 'recipe_60pportunities_conc_noosfera.md'
       - 'Paradoxos'                                  : 'recipe_60pportunities_conc_paradoxos.md'
       - 'Vulnerabilidade'                            : 'recipe_60pportunities_conc_vulnerabilidade.md'
@@ -252,7 +250,7 @@ nav:
       - 'Avanço da vacinação (2021-2025)'                            : 'recipe_60pportunities_livro_cap_007.md'
       - 'Padronizaçao de Escrita'                                    : 'recipe_60pportunities_livro_cap_011.md'
       - 'Documentação é Código'                                      : 'recipe_60pportunities_livro_cap_009.md'
-      - 'Versionamento'                                              : 
+      - 'Versionamento'                                              :
         - 'Conceitos e Histórico'                                    : 'recipe_60pportunities_livro_cap_008.md'
         - 'Estrutura do Repositório'                                 : 'recipe_60pportunities_livro_cap_008_01.md'
         - 'Resolvendo Problemas'                                     : 'recipe_60pportunities_livro_cap_008_02.md'
@@ -263,14 +261,20 @@ nav:
       - 'Inteligência Artificial no Desenvolvimento de Software'     : 'recipe_60pportunities_livro_cap_014.md'
       - 'Metas e Métricas: A Importância de Medir'                   : 'recipe_60pportunities_livro_cap_015.md'
       - 'IA Verticais'                                               : 'recipe_60pportunities_livro_cap_016.md'
-      - 'Agilidade'                                                  : 'recipe_60pportunities_livro_cap_017.md'
+      - 'Desenvolvendo'                                              :
+        - 'Questionário'                                             : 'recipe_60pportunities_livro_cap_020_01.md'
+        - 'Feature Flag'                                             : 'recipe_60pportunities_livro_cap_020_02.md'
+        - 'Segurança'                                                : 'recipe_60pportunities_livro_cap_020_03.md'
+        - 'DevOps'                                                   : 'recipe_60pportunities_livro_cap_020_04.md'
+        - 'Fluxo'                                                    : 'recipe_60pportunities_livro_cap_020_05.md'
+        - 'Fluxo'                                                    : 'recipe_60pportunities_livro_cap_020_06.md'
+        - 'Pull Request'                                             : 'recipe_60pportunities_livro_cap_020_07.md'
       - 'Estimativa'                                                 : 'recipe_60pportunities_livro_cap_018.md'
-      - 'Modelito'                                                   : 'recipe_60pportunities_livro_cap_019.md'
       - 'Engenharia de Software'                                     : 'recipe_60pportunities_livro_cap_conclusao.md'
    - 'Certificação Perguntas'                                        :
       - 'Certiprof DevOps Essentials'                                : 'recipe_60pportunities_certiprof_depc.md'
       - 'GitHub Foundations'                                         : 'recipe_60pportunities_ghf_90_questions.md'
-   - 'Projetos'                                      :   
+   - 'Projetos'                                      :
       - 'PMI e Standish Group'                       : 'recipe_60pportunities_projetos_standishgroup.md'
    - 'Arquitetura'                                   :
       - 'Application Program Interface'              : 'recipe_60pportunities_conf_arquitetura_api.md'
@@ -280,7 +284,7 @@ nav:
       - 'Documentação'                               : 'recipe_60pportunities_conf_documentacao.md'
       - 'Usando o MkDocs'                            : 'recipe_60pportunities_conf_mkdocs.md'
       - 'Publicando MkDocs no Github'                : 'recipe_60pportunities_conf_mkdocs_publicacao.md'
-#   - 'GitHub'                                        :    
+#   - 'GitHub'                                        :
 #      - 'Conta no GitHub'                            : 'recipe_60pportunities_conf_github_conta.md'
 #      - 'Configurando Pages'                         : 'recipe_60pportunities_conf_github_pages.md'
 #      - 'Publicando Pages no Domínio'                : 'recipe_60pportunities_conf_github_dominio_pages.md'
@@ -317,7 +321,7 @@ nav:
 #      - 'Hacker do Bem'                              : 'recipe_60pportunities_dev_hacker_etico.md'
 #      - 'Linguagem'                                  :
 #         - 'PHP'                                     : 'recipe_60pportunities_dev_doc_php.md'
-   - 'Estudos/Aprendizado'                            : 
+   - 'Estudos/Aprendizado'                            :
       - 'Inteligencia Artificial'                    : 'recipe_60pportunities_conf_inteligencia_artificial.md'
    - 'Dicionário'                                    :
       - 'Termos'                                     : 'recipe_60pportunities_tesauro.md'

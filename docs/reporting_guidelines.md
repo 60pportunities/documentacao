@@ -17,14 +17,14 @@ As instituições precisam dar importância e habilitar valores aos colaboradore
 O que a pandemia nos fez olhar é como podemos ajustar todas essas formas de trabalho, dado um contexto de equipe dispersa?
 
  permitiu uma mundo de cabeça para baixo, ela acelerou novas formas de trabalhar e entregar valor que estavam ganhando
-força há algum 
+força há algum
 Elas permitem que seus funcionários dominem diferentes formas de trabalhar se tornem profissionais completos
 e elevem suas habilidades, desde abraçar a liderança colaborativa até exercer uma mentalidade inovadora.
 
 A inteligência artificial ganha um lugar na sala de reuniões
 https://asia.nikkei.com/Business/Artificial-intelligence-gets-a-seat-in-the-boardroom
 
-As organizações não devem impor nenhuma estrutura ou pensar que um tamanho serve para todos”, a mudança repentina para o trabalho remoto e a interação com o cliente 
+As organizações não devem impor nenhuma estrutura ou pensar que um tamanho serve para todos”, a mudança repentina para o trabalho remoto e a interação com o cliente
 1. Comunicação clara
 	• Use ferramentas como Slack, Teams ou Zoom.
 	• Agende reuniões regulares e documente decisões em plataformas como Confluence ou Notion.
@@ -40,7 +40,7 @@ As organizações não devem impor nenhuma estrutura ou pensar que um tamanho se
 	• Concentre-se nos resultados em vez de cronogramas fixos.
 	6. Monitoramento de desempenho
 
-Empresa de fundos de Hong Kong 
+Empresa de fundos de Hong Kong
 Eficiencia em Processos
 - Cibersegurança
 - Otimização da Automação

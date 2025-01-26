@@ -3,7 +3,7 @@ Utilizando o `Bolt`, elabore um Marketplace...
 - [x] Crie um marketplace de carro
 - [x] Pegue as imagens do unsplash
 - [x] faça funcionar o filtro da homepage
-- [x] deixe em português br 
+- [x] deixe em português br
 - [x] crie uma página que tenha os detalhes do carro e ao clicar no card esta página tem que abrir com os detalhes
 - [x] Crie um delivery
 - [x] Quando clicar no card quero ver os detalhes do restaurante

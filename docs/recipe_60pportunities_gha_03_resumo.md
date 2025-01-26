@@ -1,11 +1,11 @@
 `A automação é boa, desde que você saiba exatamente onde coloca-la`.
 
-A Implantação Contínua (CD) está revolucionando a maneira como os desenvolvedores pensam e agem, e se você está ansioso para elevar seu jogo de codificação, este guia é para você! 
+A Implantação Contínua (CD) está revolucionando a maneira como os desenvolvedores pensam e agem, e se você está ansioso para elevar seu jogo de codificação, este guia é para você!
 ![](img/github-actions-002.png)
 ## Automação: O Coração da Implantação
-Automação não é apenas uma opção; é uma necessidade no mundo do CD. Ao automatizar tarefas, os desenvolvedores liberam tempo, reduzem erros e aumentam a consistência. 
+Automação não é apenas uma opção; é uma necessidade no mundo do CD. Ao automatizar tarefas, os desenvolvedores liberam tempo, reduzem erros e aumentam a consistência.
 ## Colaboração: Todos a postos
-Trabalhar em conjunto não é bom apenas para o moral, é crucial para o sucesso do CD. 
+Trabalhar em conjunto não é bom apenas para o moral, é crucial para o sucesso do CD.
 ## Monitoramento e Feedback: Olhos no Processo
 O monitoramento contínuo é essencial para detectar quaisquer problemas precocemente e aprender com eles.
 ## Teste: Não há espaço para erros
@@ -13,9 +13,9 @@ O teste é uma fase crucial que garante a qualidade e a confiabilidade do produt
 ## Segurança e conformidade: seguro e sólido
 Na era das ameaças cibernéticas, garantir a segurança e a conformidade do seu aplicativo é uma prioridade.
 ## Adotando uma cultura de aprendizagem e melhoria: cresça com o fluxo
-A Implantação Contínua é uma jornada, não apenas um processo. 
+A Implantação Contínua é uma jornada, não apenas um processo.
 ## ACT "Pense globalmente, act localmente"
-Feedback rápido - Em vez de ter que fazer commit/push toda vez que quiser testar as alterações que está fazendo em seus .github/workflows/arquivos você pode usar `act` ara executar as ações localmente. 
+Feedback rápido - Em vez de ter que fazer commit/push toda vez que quiser testar as alterações que está fazendo em seus .github/workflows/arquivos você pode usar `act` ara executar as ações localmente.
 As variáveis ​​de ambiente e o sistema de arquivos são todos configurados para corresponder ao que o GitHub fornece.
 Local Task Runner - Com act, você pode usar as GitHub Actions definidas em seu .github/workflows/para substituir seu Makefile!
 
@@ -46,9 +46,9 @@ act --container-architecture linux/amd64 --env-file==env_01.env
 | Events        | Suporte básico a eventos, ele tentará obter o máximo de informações possível do repositório local, embora isso possa não ser suficiente para certos tipos de eventos. Defaul: `push` |
 | Workflows     | Todos os fluxos de trabalho serão executados em `.github/workflows`, mas poderá ser modificado por `-W/ --workflows`.  |
 | Jobs          | Todos os trabalhos em todos os fluxos de trabalho que são acionados pelo pushevento, mas poderá ser modificado em todos os fluxos de trabalho que são acionados pelo pushevento `act -j 'nome-job'`. |
-| Vars          | 
+| Vars          |
 | Secrets       |
-| GITHUB_TOKEN  | 
+| GITHUB_TOKEN  |
 
 ```
 ~/
@@ -99,19 +99,19 @@ Pipeline de Build
 </div>
 Pipeline de Segurança
 <div class="mdx-columns2" markdown>
-- [ ] Analisar dependências, 
-- [ ] Analisar secrets, 
+- [ ] Analisar dependências,
+- [ ] Analisar secrets,
 - [ ] Analisar vulnerabilidades.
 </div>
 Pipeline de Deployment
 <div class="mdx-columns2" markdown>
 - [ ] Configuração de ambiente
-- [ ] Implantação da aplicação, 
-- [ ] Testes de fumaça. 
+- [ ] Implantação da aplicação,
+- [ ] Testes de fumaça.
 </div>
 Pipeline de Infra as Code
 <div class="mdx-columns2" markdown>
-- [ ] Processo de infraestrutura em nuvem ou até mesmo no seu Ambiente On-premises. 
+- [ ] Processo de infraestrutura em nuvem ou até mesmo no seu Ambiente On-premises.
 </div>
 
 ### Types of GitHub actions
@@ -196,13 +196,13 @@ on:
     - cron:  '0 3 * * SUN'
 ```
 #### Workflow Eventos Manuais
-O evento `workflow_dispatch` ou `repository_dispatch` você pode disparar manualmente um fluxo de trabalho. 
+O evento `workflow_dispatch` ou `repository_dispatch` você pode disparar manualmente um fluxo de trabalho.
 ```
 on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'Log level'     
+        description: 'Log level'
         required: true
         default: 'warning'
       tags:
@@ -235,11 +235,11 @@ jobs:
       ...
 ```
 #### Modelos
-a consistência em toda a sua organização usando um modelo de fluxo de trabalho definido no repositório .github da organização. Para encontrar esses fluxos de trabalho, navegue até a guia Ações de um repositório dentro da organização, selecione Novo fluxo de trabalho e encontre a seção de modelo de fluxo de trabalho da organização intitulada "Fluxos de trabalho criados por nome da organização". 
+a consistência em toda a sua organização usando um modelo de fluxo de trabalho definido no repositório .github da organização. Para encontrar esses fluxos de trabalho, navegue até a guia Ações de um repositório dentro da organização, selecione Novo fluxo de trabalho e encontre a seção de modelo de fluxo de trabalho da organização intitulada "Fluxos de trabalho criados por nome da organização".
 #### Versões específicas de uma ação
-Ao fazer referência a uma versão específica, você está criando uma proteção contra alterações inesperadas enviadas para a ação que poderiam interromper o fluxo de trabalho. 
+Ao fazer referência a uma versão específica, você está criando uma proteção contra alterações inesperadas enviadas para a ação que poderiam interromper o fluxo de trabalho.
 ```
-steps:    
+steps:
   - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
   - uses: actions/setup-node@v1
   - uses: actions/setup-node@v1.2
@@ -286,10 +286,10 @@ Use a chave `on` para especificar os eventos que disparam o fluxo de trabalho.
 | `secret_scanning_alert`   | Disparado quando um alerta de vazamento de segredo é gerado.       | `on: secret_scanning_alert`                                     |
 
 ### Runners
-O GitHub Actions oferece [ambientes virtuais](https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners) gerenciados para executar fluxos de trabalho. 
+O GitHub Actions oferece [ambientes virtuais](https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners) gerenciados para executar fluxos de trabalho.
 Para act executar seus fluxos de trabalho localmente, ele deve executar um contêiner para o runner definido no seu arquivo de fluxo de trabalho. (act --container-architecture linux/amd64 ou act -P ubuntu-latest=-self-hosted)
 
-Você pode identificar o código-fonte usado para criar as imagens de VM para executores hospedados no GitHub usados ​​para Actions, bem como para agentes hospedados pela Microsoft usados ​​para Azure Pipelines. 
+Você pode identificar o código-fonte usado para criar as imagens de VM para executores hospedados no GitHub usados ​​para Actions, bem como para agentes hospedados pela Microsoft usados ​​para Azure Pipelines.
 
 - [x] [Imagens Runners](https://github.com/actions/runner-images)
 
@@ -331,7 +331,7 @@ runs-on: self-hosted
 
 ### Job
 Um job é um conjunto de etapas em um fluxo de trabalho executadas no mesmo executor.
-Um evento aciona automaticamente o fluxo de trabalho, que contém um trabalho. Em seguida, o trabalho usa etapas para controlar a ordem em que as ações são executadas. 
+Um evento aciona automaticamente o fluxo de trabalho, que contém um trabalho. Em seguida, o trabalho usa etapas para controlar a ordem em que as ações são executadas.
 O trabalho usa etapas para controlar a ordem em que as ações são executadas
 
 | Chave          |  Entenda                                              |
@@ -370,32 +370,32 @@ Configuração: GitHub.com > Configurações > Segredos > Novo segredo do reposi
 ### Actions
 Uma ação é um aplicativo personalizado para a plataforma GitHub Actions que executa uma tarefa complexa, mas frequentemente repetida.
 
-Types of GitHub Actions : 
+Types of GitHub Actions :
 
-- [x] Pushes: Trigger on any push 
-- [x] Pull Requests: Trigger on PR events 
-- [x] Issues: Trigger on issue activities 
-- [x] Releases: Trigger on new releases 
-- [x] Scheduled Events: Cron expressions for scheduling 
+- [x] Pushes: Trigger on any push
+- [x] Pull Requests: Trigger on PR events
+- [x] Issues: Trigger on issue activities
+- [x] Releases: Trigger on new releases
+- [x] Scheduled Events: Cron expressions for scheduling
 - [x] Manual Triggers: Trigger manually via GitHub UI/CLI
 
 ### Runners (Executores)
-Um executor é um servidor que executa seus fluxos de trabalho quando eles são disparados. Cada executor pode executar um único trabalho por vez. GitHub fornece executores Ubuntu Linux, Microsoft Windows e macOS para executar seus fluxos de trabalho. 
+Um executor é um servidor que executa seus fluxos de trabalho quando eles são disparados. Cada executor pode executar um único trabalho por vez. GitHub fornece executores Ubuntu Linux, Microsoft Windows e macOS para executar seus fluxos de trabalho.
 
-Secrets (ou segredos, em português) são variáveis de ambiente que não podem ser compartilhadas com ninguém que não seja autorizado. São dados sigilosos, geralmente específicos de um contexto, por exemplo, de uma organização, um repositório, uma equipe… 
+Secrets (ou segredos, em português) são variáveis de ambiente que não podem ser compartilhadas com ninguém que não seja autorizado. São dados sigilosos, geralmente específicos de um contexto, por exemplo, de uma organização, um repositório, uma equipe…
 
 Exemplos de secrets:
 
 - [x] O usuário e uma senha para acessar uma ferramenta;
 - [x] A chave para consumir uma API;
-- [x] Um token ou uma credencial de acesso; 
+- [x] Um token ou uma credencial de acesso;
 - [x] O número de um documento (CPF, Passaporte etc).
 
 O Github Action é orientado por eventos, onde cada evento pode acionar (trigger) automaticamente um ou mais workflows. um workflow após cada push, pull request ou comentário, para uma branch específica ou para todas, e é customizável.
 
-## JOB 
+## JOB
 Um job é um conjunto de etapas em um fluxo de trabalho que são executadas no mesmo runner (um runner é um servidor que executa seus fluxos de trabalho quando acionado). Os fluxos de trabalho têm jobs, e os jobs têm etapas. Os passos são executados em ordem e são dependentes uns dos outros. Você adicionará etapas ao seu fluxo de trabalho mais adiante no curso. Para ler mais sobre jobs, consulte " Jobs".
-    
+
 Os trabalhos, por sua vez, são compostos de etapas. Uma etapa executa um comando shell ou invoca uma
 ação predefinida do GitHub. Todas as etapas em um trabalho são executadas em um runner. O runner é um
 servidor (virtual ou físico) ou um contêiner que foi configurado para entender como interagir com o GitHub
@@ -534,7 +534,7 @@ build-and-push-images:
 Neste guia, implementamos um pipeline de CI/CD para automatizar o processo de teste, construção e implantação do nosso backend FastAPI e frontend Next.js. Ao integrar o Docker, GitHub Actions e DockerHub, otimizamos nosso fluxo de trabalho para construções consistentes e confiáveis.
 
 
-Elabore um Dockerfile com os seguintes componentes: 
+Elabore um Dockerfile com os seguintes componentes:
 markdown-include
 mike
 mkdocs
@@ -573,7 +573,7 @@ ARG USER=1001
 
 RUN adduser -h /usr/src/mkdocs -D -u $USER mkdocs \
 && apk add bash \
-&& apk add git 
+&& apk add git
 
 ENV PATH="${PATH}:/usr/src/mkdocs/.local/bin"
 
@@ -596,7 +596,7 @@ ENTRYPOINT ["/usr/src/mkdocs/.local/bin/mkdocs"]
 docker build -t exmaple-mkdocs:v1 --build-arg=USER=$(id -u) .
 
 docker run -it -v /root/test-delete/:/usr/src/mkdocs/build example-mkdocs:v2 gh-deploy
-cat docs/CNAME 
+cat docs/CNAME
 60pportunities.com.br
 
 docker run -it --rm \
@@ -617,7 +617,7 @@ mkdocs:1 gh-deploy
   │   ├── Dockerfile
   │   ├── action.yaml
   │   ├── scanner.py
-  │   └── ... 
+  │   └── ...
 ```
 
 ```
@@ -634,7 +634,7 @@ FROM python:3.9-slim
 RUN pip install --no-cache-dir black
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"] 
+ENTRYPOINT ["/entrypoint.sh"]
 ```
 
 action.yml
@@ -654,7 +654,7 @@ runs:
   image: "Dockerfile"
 branding:
   icon: "code"
-  color: "blue" 
+  color: "blue"
 ```
 
 entrypoint.sh
@@ -672,7 +672,7 @@ if [[ "$OUTPUT" == *"reformatted"* ]]; then
 else
   echo "All files are formatted correctly."
   echo "::set-output name=formatted::false"
-fi 
+fi
 ```
 
 requirements.txt
@@ -697,7 +697,7 @@ jobs:
       - name: Run Python Linter
         uses: your-org/org-actions/python-linter@v1
         with:
-          directory: "./src" 
+          directory: "./src"
 ```
 
 No mundo em rápida evolução do desenvolvimento de software, pipelines de Integração Contínua/Entrega Contínua (CI/CD) são essenciais para automatizar e agilizar processos.
@@ -706,21 +706,21 @@ No mundo em rápida evolução do desenvolvimento de software, pipelines de Inte
 1. Controle de fluxo insuficientes: Esses controles devem proteger repositórios de artefatos, ferramentas de CI e sistemas de gerenciamento de código-fonte (SCM) para reforçar a segurança, por exemplo, exigindo etapas adicionais de revisão ou aprovação.
 2. Gerenciamento de Identidade e Acesso (IAM) Baixo ou Inexistente: Políticas e controles fracos de IAM expõem o sistema de CI/CD a ataques.
 3. Cadeia de dependências: Explorações de cadeia de dependência podem fazer com que o sistema busque e execute pacotes maliciosos localmente.
-4. Execução de Pipeline Envenenado (PPE): Invasores podem injetar comandos maliciosos em configurações de pipeline de construção para “envenenar” o pipeline. O código malicioso é executado como parte do processo de CI/CD. 
+4. Execução de Pipeline Envenenado (PPE): Invasores podem injetar comandos maliciosos em configurações de pipeline de construção para “envenenar” o pipeline. O código malicioso é executado como parte do processo de CI/CD.
 5. Controles de acesso insuficientes baseados em pipeline (PBAC - Policy-Based Access Control): Os invasores podem executar código malicioso em um pipeline aproveitando PBACs fracos e abusando das permissões de acesso do pipeline para se mover lateralmente pelo ambiente CI/CD.
 6. Credenciais gerenciadas incorretamente: Credenciais ruim permite que invasores roubem e explorem segredos e tokens de acesso no pipeline de CI/CD.
 7. Problemas de configuração incorreta do sistema: Essas configurações inseguras fornecem frutos fáceis que os invasores podem explorar para se infiltrar no ambiente de CI/CD.
-8. Uso descontrolado de serviços de terceiros: Organizações fornecem acesso fácil a terceiros para usar seus sistemas críticos, introduzindo um risco de acesso não governado e aumentando a superfície de ataque do sistema CI/CD. 
+8. Uso descontrolado de serviços de terceiros: Organizações fornecem acesso fácil a terceiros para usar seus sistemas críticos, introduzindo um risco de acesso não governado e aumentando a superfície de ataque do sistema CI/CD.
 9. Validação inadequada de artefatos: Sem mecanismos adequados de validação de artefatos e códigos, os invasores podem empurrar artefatos maliciosos para o pipeline sem serem detectados.
 10. Visibilidade e registro insuficientes : Logs insuficientes dificultam a identificação e o rastreamento de ataques ou a investigação de incidentes de segurança depois que eles ocorrem.
 
-Proteger ambientes de CI/CD vai além de proteger o código; abrange proteger todo o pipeline, da integração à implantação. 
+Proteger ambientes de CI/CD vai além de proteger o código; abrange proteger todo o pipeline, da integração à implantação.
 
-DataStudio - Criação de relatórios sonoros e interativos para análise de dados, com integração ao Google Analytics, Google Sheets e outras.  
-Coblue/Weekdone - Plataforma brasileira dedicada  à metodologia OKR. 
+DataStudio - Criação de relatórios sonoros e interativos para análise de dados, com integração ao Google Analytics, Google Sheets e outras.
+Coblue/Weekdone - Plataforma brasileira dedicada  à metodologia OKR.
 UIPATH - Plataforma líder em automação robótica (RPA) que usa IA para tornar as operações mais ágeis e eficientes.
-PIPEFY - Automatizar processos de trabalho. 
-FIS Global/Anaplan/NIBO -  Plataforma preditiva de gestão de risco para instituições financeiras em geral. 
+PIPEFY - Automatizar processos de trabalho.
+FIS Global/Anaplan/NIBO -  Plataforma preditiva de gestão de risco para instituições financeiras em geral.
 ZENDESK - Intercom - Integração de IA  para automação de suporte ao cliente.
 BambooHR/WorkDay/PyMetrics - Recrutamento, Desempenho e análise de personalidade (muita gente não passaria).
 RunRun.it/Gupy - Produtividade e Recrutamento e seleção
@@ -732,7 +732,7 @@ https://lovable.dev/
 Objetivo:
 Desenvolver um aplicativo que auxilie usuários e compartilhe dúvidas e compartilhamento de trechos de códigos em Java, PHP, PL/SQL, Typescript, Zig, Deno, Node, C++ e Python.
 
-Este aplicativo deve ser um implementação de referência para listar todos os projetos InnerSource de uma empresa de forma interativa e fácil de usar. 
+Este aplicativo deve ser um implementação de referência para listar todos os projetos InnerSource de uma empresa de forma interativa e fácil de usar.
 
 O arquivo innersource.json.contém um array de objetos. Cada objeto representa um projeto que você deseja exibir no portal.
 
@@ -778,11 +778,11 @@ Diariamente é gerado um arquivo com as informações dos repositórios que est�
   },
 ]
 
-Cada bloco no portal do projeto representa um projeto InnerSource. 
-A lista de projetos pode ser filtrada por linguagem de programação, classificada por vários KPIs e pesquisada usando uma palavra-chave. Os critérios de filtro e pesquisa são persistidos na URL para permitir o compartilhamento fácil de um subconjunto de projetos. 
+Cada bloco no portal do projeto representa um projeto InnerSource.
+A lista de projetos pode ser filtrada por linguagem de programação, classificada por vários KPIs e pesquisada usando uma palavra-chave. Os critérios de filtro e pesquisa são persistidos na URL para permitir o compartilhamento fácil de um subconjunto de projetos.
 
 As entradas no portal podem ser classificadas pelo Repository Activity Score.
- 
+
 Principais Funcionalidades:
 Formulário de Entrada de Dados:
 Uma tela simples onde os usuários podem inserir manualmente as informações constantes no innersource.json.
@@ -795,14 +795,14 @@ Geração de Relatório Mensal em PDF:
 O aplicativo cria um relatório em PDF com base nos dados do mês, incluindo um resumo das finanças, total de gastos por categoria, saldo final e gráficos de evolução. O PDF é estruturado com cabeçalhos, seções e uma formatação padrão para facilitar a leitura.
 I
 Bibliotecas para geração de PDF: Utilize bibliotecas como pdf-lib ou jsPDF em Node.js ou JavaScript para a criação do relatório.
- 
+
 
 
 
 Everyone bom|a dia|tarde|noite...
- 
+
 O que vocês acham? No dia 17/12/2024 o pessoal do Rio de Janeiro, almoçar em uma churrascaria estilo RioSul, com o objetivo de se conhecer pessoalmente e comemorar mais um ano...
- 
+
 Fica a dica. APENAS PARA LEMBRANÇA:
 
 09/12/2024    - Churrascaria Rio SUL - Luiz Izoton

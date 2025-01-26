@@ -13,4 +13,3 @@ jobs:
       uses: actions/checkout@v2
     - name: Run a script
       run: echo "Event of type ${GITHUB_EVENT_NAME}"
-

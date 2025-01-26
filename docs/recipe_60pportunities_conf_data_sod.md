@@ -10,7 +10,7 @@ A Governança de Identidade, permite que as organizações definam políticas, c
 * Gerencie a conformidade e corrija violações
 
 Entendendo Autorizações na Governança de Identidade
-Depende de autorizações para definir um conjunto fixo de permissões de acesso. 
+Depende de autorizações para definir um conjunto fixo de permissões de acesso.
 
 
 ## Definição de Papéis
@@ -22,7 +22,7 @@ Depende de autorizações para definir um conjunto fixo de permissões de acesso
 |                                  | Gera a documentação de auditoria necessária no final do ano para auditorias de SoD e revisões de acesso do usuário.  |
 | Segregation of Duties            | Verificação de que as políticas de negócios do SoD são refletidas com precisão nas definições de conflito do SoD Violations Manager, tornando o SoD VM mais confiável. |
 
-# Segregation of Duties 
+# Segregation of Duties
 
 | Área | Função                             |  Atividade                        | Motivação                                                                 |
 | ---- | ------                             |  ----------                       | ---------                                                                 |
@@ -32,9 +32,9 @@ Depende de autorizações para definir um conjunto fixo de permissões de acesso
 |      |                                    | Administração de sistema          |                                                                           |
 
 ## Controle de Acesso
-O controle de acesso autentica usuários verificando várias credenciais de login, incluindo nomes de usuários e senhas, PINs, varreduras biométricas e tokens de segurança. 
+O controle de acesso autentica usuários verificando várias credenciais de login, incluindo nomes de usuários e senhas, PINs, varreduras biométricas e tokens de segurança.
 
-| Definição    | Entenda                                                                                                           | 
+| Definição    | Entenda                                                                                                           |
 | ----         | ------                                                                                                            |
 | Autenticação | Processo de verificar a identidade de um usuário ou sistema antes de permitir o acesso a recursos ou informações. (Biométrica, detecção de vivacidadde,  autenticação baseada em conhecimento (geração de perguntas), Verificação de senha de uso único (SMS) e Senha ) |
 | Autorização  | Controle de acesso baseado em atributos (ABAC) para granularidade incomparável. Estabeleça políticas de acesso com base em atributos do usuário, condições ambientais e características de recursos. |
@@ -43,7 +43,7 @@ O controle de acesso autentica usuários verificando várias credenciais de logi
 # Controle de acesso em diferentes domínios
 
 | Definição                      | Entenda                             |
-| ----                           | ------                              |  
+| ----                           | ------                              |
 | Tecnologia da Informação (TI)  | Para proteger dados, redes e sistemas sensíveis. |
 | Segurança Física               | Restringe a entrada em instalações seguras, gerencia o acesso de visitantes e protege áreas sensíveis. |
 | Assistência Médica             | Privacidade do paciente e protege os registros eletrônicos de saúde (EHRs) na assistência médica. O pessoal autorizado pode acessar as informações do  paciente implementando medidas de controle de acesso, minimizando violações de dados e cumprindo os padrões da indústria e regulamentações de privacidade como HIPAA(Health  Insurance Portability and Accountability Act),  |
@@ -51,7 +51,7 @@ O controle de acesso autentica usuários verificando várias credenciais de logi
 
 
 ## Autorização
-A autorização é um lugar onde controlamos o acesso, decidindo o que uma pessoa pode ou não fazer. Abaixo estão os vários tipos de autorização: 
+A autorização é um lugar onde controlamos o acesso, decidindo o que uma pessoa pode ou não fazer. Abaixo estão os vários tipos de autorização:
 
 - [x] Controle de acesso baseado em função (RBAC): Atribui permissões a funções e os usuários são atribuídos a essas funções.
       - [x] Casos de uso: sistemas corporativos, onde as funções de trabalho determinam o acesso.
@@ -88,5 +88,3 @@ A autorização é um lugar onde controlamos o acesso, decidindo o que uma pesso
 - [x] Agosto Controle de acesso baseado em tarefas (TBAC): O acesso é concedido com base nas tarefas que o usuário precisa executar.
       - [x] Exemplo: Um usuário pode aprovar um documento somente se fizer parte da cadeia de tarefas de aprovação.
 ·
-
-

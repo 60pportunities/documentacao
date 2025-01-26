@@ -3,7 +3,7 @@ GitHub é uma plataforma popular para hospedagem e colaboração em projetos de 
 - [x] Acessando o Site: Primeiro, vá até o site do [GitHub](https://github.com).
 - [x] Criando uma Conta: Na página inicial, você verá um botão que diz "Sign up" (Inscrever-se). Clique nele para iniciar o processo de registro.
 - [x] Preenchendo os Dados: Você precisará fornecer algumas informações básicas:
-  
+
       - [x] Username (Nome de usuário): Escolha um nome de usuário que você gostaria de usar. Este será seu identificador no GitHub.
       - [x] Email: Insira um endereço de e-mail válido, pois você precisará confirmá-lo para ativar sua conta.
       - [x] Password (Senha): Crie uma senha forte para proteger sua conta.

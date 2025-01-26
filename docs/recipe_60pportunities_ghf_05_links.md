@@ -6,10 +6,3 @@
 - [x] [pesquisa](https://github.com/search)
 - [ ] https://github.com/freeCodeCamp/freeCodeCamp
 Orientações Git: https://github.com/git/git
-
-
-
-
-
-
-

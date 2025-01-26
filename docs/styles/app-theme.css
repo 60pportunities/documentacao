@@ -35,7 +35,7 @@
   /*background: linear-gradient(to right bottom, #f7fafc, #fff);*/
   background-color: #ffffff;
   border-collapse: collapse;
-  cursor: default; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+  cursor: default; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .pillarwrapper > div:first-of-type { margin-right:10px }
@@ -50,11 +50,11 @@
 
 .pillarcard {
 padding-bottom:0px;
-width:33vw;	
-}	
+width:33vw;
+}
 .pillarcard img {
 opacity: 0.8;
-transition: ease-in-out 200ms;	
+transition: ease-in-out 200ms;
 }
 .pillarcard:hover img {
 opacity: 1.0;
@@ -76,7 +76,7 @@ opacity: 1.0;
   height: 100%;
   transform-style: preserve-3d;
   transform: rotateY(-360deg) translateZ(-412px);
-  animation: swirl 80s steps(10000, end) infinite; 
+  animation: swirl 80s steps(10000, end) infinite;
 }
 
 .slide {
@@ -122,15 +122,15 @@ opacity: 1.0;
   transform: rotateY(320deg) translateZ(412px);
 }
 
-@keyframes swirl {   
+@keyframes swirl {
   from {
     transform: rotateY(-360deg);
   }
   to {
     transform: rotateY(0deg);
   }
-} 
-.md-typeset 
+}
+.md-typeset
 
 .progress-label {
     position: absolute;
@@ -142,13 +142,13 @@ opacity: 1.0;
     white-space: nowrap;
     overflow: hidden;
   }
-  
+
   .progress-bar {
     height: 1.2rem;
     float: left;
     background-color: #2979ff;
   }
-  
+
  .candystripe-animate .progress-bar {
     animation: animate-stripes 3s linear infinite;
  }
@@ -161,20 +161,20 @@ opacity: 1.0;
     background-color: #eeeeee;
     position: relative;
   }
-  
+
   .progress.thin {
     margin-top: 0.9rem;
     height: 0.4rem;
   }
-  
+
   .progress.thin .progress-label {
     margin-top: -0.4rem;
   }
-  
+
   .progress.thin .progress-bar {
     height: 0.4rem;
   }
-  
+
   .progress.candystripe .progress-bar {
     background-image: linear-gradient(135deg, var(--md-progress-stripe) 27%, transparent 27%, transparent 52%, var(--md-progress-stripe) 52%, var(--md-progress-stripe) 77%, transparent 77%, transparent);
     background-size: px2rem(40px) px2rem(40px);
@@ -183,7 +183,7 @@ opacity: 1.0;
  .progress.static.lightcyan .progress-bar {
     background-color:hsl(187deg 91% 47%);
   }
- 
+
   .progress.static.blue .progress-bar {
     background-color:#2979ff;
   }
@@ -228,7 +228,7 @@ opacity: 1.0;
     background-color:red;
   }
 
-  
+
   .progress.static.gray .progress-bar {
     background-color:gray;
   }
@@ -236,27 +236,27 @@ opacity: 1.0;
   .progress.static.grey .progress-bar {
     background-color: hsl(0deg 5% 89%);
   }
-  
+
   .progress-100plus .progress-bar {
     background-color: #00e676;
   }
-  
+
   .progress-80plus .progress-bar {
     background-color: #fbc02d;
   }
-  
+
   .progress-60plus .progress-bar {
     background-color: #ff9100;
   }
-  
+
   .progress-40plus .progress-bar {
     background-color: #ff5252;
   }
-  
+
   .progress-20plus .progress-bar {
     background-color: #ff1744;
   }
-  
+
   .progress-0plus .progress-bar {
     background-color: #f50057;
   }

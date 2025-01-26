@@ -7,18 +7,17 @@ jobs:
   job_05_wf_nada:
     name: job_05_wf_nada
     runs-on: ubuntu-latest
-    steps:  
+    steps:
       - name: Checkout Repository  # name: Custom name for the step
         uses: actions/checkout@v2  # uses: Use a pre-built action
-      
+
       - name: Set up Node.js  # name: Custom name for the step
         uses: actions/setup-node@v2  # action_name: Name of the action to use
         with:   # with: Input values for the action
           node-version: '14'
-      
+
       - name: Install Dependencies  # name: Custom name for the step
         run: npm install  # run: Execute a shell command within the step
-      
+
       - name: Run Tests  # name: Custom name for the step
         run: npm test  # command_to_execute: Shell command to be executed
-

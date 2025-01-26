@@ -28,13 +28,13 @@ jobs:
 
     - name: Set up GitHub token
       run: |
-        echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV   
-    
+        echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+
     - name: Configurar Git
       run: |
         git config --global user.name "HVasconcellos"
         git config --global user.email "horacio.vasconcellos@gmail.com"
-        
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -44,11 +44,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install flake8  mkdocs mike
-        
+
     - name: Install dependencies Requirements
       run: |
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi 
-          
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
     - name: Get latest tag
       id: get_tag
       run: |
@@ -65,8 +65,8 @@ jobs:
         committer_username: 'HVasconcellos'
         committer_email: 'horacio.vasconcellos@gmail.com'
         config_file: .github/changelogConfig.yml
-        github_token: ${{ secrets.GITHUB_TOKEN }}      
-        
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Deploy to GitHub Pages
       env:
         LASTTAG: $LAST_TAG

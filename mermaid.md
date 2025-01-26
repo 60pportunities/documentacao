@@ -22,5 +22,3 @@ mindmap
        TKS (Talks)
        MNT (Mentorias)
        BLG (Blogs)
-
-

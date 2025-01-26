@@ -15,8 +15,8 @@ Para começar a usar o GitHub, será necessário criar uma conta pessoal gratuit
 | [Pessoais](https://docs.github.com/pt/get-started/learning-about-github/types-of-github-accounts#user-accounts) | Todas as pessoas que utilizam o GitHub.com se conectam a uma conta pessoal (às vezes chamada de conta de usuário). como criar um problema ou revisar uma solicitação de pull, são atribuídas à sua conta pessoal. Cada conta pessoal utiliza o GitHub Free ou o GitHub Pro. GitHub Free, os repositórios privados pertencentes a sua conta pessoal terão um conjunto limitado de recursos. |
 |               | Conta pessoal usa o GitHub Free ou o GitHub Pro. Todas as contas pessoais podem ter um número ilimitado de repositórios públicos e privados, com um número ilimitado de colaboradores nesses repositórios. |
 | [Organização](https://docs.github.com/pt/get-started/learning-about-github/types-of-github-accounts#personal-accounts) | São contas compartilhadas em que um número ilimitado de pessoas pode colaborar em vários projetos uma vez. As organizações podem ser proprietárias de recursos como repositórios, pacotes e projetos. **Você não pode entrar em uma organização**. A pessoa toma sobre os recursos da organização são atribuídas à sua conta pessoal. Cada conta pessoal pode ser um integrante de múltiplas organizações. **Somente os proprietários da organização e os gerenciadores de segurança** podem gerenciar as configurações da organização e controlar o acesso aos dados da organização. |
-| [Corporativa](https://docs.github.com/pt/get-started/learning-about-github/types-of-github-accounts#-data-variablesenterpriseprodname_managed_users_caps-) | Permitem que os administradores gerenciem de forma **centralizada as políticas e a cobrança para várias organizações e habilitem o fornecimento interno entre suas organizações**. Uma conta corporativa deve ter um identificador, como uma organização ou conta de usuário no GitHub. Nas configurações da conta corporativa, **os proprietários da empresa podem convidar organizações existentes para ingressar em sua conta corporativa**, transferir organizações entre contas corporativas ou criar organizações.|     
-</div> 
+| [Corporativa](https://docs.github.com/pt/get-started/learning-about-github/types-of-github-accounts#-data-variablesenterpriseprodname_managed_users_caps-) | Permitem que os administradores gerenciem de forma **centralizada as políticas e a cobrança para várias organizações e habilitem o fornecimento interno entre suas organizações**. Uma conta corporativa deve ter um identificador, como uma organização ou conta de usuário no GitHub. Nas configurações da conta corporativa, **os proprietários da empresa podem convidar organizações existentes para ingressar em sua conta corporativa**, transferir organizações entre contas corporativas ou criar organizações.|
+</div>
 
 <div class="mdx-columns2" markdown>
 - [x] [Entenda Mais sobre Tipo de Conta](https://learn.microsoft.com/pt-br/training/modules/github-introduction-products/2-what-are-github-products)
@@ -24,7 +24,7 @@ Para começar a usar o GitHub, será necessário criar uma conta pessoal gratuit
 </div>
 
 ## Planos
-- [x] GitHub Free para contas pessoais e organizações: 
+- [x] GitHub Free para contas pessoais e organizações:
       - [ ] Conta de usuário pessoal. Uma conta de usuário pessoal inclui repositórios públicos e privados ilimitados e colaboradores ilimitados. Controles de acesso da equipe para gerenciamento de grupos;
 - [x] GitHub Pro para contas pessoais;
 - [x] GitHub para equipes (Team);
@@ -90,7 +90,7 @@ Para começar a usar o GitHub, será necessário criar uma conta pessoal gratuit
 | | Suporte Premium | Com o Premium, obtenha um SLA de 30 minutos em tickets urgentes e suporte 24 horas por dia, 7 dias por semana, pela web e por telefone, por meio de solicitação de retorno de chamada. Com o Premium Plus, obtenha tudo o que há no Premium, um engenheiro de confiabilidade do cliente designado e muito mais. Saiba mais sobre o Suporte Premium |
 
 ## Permissões de acesso no GitHub
-Uma permissão é a capacidade de executar uma ação específica. uma pessoa deve ter acesso suficiente à conta ou recurso relevante. 
+Uma permissão é a capacidade de executar uma ação específica. uma pessoa deve ter acesso suficiente à conta ou recurso relevante.
 
 | Tipo e Conta    | Entenda |
 | -----           | ----    |
@@ -103,7 +103,7 @@ Uma permissão é a capacidade de executar uma ação específica. uma pessoa de
 |                 |          |                                     | Repositorios |        |            |       | Issue/PR  |          |           |
 |----             | ----     | ----                                | ----         | -----  |  ----      | ----  | ----      | ----     | ----      |
 |                 |          | Limite                              | Ler          | Clonar | Enviar     | Confg | Abrir     | Comentar | Gerenciar |
-| Pessoais        |          | Usuario, Contribuinte e Colaborador |              |        |            |       |           |          |           |   
+| Pessoais        |          | Usuario, Contribuinte e Colaborador |              |        |            |       |           |          |           |
 | Organização     | Read     |                                     |  X           |    X   |            |       |   X       | X        |           |
 |                 | Triage   |                                     |  X           |    X   |            |       |   X       | X        |     X     |
 |                 | Write    |                                     |  X           |    X   |  X         |       |   X       | X        |     X     |
@@ -148,7 +148,7 @@ Uma permissão é a capacidade de executar uma ação específica. uma pessoa de
 |               |  50,000 GitHub Actions minutes per month                     |                                                           |
 |               |  Included minutes can be used with standard GitHub-hosted runners only. |                                                |
 |               |  50 GB GitHub Packages storage                               |                                                           |
-|               |  A service level agreement for 99.9% monthly uptime               |                                                      |  
+|               |  A service level agreement for 99.9% monthly uptime               |                                                      |
 
 
 <div class="center-table" markdown>
@@ -161,7 +161,7 @@ mindmap
          (GitHub Free)
             Actions - 2.000 minutos/mes
             Armazenamento - 500 MB
-            Codespaces 
+            Codespaces
                120hs/mês
                15GB/mês
             Funcionalidades
@@ -179,7 +179,7 @@ mindmap
               Wikis
               Gráficos de insights
               Revisores PR
-              Ramos protegidos            
+              Ramos protegidos
       (Contas Usuários Gerenciadas)
          (Por uma empresa no GitHub Enterprise Cloud)
     (Contas da Organização)
@@ -196,9 +196,9 @@ mindmap
             (GitHub Team)
             Actions - 50.000 minutos/mês
             Armazenamento - 50GB
-            SLA - 99,9%            
+            SLA - 99,9%
         (GitHub Enterprise Server</br>Self-hosted)
-            (GitHub Team)        
+            (GitHub Team)
 ```
 </div>
 
@@ -233,7 +233,7 @@ Existem três tipos de contas do GitHub: Pessoal, Organizacional, Empresarial
 | Dependabot alerts                                   | GitHub Support via email                   |
 | Deployment protection rules for public repositories | 3,000 GitHub Actions minutes per month     |
 | Two-factor authentication enforcement               | 2 GB GitHub Packages storage               |
-| 500 MB GitHub Packages storage                      | 180 GitHub Codespaces core hours per month | 
+| 500 MB GitHub Packages storage                      | 180 GitHub Codespaces core hours per month |
 | 120 GitHub Codespaces core hours per month          | 20 GB GitHub Codespaces storage per month  |
 | 15 GB GitHub Codespaces storage per month           | Advanced tools and insights in private repositories: |
 | GitHub Actions features:                            | Required pull request reviewers            |
@@ -269,7 +269,7 @@ Github Organizations has three plans: Free, Teams and *Enterprise*.
 
 ## GitHub Enterprise Deployments Options
 
-- [x] GitHub Enterprise includes two deployment options GitHub Enterprise Cloud (hosted on GitHub.com) 
+- [x] GitHub Enterprise includes two deployment options GitHub Enterprise Cloud (hosted on GitHub.com)
 - [x] GitHub Enterprise Server (self-hosted)
 
 | GitHub Enterprise (both Cloud and Server)   | GitHub Enterprise Cloud (specific features) |

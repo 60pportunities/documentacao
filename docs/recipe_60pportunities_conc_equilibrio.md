@@ -5,7 +5,7 @@ Conforme descrito pelo Rockwood Leadership Institute , envolve :
 - [x] **“Manter equilíbrio, ritmo e eficiência para sustentar nossa energia ao longo da vida”**.
 - [x] **"Eu não conseguia me concentrar ou começar uma tarefa. Eu tinha falta de empatia pelos usuários".**
 - [x] Identifique suas motivações: Entender suas motivações pode ajudar a priorizar o trabalho de uma forma que o mantenha engajado e pronto para novos desafios.
-- [x] Reflita sobre o que faz você ficar desequilibrado e estressado: 
+- [x] Reflita sobre o que faz você ficar desequilibrado e estressado:
       - [x] Falta de feedback positivo?
       - [x] Não dizer 'não';
       - [x] Trabalhando sozinho;
@@ -46,7 +46,7 @@ Esses arquivos geralmente são listados no nível superior de um repositório.
 - [x] **Outra documentação**: Pode haver documentação adicional, como tutoriais, orientações ou políticas de governança e etc.
 
 ### Discussões
-- [x] **Solicitações de pull**: Onde as pessoas discutem e revisam alterações que estão em andamento, seja para melhorar a linha de código de um colaborador, o uso da gramática, o uso de imagens, etc. 
+- [x] **Solicitações de pull**: Onde as pessoas discutem e revisam alterações que estão em andamento, seja para melhorar a linha de código de um colaborador, o uso da gramática, o uso de imagens, etc.
 - [x] **Fóruns de discussão ou listas de discussão**: Podem usar esses canais para tópicos de conversação (por exemplo, "Como eu…" ou "O que você acha sobre…" em vez de relatórios de bugs ou solicitações de recursos).
 - [x] **Canal de bate-papo síncrono**:  Slack ou Teams.
 ### Analise o Projeto
@@ -67,8 +67,8 @@ Esses arquivos geralmente são listados no nível superior de um repositório.
 Não importa se você é um colaborador ou está tentando ingressar em uma comunidade: "trabalhar com outras pessoas é uma das habilidades mais importantes que você desenvolverá no código aberto".
 
 - [x] Dê contexto: Ajude outros a se atualizarem rapidamente.
-- [x] Faça sua lição de casa antes: Antes de pedir ajuda, certifique-se de verificar o README, a documentação, os problemas (abertos ou fechados), a lista de discussão de um projeto e pesquise na internet por uma resposta. 
-- [x] Mantenha as solicitações curtas e diretas. 
+- [x] Faça sua lição de casa antes: Antes de pedir ajuda, certifique-se de verificar o README, a documentação, os problemas (abertos ou fechados), a lista de discussão de um projeto e pesquise na internet por uma resposta.
+- [x] Mantenha as solicitações curtas e diretas.
 - [x] Não tem problema fazer perguntas (mas seja paciente!).
 - [x] Acima de tudo, mantenha a classe.
 
@@ -86,10 +86,10 @@ Não importa se você é um colaborador ou está tentando ingressar em uma comun
 - [x] Sair de apresentações solo para um concerto harmonizado;
 - [x] Reuniões e discussões devem engrandecer assistência e a cooperação;
 - [x] Talvez esta mudança de paradigma do "eu" para o "nós" possa revolucionar a cultura de trabalho, tornando-a mais inclusiva, solidária e bem-sucedida.
- 
+
 ### Como preconizado no Scrum
 - [x] A formação de times e organizações multifuncionais e de alto desempenho, onde pessoas de várias funções, conhecimentos se envolvem umas com as outras em um espírito de ajuda e cooperação, ou seja, quando fomentamos o sucesso uns dos outros, inadvertidamente lançamos as bases para o nosso próprio sucesso.
-### Como gostamos de fluxos, podemos: 
+### Como gostamos de fluxos, podemos:
 - [x] **Objetivo**: Promover uma cultura proativa e cooperativa pela a união da equipe, aumente a produtividade e impulsione o sucesso coletivo na organização.
 - [x] **Identificar a necessidade**: Incentive discussões abertas e comunicação transparente dentro da equipe para entender melhor as funções e os desafios de cada um.
 - [x] **Ofereça ajuda**: Ofereça sua experiência, tempo e recursos para ajudar a resolver o problema ou superar o obstáculo.

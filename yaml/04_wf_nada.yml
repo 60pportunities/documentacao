@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   job_04_wf_nada:   # job_name: Unique name for the job
-    name: job_04_wf_nada 
+    name: job_04_wf_nada
     runs-on: ubuntu-latest  # Target runner type
 
     steps:  # List of steps to be executed within the job

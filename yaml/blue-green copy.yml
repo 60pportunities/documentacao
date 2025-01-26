@@ -14,7 +14,7 @@ env:
   ACR_NAME: pocregostryb3.azurecr.io
   RESOURCE_GROUP: poc-b3-2
   AKS_CLUSTER_NAME: poc-cluster-b3
-  
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -45,7 +45,7 @@ jobs:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
           cluster-name: ${{ env.AKS_CLUSTER_NAME }}
           resource-group: ${{ env.RESOURCE_GROUP }}
-      
+
       - uses: Azure/k8s-deploy@v3.1
         with:
           images: 'pocregostryb3.azurecr.io/k8sdemo:${{ github.sha }}'
@@ -55,7 +55,7 @@ jobs:
           strategy: blue-green
           action: deploy
           route-method: ingress # substitute with service/smi as per need
-          #version-switch-buffer: 15          
+          #version-switch-buffer: 15
 
   approveapp:
     runs-on: ubuntu-latest
@@ -86,7 +86,7 @@ jobs:
               ./kubernetes/blue-deploy.yaml
           strategy: blue-green
           action: promote
-          route-method: ingress 
+          route-method: ingress
 
       - uses: Azure/k8s-deploy@v3.1
         if: ${{ failure() }}
@@ -97,5 +97,4 @@ jobs:
               ./kubernetes/blue-deploy.yaml
           strategy: blue-green
           action: reject
-          route-method: ingress 
-          
+          route-method: ingress

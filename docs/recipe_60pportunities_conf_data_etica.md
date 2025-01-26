@@ -1,6 +1,6 @@
 A Governança de Dados é o processo organizacional responsável por estabelecer políticas, processos e diretrizes em uma empresa, a partir de dados coletados.
 
-A integridade de dados é uma característica essencial da segurança da informação que garante a confiabilidade e consistência das informações ao longo do seu ciclo de vida útil, para não sofrerem alterações não autorizadas ou até impróprias.  
+A integridade de dados é uma característica essencial da segurança da informação que garante a confiabilidade e consistência das informações ao longo do seu ciclo de vida útil, para não sofrerem alterações não autorizadas ou até impróprias.
 
 Existem alguns fatores que podem afetar a integridade, sendo os mais comuns são erros humanos, transferência, bugs ou hardware comprometido.
 
@@ -8,14 +8,14 @@ Existem alguns fatores que podem afetar a integridade, sendo os mais comuns são
 
 ## Itens
 - [x] Definição do Padrão Descritivo de Materiais e Serviços;
-- [x] Enriquecimento de Informações 
+- [x] Enriquecimento de Informações
 - [x] Tradução Técnica
-- [x] Compliance Fiscal: 
+- [x] Compliance Fiscal:
 - [x] Remoção de itens duplicados: Dados duplicados e irrelevantes podem ser criados e acumulados de diversas formas em seu banco de dados. Removê-las é uma das boas práticas de higienização de dados.
-- [x] Arrume erros de estrutura: 
+- [x] Arrume erros de estrutura:
 - [x] Padronize: Deve-se padronizar a estrutura. Assim, é possível reduzir a quantidade de falhas e identificar com mais facilidade informações digitadas incorretamente.
 - [x] Lide com dados ausentes: Inicialmente é preciso sinalizar ao banco de dados que há informações ausentes para reduzir a gravidade das consequências. Em seguida, o ideal é descobrir ou coletar os dados faltantes para adicioná-los na base.
-- [x] Remova outliers indesejados: Outliers são dados discrepantes em relação às outras informações da base, por isso, também são chamados de “pontos fora da curva”. 
+- [x] Remova outliers indesejados: Outliers são dados discrepantes em relação às outras informações da base, por isso, também são chamados de “pontos fora da curva”.
 
 Mapear os dados de uma organização requer uma compreensão profunda do cenário do sistema e do processo de manutenção dos dados. O mapeamento de dados abrange:
 
@@ -38,8 +38,8 @@ Bons padrões de dados estão no centro de uma solução MDM que funciona perfei
 
 ## Revolução Industrial
 ![](img/revolucaoindustrial.png){width="600" height="450" style="display: block; margin: 0 auto" }
- 
-Pesquisadores estimam a quantidade de informação existente no mundo -  16/02/2011 às 09:26 - 
+
+Pesquisadores estimam a quantidade de informação existente no mundo -  16/02/2011 às 09:26 -
 Produzida entre os anos de 1986 e 2007, chegando à soma estratosférica de 296 exabytes.
 
 
@@ -48,7 +48,7 @@ Produzida entre os anos de 1986 e 2007, chegando à soma estratosférica de 296 
 | --------                      | -------------     | ------ |
 | Primeira  | Novas relações de trabalho, energia produzida pelo homem por energias como a vapor, eólica e hidráulica; | Mecanização |
 | Segunda   | Aumentaram ainda mais a produtividade e, consequentemente, os lucros das indústrias, Uso do petróleo como fonte de energia, utilizado na nova invenção: o motor à combustão, eletricidade. | Escalação  |
-| Terceira  | Desenvolvimento de infraestrutura das telecomunicações e transporte; integração entre economia e política; | Automatização | 
+| Terceira  | Desenvolvimento de infraestrutura das telecomunicações e transporte; integração entre economia e política; | Automatização |
 | Quarta    | Tecnologias para automação e troca de dados – ela se caracteriza, por um conjunto de tecnologias que permitem a fusão do mundo físico, digital e biológico. | Personalizando a Produção |
 
 ![](img/historicorevolucaoindustrial.png){width="600" height="450" style="display: block; margin: 0 auto" }
@@ -57,7 +57,7 @@ Produzida entre os anos de 1986 e 2007, chegando à soma estratosférica de 296 
 
 # Cybersecurity & Data Privacy and Legal Ops & Legal Analytics
 ## Dado é o novo Petróleo
-Toda empresa é uma empresa de dados.. 
+Toda empresa é uma empresa de dados..
 Um dos maiores desafios no caso do Petróleo, é localizar as boas reservas naturais que são subterrâneas, com dados é diferente, o desafio é qualificar e cruzar informações criando visões de cenários específicos para a realidade das empresas, a partir de uma grande massa de dados disponível através da utilização de sistemas de gestão empresarial.
 
 - [x] A famosa frase do matemático britânico Clive Humby: "Dados são o novo petróleo" (Data is the new oil).
@@ -65,14 +65,14 @@ Um dos maiores desafios no caso do Petróleo, é localizar as boas reservas natu
       - [x] Podemos lembrar do Pré-sal
 - [x]  A publicação da The Economist: "O recurso mais valioso do mundo não é mais o petróleo, mas dados" (The world’s most valuable resource is no longer oil, but data) tem sido muito citadas pelo mercado e executivos mundo afora, apontando que aqueles que possuírem dados terão um recurso muito valioso e mãos.
 
-Porem cada vez menos empresas consideraram sistematicamente e começaram a abordar os aspectos éticos do gerenciamento de dados, o que pode ter amplas ramificações e responsabilidades. 
+Porem cada vez menos empresas consideraram sistematicamente e começaram a abordar os aspectos éticos do gerenciamento de dados, o que pode ter amplas ramificações e responsabilidades.
 
 - [x] Como as empresas devem começar a pensar sobre gerenciamento ético de dados?
 - [x] Quais medidas elas podem colocar em prática para garantir que estejam usando dados de consumidores, pacientes, RH, instalações e outras formas de dados apropriadamente em toda a cadeia de valor — da coleta à análise e insights?
 - [x] Embora considerações de privacidade e ética sejam essenciais sempre que as empresas usam dados (incluindo aplicativos de inteligência artificial e aprendizado de máquina), elas geralmente não são a principal preocupação de alguns executivos.
-- [x] Há bastante dados distorcidos ou tendenciosos durante a ingestão de dados. 
+- [x] Há bastante dados distorcidos ou tendenciosos durante a ingestão de dados.
 - [X] Apenas 17% disseram que suas empresas têm um comitê de governança de dados dedicado que inclui profissionais de risco e jurídicos.
-- 
+-
 | Definição   | Entenda |
 | -----       | ------  |
 | Upstream    | Atividades de busca, identificação e localização das fontes de óleo, e ainda o transporte deste óleo extraído até as refinarias, onde será processado. Resumindo, são as atividades de exploração, perfuração e produção. | Coleta e geração de dados. Isso inclui a captura de dados de várias fontes, como sensores, dispositivos IoT, transações de clientes, redes sociais, etc. |
@@ -100,7 +100,7 @@ Porem cada vez menos empresas consideraram sistematicamente e começaram a abord
 - [x] Combustível é refinado - O petróleo é o DADO.. A informação é o COMBUSTÍVEL;
 
 ### Ética de Dados
-Podemos definir como práticas relacionadas a dados que buscam preservar a confiança de usuários,funcionários/colaboradores e clientes, bem como abrange as obrigações morais de coletar, proteger. 
+Podemos definir como práticas relacionadas a dados que buscam preservar a confiança de usuários,funcionários/colaboradores e clientes, bem como abrange as obrigações morais de coletar, proteger.
 
 A ética é domínio de **todos**, não apenas o pessoal da TI ou de equipes jurídicas e de conformidade Os funcionários de toda a organização precisarão levantar, responder e pensar em várias questões éticas envolvendo dados.
 
@@ -109,7 +109,7 @@ A ética é domínio de **todos**, não apenas o pessoal da TI ou de equipes jur
 ### De onde vieram os dados?
 - [x] Este fornecedor pode garantir que os sujeitos dos dados deram seu consentimento informado para uso por terceiros?
 - [x] Devemos criar uma estrutura de uso de dados que reflita uma visão e missão compartilhadas para o uso de dados pela instituição.
-- [ ] Depois de estabelecer regras comuns de uso de dados, é importante comunicá-las efetivamente dentro e fora da organização. 
+- [ ] Depois de estabelecer regras comuns de uso de dados, é importante comunicá-las efetivamente dentro e fora da organização.
 - [ ] Podemos nos concentrar em transparência e protocolos opt-in/opt-out.
 - [ ] Devem ter uma variedade de gêneros, raças, etnias, classes e assim por diante: uma organização terá mais probabilidade de identificar problemas logo no início quando pessoas com uma variedade de origens e experiências diferentes se sentam ao redor da mesa.
 - [ ] Uma coisa é definir o que constitui o uso ético de dados e definir regras de uso de dados; outra é integrar essas regras às operações em toda a organização.
@@ -118,18 +118,18 @@ A ética é domínio de **todos**, não apenas o pessoal da TI ou de equipes jur
 
 | Princípio         | Descrição |
 |  -----            | ------    |
-| Propriedade       | Um indivíduo tem propriedade sobre suas informações pessoais é ilegal e antiético coletar dados pessoais de alguém sem seu consentimento. | 
+| Propriedade       | Um indivíduo tem propriedade sobre suas informações pessoais é ilegal e antiético coletar dados pessoais de alguém sem seu consentimento. |
 | Transparência     | Titulares dos dados têm o direito de saber como você planeja coletá-las, armazená-las e usá-las. Ao coletar dados, exercite a transparência. |
 | Privacidade       | Garantir a privacidade dos titulares dos dados. Os informações pessoalmente identificáveis ​​(PII) deve estar declarada e declaradas. |
 | Intenção          | As intenções importam, por isso, antes de coletar dados, pergunte a si mesmo por que você precisa deles, o que você ganhará com eles e quais mudanças você poderá fazer após a análise. |
 | Resultados        | Quando as intenções são boas, o resultado da análise de dados pode causar danos inadvertidos a indivíduos ou grupos de pessoas. |
 
 Data Streaming and Retrieval-Augmented Generation (RAG) for Generative AI
-        HIPAA (Healthcare Information Portability and Accountability Act) 
+        HIPAA (Healthcare Information Portability and Accountability Act)
 and the PCI DSS (Payment Card Industry Data Security Standard),
 
 ETL significa Extrair, Transformar e Carregar
-ELT significa Extrair, Carregar e Transformar. 
+ELT significa Extrair, Carregar e Transformar.
 ETLT significa Extrair, Transformar, Carregar e Transformar.
 
 ## Governança de IA
@@ -137,20 +137,20 @@ Nesse contexto, tanto a regulamentação europeia (EU AI Act) quanto o Projeto d
 
 O objetivo vai além de simplesmente garantir o cumprimento das leis: trata-se de alinhar a IA aos valores da organização, promovendo uma cultura de responsabilidade no uso desses sistemas.
 
-- [x] A ética, nesse contexto, é indispensável, abrangendo desde a análise crítica dos resultados gerados pela IA até o combate a vieses que possam estar incorporados nos algoritmos. 
+- [x] A ética, nesse contexto, é indispensável, abrangendo desde a análise crítica dos resultados gerados pela IA até o combate a vieses que possam estar incorporados nos algoritmos.
 - [x] A transparência, mesmo que a empresa não seja responsável pelo desenvolvimento dos sistemas de IA que utiliza, é imperativo que seus operadores compreendam como essas ferramentas funcionam e como devem ser utilizadas de maneira adequada.
-- [x] A segurança dos sistemas de IA é igualmente crucial os dados inseridos nesses sistemas podem afetar diretamente a segurança da informação, expondo segredos comerciais, informações financeiras e outros dados sensíveis. 
+- [x] A segurança dos sistemas de IA é igualmente crucial os dados inseridos nesses sistemas podem afetar diretamente a segurança da informação, expondo segredos comerciais, informações financeiras e outros dados sensíveis.
 - [x] A privacidade é um princípio essencial da governança de IA, especialmente quando o uso da tecnologia envolve dados pessoais de clientes, colaboradores ou parceiros.
 
-### Estrutura Programa de Governança de IA 
-Organização: Compor uma área por representantes das áreas de privacidade, compliance, segurança da informação, TI, desenvolvimento e inovação. 
+### Estrutura Programa de Governança de IA
+Organização: Compor uma área por representantes das áreas de privacidade, compliance, segurança da informação, TI, desenvolvimento e inovação.
 Diagnóstico: É mapear o uso de IA na empresa e identificar possíveis lacunas ou riscos. O resultado dessa fase é um relatório detalhado, que lista os gaps identificados, como a ausência de políticas adequadas, o uso de dados sem autorização ou a falta de explicabilidade nos modelos de IA.
-Adequação: é essencial garantir que os sistemas adquiridos estejam em conformidade com as normas vigentes e não apresentem riscos para a organização. 
+Adequação: é essencial garantir que os sistemas adquiridos estejam em conformidade com as normas vigentes e não apresentem riscos para a organização.
 Melhoria contínua: Envolve a revisão periódica das políticas e práticas, além da implementação de ações corretivas ou preventivas sempre que necessário.
-      
+
 **Precisamos parar um minuto e pensar em como essa arquitetura terá sucesso quando tantas outras estratégias de dados caras e bem pensadas, como o warehouse e o lake, falharam?**
 
-O termo Data Lake (DL) surgiu em 2011 do fornecedor de dados Pentaho (agora Hitachi) como uma forma de reduzir silos de dados que estavam se formando em ecossistemas baseados em Data Warehouse. 
+O termo Data Lake (DL) surgiu em 2011 do fornecedor de dados Pentaho (agora Hitachi) como uma forma de reduzir silos de dados que estavam se formando em ecossistemas baseados em Data Warehouse.
 
 ## Arquitetura Orientada a Domínio Distribuído, Design de Plataforma de Autoatendimento e Pensamento de Produto com Dados.
 
@@ -166,7 +166,7 @@ Plataformas de dados baseadas na arquitetura de data lake têm modos de falha co
 
 |  	              | Data lake 	                                                     | Data warehouse                                                 |  Data lakehouse  |
 | -----------     | ----------                                                       | --------                                                       |  ------------    |
-| Tipo 	          | Estruturado, semiestruturado, não estruturado                    | Estruturado                                                    | Estruturado, semiestruturado, não estruturado | 
+| Tipo 	          | Estruturado, semiestruturado, não estruturado                    | Estruturado                                                    | Estruturado, semiestruturado, não estruturado |
 |   	            | Relacional, não relacional 	                                     | Relacional                                                     | Relacional, não relacional |
 | Esquema         | Esquema na leitura 	                                             | Esquema na gravação                                            | Esquema na leitura, esquema na gravação  |
 | Formato         | Brutos, não filtrados 	                                         | Processado, examinado                                          |  Arquivos de formato delta brutos, não filtrados, processados, coletados  |
@@ -186,7 +186,7 @@ Para habilitar a virtualização/federação de dados, existem produtos de softw
 
 ![](img/data_mesh_001.png)
 
-# DMP (Data Management Platform) 
+# DMP (Data Management Platform)
 Uma plataforma de dados, é um sistema que permite coletar, armazenar, processar e analisar grandes volumes de dados de diferentes fontes e formatos.
 
 Nos processos legados, os dados estavam sendo orientados a aplicação, gerando replicação, ausencia de donos, padrão.
@@ -215,27 +215,27 @@ Algumas das tendências em tecnologias que elevaram a necessidade de uma data me
 - [x] As abelhas não perdem tempo explicando as moscas que mel é melhor do que merda.
 - [x] Ninguem questiona o preço, quando entende o valor.
 
-Em 2019, Zhamak Dehghani definia o conceito de data mesh, uma nova abordagem que visa descentralizar a arquitetura de dados, dando a responsabilidade para as áreas corporativas organizadas por domínios. 
+Em 2019, Zhamak Dehghani definia o conceito de data mesh, uma nova abordagem que visa descentralizar a arquitetura de dados, dando a responsabilidade para as áreas corporativas organizadas por domínios.
 
 Queremos mudar o resultado, sem mudar a materia prima. (O DADO)
 
-- [x] Quem se preocupa com o Metadados? 
-- [x] Orientação por domínio, plataforma de dados (democratização), governança federada, 
+- [x] Quem se preocupa com o Metadados?
+- [x] Orientação por domínio, plataforma de dados (democratização), governança federada,
 - [x] Trazer o pessoal de dados para o Desenvolvimento para os PO.
 - [x] Tecnologia tem que ser regras MACROS.. Regras de Convívio.
 - [x] Não somos uma google, m$ ou oracle.
 
 ## Lei de Conway
-A forma como uma empresa é organizada – seus processos, sua comunicação, e sua divisão de equipes – influencia diretamente a arquitetura do software produzido. 
+A forma como uma empresa é organizada – seus processos, sua comunicação, e sua divisão de equipes – influencia diretamente a arquitetura do software produzido.
 
 ## Leis de Lehman
-Formuladas na década de 70 pelos professores Meir Lehman e László Bélády, é uma série de princípios que ajudam a entender a evolução de sistemas de software.  Entre as oito leis de Lehman, duas são particularmente cruciais: a lei da “Mudança Contínua” e a lei da “Complexidade Crescente”. 
+Formuladas na década de 70 pelos professores Meir Lehman e László Bélády, é uma série de princípios que ajudam a entender a evolução de sistemas de software.  Entre as oito leis de Lehman, duas são particularmente cruciais: a lei da “Mudança Contínua” e a lei da “Complexidade Crescente”.
 
 ### Lei da Mudança Contínua
-Um sistema de software precisa ser constantemente adaptado para se manter relevante e satisfatório.  
+Um sistema de software precisa ser constantemente adaptado para se manter relevante e satisfatório.
 
-### Lei da Complexidade Crescente 
-À medida que o software é adaptado e expande suas funcionalidades, ele se torna internamente mais complexo.  
+### Lei da Complexidade Crescente
+À medida que o software é adaptado e expande suas funcionalidades, ele se torna internamente mais complexo.
 
 ## Estágios de desenvolvimento de grupo de Tuckman
 * Formação: Os membros da equipe primeiro se reúnem, aprendem suas funções e responsabilidades e são cautelosos com seu comportamento enquanto tentam se integrar ao grupo.
@@ -251,12 +251,12 @@ Um sistema de software precisa ser constantemente adaptado para se manter releva
 - [x] Dados foram negligenciados...
 - [x] Esse paradoxo parte da ideia de que a liberdade total leva a supressão do fraco pelo forte.
 - [x] Se você tem muita liberdade de escolha, você pode até parar.
-- [x] O ser humano seria muito mais produtivo se aprendesse a lidar com este paradoxo. 
-- [x] Isso pode ser desanimador para alguns, mas há liberdade em fazer o que precisa ser feito. 
-- [x] Isso vale para todas as áreas da vida, mas principalmente na área profissional. 
+- [x] O ser humano seria muito mais produtivo se aprendesse a lidar com este paradoxo.
+- [x] Isso pode ser desanimador para alguns, mas há liberdade em fazer o que precisa ser feito.
+- [x] Isso vale para todas as áreas da vida, mas principalmente na área profissional.
 - [x] Só alcança uma Carreira Meteórica quem cumpre com seus deveres.
-- [x] Ter uma Carreira Meteórica significa ter uma boa empregabilidade, trocar de emprego sempre que achar necessário e estar em constante crescimento. 
-- [x] Sempre focado no produto. 
+- [x] Ter uma Carreira Meteórica significa ter uma boa empregabilidade, trocar de emprego sempre que achar necessário e estar em constante crescimento.
+- [x] Sempre focado no produto.
 - [x] O proprio Lean fala em disperdício  (Os dados são o novo petróleo - o Dado é a materia Prima da 4 Revolução Industrial)
       - [x] Ciencia de Dados
       - [x] Inteligencia Artificial
@@ -273,7 +273,7 @@ Um sistema de software precisa ser constantemente adaptado para se manter releva
 - [x] Data Mesh é uma mudança de paradigma que surgiu como uma necessidade dos “campos” do mundo real de data lakes/plataformas monolíticos. É um padrão organizacional e arquitetônico que alavanca o design orientado a domínio, que é a capacidade de projetar domínios de dados que são muito mais orientados a negócios em vez de serem orientados a tecnologia . Podemos ver essa mudança de paradigma em dados como análoga a quando os serviços da web monolíticos fizeram a transição para microsserviços projetados orientados a domínio.
 
 # Modernização de dados com propósito estratégico
-“Modernizando dados com propósito estratégico” é um relatório do MIT Technology Review Insights patrocinado pela Thoughtworks. Os dados se tornaram um componente cada vez mais crítico para o sucesso dos negócios. 
+“Modernizando dados com propósito estratégico” é um relatório do MIT Technology Review Insights patrocinado pela Thoughtworks. Os dados se tornaram um componente cada vez mais crítico para o sucesso dos negócios.
 
 Com todos esses elementos implementados, as organizações podem garantir que serão sempre capazes de gerar valor a partir dos dados com velocidade e escala, independentemente da evolução dos seus requisitos de governança e demandas de dados.
 
@@ -308,14 +308,14 @@ Com todos esses elementos implementados, as organizações podem garantir que se
 ## Prevenção de Perda de Dados (DLP Data Loss Prevention)
 As organizações hoje criam, coletam, armazenam e trocam enormes quantidades de informações. Proteger dados regulamentados e críticos para os negócios, como registros de clientes, informações financeiras e propriedade intelectual, é essencial para o sucesso de toda a organização.
 
-No entanto, é importante entender que DLP é um processo, não uma tecnologia que pode ser implantada para resolver instantaneamente seus problemas de segurança de dados. 
+No entanto, é importante entender que DLP é um processo, não uma tecnologia que pode ser implantada para resolver instantaneamente seus problemas de segurança de dados.
 
 O DLP ajuda as organizações a identificar e mitigar riscos relacionados a informações, garantindo que informações confidenciais sejam identificadas e controles adequados aos riscos sejam implantados, com impacto mínimo nos processos de negócios.
 
 Em vez disso, especialistas em segurança recomendam uma mentalidade de “assumir violação”: aceite que sua rede será inevitavelmente violada de fora e atacada de dentro, então você deve construir uma estratégia de defesa em camadas que ajude você a minimizar sua superfície de ataque e detectar comportamento suspeito a tempo de responder efetivamente.
 
 ## Personally-Identifiable Information ou Intellectual Property
-Com a quantidade e a variedade de dados explodindo ao redor do mundo, as organizações estão enfrentando uma proliferação de dados sem precedentes — os dados são armazenados em cada canto e fenda da infraestrutura de TI empresarial, e ninguém sabe quais arquivos contêm informações de identificação pessoal (PII), informações sobre projetos específicos, propriedade intelectual (IP) ou outro conteúdo valioso ou regulamentado. 
+Com a quantidade e a variedade de dados explodindo ao redor do mundo, as organizações estão enfrentando uma proliferação de dados sem precedentes — os dados são armazenados em cada canto e fenda da infraestrutura de TI empresarial, e ninguém sabe quais arquivos contêm informações de identificação pessoal (PII), informações sobre projetos específicos, propriedade intelectual (IP) ou outro conteúdo valioso ou regulamentado.
 
 Como resultado, elas lutam para proteger as informações adequadamente, cumprir legislações, eliminar dados duplicados e redundantes e capacitar os colaboradores a encontrar o conteúdo de que precisam para fazer seus trabalhos.
 
@@ -328,13 +328,13 @@ para remediar esses riscos. | Garanta que você possa descobrir prontamente ativ
 dos negócios e garantir a integridade, disponibilidade e confidencialidade dos dados. |
 
 * Qual é sua estratégia de segurança de dados?
-* Quais dados a organização tem e quem os possui? 
-* Onde residem dados sensíveis e outros dados valiosos? 
+* Quais dados a organização tem e quem os possui?
+* Onde residem dados sensíveis e outros dados valiosos?
 * Quem tem acesso a quais dados?
 
 Sem respostas a essas perguntas, uma solução DLP não pode interpretar incidentes de forma eficaz e responder apropriadamente bloqueando transferências de dados impróprias, criptografando fluxos de dados confidenciais ou notificando administradores de segurança sobre prováveis tentativas de exfiltração.
 
-É impossível e desnecessário proteger todos os dados da mesma forma, então o primeiro passo na prevenção de perda de dados é inventariar e classificar os dados em todos os seus silos de dados, incluindo dados estruturados e não estruturados, estejam eles no local ou na nuvem. 
+É impossível e desnecessário proteger todos os dados da mesma forma, então o primeiro passo na prevenção de perda de dados é inventariar e classificar os dados em todos os seus silos de dados, incluindo dados estruturados e não estruturados, estejam eles no local ou na nuvem.
 
 As organizações precisam estar constantemente atentas a informações confidenciais que são expostas a um grande número de usuários sem necessidade comercial ou que são armazenadas em um local inseguro, para que possam remediar esses riscos imediatamente.
 
@@ -350,20 +350,20 @@ As organizações precisam estar constantemente atentas a informações confiden
 | Tipo            | Exemplo                                                    |
 | -----           | ----------                                                 |
 | Cliente         | Dados do Cliente                                           |
-| Financeiro      | Grupos contábeis, Ativos, Hierarquias de contas            | 
+| Financeiro      | Grupos contábeis, Ativos, Hierarquias de contas            |
 | Governança      | Dados que dão suporte à privacidade, Regulamentações       |
 | Instituição     | Dados da Instituição, estruturação                         |
-| Funcionários    | Dados sobre o funcionário   , salários, funções e hierarquia. |      
+| Funcionários    | Dados sobre o funcionário   , salários, funções e hierarquia. |
 | Produto         | Descrições de produtos, Part-Number e etc.                 |
 
-- [ ] Dados de Referência (Reference Data): São um conjunto de valores ou esquemas de classificação que servem de apoio a um dado mestre. 
+- [ ] Dados de Referência (Reference Data): São um conjunto de valores ou esquemas de classificação que servem de apoio a um dado mestre.
 
-      - [ ] Dados de referência externos: APIs conectam os dados de referência a autoridades regulatórias externas, como agências governamentais ou conversores de moeda. Os dados recebidos são classificados e selecionados para se alinharem com os dados mestres estabelecidos. 
+      - [ ] Dados de referência externos: APIs conectam os dados de referência a autoridades regulatórias externas, como agências governamentais ou conversores de moeda. Os dados recebidos são classificados e selecionados para se alinharem com os dados mestres estabelecidos.
       - [ ] Dados de referência interna: As definições e categorias permanecem relevantes para os processos de negócios atuais e atendem às necessidades de todas as disciplinas de negócios. Garanta que os administradores de dados permaneçam consistentes na criação e no gerenciamento de dados de referência.
 
 - [ ] Dados transacionais: São as informações operacionais cotidianas em seus bancos de dados de CRM, ERP e HCM. Como por exemplo: Notas Fiscais, Ordens de Compra, Lançamentos Financeiros e etc.
 
-- [ ] Dados não estruturados: São dados de postagens em mídias sociais, e-mails, white papers ou chats de ajuda que são difíceis de categorizar. 
+- [ ] Dados não estruturados: São dados de postagens em mídias sociais, e-mails, white papers ou chats de ajuda que são difíceis de categorizar.
 
 ## Estilos de implementação do Master Data Management (MDM)
 
@@ -374,7 +374,7 @@ As organizações precisam estar constantemente atentas a informações confiden
 | Coexistência | Cria um hub de dados consolidado que então alimenta registros atualizados de volta para as fontes.                |
 
 ## Por que achamos de suma importância?
-Tem que ser um espécie de protocolo de comunicação que traz diversos benefícios e oportunidades, como seguem: 
+Tem que ser um espécie de protocolo de comunicação que traz diversos benefícios e oportunidades, como seguem:
 
 - [x] Precisão na identificação do Gestor do Dado;
 - [x] Organizar as informações cadastrais, documentação e contratos (formato, tipo e etc);
@@ -385,7 +385,7 @@ Tem que ser um espécie de protocolo de comunicação que traz diversos benefíc
 - [x] Unificar as empresas, sistemas e catálogos;
 - [x] Auxiliar nas incorporações e consolidações de estoques;
 
-Quando avaliamos a qualidade de nossos cadastros precisamos construir métricas, que permitam entender o atual cenário dos nossos dados. 
+Quando avaliamos a qualidade de nossos cadastros precisamos construir métricas, que permitam entender o atual cenário dos nossos dados.
 
 VALIDADE E CONFORMIDADE : A validade determina se o valor preenchido corresponde ao padrão do campo. Isto é, por exemplo, teremos, apenas, valores monetários no campo “Renda”.
 DUPLICIDADE: Acontece quando dois ou mais registros apontam para a mesma entidade real.
@@ -411,9 +411,9 @@ PRECISÃO E ACURÁCIA: Usamos acurácia, na avaliação de qualidade de dados, p
 - [ ] Workflow
 
 ### Por exemplo: Codigo de Materiais
-Definir as políticas e regras relacionadas à manutenção do cadastro de materiais. Centralização do cadastramento, abrangência, incorporações, homologação, saneamento dos estoques, gerenciamento de requisitos, processos para controle e auditoria, bem como responsabilidades funcionais. 
+Definir as políticas e regras relacionadas à manutenção do cadastro de materiais. Centralização do cadastramento, abrangência, incorporações, homologação, saneamento dos estoques, gerenciamento de requisitos, processos para controle e auditoria, bem como responsabilidades funcionais.
 
-Em termos da identificação, o princípio mais importante que costumamos destacar no manual PDM é que “a finalidade do código é identificar, e não catalogar”, pois temos constatado que o equivoco mais usual é codificar os materiais por aplicação, no entanto aprendemos que “diferentes aplicações não determinam diferentes códigos”. 
+Em termos da identificação, o princípio mais importante que costumamos destacar no manual PDM é que “a finalidade do código é identificar, e não catalogar”, pois temos constatado que o equivoco mais usual é codificar os materiais por aplicação, no entanto aprendemos que “diferentes aplicações não determinam diferentes códigos”.
 
 Enfim, para identificar corretamente, o código deve possuir os seguintes atributos:
 
@@ -427,9 +427,9 @@ Enfim, para identificar corretamente, o código deve possuir os seguintes atribu
 - [ ] Estabilidade: Deve ser perene;
 - [ ] Confiabilidade: Deve assegurar a identificação esperada.
 
-- [ ] Classificação UNSPSC (Universal Standard Products and Services Classification): Classifica os itens dentro de ramificações, seguindo uma hierarquia de importância numa árvore baseada na natureza dos materiais. 
+- [ ] Classificação UNSPSC (Universal Standard Products and Services Classification): Classifica os itens dentro de ramificações, seguindo uma hierarquia de importância numa árvore baseada na natureza dos materiais.
 
-- [ ] Classificação  NCM  (Nomenclatura  Comum  do  Mercosul):  Baseada  no  "Sistema Harmonizado de Designação e Codificação de Mercadorias" para facilitar as transações entre Brasil, Argentina, Paraguai e Uruguai, estabelecendo tarifas comuns. No Brasil a NCM está conjugada com a tabela de incidência de impostos sobre produtos industrializados (IPI). 
+- [ ] Classificação  NCM  (Nomenclatura  Comum  do  Mercosul):  Baseada  no  "Sistema Harmonizado de Designação e Codificação de Mercadorias" para facilitar as transações entre Brasil, Argentina, Paraguai e Uruguai, estabelecendo tarifas comuns. No Brasil a NCM está conjugada com a tabela de incidência de impostos sobre produtos industrializados (IPI).
 
 ## Empresas
 
@@ -452,15 +452,15 @@ Arquiteturas de data lakehouse podem atingir a conformidade com ACID ( atômica,
 
 ORC e ​​Parquet usam um formato de armazenamento em colunas, permitindo acesso e modificação eficientes de colunas específicas, mantendo a integridade dos dados por meio de arquivos de metadados.
 
-Avro é um formato popular de serialização de dados que pode ser usado para definir a estrutura de dados armazenada em um formato em colunas , como Parquet ou ORC , permitindo armazenamento e recuperação de dados mais eficientes. 
+Avro é um formato popular de serialização de dados que pode ser usado para definir a estrutura de dados armazenada em um formato em colunas , como Parquet ou ORC , permitindo armazenamento e recuperação de dados mais eficientes.
 
-Os data-frames oferecem uma abstração de tabela com vários operadores de transformação, muitos dos quais são mapeados para álgebra relacional. 
+Os data-frames oferecem uma abstração de tabela com vários operadores de transformação, muitos dos quais são mapeados para álgebra relacional.
 
 Os data lakehouse é sua conformidade com o ACID , que complementa a governança de dados e os regulamentos de privacidade (por exemplo, gerenciamento de dados mestres (MDM), GDPR) ao fornecer uma maneira confiável e eficiente de atualizações e exclusões em nível de registro.
 
-A arquitetura do data lakehouse difere dos sistemas tradicionais de data lake e warehouse porque inclui metadados, cache e camadas de indexação sobre o armazenamento de dados. 
+A arquitetura do data lakehouse difere dos sistemas tradicionais de data lake e warehouse porque inclui metadados, cache e camadas de indexação sobre o armazenamento de dados.
 
-Da perspectiva comercial, Delta Lake, Iceberg e Hudi(Hadoop Upsert/Delete/Increment) são três tecnologias populares de data lakehouse que oferecem vários benefícios para armazenamento e processamento de dados. 
+Da perspectiva comercial, Delta Lake, Iceberg e Hudi(Hadoop Upsert/Delete/Increment) são três tecnologias populares de data lakehouse que oferecem vários benefícios para armazenamento e processamento de dados.
 
 O Hive LLAP  ( Low Latency Analytical Processing ) também pode ser usado como um data lakehouse armazenando dados em um sistema de armazenamento baseado em nuvem ou Hadoop e criando tabelas no Hive que mapeiam os dados.
 
@@ -493,7 +493,7 @@ As alterações feitas em um registro específico em um banco de dados e permite
 | Delta      | Eles não contêm o estado completo do registro representado, mas apenas aquelas colunas ou campos cujo valor realmente mudou, bem como o id do registro. |
 | Somente de identificação | Eles apenas descrevem qual registro no banco de dados de origem foi afetado por uma alteração.  |
 
-Observação: as ferramentas CDC emitem eventos de alteração de forma assíncrona, o que significa que, no momento em que você executa uma consulta para obter o estado completo da linha, essa linha pode já ter sido mutada novamente. 
+Observação: as ferramentas CDC emitem eventos de alteração de forma assíncrona, o que significa que, no momento em que você executa uma consulta para obter o estado completo da linha, essa linha pode já ter sido mutada novamente.
 
 ![](img/cdc_por_tipo.png)
 
@@ -509,11 +509,11 @@ Observação: as ferramentas CDC emitem eventos de alteração de forma assíncr
 
 # Plataforma de integração como serviço (iPaaS)
 
-Ë um modelo de software baseado em nuvem para integrar dados de várias aplicações em uma única solução. Atualmente, a maioria das organizações tem diversas aplicações que lidam com vários aspectos dos processos de negócios e operações de TI. 
+Ë um modelo de software baseado em nuvem para integrar dados de várias aplicações em uma única solução. Atualmente, a maioria das organizações tem diversas aplicações que lidam com vários aspectos dos processos de negócios e operações de TI.
 
-O objetivo da ferramenta é facilitar a comunicação entre as diversas soluções que uma empresa utiliza, com o fim de eliminar a necessidade de desenvolver códigos complexos ou contratar serviços especializados. 
+O objetivo da ferramenta é facilitar a comunicação entre as diversas soluções que uma empresa utiliza, com o fim de eliminar a necessidade de desenvolver códigos complexos ou contratar serviços especializados.
 
-Uma plataforma de integração pode servir para diversos propósitos, como: 
+Uma plataforma de integração pode servir para diversos propósitos, como:
 
 - [ ] Facilitar a interoperabilidade;
 - [ ] Viabilizar a automatização de processos e fluxos de trabalho;
@@ -535,7 +535,7 @@ Uma plataforma de integração pode servir para diversos propósitos, como:
 * Os dados existentes chegam à nova estrutura sem perda ou corrupção;
 * Os aplicativos legados e novos estão funcionando corretamente em relação à "nova" estrutura do banco de dados (assumindo que os aplicativos legados estarão em uso na produção após a migração, o que é provável);
 * Cumpra as leis aplicáveis ​​sobre privacidade e proteção de dados (GPDR/LGPD): Consulte seu gerente de produto ou stakeholders e, se necessário, a equipe DPO da organização para determinar se a migração de dados envolve quaisquer dados de usuário regulamentados e se etapas adicionais precisam ser tomadas.
-* Os usuários devem conseguir acessar todos os recursos do software sem problemas após a conclusão da migração. 
+* Os usuários devem conseguir acessar todos os recursos do software sem problemas após a conclusão da migração.
 * Você quer evitar qualquer inconveniência para os usuários do sistema, sejam eles clientes B2C ou funcionários de organizações que usam o sistema.
 
 ## Desafios da migração de dados
@@ -545,7 +545,7 @@ Uma plataforma de integração pode servir para diversos propósitos, como:
 * Abordando possíveis bugs que surgem durante a migração do sistema
 * Dados em mais de um conjunto de caracteres
 * Migrando dados e introduzindo novos recursos ao mesmo tempo
-* Ofuscação adequada de dados de identificação pessoal do usuário 
+* Ofuscação adequada de dados de identificação pessoal do usuário
 * "Mobilidade" de um conjunto de dados que contém dados de usuário e IDs de usuário ofuscados
 
 ## Estratégia de teste de migração de dados

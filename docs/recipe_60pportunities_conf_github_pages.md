@@ -48,7 +48,7 @@
 
 - [x] A configuração básica seria esta, porem iremos utilizar o conceito de DaC (Doc as Code);
 - [x] Todo o documento será desenvolvido em TEXTO simples utilizando o [Markdown](https://code.visualstudio.com/docs/editor/profiles#_doc-writer-profile-template). Como padrão deste material, utilizaremos o Editor VS Code da Microsoft com algumas extensões:
-  
+
     - [x] Code Spell Checker - Verificador de ortografia para código fonte.
     - [x] Markdown Checkboxes -  Adiciona o suporte a caixa de seleção para o VS Code built-in Markdown Preview.
     - [x] Markdown Emoji - Adiciona suporte de sintaxe emoji para Markdown Preview e células Markdown de notebook.
@@ -62,4 +62,3 @@
     - [x] Paste Image - Copia imagem para o texto markdown.
     - [x] PlantUML - Extensão incrível se você precisar desenhar diagramas.
     - [x] C4 DSL Extension - Especificar modelos de arquitetura de software com o Structurizr DSL.
-

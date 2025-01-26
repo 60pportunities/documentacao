@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      
+
       - name: Trigger python workflow
         run: |
           $versions = ${{ github.event.inputs.versions }}

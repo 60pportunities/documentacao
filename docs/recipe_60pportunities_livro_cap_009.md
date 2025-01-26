@@ -2,9 +2,9 @@
 <p align="justify">Todos os produtos de desenvolvimento de software, sejam eles criados por uma pequena equipe ou por uma grande corporação, exigem alguma documentação relacionada e os difetentes tipos de documentos são criados ao longo de todo o ciclo de vida de desenvolvimento de software (SDLC).</p>
 Os métodos Àgeis não requerem documentações abrangentes no início - **Software funcional em vez de documentação abrangente**, logo a ideia é produzir documentação com informações essenciais para avançar quando fizer mais sentido.
 
-Michael Nygard, em uma publicação de 2011, **Os métodos ágeis não se opõem à documentação, apenas à documentação sem valor**. 
+Michael Nygard, em uma publicação de 2011, **Os métodos ágeis não se opõem à documentação, apenas à documentação sem valor**.
 
-Documentos que auxiliam a própria equipe podem ter valor, mas somente se estiverem atualizados. Documentos grandes nunca são mantidos atualizados. 
+Documentos que auxiliam a própria equipe podem ter valor, mas somente se estiverem atualizados. Documentos grandes nunca são mantidos atualizados.
 
 Documentos pequenos e modulares têm pelo menos uma chance de serem atualizados.
 
@@ -27,7 +27,7 @@ Documentos pequenos e modulares têm pelo menos uma chance de serem atualizados.
 - [x] Plataformas de criação de websites (blot.im, Jekyll), aplicativos de escrita de documentos (iA Writer, Ulysses, MarkdownPad), aplicativos de anotações (Simplenote, Bear, Boostnote), serviços de publicação de livros (Leanpub) e ferramentas para criação de apresentações (Remark, Cleaver);
 - [x] A flexibilidade e a portabilidade do Markdown são destacadas como vantagens significativas;
 - [x] [Folha de Dicas para o Markdown](pdf/markdown_cheat_sheet.pdf);
-## Estrutura do Diretório do Portifólio 
+## Estrutura do Diretório do Portifólio
 ![](img/60opt-documentacao.png){width="960" height="840" style="display: block; margin: 0 auto"}
 ## Escrita da Documentação
 NÃO SE DEVE escrever as documentações nas ferrametas **Office-Microsoft**, **DEVEmos** escrever da mesma forma, que escrevemos **CÓDIGO**.
@@ -43,7 +43,7 @@ NÃO SE DEVE escrever as documentações nas ferrametas **Office-Microsoft**, **
       - [x] Conhecimento que é de interesse por  uma grandes período de Tempo DEVE ser documentado;
       - [x] Conhecimento que é de interesse para um  amplo número de pessoas  DEVE ser documentado;
       - [x] Conhecimento que é valioso ou crítico DEVE ser documentado;
-  
+
 <p align="justify">Em vez de criar a documentação em um sistema separado, os analistas de requisitos e desenvolvedores simplesmente adicionam o documento no mesmo projeto em repositórios diferentes ou no mesmo repositório do código, através do uso de markdown. Esse local garante que qualquer pessoa que esteja usando o código também possa encontrar a documentação.</p>
 
 <p align="justify">Qualquer um pode ler a documentação diretamente no código-fonte do Markdown ou podem lê-la exibida em um navegador. Com a Documentação como Código, os desenvolvedores tratam a documentação como parte integrante do sistema, melhoram as mensagens de commit. A documentação, junto com o código, é construída e implantada como parte de um pipeline.</p>
@@ -78,7 +78,7 @@ NÃO SE DEVE escrever as documentações nas ferrametas **Office-Microsoft**, **
         - [x] Usuário (Inclui tutoriais, guias do usuário, manuais de solução de problemas, instalação e manuais de referência);
             - [x] Usuário Final (Explicar da forma mais simples possível como o software pode ajudar a resolver seus problemas);
             - [x] System Admin (Documentos de administração cobrem a instalação e atualizações que ajudam o administrador do sistema na manutenção do produto);
-  
+
     === "Processo"
         - [x] Documentos produzidos durante o desenvolvimento e manutenção
         - [x] Roadmap de Produto(Sprint);
@@ -129,7 +129,7 @@ NÃO SE DEVE escrever as documentações nas ferrametas **Office-Microsoft**, **
             | Não escrito                  | O conhecimento está apenas no cérebro das pessoas.                                                                                      |
 
         === "Fluxo"
-            A documentação os arquivos de origem são escritos em Markdown e configurados com um único YAML arquivo de configuração. 
+            A documentação os arquivos de origem são escritos em Markdown e configurados com um único YAML arquivo de configuração.
 
             <div class="center-table" markdown>
             ```mermaid
@@ -210,7 +210,7 @@ Arquivos contendo texto formatado em Markdown podem ser abertos usando virtualme
 
 ## Repositório Específicos para a Documentação (LIB)
 Como uma **BOA PRÁTICA**, devemos **ISOLAR** os códigos de documentos, pois com o passar do tempo, o processo de check-out, branch, fetch e clone do código, aumentarão drasticamente o tempo.
-Lembre-se que documentação pode carregar imagens, gráficos,apresentações e pdfs que são importantes para o entendimento. 
+Lembre-se que documentação pode carregar imagens, gráficos,apresentações e pdfs que são importantes para o entendimento.
 
 ## Treinamento em MkDocs
 Fácil de instalar e usar, ótimos resultados com mínimo esforço,desenvolvidos ativo e de código aberto.
@@ -230,11 +230,11 @@ Fácil de instalar e usar, ótimos resultados com mínimo esforço,desenvolvidos
 
     === "Instalando o Python"
 
-        - [x] Efetue a abertura de um chamado técnico no Sysaid para efetuar a instalação do Python; Após a instalação, há a necessidade em configurar a variável de ambiente 
+        - [x] Efetue a abertura de um chamado técnico no Sysaid para efetuar a instalação do Python; Após a instalação, há a necessidade em configurar a variável de ambiente
         - [x] Em pesquisar, digite : Editar as variáveis para sua conta
         - [x] Inclua o path: `c:\user\NOME_DO_USUARIO\AppData\Programs\Python\Python`o path pode variar de instalação, por isso procure o software pip, e coloque em sua ultima versão.
         - [x] Crie em seu computador local, a estrutura de repositórios, caso ele NÃO exista: `c:\Usuario\xxxx\repositorios`
-        - [x] Acesse o diretório repositórios ou abra o VSCode no diretório especificado: `c:\Usuario\xxxx\repositorios` 
+        - [x] Acesse o diretório repositórios ou abra o VSCode no diretório especificado: `c:\Usuario\xxxx\repositorios`
 
     === "Instalando o Mkdocs"
 
@@ -255,11 +255,11 @@ Fácil de instalar e usar, ótimos resultados com mínimo esforço,desenvolvidos
                - [x] [Localhost](http://127.0.0.1:8000)
 
 ## Documentação Contínua e Acompanhamento Ágil
-A documentação de software deve ser tratada de forma contínua e DaC (Documentation as Code)  e não como uma atividade pontual após o desenvolvimento do código. 
+A documentação de software deve ser tratada de forma contínua e DaC (Documentation as Code)  e não como uma atividade pontual após o desenvolvimento do código.
 
 Ao longo do ciclo de vida de um projeto, a documentação (tanto técnica quanto voltada para o usuário) deve ser constantemente atualizada, paralelamente ao progresso do desenvolvimento da aplicação.
 
-A documentação "viva" é atualizada com a mesma frequência do código, garantindo que os engenheiros, gestores de qualidade e até mesmo os usuários, tenham acesso a informações precisas, em tempo real. 
+A documentação "viva" é atualizada com a mesma frequência do código, garantindo que os engenheiros, gestores de qualidade e até mesmo os usuários, tenham acesso a informações precisas, em tempo real.
 
 Em nossa aboardagem, trateremos de uma documentação contínua, que inclui:
 
@@ -284,3 +284,38 @@ Em nossa aboardagem, trateremos de uma documentação contínua, que inclui:
  - [x] Geração do Report Book;
  - [x] Geração de Catálogo de APIs por grupo;
 
+### Compreendendo seu público
+Para escrever de forma eficaz para os usuários, é preciso entender quem eles são e o que desejam alcançar.
+É importante identificar os objetivos dos usuários para concentrar os esforços na documentação das informações mais relevantes.
+Uma persona de usuário é um personagem semificcional que representa o leitor ideal, incluindo seus objetivos, habilidades e conhecimentos.
+Mapas de jornada do usuário ajudam a entender as etapas que um usuário realiza ao interagir com um produto, juntamente com sua experiência em cada etapa.
+
+### Planejando sua documentação
+Um caso de uso é um conjunto de tarefas necessárias para concluir um objetivo
+Os tipos de conteúdo incluem comentários de código, READMEs, documentação conceitual, documentação de introdução, documentação processual (tutoriais e guias de instruções) e referências de API.
+Um README resume uma coleção de código e contém informações básicas
+
+A documentação conceitual ajuda os usuários a entender os conceitos e ideias por trás do serviço, evitando detalhes de implementação
+A documentação processual inclui tutoriais e guias de instruções, mostrando aos leitores como atingir um objetivo específico
+
+Uma referência de API deve ser concisa e minimalista, apresentando informações importantes sobre a API
+
+### Elaboração de documentação
+O título do documento deve resumir o objetivo da leitura
+Um esboço é uma maneira rápida de verificar a abordagem de um documento e permite discutir o conteúdo antes de investir muito tempo escrevendo
+
+Longos conjuntos de parágrafos devem ser divididos com subtítulos, listas, amostras de código ou gráficos
+
+A introdução deve ser escrita por último, descrevendo os principais temas e o que os leitores ganharão com a leitura
+
+### Editando documentação
+
+###  Integrando código de exemplo
+Amostras de código são essenciais para a documentação eficaz do desenvolvedor
+Amostras de código devem ser específicas, úteis e sustentáveis
+Amostras devem ser utilizáveis e extensíveis, indicando onde os leitores precisam inserir seus próprios dados
+
+### Adicionando conteúdo visual
+O conteúdo visual (imagens, diagramas e vídeos) pode ser útil para explicar conceitos, mas é importante considerar sua acessibilidade, compreensão e desempenho
+
+Vídeos devem ser curtos o suficiente para manter o interesse dos leitores, acessíveis e ter legendas

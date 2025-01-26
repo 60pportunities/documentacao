@@ -1,8 +1,8 @@
 ![](img/remote-hibrido-001.png)
 
-Para promover o trabalho em equipe eficaz em ambientes distribuídos, os líderes devem priorizar a **comunicação contínua**, ferramentas digitais robustas e uma cultura de equipe **inclusiva**. 
+Para promover o trabalho em equipe eficaz em ambientes distribuídos, os líderes devem priorizar a **comunicação contínua**, ferramentas digitais robustas e uma cultura de equipe **inclusiva**.
 
-Em qualquer equipe, a clareza em relação aos objetivos, funções e planos de execução é fundamental para o sucesso. 
+Em qualquer equipe, a clareza em relação aos objetivos, funções e planos de execução é fundamental para o sucesso.
 
 | Estrutura           | Objetivo |
 | -----               | ----     |

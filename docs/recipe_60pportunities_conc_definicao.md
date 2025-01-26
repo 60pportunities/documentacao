@@ -1,6 +1,6 @@
 ## Catálogo de Serviços visto por outra ótica
 | Tipo                                                                           | Descrição                                                                          |
-| -----                                                                          | --------                                                                           | 
+| -----                                                                          | --------                                                                           |
 | Desenvolvidos Internamente (Sistemas Internos – SI)                            | São desenvolvidos dentro da empresa.                                               |
 | Prontos para uso (Components off-the-shelf-COTS/Modifiable off-the-shelf-MOTS) | São adquiridos externamente de outra empresa/fornecedor.                           |
 | Software de código aberto (Open Source Software (OSS))                         | São obtidos externamente da comunidade OSS. [OpenSource](https://opensource.org/history), [gnu.org](https://www.gnu.org/philosophy/free-sw.pt-br.html#History) e [hacktoberfest](https://hacktoberfest.digitalocean.com/) |

@@ -4,15 +4,15 @@
 
 - [X] 1950: Alan Turing publica o famoso artigo "Computing Machinery and Intelligence";
 - [x] Década de 50, surgiram as linguagens de 1ª geração, programação lógica (abstração do hardware), linguagens montadoras como assembler (ainda exigiam conhecimentos do hardware), ênfase em cálculos matemáticos. Linguagens: Fortran, Lisp e Algol 58.
- - [x] 1950 a 1960: Métodos tradicionais de Desenvolvimento.A ideia principal era seguir um processo linear e sequencial onde cada fase fosse completada antes de passar para a próxima. 
-- [x] Kanban foi desenvolvido por Taiichi Ohno - Toyota Production System (TPS) na década de 1940. 1950s-1960s: O Kanban foi refinado e integrado no Toyota Production System. 2007: David Anderson publicou o livro "Kanban: Successful Evolutionary Change for Your Technology Business". 
+ - [x] 1950 a 1960: Métodos tradicionais de Desenvolvimento.A ideia principal era seguir um processo linear e sequencial onde cada fase fosse completada antes de passar para a próxima.
+- [x] Kanban foi desenvolvido por Taiichi Ohno - Toyota Production System (TPS) na década de 1940. 1950s-1960s: O Kanban foi refinado e integrado no Toyota Production System. 2007: David Anderson publicou o livro "Kanban: Successful Evolutionary Change for Your Technology Business".
 - [X] 1951: O matemático Christopher Strachey (futuro diretor do Departamento de Software da Universidade de Oxford) escreve o primeiro programa de IA para jogar damas em um computador de tubo de vácuo.
 - [x] 1952: Autocode;
 - [X] 1956: Durante a conferência de Dartmouth, os pesquisadores John McCarthy, Marvin Minsky, Nathaniel Rochester e Claude Shannon cunham o termo **"Inteligência Artificial"**.
-- [X] 1956: O governo dos EUA proíbe a AT&T de entrar no comércio de software (isso levou, posteriormente, o Bell Labs a distribuir livremente o seu Unix). 
+- [X] 1956: O governo dos EUA proíbe a AT&T de entrar no comércio de software (isso levou, posteriormente, o Bell Labs a distribuir livremente o seu Unix).
 - [x] 1957: FORTRAN: FORmula TRANslation foi criada por John Backus é considerada a linguagem de programação mais antiga em uso atualmente.
 - [x] 1958: ALGOL (Linguagem algorítmica)
-- [x] 1958: McCarthy desenvolve o LISP (List Processing). O LISP libertou os hackers do ITS ('Incompatible Time-sharing System'). 
+- [x] 1958: McCarthy desenvolve o LISP (List Processing). O LISP libertou os hackers do ITS ('Incompatible Time-sharing System').
 - [x] 1958-1962: CPM (Critical Path Method) – Primeira abordagem computacional para controle de projetos.
 - [x] 1959: COBOL (Common Business Oriented Language)
 <p align="justify">Foi durante este período que surgiram as primeiras metodologias formais de desenvolvimento de software, como a programação estruturada e a análise de sistemas.</p>
@@ -43,7 +43,7 @@
 
 As indústrias começaram, incorretamente, a ver o **desenvolvimento de software como previsível e repetível** – algo aparentemente comum.
 
-- [X] 1960s-1970s: O conceito de banco de dados relacional foi proposto por Edgar F. Codd em 1970, enquanto ele trabalhava para a IBM. 
+- [X] 1960s-1970s: O conceito de banco de dados relacional foi proposto por Edgar F. Codd em 1970, enquanto ele trabalhava para a IBM.
 - [x] HP entrou no mercado de computadores com a HP 2116A, em 1966.
 - [x] 1969: A ARPANET (Advanced Research Projects Agency Network) foi a primeira rede de computadores, construída em 1969 pela ARPA e também foi o ano em que um hacker da Bell Labs chamado Ken Thompson inventou o Unix.
 - [x] 1969: O Unix nasceu em 1969, criado por Ken Thompson, Dennis Ritchie e outros pesquisadores nos Laboratórios Bell (Bell Labs), uma divisão de pesquisa da AT&T.
@@ -51,7 +51,7 @@ As indústrias começaram, incorretamente, a ver o **desenvolvimento de software
 - [x] Outro nó importante da cultura foi o XEROX PARC, o famoso Palo Alto Research Center. Por mais de uma década, do início dos anos 1970 até meados dos anos 1980, o PARC produziu um volume surpreendente de inovações revolucionárias de hardware e software. Os mouses, windows e ícones de interface de software,impressora a laser e a rede local foram inventados lá.
 
 <p align="justify">Fundada em 1969, nos Estados Unidos, Project Management Institute (PMI),  por um grupo de profissionais que reconheceu a necessidade de uma abordagem mais estruturada e eficiente para gerenciar projetos, que estavam se tornando cada vez mais complexos à medida que as indústrias e tecnologias evoluíam.</p>
-O PMI é uma organização global dedicada à prática e ao desenvolvimento da Gestão de Projetos. 
+O PMI é uma organização global dedicada à prática e ao desenvolvimento da Gestão de Projetos.
 
 ![](img/livro-001.png){width="400" height="500" style="display: block; margin: 0 auto"}
 
@@ -91,7 +91,7 @@ Quando essas limitações começam a impactar a eficiência e a entrega de valor
 - [x] 1971: Adquiri da Inglaterra as fragatas da classe Niteroi;
 - [x] 1971: Ray Tomlinson, envia uma mensagem para si mesmo, mas de outro computador, criando assim ium novo meio de comunicação via computadores: eletronic mail, ou simplesmente, e-mail. Foi Ray que decidiu que o nome do usuario, seria separado do nome do computador, pelo simbolo "@".
 - [x] 1971: O parque de computadores instalado no Brasil, chega a impressionante marca de seiscentas máquinas, com o valore estimado em 60 milhões de dolares;
-- [x] 1971: Abertura da filial da HP Brasil em Porto Alegre 
+- [x] 1971: Abertura da filial da HP Brasil em Porto Alegre
 - [x] 1971: ED – Um editor de texto simples para Unix.
 - [x] 1972: JUnit predecessor (Conceitos iniciais) – Embora o JUnit só surgisse nos anos 90, conceitos de teste unitário começaram a ser explorados nessa época, especialmente no desenvolvimento de sistemas embarcados e metodologias estruturadas.
 - [x] 1972: Criada pelo governo brasileiro a Comissão de Coordenação das Atividades de Processamento Eletrônico (CAPRE), destinada a controlar a importação e exportação de componentes eletrônicos para equipamentos de processamento de dados e também traçar diretrizes para um Programa Nacional de Ensino da Computação, para diminuir o déficit de profissionais na área de informática no país.
@@ -100,10 +100,10 @@ Quando essas limitações começam a impactar a eficiência e a entrega de valor
 - [x] Primeira demonstração pública da Arpanet conecta quarenta computadores;
 - [x] O Brasil ingressa na era da TV em cores e oo Bem Amado, de Dias Gomes, é a primeira telenovela nacional totalmente colorida.
 - [x] 1972: Smalltalk, C, 1972: SQL (SEQUEL na época)
-- [x] 1972: Portagem do Unix para outros PDP. A equipe de Ken Thompson tenta reescrever o Unix em outra linguagem (B ou BCPL). A equipe melhora a linguagem B e cria a linguagem C para reescrever o Unix; Unix começa a ser distribuído em universidades e centros de pesquisa. 
-- [X] 1973: Ingres — Criado por pesquisadores da Universidade da Califórnia, Berkeley. Inicia-se a história do Unix BSD com a chegada do Unix à Universidade de Berkeley, na Califórnia; SPICE é colocado por Donald Pederson em domínio público. 
-- [x] 1973–1975: A primeira lista de gíria, as primeiras sátiras, as primeiras discussões autoconscientes sobre a ética hacker, 1973–1975. The Dicionário do Hacker em 1983; 
-- [X] 1973: O Unix foi reescrito em C, o que facilitou a portabilidade e a distribuição do sistema. 
+- [x] 1972: Portagem do Unix para outros PDP. A equipe de Ken Thompson tenta reescrever o Unix em outra linguagem (B ou BCPL). A equipe melhora a linguagem B e cria a linguagem C para reescrever o Unix; Unix começa a ser distribuído em universidades e centros de pesquisa.
+- [X] 1973: Ingres — Criado por pesquisadores da Universidade da Califórnia, Berkeley. Inicia-se a história do Unix BSD com a chegada do Unix à Universidade de Berkeley, na Califórnia; SPICE é colocado por Donald Pederson em domínio público.
+- [x] 1973–1975: A primeira lista de gíria, as primeiras sátiras, as primeiras discussões autoconscientes sobre a ética hacker, 1973–1975. The Dicionário do Hacker em 1983;
+- [X] 1973: O Unix foi reescrito em C, o que facilitou a portabilidade e a distribuição do sistema.
 - [x] 1973: Primeira conexão internacional da Arpanet, liga a Inglaterra à Noruega;
 - [x] Engenheiros da Xerox, desenvolvem uma interface gráfica, bem próximas dos atuais Windows e MAC OS, chamado de ALTO, usando mouse, ícones para representar programas e documentos, e apta a operar em rede. Ela nunca foi lançada, pois a empres não acreditava naquela ideia.
 - [x] Criação do Curso de formação de tecnologos em processamento de dados na PUC-RJ;
@@ -117,7 +117,7 @@ Quando essas limitações começam a impactar a eficiência e a entrega de valor
 - [x] O contrato entre o INPS e a Burroughs Eletrônica é transferido para a Dataprev, que passa a gerir o parque de computadores instalados no Rio de Janeiro e em São Paulo.
 - [x] O primeiro protótipo da empresa foi o Apple I que foi demonstrado na Homebrew Computer Club em 1975.
 - [X] 1975: A MITS Altair 8800 é lançada e considerada por muitos como o primeiro verdadeiro "computador pessoal".
-- [X] 1975: Lançada a primeira versão do Ingres, banco de dados livre (o ancestral do PostgreSQL). 
+- [X] 1975: Lançada a primeira versão do Ingres, banco de dados livre (o ancestral do PostgreSQL).
 - [X] 1975: **The Mythical Man-month**, Fred Brook’s
        - [X] **Feature Teams**, multidisciplinar com um Líder Técnico, de no máximo 10 pessoas;
        - [x] Principal causa de fiasco de projetos - COMUNICAÇÃO;
@@ -125,9 +125,9 @@ Quando essas limitações começam a impactar a eficiência e a entrega de valor
        - [x] Cunha o conceito de "Integridade conceitual" é a coisa MAIS importante a se considerar em design de sistemas. É melhor um sistema omitir certas features e melhorias, mas  refletir apenas Um conjunto de idéias de design;
        - [x] Aristocrata (poder político e privilégios) - Ditador Benevolente - PRODUCT OWNER;
        - [x] Planeje jogar um FORA (A primeira versão será sempre a pior). Prepare o gerenciamento do PROJETO para aceitar as MUDANÇAS.
-- [X] 1976: Bill Gates escreve a “carta aberta aos hobistas”. 
+- [X] 1976: Bill Gates escreve a “carta aberta aos hobistas”.
 - [x] 1976: A CAPRE lança a Resolução no.1, ínicio da política de reserva de mercado no Brasil;
-- [x] A Apple foi fundada em 1 de abril de 1976 por Steve Wozniak, Steve Jobs e Ronald Wayne com o nome de Apple Computers, na Califórnia. 
+- [x] A Apple foi fundada em 1 de abril de 1976 por Steve Wozniak, Steve Jobs e Ronald Wayne com o nome de Apple Computers, na Califórnia.
 - [ ] 1976: Emacs – Criado por Richard Stallman, um editor de texto avançado e extensível, ainda popular entre programadores.
 
 ## Modelo em V (V-Model)
@@ -143,8 +143,8 @@ Seria a evolução do modelo em cascata, onde a validação ocorre ao longo de t
 - [x] 1977: Apesar de atuar no Brasil desde a década de 1960, a HP passa a produzir pela primeira vez na América Latina, com uma fábrica  em Campinas (SP).
 - [x] 1977: Equipe da HP Brasil transfere-se para Alphaville, inaugurando o primeiro edifício do centro comercial da região.
 - [x] 1977: Atari lança seu Video Computer System (VCS), mais tarde renomeado para Atari 2600.
-- [x] 1977: C3PO e R2D2 desempenham um papel crítico no filme de sucesso de bilheteria Star Wars de 1977. 
-- [x] 1977: O Commodore 1530 Datasette (dados+cassete) integrado é o dispositivo de armazenamento primário para o recém-lançado Commodore PET. 
+- [x] 1977: C3PO e R2D2 desempenham um papel crítico no filme de sucesso de bilheteria Star Wars de 1977.
+- [x] 1977: O Commodore 1530 Datasette (dados+cassete) integrado é o dispositivo de armazenamento primário para o recém-lançado Commodore PET.
 - [x] 1977: Criação da Edisa Eletrônica Digital S/A com a participação de 16 empresas nacionais, com apoio do Banco Nacional de Desenvolvimento Econômico Social – BNDES.
 - [x] 1977:  A TELESP lançou para Bebedouro a oferta do serviço automático de telefonia, com a implantação do sistema de DDD e DDI – Discagem Direta à Distância e Discagem Direta Internacional.
 - [x] 1978: Implantação dos sistemas de processamento, possibilitando a centralização das atividades administrativas da HP Brasil em Alphaville SP.
@@ -152,13 +152,13 @@ Seria a evolução do modelo em cascata, onde a validação ocorre ao longo de t
 - [x] O primeiro bebê de proveta do mundo foi Louise Joy Brown, nascida em 25 de julho de 1978, em Bristol, na Inglaterra.
 - [x] O LaserDisc é introduzido como “Discovision” pela MCA e Philips. O primeiro LaserDisc vendido na América do Norte foi o filme Jaws.
 - [x] A unidade de disco flexível de 5 ¼ polegadas e o disquete foram introduzidos pela Shugart Associates em 1976. Isso foi o resultado de uma solicitação da Wang Laboratories para produzir uma unidade de disco pequena o suficiente para ser usada com um computador de mesa, já que unidades de disquete de 8 polegadas eram consideradas grandes demais para esse propósito. Em 1978, mais de 10 fabricantes estavam produzindo unidades de disquete de 5 ¼ polegadas.
-- [x] Rob Barnaby cria o WordStar enquanto estava na MicroPro International. 
+- [x] Rob Barnaby cria o WordStar enquanto estava na MicroPro International.
 - [X] 1978: Donald Knuth, da Universidade de Stanford, começou a trabalhar no TeX, distribuído como software livre.
 - [ ] 1978: WordStar – Um dos primeiros editores comerciais populares para CP/M e, posteriormente, MS-DOS.
 - [x] 1978-1980: Proposta do modelo OSI (Open Systems Interconnection) pela ISO. O documento final foi publicado em 1980 como uma recomendação técnica para comunicação entre sistemas heterogêneos.
 - [x] 1979: O microprocessador Motorola 68000 exibia uma velocidade de processamento muito maior do que seus contemporâneos.
 - [x] Ascensão dos serviços online e BBSs. A maioria dos donos de computadores não se incomoda, mas em 1979 um subconjunto de corajosos ou teimosos está assinando os primeiros serviços online como MicroNet (mais tarde CompuServe Information Service) e The Source, ou se conectando a Bulletin Board Services (BBSs) hospedados no minicomputador ou PC de outra pessoa.
-- [X] 1979: AT&T começa a forçar licenças restritivas ao decidir que poderia lucrar através do sistema Unix. 
+- [X] 1979: AT&T começa a forçar licenças restritivas ao decidir que poderia lucrar através do sistema Unix.
 - [X] 1979: Oracle Database — Lançado pela Oracle Corporation, fundado por Larry Ellison, Bob Miner e Ed Oates;
 - [x] 1979: VisiCalc – Criado por Dan Bricklin e Bob Frankston, foi o primeiro software de planilha eletrônica amplamente popular, lançado para o Apple II. É frequentemente considerado o precursor das planilhas modernas.
 - [x] O Stanford Cart foi um projeto de pesquisa de longo prazo realizado na Universidade de Stanford entre 1960 e 1980. Em 1979, ele cruzou com sucesso uma sala sozinho enquanto contornava uma cadeira colocada como obstáculo.

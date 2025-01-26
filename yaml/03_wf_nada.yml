@@ -17,4 +17,3 @@ jobs:
       - name: Test with inputs
         run: |
           echo "Hello ${{ github.event.inputs.NAME }} and ${{ github.event.inputs.SOME_VALUE }}!"
-

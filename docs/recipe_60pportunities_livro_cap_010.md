@@ -29,14 +29,14 @@ A escala horizontal oferece vários benefícios importantes:
 - [x] Escalonamento econômico (reduza a escala quando o tráfego estiver baixo);
 
 # Escala de Banco de Dados
-A escalabilidade de bancos de dados é fundamental para garantir que o sistema consiga lidar com o aumento da carga de trabalho, seja em termos de volume de dados ou número de requisições. 
+A escalabilidade de bancos de dados é fundamental para garantir que o sistema consiga lidar com o aumento da carga de trabalho, seja em termos de volume de dados ou número de requisições.
 
 No contexto de bancos de dados, existem várias estratégias para escalar o sistema, como réplicas de leitura, views materializadas e cacheamento ou pinagem de informações.
 
  Essas abordagens ajudam a distribuir a carga de trabalho, melhorar a performance e garantir a alta disponibilidade.
 
-## Réplicas de Leitura 
-Réplicas de leitura são frequentemente seu primeiro passo no dimensionamento do banco de dados, mas vêm com compensações significativas. Réplicas de leitura mantêm uma cópia do seu banco de dados primário que atende tráfego somente leitura. 
+## Réplicas de Leitura
+Réplicas de leitura são frequentemente seu primeiro passo no dimensionamento do banco de dados, mas vêm com compensações significativas. Réplicas de leitura mantêm uma cópia do seu banco de dados primário que atende tráfego somente leitura.
 
 As réplicas de leitura são configuradas para sincronizar com o banco de dados primário, mas com um pequeno atraso, o que significa que elas refletem os dados do banco de dados primário com um "gap" temporal.
 
@@ -44,19 +44,19 @@ Quando você executa uma consulta em uma réplica, você não está competindo c
 
 Ao implementar réplicas de leitura, considere:
 
-- [x] Latência: 
+- [x] Latência:
       - [ ] A localização geográfica afeta a latência;
       - [ ] Pequeno atraso entre o banco de dados primário e as réplicas;
-- [x] Sincronização: 
+- [x] Sincronização:
       - [ ] O atraso na replicação afeta a atualização dos dados;
       - [ ] O volume de gravação afeta a velocidade de replicação
 
 ## Views Materializadas
 Uma view materializada é uma visão persistente de uma consulta SQL, cujos resultados são armazenados em uma tabela real no banco de dados.
-Podemos dizer que é um conjunto de dados pré-computado armazenado como uma tabela. 
-Diferentemente das views que computam seus resultados a cada consulta, as views materializadas armazenam seus resultados. 
+Podemos dizer que é um conjunto de dados pré-computado armazenado como uma tabela.
+Diferentemente das views que computam seus resultados a cada consulta, as views materializadas armazenam seus resultados.
 
-Isso as torna muito mais rápidas de consultar, mas introduz um novo desafio: 
+Isso as torna muito mais rápidas de consultar, mas introduz um novo desafio:
 
 - [x] Mantê-las atualizadas;
 - [x] Requer mais espaço em disco, pois os resultados das consultas são armazenados fisicamente.
@@ -68,14 +68,14 @@ As visualizações materializadas se destacam em:
 - [x] Dados desnormalizados para visualizações específicas
 
 ## Armazenamento em cache
-O cache é uma das maneiras mais eficazes de melhorar o desempenho do seu sistema. 
+O cache é uma das maneiras mais eficazes de melhorar o desempenho do seu sistema.
 
 Uma estratégia de cache bem implementada pode reduzir drasticamente a carga do banco de dados e melhorar os tempos de resposta ao armazenar dados acessados ​​com frequência na memória.
 
 O cache moderno acontece em vários níveis, objetos e sessões, navegador, cdn,aplicativo e o cache de consulta de banco de dados reduz cálculos caros.
 
 ## Filas de mensagens
-As filas de mensagens são uma ferramenta poderosa para dimensionar seu monólito. Elas permitem que você adie operações demoradas e distribua o trabalho entre vários processadores. 
+As filas de mensagens são uma ferramenta poderosa para dimensionar seu monólito. Elas permitem que você adie operações demoradas e distribua o trabalho entre vários processadores.
 
 Isso mantém sua API responsiva enquanto lida com tarefas pesadas em segundo plano.
 
@@ -114,7 +114,7 @@ Em vez de processar tudo de forma síncrona, você pode enfileirar o trabalho pa
              F     --> |Sim|F1(fa:fa-circle-check Code Review</br>Liberado)
              F     --> |Nao|F2(fa:fa-trash-can-arrow-up Rejeitado)
              F2    --> DD(fa:fa-stopwatch Atraso Sprint) --> B
-             F1    --> CL(fa:fa-clone Database</br>Clone</br>Editionable) 
+             F1    --> CL(fa:fa-clone Database</br>Clone</br>Editionable)
              CL    --> DBCL(fa:fa-database Clone PDB/CDB) --> DBFT(fa:fa-toggle-on Feature</br>Toogle)
              CL    --> FTED(fa:fa-lightbulb Criar Edição/Release) --> FTCR(fa:fa-toggle-on Feature</br>Toogle) -->          FTSE(fa:fa-link-slash Create</br>Service)
              FTSE  --> TEAB(fa:fa-table-columns Teste AB</br>Por serviço)
@@ -130,8 +130,8 @@ Em vez de processar tudo de forma síncrona, você pode enfileirar o trabalho pa
 ### [Princípio do menor privilégio](https://en.wikipedia.org/wiki/Principle_of_least_privilege)
 Conceder a qualquer conta ou processo de usuário apenas os privilégios que são essencialmente vitais para executar as funções pretendidas.
 
-**Observação**: Nos ERPs (e-Business Suite e Peoplesoft) TODOS devem solicitar a Equipe da Jailma o acesso ao PRODUTO. Isso envolve CUSTO e AUDITORIA. 
-![](iimg/cap-010-001.png){width="400" height="250" style="display: block; margin: 0 auto"}
+**Observação**: Nos ERPs (e-Business Suite e Peoplesoft) TODOS devem solicitar a Equipe da Jailma o acesso ao PRODUTO. Isso envolve CUSTO e AUDITORIA.
+![](img/cap-010-001.png){width="400" height="250" style="display: block; margin: 0 auto"}
 
 ### Padrões de Gerenciamento de Estratégias/[Tempo de vida de uma Feature Flag](https://www.objective.com.br/insights/feature-flags/)
 
@@ -149,7 +149,7 @@ Quais seriam as ferramentas para começar?
 
 | Ferramenta                                                                                                              | Ferramenta                |
 | -----                                                                                                                   | -----                     |
-| Mermaid ([Editor](https://mermaid.live), [Imagens](https://fontawesome.com/start)) e [Cores](https://icolorpalette.com) |                           | 
+| Mermaid ([Editor](https://mermaid.live), [Imagens](https://fontawesome.com/start)) e [Cores](https://icolorpalette.com) |                           |
 |Repositório Git                                                                                                          | Maven(Apache Maven 3.9.6) |
 | SQLcl (Interface de linha de comando baseada em Java para Oracle Database. - Não instalar)                              |                           |
 | Liquibase (Biblioteca independente de banco de dados de código aberto para rastrear, gerenciar e aplicar alterações no esquema do banco de dados - Não instalar) |
@@ -196,9 +196,9 @@ A clonagem a quente de PDBs é uma técnica em que seu PDB de origem permanece n
 ### Usuário
 
 - [x] É uma conta através da qual você pode se conectar ao banco de dados.(CREATE SESSION)
-- [x] Possui um nome de usuário e uma senha e está associado a um ESQUEMA. 
+- [x] Possui um nome de usuário e uma senha e está associado a um ESQUEMA.
 - [x] São usados ​​para autenticar e autorizar o acesso ao banco de dados.
-- [x] Podem possuir objetos de banco de dados, como tabelas, views, procedures e etc. 
+- [x] Podem possuir objetos de banco de dados, como tabelas, views, procedures e etc.
 - [x] Podem receber privilégios para acessar objetos pertencentes a outros usuários.
 - [x] Realizar operações dentro do esquema atribuído e em objetos aos quais receberam acesso.
 
@@ -220,7 +220,7 @@ A clonagem a quente de PDBs é uma técnica em que seu PDB de origem permanece n
 | Backup e Recuperação               | Desenvolver e implementar uma estratégia abrangente de backup e recuperação é fundamental para garantir a disponibilidade e a integridade dos dados em caso de falha do sistema, erro humano ou desastre. |
 | Monitoramento e Otimização de Desempenho | Utilizar ferramentas e técnicas de monitoramento de desempenho para identificar e resolver gargalos de desempenho, ajustar parâmetros do sistema, otimizar consultas e  índices, e realizar ajustes de hardware e configuração conforme necessário. |
 | ISO/IEC 27002                            | [BS EN ISO/IEC 27002 Tecnologia da informação, segurança cibernética e proteção da privacidade](https://www.iso.org/standard/75652.html) |
-| Objetivo de Desenvolvimento Sustentável 9 da ONG | [Objetivo de Desenvolvimento Sustentável 9 da ONU](https://sdgs.un.org/goals/goal9)    | 
+| Objetivo de Desenvolvimento Sustentável 9 da ONG | [Objetivo de Desenvolvimento Sustentável 9 da ONU](https://sdgs.un.org/goals/goal9)    |
 
 Impor as melhores práticas arquitetônicas com limites de módulos e padrões de comunicação bem definidos. O isolamento de dados garante que os módulos sejam independentes e fracamente acoplados.
 
@@ -247,10 +247,10 @@ As tabelas para todos os módulos residem dentro de um banco de dados. Não é f
 
 No entanto, quanto mais tabelas você tiver, mais difícil será mantê-las isoladas entre os módulos. Você pode melhorar isso adicionando isolamento lógico entre tabelas.
 
-![](img/img/cap-010-004.png){width="400" height="300" style="display: block; margin: 0 auto"}
+![](img/cap-010-004.png){width="400" height="300" style="display: block; margin: 0 auto"}
 
 ### Separate schema
-Agrupar tabelas relacionadas no banco de dados é uma forma de introduzir isolamento lógico. Você pode implementar isso usando esquemas de banco de dados. Cada módulo possui um esquema exclusivo contendo as tabelas do módulo. 
+Agrupar tabelas relacionadas no banco de dados é uma forma de introduzir isolamento lógico. Você pode implementar isso usando esquemas de banco de dados. Cada módulo possui um esquema exclusivo contendo as tabelas do módulo.
 
 ![](img/cap-010-005.png){width="400" height="300" style="display: block; margin: 0 auto"}
 
@@ -271,7 +271,7 @@ No entanto, você pode introduzir um tipo de banco de dados diferente para resol
 Por fim: Eu sempre busco o isolamento lógico usando esquemas. É fácil de implementar e me ajuda a entender melhor meus limites. Dependendo dos requisitos, posso introduzir bancos de dados separados posteriormente.
 
 ## Monolito para microsserviços
-O sistema cresce com o tempo e os requisitos estão em constante mudança.  
+O sistema cresce com o tempo e os requisitos estão em constante mudança.
 
 O primeiro passo para passar de um monólito para microsserviços é identificar os Contexto Delimitado (Contexto Delimitado é um padrão central no Design Orientado a Domínio).
 
@@ -301,16 +301,16 @@ O usuário que possui esse esquema recebe todos os objetos de um banco de dados,
 - [x] **Criação de Tablespaces de LOBs dedicados**  : Criar tablespaces dedicados exclusivamente para armazenar LOBs pode permitir um gerenciamento mais granular do espaço de armazenamento e facilitar a realização de operações de manutenção e backup específicas para LOBs.
 
 ### [Smart Database Paradigm (SmartDB)](https://www.salvis.com/blog/2018/08/28/smartdb-as-of-2018-08-21/)
-__Qualquer sistema de TI que utilize um banco de dados deve fazer o máximo possível do seu processamento dentro do Banco de Dados e o mínimo possível do seu processamento nas outras camadas__. 
+__Qualquer sistema de TI que utilize um banco de dados deve fazer o máximo possível do seu processamento dentro do Banco de Dados e o mínimo possível do seu processamento nas outras camadas__.
 
 Esta abordagem é que isso levaria a menos complexidade, menos componentes, menos idas e vindas, menos sobrecarga e solução de problemas menos complicada.
 
  <p align="justify">O usuário que possui esse esquema vazio recebe exatamente e apenas executa privilégios em um conjunto bem definido de subprogramas PL/SQL que foram projetados para ser a API do back-end do aplicativo que o banco de dados hospeda para o mundo externo.</p>
- 
+
 ![](img/cesuc_padrao_oracle_001.png){width="800" height="500" style="display: block; margin: 0 auto"}
 
 ### Esquema
-- [ ] É uma coleção de objetos de banco de dados (como tabelas, visualizações, índices, sequências, etc.) que pertencem a um usuário específico. 
+- [ ] É uma coleção de objetos de banco de dados (como tabelas, visualizações, índices, sequências, etc.) que pertencem a um usuário específico.
 - [ ] Contêiner lógico para objetos de banco de dados.
 - [ ] Associado a uma conta de usuário, que é usada para conectar-se ao banco de dados e acessar os objetos dentro desse esquema.
 - [ ] É um namespace para objetos de banco de dados e fornece uma maneira de organizar e gerenciar objetos dentro do banco de dados.
@@ -319,7 +319,7 @@ Esta abordagem é que isso levaria a menos complexidade, menos componentes, meno
 #### Versão 11/11i
 Nas versões 11i anteriores do Oracle E-Business Suite, cada produto recebia duas tablespaces, um para dados e outro para índices.
 #### Versão 12
-Uma instalação do Oracle E-Business Suite Release 12.2 inclui duas edições (versões) do código do aplicativo e dos dados iniciais. O sistema de arquivos contém duas cópias completas do Oracle E-Business Suite e dos arquivos de tecnologia da camada de aplicativo. 
+Uma instalação do Oracle E-Business Suite Release 12.2 inclui duas edições (versões) do código do aplicativo e dos dados iniciais. O sistema de arquivos contém duas cópias completas do Oracle E-Business Suite e dos arquivos de tecnologia da camada de aplicativo.
 
 No banco de dados, usamos o recurso Redefinição baseada em edição para criar uma nova edição do banco de dados para cada ciclo de aplicação de patches online.
 
@@ -329,7 +329,7 @@ No banco de dados, usamos o recurso Redefinição baseada em edição para criar
 
 <p align="justify">A arquitetura de banco de dados do Oracle E-Business Suite é altamente complexa e envolve vários esquemas de banco de dados para diferentes módulos e componentes da aplicação.</p>
 ![](img/visao_apps.png){width="800" height="500" style="display: block; margin: 0 auto"}
-  
+
   | Schema               | Definição                                                 |
   | -----                | --------                                                  |
   | SYS e SYSTEM         | Estes esquemas são parte do banco de dados Oracle em si e são usados para armazenar metadados do sistema, como informações sobre usuários, privilégios, estrutura do banco de dados, etc. |
@@ -345,7 +345,7 @@ O código customizado deve ser desenvolvido de acordo com os padrões publicados
 
 Os aplicativos deverão ser pré-fixados por `XX`e criados através do `AD Splice`. Quaisquer novos objetos de aplicativos personalizados serão armazenados em APPS_TS_TX_DATA e APPS_TS_TX_IX, independentemente das configurações newprods.txt, izuterr.txt.
 
-**Observação** : 
+**Observação** :
 
 - [x] Tenho ORIENTADO todos os schemas nascidos e criados pela BBTS, mesmo FORA do Schema/Usuario da Instancia e-Business, sejam préfixados com `XXBBTS`, que identificaria que são CUSTOMIZADOS.
 - [x] Todas as conexões de Banco de Dados Oracle, são obtidas através do servidor: `\\server1\tn$`;
@@ -378,7 +378,7 @@ Um aplicativo que implementa PinkDB possui os seguintes recursos:
 - [ ] O usuário conectado não possui objetos de banco de dados. O usuário connect é usado por componentes do aplicativo fora do banco de dados para interagir com o banco de dados.(100% idêntico ao SmartDB)
 - [ ] O usuário conectado tem acesso apenas a objetos de API. O usuário conectado não deve ter privilégios para acessar objetos que não fazem parte da API, por exemplo, através de SELECT ANY TABLEprivilégios ou similares.
 - [ ] A API consiste em objetos e visualizações armazenados;O acesso é concedido com base no princípio dos privilégios mínimos. A API consiste em objetos e visualizações armazenados, mas não em tabelas.
-- [ ] Os dados são processados ​​por operações baseadas em conjunto. Menos loops, mais SQL baseado em conjuntos. 
+- [ ] Os dados são processados ​​por operações baseadas em conjunto. Menos loops, mais SQL baseado em conjuntos.
 
 #### Diferenças para SmartDB
 SmartDB tem como alvo PL/SQL e, portanto, foca em bancos de dados Oracle. A API no SmartDB consiste apenas em unidades PL/SQL. Sem exceções. PinkDB permite visualizações.

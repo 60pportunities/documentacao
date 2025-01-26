@@ -34,7 +34,7 @@ https://tess.pareto.io/pt-BR/login
 
 5️⃣ Talento e Habilidades: Capacite a equipe com ética e habilidades em IA, promovendo uma cultura de aprendizado contínuo.
 
-6️⃣ Cultura e Adoção: Adote uma abordagem centrada no ser humano, com feedback constante para promover uma adoção dinâmica e eficaz da IA. 
+6️⃣ Cultura e Adoção: Adote uma abordagem centrada no ser humano, com feedback constante para promover uma adoção dinâmica e eficaz da IA.
 
 
 
@@ -204,7 +204,7 @@ ser utilizado em algum lugar. O software geralmente é projetado para consumir o
 o inverso às vezes também acontece. O software pode superar o poder disponível. É uma
 corrida armamentista: conforme o software fica mais complexo, o hardware precisa crescer uma quantidade
 proporcional para melhorar ou manter o desempenho.
-Pelos padrões atuais, os requisitos mínimos esperados do software são 
+Pelos padrões atuais, os requisitos mínimos esperados do software são
 
 Entregue resultados rapidamente.
 Responsividade e flexibilidade são essenciais em um espaço onde as demandas e os requisitos mudam a cada segundo.
@@ -229,4 +229,3 @@ https://artificialanalysis.ai/leaderboards/providers
 https://bit.ly/4eLp8VA
 https://artificialanalysis.ai/models
 https://artificialanalysis.ai/leaderboards/providers
-

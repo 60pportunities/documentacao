@@ -1,7 +1,7 @@
 ## [Princípio do menor privilégio](https://en.wikipedia.org/wiki/Principle_of_least_privilege)
 Conceder a qualquer conta ou processo de usuário apenas os privilégios que são essencialmente vitais para executar as funções pretendidas.
 
-**Observação**: Nos ERPs (e-Business Suite e Peoplesoft) TODOS devem solicitar a Equipe da Jailma o acesso ao PRODUTO. Isso envolve CUSTO e AUDITORIA. 
+**Observação**: Nos ERPs (e-Business Suite e Peoplesoft) TODOS devem solicitar a Equipe da Jailma o acesso ao PRODUTO. Isso envolve CUSTO e AUDITORIA.
 ![](img/sgbd-001.png){width="400" height="250" style="display: block; margin: 0 auto"}
 ## Microserviços
 É um tipo de Arquitetura de Software que permite aos desenvolvedores construam diferentes componentes do mesmo aplicativo em módulos. Os aplicativos de microsserviços oferecem descentralização da propriedade dos dados para garantir que cada serviço tenha um banco de dados separado. Cada módulo utiliza uma API para se comunicar com o banco de dados de diferentes serviços.
@@ -34,7 +34,7 @@ Quais seriam as ferramentas para começar?
 
 | Ferramenta                                                                                                              | Ferramenta                |
 | -----                                                                                                                   | -----                     |
-| Mermaid ([Editor](https://mermaid.live), [Imagens](https://fontawesome.com/start)) e [Cores](https://icolorpalette.com) |                           | 
+| Mermaid ([Editor](https://mermaid.live), [Imagens](https://fontawesome.com/start)) e [Cores](https://icolorpalette.com) |                           |
 |Repositório Git                                                                                                          | Maven(Apache Maven 3.9.6) |
 | SQLcl (Interface de linha de comando baseada em Java para Oracle Database. - Não instalar)                              |                           |
 | Liquibase (Biblioteca independente de banco de dados de código aberto para rastrear, gerenciar e aplicar alterações no esquema do banco de dados - Não instalar) |
@@ -62,7 +62,7 @@ flowchart TD
     F     --> |Sim|F1(fa:fa-circle-check Code Review</br>Liberado)
     F     --> |Nao|F2(fa:fa-trash-can-arrow-up Rejeitado)
     F2    --> DD(fa:fa-stopwatch Atraso Sprint) --> B
-    F1    --> CL(fa:fa-clone Database</br>Clone</br>Editionable) 
+    F1    --> CL(fa:fa-clone Database</br>Clone</br>Editionable)
     CL    --> DBCL(fa:fa-database Clone PDB/CDB) --> DBFT(fa:fa-toggle-on Feature</br>Toogle)
     CL    --> FTED(fa:fa-lightbulb Criar Edição/Release) --> FTCR(fa:fa-toggle-on Feature</br>Toogle) --> FTSE(fa:fa-link-slash Create</br>Service)
     FTSE  --> TEAB(fa:fa-table-columns Teste AB</br>Por serviço)
@@ -116,9 +116,9 @@ A clonagem a quente de PDBs é uma técnica em que seu PDB de origem permanece n
 ### Usuário
 
 - [ ] É uma conta através da qual você pode se conectar ao banco de dados.(CREATE SESSION)
-- [ ] Possui um nome de usuário e uma senha e está associado a um ESQUEMA. 
+- [ ] Possui um nome de usuário e uma senha e está associado a um ESQUEMA.
 - [ ] São usados ​​para autenticar e autorizar o acesso ao banco de dados.
-- [ ] Podem possuir objetos de banco de dados, como tabelas, views, procedures e etc. 
+- [ ] Podem possuir objetos de banco de dados, como tabelas, views, procedures e etc.
 - [ ] Podem receber privilégios para acessar objetos pertencentes a outros usuários.
 - [ ] Realizar operações dentro do esquema atribuído e em objetos aos quais receberam acesso.
 
@@ -140,7 +140,7 @@ A clonagem a quente de PDBs é uma técnica em que seu PDB de origem permanece n
 | Backup e Recuperação               | Desenvolver e implementar uma estratégia abrangente de backup e recuperação é fundamental para garantir a disponibilidade e a integridade dos dados em caso de falha do sistema, erro humano ou desastre. |
 | Monitoramento e Otimização de Desempenho | Utilizar ferramentas e técnicas de monitoramento de desempenho para identificar e resolver gargalos de desempenho, ajustar parâmetros do sistema, otimizar consultas e  índices, e realizar ajustes de hardware e configuração conforme necessário. |
 | ISO/IEC 27002                            | [BS EN ISO/IEC 27002 Tecnologia da informação, segurança cibernética e proteção da privacidade](https://www.iso.org/standard/75652.html) |
-| Objetivo de Desenvolvimento Sustentável 9 da ONG | [Objetivo de Desenvolvimento Sustentável 9 da ONU](https://sdgs.un.org/goals/goal9)    | 
+| Objetivo de Desenvolvimento Sustentável 9 da ONG | [Objetivo de Desenvolvimento Sustentável 9 da ONU](https://sdgs.un.org/goals/goal9)    |
 
 Impor as melhores práticas arquitetônicas com limites de módulos e padrões de comunicação bem definidos. O isolamento de dados garante que os módulos sejam independentes e fracamente acoplados.
 
@@ -161,10 +161,10 @@ Um monólito modular possui regras rígidas para integridade de dados:
 
 Quais são os benefícios deste design?
 
-- [x] Manter os módulos isolados uns dos outros promove modularidade e baixo acoplamento. Torna mais fácil introduzir novas alterações no sistema. 
+- [x] Manter os módulos isolados uns dos outros promove modularidade e baixo acoplamento. Torna mais fácil introduzir novas alterações no sistema.
 - [x] Há menos efeitos colaterais indesejados quando os componentes estão fracamente acoplados.
 
-poderá manter a integridade referencial. 
+poderá manter a integridade referencial.
 
 ### Separate table
 As tabelas para todos os módulos residem dentro de um banco de dados. Não é fácil determinar quais tabelas pertencem a qual módulo. Estou mencionando essa abordagem apenas por uma questão de integridade.
@@ -174,7 +174,7 @@ No entanto, quanto mais tabelas você tiver, mais difícil será mantê-las isol
 ![](img/sgbd-005.png){width="400" height="300" style="display: block; margin: 0 auto"}
 
 ### Separate schema
-Agrupar tabelas relacionadas no banco de dados é uma forma de introduzir isolamento lógico. Você pode implementar isso usando esquemas de banco de dados. Cada módulo possui um esquema exclusivo contendo as tabelas do módulo. 
+Agrupar tabelas relacionadas no banco de dados é uma forma de introduzir isolamento lógico. Você pode implementar isso usando esquemas de banco de dados. Cada módulo possui um esquema exclusivo contendo as tabelas do módulo.
 
 ![](img/sgbd-006.png){width="400" height="300" style="display: block; margin: 0 auto"}
 
@@ -195,7 +195,7 @@ No entanto, você pode introduzir um tipo de banco de dados diferente para resol
 Por fim: Eu sempre busco o isolamento lógico usando esquemas. É fácil de implementar e me ajuda a entender melhor meus limites. Dependendo dos requisitos, posso introduzir bancos de dados separados posteriormente.
 
 ## Monolito para microsserviços
-O sistema cresce com o tempo e os requisitos estão em constante mudança.  
+O sistema cresce com o tempo e os requisitos estão em constante mudança.
 
 O primeiro passo para passar de um monólito para microsserviços é identificar os Contexto Delimitado (Contexto Delimitado é um padrão central no Design Orientado a Domínio).
 
@@ -226,12 +226,12 @@ O usuário que possui esse esquema recebe todos os objetos de um banco de dados,
 - [ ] **Criação de Tablespaces de LOBs dedicados*- [x]  : Criar tablespaces dedicados exclusivamente para armazenar LOBs pode permitir um gerenciamento mais granular do espaço de armazenamento e facilitar a realização de operações de manutenção e backup específicas para LOBs.
 
 ### [Smart Database Paradigm (SmartDB)](https://www.salvis.com/blog/2018/08/28/smartdb-as-of-2018-08-21/)
-__Qualquer sistema de TI que utilize um banco de dados deve fazer o máximo possível do seu processamento dentro do Banco de Dados e o mínimo possível do seu processamento nas outras camadas__. 
+__Qualquer sistema de TI que utilize um banco de dados deve fazer o máximo possível do seu processamento dentro do Banco de Dados e o mínimo possível do seu processamento nas outras camadas__.
 
 Esta abordagem é que isso levaria a menos complexidade, menos componentes, menos idas e vindas, menos sobrecarga e solução de problemas menos complicada.
 
  <p align="justify">O usuário que possui esse esquema vazio recebe exatamente e apenas executa privilégios em um conjunto bem definido de subprogramas PL/SQL que foram projetados para ser a API do back-end do aplicativo que o banco de dados hospeda para o mundo externo.</p>
- 
+
 ![](img/sgbd-011.png){width="800" height="500" style="display: block; margin: 0 auto"}
 
 #### API PL/SQL lidam com transações
@@ -248,7 +248,7 @@ Logo:
 
 ### Esquema
 
-- [ ] É uma coleção de objetos de banco de dados (como tabelas, visualizações, índices, sequências, etc.) que pertencem a um usuário específico. 
+- [ ] É uma coleção de objetos de banco de dados (como tabelas, visualizações, índices, sequências, etc.) que pertencem a um usuário específico.
 - [ ] Contêiner lógico para objetos de banco de dados.
 - [ ] Associado a uma conta de usuário, que é usada para conectar-se ao banco de dados e acessar os objetos dentro desse esquema.
 - [ ] É um namespace para objetos de banco de dados e fornece uma maneira de organizar e gerenciar objetos dentro do banco de dados.
@@ -257,7 +257,7 @@ Logo:
 #### Versão 11/11i
 Nas versões 11i anteriores do Oracle E-Business Suite, cada produto recebia duas tablespaces, um para dados e outro para índices.
 #### Versão 12
-Uma instalação do Oracle E-Business Suite Release 12.2 inclui duas edições (versões) do código do aplicativo e dos dados iniciais. O sistema de arquivos contém duas cópias completas do Oracle E-Business Suite e dos arquivos de tecnologia da camada de aplicativo. 
+Uma instalação do Oracle E-Business Suite Release 12.2 inclui duas edições (versões) do código do aplicativo e dos dados iniciais. O sistema de arquivos contém duas cópias completas do Oracle E-Business Suite e dos arquivos de tecnologia da camada de aplicativo.
 
 No banco de dados, usamos o recurso Redefinição baseada em edição para criar uma nova edição do banco de dados para cada ciclo de aplicação de patches online.
 
@@ -267,7 +267,7 @@ No banco de dados, usamos o recurso Redefinição baseada em edição para criar
 
 <p align="justify">A arquitetura de banco de dados do Oracle E-Business Suite é altamente complexa e envolve vários esquemas de banco de dados para diferentes módulos e componentes da aplicação.</p>
 ![](img/sgbd-012.png){width="800" height="500" style="display: block; margin: 0 auto"}
-  
+
   | Schema               | Definição                                                 |
   | -----                | --------                                                  |
   | SYS e SYSTEM         | Estes esquemas são parte do banco de dados Oracle em si e são usados para armazenar metadados do sistema, como informações sobre usuários, privilégios, estrutura do banco de dados, etc. |
@@ -283,7 +283,7 @@ O código customizado deve ser desenvolvido de acordo com os padrões publicados
 
 Os aplicativos deverão ser pré-fixados por `XX`e criados através do `AD Splice`. Quaisquer novos objetos de aplicativos personalizados serão armazenados em APPS_TS_TX_DATA e APPS_TS_TX_IX, independentemente das configurações newprods.txt, izuterr.txt.
 
-**Observação*- [x] : 
+**Observação*- [x] :
 
 - [x] Tenho ORIENTADO todos os schemas nascidos e criados pela 60OPT, mesmo FORA do Schema/Usuario da Instancia e-Business, sejam préfixados com `XX60OPT`, que identificaria que são CUSTOMIZADOS.
 - [x] Todas as conexões de Banco de Dados Oracle, são obtidas através do servidor: `\\server1\tn$`;
@@ -316,7 +316,7 @@ Um aplicativo que implementa PinkDB possui os seguintes recursos:
 - [ ] O usuário conectado não possui objetos de banco de dados. O usuário connect é usado por componentes do aplicativo fora do banco de dados para interagir com o banco de dados.(100% idêntico ao SmartDB)
 - [ ] O usuário conectado tem acesso apenas a objetos de API. O usuário conectado não deve ter privilégios para acessar objetos que não fazem parte da API, por exemplo, através de SELECT ANY TABLEprivilégios ou similares.
 - [ ] A API consiste em objetos e visualizações armazenados;O acesso é concedido com base no princípio dos privilégios mínimos. A API consiste em objetos e visualizações armazenados, mas não em tabelas.
-- [ ] Os dados são processados ​​por operações baseadas em conjunto. Menos loops, mais SQL baseado em conjuntos. 
+- [ ] Os dados são processados ​​por operações baseadas em conjunto. Menos loops, mais SQL baseado em conjuntos.
 
 #### Diferenças para SmartDB
 SmartDB tem como alvo PL/SQL e, portanto, foca em bancos de dados Oracle. A API no SmartDB consiste apenas em unidades PL/SQL. Sem exceções. PinkDB permite visualizações.
@@ -385,12 +385,12 @@ O trade off é o nome que se dá a uma decisão que consiste na escolha de uma o
 - [x] As edições são criadas no nível do PDB, não no nível do esquema;
 - [x] Risco: Depois que uma edição for habilitada para um esquema, ele não pode ser desativado novamente;
 - [x] Permite fazer qualquer alteração em sistemas de produção;
-- [x] Desde uma pequena correção de bug até uma atualização de versão importante – de forma on-line, usando hot rollover: 
+- [x] Desde uma pequena correção de bug até uma atualização de versão importante – de forma on-line, usando hot rollover:
 - [x] Expomos uma nova versão (uma nova edição) enquanto os usuários ainda estão usando a versão antiga , e usuários diferentes podem usar duas (ou mais) versões ao mesmo tempo.
 - [x] Podemos fazer o upgrade a qualquer momento, não necessariamente dentro de uma janela, deixando o  "hot rollover" ou switchover para a noite.
 
 - [x] Deve haver pelo menos uma edição no banco de dados;
-- [x] E cada edição poderá ter no máximo uma edição filha. 
+- [x] E cada edição poderá ter no máximo uma edição filha.
 
 - [x] As edições são objetos no nível do banco de dados (como funções e diretórios), e não em nível de esquema (como tabelas e pacotes).
 - [x] A edição inicial é ORA$BASE.Cada nova edição é criada como filha de uma edição existente.
@@ -398,10 +398,10 @@ O trade off é o nome que se dá a uma decisão que consiste na escolha de uma o
 - [x] Cada sessão usa uma edição específica a qualquer momento. Por padrão, quando abrimos uma sessão ela é associada à edição padrão no nível do banco de dados.
 - [x] Cada objeto editado no contexto de uma edição específica é real ou herdado .
 - [x] Logo após a criação de uma nova edição ele herda todos os objetos editados de sua edição pai e não possui nenhum objeto real.
-- [x] Por definição, quando estamos no contexto de uma edição específica, vemos e usamos os objetos que são reais nesta sessão e os objetos herdados das edições ancestrais, mas nunca objetos das edições descendentes. 
+- [x] Por definição, quando estamos no contexto de uma edição específica, vemos e usamos os objetos que são reais nesta sessão e os objetos herdados das edições ancestrais, mas nunca objetos das edições descendentes.
 - [x] Uma atualização online significa que os usuários do aplicativo poderão continuar trabalhando ininterruptamente.
 - [x] Os objetos de código que eles usam devem permanecer válidos e disponíveis a qualquer momento.
-- [x] Seria bom se pudéssemos compilar todos esses objetos em uma única transação, como uma operação atômica, para que a qualquer momento os usuários vissem apenas uma visão consistente de todos os objetos – e todos eles em um estado “Válido” 
+- [x] Seria bom se pudéssemos compilar todos esses objetos em uma única transação, como uma operação atômica, para que a qualquer momento os usuários vissem apenas uma visão consistente de todos os objetos – e todos eles em um estado “Válido”
 - [x] Por definição, quando estamos no contexto de uma edição específica, vemos e usamos os objetos que são reais nesta sessão e os objetos herdados das edições ancestrais, mas nunca objetos das edições descendentes.
 - [x] Antes de expor uma nova edição, sempre atualize explicitamente todos os objetos dependentes;
 - [x] Há casos em que a invalidação não ocorrerá e o pacote permanecerá válido. No meu exemplo, por exemplo, se eu qualificasse o nome do parâmetro na instrução DELETE, adicionar a coluna eye_color não causaria invalidação.
@@ -432,17 +432,17 @@ id2 --> id3(View)
 id3 --> id4[Tabela]
 id11[Edição</br>V01.01.00] --> id21((Unidade de</br>Programa))
 id21 --> id31(View)
-id31 --> id4[Tabela]  
+id31 --> id4[Tabela]
 ```
 
 ## A tarefa
 Para isso devemos mudar a edição da nossa sessão para "v01.00.00" , e podemos fazer assim:
 
-- [x] Enquanto os clientes trabalham com a versão base, nós (o desenvolvedor) compilaremos a nova versão do corpo do pacote pg_60OPT_pais_dml na nova edição V1 . 
+- [x] Enquanto os clientes trabalham com a versão base, nós (o desenvolvedor) compilaremos a nova versão do corpo do pacote pg_60OPT_pais_dml na nova edição V1 .
 - [x] Precisamos mudar a implementação do pacote pg_60OPT_pais_dml, ou seja, precisamos alterar o corpo do pacote.
 Não há alterações na API (a especificação do pacote não é alterada) e nenhuma alteração na tabela.
 Os objetos de código que eles usam devem permanecer válidos e disponíveis a qualquer momento.
-Uma das muitas vantagens de usar pacotes PL/SQL é que o corpo do pacote não possui objetos dependentes. 
+Uma das muitas vantagens de usar pacotes PL/SQL é que o corpo do pacote não possui objetos dependentes.
 Isso significa que compilar o corpo de um pacote nunca invalida outros objetos de código.Um problema é que para compilar o corpo do pacote temos que bloqueá-lo exclusivamente – para garantir que nenhuma outra sessão o esteja usando enquanto ele está sendo compilado. Significa que
 
 
@@ -455,7 +455,7 @@ Isso significa que compilar o corpo de um pacote nunca invalida outros objetos d
 
 | Conceito               | Entenda |
 | -----                  | ----    |
-| Objetos editados       | Estão vinculados tanto a um esquema quanto a uma edição. | 
+| Objetos editados       | Estão vinculados tanto a um esquema quanto a uma edição. |
 | Objetos não editados   | São visíveis para todas as edições e não estão vinculados a uma edição específica. Tabelas e índices são exemplos de tipos de objetos não editados. |
 
 | Tipo de alteração                | Recurso                                              |
@@ -479,20 +479,20 @@ Cada esquema possui pelo menos uma edição (ORA$BASE), mas cada edição pode t
 - [ ] Library
 - [ ] Trigger
 
-Quando você cria uma nova edição, todos os objetos editáveis ​​são herdados do pai. Se você fizer alterações nos objetos, a herança será interrompida.  As edições são criadas em toda a instância e não no nível do usuário ou do esquema. 
+Quando você cria uma nova edição, todos os objetos editáveis ​​são herdados do pai. Se você fizer alterações nos objetos, a herança será interrompida.  As edições são criadas em toda a instância e não no nível do usuário ou do esquema.
 
 #### TRADE-OFF
 - [x] O EBR faz parte da migração? Adiciona complexidade para o desenvolvedor?
 - [x] O EBR faz parte de sua Pipeline. O desenvolvedor não precisa pensa na complexidade do EBR
 
 - [x] AUTHID DEFINER.....:  Funções e procedimentos em um pacote com direitos de definidor são executados sob os privilégios do usuário que define o pacote.
-- [x] AUTHID CURRENT_USER: funções e procedimentos são executados sob os privilégios do usuário que os invoca. 
+- [x] AUTHID CURRENT_USER: funções e procedimentos são executados sob os privilégios do usuário que os invoca.
 
 Como é o processo de CI com EBR?
 
 ![](img/sgbd-020.jpg){width="900" height="600" style="display: block; margin: 0 auto"}
 
-E no JAVA, como podemos 
+E no JAVA, como podemos
 Fonte de dados JPA com edição
 
 O lado do aplicativo também pode definir a edição por meio de fontes de dados JPA. O nome da edição pode ser especificado na propriedade oracle.jdbc.editionName. Esta edição será então usada ao estabelecer uma conexão através da fonte de dados JPA.
@@ -502,16 +502,16 @@ O lado do aplicativo também pode definir a edição por meio de fontes de dados
        @Primary
        protected DataSource dataSource() {
              DriverManagerDataSource dataSource = new DriverManagerDataSource();
- 
+
              dataSource.setDriverClassName(driver);
              dataSource.setUsername(user);
              dataSource.setPassword(pwd);
              dataSource.setUrl(url);
- 
+
              Properties properties = new Properties();
              properties.setProperty("oracle.jdbc.editionName", edition);
              dataSource.setConnectionProperties(properties);
- 
+
              log.debug("dataSource:{}", dataSource);
              return dataSource;
        }

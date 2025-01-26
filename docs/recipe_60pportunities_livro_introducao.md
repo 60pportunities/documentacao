@@ -56,5 +56,5 @@ mindmap
       BDD
       ::icon(fa-solid fa-road-spikes)
       ATDD
-      ::icon(fa-solid fa-users) 
+      ::icon(fa-solid fa-users)
 ```

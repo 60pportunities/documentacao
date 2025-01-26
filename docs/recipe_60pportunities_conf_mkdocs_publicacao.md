@@ -1,9 +1,9 @@
 A grande vantagem sobre hospedar a documentação do projeto em um repositório git, é a capacidade de implantá-lo automaticamente quando novas alterações são empurradas ou passam pelo processo de revisão e confirmação.
 Como estamos hospedando nosso código no GitHub, o GitHub Pages é certamente a maneira mais conveniente de publicar sua documentação do projeto, sendo gratuito e muito fácil de configurar.
 
-Para configurar o MkDocs e publicar seu site no GitHub Pages, vamos efetuar um passo a passo, que irá da instalação até a sua publicação. 
+Para configurar o MkDocs e publicar seu site no GitHub Pages, vamos efetuar um passo a passo, que irá da instalação até a sua publicação.
 
-- [x] **Instalar o MkDocs**: Antes de tudo, você precisa ter o Python e o pip instalados. 
+- [x] **Instalar o MkDocs**: Antes de tudo, você precisa ter o Python e o pip instalados.
       - [x] Faça o download do instalador executável e clique duas vezes nele para iniciar o assistente de instalação do python.
       - [x] O processo de instalação é bem simples. Marque a opção "Add Python to PATH" e "Install Now".
       - [x] Para verificar se a instalação do Python foi bem-sucedida, pesquise no menu iniciar por "cmd" e clique duas vezes para abri-lo.
@@ -18,10 +18,10 @@ Para configurar o MkDocs e publicar seu site no GitHub Pages, vamos efetuar um p
 - [x] **Preparar para publicação**: Quando estiver satisfeito, você pode gerar os arquivos para publicação: `mkdocs build`, isso criará uma pasta chamada site com todos os arquivos necessários.
 - [x] **Publicar no GitHub Pages**: Para publicar no GitHub Pages, você pode usar o seguinte comando: `mkdocs gh-deploy`, isso irá construir o projeto e enviar o conteúdo da pasta site para a branch gh-pages do seu repositório.
 - [x] **Para fazer atualizações** no seu site, basta editar os arquivos Markdown, executar mkdocs build novamente e usar **mkdocs gh-deploy** para publicar as mudanças.
-      
-**Observação**: 
 
-- [x] Você precisa adicionar a CNAME arquivo do arquivo para a raiz de seu **docs_dir**. 
+**Observação**:
+
+- [x] Você precisa adicionar a CNAME arquivo do arquivo para a raiz de seu **docs_dir**.
 - [x] O arquivo deve conter um único domínio ou subdomínio em uma única linha (veja o próprio arquivo CNAME do MkDocs como exemplo).
 - [x] mkdocs gh-deploy --help
 - [x] mkdocs gh-deploy --config-file mkdocs.yml --remote-branch main

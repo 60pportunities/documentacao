@@ -7,10 +7,10 @@ Eu foco em três modelos mentais dos quais precisamos nos libertar para transfor
 
 ![](img/pedra-001.png)
 
-Três visualizações da separação para a interconexão. 
+Três visualizações da separação para a interconexão.
 
-- [x] A primeira é a separação da natureza e dos humanos para a interconexão dos humanos como parte da natureza. 
-- [x] A segunda é a separação dos humanos para que todos os humanos sejam iguais. 
+- [x] A primeira é a separação da natureza e dos humanos para a interconexão dos humanos como parte da natureza.
+- [x] A segunda é a separação dos humanos para que todos os humanos sejam iguais.
 - [x] A última é a separação do eu para o ser inteiro.
 
 ## A base de uma mentalidade centrada no planeta
@@ -40,9 +40,9 @@ Nem todos verão o que é necessário ao mesmo tempo. A transformação não é 
 Para mim, esta é a base de uma mentalidade centrada no planeta. As diretrizes que nos ajudam a ser, ver, desafiar, sonhar e contar para a ação coletiva.
 
 # Produção vs. Resultados
-As empresas se fixam em entregar mais, sejam produtos, recursos ou tarefas, sem fazer a pergunta fundamental: esses esforços estão fazendo uma diferença significativa? 
+As empresas se fixam em entregar mais, sejam produtos, recursos ou tarefas, sem fazer a pergunta fundamental: esses esforços estão fazendo uma diferença significativa?
 
-No mundo acelerado dos negócios, é fácil igualar atividade com progresso. Muitas empresas rastreiam o sucesso pelo número de tarefas concluídas, recursos lançados ou prazos cumpridos. Essas métricas orientadas por resultados são tentadoras porque são fáceis de medir e fornecem uma imagem clara e tangível da produtividade. 
+No mundo acelerado dos negócios, é fácil igualar atividade com progresso. Muitas empresas rastreiam o sucesso pelo número de tarefas concluídas, recursos lançados ou prazos cumpridos. Essas métricas orientadas por resultados são tentadoras porque são fáceis de medir e fornecem uma imagem clara e tangível da produtividade.
 
 As equipes geralmente comemoram o cumprimento de metas semestrais ou trimestrais sem refletir se esses esforços alcançaram algo além de marcos de curto prazo.
 
@@ -50,7 +50,7 @@ Esse foco na produção em vez do resultado é uma armadilha em que muitas empre
 
 Por que os resultados são mais importantes
 
-Os resultados são a verdadeira medida do sucesso porque refletem o impacto real dos esforços de uma empresa em seus clientes, funcionários e resultados. 
+Os resultados são a verdadeira medida do sucesso porque refletem o impacto real dos esforços de uma empresa em seus clientes, funcionários e resultados.
 
 Enquanto as saídas nos dizem o que foi feito, quantos produtos foram enviados ou quantos recursos foram adicionados, os resultados nos dizem por que isso importa. Por exemplo, entregar um novo recurso de produto é uma saída, mas melhorar a retenção ou a satisfação do cliente por causa desse recurso é um resultado.
 
@@ -58,13 +58,13 @@ A distinção entre saídas e resultados é mais do que apenas semântica.
 
 Um foco em resultados alinha as atividades comerciais com objetivos estratégicos mais amplos.
 
-Ele força as equipes a pensar criticamente sobre o valor que estão entregando em vez de simplesmente concluir tarefas. Em vez de celebrar o quanto foi produzido, as empresas que priorizam os resultados perguntam: 
+Ele força as equipes a pensar criticamente sobre o valor que estão entregando em vez de simplesmente concluir tarefas. Em vez de celebrar o quanto foi produzido, as empresas que priorizam os resultados perguntam:
 
 * "Este trabalho criou um resultado significativo?"
 
-Uma mentalidade orientada para resultados geralmente leva a vitórias de curto prazo, mas perdas de longo prazo. 
+Uma mentalidade orientada para resultados geralmente leva a vitórias de curto prazo, mas perdas de longo prazo.
 
-As empresas se tornam tão focadas em entregar mais que perdem de vista se estão entregando as coisas certas. 
+As empresas se tornam tão focadas em entregar mais que perdem de vista se estão entregando as coisas certas.
 
 Essa abordagem pode mascarar problemas mais profundos, como declínio na satisfação do cliente ou falta de inovação. As equipes podem atingir suas metas e entregar no prazo, mas sem considerar se seu trabalho está gerando resultados significativos, elas correm o risco de desperdiçar recursos em esforços que não movem a agulha.
 
@@ -73,11 +73,11 @@ Essa abordagem pode mascarar problemas mais profundos, como declínio na satisfa
 Equipes que são recompensadas por atingir KPIs orientados a resultados, como o número de lançamentos de produtos ou o volume de tarefas concluídas, são incentivadas a focar na quantidade em vez da qualidade. Essa pressão pode levar a ciclos de desenvolvimento apressados, soluções incompletas e produtos que não atendem às necessidades do cliente.
 
 ## Mudando para uma abordagem orientada para resultados
-A transição de uma mentalidade orientada para resultados para uma focada em resultados requer uma mudança fundamental em como o sucesso é medido. Em vez de rastrear o quanto foi feito, as empresas precisam se concentrar em se seu trabalho impulsiona uma mudança real. 
+A transição de uma mentalidade orientada para resultados para uma focada em resultados requer uma mudança fundamental em como o sucesso é medido. Em vez de rastrear o quanto foi feito, as empresas precisam se concentrar em se seu trabalho impulsiona uma mudança real.
 
 Isso requer repensar KPIs, práticas de gerenciamento de projetos e como as equipes são incentivadas.
 
-Um dos maiores desafios na mudança para uma cultura orientada a resultados é encontrar as métricas certas para medir o sucesso. Saídas, como o número de recursos lançados, são fáceis de rastrear, mas os resultados exigem uma medição mais matizada. 
+Um dos maiores desafios na mudança para uma cultura orientada a resultados é encontrar as métricas certas para medir o sucesso. Saídas, como o número de recursos lançados, são fáceis de rastrear, mas os resultados exigem uma medição mais matizada.
 
 Métricas como pontuações de satisfação do cliente (CSAT), Net Promoter Scores (NPS) e valor de vida útil do cliente (LTV) oferecem uma imagem mais clara sobre se uma empresa está entregando valor real.
 
@@ -94,14 +94,14 @@ Para mudar efetivamente para uma abordagem orientada a resultados, as empresas p
 - [x] Use Objetivos e Resultados-Chave (OKRs): OKRs alinham equipes em torno de metas orientadas a resultados. Em vez de focar em quantos recursos são entregues, OKRs encorajam equipes a pensar se seu trabalho melhora a experiência do cliente, aumenta o engajamento ou gera receita.
 
 ### Encontrando o equilíbrio entre  Produção vs. Resultados
-A chave é encontrar um equilíbrio. 
+A chave é encontrar um equilíbrio.
 
-A produção são necessárias para impulsionar o progresso, mas devem estar alinhados com os resultados que realmente importam. Quando os resultados são vinculados a resultados claros e estratégicos, eles se tornam medidas significativas de progresso. 
+A produção são necessárias para impulsionar o progresso, mas devem estar alinhados com os resultados que realmente importam. Quando os resultados são vinculados a resultados claros e estratégicos, eles se tornam medidas significativas de progresso.
 
 A velocidade do experimento é uma métrica que eu particularmente gosto para isso.
 
 ### Conclusão: Priorizando o que realmente importa
-A mudança de uma mentalidade orientada por produção  para uma mentalidade orientada por resultados não é apenas um ajuste tático, é um imperativo estratégico para empresas que buscam sucesso a longo prazo. 
+A mudança de uma mentalidade orientada por produção  para uma mentalidade orientada por resultados não é apenas um ajuste tático, é um imperativo estratégico para empresas que buscam sucesso a longo prazo.
 
 Embora entregar mais recursos, produtos ou serviços possa criar a aparência de progresso, é o impacto dessas saídas que realmente define o sucesso. As empresas devem ir além de simplesmente medir o quanto produzem e se concentrar em vez disso em se seus esforços estão fazendo uma diferença significativa. Essa mudança de foco requer repensar os KPIs, promover uma cultura de inovação e capacitar as equipes para alinhar seu trabalho com objetivos estratégicos de longo prazo.
 
@@ -111,8 +111,6 @@ Essa abordagem incentiva um engajamento mais profundo dos funcionários, melhor 
 
 A jornada em direção ao sucesso orientado a resultados requer paciência, comprometimento e disposição para reavaliar continuamente o que está funcionando. No entanto, as recompensas, maior satisfação do cliente, posições de mercado mais fortes e equipes mais motivadas valem o esforço.
 
-Na busca por aumentar a produtividade e acelerar a entrega, muitas empresas se concentram exclusivamente na eficiência, medindo o sucesso pela quantidade de código escrito ou pela rapidez com que as tarefas são concluídas. 
+Na busca por aumentar a produtividade e acelerar a entrega, muitas empresas se concentram exclusivamente na eficiência, medindo o sucesso pela quantidade de código escrito ou pela rapidez com que as tarefas são concluídas.
 
 Mas há uma compensação crítica quando a experiência do desenvolvedor (DevEx) é negligenciada. Uma cultura que enfatiza apenas a produção pode levar ao esgotamento, dívida técnica e desengajamento entre os engenheiros.
-
-

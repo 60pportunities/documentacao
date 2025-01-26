@@ -37,7 +37,7 @@ Sugerimos que instalem o mkdocs, para ver localmente suas alterações e configu
 <div class="mdx-columns2" markdown>
 | Plugins                           | Versão       | Plugins                           | Versão       |
 | -----                             | ----         | -----                             | ----         |
-| manim                             |       0.18.1 |mkdocs-glightbox                   |       0.4.0  | 
+| manim                             |       0.18.1 |mkdocs-glightbox                   |       0.4.0  |
 | ManimPango                        |       0.5.0  |mkdocs-include-markdown-plugin     |       6.2.1  |
 | mapbox-earcut                     |       1.0.1  |mkdocs-material                    |       9.5.31 |
 | Markdown                          |       3.6    |mkdocs-material-extensions         |       1.3.1  |

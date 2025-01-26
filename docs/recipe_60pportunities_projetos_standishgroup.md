@@ -12,22 +12,22 @@ Somos mais otimistas do que realistas.
 - [x] "Desta vez com certeza vai rodar" ou "Acabei de encontrar o último bug".
 - [ ] É assim que escrever, experimentar, "trabalhar fora" são disciplinas essenciais para o teórico.
 - [ ] O programador constrói a partir de puro pensamento: conceitos e representações muito flexíveis dos mesmos.
-- [ ] São muitas tarefas ou junções, logo, a probabilidade de que cada um dê certo torna-se extremamente pequena. 
+- [ ] São muitas tarefas ou junções, logo, a probabilidade de que cada um dê certo torna-se extremamente pequena.
 - [ ] Isso implica que homens e meses NÃO são intercambiáveis.
       - [ ] uma tarefa não pode ser particionada devido a restrições sequenciais, a aplicação de mais esforço não tem efeito sobre o cronograma;
       - [ ] Em tarefas que podem ser particionadas, mas que requerem comunicação entre as subtarefas, o esforço de comunicação deve ser adicionado à quantidade de trabalho a ser realizado.
 - [ ] Carga adicional de comunicação é composta de duas partes, treinamento (esforço adicionado varia linearmente com o número de trabalhadores) e intercomunicação (o esforço aumenta à medida que
 n (n -1) / 2)
 - [ ] Adicionar mais pessoas aumenta, não encurta, o cronograma.
-- [ ] Planeje-se em 
+- [ ] Planeje-se em
 
 ## Standish Group e "Chaos Report"
-O Standish Group iniciou o Chaos Report em 1994, desde então, o relatório tem sido uma referência análise do sucesso e fracasso de projetos de software. 
+O Standish Group iniciou o Chaos Report em 1994, desde então, o relatório tem sido uma referência análise do sucesso e fracasso de projetos de software.
 ## Standish Group - [CHAOS Report](https://vitalitychicago.com/)
 O Standish Group, responsável por elaborar o relatório CHAOS, propôs em 2018 uma mudança de perspectiva.
 <div class="mdx-columns2" markdown>
-- [x] Para o grupo, prazo-custo-escopo não definem o sucesso do projeto. 
-- [x] O que essa tríade define, na verdade, é o sucesso do gerenciamento do projeto. 
+- [x] Para o grupo, prazo-custo-escopo não definem o sucesso do projeto.
+- [x] O que essa tríade define, na verdade, é o sucesso do gerenciamento do projeto.
 - [x] Todo projeto começa com uma ideia, uma necessidade ou uma oportunidade.
 </div>
 ![](img/chaos_projetos_ti_2015.png)
@@ -49,7 +49,7 @@ Olhando para trás, para 1999, o Standish Group chamou o gerente de projeto de �
 </div>
 ![](img/chaos_report_2020.png)
 
-## Melhore a Solução/Tempo dos Projetos 
+## Melhore a Solução/Tempo dos Projetos
 Ter um bom patrocinador, boa equipe e bom local são as únicas coisas que precisamos melhorar e desenvolver, para melhorar o desempenho do projeto.
 <div class="center-table" markdown>
 | Dicas            | Entenda                                                                 |
@@ -76,7 +76,7 @@ Somos convocados para estimar custos e prazos para o período seguinte, logicame
 
 - [x] Por fim erramos até na pergunta: “Quanto custa?” é muito mais fácil de responder do que “Quanto vale?”.
 - [x] Na maioria das empresas, o foco na entrega bem-sucedida de projetos distanciou-as do foco na entrega de valor aos seus clientes.
-- [x] Por que no desenvolvimento de software adotou-se a realização de projetos? 
+- [x] Por que no desenvolvimento de software adotou-se a realização de projetos?
 - [x] No passado, tudo era quase impossível, por limitação do software.
 - [x] Para tentar imitar a precisão e a previsibilidade da engenharia construção civil e a mecânica;
 - [x] Acreditou-se que a disciplina e o espírito de planejamento dos projetos pudessem trazer ao desenvolvimento de software elementos que resolvessem a chamada ESCOPO, PRAZO e CUSTO.
@@ -90,7 +90,7 @@ Um estudo composto por 600 engenheiros de software do Reino Unido e dos EUA desc
 ![](img/agile_falha_estudo.png)
 
 - [x] O Manifesto Ágil existe há mais de 21 anos, mas continua a existir uma lacuna na investigação empírica quanto ao impacto real dos seus valores na indústria, apesar de pesquisas recentes terem descoberto que 81% dos decisores empresariais no Reino Unido e 89% nos EUA estão preocupados com a entrega pontual de projetos de software em suas organizações.
-- [x] Projetos nos quais o engenheiro de software relatou sentir-se psicologicamente seguro para discutir e resolver problemas rapidamente quando eles surgiram tiveram 87% mais chances de sucesso aqueles que não o fizeram. 
+- [x] Projetos nos quais o engenheiro de software relatou sentir-se psicologicamente seguro para discutir e resolver problemas rapidamente quando eles surgiram tiveram 87% mais chances de sucesso aqueles que não o fizeram.
 - [x] Os projetos onde os requisitos foram baseados com precisão em um problema do mundo real tiveram 54% mais chances de sucesso do que aqueles que não o fizeram.
 - [x] As seguintes práticas de engenharia de software tiveram os seguintes aumentos nas taxas de sucesso em comparação com quando não são usadas:
 
@@ -98,8 +98,8 @@ Um estudo composto por 600 engenheiros de software do Reino Unido e dos EUA desc
 | ----------          | ----------                                               |
 | Os requisitos do projeto estavam claros antes do início do processo de desenvolvimento de software | 97% |
 | Ser capaz de discutir e resolver problemas rapidamente               | 87% |
-| Os requisitos do projeto foram baseados com precisão no problema do mundo real  | 54% | 
-| O projeto tinha uma especificação completa ou documento de requisitos antes do início do desenvolvimento | 50% | 
+| Os requisitos do projeto foram baseados com precisão no problema do mundo real  | 54% |
+| O projeto tinha uma especificação completa ou documento de requisitos antes do início do desenvolvimento | 50% |
 | Mudanças significativas foram feitas nos requisitos no final do processo de desenvolvimento        | 7% |
 | O engenheiro de software relatou não ter que trabalhar em mais de um projeto ao mesmo tempo  | Sem diferença estatisticamente significativa (-3%, p = 0,558). |
 
@@ -111,7 +111,7 @@ Maximizando o Sucesso do Projeto" aborda a evolução na definição de sucesso 
 <p align="justify">O sucesso foi classificado em uma escala que varia de 0 a 10, com 0 representando discordo totalmente e 10 representando concordo totalmente.</p>
 - [x] Doze por cento (12%) dos entrevistados disseram que seu projeto foi um fracasso (0–6);
 - [x] Quarenta por cento (40%) dos projetos foram classificados como produzindo um resultado misto (7–8);
-- [x] Quarenta e oito por cento (48%) foram classificados como bem-sucedidos (9–10). 
+- [x] Quarenta e oito por cento (48%) foram classificados como bem-sucedidos (9–10).
 
 <p align="justify">Para calcular o NPSS Global, pegamos os 48% dos projetos classificados como bem-sucedidos e subtraímos os 12% classificados como fracasso, para uma pontuação geral do NPSS de 36.</p>
 

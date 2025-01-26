@@ -6,9 +6,9 @@ A Cloud Native Computing Foundation (CNCF) é uma fundação de software de cód
 O CNCF serve como um lar independente de fornecedores para muitos dos projetos de crescimento mais rápido no GitHub, incluindo Kubernetes, Prometheus e Envoy, promovendo a colaboração entre os principais desenvolvedores, usuários finais e fornecedores do setor.
 
 Visão geral do curso, objetivos, cronograma e avaliação
-OpenTelemetry é uma estrutura poderosa que fornece aos desenvolvedores as ferramentas para monitorar, rastrear e registrar seus aplicativos com uma solução de observabilidade unificada. 
+OpenTelemetry é uma estrutura poderosa que fornece aos desenvolvedores as ferramentas para monitorar, rastrear e registrar seus aplicativos com uma solução de observabilidade unificada.
 Na era digital de hoje, onde arquiteturas de microsserviços e soluções nativas da nuvem são predominantes, a capacidade de observar e entender o comportamento de sistemas distribuídos é fundamental.
-O OpenTelemetry aborda os desafios de monitorar ambientes de software modernos, oferecendo uma API unificada e um conjunto de ferramentas que podem ser integradas em várias linguagens, plataformas e estruturas. 
+O OpenTelemetry aborda os desafios de monitorar ambientes de software modernos, oferecendo uma API unificada e um conjunto de ferramentas que podem ser integradas em várias linguagens, plataformas e estruturas.
 
 
 

@@ -10,4 +10,3 @@ jobs:
       - name: Deploy the code
         run: |
           echo "Variável SECRETA = ${{ secrets.SECRET_KEY }}"
-

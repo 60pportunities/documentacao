@@ -12,6 +12,6 @@
   - Repositório username: Identificado pelo nome de usuário, usado para projetos pessoais.
   - .github: Contém arquivos de configuração globais para uma organização ou usuário. (Público)
   - .github-private: Contém arquivos de configuração globais para uma organização ou usuário. (Privado)
-  
+
   - Repositório username/.gitignore: Usado para armazenar arquivos .gitignore compartilhados.
-  - 
+  -

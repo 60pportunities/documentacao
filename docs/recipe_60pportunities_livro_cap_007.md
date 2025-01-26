@@ -15,7 +15,7 @@
 - [x] iPhone SE (3ª geração): Atualização com chip A15 Bionic.
 - [x] Mac Studio: Novo desktop poderoso focado em criadores de conteúdo.
 - [x] Surface Laptop Studio: Novo modelo focado em criadores, combinando potência e portabilidade.
-- [x] 
+- [x]
 - [x] 2023: UiPath Automation Cloud – Expansão das soluções baseadas em nuvem para facilitar a automação escalável.
 - [x] 2023: Acordo climático na COP28.
 - [x] 2023: Revolução da Biotecnologia: Avanços em edição gênica (CRISPR) e terapias personalizadas, oferecendo novos tratamentos para doenças genéticas e câncer.
