@@ -170,7 +170,7 @@ São um conjunto de diretrizes de configuração criadas para garantir instalaç
  <p align="justify">Identificadores são fundamentais para a configuração, administração e operação do Oracle Database, pois ajudam a distinguir entre diferentes instâncias e bancos de dados em um ambiente de servidor Oracle.</p>
  <p align="justify">Configurar esses identificadores corretamente é crucial para garantir a conectividade adequada dos clientes e a operação eficiente do banco de dados.</p>
 
-![](img/cesuc_padrao_oracle.png){width="800" height="500" style="display: block; margin: 0 auto"}
+![](img/60opt-oracle.png){width="800" height="500" style="display: block; margin: 0 auto"}
 
 ## Dados contêiner e Banco de dados conectável
 Oracle pode funcionar como um “banco de dados contêiner multilocatário”, também conhecido como CDB. Este CDB pode incluir zero ou mais “bancos de dados conectáveis” ou PDBs.

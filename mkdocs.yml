@@ -213,27 +213,26 @@ extra:
 #not_in_nav: |
 
 nav:
-   - 'Inicio'                                        :
-      - 'Licença'                                    : 'LICENSE.md'
-      - 'Changelog'                                  : 'CHANGELOG.md'
-      - 'Contribuições'                              : 'CONTRIBUTING.md'
-      - 'Codigo de Conduta'                          : 'CODE_OF_CONDUCT.md'
-      - 'Notas'                                      : 'notas.md'
-      - 'Políticas'                                  : 'politicas.md'
-      - 'Segurança'                                  : 'SECURITY.md'
-   - 'Felicidade do imperfeito'                      :
-      - 'Aprender, desaprender e reaprender'         : 'recipe_60pportunities_felicidade_001.md'
-      - 'Entender'                                   : 'recipe_60pportunities_felicidade_002.md'
-   - 'Conceitos'                                     :
-      - 'Definições'                                 : 'recipe_60pportunities_definicao_001.md'
-      - 'Domínios'                                   : 'recipe_60pportunities_definicao_002.md'
-   - 'Registro'                                      :
-      - 'Registrando um Domínio'                     : 'recipe_60pportunities_conf_registrobr_dominio.md'
-      - 'Configurando o Github'                      : 'recipe_60pportunities_conf_github.md'
-      - 'Conta no GitHub'                            : 'recipe_60pportunities_conf_github_conta.md'
-      - 'Configurando Pages'                         : 'recipe_60pportunities_conf_github_pages.md'
-      - 'Publicando Pages no Domínio'                : 'recipe_60pportunities_conf_github_dominio_pages.md'
-   - 'Livro'                                         :
+   - 'Inicio'                                                        :
+      - 'Licença'                                                    : 'LICENSE.md'
+      - 'Changelog'                                                  : 'CHANGELOG.md'
+      - 'Contribuições'                                              : 'CONTRIBUTING.md'
+      - 'Codigo de Conduta'                                          : 'CODE_OF_CONDUCT.md'
+      - 'Notas'                                                      : 'notas.md'
+      - 'Políticas'                                                  : 'politicas.md'
+      - 'Segurança'                                                  : 'SECURITY.md'
+   - 'Felicidade do imperfeito'                                      :
+      - 'Aprender, desaprender e reaprender'                         : 'recipe_60pportunities_felicidade_001.md'
+      - 'Entender'                                                   : 'recipe_60pportunities_felicidade_002.md'
+   - 'Conceitos'                                                     :
+      - 'Definições'                                                 : 'recipe_60pportunities_definicao_001.md'
+   - 'Registro'                                                      :
+      - 'Registrando um Domínio'                                     : 'recipe_60pportunities_conf_registrobr_dominio.md'
+      - 'Configurando o Github'                                      : 'recipe_60pportunities_conf_github.md'
+      - 'Conta no GitHub'                                            : 'recipe_60pportunities_conf_github_conta.md'
+      - 'Configurando Pages'                                         : 'recipe_60pportunities_conf_github_pages.md'
+      - 'Publicando Pages no Domínio'                                : 'recipe_60pportunities_conf_github_dominio_pages.md'
+   - 'Livro'                                                         :
       - 'Introdução'                                                 : 'recipe_60pportunities_livro_introducao.md'
       - 'Crise do Software (1960-1979)'                              : 'recipe_60pportunities_livro_cap_001.md'
       - 'Abertura Política (1980-1989)'                              : 'recipe_60pportunities_livro_cap_002.md'
