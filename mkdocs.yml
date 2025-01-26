@@ -67,8 +67,8 @@ plugins:
       #enterprise_hostname: https://github.com/s60pportunities
       repository: https://github.com/60pportunities/documentacao
       branch: main
-  #   token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
-      token: ${MKDOCS_GIT_COMMITTERS_APIKEY}
+      token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
+      #token: ${MKDOCS_GIT_COMMITTERS_APIKEY}
   - git-authors
   - git-revision-date-localized:
       type: timeago
@@ -222,17 +222,11 @@ nav:
       - 'Políticas'                                  : 'politicas.md'
       - 'Segurança'                                  : 'SECURITY.md'
    - 'Felicidade do imperfeito'                      :
-      - 'Gerações'                                   : 'recipe_60pportunities_conc_geracao.md'
-      - 'Aprender, desaprender e reaprender'         : 'recipe_60pportunities_conc_desafios.md'
-      - 'Mantenha o Equilíbrio'                      : 'recipe_60pportunities_conc_equilibrio.md'
+      - 'Aprender, desaprender e reaprender'         : 'recipe_60pportunities_felicidade_001.md'
+      - 'Entender'                                   : 'recipe_60pportunities_felicidade_002.md'
    - 'Conceitos'                                     :
-      - 'Definições'                                 : 'recipe_60pportunities_conc_definicao.md'
-      - 'Fundação'                                   : 'recipe_60pportunities_conc_foundation.md'
-      - 'Noosfera'                                   : 'recipe_60pportunities_conc_noosfera.md'
-      - 'Paradoxos'                                  : 'recipe_60pportunities_conc_paradoxos.md'
-      - 'Vulnerabilidade'                            : 'recipe_60pportunities_conc_vulnerabilidade.md'
-      - 'Innersource/Boilerplate'                    : 'recipe_60pportunities_conc_innersource.md'
-      - 'Pensamento'                                 : 'recipe_60pportunities_time.md'
+      - 'Definições'                                 : 'recipe_60pportunities_definicao_001.md'
+      - 'Domínios'                                   : 'recipe_60pportunities_definicao_002.md'
    - 'Registro'                                      :
       - 'Registrando um Domínio'                     : 'recipe_60pportunities_conf_registrobr_dominio.md'
       - 'Configurando o Github'                      : 'recipe_60pportunities_conf_github.md'
@@ -254,7 +248,8 @@ nav:
         - 'Conceitos e Histórico'                                    : 'recipe_60pportunities_livro_cap_008.md'
         - 'Estrutura do Repositório'                                 : 'recipe_60pportunities_livro_cap_008_01.md'
         - 'Resolvendo Problemas'                                     : 'recipe_60pportunities_livro_cap_008_02.md'
-        - 'Processos Básicos'                                        : 'recipe_60pportunities_livro_cap_008_03.md'
+        - 'Processos Básicos'                                        : 'recipe_60pportunities_livro_cap_008_04.md'
+        - 'Hooks Necessárias'                                        : 'recipe_60pportunities_livro_cap_008_03.md'
       - 'Modelagem de Dados'                                         : 'recipe_60pportunities_livro_cap_010.md'
       - 'O funil de Teste'                                           : 'recipe_60pportunities_livro_cap_012.md'
       - 'Vamos dar uma espiada (Observabilidade)'                    : 'recipe_60pportunities_livro_cap_013.md'
@@ -267,7 +262,7 @@ nav:
         - 'Segurança'                                                : 'recipe_60pportunities_livro_cap_020_03.md'
         - 'DevOps'                                                   : 'recipe_60pportunities_livro_cap_020_04.md'
         - 'Fluxo'                                                    : 'recipe_60pportunities_livro_cap_020_05.md'
-        - 'Fluxo'                                                    : 'recipe_60pportunities_livro_cap_020_06.md'
+        - 'Trabalhe Pequeno'                                         : 'recipe_60pportunities_livro_cap_020_06.md'
         - 'Pull Request'                                             : 'recipe_60pportunities_livro_cap_020_07.md'
       - 'Estimativa'                                                 : 'recipe_60pportunities_livro_cap_018.md'
       - 'Engenharia de Software'                                     : 'recipe_60pportunities_livro_cap_conclusao.md'

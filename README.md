@@ -21,10 +21,9 @@
 ## Treinamento
 <p align="justify">Capacitar os 60pportunities a desenvolver um plano de treinamento para garantir que todos os membros compreendam as ferramentas, processos e práticas adotadas em projetos.</p>
 
-- [x] Áreas de foco:
+- [x] Áreas de foco
   - [x] Metodologias ágeis e frameworks de desenvolvimento;
-  - [x] Ferramentas de controle de versão (Git, Jujutsu ou Sapling);
-  - [ ]
+  - [x] Ferramentas de controle de versão (Git, Jujutsu ou Sapling)
   - [x] Práticas de segurança (OWASP, criptografia, proteção de dados);
   - [x] Testes automatizados e práticas de QA;
      - [x] Cypress, Selenium;
@@ -70,30 +69,30 @@
 ## Colaboração
 <p align="justify">A colaboração entre equipes técnicas e não técnicas, como gerentes de produto, designers e clientes, deve ser contínua.</p>
 
-- [x] Ferramentas de comunicação: Microsoft Teams, Zoom.
-- [x] Documentação: manter documentação atualizada e acessível via MkDocs, GitHub Wiki.
+- [x] Ferramentas de comunicação: Microsoft Teams, Zoom;
+- [x] Documentação: manter documentação atualizada e acessível via MkDocs, GitHub Wiki;
 - [x] Reuniões regulares: reuniões de sincronização diárias, revisões semanais e retrospectivas para análise e melhorias.
 
 ## Desenvolvimento de Software
 <p align="justify">A fase de desenvolvimento envolve a codificação propriamente dita, respeitando as melhores práticas de engenharia de software e utilizando boas práticas de codificação, como:</p>
 
-- [x] Controle de versão: Git (GitHub e Azure-Devops).
-- [x] Desenvolvimento orientado a testes (TDD): escrever testes antes de escrever o código.
+- [x] Controle de versão: Git (GitHub e Azure-Devops);
+- [x] Desenvolvimento orientado a testes (TDD): escrever testes antes de escrever o código;
 - [x] Integração contínua (CI) e Entrega contínua (CD): uso de pipelines automatizados para build, testes e deployment.
 ## Implementação
 <p align="justify">A implementação envolve a preparação do software para ser colocado em produção. Isso pode incluir a configuração de ambientes, automação de deploy e migração de dados.</p>
 
-- [x] Deploy contínuo: Automatização do processo de deploy para evitar falhas humanas e facilitar rollbacks rápidos.
-- [x] Testes pós-deploy: Realizar testes em ambiente de staging ou produção para garantir que não haja regressões.
+- [x] Deploy contínuo: Automatização do processo de deploy para evitar falhas humanas e facilitar rollbacks rápidos;
+- [x] Testes pós-deploy: Realizar testes em ambiente de staging ou produção para garantir que não haja regressões;
 ## Verificação
 <p align="justify">A verificação é um conjunto de atividades realizadas para garantir que o software atenda aos requisitos, seja seguro e tenha qualidade.</p>
 
-- [x] Análise de código estático: ferramentas como SonarQube, CodeQL,  ou ESLint para analisar o código em busca de falhas de segurança, código redundante e violações de boas práticas.
-- [x] Análise binária: verificação de binários compilados para vulnerabilidades ou falhas de segurança.
-- [x] Scanner de credenciais e segredos: ferramentas como TruffleHog ou GitLeaks para detectar segredos como chaves de API ou senhas no código.
-- [x] Análise de encriptação: garantir que dados sensíveis sejam tratados adequadamente com criptografia forte.
-- [x] Teste Fuzzing: uso de ferramentas de fuzzing (como AFL, Burp Suite) para encontrar falhas de segurança em entradas de dados não esperadas.
-- [x] Validação da configuração: garantir que as configurações do sistema e infraestrutura (como containers e servidores) estejam corretas e seguras.
+- [x] Análise de código estático: ferramentas como SonarQube, CodeQL,  ou ESLint para analisar o código em busca de falhas de segurança, código redundante e violações de boas práticas;
+- [x] Análise binária: verificação de binários compilados para vulnerabilidades ou falhas de segurança;
+- [x] Scanner de credenciais e segredos: ferramentas como TruffleHog ou GitLeaks para detectar segredos como chaves de API ou senhas no código;
+- [x] Análise de encriptação: garantir que dados sensíveis sejam tratados adequadamente com criptografia forte;
+- [x] Teste Fuzzing: uso de ferramentas de fuzzing (como AFL, Burp Suite) para encontrar falhas de segurança em entradas de dados não esperadas;
+- [x] Validação da configuração: garantir que as configurações do sistema e infraestrutura (como containers e servidores) estejam corretas e seguras;
 - [x] Governança de componentes: garantir que bibliotecas e componentes de terceiros estejam atualizados e sem vulnerabilidades conhecidas. (DependaBot).
 
 ## Reporting & Analytics
@@ -103,11 +102,11 @@
 - [x] Análise de desempenho: monitoramento do desempenho do sistema após a implementação.
 ## Lançamento
 <p align="justify">O lançamento é o momento em que o software é disponibilizado para os usuários finais.</p>
-- [x] Plano de lançamento: definir etapas e processos para disponibilizar o software de forma segura.
+- [x] Plano de lançamento: definir etapas e processos para disponibilizar o software de forma segura;
 - [x] Acompanhamento pós-lançamento: monitoramento de desempenho, análise de erros e feedback dos usuários.
 ## Resposta
 <p align="justify">Após o lançamento, a fase de resposta envolve a coleta de feedback, resolução de problemas e melhorias contínuas.</p>
 
-- [x] Suporte e manutenção: garantir que há uma equipe de suporte para resolver problemas rapidamente.
+- [x] Suporte e manutenção: garantir que há uma equipe de suporte para resolver problemas rapidamente;
 - [x] Ciclos de retroalimentação: melhorias contínuas com base no feedback dos usuários e na análise de dados de uso.
 - [x] Planejamento de novas versões: implementação de atualizações e patches conforme necessário.

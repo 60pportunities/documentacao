@@ -24,3 +24,29 @@ Se você quer que seu código se torne uma alta prioridade, descubra como dividi
 ## Os revisores não são responsáveis ​​por bugs
 você é o único responsável por garantir o sucesso desse código.
 Não é trabalho da equipe de QA pegar bugs. Não é trabalho do revisor de RP pegar bugs. É trabalho do autor do código, e de mais ninguém.
+
+
+
+
+
+
+Planejamento
+1. Address Technical, Security Debt, DevSec Metrics, Threat Modeling, Security Tool Training
+Create
+2. IDE Security Plug-Ins
+Verify
+3. SAST/DAST/IAST,SCA
+PreProd
+4. Chaos Monkey,Input Fuzzing, Integration Test
+Release
+5. Software Signing
+Prevent
+6. Signature Verify, Integrity Checks, Defense In-Depth Measures
+Detect
+7. RASP, UEBA/Network Monitoring, Penetration Test
+Respond
+8. Security Orchestration, RASP/WAF Shielding, Obfuscation
+Predict
+9.  Dev Consumable, Correlated Vulnerability Analysis, loC/TI STIX TAXII
+Adapt
+10. Security Technical Debt, Modify Incident Response, Modify DND
