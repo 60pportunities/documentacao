@@ -8,14 +8,14 @@ O que é o GitHub Actions?
 GitHub Actions é uma plataforma para integração contínua/entrega contínua (CI/CD). Ela permite que você automatize pipelines de build, teste e implantação. Ela também permite que você execute código arbitrário em um repositório especificado quando um evento ocorre. Actions usa pacotes de código em contêineres Docker que são executados em servidores GitHub. Eles são compatíveis com todas as linguagens de programação para garantir que você possa executá-los em nuvens públicas, bem como em servidores locais. Isso faz parte de uma extensa série de guias sobre CI/CD .
 
 Arquitetura e conceitos de ações do GitHub
-O GitHub Actions permite que você configure seu fluxo de trabalho para ser acionado quando um evento específico ocorrer no repositório. Por exemplo, quando um problema é criado ou quando um pull request é aberto. 
+O GitHub Actions permite que você configure seu fluxo de trabalho para ser acionado quando um evento específico ocorrer no repositório. Por exemplo, quando um problema é criado ou quando um pull request é aberto.
 
 Um fluxo de trabalho contém um ou vários trabalhos em execução em ordem paralela ou sequencial. Cada trabalho é executado dentro de um contêiner ou em um executor de máquina virtual (VM) separado. Além disso, cada trabalho inclui uma ou várias etapas que executam um script predefinido ou uma ação, uma extensão reutilizável que simplifica seu fluxo de trabalho.
 
 ![](img/GitHub-Actions-workflow-structure.png)
 
 Fluxos de trabalho de ações do GitHub
-Um fluxo de trabalho do GitHub Actions é um processo automatizado que executa um ou vários trabalhos. Você pode configurar fluxos de trabalho definindo um arquivo YAML, que é verificado no repositório. Este arquivo é executado quando: 
+Um fluxo de trabalho do GitHub Actions é um processo automatizado que executa um ou vários trabalhos. Você pode configurar fluxos de trabalho definindo um arquivo YAML, que é verificado no repositório. Este arquivo é executado quando:
 
 Acionado por um evento específico no repositório
 Disparado manualmente
@@ -32,7 +32,7 @@ Um gatilho de fluxo de trabalho é um evento que faz com que um fluxo de trabalh
 
 Eventos que ocorrem no repositório do fluxo de trabalho
 Eventos que ocorrem fora do GitHub e acionam um evento repository_dispatch no GitHub
-Manual 
+Manual
 Horários agendados
 Por exemplo, você pode configurar um fluxo de trabalho para ser executado assim que um push for feito para uma ramificação de repositório padrão, assim que um problema for aberto e assim que uma versão for criada.
 
@@ -45,17 +45,17 @@ Matriz de ações do GitHub
 Você pode usar uma estratégia de matriz para executar vários trabalhos relacionados com base na mesma definição de trabalho. Diferentes combinações de variáveis ​​na definição de trabalho criam automaticamente diferentes execuções de trabalho. Por exemplo, uma matriz pode ser útil para testar código em diferentes sistemas operacionais ou em diferentes versões de uma linguagem de programação.
 
 Ações
-Ações são aplicativos personalizados para GitHub Actions que realizam tarefas complexas, mas repetitivas. Você pode usar ações para evitar escrever muito código repetitivo em um fluxo de trabalho. Uma ação pode extrair um repositório do GitHub, configurar medidas de autenticação para o provedor de nuvem ou configurar a cadeia de ferramentas correta para o ambiente de desenvolvimento. 
+Ações são aplicativos personalizados para GitHub Actions que realizam tarefas complexas, mas repetitivas. Você pode usar ações para evitar escrever muito código repetitivo em um fluxo de trabalho. Uma ação pode extrair um repositório do GitHub, configurar medidas de autenticação para o provedor de nuvem ou configurar a cadeia de ferramentas correta para o ambiente de desenvolvimento.
 
 Você pode escrever uma ação do zero ou usar uma ação existente disponível no GitHub Marketplace em seu fluxo de trabalho.
 
 Corredores
-Os executores são máquinas que têm o aplicativo executor GitHub Actions instalado. Eles aguardam os trabalhos disponíveis para serem executados. Depois que um executor pega um trabalho, ele executa as ações especificadas pelo trabalho e relata os resultados ao Github. Você pode hospedar executores em seu próprio servidor ou máquina ou usar executores hospedados no GitHub. 
+Os executores são máquinas que têm o aplicativo executor GitHub Actions instalado. Eles aguardam os trabalhos disponíveis para serem executados. Depois que um executor pega um trabalho, ele executa as ações especificadas pelo trabalho e relata os resultados ao Github. Você pode hospedar executores em seu próprio servidor ou máquina ou usar executores hospedados no GitHub.
 
 Cache de dependência de fluxo de trabalho
 Uma execução de fluxo de trabalho pode reutilizar as saídas e dependências de outras execuções. Ferramentas de gerenciamento de dependências e pacotes como Maven, npm, Yarn e Gradle mantêm caches locais de todas as dependências baixadas.
 
-Cada trabalho em um executor hospedado no GitHub começa em um ambiente novo, então é necessário baixar as dependências para cada novo trabalho. Esses downloads podem prolongar o tempo de execução, aumentar a utilização da rede e aumentar os custos. O GitHub permite que você acelere o processo de recriação de arquivos de dependência armazenando em cache os arquivos usados ​​com frequência em um fluxo de trabalho. 
+Cada trabalho em um executor hospedado no GitHub começa em um ambiente novo, então é necessário baixar as dependências para cada novo trabalho. Esses downloads podem prolongar o tempo de execução, aumentar a utilização da rede e aumentar os custos. O GitHub permite que você acelere o processo de recriação de arquivos de dependência armazenando em cache os arquivos usados ​​com frequência em um fluxo de trabalho.
 
 Você pode armazenar em cache dependências de trabalho usando a ação cache no GitHub. Essa ação cria e restaura caches identificados usando chaves exclusivas.
 
@@ -63,31 +63,31 @@ CI/CD com ações do GitHub
 O GitHub Action oferece suporte à integração e implantação contínuas.
 
 Integração contínua com ações do GitHub
-Integração contínua é uma prática de desenvolvimento de software que envolve commits frequentes para um repositório de código compartilhado. O GitHub Actions fornece fluxos de trabalho de integração contínua (CI) que podem criar código no repositório e executar testes. Um fluxo de trabalho pode ser executado em uma VM hospedada no GitHub ou em uma máquina auto-hospedada. 
+Integração contínua é uma prática de desenvolvimento de software que envolve commits frequentes para um repositório de código compartilhado. O GitHub Actions fornece fluxos de trabalho de integração contínua (CI) que podem criar código no repositório e executar testes. Um fluxo de trabalho pode ser executado em uma VM hospedada no GitHub ou em uma máquina auto-hospedada.
 
 Você configura fluxos de trabalho de CI para serem executados em resposta a eventos específicos do GitHub — por exemplo, quando um desenvolvedor envia um novo código para o repositório. Você também pode usar o webhook de despacho do repositório para agendar fluxos de trabalho ou definir gatilhos com base em eventos externos.
 
-O GitHub executa os testes de CI, fornecendo os resultados para todos os testes em uma solicitação de pull. Ele permite que você visualize quaisquer erros introduzidos na ramificação por cada alteração. Depois que uma alteração tiver passado em todos os testes de CI no fluxo de trabalho, ela estará pronta para revisão pelos membros da equipe, e você poderá mesclá-la no repositório. Se o commit falhar em um teste, é uma indicação de uma alteração de quebra. 
+O GitHub executa os testes de CI, fornecendo os resultados para todos os testes em uma solicitação de pull. Ele permite que você visualize quaisquer erros introduzidos na ramificação por cada alteração. Depois que uma alteração tiver passado em todos os testes de CI no fluxo de trabalho, ela estará pronta para revisão pelos membros da equipe, e você poderá mesclá-la no repositório. Se o commit falhar em um teste, é uma indicação de uma alteração de quebra.
 
 Ao configurar a integração contínua no repositório Git, o GitHub analisará seu código e recomendará fluxos de trabalho de CI específicos com base na estrutura e na linguagem do seu repositório. Por exemplo, o GitHub sugere fluxos de trabalho iniciais que instalam os pacotes apropriados e executam os testes (ou seja, um pacote Node.js se você estiver usando Node.js). Você pode usar o fluxo de trabalho inicial recomendado pelo GitHub como está, personalizá-lo de acordo com suas necessidades ou criar um novo fluxo de trabalho personalizado para executar os testes de integração contínua.
 
 ![](img/Selecting-a-workflow-in-GitHub-Actions.png)
 
-O GitHub Actions ajuda você a configurar um fluxo de trabalho de CI para seu projeto de desenvolvimento e pode criar fluxos de trabalho para todo o SDLC. Você pode configurar ações para empacotar, implantar e liberar um projeto. 
+O GitHub Actions ajuda você a configurar um fluxo de trabalho de CI para seu projeto de desenvolvimento e pode criar fluxos de trabalho para todo o SDLC. Você pode configurar ações para empacotar, implantar e liberar um projeto.
 
 Implantação contínua com ações do GitHub
-A implantação contínua é uma extensão da integração e entrega contínuas que automatiza o processo de publicação e implantação de lançamentos de software. Uma ferramenta de CI/CD normalmente cria e testa o código automaticamente antes de implantá-lo como parte do processo de implantação contínua. 
+A implantação contínua é uma extensão da integração e entrega contínuas que automatiza o processo de publicação e implantação de lançamentos de software. Uma ferramenta de CI/CD normalmente cria e testa o código automaticamente antes de implantá-lo como parte do processo de implantação contínua.
 
 Você pode configurar fluxos de trabalho do GitHub Actions para implantar produtos de software. Um fluxo de trabalho pode verificar se o código funciona conforme o esperado ao construir o código no repositório e executar testes antes da implantação.
 
 Você pode agendar fluxos de trabalho de CD para execução em resposta a eventos específicos do GitHub, como um desenvolvedor enviando código para o branch padrão do repositório do seu repositório. Como alternativa, as cargas de trabalho podem ser executadas em agendamentos definidos, quando acionadas manualmente ou em resposta a eventos externos.
 
-O GitHub Actions oferece vários recursos para ajudar você a controlar suas implantações. Os ambientes permitem que você bloqueie trabalhos até que eles recebam aprovação, restrinja as ramificações que podem disparar fluxos de trabalho ou restrinja o acesso a segredos. A simultaneidade permite que você limite o pipeline de CD a uma implantação em andamento e uma pendente por vez. 
+O GitHub Actions oferece vários recursos para ajudar você a controlar suas implantações. Os ambientes permitem que você bloqueie trabalhos até que eles recebam aprovação, restrinja as ramificações que podem disparar fluxos de trabalho ou restrinja o acesso a segredos. A simultaneidade permite que você limite o pipeline de CD a uma implantação em andamento e uma pendente por vez.
 
 Conteúdo relacionado: Leia nosso guia sobre GitHub Actions vs. CircleCI (em breve)
 
 Tutorial de início rápido do GitHub Actions
-Usar GitHub Actions requer um repositório GitHub. Os trabalhos em um fluxo de trabalho podem executar automaticamente ações relacionadas ao repositório e interagir com o código do repositório também. 
+Usar GitHub Actions requer um repositório GitHub. Os trabalhos em um fluxo de trabalho podem executar automaticamente ações relacionadas ao repositório e interagir com o código do repositório também.
 
 Criar fluxo de trabalho
 Para criar fluxos de trabalho no GitHub Actions:
@@ -117,9 +117,9 @@ jobs:
      —run: echo " This job has a ${{ job.status }} status."
 ```
 
-Clique em Propor novo arquivo para criar uma solicitação pull para enviar este arquivo ao repositório.  
+Clique em Propor novo arquivo para criar uma solicitação pull para enviar este arquivo ao repositório.
  Vá até o final da página e selecione a opção Criar uma nova ramificação para este commit e iniciar uma solicitação de pull .
-Quando o arquivo yml é confirmado, o evento push aciona o fluxo de trabalho descrito nele. Os resultados do fluxo de trabalho são mostrados em uma opção diferente.   
+Quando o arquivo yml é confirmado, o evento push aciona o fluxo de trabalho descrito nele. Os resultados do fluxo de trabalho são mostrados em uma opção diferente.
 
 Ver resultados do fluxo de trabalho
 Para ver os resultados após executar um fluxo de trabalho do GitHub Actions:
@@ -138,16 +138,16 @@ Melhores práticas de ações do GitHub
 Aqui estão algumas dicas para usar o GitHub Actions.
 
 Use ações mínimas
-A máquina virtual de uma ação tem alta largura de banda e é relativamente rápida, mas ações complexas levam mais tempo para serem configuradas e executadas, resultando em mais tempo gasto esperando. O GitHub Actions tem planos de máquina virtual limitados — o plano gratuito tem um limite de 2000 minutos gratuitos em um determinado mês. 
+A máquina virtual de uma ação tem alta largura de banda e é relativamente rápida, mas ações complexas levam mais tempo para serem configuradas e executadas, resultando em mais tempo gasto esperando. O GitHub Actions tem planos de máquina virtual limitados — o plano gratuito tem um limite de 2000 minutos gratuitos em um determinado mês.
 
 Ao configurar um fluxo de trabalho ou ação, você pode não sentir que alguns segundos fazem uma grande diferença — no entanto, esses segundos se somam dependendo dos eventos que acionam as ações e fluxos de trabalho. Uma prática recomendada importante ao criar novas ações é tentar mantê-las o mais mínimas possível.
 
-Por exemplo, você deve usar imagens leves do Docker para ações que rodam em contêineres — por exemplo, alpine, alpine-node. Mantenha as instalações no mínimo para reduzir o tempo de execução da ação, da inicialização até a conclusão. 
+Por exemplo, você deve usar imagens leves do Docker para ações que rodam em contêineres — por exemplo, alpine, alpine-node. Mantenha as instalações no mínimo para reduzir o tempo de execução da ação, da inicialização até a conclusão.
 
 Manter as ações leves é importante, independentemente de você criar uma ação autônoma ou um fluxo de trabalho CI/CD completo. O GitHub Actions configura e executa cada ação em um ambiente limpo para cada execução, então ele tem que baixar e instalar todas as dependências todas as vezes.
 
 Evite downloads de dependência desnecessários
-Outra maneira de reduzir o tempo de execução é evitar instalar ou baixar dependências sempre que possível. Você pode usar vários métodos para minimizar os downloads de dependências, embora todos eles sejam baseados em duas estratégias principais. 
+Outra maneira de reduzir o tempo de execução é evitar instalar ou baixar dependências sempre que possível. Você pode usar vários métodos para minimizar os downloads de dependências, embora todos eles sejam baseados em duas estratégias principais.
 
 A primeira abordagem é publicar uma pasta inteira de módulo de nó. Essa estratégia é adequada para publicar ações autônomas em projetos baseados em nó. A segunda abordagem é aproveitar o mecanismo de cache no GitHub sempre que possível. Essa estratégia é adequada para ações autônomas, bem como ações em execução dentro de um fluxo de trabalho de CI.
 
@@ -157,11 +157,11 @@ Um recurso importante do GitHub Actions é o gerenciamento de segredos. Você ar
 A principal lição dessa abordagem é evitar codificar manualmente quaisquer segredos em fluxos de trabalho públicos ou privados. Você deve definir segredos manualmente nas configurações do seu repositório e usar entradas de etapas ou variáveis ​​de ambiente para acessá-los.
 
 Armazene detalhes de autoria nos metadados de ação
-Você pode incentivar autores de ações a assumir a propriedade de seu código especificando o autor da ação nos metadados — esses dados residem em um arquivo YML que define a ação. Esses metadados podem incluir muitos detalhes sobre cada ação, incluindo suas entradas necessárias, marca, ponto de entrada, saídas e autor. 
+Você pode incentivar autores de ações a assumir a propriedade de seu código especificando o autor da ação nos metadados — esses dados residem em um arquivo YML que define a ação. Esses metadados podem incluir muitos detalhes sobre cada ação, incluindo suas entradas necessárias, marca, ponto de entrada, saídas e autor.
 
-Há dois casos de uso principais para incluir o autor da ação no arquivo de metadados. Primeiro, quando você tem ações públicas, é importante atribuir cada ação ao autor correto. Além de dar crédito aos autores por seu trabalho, isso permite que outros que estão usando as ações identifiquem e consultem o autor com quaisquer perguntas. 
+Há dois casos de uso principais para incluir o autor da ação no arquivo de metadados. Primeiro, quando você tem ações públicas, é importante atribuir cada ação ao autor correto. Além de dar crédito aos autores por seu trabalho, isso permite que outros que estão usando as ações identifiquem e consultem o autor com quaisquer perguntas.
 
-O segundo caso de uso se aplica a ações privadas com uma organização. A questão do crédito é menos relevante porque ninguém de fora da empresa verá. No entanto, a equipe interna ainda precisa saber quem é responsável por cada ação — o autor mantém e responde perguntas sobre a ação. 
+O segundo caso de uso se aplica a ações privadas com uma organização. A questão do crédito é menos relevante porque ninguém de fora da empresa verá. No entanto, a equipe interna ainda precisa saber quem é responsável por cada ação — o autor mantém e responde perguntas sobre a ação.
 
 Combine GitHub Actions com Codefresh para dar suporte a implantações GitOps e Kubernetes
 GitHub actions é uma plataforma muito poderosa, mas é focada principalmente em CI e não suporta GitOps e implantações nativas do Kubernetes. O Codefresh é criado especificamente para GitOps e aplicativos nativos da Cloud e inclui suporte nativo para usar GitHub Actions para a parte de CI do ciclo de vida do Software.
@@ -187,7 +187,7 @@ O GitHub Actions oferece suporte à implantação contínua (CD), que é a prát
 O GitHub Actions permite que você configure fluxos de trabalho personalizados que podem ser acionados por vários eventos, como pushes de código, pull requests ou horários agendados. Cada fluxo de trabalho é definido em um arquivo YAML dentro do repositório, especificando as etapas necessárias para construir, testar e implantar o aplicativo.
 
 Configurando um fluxo de trabalho de implantação contínua no GitHub Actions
-Para configurar um fluxo de trabalho de CD com GitHub Actions, comece definindo um arquivo YAML de fluxo de trabalho no seu repositório. Este arquivo descreverá as etapas para construir, testar e implantar seu aplicativo. 
+Para configurar um fluxo de trabalho de CD com GitHub Actions, comece definindo um arquivo YAML de fluxo de trabalho no seu repositório. Este arquivo descreverá as etapas para construir, testar e implantar seu aplicativo.
 
 Observação: o exemplo a seguir pressupõe que você tenha o Kubernetes em execução no seu sistema. Você pode executar um cluster Kubernetes mínimo usando o minikube.
 
@@ -202,7 +202,7 @@ O GitHub Actions oferece suporte à implantação contínua (CD), que é a prát
 O GitHub Actions permite que você configure fluxos de trabalho personalizados que podem ser acionados por vários eventos, como pushes de código, pull requests ou horários agendados. Cada fluxo de trabalho é definido em um arquivo YAML dentro do repositório, especificando as etapas necessárias para construir, testar e implantar o aplicativo.
 
 Configurando um fluxo de trabalho de implantação contínua no GitHub Actions
-Para configurar um fluxo de trabalho de CD com GitHub Actions, comece definindo um arquivo YAML de fluxo de trabalho no seu repositório. Este arquivo descreverá as etapas para construir, testar e implantar seu aplicativo. 
+Para configurar um fluxo de trabalho de CD com GitHub Actions, comece definindo um arquivo YAML de fluxo de trabalho no seu repositório. Este arquivo descreverá as etapas para construir, testar e implantar seu aplicativo.
 
 Observação: o exemplo a seguir pressupõe que você tenha o Kubernetes em execução no seu sistema. Você pode executar um cluster Kubernetes mínimo usando o minikube.
 
@@ -222,12 +222,12 @@ Na minha experiência, aqui estão algumas dicas que podem ajudar você a aprove
 - [x] Utilize etapas de execução compostas: Use etapas de execução compostas para agrupar vários comandos em uma única etapa em seus fluxos de trabalho. Isso pode simplificar tarefas complexas, tornando suas definições de fluxo de trabalho mais limpas e fáceis de entender e gerenciar.
 ```
 
-O que são fluxos de trabalho reutilizáveis ​​do GitHub Actions? 
+O que são fluxos de trabalho reutilizáveis ​​do GitHub Actions?
 GitHub Actions é a plataforma CI/CD do GitHub, integrada ao repositório GitHub e ao sistema de controle de versão. Os fluxos de trabalho reutilizáveis ​​são fluxos de trabalho modulares predefinidos que podem ser invocados em outros fluxos de trabalho para aumentar a eficiência e a manutenibilidade. Eles eliminam o código repetitivo, permitindo que você crie componentes que podem ser utilizados em vários repositórios ou em diferentes fluxos de trabalho no mesmo repositório.
 
 Ao encapsular tarefas comuns, os fluxos de trabalho reutilizáveis ​​permitem que os desenvolvedores se concentrem nos aspectos únicos de seus projetos, ao mesmo tempo em que garantem que as operações padrão sejam executadas de forma confiável. Essa abordagem se alinha com as melhores práticas em desenvolvimento de software, como o princípio DRY (Don't Repeat Yourself).
 
-Quais são os benefícios dos fluxos de trabalho reutilizáveis? 
+Quais são os benefícios dos fluxos de trabalho reutilizáveis?
 Aqui estão alguns benefícios principais do recurso de fluxos de trabalho reutilizáveis ​​no GitHub Actions:
 
 Evite redundância: fluxos de trabalho reutilizáveis ​​podem simplificar a manutenção. Se vários projetos exigirem uma sequência semelhante de etapas de CI/CD, você pode encapsular essa sequência em um fluxo de trabalho reutilizável. Em vez de duplicar essas etapas no fluxo de trabalho de cada projeto, você faz referência ao fluxo de trabalho reutilizável, garantindo que as alterações sejam feitas apenas uma vez.
@@ -245,7 +245,7 @@ Os fluxos de trabalho reutilizáveis ​​permitem que fluxos de trabalho intei
 
 Embora as ações compostas sejam melhores para criar conjuntos reutilizáveis ​​de etapas, os fluxos de trabalho reutilizáveis ​​são mais adequados para padronizar pipelines CI/CD inteiros em vários projetos. Cada um desses recursos opera em um nível diferente da arquitetura do GitHub Actions.
 
-Componentes de um fluxo de trabalho reutilizável 
+Componentes de um fluxo de trabalho reutilizável
 Evento de disparo
 O evento de disparo é um componente crucial de um fluxo de trabalho reutilizável, pois determina quando o fluxo de trabalho deve ser executado. Eventos de disparo comuns incluem eventos push, solicitações pull e intervalos programados. Ao definir esses disparos com precisão, os desenvolvedores podem garantir que os fluxos de trabalho sejam executados em momentos apropriados, como após confirmações de código ou em horários específicos do dia.
 
@@ -267,7 +267,7 @@ Aplicar configurações específicas do ambiente : Use variáveis ​​de ambie
 Centralize o gerenciamento de segredos : use o gerenciamento de segredos do GitHub ou integre-se com ferramentas externas de gerenciamento de segredos (como HashiCorp Vault) para centralizar e gerenciar com segurança os segredos usados ​​em seus fluxos de trabalho. Isso simplificará o manuseio de informações confidenciais em vários fluxos de trabalho.
 ```
 
-Compreendendo GitHub Actions Jobs vs. Etapas 
+Compreendendo GitHub Actions Jobs vs. Etapas
 
 No GitHub Actions, os fluxos de trabalho são estruturados em tarefas e etapas, cada uma desempenhando funções distintas no processo de automação.
 
@@ -280,19 +280,19 @@ on: push
 
 jobs:
   build:
-runs-on: ubuntu-latest  
-steps:  
-  - name: Checkout code  
-    uses: actions/checkout@v2  
-  - name: Build the project  
+runs-on: ubuntu-latest
+steps:
+  - name: Checkout code
+    uses: actions/checkout@v2
+  - name: Build the project
     run: make build
  test:
-runs-on: ubuntu-latest  
-needs: build  
-steps:  
-  - name: Checkout code  
-    uses: actions/checkout@v2  
-  - name: Run tests  
+runs-on: ubuntu-latest
+needs: build
+steps:
+  - name: Checkout code
+    uses: actions/checkout@v2
+  - name: Run tests
     run: make test
 ```
 Veja como uma definição de tarefa aparece na interface do usuário do GitHub Actions:
@@ -309,7 +309,6 @@ Abaixo discutiremos as seguintes opções de etapas:
 jobs.<job_id>.steps[*].if: Permite a execução condicional de uma etapa com base na avaliação de uma expressão, habilitando ou ignorando etapas.
 jobs.<job_id>.steps[*].uses: Especifica uma ação a ser executada como parte de uma etapa. Ações são unidades reutilizáveis ​​de código que podem ser extraídas de repositórios ou imagens Docker.
 jobs.<job_id>.steps[*].run: Usado para executar scripts de linha de comando dentro do ambiente do executor como etapas separadas, geralmente para instalar dependências, executar testes ou realizar compilações.
-jobs.<job_id>.steps[*].shell: Especifica o ambiente de shell que deve ser usado para executar os comandos de execução. 
+jobs.<job_id>.steps[*].shell: Especifica o ambiente de shell que deve ser usado para executar os comandos de execução.
 jobs.<job_id>.steps[*].with: Permite que você passe parâmetros de entrada para uma ação, definidos como variáveis ​​de ambiente dentro da ação. Isso é útil para especificar um número de versão ou fornecer credenciais de autenticação.
 jobs.<job_id>.steps[*].env: Define variáveis ​​de ambiente para uma etapa específica, substituindo variáveis ​​definidas no nível do trabalho ou do fluxo de trabalho. Isso é frequentemente usado para passar dados confidenciais.
-

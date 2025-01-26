@@ -8,7 +8,7 @@
 .md-typeset .admonition.tip .admonition-title {
     border-color: #00796b; /* Cor da borda personalizada */
 }
-  
+
 .mdx-columns3 {
     ol,
     ul {
@@ -59,4 +59,3 @@ nav ul li a[href*="referencia"] {
             width: 45%; /* Ajuste o tamanho conforme necessário */
             height: auto;
 }
-
