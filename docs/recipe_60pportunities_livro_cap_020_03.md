@@ -1,4 +1,3 @@
-## Segurança
 A comparação entre **SCA**, **SAST**, **IAST**, **MAST** e **DAST** envolve diferentes abordagens para testar a segurança de softwares e aplicações. Veja a seguir uma explicação e comparação de cada um:
 
 ### Software Composition Analysis

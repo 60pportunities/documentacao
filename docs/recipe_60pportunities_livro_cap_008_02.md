@@ -47,5 +47,3 @@ O trabalho em equipe envolve diferentes estratégias de pensamento: criativo, co
 - [x] Para hotfixes, um branch é criado a partir do último lançamento, e segue o mesmo processo de review.
 - [x] O versionamento baseado em issues é destacado, com cada tarefa sendo uma maneira de ajudar alguém.
 - [x] O processo de trabalho deve incluir a criação do ticket, um novo branch com o número do ticket, o trabalho no ticket, testes e o commit.
-
-![](img/git-flow-60pportunities.png)

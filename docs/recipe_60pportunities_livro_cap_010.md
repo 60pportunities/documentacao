@@ -6,39 +6,46 @@ O conceito de DataOps surge como resposta à ineficiência das abordagens tradic
 
 <p align="justify">A DataOps valoriza a criação de processos que previnam problemas em vez de apenas lidar com eles quando surgem, evitando a cultura de heróis que trabalham constantemente em apagar incêndios.</p>
 
-É crucial ter um entendimento claro do objetivo final, e não apenas das necessidades imediatas.
+É crucial ter um entendimento claro do objetivo final e não apenas das necessidades imediatas.
 
-- [x] **Especificações Claras**: O processo  **SCOPE** para definição de requisitos. O processo inclui:
-      - [x] **Storyboards**: Como os usuários irão interagir com o sistema?
-      - [x] **Content**: Qual o conteúdo necessário para satisfazer os requisitos?
-      - [x] **Output**: Quais saídas o sistema produzirá (relatórios, feeds etc.)?
-      - [x] **Process**: Qual o processo que os dados devem seguir?
+### SCOPE
+O processo  **SCOPE** para definição de requisitos. O processo inclui:
 
-- [x] **Arquitetura Flexível**: A necessidade de uma arquitetura de dados flexível, que permita a extensão e adaptação a novas necessidades. A arquitetura deve ser capaz de lidar com variações de requisitos e não deve ficar presa a uma única configuração.
-- [x] **Instrumentação da Pipeline**: A importância da instrumentação da pipeline de dados para detectar erros antecipadamente e garantir a qualidade dos dados.
-- [x] **Schema Extensível**: Criação de schemas que podem ser estendidos de forma controlada, possibilitando a inclusão de informações conforme elas surgem e adaptando-se a novas necessidades.
-- [x] **Dados como Produto**: A importância de tratar dados como **produtos** que devem ser continuamente melhorados e refinados.
-- [x] **Governança como Facilitadora**: A governança deve ser um facilitador e não um obstáculo. Ela deve ajudar as pessoas a fazerem as coisas certas em um ambiente seguro.
-- [x] **Metadados**: Captura e uso de metadados para melhorar o entendimento dos dados e otimizar as decisões. Os metadados devem ser mantidos de forma integrada com o processo de construção de soluções.
-- [x] **Empoderamento Controlado**: Equilíbrio entre a autonomia das equipes e o controle da qualidade e governança dos dados. Os usuários finais devem estar envolvidos no processo de definição e validação dos dados.
-- [x] **Entregas Intermediárias**: É fundamental que os projetos de dados tenham entregas intermediárias, permitindo um feedback contínuo e ajustes na direção do projeto. Os protótipos e demonstrações são importantes para mostrar o que é possível.
-- [x] **Falhar Rápido**: A importância de experimentar e falhar em um ambiente de baixo custo para aprender e adaptar.
-- [x] **Comunicação**: Manter uma comunicação aberta e constante entre os times de desenvolvimento, negócio e outros stakeholders.
-- [x] **Design Baseado em Requisitos**: A escolha de tecnologias deve ser baseada nos requisitos do projeto e não o contrário. É necessário entender bem o problema antes de selecionar a tecnologia.
-- [x] **Compromissos**: A equipe de desenvolvimento deve entender os compromissos de cada tecnologia e fazer escolhas conscientes para equilibrar funcionalidade, desempenho e custo.
+| Requisito       | Pergunta                                                    |
+| -------         | ---------                                                   |
+| **Storyboards** | Como os usuários irão interagir com o sistema?              |
+| **Content**     | Qual o conteúdo necessário para satisfazer os requisitos?   |
+| **Output**      | Quais saídas o sistema produzirá (relatórios, feeds etc.)?  |
+| **Process**     | Qual o processo que os dados devem seguir?                  |
+
+
+| Requisito                        | Entenda                                                     |
+| -------                          | ---------                                                   |
+| **Arquitetura Flexível**         | A necessidade de uma arquitetura de dados flexível, que permita a extensão e adaptação a novas necessidades. A arquitetura deve ser capaz de lidar com variações de requisitos e não deve ficar presa a uma única configuração. |
+| **Instrumentação da Pipeline**   | A importância da instrumentação da pipeline de dados para detectar erros antecipadamente e garantir a qualidade dos dados. |
+| **Schema Extensível**            | Criação de schemas que podem ser estendidos de forma controlada, possibilitando a inclusão de informações conforme elas surgem e adaptando-se a novas necessidades. |
+| **Dados como Produto**           | A importância de tratar dados como **produtos** que devem ser continuamente melhorados e refinados. |
+| **Governança como Facilitadora** | A governança deve ser um facilitador e não um obstáculo. Ela deve ajudar as pessoas a fazerem as coisas certas em um ambiente seguro. |
+| **Metadados**                    | Captura e uso de metadados para melhorar o entendimento dos dados e otimizar as decisões. Os metadados devem ser mantidos de forma integrada com o processo de construção de soluções. |
+| **Empoderamento Controlado**     | Equilíbrio entre a autonomia das equipes e o controle da qualidade e governança dos dados. Os usuários finais devem estar envolvidos no processo de definição e validação dos dados. |
+| **Entregas Intermediárias**      | É fundamental que os projetos de dados tenham entregas intermediárias, permitindo um feedback contínuo e ajustes na direção do projeto. Os protótipos e demonstrações são importantes para mostrar o que é possível. |
+| **Falhar Rápido**                | A importância de experimentar e falhar em um ambiente de baixo custo para aprender e adaptar. |
+| **Comunicação**                  | Manter uma comunicação aberta e constante entre os times de desenvolvimento, negócio e outros stakeholders. |
+| **Design Baseado em Requisitos** | A escolha de tecnologias deve ser baseada nos requisitos do projeto e não o contrário. É necessário entender bem o problema antes de selecionar a tecnologia. |
+| **Compromissos**                 | A equipe de desenvolvimento deve entender os compromissos de cada tecnologia e fazer escolhas conscientes para equilibrar funcionalidade, desempenho e custo. |
 
 Em resumo - IMPACT:
 
-- [x] **Interaction (Interação)**: Colaboração e comunicação entre as equipes.
-- [x] **Meaning (Significado)**: Entender o significado dos dados e requisitos.
-- [x] **Process (Processo)**: Processos claros e eficientes.
-- [x] **Automation (Automação)**: Automatizar tarefas repetitivas para otimizar o fluxo de trabalho.
-- [x] **Control (Controle)**: Manter a qualidade e governança dos dados.
-- [x] **Target (Objetivo)**: Definir o destino desejado do projeto e da jornada DataOps.
+| Requisito                   | Entenda                                                             |
+| -------                     | ---------                                                           |
+| **Interaction (Interação)** | Colaboração e comunicação entre as equipes.                         |
+| **Meaning (Significado)**   | Entender o significado dos dados e requisitos.                      |
+| **Process (Processo)**      | Processos claros e eficientes.                                      |
+| **Automation (Automação)**  | Automatizar tarefas repetitivas para otimizar o fluxo de trabalho.  |
+| **Control (Controle)**      | Manter a qualidade e governança dos dados.                          |
+| **Target (Objetivo)**       | Definir o destino desejado do projeto e da jornada DataOps.         |
 
 <p align="justify">Quando se trata de implementação, o modelo começa com a limpeza dos dados brutos e o desenvolvimento de uma infraestrutura de tecnologia que os torne disponíveis.</P>
-
-Criar uma cultura baseada em dados também é uma etapa crucial.
 
 <p align="justify">Investir na alfabetização de dados capacita os usuários a aproveitar os dados de forma eficaz, criando um ciclo de feedback contínuo que reúne insights para melhorar a qualidade dos dados e priorizar as atualizações da infraestrutura de dados.</p>
 
@@ -88,11 +95,11 @@ A escala horizontal oferece vários benefícios importantes:
 <p align="justify">Quando você executa uma consulta em uma réplica, você não está competindo com gravações no seu banco de dados primário. Ao implementar réplicas de leitura, considere:</p>
 
 - [x] Latência:
-      - [ ] A localização geográfica afeta a latência;
-      - [ ] Pequeno atraso entre o banco de dados primário e as réplicas;
+      - [x] A localização geográfica afeta a latência;
+      - [x] Pequeno atraso entre o banco de dados primário e as réplicas;
 - [x] Sincronização:
-      - [ ] O atraso na replicação afeta a atualização dos dados;
-      - [ ] O volume de gravação afeta a velocidade de replicação
+      - [x] O atraso na replicação afeta a atualização dos dados;
+      - [x] O volume de gravação afeta a velocidade de replicação
 
 ## Views Materializadas
 <p align="justify">Uma view materializada é uma visão persistente de uma consulta SQL, cujos resultados são armazenados em uma tabela real no banco de dados.</p>
@@ -130,14 +137,14 @@ O cache é uma das maneiras mais eficazes de melhorar o desempenho do seu sistem
 
 ??? info "Database Flow"
 
-     === "Alto Nível"
+    === "Alto Nível"
 
          ```mermaid
          flowchart LR
              A(Início</br>Sprint) -->B(Desenvolvedor</br>Tarefas) --> C(Desenvolvedor</br>Commita) --> D(Desenvolvedor</br>Code Review) --> E(Desenvolvedor</br>Aprovam</br>Merge para Main) --> F(Sprint Finaliza</br>Versão Criada) --> G(Versão Released</br>DEV/HML/PRD)
          ```
 
-     === "Drill Down - Geral"
+    === "Drill Down - Geral"
 
          ```mermaid
          flowchart TD
@@ -348,10 +355,10 @@ __Qualquer sistema de TI que utilize um banco de dados deve fazer o máximo poss
 ![](img/cesuc_padrao_oracle_001.png){width="800" height="500" style="display: block; margin: 0 auto"}
 
 ### Esquema
-- [ ] É uma coleção de objetos de banco de dados (como tabelas, visualizações, índices, sequências, etc.) que pertencem a um usuário específico.
-- [ ] Contêiner lógico para objetos de banco de dados.
-- [ ] Associado a uma conta de usuário, que é usada para conectar-se ao banco de dados e acessar os objetos dentro desse esquema.
-- [ ] É um namespace para objetos de banco de dados e fornece uma maneira de organizar e gerenciar objetos dentro do banco de dados.
+- [x] É uma coleção de objetos de banco de dados (como tabelas, visualizações, índices, sequências, etc.) que pertencem a um usuário específico.
+- [x] Contêiner lógico para objetos de banco de dados.
+- [x] Associado a uma conta de usuário, que é usada para conectar-se ao banco de dados e acessar os objetos dentro desse esquema.
+- [x] É um namespace para objetos de banco de dados e fornece uma maneira de organizar e gerenciar objetos dentro do banco de dados.
 
 ### Oracle e-Business Suite
 #### Versão 11/11i
@@ -414,10 +421,10 @@ Porem todos deveriam avaliar as queries e hintar os objetos com `/*+ DRIVING_SIT
 
 Um aplicativo que implementa PinkDB possui os seguintes recursos:
 
-- [ ] O usuário conectado não possui objetos de banco de dados. O usuário connect é usado por componentes do aplicativo fora do banco de dados para interagir com o banco de dados.(100% idêntico ao SmartDB)
-- [ ] O usuário conectado tem acesso apenas a objetos de API. O usuário conectado não deve ter privilégios para acessar objetos que não fazem parte da API, por exemplo, através de SELECT ANY TABLEprivilégios ou similares.
-- [ ] A API consiste em objetos e visualizações armazenados;O acesso é concedido com base no princípio dos privilégios mínimos. A API consiste em objetos e visualizações armazenados, mas não em tabelas.
-- [ ] Os dados são processados ​​por operações baseadas em conjunto. Menos loops, mais SQL baseado em conjuntos.
+- [x] O usuário conectado não possui objetos de banco de dados. O usuário connect é usado por componentes do aplicativo fora do banco de dados para interagir com o banco de dados.(100% idêntico ao SmartDB)
+- [x] O usuário conectado tem acesso apenas a objetos de API. O usuário conectado não deve ter privilégios para acessar objetos que não fazem parte da API, por exemplo, através de SELECT ANY TABLEprivilégios ou similares.
+- [x] A API consiste em objetos e visualizações armazenados;O acesso é concedido com base no princípio dos privilégios mínimos. A API consiste em objetos e visualizações armazenados, mas não em tabelas.
+- [x] Os dados são processados ​​por operações baseadas em conjunto. Menos loops, mais SQL baseado em conjuntos.
 
 #### Diferenças para SmartDB
 SmartDB tem como alvo PL/SQL e, portanto, foca em bancos de dados Oracle. A API no SmartDB consiste apenas em unidades PL/SQL. Sem exceções. PinkDB permite visualizações.

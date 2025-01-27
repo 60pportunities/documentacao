@@ -212,7 +212,7 @@ extra:
 
 nav:
    - 'Inicio'                                                        :
-      - 'Licença'                                                    : 'LICENSE'
+      - 'Licença'                                                    : 'LICENSE.md'
       - 'Changelog'                                                  : 'CHANGELOG.md'
       - 'Contribuições'                                              : 'CONTRIBUTING.md'
       - 'Codigo de Conduta'                                          : 'CODE_OF_CONDUCT.md'
@@ -244,22 +244,23 @@ nav:
         - 'Conceitos e Histórico'                                    : 'recipe_60pportunities_livro_cap_008.md'
         - 'Estrutura do Repositório'                                 : 'recipe_60pportunities_livro_cap_008_01.md'
         - 'Resolvendo Problemas'                                     : 'recipe_60pportunities_livro_cap_008_02.md'
-        - 'Processos Básicos'                                        : 'recipe_60pportunities_livro_cap_008_04.md'
         - 'Hooks Necessárias'                                        : 'recipe_60pportunities_livro_cap_008_03.md'
+      - 'Software Development Lifecycle'                             :
+        - 'Planejamento'                                             : 'recipe_60pportunities_livro_cap_020_01.md'
+        - 'Escrita de Código'                                        : 'recipe_60pportunities_livro_cap_020_07.md'
+        - 'Feature Flag'                                             : 'recipe_60pportunities_livro_cap_020_02.md'
+        - 'Segurança'                                                : 'recipe_60pportunities_livro_cap_020_03.md'
+        - 'DevOps'                                                   : 'recipe_60pportunities_livro_cap_020_04.md'
+        - 'Fluxo'                                                    : 'recipe_60pportunities_livro_cap_020_05.md'
+        - 'Secret-Scan'                                              : 'recipe_60pportunities_livro_cap_020_06.md'
+        - 'Trabalhe Pequeno'                                         : 'recipe_60pportunities_livro_cap_020_09.md'
+        - 'Pull Request'                                             : 'recipe_60pportunities_livro_cap_020_10.md'
       - 'Modelagem de Dados'                                         : 'recipe_60pportunities_livro_cap_010.md'
       - 'O funil de Teste'                                           : 'recipe_60pportunities_livro_cap_012.md'
       - 'Vamos dar uma espiada (Observabilidade)'                    : 'recipe_60pportunities_livro_cap_013.md'
       - 'Inteligência Artificial no Desenvolvimento de Software'     : 'recipe_60pportunities_livro_cap_014.md'
       - 'Metas e Métricas: A Importância de Medir'                   : 'recipe_60pportunities_livro_cap_015.md'
       - 'IA Verticais'                                               : 'recipe_60pportunities_livro_cap_016.md'
-      - 'Desenvolvendo'                                              :
-        - 'Questionário'                                             : 'recipe_60pportunities_livro_cap_020_01.md'
-        - 'Feature Flag'                                             : 'recipe_60pportunities_livro_cap_020_02.md'
-        - 'Segurança'                                                : 'recipe_60pportunities_livro_cap_020_03.md'
-        - 'DevOps'                                                   : 'recipe_60pportunities_livro_cap_020_04.md'
-        - 'Fluxo'                                                    : 'recipe_60pportunities_livro_cap_020_05.md'
-        - 'Trabalhe Pequeno'                                         : 'recipe_60pportunities_livro_cap_020_06.md'
-        - 'Pull Request'                                             : 'recipe_60pportunities_livro_cap_020_07.md'
       - 'Estimativa'                                                 : 'recipe_60pportunities_livro_cap_018.md'
       - 'Engenharia de Software'                                     : 'recipe_60pportunities_livro_cap_conclusao.md'
    - 'Certificação Perguntas'                                        :

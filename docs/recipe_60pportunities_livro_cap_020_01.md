@@ -1140,3 +1140,6 @@ O objetivo é aumentar o engajamento, a motivação, bem como, a participação 
 | Estimativas Funcionais (Especificaçao Funcional, Testes e Aceito do usuário)                  | 10          | 15    | 20    | 30   | 40         |
 | Total de Horas                                                                                | 18          | 31    | 44    | 70   | 120        |
 </div>
+
+
+![](img/git-flow-60pportunities.png)
