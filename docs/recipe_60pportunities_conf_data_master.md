@@ -273,3 +273,44 @@ flowchart LR
 - [x] Consumption: Interfaces e ferramentas para acessar dados em dashboards.
 - [x] Monitoring & Observability: Rastreamento de desempenho, latência e falhas.
 - [x] Security & Compliance: Criptografia, autenticação (IAM) e controle de acessos.
+
+# Tools
+➤ Ab Initio
+↳ Gerenciamento abrangente de dados com recursos avançados de qualidade de dados.
+↳ Principais recursos: Análise automatizada de dados, definição de regras, emissão de tíquetes, controle centralizado.
+
+➤ Qualidade de dados SAS
+↳ Melhora a precisão, consistência e integridade dos dados com ferramentas abrangentes.
+↳ Principais recursos: Perfil de dados, fusão duplicada, padronização, Base de Conhecimento de Qualidade SAS.
+
+➤ Plataforma DQLabs
+↳ Ferramenta holística de qualidade e observabilidade de dados usando IA e aprendizado de máquina.
+↳ Principais recursos: Perfil de dados automatizado, detecção de anomalias, monitoramento proativo.
+
+➤ Abrir Refinar
+↳ Uma ferramenta gratuita e de código aberto para limpar e transformar dados confusos.
+↳ Principais recursos: Consistência de dados, correção de erros, transformações de dados versáteis.
+
+➤ Precisamente Data Integrity Suite
+↳ Um conjunto modular fornece qualidade, governança e domínio de dados.
+↳ Principais recursos: Criação de perfil, limpeza, padronização, visualização de dados em tempo real.
+
+➤ Qualidade de dados corporativos Oracle
+↳ Solução abrangente para governança de dados e gerenciamento de qualidade.
+↳ Principais recursos: Perfil de dados, recursos extensíveis, processamento em lote e em tempo real.
+
+➤ Malha de dados Talend
+↳ Plataforma unificada para integração de dados e gestão da qualidade.
+↳ Principais recursos: Perfil de dados, limpeza, integração, monitoramento em tempo real.
+
+➤ Serviços de dados SAP
+↳ Ferramenta avançada para integração e qualidade de dados em diversas fontes.
+↳ Principais recursos: Transformação de dados, limpeza, criação de perfil, integração com sistemas SAP.
+
+➤ Ataccama ONE
+↳ Uma plataforma baseada em IA que integra governança de dados, qualidade e gerenciamento de dados mestres.
+↳ Principais recursos: Perfil de dados, monitoramento em tempo real, catálogo de dados integrado.
+
+➤ Qualidade de dados da Informatica Cloud
+↳ Solução de qualidade de dados orientada por IA para ambientes de nuvem e híbridos.
+↳ Principais recursos: Perfil de dados, limpeza, detecção automatizada de anomalias, mecanismo CLAIRE.

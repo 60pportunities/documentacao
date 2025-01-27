@@ -127,7 +127,11 @@
                 - [x] **Behavior-Driven Development (Desenvolvimento Orientado ao Comportamento - BDD)**;
                 - [x] **Feature-driven development (Desenvolvimento Orientado a Funcionalidades - FDD)**;
                 - [x] **DOMA (Domain-Oriented Microservices Architecture)**;
-
+                - [ ] **SCOPE** (Storyboards, Content, Output, Process, Easiness);
+                      - Storyboards: Como os usuários irão interagir com o sistema.
+                      - Content: Qual o conteúdo necessário para satisfazer os requisitos.
+                      - Output: Quais saídas o sistema produzirá (relatórios, feeds etc.).
+                      - Process: Qual o processo que os dados devem seguir.
             === "Lean"
                 - [x] **Planejamento de Valor (Value Stream Mapping)**: Mapear todos os passos do processo de desenvolvimento para identificar desperdícios e melhorar o fluxo de trabalho.
                 - [x] **Entrega Contínua de Valor (Continuous Delivery of Value)**: Entregar valor de forma incremental e contínua para o cliente, em ciclos rápidos.

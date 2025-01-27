@@ -424,3 +424,25 @@ Continuous Delivery: Reliable Software Release through Build, Test and Deploymen
 
 
 Docs for Developers: An Engineer's Guide to Technical Writing
+
+
+Microservices Patterns: With Examples in Java - https://www.amazon.com.br/Microservice-Patterns-examples-Chris-Richardson/dp/1617294543
+
+https://sandimetz.com/99bottles
+
+A Philosophy of Software Design - https://www.amazon.com/Philosophy-Software-Design-John-Ousterhout/dp/1732102201
+
+Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems - https://www.amazon.com.br/Designing-Data-Intensive-Applications-Martin-Kleppmann/dp/1449373321
+
+Implementando Domain-Driven Design Capa comum – https://www.amazon.com.br/Implementando-Domain-Driven-design-Vernon/dp/8576089521
+
+Fundamentos da Arquitetura de Software: uma Abordagem de Engenharia: 1 - https://www.amazon.com.br/Fundamentos-Arquitetura-Software-Abordagem-Engenharia/dp/8550819859/
+
+Arquitetura de Software: as Partes Difíceis: Análises Modernas de Trade-off Para Arquiteturas Distribuídas  https://www.amazon.com.br/Arquitetura-Software-Trade-off-Arquiteturas-Distribu%C3%83%C2%ADdas/dp/8550819840
+
+
+Building Evolutionary Architectures: Automated Software Governance - https://www.amazon.com/Building-Evolutionary-Architectures-Automated-Governance/dp/1492097543
+
+
+The DataOps Revolution: Delivering the Data-Driven Enterprise
+Author(s): Simon Trewin
