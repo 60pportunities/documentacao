@@ -95,11 +95,11 @@ A escala horizontal oferece vários benefícios importantes:
 <p align="justify">Quando você executa uma consulta em uma réplica, você não está competindo com gravações no seu banco de dados primário. Ao implementar réplicas de leitura, considere:</p>
 
 - [x] Latência:
-      - [x] A localização geográfica afeta a latência;
-      - [x] Pequeno atraso entre o banco de dados primário e as réplicas;
+    - [x] A localização geográfica afeta a latência;
+    - [x] Pequeno atraso entre o banco de dados primário e as réplicas;
 - [x] Sincronização:
-      - [x] O atraso na replicação afeta a atualização dos dados;
-      - [x] O volume de gravação afeta a velocidade de replicação
+    - [x] O atraso na replicação afeta a atualização dos dados;
+    - [x] O volume de gravação afeta a velocidade de replicação
 
 ## Views Materializadas
 <p align="justify">Uma view materializada é uma visão persistente de uma consulta SQL, cujos resultados são armazenados em uma tabela real no banco de dados.</p>
@@ -222,12 +222,12 @@ Oracle pode funcionar como um “banco de dados contêiner multilocatário”, t
 
 - [x] Um PDB é uma coleção de esquemas e objetos que atuam como um banco de dados “normal” para aplicativos;
 - [x] Dentro do CDB existem dois contêineres:
-      - [x] Raiz, denominada CDB$ROOT. Contém metadados Oracle e usuários comuns.
-      - [x] SEED PDB, denominado PDB$SEED. Este é um modelo que pode ser usado para criar novos PDBs. Você não pode adicionar ou modificar objetos neste PDB.
+    - [x] Raiz, denominada CDB$ROOT. Contém metadados Oracle e usuários comuns.
+    - [x] SEED PDB, denominado PDB$SEED. Este é um modelo que pode ser usado para criar novos PDBs. Você não pode adicionar ou modificar objetos neste PDB.
 - [x] Você pode, mas os benefícios de usar esta arquitetura são:
-      - [x] Melhor uso de recursos : PDBs e CDBs usam recursos no servidor de forma mais eficaz em comparação com VMs (que duplicam o sistema operacional) e bancos de *     dados separados (que não compartilham processos);
-      - [x] Movimentação mais fácil de dados e código : se você precisar mover um banco de dados conectável de um banco de dados contêiner para outro, isso é bastante *     fácil;
-      - [x] Gerenciamento e monitoramento mais fáceis : para administradores, aplicar patches, atualizações, monitorar o banco de dados, realizar backups e outras tarefas são muito mais fáceis.
+    - [x] Melhor uso de recursos : PDBs e CDBs usam recursos no servidor de forma mais eficaz em comparação com VMs (que duplicam o sistema operacional) e bancos de dados separados (que não compartilham processos);
+    - [x] Movimentação mais fácil de dados e código : se você precisar mover um banco de dados conectável de um banco de dados contêiner para outro, isso é bastante fácil;
+    - [x] Gerenciamento e monitoramento mais fáceis : para administradores, aplicar patches, atualizações, monitorar o banco de dados, realizar backups e outras tarefas são muito mais fáceis.
 
 ## Como fazer CI/CD em uma Pipeline de Banco de Dados
 ### Copia/CLone/PDBs e CDBs
@@ -381,7 +381,7 @@ __Qualquer sistema de TI que utilize um banco de dados deve fazer o máximo poss
   | SYS e SYSTEM         | Estes esquemas são parte do banco de dados Oracle em si e são usados para armazenar metadados do sistema, como informações sobre usuários, privilégios, estrutura do banco de dados, etc. |
   | APPS                 | É o esquema principal usado pelo Oracle E-Business Suite. Ele contém objetos compartilhados e dados para vários módulos e componentes da aplicação. |
   | Módulos Funcionais   | Cada módulo funcional do Oracle E-Business Suite geralmente tem seu próprio schema de banco de dados. |
-  | Schemas Customizados | Iniciam-se por XXBBTS e são esquemas de banco de dados adicionais para personalizações e extensões feitas pelos usuários, desenvolvedores ou consultores. |
+  | Schemas Customizados | Iniciam-se por XXEMPRESA e são esquemas de banco de dados adicionais para personalizações e extensões feitas pelos usuários, desenvolvedores ou consultores. |
   | Outros Esquemas      | Outros esquemas no banco de dados do Oracle E-Business Suite para fins específicos, como auditoria, armazenamento de dados temporários, etc. |
 
 #### Custom Applications
@@ -393,17 +393,17 @@ O código customizado deve ser desenvolvido de acordo com os padrões publicados
 
 **Observação** :
 
-- [x] Tenho ORIENTADO todos os schemas nascidos e criados pela BBTS, mesmo FORA do Schema/Usuario da Instancia e-Business, sejam préfixados com `XXBBTS`, que identificaria que são CUSTOMIZADOS.
-- [x] Todas as conexões de Banco de Dados Oracle, são obtidas através do servidor: `\\server1\tn$`;
+- [x] Tenho ORIENTADO todos os schemas nascidos e criados pela Instituição, mesmo FORA do Schema/Usuario da Instancia e-Business, sejam préfixados com `XXEMPRESA`, que identificaria que são CUSTOMIZADOS.
+- [x] Todas as conexões de Banco de Dados Oracle, são obtidas através do servidor: `\\Servidor\tn$`;
 
-#### Gateway de Banco de Dados (COBGATE ou XXBBTSGATE)
+#### Gateway de Banco de Dados (xxGATE)
 <p align="justify">Gateway pode ser classificado como “portal”, ele é considerado uma passagem entre dois ambientes distintos. Para que este portal pudesse fazer isso, seria necessário a criação de DBLINKs, que é um objeto criado em um esquema que possibilita o acesso a objetos de outro banco de dados.</p>
 
 * Diminuir o tempo de liberação e clonagem;
     * Todos os schemas possuiam database link, logo demora em ajustar os acessos;
     * Controle de Acesso e Password das instancias;
     * Permitir de um único banco de dados Principal (Oracle), acessar o MySQL, SQL Server, PostgreSQL através do Transparente-Gateway.
-        * Homogêneo   - Quando acessa outros bancos de dados Oracle    (xxxEBS,xxxFOLHA,xxxBDS,xxxCAREF)
+        * Homogêneo   - Quando acessa outros bancos de dados Oracle    (xxxEBS,xxxFOLHA,xxxBDS,xxxAPPXXX)
         * Heterogêneo – Quando acessam outros tipos de bancos de dados (xxxODBC)
 
 ![](img/oracle_transp_gate.gif){width="400" height="350" style="display: block; margin: 0 auto"}
