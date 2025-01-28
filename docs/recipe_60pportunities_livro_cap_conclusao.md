@@ -1,6 +1,7 @@
 O Ciclo de Vida de Desenvolvimento de Software (SDLC) é uma metodologia estruturada que descreve as etapas envolvidas no desenvolvimento de aplicações de software. Ele fornece uma estrutura para as equipes de software planejarem, projetarem, desenvolverem, testarem e manterem produtos de software de forma eficiente. 
 
 O SDLC oferece uma abordagem sistemática que minimiza riscos, melhora a qualidade e garante que os projetos de software sejam entregues no prazo e dentro do orçamento. As fases do SDLC geralmente incluem:
+
 - [x] Coleta de requisitos: Envolve a compreensão das necessidades e expectativas das partes interessadas, capturando requisitos funcionais e não funcionais e definindo o escopo do projeto.
 - [x] Design do sistema: Nesta fase, a arquitetura do software e o design do sistema são estabelecidos, incluindo a definição da estrutura geral, componentes, interfaces e fluxo de dados do sistema.
 - [x] Implementação: A fase de implementação envolve a codificação e o desenvolvimento do software, com os desenvolvedores escrevendo código com base nas especificações de design e implementando a funcionalidade necessária.
@@ -31,6 +32,7 @@ Baseamos nossa abordagem na seguinte filosofia de design:
 
 ### Modelo em Cascata
 O modelo em cascata é uma abordagem sequencial e linear ao desenvolvimento de software, onde as fases de desenvolvimento fluem de maneira linear, como uma cachoeira. Cada fase é concluída antes de passar para a seguinte, com pouca ou nenhuma sobreposição ou iteração entre as fases.
+
 Fases do Modelo em Cascata:
 
 - [X] Coleta de Requisitos: Envolve coletar e documentar os requisitos do software, envolvendo as partes interessadas.
@@ -41,42 +43,42 @@ Fases do Modelo em Cascata:
 - [X] Manutenção: O software é mantido e recebe suporte contínuo.
 
 - [X] Vantagens do Modelo em Cascata:
-      - [X] Requisitos bem definidos e documentados.
-      - [X] Gerenciamento de projeto mais fácil devido à sua natureza sequencial.
-      - [X] Ambiguidade reduzida por meio de planejamento e documentação completos.
-      - [X] Marcos e entregas claros para cada fase.
-      - [X] Adequado para projetos pequenos com escopo bem definido.
-      - [X] Documentação abrangente em cada fase.
-      - [X] Cronogramas e custos de projeto mais previsíveis.
+      
+    - [X] Requisitos bem definidos e documentados.
+    - [X] Gerenciamento de projeto mais fácil devido à sua natureza sequencial.
+    - [X] Ambiguidade reduzida por meio de planejamento e documentação completos.
+    - [X] Marcos e entregas claros para cada fase.
+    - [X] Adequado para projetos pequenos com escopo bem definido.
+    - [X] Documentação abrangente em cada fase.
+    - [X] Cronogramas e custos de projeto mais previsíveis.
 - [X] Desvantagens do Modelo em Cascata:
-      - [X] Pouca flexibilidade para lidar com mudanças.
-      - [X] Não adequado para projetos com requisitos incertos.
+    - [X] Pouca flexibilidade para lidar com mudanças.
+    - [X] Não adequado para projetos com requisitos incertos.
 
 ### Metodologia Ágil
 A metodologia ágil é uma abordagem iterativa e colaborativa para o desenvolvimento de software que prioriza a satisfação do cliente e a aceitação da mudança. Metodologias ágeis enfatizam flexibilidade, colaboração e adaptabilidade.
 
 - [X] Princípios Ágeis:
-      - [X] Indivíduos e interações sobre processos e ferramentas.
-      - [X] Software funcionando sobre documentação abrangente.
-      - [X] Colaboração com o cliente sobre negociação de contrato.
-      - [X] Responder à mudança em vez de seguir um plano.
-      - [X] Equipes multifuncionais e auto-organizadas.
+    - [X] Indivíduos e interações sobre processos e ferramentas.
+    - [X] Software funcionando sobre documentação abrangente.
+    - [X] Colaboração com o cliente sobre negociação de contrato.
+    - [X] Responder à mudança em vez de seguir um plano.
+    - [X] Equipes multifuncionais e auto-organizadas.
 
 - [X] Melhoria contínua.
-      - [X] Valorização da autonomia e conhecimento de indivíduos dentro da equipe.
-      - [X] Comunicação direta e aberta.
-      - [X] Manutenção de um ritmo de trabalho sustentável.
+    - [X] Valorização da autonomia e conhecimento de indivíduos dentro da equipe.
+    - [X] Comunicação direta e aberta.
+    - [X] Manutenção de um ritmo de trabalho sustentável.
 
 #### Desenvolvimento Iterativo e Incremental:
 Desenvolvimento iterativo envolve o desenvolvimento e a entrega de software em iterações ou ciclos sucessivos.
 Desenvolvimento incremental foca na entrega de funcionalidades de software em incrementos de valor de negócio.
 
 - [X] Metodologias Ágeis:
-      - [X] Scrum: Uma estrutura ágil que enfatiza flexibilidade, colaboração e melhoria contínua. O Scrum envolve papéis definidos, como Product Owner, Scrum Master e equipe de desenvolvimento. O trabalho é organizado em sprints, e eventos como planejamento de sprint, daily standup, revisão de sprint e retrospectiva de sprint são usados para gerenciar o processo de desenvolvimento.
-      - [X] Kanban: Uma estrutura visual que se concentra no gerenciamento do fluxo de trabalho, limitando o trabalho em andamento e otimizando a eficiência. Ele usa um quadro Kanban para visualizar o fluxo de trabalho. O Kanban enfatiza entrega contínua, otimização de fluxo de trabalho e redução de desperdício.
-      - [X] Lean: Uma metodologia que enfatiza a redução de desperdícios, melhoria contínua e entrega de valor aos clientes. Busca eliminar desperdícios, como funcionalidades desnecessárias, documentação excessiva e defeitos. O mapeamento do fluxo de valor é usado para identificar desperdícios e oportunidades de melhoria.
-      - [X] DevOps: Uma abordagem colaborativa que combina desenvolvimento de software (Dev) e operações (Ops) para permitir integração contínua, implantação e entrega. Ele usa práticas como Integração Contínua e Implantação Contínua (CI/CD) e Infraestrutura como Código (IaC).
-
+    - [X] Scrum: Uma estrutura ágil que enfatiza flexibilidade, colaboração e melhoria contínua. O Scrum envolve papéis definidos, como Product Owner, Scrum Master e equipe de desenvolvimento. O trabalho é organizado em sprints, e eventos como planejamento de sprint, daily standup, revisão de sprint e retrospectiva de sprint são usados para gerenciar o processo de desenvolvimento.
+    - [X] Kanban: Uma estrutura visual que se concentra no gerenciamento do fluxo de trabalho, limitando o trabalho em andamento e otimizando a eficiência. Ele usa um quadro Kanban para visualizar o fluxo de trabalho. O Kanban enfatiza entrega contínua, otimização de fluxo de trabalho e redução de desperdício.
+    - [X] Lean: Uma metodologia que enfatiza a redução de desperdícios, melhoria contínua e entrega de valor aos clientes. Busca eliminar desperdícios, como funcionalidades desnecessárias, documentação excessiva e defeitos. O mapeamento do fluxo de valor é usado para identificar desperdícios e oportunidades de melhoria.
+    - [X] DevOps: Uma abordagem colaborativa que combina desenvolvimento de software (Dev) e operações (Ops) para permitir integração contínua, implantação e entrega. Ele usa práticas como Integração Contínua e Implantação Contínua (CI/CD) e Infraestrutura como Código (IaC).
 - [X] Gerenciamento de Requisitos: A coleta de requisitos é uma fase crítica no SDLC que envolve a coleta, análise e documentação das necessidades e expectativas das partes interessadas. A coleta completa de requisitos garante que o software atenda às necessidades dos negócios e dos usuários e reduz a necessidade de retrabalho durante o desenvolvimento. As técnicas para coleta de requisitos incluem entrevistas, análise de documentos, casos de uso e histórias de usuários.
 - [X] Design de Sistemas e Arquitetura: O design do sistema define a estrutura e o comportamento de um sistema de software. Ele inclui princípios de design, padrões de design e estilos arquitetônicos. O design da interface do usuário (IU) é focado na criação de uma experiência intuitiva e amigável. O design do banco de dados define a estrutura do banco de dados, incluindo tabelas, relacionamentos e mecanismos de armazenamento de dados. Modelar e documentar a arquitetura do sistema é essencial para comunicação, análise de sistemas, design e manutenção eficazes.
 - [X] Codificação e Implementação: A codificação e a implementação envolvem seguir as melhores práticas de codificação, usar controle de versão e realizar revisões de código. O código limpo é fácil de ler, entender e modificar. As práticas de controle de versão e revisão de código ajudam a garantir a qualidade do código e detectar problemas antecipadamente. É essencial escrever comentários claros, lidar com erros e exceções de forma eficaz, planejar extensibilidade e otimizar para legibilidade.
