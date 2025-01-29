@@ -277,8 +277,8 @@ nav:
       - 'Dados Mestres/Referência'                   : 'recipe_60pportunities_conf_data_master.md'
       - 'Central de Cadastro'                        : 'recipe_60pportunities_conf_data_ccadastro.md'
       - 'Dados Ética'                                : 'recipe_60pportunities_conf_data_etica.md'
-      - 'Dados Mestres e Referencia'                 : 'recipe_60pportunities_conf_data_master.md
-   - 'Estudos/Aprendizado'                            :
+      - 'Dados Mestres e Referencia'                 : 'recipe_60pportunities_conf_data_master.md'
+   - 'Estudos/Aprendizado'                           :
       - 'Inteligencia Artificial'                    : 'recipe_60pportunities_conf_inteligencia_artificial.md'
    - 'Links Úteis para o Aprendizado'                :
       - 'Faça você mesmo'                            : 'recipe_60pportunities_lic_software.md'
