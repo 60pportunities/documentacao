@@ -120,13 +120,14 @@ Como efetuar esta configuração:
 ![](img/60pportunities-dac.png)
 
 ### Branches
+
 - [x] Quando o sprint começar, crie um conjunto de branches, que serão aqui discutidas.
-      - [x] sprint (Inicial e que deverá ser atualizado no término da Sprint)
-      - [x] O Tech Leader deverá efetuar a criação das branches diretamente da main;
-            - [x] wit|wip/ (Static Application Security Testing (SAST) e Unit Test devem ser realizados.)
-            - [x] wip (Working in progress): O desenvolvedor esta efetuando a criação de um objeto.
-            - [x] wit (Working Item): Work Item liberado para o pessoal de qualidade.
-      - [x] qualidade (Processo de qualidade, onde os testes: PlanTest, CyPress e Security Test (IAST(Interactive Application Security Testing), MAST(Mobile Application Security Test), DAST(Dynamic Application Security Testing)), RAST (Re Application Security Testing);
+    - [x] sprint (Inicial e que deverá ser atualizado no término da Sprint)
+    - [x] O Tech Leader deverá efetuar a criação das branches diretamente da main;
+        - [x] wit|wip/ (Static Application Security Testing (SAST) e Unit Test devem ser realizados.)
+        - [x] wip (Working in progress): O desenvolvedor esta efetuando a criação de um objeto.
+        - [x] wit (Working Item): Work Item liberado para o pessoal de qualidade.
+- [x] qualidade (Processo de qualidade, onde os testes: PlanTest, CyPress e Security Test (IAST(Interactive Application Security Testing), MAST(Mobile Application Security Test), DAST(Dynamic Application Security Testing)), RAST (Re Application Security Testing);
 
 ![](img/prj_int_branches_003.png)
 
@@ -137,14 +138,14 @@ O desenvolvedor deverá efetuar o clone do repositório criado :  `git clone --b
 - [x] `git clone --branch <branchname> --single-branch <remote-repo-url>`
 - [x] `git clone --branch "wip/nome-feature-witnum" https://servidor/repositorio.git`
 - [x] `git branch -a`
-      - [x] `wip/nome-feature-witnum`
-      - [x] `remotes/origin/HEAD -> origin/main`
-      - [x] `remotes/origin/main`
-      - [x] `remotes/origin/qualidade`
-      - [x] `remotes/origin/sprint`
-      - [x] `remotes/origin/wip/nome-feature-witnum`
-      - [x] `remotes/origin/wip/nome-feature-witnum`
-      - [x] `remotes/origin/wip/nome-feature-witnum`
+    - [x] `wip/nome-feature-witnum`
+    - [x] `remotes/origin/HEAD -> origin/main`
+    - [x] `remotes/origin/main`
+    - [x] `remotes/origin/qualidade`
+    - [x] `remotes/origin/sprint`
+    - [x] `remotes/origin/wip/nome-feature-witnum`
+    - [x] `remotes/origin/wip/nome-feature-witnum`
+    - [x] `remotes/origin/wip/nome-feature-witnum`
 - [x] `git fetch`
 - [x] `git pull`
 - [x] Ao terminar o desenvolvimento, o desenvolvedor deverá renomear a branch `wip` etorna-la `wit`, indicando que o mesmo foi finalizado.
@@ -242,6 +243,8 @@ To DISCO:/repositorio.git
    193b33b..be3129f  main -> main
 ```
 ### Recuperando o repositório perdido
+
 <p align="justify">Aqui é outro chopp, mas vamos iniciar explicando o que é o Ngrok. Ngrok é uma ferramenta que te permite a criação de um túnel seguro, atrás de NATs(Network Address Translation) e Firewalls, que expõem serviços locais para a Internet.</p>
+
 ### Compartilhando o diretório com outras pessoas
 Entre no diretório `/DISCO:/repositorio.git` e execute o comando `git --bare update-server-info` e depois `mv hooks/post-update.sample hooks/post-update`.
