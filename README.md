@@ -3,12 +3,16 @@
 ![GitHub Copilot](https://img.shields.io/badge/github_copilot-8957E5?style=for-the-badge&logo=github-copilot&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 # Bem-vindo a 60portunities
 <p align="justify">A  60portunities decidiu focar em aposentados que têm interesse em tecnologia e em aprender novas habilidades. Realizamos uma pesquisa online e presencial em comunidades de aposentados para entender as necessidades e interesses em tecnologia.</p>
+
 ## Criação de Conteúdo Educacional
 <p align="justify">Elaboramos um conjunto de treinamentos introdutórios e de forma diária com instrutores experientes que irão fazer de forma propositiva e evolutiva o aprendizado a estas tecnologias permitindo uma maior inclusão no meio tecnológico com boas práticas comerciais.</p>
+
 ## História da Tecnologia
 <p align="justify">É uma jornada fascinante de inovações, desafios e transformações que moldaram o mundo moderno. Ao longo dos séculos, a necessidade humana de processar, armazenar e comunicar informações levou ao desenvolvimento de tecnologias cada vez mais avançadas, que passaram de simples ferramentas mecânicas para sistemas complexos e onipresentes, como os que usamos hoje.</p>
+
 ## Gerenciamento de Projetos
 <p align="justify">O gerenciamento de projetos visa garantir que o desenvolvimento do software ocorra dentro dos prazos, orçamentos e escopos definidos. O gerente de projeto deve aplicar práticas de gerenciamento ágil ou tradicional conforme as necessidades do projeto, com o foco na entrega incremental e contínua.</p>
 
@@ -18,6 +22,7 @@
    - [x] Definir e gerenciar escopo, cronograma e recursos;
    - [x] Monitorar progresso e adaptar planos conforme necessário;
    - [x] Manter comunicação constante entre as partes interessadas;
+
 ## Treinamento
 <p align="justify">Capacitar os 60pportunities a desenvolver um plano de treinamento para garantir que todos os membros compreendam as ferramentas, processos e práticas adotadas em projetos.</p>
 
@@ -28,6 +33,7 @@
   - [x] Testes automatizados e práticas de QA;
      - [x] Cypress, Selenium;
   - [x] Follow the Code
+
 ## Gerenciamento de Requisitos
 <p align="justify">O gerenciamento eficaz de requisitos garante que as expectativas do cliente sejam atendidas e que todos os requisitos necessários sejam atendidos durante o ciclo de vida do projeto.</p>
 
@@ -100,10 +106,14 @@
 
 - [x] Relatórios de progresso: criação de dashboards que mostrem métricas como tempo de ciclo, número de bugs encontrados, cobertura de testes, etc.
 - [x] Análise de desempenho: monitoramento do desempenho do sistema após a implementação.
+ 
 ## Lançamento
+
 <p align="justify">O lançamento é o momento em que o software é disponibilizado para os usuários finais.</p>
+
 - [x] Plano de lançamento: definir etapas e processos para disponibilizar o software de forma segura;
 - [x] Acompanhamento pós-lançamento: monitoramento de desempenho, análise de erros e feedback dos usuários.
+
 ## Resposta
 <p align="justify">Após o lançamento, a fase de resposta envolve a coleta de feedback, resolução de problemas e melhorias contínuas.</p>
 
