@@ -1,4 +1,4 @@
-O Ciclo de Vida de Desenvolvimento de Software (SDLC) é uma metodologia estruturada que descreve as etapas envolvidas no desenvolvimento de aplicações de software. Ele fornece uma estrutura para as equipes de software planejarem, projetarem, desenvolverem, testarem e manterem produtos de software de forma eficiente. 
+O Ciclo de Vida de Desenvolvimento de Software (SDLC) é uma metodologia estruturada que descreve as etapas envolvidas no desenvolvimento de aplicações de software. Ele fornece uma estrutura para as equipes de software planejarem, projetarem, desenvolverem, testarem e manterem produtos de software de forma eficiente.
 
 O SDLC oferece uma abordagem sistemática que minimiza riscos, melhora a qualidade e garante que os projetos de software sejam entregues no prazo e dentro do orçamento. As fases do SDLC geralmente incluem:
 
@@ -16,18 +16,18 @@ Baseamos nossa abordagem na seguinte filosofia de design:
 - [x] Tudo como código (DaC,IaC): Além dos artefatos de software(código de negócios ou infraestrutura), documentação, políticas de segurança também são implementadas como código e sujeitas aos mesmos controles dos artefatos de software.
 - [x] Rastreabilidade: todas as alterações, seja na infraestrutura ou no código de negócios, são controladas por versão.
 
-| Restringir    | Entenda                                                  |
-| ---------     | --------------------                                     |
-| Restringir    | Apenas pessoas autorizadas possam fazer alterações administrativas no sistema CI/CD. |
-| Assinatura    | Apenas commits assinados com uma chave GPG de desenvolvedor. |
-| Secrets       | As chaves de acesso de automação expiram automaticamente.    |
-|               | Os acesso de automação para somente leitura, os sistemas de CI devem ter acesso  de leitura aos repositórios de código-fonte seguindo o princípio de acesso com privilégios. |
-| Dependências de registro | Os gerenciadores de dependência de software modernos. |
-| Vulnerabilidade crítica | Qq vulnarebilidade deve broker a compilação.      |
-| Artefatos são armazenados em um repositório | Todos os artefatos devem ser armazenados em um repositório em cada estágio do pipeline de build para que haja uma rastreabilidade clara entre os resultados do teste e o artefato real que foi testado. |
-| As solicitações de pull | As solicitações de pull exigem que dois revisores, duas revisões de código no momento das solicitações de pull, incluindo uma de um desenvolvedor que seja proprietário desse código. |
-| Artefatos em repositórios superiores | Artefatos sejam assinados em um repositório durante todo o processo garante visibilidade e rastreabilidade para o que for implantado na produção. |
-| Imagens de contêiner | As imagens de contêiner podem ser testadas com uma ferramenta de segurança de contêiner no pipeline. |
+| Restringir                                         | Entenda                                                  |
+| ---------                                          | --------------------                                     |
+| Restringir                                         | Apenas pessoas autorizadas possam fazer alterações administrativas no sistema CI/CD. |
+| Assinatura                                         | Apenas commits assinados com uma chave GPG de desenvolvedor. |
+| Secrets                                            | As chaves de acesso de automação expiram automaticamente.    |
+|                                                    | Os acesso de automação para somente leitura, os sistemas de CI devem ter acesso  de leitura aos repositórios de código-fonte seguindo o princípio de acesso com privilégios. |
+| Dependências de registro                           | Os gerenciadores de dependência de software modernos. |
+| Vulnerabilidade crítica                            | Qq vulnarebilidade deve broker a compilação.      |
+| Artefatos são armazenados em um repositório        | Todos os artefatos devem ser armazenados em um repositório em cada estágio do pipeline de build para que haja uma rastreabilidade clara entre os resultados do teste e o artefato real que foi testado. |
+| As solicitações de pull                            | As solicitações de pull exigem que dois revisores, duas revisões de código no momento das solicitações de pull, incluindo uma de um desenvolvedor que seja proprietário desse código. |
+| Artefatos em repositórios superiores               | Artefatos sejam assinados em um repositório durante todo o processo garante visibilidade e rastreabilidade para o que for implantado na produção. |
+| Imagens de contêiner                               | As imagens de contêiner podem ser testadas com uma ferramenta de segurança de contêiner no pipeline. |
 | Ambientes de compilação sejam efêmeros e imutáveis |  definidos em código com criação e desmontagem automatizadas, e que um novo ambiente seja criado para cada compilação. |
 
 ### Modelo em Cascata
@@ -43,7 +43,7 @@ Fases do Modelo em Cascata:
 - [X] Manutenção: O software é mantido e recebe suporte contínuo.
 
 - [X] Vantagens do Modelo em Cascata:
-      
+
     - [X] Requisitos bem definidos e documentados.
     - [X] Gerenciamento de projeto mais fácil devido à sua natureza sequencial.
     - [X] Ambiguidade reduzida por meio de planejamento e documentação completos.
@@ -90,10 +90,11 @@ Desenvolvimento incremental foca na entrega de funcionalidades de software em in
 - [X] Transformação e Escalabilidade Ágil: A transformação ágil envolve a adaptação de metodologias ágeis em projetos e organizações maiores. Frameworks de escalabilidade, como SAFe (Scaled Agile Framework), ajudam as organizações a expandir as práticas ágeis. Existem desafios associados à transformação e à escalabilidade ágil que requerem uma abordagem ponderada.
 - [X] Outsourcing e Offshoring: O outsourcing e o offshoring no SDLC envolvem terceirizar o desenvolvimento de software para fornecedores externos. Existem prós e contras nessa abordagem, como economia de custos versus desafios de comunicação. O gerenciamento de equipes distribuídas e centros de desenvolvimento offshore requer comunicação clara, processos de transferência de conhecimento e mitigação de barreiras de idioma.
 - [X] Entrega Contínua e Metodologias em Evolução: A entrega contínua (CD) é uma prática de desenvolvimento de software que automatiza todo o processo de entrega, desde o commit do código até a implantação em produção. Isso inclui pipelines de entrega contínua e metodologias de evolução. Metodologias em evolução, como Lean, DevOps e SRE, integram-se à entrega contínua para aumentar a eficiência do processo de desenvolvimento.
+<<<<<<< HEAD
 
 
 
-| Times                 | Entenda | 
+| Times                 | Entenda |
 | -----                 | ------- |
 | Alinhadas ao fluxo    | Alinhado a um único domínio de negócios ou capacidade organizacional (PeopleSoft, e-Business, Supravizio). Não deve haver transferências para outras equipes para concluir partes do trabalho. Eles o “possuem” do começo ao fim. (Sonia, Celso, Gerson, Leonam, Daniella, Cristiane, Gengis, Marco Aurelio e etc) |
 | Capacitadora          | São compostas por especialistas em um determinado domínio de conhecimento, que pode ser mais técnico, ou mais focado no produto, ou qualquer outro domínio em que haja uma lacuna de habilidades na organização. Deve ser fortemente colaborativa por natureza. (Luciano, Sonia, Daniella e etc.) |
@@ -106,12 +107,12 @@ Ao restringir as equipes a apenas quatro tipos, a organização pode concentrar 
 Na década de 1990, a Arquitetura de Software emergiu como um subcampo explícito da engenharia de software. O que se seguiu foi uma estonteante variedade de propostas de notações, ferramentas,
 técnicas e processos para apoiar o projeto arquitetônico e integrá-lo às práticas de desenvolvimento de software existentes.
 ## Arquitetura
-**Temos** que garantir que os obbetivos do negócio, atributos de qualidade, restrição sejam atendidos. **Temos** que ponderar entre os objetivos, qualidade e restrições. 
+**Temos** que garantir que os obbetivos do negócio, atributos de qualidade, restrição sejam atendidos. **Temos** que ponderar entre os objetivos, qualidade e restrições.
 
 * Componentes + Responsabilidades + Relacionamentos definem uma Estratégia, logo : _**Todo software possui uma arquitetura, mas nem todo time possui um arquiteto.**_
 
 ### Collection of Recipes
-Normalmente seguimos uma receita... 
+Normalmente seguimos uma receita...
 
 * Front-End (JavaScript, ViewJS,Angular, React, PHP), Back-end (Java, PHP, Node) e um Banco de Dados (Normalmente Relacional).
 * Quando a aplicação é bem sucedida..Algo vem a mente, e voi-lá...Uma solução de cache (mencache, redis)..
@@ -134,7 +135,7 @@ Normalmente seguimos uma receita...
 * Construa projetos em torno de indivíduos motivados.  Dê a eles o ambiente e o suporte necessário e confie neles para fazer o trabalho.
 * O método mais eficiente e eficaz de transmitir informações para e entre uma equipe de desenvolvimento é através de conversa face a face.
 * Software funcionando é a medida primária de progresso.
-* Em intervalos regulares, a equipe reflete sobre como  se tornar mais eficaz e então refina e ajusta seu comportamento de acordo. 
+* Em intervalos regulares, a equipe reflete sobre como  se tornar mais eficaz e então refina e ajusta seu comportamento de acordo.
 
 # Estratégia organizacional
 É um conceito de origem **militar** relacionado ao uso de meios e planos para atingir objetivos.
@@ -162,7 +163,26 @@ Normalmente seguimos uma receita...
 | Tipo        | Mundo Real  | Mundo TI |
 | -----       | -------     | -------- |
 | Governança  | A raiz da palavra governança vem de uma vocábulo grego que significa direção. Governança Corporativa - Sistema pelo qual as empresas e demais organizações são dirigidas, monitoradas e incentivadas, envolvendo os relacionamentos entre sócios, conselho de administração, diretoria, órgãos de fiscalização e controle e demais partes interessadas. | Governança de TI São ações, políticas, regras e processos direcionados ao uso de softwares, sistemas e infraestrutura de TI.  |
-| Gestão      | Gestão executa processos alinhados a esse direcionamento. | - | 
+| Gestão      | Gestão executa processos alinhados a esse direcionamento. | - |
 | [Arquitetura](http://www.iso-architecture.org/ieee-1471/docs/all-about-ieee-1471.pdf) | É o processo artístico e técnico que envolve a elaboração de espaços organizados e criativos para abrigar diferentes tipos de atividades humanas. | Conceito abstrato, que se refere à organização de um sistema. Ela é responsável por definir os componentes que farão parte de um projeto, suas características, funções e a forma como devem interagir entre si e com outros softwares.  |
 | Engenharia  | Conjunto de técnicas e métodos para aplicar o conhecimento técnico e científico na planificação, criação e manutenção de estruturas, máquinas e sistemas para benefício do ser humano.  |  É a área da ciência da computação que trata da especificação, arquitetura, desenvolvimento, manutenção e criação de software. Requisitos de Software, Antecipação a Mudanças, Abstração, Generalidade, Modularidade e etc. |
 | Arquétipo   | É um termo usado em várias áreas do conhecimento, como psicologia, literatura, arte e computação. Refere-se a um modelo ou padrão de projeto que descreve as características e comportamentos comuns de um determinado tipo de sistema, processo ou objeto. |
+||||||| parent of 1a7fb44 (Adiciona recipe_60pportunities_gha_04_resumo.md)
+=======
+
+
+```mermaid
+flowchart TD
+    A(fa:fa-user Developer) -->|Code| B(fa:fa-laptop IDE)
+    B -->|GPG| C(fa:fa-code-branch Assinatura)
+    C --> D(fa:fa-code-pull-request Trigger</br>Check)
+    D --> E(fa:fa-city CI/CD) --> F(fa:fa-gear SCA e SAST)
+    F --> G(fa:fa-gears Container</br>Registry)
+    G --> H(fa:fa-cloud CI/CD-System)
+    H --> I(fa:fa-square-share-nodes Review)
+    I --> J(fa:fa-gear SCA e SAST aaaa)
+    J --> J0(fa:fa-city CI/CD)
+    J0 --> K(fa:fa-rocket CI/CD)
+    K --> L(fa:fa-coins Security Scan)
+```
+>>>>>>> 1a7fb44 (Adiciona recipe_60pportunities_gha_04_resumo.md)
