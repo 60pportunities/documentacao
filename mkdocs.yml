@@ -256,6 +256,8 @@ nav:
         - 'Secret-Scan'                                              : 'recipe_60pportunities_livro_cap_020_06.md'
         - 'Trabalhe Pequeno'                                         : 'recipe_60pportunities_livro_cap_020_09.md'
         - 'Pull Request'                                             : 'recipe_60pportunities_livro_cap_020_10.md'
+        - 'Arquitetura Sw'                                           : 'recipe_60pportunities_livro_cap_020_11.md'
+        - 'Bit rot'                                                  : 'recipe_60pportunities_livro_cap_020_12.md'
       - 'Leis da TI'                                                 : 'recipe_60pportunities_livro_cap_099.md'
       - 'Modelagem de Dados'                                         : 'recipe_60pportunities_livro_cap_010.md'
       - 'O funil de Teste'                                           : 'recipe_60pportunities_livro_cap_012.md'
