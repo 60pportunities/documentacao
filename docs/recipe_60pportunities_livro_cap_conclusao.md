@@ -90,9 +90,6 @@ Desenvolvimento incremental foca na entrega de funcionalidades de software em in
 - [X] Transformação e Escalabilidade Ágil: A transformação ágil envolve a adaptação de metodologias ágeis em projetos e organizações maiores. Frameworks de escalabilidade, como SAFe (Scaled Agile Framework), ajudam as organizações a expandir as práticas ágeis. Existem desafios associados à transformação e à escalabilidade ágil que requerem uma abordagem ponderada.
 - [X] Outsourcing e Offshoring: O outsourcing e o offshoring no SDLC envolvem terceirizar o desenvolvimento de software para fornecedores externos. Existem prós e contras nessa abordagem, como economia de custos versus desafios de comunicação. O gerenciamento de equipes distribuídas e centros de desenvolvimento offshore requer comunicação clara, processos de transferência de conhecimento e mitigação de barreiras de idioma.
 - [X] Entrega Contínua e Metodologias em Evolução: A entrega contínua (CD) é uma prática de desenvolvimento de software que automatiza todo o processo de entrega, desde o commit do código até a implantação em produção. Isso inclui pipelines de entrega contínua e metodologias de evolução. Metodologias em evolução, como Lean, DevOps e SRE, integram-se à entrega contínua para aumentar a eficiência do processo de desenvolvimento.
-<<<<<<< HEAD
-
-
 
 | Times                 | Entenda |
 | -----                 | ------- |
@@ -167,8 +164,6 @@ Normalmente seguimos uma receita...
 | [Arquitetura](http://www.iso-architecture.org/ieee-1471/docs/all-about-ieee-1471.pdf) | É o processo artístico e técnico que envolve a elaboração de espaços organizados e criativos para abrigar diferentes tipos de atividades humanas. | Conceito abstrato, que se refere à organização de um sistema. Ela é responsável por definir os componentes que farão parte de um projeto, suas características, funções e a forma como devem interagir entre si e com outros softwares.  |
 | Engenharia  | Conjunto de técnicas e métodos para aplicar o conhecimento técnico e científico na planificação, criação e manutenção de estruturas, máquinas e sistemas para benefício do ser humano.  |  É a área da ciência da computação que trata da especificação, arquitetura, desenvolvimento, manutenção e criação de software. Requisitos de Software, Antecipação a Mudanças, Abstração, Generalidade, Modularidade e etc. |
 | Arquétipo   | É um termo usado em várias áreas do conhecimento, como psicologia, literatura, arte e computação. Refere-se a um modelo ou padrão de projeto que descreve as características e comportamentos comuns de um determinado tipo de sistema, processo ou objeto. |
-||||||| parent of 1a7fb44 (Adiciona recipe_60pportunities_gha_04_resumo.md)
-=======
 
 
 ```mermaid
@@ -185,4 +180,3 @@ flowchart TD
     J0 --> K(fa:fa-rocket CI/CD)
     K --> L(fa:fa-coins Security Scan)
 ```
->>>>>>> 1a7fb44 (Adiciona recipe_60pportunities_gha_04_resumo.md)

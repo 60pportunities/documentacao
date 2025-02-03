@@ -1,9 +1,9 @@
-- [x] 2015: Canva Presentations – Expansão da plataforma de design para incluir apresentações.
-- [x] 2016: Kofax RPA – A Kofax lança sua plataforma de automação para capturar, processar e gerenciar dados empresariais.
-- [x] 2016: Postman – Ganhou popularidade como ferramenta para testes de APIs, permitindo automação e documentação;
-- [x] 2017: Microsoft Power Automate (anteriormente Microsoft Flow) – Microsoft entra no mercado de RPA com integração ao ecossistema Office 365.
-- [x] 2018: Blue Prism – Introduz funcionalidades de inteligência artificial (AI) e aprendizado de máquina em sua plataforma.
-- [x] 2019: UiPath – Alcança status de “unicórnio” (empresa avaliada em mais de 1 bilhão de dólares), tornando-se líder do setor.
+- [x] 2015: Canva Presentations - Expansão da plataforma de design para incluir apresentações.
+- [x] 2016: Kofax RPA - A Kofax lança sua plataforma de automação para capturar, processar e gerenciar dados empresariais.
+- [x] 2016: Postman - Ganhou popularidade como ferramenta para testes de APIs, permitindo automação e documentação;
+- [x] 2017: Microsoft Power Automate (anteriormente Microsoft Flow) - Microsoft entra no mercado de RPA com integração ao ecossistema Office 365.
+- [x] 2018: Blue Prism - Introduz funcionalidades de inteligência artificial (AI) e aprendizado de máquina em sua plataforma.
+- [x] 2019: UiPath - Alcança status de "unicórnio" (empresa avaliada em mais de 1 bilhão de dólares), tornando-se líder do setor.
 - [x] O termo "low code" foi cunhado pela primeira vez em 2016. O Desenvolvimento Low-Code e No-Code, avança no início de 2019;
 - [x] Oracle Cloud Infrastructure (OCI): Expansão das ofertas de infraestrutura em nuvem.
 - [x] 2019: Computação Quântica: Avanços significativos na pesquisa e desenvolvimento de computadores quânticos, com aplicações em áreas como medicina e logística.
@@ -13,12 +13,12 @@
 - [x] Surface Pro 7: Lançamento da nova versão do tablet híbrido.
 - [x] SAP S/4HANA Cloud: Lançamento da versão em nuvem da plataforma ERP.
 - [x] 2020: Acelerou a adoção de tecnologias digitais, como telemedicina, trabalho remoto e e-commerce, mudando permanentemente a forma como as pessoas interagem com a tecnologia.
-- [x] 2020: Microsoft Power Automate Desktop – Microsoft lança uma versão gratuita da ferramenta para Windows 10, democratizando o acesso ao RPA.
+- [x] 2020: Microsoft Power Automate Desktop - Microsoft lança uma versão gratuita da ferramenta para Windows 10, democratizando o acesso ao RPA.
 - [x] 2020: Março - Evento: Início da pandemia de COVID-19 - coronavírus SARS-CoV-2
 - [x] Movimento Black Lives Matter ganha destaque mundial.
 - [x] Xbox Series X/S: Lançamento das novas consoles de videogame.
 - [x] SAP Business Technology Platform: Anúncio para integrar dados, aplicativos e processos.
-- [x] 2020: Cypress – Ferramenta moderna para automação de testes de front-end, voltada para aplicações web.
+- [x] 2020: Cypress - Ferramenta moderna para automação de testes de front-end, voltada para aplicações web.
 - [x] Movimento Black Lives Matter ganha destaque mundial.Protestos contra a brutalidade policial e racismo após a morte de George Floyd nos EUA.
 - [x] Phone SE (2ª geração): Modelo mais acessível com design do iPhone 8.
 - [x] Apple Silicon: Anúncio da transição para processadores próprios nos Macs.

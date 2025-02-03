@@ -4,6 +4,9 @@
 - [x] **Problemas de Qualidade dos dados**: O time de infraestrutura é responsável pela qualidade, mas não conhece os dados tão bem, pois não estão intimamente ligados com o time de negócio.
 - [x] **Escalabilidade Organizacional**: O time centralizado de ETL se torna o gargalo na democratização dos dados na empresa.
 
+Integridade de dados refere-se à garantia de que os dados permanecerão precisos, inalterados e consistentes durante todo o seu ciclo de vida.
+
+
 | **Característica**      | **Data Warehouse**                                          | **Data Lake**                                                  | **Data Mesh**                                               |
 | :------ | :--------- | :-------- | :----|
 | **Tipo de Dados**        | Dados estruturados                                          | Dados estruturados e não estruturados                          | Dados distribuídos, por domínio                              |
@@ -55,7 +58,7 @@ Seus quatro pilares:
 A malha de dados (Data Mesh) aborda essas dimensões, fundadas em quatro princípios:
 
 - [x] **Arquitetura de dados descentralizada orientada ao domínio**:
-      - [x] Os diferentes domínios de negócios (produtores de dados) são responsáveis ​​por curar, validar, publicar, manter e gerenciar o ciclo de vida dos dados que possuem.
+      - [x] Os diferentes domínios de negocios (produtores de dados) sao responsaveis ​​por curar, validar, publicar, manter e gerenciar o ciclo de vida dos dados que possuem.
       - [x] Data lakes que são gerenciados centralmente pela TI;
 - [x] **Dados disponibilizados como produto**:
       - [x] Em um data lake típico, o data lake e os pipelines de dados são o produto. Em uma malha de dados, os dados e o domínio e a expertise do produtor que reúne e publica os dados são o produto.
@@ -229,8 +232,8 @@ flowchart LR
 
 ## Data Mesh vs. Data Fabric
 - [x] Data Fabric é uma solução centralizada e orientada por tecnologia, que visa criar uma plataforma unificada para gerenciar e acessar dados onde quer que eles residam.
-- [x] Data Mesh, por outro lado, descentraliza os dados e sua propriedade. Em um data mesh, equipes individuais ou unidades de negócios são responsáveis ​​por seus próprios dados e são encarregadas de criar "produtos de dados", para seu próprio consumo e presumivelmente o consumo de outros na organização.
-
+- [x] Data Mesh, por outro lado, descentraliza os dados e sua propriedade.
+- [x] Em um data mesh equipes individuais ou unidades de negocios sao responsaveis ​​por seus próprios dados e sao encarregadas de criar produtos de dados, para seu proprio consumo e presumivelmente o consumo de outros na organizacao.
 
 ## Dados Links
 ### Linhagem de Dados
@@ -314,3 +317,25 @@ flowchart LR
 ➤ Qualidade de dados da Informatica Cloud
 ↳ Solução de qualidade de dados orientada por IA para ambientes de nuvem e híbridos.
 ↳ Principais recursos: Perfil de dados, limpeza, detecção automatizada de anomalias, mecanismo CLAIRE.
+
+Código de detecção de mensagem (MDC)
+
+Quando precisamos enviar dados críticos para uma pessoa pela internet, os dados trocam de mãos, saltando entre roteadores e servidores, e cada etapa traz o risco potencial de alterações não intencionais.
+
+Note que estamos falando sobre a integridade e não sobre a confidencialidade dos dados.
+
+Um modify detection code (MDC) é um resumo de mensagem ou uma soma de verificação que pode provar a integridade de uma mensagem: que a mensagem não foi alterada.
+
+![](img/mdc-001.png)
+
+o Message Authentication Code (MAC) não só garantem a integridade da mensagem, detectando quaisquer alterações não autorizadas, mas também fornecem um mecanismo para autenticar a origem dos dados. Em outras palavras, os MACs oferecem garantia de que a mensagem é de fato originária de Alice e não de outra pessoa.
+
+![](img/mdc-002.png)
+
+HMAC ou um MAC baseado em Hash é um método específico para construir um algoritmo MAC a partir de uma função hash resistente a colisões. HMAC usa duas passagens de computação de hash e fornece uma melhor imunidade contra ataques de extensão de comprimento. A figura abaixo explica a construção de HMACs.
+
+![](img/mdc-003.png)
+
+- [x] Behrouz A. Forouzan - Introdução à Criptografia e Segurança de Redes
+- [x] Novas direções na criptografia, Whitfield Diffie e Martin E. Hellman diffie.hellman.pdf (jhu.edu)
+- [x] Codificação de funções hash para autenticação de mensagens, Mihir Bellare, Ran Canetti, Hugo Krawczyk

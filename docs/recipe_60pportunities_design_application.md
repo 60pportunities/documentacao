@@ -153,7 +153,6 @@ flowchart LR
 - [x] Fatoração opcional para melhorar o projeto de implementação
 - [x] Até que a lista esteja vazia, volte para o 2o
 
-
 ##  Testes de Unidades
 - [x] Menor unidade testável de código (funções, métodos, classes);
 - [x] Verificar comportamento isolado e correção de componentes individuais;

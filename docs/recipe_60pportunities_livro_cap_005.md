@@ -6,25 +6,25 @@ Limitações: Exige forte mudança cultural e adaptação de processos para ser 
 ![](img/linha-do-tempo.png){width="600" height="20" style="display: block; margin: 0 auto"}
 
 - [x] 2009: o Minecraft permite que os jogadores construam torres e joguem desafios.
-- [x] Em 2008, “Satoshi Nakamoto”, provavelmente um pseudônimo, publica Bitcoin: A Peer-to-Peer Electronic Cash System , descrevendo o uso de redes peer-to-peer para gerar uma “criptomoeda”.
+- [x] Em 2008, "Satoshi Nakamoto", provavelmente um pseudônimo, publica Bitcoin: A Peer-to-Peer Electronic Cash System , descrevendo o uso de redes peer-to-peer para gerar uma "criptomoeda".
 - [x] Os fornecedores anunciam soluções de armazenamento conectado à rede baseadas em nuvem para backup on-line.
-- [x] 2009: WorkFusion – Surge como uma ferramenta para automação inteligente, combinando RPA com aprendizado de máquina.
-- [x] 2009: Cucumber – Ferramenta voltada para testes baseados em comportamento (BDD), integrando equipes técnicas e de negócios;
-- [x] 2010: Office Online Excel – Lançado como parte da oferta de serviços online da Microsoft, permitindo acesso ao Excel via navegador.
-- [x] 2010: Asana – Ferramenta de controle de tarefas e projetos colaborativos;
-- [x] 2010: Appium – Ferramenta de automação de testes para aplicativos móveis, suportando Android e iOS.
+- [x] 2009: WorkFusion -  Surge como uma ferramenta para automação inteligente, combinando RPA com aprendizado de máquina.
+- [x] 2009: Cucumber -  Ferramenta voltada para testes baseados em comportamento (BDD), integrando equipes técnicas e de negócios;
+- [x] 2010: Office Online Excel -  Lançado como parte da oferta de serviços online da Microsoft, permitindo acesso ao Excel via navegador.
+- [x] 2010: Asana -  Ferramenta de controle de tarefas e projetos colaborativos;
+- [x] 2010: Appium -  Ferramenta de automação de testes para aplicativos móveis, suportando Android e iOS.
 - [x] 2010: Em 2010, o Watson da IBM luta contra antigos competidores do Jeopardy! Tournament of Champion e termina com uma porcentagem de vitórias de 71%.
-- [x] 2010: Office Online Excel – Lançado como parte da oferta de serviços online da Microsoft, permitindo acesso ao Excel via navegador.
-- [x] 2010: Asana – Ferramenta de controle de tarefas e projetos colaborativos;
-- [x] 2010: Appium – Ferramenta de automação de testes para aplicativos móveis, suportando Android e iOS.
-- [x] 2010: Softomotive – Lança o WinAutomation, uma ferramenta de automação de processos baseada em desktop.
-- [x] 2011: Markdown Editors – Ferramentas como Typora ganharam popularidade com suporte para Markdown, voltado para escritores e desenvolvedores.
-- [x] 2011: SoapUI – Focado em testes de APIs, especialmente serviços web SOAP e REST.
+- [x] 2010: Office Online Excel -  Lançado como parte da oferta de serviços online da Microsoft, permitindo acesso ao Excel via navegador.
+- [x] 2010: Asana -  Ferramenta de controle de tarefas e projetos colaborativos;
+- [x] 2010: Appium -  Ferramenta de automação de testes para aplicativos móveis, suportando Android e iOS.
+- [x] 2010: Softomotive -  Lança o WinAutomation, uma ferramenta de automação de processos baseada em desktop.
+- [x] 2011: Markdown Editors -  Ferramentas como Typora ganharam popularidade com suporte para Markdown, voltado para escritores e desenvolvedores.
+- [x] 2011: SoapUI -  Focado em testes de APIs, especialmente serviços web SOAP e REST.
 - [x] 2011: Scaled Agile Framework (SAFe), desenvolvido por Dean Leffingwell, o SAFe surgiu como uma estrutura detalhada para escalar ágil em grandes empresas. Ele combina princípios ágeis, lean e DevOps para atender organizações com múltiplas equipes.
-- [x] 2012: LibreOffice Calc – Um fork do OpenOffice, desenvolvido pela comunidade para fornecer uma alternativa robusta de código aberto.
-- [x] 2012: Trello – Introduziu o modelo de quadros Kanban para gerenciar projetos.
-- [x] 2011: Markdown Editors – Ferramentas como Typora ganharam popularidade com suporte para Markdown, voltado para escritores e desenvolvedores.
-- [x] 2011: SoapUI – Focado em testes de APIs, especialmente serviços web SOAP e REST.
+- [x] 2012: LibreOffice Calc -  Um fork do OpenOffice, desenvolvido pela comunidade para fornecer uma alternativa robusta de código aberto.
+- [x] 2012: Trello -  Introduziu o modelo de quadros Kanban para gerenciar projetos.
+- [x] 2011: Markdown Editors -  Ferramentas como Typora ganharam popularidade com suporte para Markdown, voltado para escritores e desenvolvedores.
+- [x] 2011: SoapUI -  Focado em testes de APIs, especialmente serviços web SOAP e REST.
 - [x] 2011: O Adobe Creative Cloud é anunciado como um modelo de distribuição por assinatura e baseado em nuvem para seus principais produtos de software. Adobe Acrobat , Illustrator , Dreamweaver , Photoshop e outros podem ser assinados como um pacote completo ou individualmente para atender às necessidades do usuário.
 - [x] Falecimento de Steve Jobs;
 - [x] Siri é introduzido como um recurso integrado com o smartphone Apple iPhone 4S em outubro.
@@ -37,8 +37,8 @@ Introduzido em 2011 por Dean Leffingwell, inicialmente sob o nome de "Agile Ente
 
 A necessidade de uma abordagem escalável surgiu à medida que as empresas começaram a adotar metodologias ágeis, mas enfrentavam desafios ao tentar implementá-las em larga escala. O SAFe foi desenvolvido para oferecer uma solução que não apenas facilitasse a implementação do ágil em grandes organizações, mas também garantisse a entrega contínua de valor aos clientes. Desde então, o SAFe passou por várias atualizações e refinamentos, com a versão mais recente sendo lançada em março de 2023.
 
-- [x] 2012: LibreOffice Calc – Um fork do OpenOffice, desenvolvido pela comunidade para fornecer uma alternativa robusta de código aberto.
-- [x] 2012: Trello – Introduziu o modelo de quadros Kanban para gerenciar projetos.
+- [x] 2012: LibreOffice Calc -  Um fork do OpenOffice, desenvolvido pela comunidade para fornecer uma alternativa robusta de código aberto.
+- [x] 2012: Trello -  Introduziu o modelo de quadros Kanban para gerenciar projetos.
 - [x] O vírus Stuxnet é amplamente divulgado na mídia devido aos ataques centrados no Irã.
 - [x] O iPad combina muitos dos recursos populares do iPhone, como câmera de alta definição integrada, acesso à iTunes Store e recursos de áudio e vídeo, mas com uma tela de nove polegadas e sem o telefone.
 
@@ -108,11 +108,11 @@ Ao definir as atividades, é importante que elas atendam às características IN
 - [x] A Microsoft não lançou uma nova versão do Xbox por quase oito anos quando introduziu o Xbox One.
 - [x] O PlayStation 4 (PS4) é visto como um novo passo ousado para a Sony no mercado de jogos.
 - [x] Um Microsoft Office 365 atualizado é anunciado. Era um produto de software baseado em assinatura. O Word, Excel, OneNote, PowerPoint, Outlook, Access e Publisher da Microsoft estavam todos disponíveis em pacotes para uma assinatura mensal ou anual.
-- [x] 2013: UiPath – Introduz seu software de automação baseado em interface gráfica (GUI), expandindo sua presença no mercado de RPA.
+- [x] 2013: UiPath -  Introduz seu software de automação baseado em interface gráfica (GUI), expandindo sua presença no mercado de RPA.
 - [x] 2014: O sistema de pagamento móvel Apple Pay é introduzido no ecossistema de produtos da Apple.
 - [x] O HTML 5 é anunciado como o sucessor do HTML 4, que se tornou o padrão para linguagens de marcação da web em 1997.
 - [x] O bug Heartbleed é descoberto como uma falha de segurança perigosa na base de código da biblioteca de software criptográfico OpenSSL.
-- [x] 2014: Automation Anywhere – Lança o Automation Anywhere Enterprise, consolidando sua posição no mercado.
-- [x] 2014: Katalon Studio – Ferramenta de automação completa, baseada no Selenium e Appium, com interface amigável.
+- [x] 2014: Automation Anywhere -  Lança o Automation Anywhere Enterprise, consolidando sua posição no mercado.
+- [x] 2014: Katalon Studio -  Ferramenta de automação completa, baseada no Selenium e Appium, com interface amigável.
 - [x] 2015: Lan;camento do Apple Watch
 - [x] O cofundador da Microsoft, Bill Gates, se junta a vários gurus e cientistas de tecnologia proeminentes para revelar seus pensamentos sobre os efeitos potencialmente perigosos e as consequências não intencionais da inteligência artificial na civilização humana.

@@ -225,6 +225,7 @@ nav:
    - 'Conceitos'                                                     :
       - 'Definições'                                                 : 'recipe_60pportunities_definicao_001.md'
       - 'Frameworks'                                                 : 'recipe_60pportunities_definicao_002.md'
+      - 'Ferramentas'                                                : 'recipe_60pportunities_definicao_003.md'
    - 'Registro'                                                      :
       - 'Domínio'                                                    : 'recipe_60pportunities_registro_001.md'
       - 'Conta no GitHub'                                            : 'recipe_60pportunities_registro_002.md'
@@ -240,6 +241,7 @@ nav:
       - 'Década Perdida (2016-2020)'                                 : 'recipe_60pportunities_livro_cap_006.md'
       - 'Avanço da vacinação (2021-2025)'                            : 'recipe_60pportunities_livro_cap_007.md'
       - 'Padronizaçao de Escrita'                                    : 'recipe_60pportunities_livro_cap_011.md'
+      - 'Dívida Técnica'                                             : 'recipe_60pportunities_livro_cap_011_01.md'
       - 'Documentação é Código'                                      : 'recipe_60pportunities_livro_cap_009.md'
       - 'Versionamento'                                              :
         - 'Conceitos e Histórico'                                    : 'recipe_60pportunities_livro_cap_008.md'
@@ -267,6 +269,8 @@ nav:
       - 'Metas e Métricas: A Importância de Medir'                   : 'recipe_60pportunities_livro_cap_015.md'
       - 'IA Verticais'                                               : 'recipe_60pportunities_livro_cap_016.md'
       - 'Engenharia de Software'                                     : 'recipe_60pportunities_livro_cap_conclusao.md'
+   - 'Publicações'                                                   :
+      - '31-jan-2025 - LinkedIn'                                     : 'recipe_60pportunities_publicacao_001.md'
    - 'Certificação Perguntas'                                        :
       - 'Certiprof DevOps Essentials'                                : 'recipe_60pportunities_certificacao_depc.md'
       - 'GitHub Foundations'                                         : 'recipe_60pportunities_certificacao_ghf.md'

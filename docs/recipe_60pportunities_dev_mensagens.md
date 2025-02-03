@@ -12,13 +12,12 @@ A padronização das mensagens nas aplicações não só melhora a experiência 
 
 | Variable | Description |
 | -----    | ------      |
-| ERROR    | Exibe uma mensagem de erro em uma janela modal de formulários ou em um arquivo de log de programa simultâneo. (Exemplo: “Valor inválido inserido”).                                 |
+| ERROR    | Exibe uma mensagem de erro em uma janela modal de formulários ou em um arquivo de log de programa simultâneo. (Exemplo: “Valor inválido inserido”).  |
 | SHOW     |  Exibe uma mensagem informativa em uma janela modal de formulários ou em um arquivo de log de programa simultâneo. (Exemplo: “Para | completar esta função, digite o seguinte... ") |
 | WARN     | Exibe uma mensagem de aviso em uma janela modal de formulários e permite ao usuário aceitar ou cancelar a operação atual. (Exemplo: “Deseja prosseguir com a operação atual?”)      |
-| QUESTION | Exibe uma mensagem e até três botões em uma janela modal de formulários. (Exemplo: “Escolha uma das | ações a seguir.”)                                                             |
-| HINT     | Exibe uma mensagem na linha de status do formulário.                                                                                                                                |
-| ERASE    |Limpa a linha de status dos formulários.                                                                                                                                             |
-
+| QUESTION | Exibe uma mensagem e até três botões em uma janela modal de formulários. (Exemplo: “Escolha uma das | ações a seguir.”)  |
+| HINT     | Exibe uma mensagem na linha de status do formulário.      |
+| ERASE    |Limpa a linha de status dos formulários.     |
 
 | Codigo                      | Language | Application | Number | Type      | Alert Category | Maximo | Descricao                                                  | Category | Severity | Log Sev |
 | ----                        | ----     | ----        | ----   | ----      | --------       | ----   | -----                                                      | ----     | ----     | ----    |

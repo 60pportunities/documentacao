@@ -95,8 +95,8 @@
         ## Controle de Processo GitHub
          <p align="justify">A estrutura de Organização no GitHub é menos hierárquica, mas permite   gerenciar        múltiplos repositórios com configurações e permissões centralizadas:</p>
 
-         - [x] **Organização**: É uma conta compartilhada que permite gerenciar repositórios e permissões em   um        único lugar.
-         - [x] **Repositórios**: Representam os projetos de código dentro da organização, podendo ser   atribuídos a        uma ou mais equipes, cada uma com suas permissões.
+         - [x] **Organização**: É uma conta compartilhada que permite gerenciar repositórios e permissões em um       único lugar.
+         - [x] **Repositórios**: Representam os projetos de código dentro da organização, podendo ser atribuídos a uma ou mais equipes, cada uma com suas permissões.
 
          ![](img/github-projeto.png){width="225" height="125" style="display: block; margin: 0 auto"}
 
@@ -199,7 +199,7 @@
                - [x] Como padronizar as diretrizes de controle de versão?
                - [x] Como manter o repositório limpo e organizado?
          - [x] O que fazer quando um projeto de software essencial está atrasado?
-               - [x] Reserve tempo suficiente no novo cronograma para garantir que o trabalho possa ser feito de          formacuidadosa e completa e que a reprogramação não precise ser feita novamente.
+               - [x] Reserve tempo suficiente no novo cronograma para garantir que o trabalho possa ser feito de forma cuidadosa e completa e que a reprogramação não precise ser feita novamente.
          - [x] Mudança de Percepção
                - [x] Qual a intenção?
                - [x] Qual o design?
@@ -256,7 +256,7 @@
                - [x] Você resolve Requisitos, para em Código, Code Review e assim vai.
          - [X] Contratação de MAIS desenvolvedores resolve o problema?
                - [x] Quem não passou pela experiência de contratar um Developer ficar um tempão pensando cara tem tanto trabalho para fazer?
-               - [x]  Quem nunca contratou por conhecimento e demitiu por atitude?
+               - [x] Quem nunca contratou por conhecimento e demitiu por atitude?
                - [x] Começa a colocar item no backlog mas item no backlog que não agrega valor.
                - [x] Features que NÃO entregam valor e colocar para ele fazer.
                - [x] O Time tem a capacidade de PUXAR tarefas?
