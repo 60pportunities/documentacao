@@ -59,37 +59,15 @@
 - [x] github3.py
 - [x] GitPython
 </div>
+<div class="mdx-columns3" markdown>
+- [x] Jujutsu
+- [x] GitHub CLI
+- [x] GitHub Actions Cli
+- [x] Microsoft Azure CLI
+- [ ]
+</div>
 ## Extensões Mkdocs
 <div class="mdx-columns3" markdown>
-- [x] #jinja2~=3.0
-- [x] #markdown~=3.2
-- [x] #mkdocs~=1.6
-- [x] #mkdocs-material-extensions~=1.3
-- [x] #pygments~=2.16
-- [x] #pymdown-extensions~=10.2
-- [x] #
-- [x] ## Requirements for plugins
-- [x] #babel~=2.10
-- [x] #colorama~=0.4
-- [x] #paginate~=0.5
-- [x] #regex>=2022.4
-- [x] #requests~=2.26
-- [x] #markdown-include
-- [x] #mike
-- [x] #mkdocs
-- [x] #mkdocs-autorefs
-- [x] #mkdocs-git-authors-plugin
-- [x] #mkdocs-git-committers-plugin-2
-- [x] #mkdocs-git-revision-date-localized-plugin
-- [x] #mkdocs-glightbox
-- [x] #mkdocs-include-markdown-plugin
-- [x] #mkdocs-material
-- [x] #mkdocs-mermaid2-plugin
-- [x] #mkdocs-minify-plugin
-- [x] #mkdocs-render-swagger-plugin
-- [x] #mkdocs-swagger-ui-tag
-- [x] #mkdocs-table-reader-plugin
-- [x] #pymdown-extensions
 - [x] markdown-include
 - [x] mike
 - [x] mkdocs
@@ -294,3 +272,4 @@ _This file is auto-generated. To update, make the changes in the pkg/i18n direct
 ## SQL Developer
 <div class="mdx-columns3" markdown>
 </div>
+git add .gitattributes
