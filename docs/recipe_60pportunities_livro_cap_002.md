@@ -84,7 +84,7 @@
 
 <p align="justify">Embora o modelo iterativo já existisse em teoria, a descrição de Barry W. Boehm o formalizou ao integrar ciclos iterativos e gerenciamento de riscos. Com uma abordagem dinâmica e flexível para o desenvolvimento de software, basicamente, divide o projeto em pequenos ciclos (iterações), onde cada iteração resulta em uma versão funcional do produto que pode ser avaliada e aprimorada.</p>
 
-## 1980-Final doa Anos: Prototipação
+## 1980-Final dos Anos: Prototipação
 ![](img/livro-016.png){width="200" height="200" style="display: block; margin: 0 auto"}
 
 <p align="justify">A prototipação, nasce em resposta à crescente complexidade dos sistemas de software e às limitações dos métodos tradicionais de desenvolvimento, como o Modelo em Cascata. Durante esse período, as demandas por sistemas mais interativos e adaptados às necessidades do usuário começaram a crescer, especialmente em áreas como design de interfaces gráficas e desenvolvimento de sistemas de informação.</p>
