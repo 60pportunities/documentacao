@@ -4,6 +4,9 @@
 - [x] 2021: Playwright – Desenvolvido pela Microsoft, competindo com Selenium e Cypress em testes de aplicações web.
 - [x] Oracle Fusion Cloud Applications Suite: Atualizações significativas nas aplicações empresariais em nuvem.
 - [x] 2021: Desenvolvimento de sistemas de IA capazes de realizar múltiplas funções simultaneamente, como reconhecimento de imagem e processamento de linguagem natural.
+- [ ] OpenAI Codex: Lançamento do Codex, um modelo de IA capaz de entender e gerar código de programação.
+- [ ] DALL·E: Gerador de imagens a partir de descrições textuais.
+- [ ] CLIP: Contrastive Language-Image Pre-Training, um modelo que é capaz de associar imagens a texto de maneira semântica, permitindo que a IA compreenda imagens e as classifique com base em descrições textuais.
 - [x] 2021: Retirada das tropas dos EUA do Afeganistão.
 - [x] iPhone 13: Melhoria na duração da bateria e câmeras.
 - [x] MacBook Pro com M1 Pro e M1 Max: Novos modelos com processadores de alta performance.
@@ -15,14 +18,21 @@
 - [x] iPhone SE (3ª geração): Atualização com chip A15 Bionic.
 - [x] Mac Studio: Novo desktop poderoso focado em criadores de conteúdo.
 - [x] Surface Laptop Studio: Novo modelo focado em criadores, combinando potência e portabilidade.
-- [x]
+- [x] GPT-3.5: Versão aprimorada do GPT-3. Com melhor desempenho em tarefas de compreensão de linguagem natural e resposta mais coerente a uma gama maior de prompts.
+- [ ] LaMDA: Language Model for Dialogue Applications, projetado para criar conversas mais naturais, mantendo contextos em interações de longo prazo. LaMDA foi otimizado para responder a uma ampla gama de tópicos, incluindo os mais imprevisíveis e criativos.
+- [ ] DeepMind’s AlphaCode : AlphaCode, desenvolvido pela DeepMind, foca na geração de código com desempenho em tarefas de programação.
 - [x] 2023: UiPath Automation Cloud – Expansão das soluções baseadas em nuvem para facilitar a automação escalável.
 - [x] 2023: Acordo climático na COP28.
 - [x] 2023: Revolução da Biotecnologia: Avanços em edição gênica (CRISPR) e terapias personalizadas, oferecendo novos tratamentos para doenças genéticas e câncer.
 - [x] Tecnologia Climática: Desenvolvimento de tecnologias para mitigar os efeitos das mudanças climáticas, incluindo carros elétricos e captura de carbono.
 - [x] iPhone 14: Lançamento com novas funcionalidades e câmeras aprimoradas.
+- [ ] ChatGPT-4: a versão mais avançada da série GPT, com melhorias significativas na capacidade de gerar texto mais fluido, coerente e relevante.
+- [ ] MidJourney : modelo de IA de geração de imagens MidJourney.
+- [ ] Stable Diffusion: Lançamento do modelo Stable Diffusion pela Stability AI, um modelo de IA de código aberto voltado para a criação de imagens a partir de texto.
 - [x] 2024:Preparação para o 6G: Início dos testes para a sexta geração de tecnologia móvel, prometendo velocidades até 50 vezes mais rápidas que o 5G.
 - [x] 2024: A IA deve estar ainda mais integrada aos negócios, atuando não apenas como suporte operacional, mas como uma aliada estratégica.
+- [ ] ChatGPT-4.5: Uma atualização incremental para o GPT-4, com melhorias contínuas em termos de eficiência, respostas mais rápidas e integração em mais plataformas, como assistentes virtuais em dispositivos móveis e software de produtividade.
+- [ ] Gemini: modelos Gemini da Google, projetados para lidar com uma gama maior de tarefas, de processamento de linguagem natural a tarefas multimodais.
 - [x] 2025: Governança Digital Global: Estabelecimento de padrões globais para o uso de dados, com um volume anual previsto de informações atingindo 180 zettabytes.
 - [x] iPhone SE 4: Espera-se um design atualizado com tela OLED e modem 5G interno.
 - [x] MacBook Air com M4: Novos modelos com processador M4;

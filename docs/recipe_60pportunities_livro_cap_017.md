@@ -4,9 +4,9 @@
 
         | Registro    |           Numero         |
         | ----------  |          -----           |
-        | Adotar ações para Aprimorar Demandas Expressas   |     RA-2112/02-A   |
-        | Estoque de Solicitações Demandas expressas       |     RA-2112/02-B-1 |
-        | Adotar ações, relativas ao gerenciamento de incidentes afeto a fila de sistemas corporativos  |   RA-2112/02-C1  |
+        | Adotar ações para Aprimorar Demandas Expressas   |     xx-xxxx/xx-x-x  |
+        | Estoque de Solicitações Demandas expressas       |     xx-xxxx/xx-x-x |
+        | Adotar ações, relativas ao gerenciamento de incidentes afeto a fila de sistemas corporativos  |  xx-xxxx/xx-x-x |
         | Projetos do PDTIC   |   Projeto        |
 
         ## Histórico XXXXXXX
@@ -78,19 +78,19 @@
 
     === "Origem"
 
-         <p align="justify">A Equipe do XXXXXX, passou a adotar o Supravizio como ferramenta  - ITSM e   DEMANDAS, tendo para cada tipo de TICKET, um fluxo diferenciado. Os fluxos na maioria das vezes, estavam desassociados do processo de desenvolvimento de software.</p>
+        <p align="justify">A Equipe do XXXXXX, passou a adotar o Supravizio como ferramenta  - ITSM e DEMANDAS, tendo para cada tipo de TICKET, um fluxo diferenciado. Os fluxos na maioria das vezes, estavam desassociados do processo de desenvolvimento de software.</p>
 
-         ![](img/projeto-inicial-rj.png){width="600" height="350" style="display: block; margin: 0 auto"}
+        ![](img/projeto-inicial-rj.png){width="600" height="350" style="display: block; margin: 0 auto"}
 
-          **Observação**: O processo de diferimento de software é uma estratégia frequentemente adotada por  equipes de desenvolvimento para adiar ou postergar a implementação de certas funcionalidades   ou melhorias em        software. Este processo pode ser aplicado tanto em projetos de longo prazo   quanto em demandas expressas        (geralmente solicitadas por clientes ou usuários internos de   forma mais imediata).
+        **Observação**: O processo de diferimento de software é uma estratégia frequentemente adotada por  equipes de desenvolvimento para adiar ou postergar a implementação de certas funcionalidades   ou melhorias em        software. Este processo pode ser aplicado tanto em projetos de longo prazo   quanto em demandas expressas        (geralmente solicitadas por clientes ou usuários internos de   forma mais imediata).
 
-         As Equipes de Desenvolvimento, NÃO acolheram o modelo apresentado em 2014. Cada Equipe desenvolveu o seu próprio processo e a utilizaram de inúmeras ferramentas:
+        As Equipes de Desenvolvimento, NÃO acolheram o modelo apresentado em 2014. Cada Equipe desenvolveu o seu próprio processo e a utilizaram de inúmeras ferramentas:
 
-         - [x] **Projetos**: [Redmine](https://www.redmine.org/)
-         - [x] **Gerenciador de Artefatos**: [Nexus](https://www.sonatype.com/products/sonatype-nexus-repository)
-         - [x] **Servidor de automação**: [Jenkins](https://www.jenkins.io/)
-         - [x] **Análise Estática de Código (SAST)**: [SonarQube](https://www.sonarsource.com/products/sonarqube/)
-         - [x] [Documentação na Intranet](https://intranet.bbts.com.br/index.php?option=com_content&view=article&id=700:teste-teste&catid=112&Itemid=423)
+        - [x] **Projetos**: [Redmine](https://www.redmine.org/)
+        - [x] **Gerenciador de Artefatos**: [Nexus](https://www.sonatype.com/products/sonatype-nexus-repository)
+        - [x] **Servidor de automação**: [Jenkins](https://www.jenkins.io/)
+        - [x] **Análise Estática de Código (SAST)**: [SonarQube](https://www.sonarsource.com/products/sonarqube/)
+        - [x] [Documentação na Intranet](https://intranet.bbts.com.br/index.php?option=com_content&view=article&id=700:teste-teste&catid=112&Itemid=423)
 
         ## Controle de Processo GitHub
          <p align="justify">A estrutura de Organização no GitHub é menos hierárquica, mas permite   gerenciar        múltiplos repositórios com configurações e permissões centralizadas:</p>
@@ -110,30 +110,31 @@
 
          <p align="justify">É um gerenciador de repositório de software baseado em git, com suporte a Wiki, gerenciamento de tarefas e CI/CD. Similar ao GitHub, mas o GitLab permite que os desenvolvedores armazenem o código em seus próprios servidores, ao invés da nuvem.</p>
 
-        ### Constatação
+        ### Constatação ou Mudança de Contexto
+        Como poderíamos aumentar a produtividade, diminuindo o `Alt-Tab` entre os afazeres do dia?
+
+        Não podíamos desperdiçar o capital intelectual, pois o excesso de alternancia aumenta a produção de cortisol pelo cérebro (hormônio do estresse), nos retarda e dificulta o foco.
+        O time não poderia perder tempo para se ajustar ao aplicativo, ao seu contexto semântico e à finalidade após um interruptor - os usuários precisam se orientar, mesmo que estivessem apenas olhando para ele. (comutação de contexto).
+
+        Como poderíamos atuar, neste contexto?
+
+        - [x] Racionalizar as aplicações de trabalho?
+        - [x] Centralização do usuário e experiência do usuário em ferramentas de domínio?
+        - [x] Gráficos de trabalho?
+        - [x] Reequilibrar as cargas de trabalho?
+
+        O resultado é que o TIME, esta sendo solicitado a reorientar constantemente, e seus períodos de atenção são fragmentados, o que os leva a serem esgotados.
+
+        Este estado de distração ocorre tipicamente devido ao mau design de trabalho e uma infinidade de aplicações.
+
+        Basicamente, como trabalhamos é em si uma distração? **Nosso trabalho havia virado uma cadeira giratória**.
+
          - [x] Nenhuma norma da série de desenvolvimento estava sendo seguida;
          - [x] Nenhuma norma de Dados, estavam sendo seguidas;
          - [x] Não havia uniformização das áreas;
          - [x] Documentos, Códigos espalhados.
 
         ![](img/o-tempo-001.jpg){width="900" height="500" style="display: block; margin: 0 auto"}
-
-        ## Togaf/IT4IT
-
-         |  *Aspecto*                 | *TOGAF* (The Open Group Architecture Framework)                          | *IT4IT* (IT for IT Framework)                               |
-         |-----------------------------|---------------------------------------------------------------------------|--------------------------------------------------------------|
-         | *Foco Principal*          | Estruturação e governança da arquitetura corporativa (Enterprise Architecture). | Gestão do ciclo de vida de serviços de TI, com foco na cadeia de valor de TI. |
-         | *Objetivo*                | Fornecer uma abordagem sistemática para projetar, planejar, implementar e governar a arquitetura corporativa. | Melhorar a eficiência e a entrega de serviços de TI com um modelo de referência padronizado. |
-         | *Base Conceitual*         | Framework de desenvolvimento arquitetural baseado em fases (ADM).         | Modelo de referência baseado em quatro cadeias de valor: Strategy to Portfolio, Requirement to Deploy, Request to Fulfill, Detect to Correct. |
-         | *Área de Aplicação*       | Organização como um todo, integrando TI e negócios.                      | Focado exclusivamente na organização e automação dos processos de TI. |
-         | *Abordagem*               | Top-down, com foco em alinhamento estratégico entre TI e negócios.         | Orientada à cadeia de valor, com uma visão prática e baseada em automação. |
-         | *Benefícios*              | - Alinhamento entre objetivos de negócios e TI.<br>- Governança abrangente.<br>- Flexibilidade na adaptação a diferentes indústrias. | - Padronização na entrega de serviços de TI.<br>- Eficiência operacional.<br>- Melhor rastreabilidade e visibilidade do ciclo de vida de TI. |
-         | *Principais Componentes*  | - Arquitetura corporativa.<br>- ADM (Architecture Development Method).<br>- Building Blocks.<br>- Enterprise Continuum. | - Cadeias de valor.<br>- Service Backbone.<br>- Ferramentas integradas para gestão de TI.<br>- Automação. |
-         | *Público-Alvo*            | Arquitetos corporativos, estrategistas de TI, CIOs e líderes empresariais. | Profissionais de TI, gerentes de operações, equipes de desenvolvimento e líderes de TI. |
-         | *Complexidade*            | Alta, devido à ampla abrangência e nível de personalização.                | Moderada, com foco em padronização e automação prática.       |
-         | *Adesão a Ferramentas*    | Independente de ferramentas específicas, permitindo maior flexibilidade.  | Promove o uso de ferramentas integradas para automação e rastreamento. |
-         | *Alinhamento com Padrões* | Baseado em padrões amplamente aceitos para arquitetura corporativa.        | Baseado na IT Value Chain e no IT Operating Model.            |
-         | *Cenários Ideais de Uso*  | - Transformação digital.<br>- Integração de negócios e TI.<br>- Estruturação de arquiteturas complexas. | - Operações de TI orientadas à eficiência.<br>- Melhorias contínuas no ciclo de vida de serviços de TI.<br>- Integração de ferramentas DevOps e ITSM. |
 
         ## Migração para Azure-Devops
          <p align="justify">A migração do GitLab para o Azure DevOps foi uma decisão estratégica tomada com  base em diversos fatores que visam melhorar a eficiência, integração e escalabilidade dos   nossos processos de  desenvolvimento.</p>
@@ -175,6 +176,23 @@
         ## Qual era o foco?
 
         [![](https://mermaid.ink/img/pako:eNplks2O2jAQgF9l5ENlJCiwR1StShJ-dllVdGFVqcplSAaS4sSRf7RFiIepeugD9BF4sTreBC3Uhyj2fPPZY8-RJTIlNmJbIV-TDJWBp-e4BDfGA76M1g9hB6DXg6WSP8hI7f57vXsIPh9BZ1jRCFKZ6C4I3JAYQcy-5QZKWfOpNTJmp8Y25KuDHudpp7YFdqf7ERUfJz8rRVojtN43OoDL8KtDHsnEFlQaTFB2_oM8FfJAYZlkTTi8iQ75lNBYRdBg8AHCO-6OAtd5Qx9o8yIeZpTspTUQuqtqoOhaPuFr0obgpczN-ZfK2yNOrrEprxXw1aLIzaFhptfMjD-TINSk-4HNRdpQs2tq7jeEtZRCf-pv1P1UYUGvUu0bfn7Du8cktZWqcJVSXfrc3Ska3Lid_PSOj5cPUFtbw8BTPuY-wdCLHvk4odyVmkp40fZ9sY9w8yALHlEl5AEqVOhP6buifkEnXAz4jBSe_5x_u3aRyuTb819xsS088s72xL9Ix-TJW4r3rQzuaS5FSkrXeXHJuqwgV2WeuqY-1qqYmYwKilndnSlt0QoTs7g8ORRdi64OZcJGRlnqMiXtLmOjLQrtZrZK0VCU485d7mW1wvK7lO389A9jEexr?type=png)](https://mermaid.live/edit#pako:eNplks2O2jAQgF9l5ENlJCiwR1StShJ-dllVdGFVqcplSAaS4sSRf7RFiIepeugD9BF4sTreBC3Uhyj2fPPZY8-RJTIlNmJbIV-TDJWBp-e4BDfGA76M1g9hB6DXg6WSP8hI7f57vXsIPh9BZ1jRCFKZ6C4I3JAYQcy-5QZKWfOpNTJmp8Y25KuDHudpp7YFdqf7ERUfJz8rRVojtN43OoDL8KtDHsnEFlQaTFB2_oM8FfJAYZlkTTi8iQ75lNBYRdBg8AHCO-6OAtd5Qx9o8yIeZpTspTUQuqtqoOhaPuFr0obgpczN-ZfK2yNOrrEprxXw1aLIzaFhptfMjD-TINSk-4HNRdpQs2tq7jeEtZRCf-pv1P1UYUGvUu0bfn7Du8cktZWqcJVSXfrc3Ska3Lid_PSOj5cPUFtbw8BTPuY-wdCLHvk4odyVmkp40fZ9sY9w8yALHlEl5AEqVOhP6buifkEnXAz4jBSe_5x_u3aRyuTb819xsS088s72xL9Ix-TJW4r3rQzuaS5FSkrXeXHJuqwgV2WeuqY-1qqYmYwKilndnSlt0QoTs7g8ORRdi64OZcJGRlnqMiXtLmOjLQrtZrZK0VCU485d7mW1wvK7lO389A9jEexr)
+
+        ## Togaf/IT4IT
+
+        |  *Aspecto*                 | *TOGAF* (The Open Group Architecture Framework)                          | *IT4IT* (IT for IT Framework)                               |
+        |-----------------------------|---------------------------------------------------------------------------|--------------------------------------------------------------|
+        | *Foco Principal*          | Estruturação e governança da arquitetura corporativa (Enterprise Architecture). | Gestão do ciclo de vida de serviços de TI, com foco na cadeia de valor de TI. |
+        | *Objetivo*                | Fornecer uma abordagem sistemática para projetar, planejar, implementar e governar a arquitetura corporativa. | Melhorar a eficiência e a entrega de serviços de TI com um modelo de referência padronizado. |
+        | *Base Conceitual*         | Framework de desenvolvimento arquitetural baseado em fases (ADM).         | Modelo de referência baseado em quatro cadeias de valor: Strategy to Portfolio, Requirement to Deploy, Request to Fulfill, Detect to Correct. |
+        | *Área de Aplicação*       | Organização como um todo, integrando TI e negócios.                      | Focado exclusivamente na organização e automação dos processos de TI. |
+        | *Abordagem*               | Top-down, com foco em alinhamento estratégico entre TI e negócios.         | Orientada à cadeia de valor, com uma visão prática e baseada em automação. |
+        | *Benefícios*              | - Alinhamento entre objetivos de negócios e TI.<br>- Governança abrangente.<br>- Flexibilidade na adaptação a diferentes indústrias. | - Padronização na entrega de serviços de TI.<br>- Eficiência operacional.<br>- Melhor rastreabilidade e visibilidade do ciclo de vida de TI. |
+        | *Principais Componentes*  | - Arquitetura corporativa.<br>- ADM (Architecture Development Method).<br>- Building Blocks.<br>- Enterprise Continuum. | - Cadeias de valor.<br>- Service Backbone.<br>- Ferramentas integradas para gestão de TI.<br>- Automação. |
+        | *Público-Alvo*            | Arquitetos corporativos, estrategistas de TI, CIOs e líderes empresariais. | Profissionais de TI, gerentes de operações, equipes de desenvolvimento e líderes de TI. |
+        | *Complexidade*            | Alta, devido à ampla abrangência e nível de personalização.                | Moderada, com foco em padronização e automação prática.       |
+        | *Adesão a Ferramentas*    | Independente de ferramentas específicas, permitindo maior flexibilidade.  | Promove o uso de ferramentas integradas para automação e rastreamento. |
+        | *Alinhamento com Padrões* | Baseado em padrões amplamente aceitos para arquitetura corporativa.        | Baseado na IT Value Chain e no IT Operating Model.            |
+        | *Cenários Ideais de Uso*  | - Transformação digital.<br>- Integração de negócios e TI.<br>- Estruturação de arquiteturas complexas. | - Operações de TI orientadas à eficiência.<br>- Melhorias contínuas no ciclo de vida de serviços de TI.<br>- Integração de ferramentas DevOps e ITSM. |
 
     === "Mudando"
 
@@ -346,7 +364,7 @@
         | **Velocidade de Geração**          | Rápido, mas não tão rápido quanto o Hugo | Extremamente rápido, ideal          para sites grandes |
         | **Deploy para GitHub Pages**       | Suporte nativo fácil de configurar    | Também suporta, mas pode          requerer mais configuração |
         | **Extensibilidade (Plugins)**      | Plugins limitados, focados em documentação | Plugins altamente          extensíveis, permite muita personalização |
-        | **Ideal para**                     | Sites de documentação, blogs simples  | Blogs, portfólios, sites grandes          e dinâmicos |
+        | **Ideal para**                     | Sites de documentação, blogs simples  | Blogs, portfólios, sites grandes    e dinâmicos |
 
         <p align="justify">Ao utilizar um Static Site Generator (SSG) junto com o conceito de Document as Codetraz benefícios significativos para o desenvolvimento de documentação técnica. O SSG permite gerar sitesrápidos, leves e facilmente hospedados, onde a documentação é gerada de forma automática a partir dearquivos de texto simples, como Markdown.</p>
         <p align="justify">O Document as Code trata a documentação como parte do processo de desenvolvimento,permitindo que ela seja versionada, testada e revisada junto ao código-fonte, promovendo maiorconsistência e colaboração entre equipes. Essa abordagem facilita a automação de atualizações eintegrações com o fluxo de CI/CD. Combinando essas práticas, a documentação torna-se mais ágil, acessívele integrada ao ciclo de vida do software.</p>
@@ -620,6 +638,8 @@
         | Dados Transacionais | São dados gerados por vários aplicativos durante a execução ou suporte de processos de negócios diários.                                                                           |
         | Dados Analíticos    | São dados que surgem por meio de cálculos ou análises executados nos dados transacionais.                                                                     |
         | Dados Mestres       | São os objetos de negócios reais e críticos sobre os quais essas transações são realizadas, levando em consideração também os parâmetros nos quais a análise de dados é conduzida. |
+
+
 
         ### **REPR - Request-Endpoint-Response**
          <p align="justify">É um padrão muito mais simples para desenvolver endpoints de API. Os únicos modelos com os quais você se importa são a Solicitação e a Resposta.</p>

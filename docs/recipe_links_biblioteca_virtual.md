@@ -446,3 +446,16 @@ Building Evolutionary Architectures: Automated Software Governance - https://www
 
 The DataOps Revolution: Delivering the Data-Driven Enterprise
 Author(s): Simon Trewin
+
+https://hbr.org/2022/08/how-much-time-and-energy-do-we-waste-toggling-between-applications
+
+https://www.it-cisq.org/use-cases/devops-code-quality/
+
+https://www.it-cisq.org/cisq-supplements-isoiec-25000-series-with-automated-quality-characteristic-measures/
+
+https://www.it-cisq.org/cisq-supplements-isoiec-25000-series-with-automated-quality-characteristic-measures/
+
+
+https://www.it-cisq.org/use-cases/devops-code-quality/
+
+https://www.iso.org/standard/65378.html

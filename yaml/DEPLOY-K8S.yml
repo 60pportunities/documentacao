@@ -1,0 +1,13 @@
+deploy:
+    stage: deploy
+    before_script:
+        - export IMAGE_NAME=$CI_REGISTRY_IMAGE/microservice/$MICRO_SERVICE
+        - export IMAGE_TAG=$SERVICE_VERSION
+        - export MICRO_SERVICE=$MICRO_SERVICE
+        - export SERVICE_PORT=$SERVICE_PORT
+        - export REPLICAS=$REPLICAS
+        - export KUBECONFIG=$KUBE_CONFIG
+    script:
+        - kubectl create secret docker-registry my-registry-key --docker-server=$CI_REGISTRY --docker-username=$GITLAB_USER --docker-password=$GITLAB_PASSWORD -n my-micro-service --dry-run=client -o yaml | kubectl apply -f -
+        - envsubst < kubernetes/deployment.yaml | kubectl apply -f -
+        - envsubst < kubernetes/service.yaml | kubectl apply -f -

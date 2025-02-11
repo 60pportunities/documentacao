@@ -352,3 +352,22 @@ SELECT
     count(*)
 FROM xxbbtsgate.vw_people_x_ebs
 -->
+
+    === "Não seja um Grande Líder"
+
+        Um líder geralmente se foca em inspirar e guiar as pessoas, enquanto um chefe se concentra mais em exercer autoridade e gerenciar resultados.
+
+        Muitas vezes, as pessoas podem ser boas em ambos os aspectos, mas a forma como lideram pode variar.
+
+        | Grande Lider                        | Entenda |
+        | ----------                           | ----------- |
+        | Micromanager | O gerente micromanager tende a supervisionar cada detalhe do trabalho de sua equipe, controlando até mesmo as tarefas mais simples. Ele tem dificuldade em delegar responsabilidades e confia pouco na capacidade de seus colaboradores para tomar decisões. |
+        | Credit Hog   | O gerente "credit hog" é aquele que busca assumir para si o crédito pelo trabalho e pelas conquistas de sua equipe, em vez de reconhecer o esforço coletivo. |
+        | Blame Shifter | O gerente "blame shifter" é aquele que nunca assume a responsabilidade pelos erros, preferindo transferir a culpa para os outros. |
+        | Inconsistent Leader | O líder inconsistente altera suas decisões e expectativas com frequência, criando confusão e incerteza na equipe.  |
+        | The Bully Boss | O gerente agressivo ou "bully boss" utiliza a intimidação e o abuso de poder para controlar a equipe.  |
+        | Plays Favorites | O gerente que favorece alguns membros da equipe em detrimento de outros cria um ambiente de trabalho desigual e divisivo.  |
+        | Overly Critical |  Um líder excessivamente crítico foca demais nos erros e falhas, muitas vezes deixando de reconhecer os acertos e sucessos. |
+        | Disconnected Leader | O gerente desconectado é aquele que está distante das necessidades e da realidade de sua equipe. |
+        | Ego-Centric Leader | O líder centrado no próprio ego coloca suas próprias necessidades e ambições à frente das da equipe e da organização. |
+        | Unethical Leader   |  O líder antiético adota comportamentos e práticas que não seguem princípios morais ou legais, como enganar, manipular ou tomar decisões baseadas em interesses pessoais. |
