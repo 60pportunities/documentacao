@@ -183,7 +183,7 @@ definir a MYSQL_PASSWORD_FILEvar fará com que o aplicativo use o conteúdo do a
 cat /run/secrets/secure-secret
 eHwX8kV8sFt/y30WASgz8kimnKhUkCrt07XMrmewYr8=
 openssl rand -base64 32 | docker secret create secure-secret -
-docker service create --secret="secure-secret" redis:alpine
+docker service create --secret="*****-*****" redis:alpine
 ```
 
 O termo “Dockerize” significa adaptar ou configurar um aplicativo ou serviço para funcionar dentro de um contêiner Docker. Quando você “Dockeriza” um aplicativo, você está essencialmente preparando-o para conteinerização usando o Docker, uma plataforma de conteinerização. O processo de Dockerização de um aplicativo envolve criar um Dockerfile, construir uma imagem Docker e executar o aplicativo como um contêiner Docker.

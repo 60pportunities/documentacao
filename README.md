@@ -106,7 +106,7 @@
 
 - [x] Relatórios de progresso: criação de dashboards que mostrem métricas como tempo de ciclo, número de bugs encontrados, cobertura de testes, etc.
 - [x] Análise de desempenho: monitoramento do desempenho do sistema após a implementação.
- 
+
 ## Lançamento
 
 <p align="justify">O lançamento é o momento em que o software é disponibilizado para os usuários finais.</p>

@@ -14,7 +14,7 @@ extra_css:
   - styles/app-theme.css
   - https://unpkg.com/mermaid@8.5.1/dist/mermaid.css
   - styles/tablesort.css
-  - styles/bbts-themas.css
+  - styles/60pthemas.css
 extra_javascript:
   - javascripts/tables.js
   - javascripts/tablesort.js
@@ -65,8 +65,8 @@ plugins:
       #enterprise_hostname: https://github.com/s60pportunities
       repository: https://github.com/60pportunities/documentacao
       branch: main
-      token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
-      #token: ${MKDOCS_GIT_COMMITTERS_APIKEY}
+      #token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
+      token: !!python/object/apply:os.getenv ["GIT_AUTH_TOKEN"]
   - git-authors
   - git-revision-date-localized:
       type: timeago
