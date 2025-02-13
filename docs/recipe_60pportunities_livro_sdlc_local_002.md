@@ -1,4 +1,4 @@
-## Estrutura de Pastas
+## Estrutura
 No contexto de gerenciamento de ativos digitais, podemos definir como a inclusão de todos os arquivos e ativos digitais organizados hierarquicamente dentro de um estrutura de diretório.
 
 Enfatizamos alguns componentes principais e convenções :
@@ -49,6 +49,9 @@ Enfatizamos alguns componentes principais e convenções :
 
 ![](img/disco-interno-padrao.png)
 
+## Nome de Arquivo
+
+
 ### Grande Equipe
 
  | Grande Equipe                        | Entenda |
@@ -67,3 +70,7 @@ Enfatizamos alguns componentes principais e convenções :
  | Lidere pelo exemplo                  | Liderar pelo exemplo é um dos caminhos mais eficazes para criar uma cultura organizacional positiva. Quando os líderes demonstram comprometimento, ética e trabalho em equipe, os colaboradores tendem a seguir esse exemplo, elevando os padrões gerais da equipe.        |
  | Mostre empatia                       | A empatia é um ingrediente fundamental para um bom relacionamento interpessoal. Quando os líderes demonstram compreensão e consideração pelas dificuldades e necessidades dos membros da equipe, eles criam um ambiente mais humano e acolhedor.                           |
  | Seja transparente                    | A transparência é crucial para construir um ambiente de confiança. Quando os líderes compartilham informações importantes, tomam decisões de forma aberta e comunicam os desafios enfrentados pela organização, eles incentivam a participação e o engajamento da equipe.  |
+
+
+
+636E738881132
