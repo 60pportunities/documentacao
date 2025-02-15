@@ -1,4 +1,4 @@
-name: Generate Datas
+name: Cobra Teste
 
 on:
   workflow_dispatch: # execute manually
@@ -10,7 +10,7 @@ jobs:
   summary-cards:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Summary Cards
         uses: vn7n24fzkq/github-profile-summary-cards@main
