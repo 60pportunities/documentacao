@@ -1,3 +1,6 @@
+Ao acompanhar a história do desenvolvimento de software, nunca tivemos tantas opções de frameworks, linguagens de programação, templates de projetos e ao mesmo tempo nunca falhamos tanto em alcançar o objetivo, que é atingir as expectativas de clientes.
+
+
 ## **Scrum Master**
 O Scrum Master é o responsável por ajudar todos os envolvidos na equipe de projeto, ele facilita as interações e ensina os stakeholders a utilizar o Scrum. Ele utiliza os seus conhecimentos e técnicas para lidar com as pessoas e ajudar o Product Owner e a equipe de desenvolvimento a se tornarem mais eficientes no seu trabalho. Relacione o time de Scrum Masters, que você pode trabalhar.
 <div class="center-table" markdown>
@@ -6,6 +9,33 @@ O Scrum Master é o responsável por ajudar todos os envolvidos na equipe de pro
 |                                      |                       |    ☑️    |
 </div>
 **Observação**: Ao selecionar o Scrum Master troque o emoji de não selecionado (☑️) para o selecionado (✅).
+
+- [x] Passe algum tempo com a equipe (incluindo proprietários de negócios) para ensinar, não contar, o verdadeiro valor da preparação do backlog e torná-la uma prática definitiva;
+- [x] Os líderes devem identificar componentes essenciais comuns; habilitar arquitetos corporativos fortes com perspicácia em negócios, risco e tecnologia; e conduzir revisões de projetos entre divisões.
+- [x] Incorporando a segurança ao seu processo de desenvolvimento de software, desde o design de código seguro até a incorporação da varredura de segurança no pipeline de CI/CD.
+- [x] Equilibrar velocidade de desenvolvimento, segurança (incluindo privacidade de dados) e a experiência do usuário;
+- [x] Desenvolver protótipos ou mockups iniciais permite que os desenvolvedores mostrem aos clientes como o produto real ficará após o desenvolvimento, eliminando, em última análise, equívocos em um estágio inicial.
+- [x] Um escopo bem delineado ajudará você a resistir à tentação de incluir novas tarefas que, embora pareçam relevantes, terão grandes impactos no prazo e no orçamento originais.
+- [x] Para combater o aumento do escopo, seja claro sobre o que “feito” parece para o produto mínimo viável antes de começar, então garanta que você mantenha um foco de laser em entregar, em pouco tempo, algo que corresponda muito bem a isso.
+- [x] É importante dividir os projetos em pedaços pequenos o suficiente para que o cronograma possa ser medido com precisão — e então adicionar um buffer para lidar com os problemas que inevitavelmente surgem.
+- [x] As equipes de desenvolvimento de software podem evitar surpresas desagradáveis ​​pedindo aos desenvolvedores que estimem seu próprio trabalho e, em seguida, identificando e gerenciando dependências entre os membros da equipe.
+- [x] As equipes de desenvolvimento de software podem evitar surpresas desagradáveis ​​pedindo aos desenvolvedores que estimem seu próprio trabalho e, em seguida, identificando e gerenciando dependências entre os membros da equipe.
+- [x] A equipe de tecnologia deve obter ampla contribuição durante o desenvolvimento de pessoas não técnicas para garantir que o produto seja intuitivo e entregue o valor desejado.
+- [x] Os projetos de software é não entender e/ou não considerar os requisitos não funcionais, como desempenho, escalabilidade, resiliência, monitoramento e testes de qualidade. Esses requisitos são tão críticos quanto os requisitos funcionais e comerciais para garantir que a experiência do usuário final atenda às expectativas.
+- [x] Alinhar-se com os “bons de ter” versus os “indispensáveis” no início do projeto garantirá que as tarefas certas sejam priorizadas, o orçamento geral e o cronograma possam ser honrados e ninguém seja desagradavelmente surpreendido no final.
+- [x] A integridade dos dados é o obstáculo mais estressante e comum ao manobrar um novo projeto de software.
+- [x] Motivo comum pelo qual os projetos de software falham é a falta de comunicação, cooperação e colaboração suficientes entre as equipes de produto e engenharia.
+### Arquitetura de Software
+
+- [x] O porquê é mais importante que o como;
+- [x] Toda escolha é baseada em trade-offs.
+
+Acredito que o essencial de um software de sucesso passará por:
+
+- [x] Aplicação: Qualidade de código, teste, documentação, resiliência e performance farão parte deste arcabouço;
+- [ ] Cloud: Utilização do poder da cloud para acelerar e modernizar a infraestrutura atual.
+- [ ] Segurança: RCA, SAST, DAST
+- [ ] Dados: Utilizar os dados já existentes dentro da organização para potencializar a geração e aprimoramento de informações de produtos dentro de uma organização.
 
 ### **Diferimento**
 <div class="mdx-columns3" markdown>

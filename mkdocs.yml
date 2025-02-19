@@ -66,7 +66,7 @@ plugins:
       repository: https://github.com/60pportunities/documentacao
       branch: main
       #token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
-      token: !!python/object/apply:os.getenv ["GIT_AUTH_TOKEN"]
+      token:  !!python/object/apply:os.getenv ["GIT_AUTH_TOKEN"]
   - git-authors
   - git-revision-date-localized:
       type: timeago
@@ -262,6 +262,7 @@ nav:
       - 'Pull Request'                                             : 'recipe_60pportunities_livro_cap_020_10.md'
       - 'Arquitetura Sw'                                           : 'recipe_60pportunities_livro_cap_020_11.md'
       - 'Bit rot'                                                  : 'recipe_60pportunities_livro_cap_020_12.md'
+      - 'Estimativas'                                                : 'recipe_60pportunities_livro_cap_020_13.md'
       - 'Leis da TI'                                                 : 'recipe_60pportunities_livro_cap_099.md'
       - 'Modelagem de Dados'                                         : 'recipe_60pportunities_livro_cap_010.md'
       - 'O funil de Teste'                                           : 'recipe_60pportunities_livro_cap_012.md'

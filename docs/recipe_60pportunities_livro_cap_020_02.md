@@ -60,6 +60,18 @@ Os sinalizadores de recursos são um conceito enganosamente simples. Pode ser di
 
 No entanto, o verdadeiro valor do que estou compartilhando aqui está na mudança cultural holística que os sinalizadores de recursos podem trazer para cada parte do seu ciclo de vida de desenvolvimento de produto.
 
+- [x] **Implementação controlada** : as equipes podem lançar um novo recurso primeiro para um pequeno
+grupo e depois para todos;
+- [x] **Soluções rápidas** : se algo quebrar, as equipes podem desativar o recurso sem reimplantar
+todo o sistema.
+- [x] **Teste A/B**: os sinalizadores de recursos ajudam a testar diferentes versões de um recurso para ver
+qual funciona melhor;
+- [x] **Atualizações do servidor**: os sinalizadores de recursos permitem que as equipes testem as alterações em alguns servidores antes de atualizar todos;
+- [x] **Controle de custos da nuvem**: as empresas os utilizam para desativar serviços extras quando não necessário;
+- [x] **Recursos de segurança**: as equipes podem implementar novas configurações de segurança passo a passo, verificando se há problema.
+
+se há problemas.
+
 ## Sinalizadores de Recursos
 É um mecanismo de controle nomeado para alguma parte do seu código. Um sinalizador de recurso normalmente compõe um identificador (ex.: new-checkout-workflow), um tipo (ex.: Boolean), um conjunto de variantes (ex.: truee false), uma série de regras de segmentação e uma estratégia de implementação.
 
@@ -233,3 +245,11 @@ Imagine uma implementação muito mais graduada usando sinalizadores de recursos
 - [x] Examine registros de erros e métricas.
 - [x] Habilitar sinalizador de recurso para todos os usuários.
 - [x] Comemore um lançamento de recurso bem-sucedido.
+
+
+## Conclusão
+Os sinalizadores de recursos ajudam as equipes a controlar melhor seus softwares. Eles permitem testar, corrigir e implementar mudanças com segurança e rapidez:
+
+- [x] **Controle simples**: Ative ou desative recursos sem alterar o código;
+- [x] **Testes Inteligentes**: Experimente coisas novas sem quebrar o sistema;
+- [x] **Melhores Decisões**:Use dados reais antes de tornar os recursos permanentes;

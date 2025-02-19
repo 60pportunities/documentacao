@@ -47,3 +47,20 @@
 
 ## Gerador de Senha
 ![Passwords Generator](https://passwordsgenerator.net/)
+
+
+https://link.mail.beehiiv.com/ss/c/u001.RUBZ4nmpws8F7fbywsQK-p6yKcY1DHMe9b9whRTrgfuy_-zgTSKsAvt3XnRK4wOBnxsGOl9ffLdRfT9c_IuITW9-pYcHjXbLO4HNALenfO_QLCt3dJ-64S4aH-10aaUdNlsfYwHgOytKR36wk_MgVdID5ol4Kx0dAAGTAdIKwoPVyUxi94u3p89IYJQn6rgkMLG_KkruY0XUnS5VosV5n-173wGPAvPab3WcLSlY1XOuVdLHtOOBR64mgZB9grpigVrEFMUYyKZbC8v_FuOuE-e0Fjp2fLQwuQYzPR5yves/4e2/U6vjwvD8Sly2FGcXTB09YA/h12/h001.OuuHGLq3GsGpVrZiQPf6FPNeF2aaSMsqQT_RIYOunoY
+
+https://link.mail.beehiiv.com/ss/c/u001.RUBZ4nmpws8F7fbywsQK-p6yKcY1DHMe9b9whRTrgfvNvguY0-tJ5JxsqbadBR2B9Wohhi4bmNi31eXPZKXixcTy5ZIIadm2k29M-nGNlwoHjI8lPDrwTLg8HYGM3QrLWKf5r9idUbe6i4qoCU4R7Ftdmk3Z6QWH2Z71mrXZH_IEX21WcTaonH7XKZVR_eYrYSd9xKVcEVZZWqmkaDTX438tmd57AO1-70EKz40KQ20vuDwsdAdE9c0RQ0WZNrWx9SgBy8MxzlKqa4600xVRiLZf1P-_HRk8eMVRoypytQs/4e2/U6vjwvD8Sly2FGcXTB09YA/h13/h001.WdgRfxkGT12ckXAVngCBUVac7FxRBEsEoKonc8BPQ7Y
+
+
+https://theresanaiforthat.com/ai/solidsign/?ref=email&utm_source=newsletter.theresanaiforthat.com&utm_medium=newsletter&utm_campaign=the-ai-race-china-vs-usa&_bhlid=56ec247e9a0900a39f99d17f2806a931bdd3168d
+
+https://theresanaiforthat.com/@rudranurag/renaissance-painting-generator/?ref=email&utm_source=newsletter.theresanaiforthat.com&utm_medium=newsletter&utm_campaign=the-ai-race-china-vs-usa&_bhlid=7896d311bf4d58ca8d57159e9ff536e38f2c50c4
+
+
+https://theresanaiforthat.com/@zadelectric/sql-generatoror/?ref=email&utm_source=newsletter.theresanaiforthat.com&utm_medium=newsletter&utm_campaign=the-ai-race-china-vs-usa&_bhlid=af506b91773c0fd56f40973cdfdac7035d1abd2e
+
+
+
+Hands-on GitHub Actions
