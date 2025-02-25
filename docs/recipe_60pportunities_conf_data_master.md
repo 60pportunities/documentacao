@@ -6,7 +6,6 @@
 
 Integridade de dados refere-se à garantia de que os dados permanecerão precisos, inalterados e consistentes durante todo o seu ciclo de vida.
 
-
 | **Característica**      | **Data Warehouse**                                          | **Data Lake**                                                  | **Data Mesh**                                               |
 | :------ | :--------- | :-------- | :----|
 | **Tipo de Dados**        | Dados estruturados                                          | Dados estruturados e não estruturados                          | Dados distribuídos, por domínio                              |
@@ -18,6 +17,9 @@ Integridade de dados refere-se à garantia de que os dados permanecerão preciso
 | **Vantagens**            | Consultas rápidas, alta performance para BI                 | Flexibilidade no armazenamento de dados e baixo custo         | Autonomia, escalabilidade e alinhamento com as necessidades de negócios |
 | **Desvantagens**         | Rigidez na estrutura de dados, dificuldades com dados não estruturados | Governança e consultas podem ser mais difíceis de gerenciar    | Complexidade de gestão e padronização entre os domínios     |
 | **Tecnologias Comuns**   | Google BigQuery, Amazon Redshift, Snowflake, Microsoft SQL Server | Hadoop, Apache Spark, AWS S3, Azure Data Lake, Google Cloud Storage | Arquitetura distribuída, com ferramentas como Kubernetes, Kafka, etc. |
+
+## Arquitetura Integração de Dados
+As arquiteturas de integração de dados tornam-se canais para coletar e fornecer insights sobre processos e dados de negócios.
 
 ## Data Lake
 
@@ -58,44 +60,42 @@ Seus quatro pilares:
 A malha de dados (Data Mesh) aborda essas dimensões, fundadas em quatro princípios:
 
 - [x] **Arquitetura de dados descentralizada orientada ao domínio**:
-      - [x] Os diferentes domínios de negocios (produtores de dados) sao responsaveis ​​por curar, validar, publicar, manter e gerenciar o ciclo de vida dos dados que possuem.
-      - [x] Data lakes que são gerenciados centralmente pela TI;
+    - [x] Os diferentes domínios de negocios (produtores de dados) sao responsaveis ​​por curar, validar, publicar, manter e gerenciar o ciclo de vida dos dados que possuem.
+    - [x] Data lakes que são gerenciados centralmente pela TI;
 - [x] **Dados disponibilizados como produto**:
-      - [x] Em um data lake típico, o data lake e os pipelines de dados são o produto. Em uma malha de dados, os dados e o domínio e a expertise do produtor que reúne e publica os dados são o produto.
-      - [x] Cada domínio deve ter um proprietário do produto de dados, responsável por garantir que os dados sejam entregues como um produto.
-      - [x] Qualidade de dados, menor tempo de espera de consumo de dados e, em geral, satisfação do usuário de dados.
-      - [x] Quem são os usuários dos dados;
+    - [x] Em um data lake típico, o data lake e os pipelines de dados são o produto. Em uma malha de dados, os dados e o domínio e a expertise do produtor que reúne e publica os dados são o produto.
+    - [x] Cada domínio deve ter um proprietário do produto de dados, responsável por garantir que os dados sejam entregues como um produto.
+    - [x] Qualidade de dados, menor tempo de espera de consumo de dados e, em geral, satisfação do usuário de dados.
+    - [x] Quem são os usuários dos dados;
 - [x] **Infraestrutura para disponibilizar os dados como self-service**: (Plataforma de dados self-service)
-
-<div class="mdx-columns2" markdown>
-- [x] armazenamento de dados escalável;
-- [x] esquema de produtos de dados;
-- [x] construção e orquestração de pipeline de dados;
-- [x] linhagem de dados;
-</div>
-
+    - [x] armazenamento de dados escalável;
+    - [x] esquema de produtos de dados;
+    - [x] construção e orquestração de pipeline de dados;
+    - [x] linhagem de dados;
 - [x] **Controle de acesso granular e escalável**
-      - [x] Os produtores especificam políticas de acesso, governança e retenção e quaisquer políticas de acesso personalizadas com base na granularidade dos dados.
-      - [x] Interoperabilidade por meio de padronização global,
-      - [x] Topologia dinâmica;
+    - [x] Os produtores especificam políticas de acesso, governança e retenção e quaisquer políticas de acesso personalizadas com base na granularidade dos dados.
+    - [x] Interoperabilidade por meio de padronização global,
+    - [x] Topologia dinâmica;
 
 ## Quais ferramentas:
+
 - [x] Dataflow:
-      - [x] Google Cloud Dataflow
-      - [x] AWS Data Pipeline/AWS Glue/Amazon Kinesis Data Streams
-      - [x] Azure Data Factory/Azure Stream Analytics
-      - [x] Oracle Cloud Data Flow
-      - [x] Snowflake Data Cloud
-      - [x] Apache Kafka
-      - [x] Apache Nifi
-      - [x] Apache Airflow e porque não Rundeck.
+    - [x] Google Cloud Dataflow
+    - [x] AWS Data Pipeline/AWS Glue/Amazon Kinesis Data Streams
+    - [x] Azure Data Factory/Azure Stream Analytics
+    - [x] Oracle Cloud Data Flow
+    - [x] Snowflake Data Cloud
+    - [x] Apache Kafka
+    - [x] Apache Nifi
+    - [x] Apache Airflow e porque não Rundeck.
 - [x] Data Catalog:
-      - [x] [Google Cloud Data Catalog](https://cloud.google.com/data-catalog/docs/concepts/overview?hl=pt-br)
-      - [x] [Microsoft Azure Purview](https://learn.microsoft.com/pt-br/purview/purview)
-      - [x] [DataHub](https://datahubproject.io/)
-      - [x] [Metacat](https://github.com/Netflix/metacat)
-      - [x] [Egeria](https://egeria-project.org/)
+    - [x] [Google Cloud Data Catalog](https://cloud.google.com/data-catalog/docs/concepts/overview?hl=pt-br)
+    - [x] [Microsoft Azure Purview](https://learn.microsoft.com/pt-br/purview/purview)
+    - [x] [DataHub](https://datahubproject.io/)
+    - [x] [Metacat](https://github.com/Netflix/metacat)
+    - [x] [Egeria](https://egeria-project.org/)
 ## Por onde começar?
+
 - [x] Mapeie os domínios da sua organização;
 - [x] Avalie os impulsionadores do negócio e comece pequeno (Agencias do Banco do Brasil e Terceiros);
 - [x] Defina padrões de produtos de dados;
