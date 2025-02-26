@@ -21,6 +21,199 @@ Integridade de dados refere-se à garantia de que os dados permanecerão preciso
 ## Arquitetura Integração de Dados
 As arquiteturas de integração de dados tornam-se canais para coletar e fornecer insights sobre processos e dados de negócios.
 
+## Arquitetura Integração de Dados
+A economia digital colocou mais demanda por serviços de dados dentro de uma organização, sobrecarregando a TI para fornecer esses serviços, acarretando uma proliferação de integrações não governadas na verdade piora na entrega e manutenção da mesma.
+
+Arquiteturas de integração de dados consistem em múltiplas tecnologias que também podem ser alinhadas a outras áreas, como gerenciamento de dados ou governança de dados. No entanto, vale a pena abordar essas tecnologias para e
+
+As arquiteturas de integração de dados tornam-se canais para coletar e fornecer insights sobre processos e dados de negócios.
+
+A integração de dados geralmente é uma tarefa dentro de um projeto maior, sendo um método que fornece dados que podem suportar algum conjunto de requisitos de negócios, objetivando uma melhorara na eficiência geral das organizações comerciais e técnicas, validando efetivamente seus pipelines e resultados de dados e análises.
+
+Uma arquitetura de integração auxuliará a organizar as integrações em um ambiente coerente e estruturado.
+
+Para podermos iniciar o trabalho, foi necessário efetuar um mapeamento dos dados mestres e referêmcia, propondo uma higienização durante o processo de implantação de um novo sistema de Gestão Empresarial. Nosso objetivo foi a promoção da higienização, designação do gestor, background check e seus metadados.
+
+Foram identificados neste trabalho, ciclos viciosos de desenvolvimento em uma arquitetura acidental,que não garantiam a qualidade dos dados, aumentavam as dívida técnica e de processo. 
+
+Eventualmente, surgem perguntas sobre como os resultados foram derivados, a qualidade dos dados, a fonte dos dados e por que as mesmas métricas têm resultados diferentes em diferentes operações de negócios.
+
+
+Uma arquitetura de integração de dados consiste nas tecnologias, dados e padrões, processos de negócios, necessidades de armazenamento e requisitos operacionais que permitem a entrega da integração de dados.
+
+| Requisitos             | Tecnologia   | Design               | Implementação       | Monitoramento |
+| -----                  | ----         | ----                 | -----               | ----          |
+| Dados Estruturados     | Mensageria   | Replicação           | Data Pipeline       | Custo         |
+| Dados Não Estruturados | ETL/ELT/ETLT | Preparação           | Integração Metadata | Adminitração  |
+| Processos de Negócio   | Orquestração | Transformação        | Armazenagem         | Suporte       |
+| Metadata               | DatOps       | Orquestraçãp         |                     |               |
+| Temporalidade          | Catalogação  | ETL/ELT/ETLT         |                     |               |
+| Performance            |              |  Pipeline Integração |                     |               |
+
+## Base de governança de dados e gerenciamento de informações: 
+Crie uma base de governança de dados e gerenciamento de informações para dar suporte ao gerenciamento de dados mestres e gerenciamento de metadados para dar suporte a casos de uso de governança de dados e análises; desenvolva novas habilidades e práticas recomendadas; e estabeleça segurança, privacidade e conformidade no gerenciamento de dados.
+
+## Arquitetura e modernização de gerenciamento de dados: 
+Implante uma infraestrutura de gerenciamento de dados escalável e confiável e arquitete a arquitetura de dados moderna mais adequada, incluindo gerenciamento de dados local, nativo da nuvem e híbrido para oferecer suporte a volume, velocidade e variedade de dados extremos.
+
+## Princípios e implantações de gerenciamento de dados
+Selecione, projete, implante e operacionalize sistemas de gerenciamento de dados usando tendências emergentes em armazenamentos de dados para fins especiais, como armazenamentos não relacionais, gráficos e de objetos, e migre bancos de dados para executar cargas de trabalho híbridas, multicloud e de borda.
+
+## Integração de dados de última geração
+Desenvolva as melhores práticas e arquitetura para integração de dados, aproveitando os princípios de engenharia de dados e as tecnologias de virtualização de dados para oferecer suporte a casos de uso de streaming em lote e em tempo real.
+
+## Design de integrações usando métodos apropriados
+O design de uma arquitetura de integração pega os processos de negócios definidos e os traduz em pipelines de integração. As fontes de dados e processos se tornam o pipeline de integração; o uso de dados e os tipos de dados se tornam os métodos de integração e transformações; e a usabilidade e o acesso aos dados se torna
+
+Insights sobre formatos de dados, uso dos dados, métodos de armazenamento,  podem determinar o método de integração.
+
+Processos de negócios e regras de transformação
+
+As perguntas a serem respondidas pelos requisitos do processo incluem:
+
+| Perguntas                                                | Perguntas                                              |
+| -----                                                    | ----                                                   |
+| Qual é a fonte dos dados ?                               | Existe algum Orgão regulador? Há contratos?            |
+| Quem criará os dados?                                    | Quem poderá ler, consultar ou manter?                  |
+| Dados históricos deverão ser mantidos, por quanto tempo? | Dados históricos precisarão ser modificados?           |
+| Quais os tipos de validações, serão necessárias?         | Como os dados serão usados?                            |
+| Que tipo de metadados devem ser capturados?              | Como os usuários consumirão/acessarão os dados finais? |
+
+Os metadados contêm as informações necessárias para fornecer informações sobre definições de dados ou dicionários, linhagem de dados, pipelines de dados para usuários corporativos e desenvolvedores. 
+Esses tipos incluem metadados operacionais (relacionados a operações da arquitetura de integração, como tempos de execução de pipeline, número de falhas, transformações, agregações e junções executadas em dados) e metadados de negócios (como dicionários de dados e linhagem).
+
+## Métodos de integração
+Existem vários métodos de integração de dados, dependendo do formato, caso de uso e volume. Há plataformas de integração que fornecem recursos que vão além de apenas extrair, transformar e carregar (ETL/ELT/ETLT), como catálogos de dados, recursos de IA, governança de dados e suporte a DataOps, integração de fluxo ou virtualização.
+
+| Técnica de Integração | Descrição                                                                                   | 
+| -----                 | ----                                                                                        |
+| Replicação            | Pode ser considerada a forma mais básica de integração, pois envolve a cópia direta de dados de um sistema para outro. |
+| Virtualização         | Executa consultas em várias fontes de dados para criar visualizações virtuais integradas de dados sob demanda.         | 
+| ETL/ELT               | Os dados de origem são extraídos e podem ser gravados como um arquivo em lote ou processados em trânsito, aproveitando uma ferramenta ou plataforma de integração de dados.|
+| ETLT                  | Mesmos conceitos fundamentais de ETL, porem, o processo de integração envolve várias etapas de extração, transformação e carga, e também pode incluir etapas adicionais de carregamento e transformação. |
+| Stream Data Processing| É um método para ingerir, integrar e processar dados em tempo real assim que são produzidos. A latência entre a criação e o processamento de dados é extremamente baixa em comparação ao processamento em lote. |
+
+## Plataformas de integração
+As plataformas de integração visam ser uma plataforma única para recursos de dados. 
+Com as permissões e acesso adequados, os usuários podem acessar dicionários de dados, entender a precisão e a qualidade dos dados, integrar dados mestres, visualizar a linhagem de dados e ver transformações, validações e quaisquer consolidações de dados até a fonte. 
+
+## Scheduler e Workflow Manager
+O agendamento de pipeline de integração e o gerenciamento de fluxo de trabalho, como execução de frequência de trabalhos, alertas e automação são padrão, definidas nestas plataformas.
+
+## Catálogos de dados
+Os catálogos de dados armazenam metadados, tanto operacionais quanto comerciais, que complementam as transformações de dados ou análises para visualizar a jornada de dados.
+
+CI/CD, DataOps, Orquestração
+Orquestração é o processo de criação de uma unidade lógica de pipelines de dados relacionados, fluxos de trabalho e componentes associados que produzem os conjuntos de dados desejados, incluindo seus artefatos (por exemplo, metadados, dicionário de dados, qualidade de dados e estatísticas de validação).
+
+HA, DR, Escalabilidade
+O foco principal em alta disponibilidade (HA) e recuperação de desastres (DR) é manter o sistema operacional o tempo todo. No entanto, a principal diferença é que a HA aborda o problema enquanto o sistema é executado, enquanto a DR entra depois que ele falha. 
+
+Independentemente de quão altamente disponível um sistema seja, qualquer aplicativo de produção precisa ter planos de recuperação de desastres, pois alta disponibilidade e recuperação de desastres não são mutuamente exclusivas.
+
+## Integração
+A implementação dependerá das funções e recursos da ferramenta, que deveriam ter sido avaliados.
+
+- [x] Qual a melhor forma de implementar o CDC e onde?
+- [x] Como lidamos com dados atrasados/duplicados?
+- [x] Em caso de falha do pipeline, o processo deve ser executado novamente ou precisa continuar de onde falhou? Quais verificações de integridade de dados são necessárias?
+- [x] Como acompanhamos as métricas e monitoramos os pipelines de qualidade de dados (DQ)/SLAs?
+- [x] Como maximizamos o desempenho — taxa de transferência ou latência?
+- [x] Como orquestramos pipelines de dados de ponta a ponta?
+- [x] Como podemos depurar a lógica de transformação em um ambiente altamente distribuído?
+- [x] Como o sistema lida com a propagação de alterações upstream?
+- [x] Como gerenciamos a configuração e o estado do pipeline?
+- [x] Como a reutilização será gerenciada/integrada às equipes de desenvolvimento?
+- [x] Qual é o processo de implantação?
+- [x] O que é o ambiente de desenvolvimento?
+- [x] Como o aterro será realizado?
+- [x] Como implementamos pipelines de dados orientados por metadados?
+
+| Tipo               | Descricao |
+| ----               | ----      |
+| Microlotes         | Divide o conjunto de dados resultante em lotes menores, agendando as extrações várias vezes ao longo do dia e da noite.  |
+| Integração em lote | Método tradicional, onde o processo começa assim que todos os dados a serem integrados são identificados, seja de um arquivo ou consultando o sistema de origem.  |
+| Streaming de eventos  | Fluxos de eventos de alta frequência que precisam ser processados dentro de SLAs muito rígidos – por exemplo, na detecção de fraudes, monitoramento de rede, consistência transacional ou monitoramento da cadeia de suprimentos – podem aproveitar o streaming de eventos. À medida que os eventos são processados no pipeline do fluxo de eventos, eles podem ser mesclados/atualizados/adicionados aos dados históricos armazenados para análise em tempo real. |
+| Virtualização | Método eficaz para combinar fontes de dados diferentes em uma única camada de acesso sem precisar mover dados fisicamente. |
+| Replicação    | Método que pega os dados da origem e os copia diretamente para o destino especificado. |
+|
+
+## Armazenamentos de dados e modelos de dados
+Do ponto de vista da integração de dados, os armazenamentos de dados podem servir a várias finalidades. Eles podem ser uma área central que armazena todos os dados de origem em vários formatos, armazenamentos intermediários para dados processados, armazenamentos temporários para integrações e agregações temporárias ou o produto de dados final em que os dados estão prontos para serem consumidos pelos usuários finais.
+
+- [x] Os dados residirão em uma tabela existente ou em uma nova tabela?
+- [x] Como os dados serão usados?
+- [x] Existem preocupações com a segurança dos dados/informações de identificação pessoal (LGPF, GPDR, HIPAA)?
+- [x] A quais dimensões os dados serão associados se empregar um esquema em estrela?
+  
+## Fluxo de trabalho de agendamento e integração
+Os pipelines de integração precisarão de alguma forma de agendamento para serem executados em um agendamento ou janela designada. Alguns pipelines de integração também terão dependências de outros pipelines antes de serem executados. 
+
+O desenvolvimento da ingestão de dados é a base para a extração de dados de sistemas de dados de origem e orquestração de diferentes métodos de integração de gerenciamento de dados.
+
+## Monitorar/Suporte
+Métricas bem definidas podem ser aproveitadas para avaliar a qualidade dos dados. Métricas operacionais sobre tempo de atividade, tempo defuncionamento, tempo para resolver problemas e monitoramento proativo de possíveis problemas também podem ser coletadas.
+
+Os aspectos de administração podem exigir a integração de novas administrações e suporte ao conhecimento de novas ferramentas de integração e metodologias de desenvolvimento, como implantação rápida. Existem duas áreas distintas de administração de suporte: a administração de infraestrutura, operações e aplicativos e a administração dos pipelines de integração e aplicativos relacionados.
+
+```mermaid
+flowchart LR
+DS[(Data Source)] & newLines["`Data
+    Sources`"] --> |Pull/Push| id1(Ferramentas</br>Ingestão)
+    id1 --> id2(Processamento</br>de dados)
+    id2 --> id3(Armazenamento</br>de dados)
+    id3 --> id4(Consumo</br>de dados)
+```
+
+## Plataforma de Dados
+Implantar a plataforma de dados significa abrir as válvulas para permitir a entrada dos dados (lote/streaming).
+Essa deve ser a última etapa da implantação e deve ser feita no final do provisionamento da plataforma de processamento/ingestão.
+
+- [x] Verifique se o armazenamento de dados é provisionado com políticas de capacidade/acesso a dados.
+- [x] Verifique se um agente de streaming está provisionado e pronto.
+- [x] Verifique as qualidade dos dados são implantadas;
+- [x] Orquestração de dados seja provisionada;
+- [x] Ferramentas de gerenciamento e controle de versão do ciclo de vida dos dados estejam implantadas e prontas.
+- [x] Ferramentas de detecção de descompasso de dados estejam em vigor e ativas.
+- [x] Defina métricas a serem monitoradas em cada camada.
+- [x] Defina o intervalo normal de métricas.
+- [x] Armazene métricas em um repositório de configuração.
+- [x] Selecione ferramentas para monitoramento e observabilidade de dados — não há uma ferramenta única.
+- [x] Obtenha respostas para estas perguntas no sistema de monitoramento:
+    - [x] O processamento/ingestão de dados está ocorrendo na taxa/latência esperada?
+    - [x] Existem problemas de qualidade de dados na ingestão, postagem, pré-processamento e pós-processamento?
+    - [x] As variáveis de ambiente/sistema/aplicativo são otimizadas para o fluxo e o processamento de dados?
+- [x] Realize o monitoramento de esquema.
+- [x] Realize o monitoramento da qualidade dos dados.
+- [x] Taxas de transferência;
+- [x] Taxas de erro;
+- [x] Tempo de execução por estágio;
+- [x] Erros de estrutura;
+- [x] Detecção de informações de identificação pessoal (PII);
+- [x] Alertas de desvio de esquema;
+- [x] Alertas de desvio semântico;
+- [x] Métricas de execução de trabalho e metadados correspondentes;
+- [x] O tempo para iterar representa a capacidade de entender, monitorar e depurar pipelines existentes e criar novos;
+- [x] Hora de implantar;
+- [x] Hora de resolver problemas;
+- [x] Frequência de implantação;
+- [x] Tempo médio de restauração (MTTR);
+- [x] Prazo de entrega para alterações;
+- [x] Hora de restaurar os serviços;
+- [x] Taxa de falha de alteração;
+
+## Automação
+
+## Avaliando as opções de arquitetura para bancos de dados multicloud
+As arquiteturas centradas em dados multicloud são complexas.
+
+### O que é multicloud?
+No contexto de arquiteturas multicloud, é útil entender a distinção entre "híbrido" e "intercloud":
+- [x] Híbrido refere-se a componentes locais que são combinados com componentes baseados em nuvem.
+- [x] Intercloud refere-se a componentes de solução baseados em nuvem que estão sendo implantados em vários ambientes de nuvem.
+
+![](img/multicloud.png)
+
 ## Data Lake
 
 - [x] **Transient/Staging**: Camada onde os dados são recebidos e armazenados em seu formato original.
