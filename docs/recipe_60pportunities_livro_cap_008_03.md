@@ -238,7 +238,7 @@ $ git push origin master Pull data from remote server:
 $ git pull origin master
 10. Pushing Updates
 o Git push
-Transfer the commits from your local repository to a remote server. Push data to 
+Transfer the commits from your local repository to a remote server. Push data to
 the remote server:
 $ git push origin master Force push data:
 $ git push -f
@@ -251,7 +251,7 @@ $ git pull origin master
 Pull a remote branch:
 $ git pull
 o Git fetch
-Download branches and tags from one or more repositories. Fetch the remote 
+Download branches and tags from one or more repositories. Fetch the remote
 repository:
 $ git fetch< repository Url> Fetch a specific branch:
 $ git fetch

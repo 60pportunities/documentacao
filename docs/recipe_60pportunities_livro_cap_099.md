@@ -19,7 +19,7 @@ Se a comunicação entre as equipes da organização for complicada, a comunica�
 Ao adicionar força de trabalho para um projeto de desenvolvimento de software já atrasado, atrasa-o ainda mais.
 
 ## Leis de Lehman
-Formuladas na década de 70 pelos professores Meir Lehman e László Bélády, é uma série de princípios que ajudam a entender a evolução de sistemas de software.  Entre as oito leis de Lehman, duas são particularmente cruciais: a lei da “Mudança Contínua” e a lei da “Complexidade Crescente”. 
+Formuladas na década de 70 pelos professores Meir Lehman e László Bélády, é uma série de princípios que ajudam a entender a evolução de sistemas de software.  Entre as oito leis de Lehman, duas são particularmente cruciais: a lei da “Mudança Contínua” e a lei da “Complexidade Crescente”.
 
 Um software deve ser continuamente adaptado, senão torna-se aos poucos, cada vez menos satisfatório. (Mudança contínua)
 
@@ -27,12 +27,12 @@ Um software deve ser continuamente adaptado, senão torna-se aos poucos, cada ve
 - [x] Crescimento Contínuo, Auto regulação, Qualidade diminuindo e etc.
 
 ### Lei da Mudança Contínua
-Um sistema de software precisa ser constantemente adaptado para se manter relevante e satisfatório.  
+Um sistema de software precisa ser constantemente adaptado para se manter relevante e satisfatório.
 
-### Lei da Complexidade Crescente 
-À medida que o software é adaptado e expande suas funcionalidades, ele se torna internamente mais complexo.  
+### Lei da Complexidade Crescente
+À medida que o software é adaptado e expande suas funcionalidades, ele se torna internamente mais complexo.
 
-## Lei de Muphry 
+## Lei de Muphry
 Se você escrever algo criticando edição ou revisão, haverá algum tipo de falha no que você escreveu.
 
 ## Lei Trans-Social

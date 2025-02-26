@@ -1,3 +1,4 @@
+# filepath: /Users/horaciovasconcellos/mkdocs/documentacao/.pre-commit-config.yaml
 # .pre-commit-config.yaml
 repos:
     - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -15,3 +16,10 @@ repos:
           - id: detect-secrets
             args: ['--baseline', '.secrets.baseline']
             exclude: package.lock.json
+
+    - repo: https://github.com/google/osv-scanner
+      rev: v1.9.2  # Ou a versão mais recente
+      hooks:
+          - id: osv-scanner
+            args: ['--recursive', '.']  # Opcional, dependendo de como você deseja o formato de saída
+            stages: [pre-commit]  # Ajuste o estágio para 'commit'
