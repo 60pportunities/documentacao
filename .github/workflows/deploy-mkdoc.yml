@@ -48,6 +48,7 @@ jobs:
     - name: Install git-lfs
       run: |
          sudo apt-get install git-lfs
+         git lfs install
          
     - name: Install dependencies Requirements
       run: |
