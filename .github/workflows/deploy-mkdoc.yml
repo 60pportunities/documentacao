@@ -46,7 +46,7 @@ jobs:
         pip install flake8  mkdocs mike
 
     - name: Install git-lfs
-       run: |
+      run: |
          sudo apt-get install git-lfs
          
     - name: Install dependencies Requirements
