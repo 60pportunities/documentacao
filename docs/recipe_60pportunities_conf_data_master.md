@@ -532,3 +532,89 @@ HMAC ou um MAC baseado em Hash é um método específico para construir um algor
 - [x] Behrouz A. Forouzan - Introdução à Criptografia e Segurança de Redes
 - [x] Novas direções na criptografia, Whitfield Diffie e Martin E. Hellman diffie.hellman.pdf (jhu.edu)
 - [x] Codificação de funções hash para autenticação de mensagens, Mihir Bellare, Ran Canetti, Hugo Krawczyk
+
+
+
+
+
+
+Resumo da captura de dados de alteração (CDC)
+
+CDC é uma técnica usada em bancos de dados para capturar e replicar alterações (como operações INSERT, UPDATE e DELETE) em tempo real ou quase em tempo real. Em vez de consultar tabelas inteiras em busca de atualizações, o CDC permite que os sistemas detectem e processem automaticamente apenas os dados alterados, melhorando a eficiência e o desempenho.
+
+📍 Principais benefícios:
+
+- Análise em tempo real: fornece insights imediatos capturando alterações de dados ao vivo.
+
+- Eficiência de recursos: reduz a carga no banco de dados de origem rastreando apenas as alterações
+.
+- Sincronização de dados: garante que todos os sistemas estejam atualizados com os dados mais recentes.
+
+- Recuperação do sistema: facilita a reconstrução dos estados do sistema usando uma sequência de alterações.
+
+📍 Tipos de CDC:
+
+1. Baseado em gatilho: usa gatilhos de banco de dados para capturar alterações.
+
+2. Baseado em log: lê as alterações diretamente dos logs de transações.
+
+3. Baseado em carimbo de data/hora: Usa colunas de carimbo de data/hora para identificar registros modificados.
+
+📍 Desafios:
+
+- Integridade dos dados: Garantir que todas as alterações sejam capturadas com precisão.
+
+- Escalabilidade: Adaptando-se ao crescente volume de dados.
+
+- Latência: Minimizando o atraso na propagação de dados.
+
+📍 Ferramentas:
+
+- Kafka: Ideal para gerenciar o fluxo de eventos de mudança.
+
+- Debezium: uma ferramenta CDC de código aberto que se integra ao Kafka para transmitir alterações de vários bancos de dados.
+
+O CDC é cada vez mais vital para estratégias de dados modernas, garantindo dados em tempo real, consistência e auxiliando nos processos de recuperação.
+
+
+
+Você pode explicar a diferença entre Event Sourcing e Change Data Capture (CDC)?
+
+Event Sourcing e CDC são conceitos relacionados que os sistemas distribuídos usam para propagar alterações de dados para consumidores interessados e serviços downstream.
+
+Ambos lidam com eventos, mas servem a propósitos diferentes.
+
+Fornecimento de eventos
+
+Com o Event Sourcing, o log de eventos é a fonte da verdade. Em vez de armazenar apenas o estado mais recente, você persiste cada alteração de estado como um evento.
+
+Isso permite:
+
+•Auditoria
+•Depuração
+• Reconstrução do Estado
+
+Captura de dados de alteração (CDC)
+
+O CDC escuta as alterações no nível do banco de dados e as propaga para outros serviços. Ele garante a consistência dos dados entre os sistemas sem exigir que eles consultem o banco de dados de origem diretamente.
+
+Isso funciona no nível do banco de dados e rastreia:
+•Insere
+•Atualizações
+•Exclui
+
+Embora distintos, esses conceitos podem ser complementares:
+
+• Você pode usar o Event Sourcing para gerenciar eventos de domínio interno e preservar o histórico.
+• E use o CDC para capturar alterações relevantes e distribuí-las para sistemas externos.
+
+Exemplo:
+
+1. Um aplicativo fintech registra eventos TransactionInitiated e TransactionCompleted usando Event Sourcing.
+2. Um pipeline CDC escuta atualizações no banco de dados de transações e sincroniza dados com relatórios, detecção de fraudes e notificações.
+
+Não consigo pensar em uma analogia melhor do que essa. Você poderia?
+
+O Event Sourcing é como um livro-razão - cada transação é registrada para referência futura.
+
+O CDC é como um mensageiro - ele detecta alterações e notifica outros sistemas, mas não armazena o histórico.

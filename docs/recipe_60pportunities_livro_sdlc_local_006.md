@@ -45,7 +45,7 @@ Planejamento diário – O HOJE
 
 ## Processo
 O processo de unir ambição com realidade, experimentar ideias e encontrar soluções criativas é o que torna essa profissão sempre gratificante.
-A cada novo desafio que surge, mais limites são ultrapassados ​​e, ao descobrir o ainda não visto, algo notável pode ser criado.
+A cada novo desafio que surge, mais limites são ultrapassados e, ao descobrir o ainda não visto, algo notável pode ser criado.
 Faça a coisa mais simples que possa funcionar (DTSTTCPW — Do The Simplest Thing That Could Possibly Work.)
 
 O valor do poder computacional e do software explodiu desde que o mundo mudou de indústrias tradicionais para um sistema centrado em informações digitais. Já se passaram quase cinco décadas desde que Gordon Moore postulou sua famosa teoria sobre a tendência do poder computacional; e embora especialistas digam que a Lei de Moore provavelmente terminará nesta década, não há sinal de que o mundo deixará de funcionar com softwares de computador cada vez mais poderosos, flexíveis e utilizáveis.

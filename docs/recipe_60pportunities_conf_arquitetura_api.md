@@ -1,4 +1,22 @@
-# APIs
+Dominando a arquitetura de software: o roteiro 🚀 definitivo
+
+🔹 Princípios de design – Aprenda OOPS, TDD, Clean Code e padrões de arquitetura como MVC e GOF. 🏗️
+
+🔹 Conhecimento da plataforma – Explore ferramentas para nuvem, contêineres, sem servidor e CI/CD para dimensionar seus sistemas. ☁️
+
+🔹 Rede e segurança – Proteja seus sistemas com DNS, TLS, JWT e protocolos modernos. 🔒
+
+🔹 Ferramentas – Use ferramentas essenciais como GitHub, Jenkins, Jira e ELK para simplificar os fluxos de trabalho. 🛠️
+
+🔹 Padrões de arquitetura – Projete sistemas escaláveis com padrões como microsserviços, arquiteturas hexagonais e em camadas. 🧩
+
+🔹 Dados e análises – Gerencie e analise dados usando SQL, NoSQL, Kafka e estruturas como o Hadoop. 📊
+
+🔹 Habilidades de apoio – Aprimore suas habilidades sociais com liderança, tomada de decisão e comunicação. 🌟
+
+📐 A arquitetura de software é a espinha dorsal dos sistemas escaláveis e sustentáveis. Este roteiro orienta você por meio de habilidades, ferramentas e padrões de design essenciais para se tornar um arquiteto de software de alto nível. 🚀
+
+## APIs
 Uma API é um conjunto de protocolos, rotinas e ferramentas para criar aplicativos de software. Ele especifica como os componentes de software devem interagir.
 
 ## Tipos de API:

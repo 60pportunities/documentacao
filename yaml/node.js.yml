@@ -1,0 +1,28 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Deploy to Heroku
+      uses: akhileshns/heroku-deploy@v3.7.8
+      with:
+        args: deploy --dir=build --prod
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_app_name: 'nextjs-github-actions-heroku'
+        heroku_email: '<enter_your_email>@gmail.com'
