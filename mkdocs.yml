@@ -277,6 +277,7 @@ nav:
    - 'Certificação Perguntas'                                        :
       - 'Certiprof DevOps Essentials'                                : 'recipe_60pportunities_certificacao_depc.md'
       - 'GitHub Foundations'                                         : 'recipe_60pportunities_certificacao_ghf.md'
+      - 'GitHub Actions'                                             : 'recipe_60pportunities_certificacao_gha.md'
    - 'Projetos'                                      :
       - 'PMI e Standish Group'                       : 'recipe_60pportunities_projetos_standishgroup.md'
    - 'Arquitetura'                                   :
