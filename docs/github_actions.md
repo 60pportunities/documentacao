@@ -328,6 +328,7 @@ Práticas recomendadas para lançamentos contínuos:
 🔹 Habilitar reversões – Tenha uma estratégia de reversão em vigor para lidar com problemas inesperados com o mínimo de interrupção.
 
 💡 Um forte processo de gerenciamento de lançamentos ágil garante que as organizações possam inovar rapidamente, mantendo a estabilidade e a qualidade.
+<<<<<<< Updated upstream
 
 
 https://docs.dynatrace.com/docs/manage/data-privacy-and-security/data-security/secure-development-controls
@@ -366,3 +367,44 @@ Date:   Sun Mar 9 05:47:43 2025 -0300:docs/github-certification-actions.md
 
 
 find . -type f -name "*.md" -mtime 1
+||||||| Stash base
+=======
+
+
+https://docs.dynatrace.com/docs/manage/data-privacy-and-security/data-security/secure-development-controls
+
+https://github.com/lgmorand/book-github-actions-content. Exercises
+
+MORAND, Louis-Guillaume (2021). GitHub Actions: A practical guide (Function). Kindle Edition.
+
+
+59ecab9f <doc> Criação versão documentaca
+* 6727e4cb
+
+* 6727e4cb
+
+472df45d
+git diff 59ecab9f 6727e4cb github-certification-actions.md
+
+* c38d1501 (HEAD -> main, origin/main) <doc> Criação versão documentaca
+* 59ecab9f <doc> Criação versão documentaca
+* 6727e4cb Deployed 472df45d to v01.00.00 with MkDocs 1.6.1 and mike 2.1.3
+* 472df45d <doc> Criação versão documentaca
+* bad2a3cb <doc> Criação versão documentaca
+* b04354f7 <doc> Criação versão documentaca
+* 46b04df3 <doc> Criação versão documentaca
+* 1e4d7bb9 Update deploy-mkdoc.yml
+
+
+git show c38d1501f28e76c808ecf83ab62a50c956ae51cf:docs/github-certification-actions.md
+git show 59ecab9ff21fec65d947d75f60fe3160f751cf3f:docs/github-certification-actions.md
+git show 6727e4cb902f5979acfe0d2b99355c41e0ee0fcf:docs/github-certification-actions.md
+git show 472df45df97fde184ec7a9e7a89f14ea642153ed:docs/github-certification-actions.md
+git show bad2a3cb1e5689e4111ee2bb467bd65bb94568c4:docs/github-certification-actions.md
+git show b04354f7f6234148131e61066820a8cca4513d0d:docs/github-certification-actions.md
+git show  Horacio Vasconcellos <horacio.vasconcellos@gmail.com>
+Date:   Sun Mar 9 05:47:43 2025 -0300:docs/github-certification-actions.md
+
+
+find . -type f -name "*.md" -mtime 1
+>>>>>>> Stashed changes

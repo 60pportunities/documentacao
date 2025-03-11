@@ -11,12 +11,22 @@ GitHub Actions vai além de apenas DevOps e permite que você execute fluxos de 
 
 GitHub fornece máquinas virtuais do Linux, Windows e macOS para executar seus fluxos de trabalho, ou você pode hospedar seus próprios executores auto-hospedados na sua própria infraestrutura de dados ou na nuvem.
 
+<<<<<<< Updated upstream
 O GitHub Actions é uma plataforma de integração contínua e entrega/implantação contínua (CI/CD) que automatiza seus fluxos de trabalho de desenvolvimento de software. Ele permite que você crie, teste e implante o código-fonte do software diretamente do seu repositório GitHub criando fluxos de trabalho ou pipelines personalizados.
 
 Com várias opções de configuração para gatilhos com base em confirmações e mesclagens, o GitHub Actions é uma boa escolha para fluxos de trabalho baseados em GitOps.
 
 ![](img/github-actions-diagram.png)
 
+||||||| Stash base
+=======
+O GitHub Actions é uma plataforma de integração contínua e entrega/implantação contínua (CI/CD) que automatiza seus fluxos de trabalho de desenvolvimento de software. Ele permite que você crie, teste e implante o código-fonte do software diretamente do seu repositório GitHub criando fluxos de trabalho ou pipelines personalizados.
+
+Com várias opções de configuração para gatilhos com base em confirmações e mesclagens, o GitHub Actions é uma boa escolha para fluxos de trabalho baseados em GitOps.
+
+![](img/github-actions-diagram.png)
+
+>>>>>>> Stashed changes
 ### GitHub Actions Custo
 O GitHub Actions é gratuito se uma ou ambas as duas condições a seguir forem atendidas:
 
@@ -1164,12 +1174,22 @@ jobs:
 
 Steps são a unidade básica de execução com a qual você lida ao trabalhar com GitHub Actions, consistem em invocações de uma ação predefinida ou um comando shell a ser executado no runner.  Indica o início de uma série de etapas a serem executadas sequencialmente.
 
+<<<<<<< Updated upstream
 As etapas do GitHub Actions são as tarefas ou comandos individuais que compõem um trabalho. Cada trabalho consiste em uma ou mais etapas que são executadas sequencialmente.
 
 As etapas podem executar scripts ou ações — os pacotes de código reutilizáveis.
 
 O script permite que você execute uma série de comandos shell ou bash no ambiente do executor. Tarefas como instalar dependências, executar comandos de build e testar são realizadas usando scripts.
 
+||||||| Stash base
+=======
+As etapas do GitHub Actions são as tarefas ou comandos individuais que compõem um trabalho. Cada trabalho consiste em uma ou mais etapas que são executadas sequencialmente.
+
+As etapas podem executar scripts ou ações — os pacotes de código reutilizáveis.
+
+O script permite que você execute uma série de comandos shell ou bash no ambiente do executor. Tarefas como instalar dependências, executar comandos de build e testar são realizadas usando scripts.
+
+>>>>>>> Stashed changes
 #### Run
 Comandos shell são executados por meio de uma cláusula run.
 #### Uses
@@ -1448,6 +1468,7 @@ steps:
     # string
     # Optional
     username: ""
+<<<<<<< Updated upstream
 ```
 
 ## Qual é a diferença entre uma ação do GitHub e um fluxo de trabalho?
@@ -1853,3 +1874,411 @@ Faça commit e push das alterações:  bash git add index.html  git commit -m "f
 
 
 https://github.com/sottlmarek/DevSecOps?tab=readme-ov-file
+||||||| Stash base
+=======
+```
+
+## Qual é a diferença entre uma ação do GitHub e um fluxo de trabalho?
+Uma "Ação" e um "Fluxo de trabalho" do GitHub são componentes-chave da plataforma GitHub Actions. Um fluxo de trabalho é um processo automatizado acionado por eventos específicos como push, pull ou agendamento, definidos em arquivos YAML no diretório .github/workflows. Ele consiste em um ou mais trabalhos, cada um contendo etapas. Ações são unidades reutilizáveis ​​de código dentro desses fluxos de trabalho, executando tarefas individuais.
+
+Enquanto os fluxos de trabalho orquestram a automação, as ações fornecem os blocos de construção, permitindo a reutilização de tarefas em diferentes fluxos de trabalho. Ações personalizadas podem ser criadas ou usadas no GitHub Marketplace, facilitando a execução eficiente e consistente de tarefas em processos de desenvolvimento de software.
+
+
+
+
+
+gh workflow run greet.yml \
+-f name=mona \
+-f greeting=hello \
+-f data=@myfile.txt
+
+
+
+
+https://app.exampro.co/student/material/gha/6770?autoplay=true
+
+
+https://docs.github.com/pt/actions/learn-github-actions/using-starter-workflows
+https://docs.github.com/pt/actions/automating-builds-and-tests
+https://docs.github.com/pt/actions/publishing-packages
+https://docs.github.com/pt/actions/deployment
+https://docs.github.com/pt/actions/managing-issues-and-pull-requests
+https://docs.github.com/pt/actions/examples
+
+workflow_dispatcher: você pode definir até 10 parametros
+git clone repositório
+gh workflowgh workflow run novaci.yml --ref main
+
+osv-scanner --recursive .
+
+
+## Como criar um fluxo de trabalho do GitHub Actions
+
+Siga estas etapas para criar o fluxo de trabalho do GitHub Actions:
+
+- [x] Escreva o código do aplicativo.
+- [x] Crie um arquivo YAML para definir as ações.
+- [x] Configurar uma tarefa de compilação.
+- [x] Teste seu fluxo de trabalho do GitHub Action.
+- [x] Configurar segredos para ações do GitHub.
+- [x] Configurar a etapa de upload para S3.
+- [x] Defina o trabalho de implantação e acesse o artefato.
+- [x] Implantar no EC2.
+
+### Integração contínua com GitHub Actions
+Integração Contínua (CI) é a prática de automatizar os trabalhos de construção e teste e fornecer feedback antecipado antes de integrar as novas alterações de código no repositório central. Isso garante a estabilidade do software que está sendo implantado/entregue. Com o GitHub Actions, você configura a sequência de trabalhos em um fluxo de trabalho para criar um processo de construção de ponta a ponta.
+
+Observe que as atividades envolvidas na fase de construção precedem a implantação.
+
+#### Etapa 1: Escreva o código do aplicativo
+O exemplo abaixo implementa um pipeline de CI para um aplicativo básico escrito em Go. Este é um servidor matemático simples que expõe uma operação de adição matemática. A API recebe alguns inteiros como parâmetros de consulta e responde com a soma. O código abaixo também entrega alguns cenários de conversão de String para Int.
+
+```
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"strconv"
+)
+
+func Add(a, b int) int {
+	return a + b
+}
+
+func additionHandler(w http.ResponseWriter, r *http.Request) {
+	values := r.URL.Query()
+
+	aStr := values.Get("a")
+	bStr := values.Get("b")
+
+	a, err := strconv.Atoi(aStr)
+	if err != nil {
+		http.Error(w, "Parameter 'a' must be an integer", http.StatusBadRequest)
+		return
+	}
+
+	b, err := strconv.Atoi(bStr)
+	if err != nil {
+		http.Error(w, "Parameter 'b' must be an integer", http.StatusBadRequest)
+		return
+	}
+
+	result := Add(a, b)
+
+	fmt.Fprintf(w, "%d", result)
+}
+
+func main() {
+	http.HandleFunc("/addition", additionHandler)
+
+	fmt.Println("Server listening on port 8080....")
+	http.ListenAndServe(":8080", nil)
+}
+```
+Do terminal, navegue até a raiz deste projeto e execute 'go run .' para executar o aplicativo. Se ele exibir a mensagem Server listening on port 8080…., significa que ele foi executado com sucesso. Teste a API matemática simples exposta por este aplicativo acessando o localhost, conforme mostrado abaixo.
+
+Este é um código de aplicativo simples gerenciado em um repositório do GitHub. Nas próximas etapas, começaremos a escrever o fluxo de trabalho do GitHub Actions para construir, testar, entregar e implantar o código automaticamente.
+
+#### Etapa 2: Crie um arquivo YAML para definir as ações
+No diretório raiz do projeto, crie um subdiretório, .github/workflows. Dentro desse diretório, crie um arquivo com a extensão .yml. Neste exemplo, nós o nomeamos go.yml. Esse arquivo .yml é automaticamente interpretado pelo GitHub Actions como um arquivo de fluxo de trabalho. Aqui, começamos configurando os gatilhos.
+
+O código YAML abaixo é colocado no início do arquivo go.yml.
+
+```
+name: Go
+
+on:
+  push:
+    branches: [ "main" ]
+```
+O parâmetro name apenas nomeia esse fluxo de trabalho como Go. on: push: branches:parte do arquivo de fluxo de trabalho menciona a lista de ramificações para as quais o fluxo de trabalho deve ser acionado automaticamente. Nesse caso, queremos que o fluxo de trabalho seja acionado automaticamente para a ramificação 'main'.
+
+#### Etapa 3: Configurar um trabalho de compilação
+Grandes aplicativos escritos na linguagem de programação Go exigem uma etapa de build porque é uma linguagem compilada e estaticamente tipada. Isso gera um binário, que é então implantado nos servidores. O primeiro trabalho, que definimos no fluxo de trabalho, é construir esse binário.
+
+Conforme mencionado anteriormente, cada job é executado em uma instância nova de um runner. Pense nisso como uma máquina virtual nova onde as dependências necessárias não estão disponíveis.
+
+O código abaixo define todas as etapas necessárias para criar um aplicativo Go:
+
+```
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21.5'
+
+    - name: Build
+      run: go build -v ./...
+```
+
+Primeiro, definimos um trabalho chamado build. O nome do trabalho não faz parte da sintaxe e pode ser qualquer coisa que faça sentido para você. Em seguida, precisamos especificar o typeexecutor que queremos usar para executar este trabalho. O GitHub Actions oferece suporte a vários sistemas operacionais, como Ubuntu, Microsoft Windows ou MacOS. Para nosso propósito, usaremos o ambiente Ubuntu.
+
+O primeiro passo neste trabalho é verificar o código-fonte do aplicativo no runner. Isso clona os arquivos no repositório GitHub na VM do runner. No próximo passo, configuramos o compilador Go com a versão desejada. Finalmente, no terceiro passo, executamos o comando go build. O binário assim gerado é disponibilizado no runner localmente.
+
+Assim, nesta etapa, nós apenas construímos o binário para o aplicativo Go. Se você agora enviar quaisquer alterações para o repositório de código-fonte no branch principal, este fluxo de trabalho será automaticamente acionado e seguirá estas etapas a cada vez.
+
+No entanto, observe que, como esses runners são disponibilizados apenas para executar os jobs, eles são revogados quando todos os jobs são concluídos. Isso também significa que o binário assim gerado também é perdido após uma execução de workflow.
+
+#### Etapa 4: teste seu fluxo de trabalho do GitHub Action
+Para a próxima etapa, queremos testar o aplicativo antes de entregar o binário. O propósito deste teste é identificar rapidamente quaisquer problemas e fornecer feedback aos desenvolvedores antes que o fluxo de trabalho prossiga para a próxima fase.
+
+Como prática recomendada, a fonte deve sempre ter casos de teste de unidade definidos, garantindo cobertura máxima. Isso é verdade para aplicativos escritos em qualquer linguagem de programação. Para este exemplo, vamos primeiro escrever o teste de unidade que garante que a lógica escrita para executar operações matemáticas simples esteja correta. Go fornece um pacote de 'teste' que ajuda a escrever casos de teste para o código-fonte do aplicativo. O código abaixo faz parte do arquivo main_test.go — o nome do arquivo é orientado pela estrutura de teste.
+
+```
+package main
+
+import (
+	"io/ioutil"
+	"net/http/httptest"
+	"strconv"
+	"testing"
+)
+
+func TestAdditionHandler(t *testing.T) {
+	// Test case 1
+	req1 := httptest.NewRequest("GET", "/addition?a=3&b=5", nil)
+	w1 := httptest.NewRecorder()
+	additionHandler(w1, req1)
+	resp1 := w1.Result()
+	defer resp1.Body.Close()
+	body1, _ := ioutil.ReadAll(resp1.Body)
+	result1, _ := strconv.Atoi(string(body1))
+	expected1 := 8
+	if result1 != expected1 {
+		t.Errorf("Test case 1 failed, expected %d but got %d", expected1, result1)
+	}
+}
+```
+
+O caso de teste acima faz uma chamada de API para a API /addition com entradas específicas e espera a saída correspondente. Se a lógica da operação matemática simples for falha, o caso de teste falha, e o fluxo de trabalho do GitHub Action também falha e não prossegue.
+
+Para executar este teste no fluxo de trabalho do GitHub Actions, volte ao arquivo go.yml e adicione a seguinte etapa no trabalho de compilação definido acima.
+
+```
+- name: Test
+      run: go test -v ./...
+```
+
+Envie o código para o branch principal e observe a execução do pipeline. Como visto na captura de tela abaixo, os casos de teste são executados durante a etapa 'Test' e seus resultados também são impressos nos logs.
+
+
+Quaisquer alterações no código-fonte que se seguem devem agora ser testadas usando esta mesma etapa. É dever do desenvolvedor fazer alterações no código-fonte ou adicionar mais código para fazer alterações correspondentes nos testes unitários também.
+
+Se os testes forem aprovados, teremos implementado com sucesso a Integração Contínua (CI) para nosso servidor matemático simples.
+
+Entrega contínua com GitHub Actions
+Resultados positivos de teste significam que agora podemos prosseguir com segurança para entregar/implantar o aplicativo em seu destino alvo. Entrega é diferente de implantação. Na entrega contínua, construímos e entregamos os artefatos, e um processo separado é então responsável pela implantação real dos artefatos nos servidores alvo. Na implantação contínua, os artefatos são realmente implantados nos servidores.
+
+No exemplo discutido até agora, o binário gerado é o artefato a ser entregue. Como o binário é perdido quando os executores são eliminados após a conclusão do fluxo de trabalho, faz sentido fazer upload de um binário para o armazenamento persistente antes que o executor seja liberado.
+
+#### Etapa 5: Configurar segredos para ações do GitHub
+Neste exemplo, estamos usando buckets S3 para armazenar os artefatos, então precisamos configurar as permissões para a VM runner que permitem que ela execute operações 'PUT' no bucket de destino. Acessar a AWS usando a CLI requer credenciais como Access Key e Secret Access Key.
+
+Opcionalmente, também precisaríamos que o nome do bucket após configurar o bucket S3 fosse armazenado como uma variável secreta e para fins de reutilização.
+
+Navegue até seu repositório GitHub > Configurações > Segredos e variáveis -> Ações e configure esses segredos conforme mostrado abaixo.
+
+Observação: por enquanto, ignore o SECRET_KEY; retornaremos a ele nas próximas seções.
+
+Anote também os nomes de todos os segredos, pois precisaremos deles para configurar etapas futuras em nosso fluxo de trabalho de ações do Github.
+
+#### Etapa 6: Configurar upload para a etapa S3
+De volta ao arquivo go.yml, configure uma nova etapa para carregar o artefato (binário) para o bucket S3 de destino. A configuração é como abaixo.
+
+```
+- name: Upload Binary to S3
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
+        AWS_DEFAULT_REGION: "eu-central-1"
+      run: |
+        aws s3 cp ./simplemath s3://${{ secrets.TARGET_BUCKET }}/
+```
+
+Eu nomeei esta etapa Upload Binary to S3. Escolha um nome que faça sentido para você. Primeiro, definimos as variáveis de ambiente para o runner onde estamos definindo as credenciais da AWS. Os valores para elas estão sendo recuperados dos segredos que configuramos na etapa anterior. Observe como os segredos são acessados usando secrets.a palavra-chave, envolvida em colchetes duplos, precedida por um sinal $.
+
+Na parte de execução desta etapa, usamos o AWS CLI para executar o s3 cpcomando . Neste exemplo, o binário gerado é nomeado simplemathporque esse é o nome que escolhi para este módulo Go durante o desenvolvimento. Pode ser diferente no seu caso. Para ter certeza, verifique a primeira linha do go.modarquivo.
+
+Observe que, assim como o compilador Go, não fomos obrigados a instalar o AWS CLI explicitamente. Os executores do GitHub Actions vêm equipados com ele e outros utilitários. Em caso de dúvida, verifique a documentação de cada executor.
+
+Quando o pipeline é executado, ele constrói o binário, que a etapa de upload (esta etapa) carrega para o bucket S3 de destino definido na variável secreta. A captura de tela abaixo mostra o binário carregado, bem como o nome do bucket usado para este exemplo.
+
+
+Nesta etapa, entregamos com sucesso o software ao seu destino.
+
+Implantação contínua com GitHub Actions
+O GitHub Actions ajuda a implantar o aplicativo em servidores ou clusters do Kubernetes. Normalmente, essa é a fase final do ciclo de vida do desenvolvimento de software e também significa o fim de uma iteração. Exploraremos o aspecto de implantação contínua do GitHub Actions implantando o servidor matemático simples em uma instância EC2.
+
+Leia mais: Como implantar o Kubernetes com o GitHub Actions?
+
+Como pré-requisito, configure uma instância EC2 com acesso apropriado habilitado para a implantação. A instância EC2 assim criada deve usar um par de chaves para efetuar login. A chave privada desse par de chaves é armazenada como a PRIVATE_KEYvariável secreta, conforme visto na captura de tela na Etapa 4. Isso é necessário para que as próximas etapas funcionem.
+
+Também criaremos um novo trabalho no mesmo fluxo de trabalho para manter as etapas de CI e CD separadas.
+
+Etapa 7: Defina o trabalho de implantação e acesse o artefato
+Anexe o arquivo go.yml com o código abaixo. Aqui, criamos um novo trabalho chamado deploy. O primeiro argumento, needs, especifica a dependência do primeiro trabalho, build. Se não especificarmos isso, os trabalhos de construção e implantação serão executados em paralelo. Isso acabará implantando o arquivo errado com código mais antigo na instância EC2 ou falhará se não houver nenhum arquivo presente no bucket S3.
+
+
+```
+deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download S3
+      uses: joutvhu/download-s3@v1.0.0
+      with:
+        aws_access_key_id: ${{ secrets.ACCESS_KEY }}
+        aws_secret_access_key: ${{ secrets.SECRET_KEY }}
+        aws_region: "eu-central-1"
+        aws_bucket: ${{ secrets.TARGET_BUCKET }}
+        target: .
+```
+
+Conforme mencionado anteriormente, cada tarefa é executada em uma VM runner nova. Portanto, precisamos selecionar o SO apropriado novamente especificando o runs-onargumento. Por motivos semelhantes, essa VM runner nova também não tem acesso ao binário Go. Portanto, temos que acessá-la do mesmo bucket S3 onde a armazenamos na buildfase.
+
+A primeira etapa do deploytrabalho usa os segredos configurados na Etapa 4 para acessar e baixar o binário na VM do runner, colocando o binário no diretório home. Saber o local do download é importante porque o usaremos para carregar e implantar o binário na instância EC2 de destino na próxima etapa.
+
+Note que, nesta etapa, fizemos uso da GitHub Action existente publicada pela joutvhucomunidade. Isso economiza o esforço de escrever a lógica de download do zero.
+
+#### Etapa 8: Implantar no EC2
+Nesta etapa, também aproveitaremos o pacote publicado por cross-the-worldpara executar a implantação. Sob o capô, nesta etapa o runner:
+
+Usa a chave privada para efetuar login na VM EC2
+Copia o binário matemático simples baixado do bucket S3 para o diretório inicial do usuário EC2
+Adiciona permissão de execução a este binário
+Executa o binário
+
+Se tudo tiver ocorrido bem até agora e as regras de entrada e saída estiverem configuradas corretamente, a API /addition deverá estar acessível no navegador, conforme mostrado abaixo:
+
+3 ações do github api
+Implantamos com sucesso o aplicativo simplemath no servidor de instância EC2.
+
+Lembre-se de que o fluxo de trabalho completo será acionado toda vez que você fizer push ou merge de alterações no branch principal deste repositório. Uma vez que essas ações são definidas, a equipe de desenvolvimento de software pode executar várias iterações e lançar vários recursos de forma rápida e segura.
+
+Exemplos de ações do GitHub
+
+imos como o GitHub Actions fornece uma maneira de criar fluxos de trabalho de automação rapidamente. Como regra geral, sempre verifique as ações disponíveis no GitHub Marketplace para evitar repetições e economizar tempo. Vamos dar uma olhada em alguns exemplos do GitHub Actions Marketplace que abrangem vários casos de uso.
+
+Exemplo 1: Configuração do ambiente
+Aplicações escritas em várias linguagens exigem que os compiladores, runtimes, variáveis de ambiente, etc. correspondentes sejam configurados antes que possam ser operados com sucesso. Você pode encontrar muitas Ações do Github que ajudam a configurar tais ambientes no runner antes que as etapas reais sejam executadas.
+
+O exemplo abaixo usa a ação do GitHub "Setup Node.js environment" para instalar o ambiente Node.js ajustando qualquer um dos atributos relevantes abaixo. Idealmente, esta etapa deve ser seguida pelas etapas de instalação e teste do pacote npm.
+
+https://github.com/marketplace/actions/setup-node-js-environment
+
+```
+- uses: actions/setup-node@v4
+  with:
+     node-version: ''
+     node-version-file: ''
+     check-latest: false
+     architecture: ''
+     token: ''
+     cache: ''
+     cache-dependency-path: ''
+     registry-url: ''
+     scope: ''
+     always-auth: ''
+```
+
+#### Exemplo 2: Imagens do Docker
+Os aplicativos a serem implantados em ambientes conteinerizados exigem etapas explícitas de build e publicação para gerenciar imagens de contêiner do Docker. Isso é necessário para cada solicitação push/pull, pois as alterações devem ser refletidas na nova imagem. O Cloud Posse oferece a ação build e push do Docker para fazer isso.
+
+No exemplo abaixo, especificamos as credenciais para o repositório do Docker e outros detalhes, como a plataforma de build. Essas informações são suficientes para que essa ação crie e envie automaticamente a imagem do Docker.
+
+```
+name: Push into main branch
+  on:
+    push:
+      branches: [ master ]
+
+  jobs:
+    context:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build
+        id: build
+        uses: cloudposse/github-action-docker-build-push@main
+        with:
+          registry: registry.hub.docker.com
+          organization: "${{ github.event.repository.owner.login }}"
+          repository: "${{ github.event.repository.name }}"
+          login: "${{ secrets.DOCKERHUB_USERNAME }}"
+          password: "${{ secrets.DOCKERHUB_PASSWORD }}"
+          platforms: linux/amd64,linux/arm64
+
+    outputs:
+      image: ${{ steps.build.outputs.image }}
+      tag: ${{ steps.build.outputs.tag }}
+```
+
+#### Exemplo 3: Verificação de segurança
+O GitHub Actions também habilita o ScOps com seu fluxo de trabalho flexível. Vários Github Actions estão disponíveis para executar a varredura de segurança de arquivos, código-fonte e imagens de contêiner. No exemplo abaixo, configuramos a varredura de código-fonte para aplicativos Go como uma etapa no fluxo de trabalho do GitHub Actions. Uma vez configurado, após a etapa de checkout , esta ação inspeciona o código-fonte e fornece resultados a serem aproveitados no processo de desenvolvimento.
+
+```
+name: Run Gosec
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    env:
+      GO111MODULE: on
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v3
+      - name: Run Gosec Security Scanner
+        uses: securego/gosec@master
+        with:
+          args: ./...
+```
+
+Pontos-chave
+GitHub Actions é uma ferramenta flexível para automatizar fluxos de trabalho de desenvolvimento de software. Seu vasto ecossistema de ações e a capacidade de criar ações personalizadas simplificam várias tarefas, desde a construção e teste do seu código até a implantação de seus aplicativos e o gerenciamento de sua infraestrutura. Dependendo dos trabalhos configurados no seu fluxo de trabalho GitHub Actions, eles garantem a qualidade do código e entregam o software de forma mais eficiente.
+
+Neste tutorial do GitHub Actions para iniciantes, nós apenas arranhamos a superfície ao cobrir o básico, incluindo como criar fluxos de trabalho com o GitHub Actions, usar ações internas e de terceiros e aproveitar recursos avançados como segredos de ambiente e artefatos. Também exploramos exemplos práticos que demonstraram como configurar pipelines de integração, entrega e implantação contínuas para diferentes tipos de projetos.
+
+
+
+https://spacelift.io/blog/ci-cd-pipeline
+
+
+Ao longo deste guia, exploramos desde os fundamentos do Git até recursos avançados e soluções práticas para problemas comuns. Agora, você está preparado para usar essa poderosa ferramenta em seus projetos, colaborando de forma eficiente e mantendo controle total sobre o código. Dicas Finais: Pratique regularmente. O Git é mais fácil de entender com o uso diário.  Não tenha medo de errar. Experimentar é a melhor maneira de aprender.  Participe de comunidades de desenvolvedores para trocar experiências e tirar dúvidas.  Mini Projeto Prático: Criando e Publicando um Site Estático com Git Este projeto guia você por um fluxo completo de trabalho com Git, desde a criação de um repositório local até a publicação de um site estático no GitHub Pages.
+
+Passo 1: Configuração Inicial Crie a Estrutura do Projeto  Crie uma pasta chamada meu-site e, dentro dela, crie os arquivos básicos:  index.html: A página principal.  style.css: O arquivo de estilos (opcional).  Inicie o Repositório Git  Abra o terminal, navegue até a pasta do projeto e execute:  bash git init  Passo 2: Primeiras Alterações Adicione Conteúdo ao Site  No index.html, insira o seguinte código:  html <!DOCTYPE html>  <html lang="en">  <head>  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Meu Site</title>  </head>  <body>  <h1>Bem-vindo ao Meu Site</h1>
+<p>Este é um site simples criado como parte de um projeto prático.</p>
+</body>
+</html>
+
+Adicione e Faça Commit das Alterações  Adicione os arquivos ao Git:  bash git add.
+
+Faça o primeiro commit:  bash git commit -m "feat: Adiciona estrutura inicial do site"
+
+Passo 3: Publicando no GitHub Crie um Repositório no GitHub  Acesse o GitHub e crie um repositório chamado meu-site.
+Conecte o Repositório Local ao Remoto  No terminal, conecte o repositório local ao remoto:  bash git remote add origin https://github.com/seu-usuario/meu-site.git
+
+Envie os Arquivos para o GitHub  Faça o push para a branch principal:  bash git push -u origin main
+Passo 4: Configurando o GitHub Pages Habilite o GitHub Pages  No repositório do GitHub, acesse as configurações.  Na seção Pages, selecione a branch main como fonte e clique em "Save".
+Acesse o Site Publicado  O site estará disponível em: https://seu-usuario.github.io/meu-site/.
+
+Passo 5: Realizando Atualizações Edite o Arquivo index.html  Adicione um novo parágrafo ou uma lista.
+Faça commit e push das alterações:  bash git add index.html  git commit -m "feat: Atualiza conteúdo da página inicial" git push  Verifique as Alterações no GitHub Pages  Acesse o site novamente para verificar as atualizações.  Este mini projeto prático demonstra como usar Git para rastrear versões, colaborar e publicar um site.
+
+
+
+https://github.com/sottlmarek/DevSecOps?tab=readme-ov-file
+>>>>>>> Stashed changes
