@@ -1,185 +1,267 @@
-<<<<<<< Updated upstream
-
 Introduction
-Welcome to the "GitHub Actions Essentials" book! This compre- hensive guide aims to equip you with the necessary knowledge and skills to harness the power of GitHub Actions effectively. GitHub Actions is a versatile, powerful, and fully-integrated CI/ CD (Continuous Integration/Continuous Deployment) service that enables you to automate various tasks and processes within your software development lifecycle.
-In this introductory chapter, we will provide you with an over- view of GitHub Actions, its key features, and the benefits of adopting it in your development workflow. We will also cover some common use cases and scenarios where GitHub Actions can streamline your software development process, improving effi- ciency, and reducing human error.
+Welcome to the "GitHub Actions Essentials" book! This compre- hensive guide aims to equip you with the necessary knowledge and skills to harness the power of GitHub Actions effectively.
+
+GitHub Actions is a versatile, powerful, and fully-integrated CI/ CD (Continuous Integration/Continuous Deployment) service that enables you to automate various tasks and processes within your software development lifecycle.
+
+In this introductory chapter, we will provide you with an over- view of GitHub Actions, its key features, and the benefits of adopting it in your development workflow. We will also cover some common use cases and scenarios where GitHub Actions can streamline your software development process, improving efficiency, and reducing human error.
+
 By the end of this chapter, you will have a solid understanding of the fundamental concepts behind GitHub Actions and a clear perspective on how it can benefit your development projects. This foundation will set the stage for the in-depth exploration of Git- Hub Actions in the subsequent chapters, where we will delve into more advanced topics and practical implementations.
 What are GitHub Actions?
-GitHub Actions is a powerful automation platform integrated into the GitHub ecosystem that enables developers to create, share, and reuse custom workflows for automating tasks within their soft-
-ware development processes. This feature-rich platform offers a versatile and flexible way to define and execute tasks, including continuous integration (CI), continuous deployment (CD), code testing, linting, issue management, and more. GitHub Actions simplifies the process of automating workflows by providing an environment where these tasks can be configured and executed directly within your GitHub repositories.
-At its core, GitHub Actions uses a series of event-driven workflows to execute tasks in response to specific triggers. These workflows are defined using YAML files, which are stored in a special direc- tory within your repository (.github/workflows/). Each workflow file consists of a set of instructions that define the conditions under which the workflow should run (the trigger), the tasks or "actions" to be performed, and the execution environment for those actions. GitHub Actions can be triggered by various GitHub events, such as pushing code to a repository, opening a pull re- quest, creating an issue, or even on a scheduled basis.
-One of the key strengths of GitHub Actions is its modular design. Actions can be created and shared as individual, reusable compo- nents that can be easily integrated into your workflows. You can use pre-built actions provided by GitHub, create your own cus- tom actions, or leverage community-contributed actions available in the GitHub Actions Marketplace. This modular approach allows developers to build sophisticated workflows by combining various actions in a logical and streamlined manner, resulting in increased productivity and efficiency.
+GitHub Actions is a powerful automation platform integrated into the GitHub ecosystem that enables developers to create, share, and reuse custom workflows for automating tasks within their software development processes. This feature-rich platform offers a versatile and flexible way to define and execute tasks, including continuous integration (CI), continuous deployment (CD), code testing, linting, issue management, and more. GitHub Actions simplifies the process of automating workflows by providing an environment where these tasks can be configured and executed directly within your GitHub repositories.
 
+At its core, GitHub Actions uses a series of event-driven workflows to execute tasks in response to specific triggers. These workflows are defined using YAML files, which are stored in a special direc- tory within your repository (.github/workflows/). 
 
-GitHub Actions offers a range of predefined "runners" that serve as execution environments for your workflows. Runners are es- sentially virtual machines that can run on Linux, macOS, or Win- dows, allowing you to execute your workflows on the platform of your choice. GitHub provides free, hosted runners for public repositories, while private repositories get a certain amount of free usage each month, with the option to purchase additional minutes if needed. You can also choose to host your own self-man- aged runners if you require more control over the execution envir- onment or need to comply with specific security requirements.
+Each workflow file consists of a set of instructions that define the conditions under which the workflow should run (the trigger), the tasks or "actions" to be performed, and the execution environment for those actions. GitHub Actions can be triggered by various GitHub events, such as pushing code to a repository, opening a pull request, creating an issue, or even on a scheduled basis.
+
+One of the key strengths of GitHub Actions is its modular design. Actions can be created and shared as individual, reusable components that can be easily integrated into your workflows. You can use pre-built actions provided by GitHub, create your own custom actions, or leverage community-contributed actions available in the GitHub Actions Marketplace. This modular approach allows developers to build sophisticated workflows by combining various actions in a logical and streamlined manner, resulting in increased productivity and efficiency.
+
+GitHub Actions offers a range of predefined "runners" that serve as execution environments for your workflows. Runners are essentially virtual machines that can run on Linux, macOS, or Win- dows, allowing you to execute your workflows on the platform of your choice. GitHub provides free, hosted runners for public repositories, while private repositories get a certain amount of free usage each month, with the option to purchase additional minutes if needed. You can also choose to host your own self-managed runners if you require more control over the execution environment or need to comply with specific security requirements.
+
 One of the main advantages of GitHub Actions is its seamless in- tegration with the GitHub ecosystem. Since it's built directly into the platform, there is no need to configure external services or deal with API keys and other credentials. This tight integration with GitHub allows developers to create efficient workflows that automate tasks, such as building and deploying code, running tests, and managing issues, directly within the familiar GitHub interface. Furthermore, the GitHub Actions Marketplace offers a wide range of community-contributed actions that can be easily integrated into your workflows, providing access to a growing li- brary of reusable components.
-GitHub Actions also provides extensive support for customizing the execution of workflows. This includes the ability to control the flow of tasks using conditional statements, create parallel execu- tion paths, and manage dependencies between jobs. Additionally, you can use environment variables and secrets to securely store sensitive data and pass it between actions, ensuring that your
-workflows remain secure and your sensitive information stays protected.
-In summary, GitHub Actions is a powerful and flexible automa- tion platform that allows developers to create, share, and reuse custom workflows to automate a wide range of tasks within the software development process. Its event-driven nature, modular design, seamless integration with the GitHub ecosystem, and ex- tensive customization options make it an essential tool for mod- ern software development teams. In the following sections, we'll dive deeper into the various features and capabilities of GitHub Actions, providing you with the knowledge and skills needed to harness its full potential and optimize your software development workflows.
-Why use GitHub Actions?
-As software development practices continue to evolve, automa- tion has become increasingly critical for improving efficiency, re- ducing errors, and streamlining processes. GitHub Actions offers a powerful and flexible solution for automating various aspects of software development workflows, making it an essential tool for modern development teams. In this section, we'll discuss the key reasons why developers and organizations should consider using GitHub Actions.
+
+GitHub Actions also provides extensive support for customizing the execution of workflows. This includes the ability to control the flow of tasks using conditional statements, create parallel execution paths, and manage dependencies between jobs. Additionally, you can use environment variables and secrets to securely store sensitive data and pass it between actions, ensuring that your workflows remain secure and your sensitive information stays protected.
+
+In summary, GitHub Actions is a powerful and flexible automa- tion platform that allows developers to create, share, and reuse custom workflows to automate a wide range of tasks within the software development process. Its event-driven nature, modular design, seamless integration with the GitHub ecosystem, and extensive customization options make it an essential tool for mod- ern software development teams. In the following sections, we'll dive deeper into the various features and capabilities of GitHub Actions, providing you with the knowledge and skills needed to harness its full potential and optimize your software development workflows.
+
+## Why use GitHub Actions?
+As software development practices continue to evolve, automa- tion has become increasingly critical for improving efficiency, reducing errors, and streamlining processes. GitHub Actions offers a powerful and flexible solution for automating various aspects of software development workflows, making it an essential tool for modern development teams. In this section, we'll discuss the key reasons why developers and organizations should consider using GitHub Actions.
 Seamless integration with GitHub:
-GitHub Actions is tightly integrated with the GitHub platform, making it easy for developers to create and manage automation workflows within their existing repositories. This seamless inte- gration eliminates the need to set up and maintain external tools, ensuring a smooth and cohesive experience. By leveraging the Git- Hub ecosystem, developers can take advantage of native features, such as branch protection rules, pull requests, and issue tracking, to create more effective and efficient workflows.
-Event-driven architecture:
-GitHub Actions employs an event-driven architecture, allowing workflows to be triggered by a wide range of events within the GitHub platform. This includes common events such as push- ing code, opening pull requests, and creating issues, as well as scheduled events and manual triggers. This flexibility enables de- velopers to create highly responsive workflows that automatically execute tasks in response to specific actions, streamlining the de- velopment process and reducing the potential for human error.
-Modular and reusable actions:
-One of the key strengths of GitHub Actions is its modularity. Actions can be created and shared as individual, reusable compo- nents that can be easily integrated into workflows. Developers can choose from a vast library of pre-built actions provided by GitHub, create their own custom actions, or leverage community-contrib- uted actions from the GitHub Actions Marketplace. This modular approach allows developers to build sophisticated workflows by combining various actions in a logical and streamlined manner, ultimately boosting productivity and efficiency.
+
+GitHub Actions is tightly integrated with the GitHub platform, making it easy for developers to create and manage automation workflows within their existing repositories. This seamless integration eliminates the need to set up and maintain external tools, ensuring a smooth and cohesive experience. 
+
+By leveraging the GitHub ecosystem, developers can take advantage of native features, such as branch protection rules, pull requests, and issue tracking, to create more effective and efficient workflows.
+
+## Event-driven architecture:
+GitHub Actions employs an event-driven architecture, allowing workflows to be triggered by a wide range of events within the GitHub platform. This includes common events such as push- ing code, opening pull requests, and creating issues, as well as scheduled events and manual triggers. This flexibility enables developers to create highly responsive workflows that automatically execute tasks in response to specific actions, streamlining the de- velopment process and reducing the potential for human error.
+
+## Modular and reusable actions:
+One of the key strengths of GitHub Actions is its modularity. Actions can be created and shared as individual, reusable components that can be easily integrated into workflows. Developers can choose from a vast library of pre-built actions provided by GitHub, create their own custom actions, or leverage community-contributed actions from the GitHub Actions Marketplace. This modular approach allows developers to build sophisticated workflows by combining various actions in a logical and streamlined manner, ultimately boosting productivity and efficiency.
+
 Cross-platform support:
-GitHub Actions provides cross-platform support, enabling work- flows to run on different operating systems, including Linux, macOS, and Windows. This allows developers to test and deploy their applications across multiple platforms, ensuring compatibil- ity and performance. With support for a variety of languages and frameworks, GitHub Actions offers a versatile solution for diverse development environments.
-Extensive customization options:
-GitHub Actions offers a wide range of customization options for defining and executing workflows. This includes the ability to con- trol the flow of tasks using conditional statements, create parallel execution paths, and manage dependencies between jobs. Add- itionally, developers can use environment variables and secrets to securely store sensitive data and pass it between actions. These customization options enable developers to create tailored work- flows that meet their specific needs and requirements.
-Continuous Integration (CI) and Continuous Deployment (CD):
-Implementing CI and CD practices is essential for modern develop- ment teams, as it helps to ensure code quality, reduce errors, and speed up the release cycle. GitHub Actions simplifies the process of setting up CI/CD pipelines by providing an environment where tasks such as building, testing, and deploying can be configured and executed directly within your GitHub repositories. With built- in support for popular CI/CD tools and services, developers can easily create efficient and robust pipelines that automate key as- pects of their development process.
-Scalability and performance:
-GitHub Actions is designed to scale with your development needs, offering a flexible and high-performance solution for automation. By utilizing the parallelisation and matrix build features, devel- opers can optimize their workflows for speed and efficiency. Git- Hub also provides hosted runners that are automatically scaled and maintained, ensuring that your workflows run smoothly and reliably, even as your projects grow in size and complexity.
-Security and compliance:
-Security is a critical consideration for any development process, and GitHub Actions provides a range of features to help ensure the safety and compliance of your workflows. This includes the ability to store sensitive data securely using secrets, manage access con- trol using repository permissions, and monitor and audit activity using GitHub's built-in logging and reporting tools. For organiza- tions with strict security requirements, self-hosted runners can be employed to maintain full control over the execution environment and ensure compliance with internal policies and regulations.
+GitHub Actions provides cross-platform support, enabling work- flows to run on different operating systems, including Linux, macOS, and Windows. This allows developers to test and deploy their applications across multiple platforms, ensuring compatibility and performance. With support for a variety of languages and frameworks, GitHub Actions offers a versatile solution for diverse development environments.
+
+## Extensive customization options:
+GitHub Actions offers a wide range of customization options for defining and executing workflows. This includes the ability to control the flow of tasks using conditional statements, create parallel execution paths, and manage dependencies between jobs. Add- itionally, developers can use environment variables and secrets to securely store sensitive data and pass it between actions. These customization options enable developers to create tailored work- flows that meet their specific needs and requirements.
+
+### Continuous Integration (CI) and Continuous Deployment (CD):
+Implementing CI and CD practices is essential for modern development teams, as it helps to ensure code quality, reduce errors, and speed up the release cycle. GitHub Actions simplifies the process of setting up CI/CD pipelines by providing an environment where tasks such as building, testing, and deploying can be configured and executed directly within your GitHub repositories. With built-in support for popular CI/CD tools and services, developers can easily create efficient and robust pipelines that automate key as- pects of their development process.
+
+## Scalability and performance:
+GitHub Actions is designed to scale with your development needs, offering a flexible and high-performance solution for automation. By utilizing the parallelisation and matrix build features, devel- opers can optimize their workflows for speed and efficiency. GitHub also provides hosted runners that are automatically scaled and maintained, ensuring that your workflows run smoothly and reliably, even as your projects grow in size and complexity.
+
+### Security and compliance:
+Security is a critical consideration for any development process, and GitHub Actions provides a range of features to help ensure the safety and compliance of your workflows. This includes the ability to store sensitive data securely using secrets, manage access con- trol using repository permissions, and monitor and audit activity using GitHub's built-in logging and reporting tools. For organizations with strict security requirements, self-hosted runners can be employed to maintain full control over the execution environment and ensure compliance with internal policies and regulations.
+
 Community and ecosystem:
-GitHub Actions benefits from a large and active community of
-developers who contribute to the GitHub Actions Marketplace, providing a wealth of pre-built actions for various tasks and in- tegrations with third-party services. This community-driven eco- system enables developers to quickly find and utilize actions that can simplify their workflows, saving time and effort. Additionally, the collaborative nature of the platform encourages knowledge sharing and best practices, fostering a culture of continuous im- provement and innovation.
+GitHub Actions benefits from a large and active community of developers who contribute to the GitHub Actions Marketplace, providing a wealth of pre-built actions for various tasks and in- tegrations with third-party services. This community-driven ecosystem enables developers to quickly find and utilize actions that can simplify their workflows, saving time and effort. Additionally, the collaborative nature of the platform encourages knowledge sharing and best practices, fostering a culture of continuous im- provement and innovation.
+
 Cost-effectiveness:
-GitHub Actions offers a cost-effective solution for automation, particularly for open-source projects and small teams. Public re- positories can use GitHub Actions for free, while private repositor- ies receive a certain amount of free usage each month, with the op- tion to purchase additional minutes if needed. This pay-as-you-go pricing model ensures that developers only pay for the resources they use, making it an attractive choice for projects of all sizes. In conclusion, GitHub Actions provides a powerful, flexible, and integrated solution for automating various aspects of software development workflows. By leveraging its event-driven architec- ture, modular design, cross-platform support, and extensive cus- tomization options, developers can create tailored automation workflows that improve efficiency, reduce errors, and streamline processes. The platform's support for CI/CD, security features, and cost-effective pricing make it an essential tool for modern develop- ment teams, while its active community and thriving ecosystem ensure that developers have access to a wealth of resources and
-best practices. By adopting GitHub Actions, development teams can focus on delivering high-quality software more quickly and re- liably, ultimately driving innovation and success.
-GitHub Actions vs. Other CI/CD Tools
+GitHub Actions offers a cost-effective solution for automation, particularly for open-source projects and small teams. Public repositories can use GitHub Actions for free, while private repositories receive a certain amount of free usage each month, with the op- tion to purchase additional minutes if needed. This pay-as-you-go pricing model ensures that developers only pay for the resources they use, making it an attractive choice for projects of all sizes. In conclusion, GitHub Actions provides a powerful, flexible, and integrated solution for automating various aspects of software development workflows. 
+
+By leveraging its event-driven architec- ture, modular design, cross-platform support, and extensive customization options, developers can create tailored automation workflows that improve efficiency, reduce errors, and streamline processes. The platform's support for CI/CD, security features, and cost-effective pricing make it an essential tool for modern development teams, while its active community and thriving ecosystem ensure that developers have access to a wealth of resources and best practices. By adopting GitHub Actions, development teams can focus on delivering high-quality software more quickly and reliably, ultimately driving innovation and success.
+
+### GitHub Actions vs. Other CI/CD Tools
 In the world of software development, there are numerous Con- tinuous Integration and Continuous Deployment (CI/CD) tools available, each with its own unique features and capabilities. In this section, we will compare GitHub Actions with some of the popular CI/CD tools in the market, highlighting their key differ- ences, strengths, and weaknesses to help you make an informed decision when choosing the right tool for your needs.
+
 Jenkins:
-Jenkins is an open-source, self-hosted CI/CD tool that has been a long-standing favourite among developers due to its extensive plugin ecosystem and flexibility. Jenkins allows developers to cre- ate custom pipelines using a scripting language called Groovy or through declarative pipelines using a domain-specific language. Key differences:
-GitHub Actions is a fully managed, cloud-based service, whereas Jenkins is a self-hosted solution that requires man- ual setup and maintenance.
-GitHub Actions offers seamless integration with the GitHub platform, while Jenkins requires additional setup and config- uration to work with your repositories.
-Jenkins has a steeper learning curve due to its use of Groovy or a domain-specific language for pipeline configuration, whereas GitHub Actions relies on YAML files, which are gen- erally easier to read and write.
-Jenkins has a vast plugin ecosystem, but GitHub Actions benefits from a growing marketplace of reusable actions and community contributions.
-GitLab CI/CD:
+Jenkins is an open-source, self-hosted CI/CD tool that has been a long-standing favourite among developers due to its extensive plugin ecosystem and flexibility. Jenkins allows developers to create custom pipelines using a scripting language called Groovy or through declarative pipelines using a domain-specific language. Key differences:
+
+- [X] GitHub Actions is a fully managed, cloud-based service, whereas Jenkins is a self-hosted solution that requires manual setup and maintenance.
+- [X] GitHub Actions offers seamless integration with the GitHub platform, while Jenkins requires additional setup and configuration to work with your repositories.
+Jenkins has a steeper learning curve due to its use of Groovy or a domain-specific language for pipeline configuration, whereas GitHub Actions relies on YAML files, which are generally easier to read and write.
+- [X] Jenkins has a vast plugin ecosystem, but GitHub Actions benefits from a growing marketplace of reusable actions and community contributions.
+
+### GitLab CI/CD:
 GitLab CI/CD is a built-in CI/CD solution provided by GitLab, a popular alternative to GitHub. GitLab CI/CD is tightly integrated with the GitLab platform and allows developers to create pipelines using YAML files, similar to GitHub Actions.
 Key differences:
-GitHub Actions is part of the GitHub ecosystem, while Git- Lab CI/CD is exclusive to GitLab.
-Both platforms offer seamless integration with their respective repository hosting services, making the choice be- tween the two largely dependent on your preferred platform. GitHub Actions and GitLab CI/CD have similar configuration approaches using YAML files, making them relatively easy to learn and use.
-GitLab offers a more comprehensive set of built-in features, including integrated container registries and artifact stor- age, whereas GitHub Actions relies on external services for these functionalities.
+GitHub Actions is part of the GitHub ecosystem, while GitLab CI/CD is exclusive to GitLab.
+Both platforms offer seamless integration with their respective repository hosting services, making the choice between the two largely dependent on your preferred platform. GitHub Actions and GitLab CI/CD have similar configuration approaches using YAML files, making them relatively easy to learn and use.
+
+GitLab offers a more comprehensive set of built-in features, including integrated container registries and artifact storage, whereas GitHub Actions relies on external services for these functionalities.
 
 
 CircleCI:
-CircleCI is a cloud-based CI/CD service that provides a highly con- figurable and flexible platform for automating development work- flows. CircleCI supports a wide range of programming languages and frameworks, and its pipeline configuration is also based on YAML files.
+CircleCI is a cloud-based CI/CD service that provides a highly con- figurable and flexible platform for automating development workflows. CircleCI supports a wide range of programming languages and frameworks, and its pipeline configuration is also based on YAML files.
+
 Key differences:
-GitHub Actions is integrated directly into the GitHub plat- form, while CircleCI is a separate service that requires add- itional setup and configuration.
-CircleCI provides a highly optimized and perform- ance-oriented platform, with features such as parallelization and advanced caching mechanisms, whereas GitHub Actions offers similar features but may require more manual opti- mization.
-CircleCI has a more advanced and granular permissions sys- tem for managing access control, while GitHub Actions relies on the GitHub repository permissions system.
-Both platforms support a wide range of languages, frame- works, and platforms, making them suitable for diverse de- velopment environments.
+- [X] GitHub Actions is integrated directly into the GitHub platform, while CircleCI is a separate service that requires add- itional setup and configuration.
+CircleCI provides a highly optimized and performance-oriented platform, with features such as parallelization and advanced caching mechanisms, whereas GitHub Actions offers similar features but may require more manual optimization.
+CircleCI has a more advanced and granular permissions system for managing access control, while GitHub Actions relies on the GitHub repository permissions system.
+Both platforms support a wide range of languages, frameworks, and platforms, making them suitable for diverse development environments.
+
 Travis CI:
 Travis CI is a cloud-based CI/CD service that has been popular among open-source projects due to its simplicity and ease of use.
 Travis CI supports a wide range of languages and platforms and uses YAML files for pipeline configuration.
 Key differences:
 GitHub Actions is built into the GitHub platform, while Travis CI is an external service that requires additional setup and integration.
-Travis CI has a simpler and more streamlined approach to pipeline configuration, making it easier to set up basic work- flows, whereas GitHub Actions offers more advanced cus- tomization options and modularity.
+Travis CI has a simpler and more streamlined approach to pipeline configuration, making it easier to set up basic work- flows, whereas GitHub Actions offers more advanced customization options and modularity.
 GitHub Actions benefits from a growing marketplace of reusable actions, whereas Travis CI relies on a more limited set of built-in features and integrations.
-Travis CI has recently shifted its focus away from open- source projects, limiting its free offering and making it less attractive for open-source developers, while GitHub Actions continues to offer free usage for public repositories.
+Travis CI has recently shifted its focus away from open-source projects, limiting its free offering and making it less attractive for open-source developers, while GitHub Actions continues to offer free usage for public repositories.
+
 Azure Pipelines:
-Azure Pipelines is a cloud-based CI/CD service offered by Microsoft as part of the Azure DevOps suite. It supports a wide range of lan- guages, frameworks, and platforms, and its pipeline configuration is based on YAML files, similar to GitHub Actions.
+Azure Pipelines is a cloud-based CI/CD service offered by Microsoft as part of the Azure DevOps suite. It supports a wide range of languages, frameworks, and platforms, and its pipeline configuration is based on YAML files, similar to GitHub Actions.
 Key differences:
-
-GitHub Actions is natively integrated into the GitHub plat- form, whereas Azure Pipelines is part of the Azure DevOps suite, requiring additional setup and configuration.
-Azure Pipelines provides seamless integration with other Azure DevOps services, such as Azure Repos, Azure Boards, and Azure Artifacts, making it a more comprehensive solu- tion for organizations using the Azure DevOps ecosystem. Both platforms offer a wide range of customization options and support for diverse development environments, but Git- Hub Actions benefits from a growing marketplace of reusable actions and community contributions.
+GitHub Actions is natively integrated into the GitHub platform, whereas Azure Pipelines is part of the Azure DevOps suite, requiring additional setup and configuration.
+Azure Pipelines provides seamless integration with other Azure DevOps services, such as Azure Repos, Azure Boards, and Azure Artifacts, making it a more comprehensive solution for organizations using the Azure DevOps ecosystem. Both platforms offer a wide range of customization options and support for diverse development environments, but GitHub Actions benefits from a growing marketplace of reusable actions and community contributions.
 Azure Pipelines provides more generous free usage limits for private repositories compared to GitHub Actions, making it an attractive option for smaller teams and projects with limited budgets.
-In conclusion, GitHub Actions is a powerful and flexible CI/CD
-tool that offers seamless integration with the GitHub platform, an event-driven architecture, and a modular design that enables developers to create tailored automation workflows. While other CI/CD tools such as Jenkins, GitLab CI/CD, CircleCI, Travis CI, and Azure Pipelines have their own unique features and strengths, the choice ultimately depends on factors such as your preferred re- pository hosting platform, integration requirements, customiza- tion needs, and budget constraints.
-By understanding the key differences between GitHub Actions and other CI/CD tools, you can make an informed decision about the best solution for your development workflows. Regardless of your choice, adopting a CI/CD tool is essential for modern software de- velopment teams, as it helps to ensure code quality, reduce errors, and speed up the release cycle, ultimately driving innovation and
-success.
 
+In conclusion, GitHub Actions is a powerful and flexible CI/CD tool that offers seamless integration with the GitHub platform, an event-driven architecture, and a modular design that enables developers to create tailored automation workflows. While other CI/CD tools such as Jenkins, GitLab CI/CD, CircleCI, Travis CI, and Azure Pipelines have their own unique features and strengths, the choice ultimately depends on factors such as your preferred re- pository hosting platform, integration requirements, customization needs, and budget constraints.
 
-Getting Started with GitHub Actions
-In this chapter, we will guide you through the first steps of using GitHub Actions in your projects. We'll start by introducing you to the basic building blocks of a GitHub Actions workflow, which include YAML syntax, workflow files, and various event triggers. By understanding these foundational concepts, you'll be well-pre- pared to create and customize your own workflows.
-Next, we will walk you through setting up your first workflow, from creating a workflow file to defining the necessary jobs and steps. This hands-on approach will help you gain practical experi- ence with the GitHub Actions interface and workflow structure. Additionally, we will discuss essential GitHub Actions contexts and expressions, which will enable you to create dynamic, condi- tional workflows tailored to your specific needs. These tools are crucial for optimizing your workflows and ensuring they respond effectively to various events and circumstances.
+By understanding the key differences between GitHub Actions and other CI/CD tools, you can make an informed decision about the best solution for your development workflows. Regardless of your choice, adopting a CI/CD tool is essential for modern software development teams, as it helps to ensure code quality, reduce errors, and speed up the release cycle, ultimately driving innovation and success.
+
+### Getting Started with GitHub Actions
+In this chapter, we will guide you through the first steps of using GitHub Actions in your projects. We'll start by introducing you to the basic building blocks of a GitHub Actions workflow, which include YAML syntax, workflow files, and various event triggers. By understanding these foundational concepts, you'll be well-prepared to create and customize your own workflows.
+
+Next, we will walk you through setting up your first workflow, from creating a workflow file to defining the necessary jobs and steps. This hands-on approach will help you gain practical experience with the GitHub Actions interface and workflow structure. Additionally, we will discuss essential GitHub Actions contexts and expressions, which will enable you to create dynamic, conditional workflows tailored to your specific needs. These tools are crucial for optimizing your workflows and ensuring they respond effectively to various events and circumstances.
+
 By the end of this chapter, you will have a solid grasp on the basics of GitHub Actions and will be ready to implement simple work- flows in your development projects. With this foundation, you'll be well-equipped to explore more advanced features and tech- niques in the subsequent chapters.
-Setting Up Your First GitHub Actions Workflow
-Now that we've covered the essentials of GitHub Actions and dis- cussed its benefits and how it compares to other CI/CD tools, it's
-time to dive into creating your first workflow. In this section, we'll guide you through the process of setting up a basic GitHub Actions workflow to automate the building and testing of a sample project.
-Create a new repository on GitHub:
+
+### Setting Up Your First GitHub Actions Workflow
+Now that we've covered the essentials of GitHub Actions and dis- cussed its benefits and how it compares to other CI/CD tools, it's time to dive into creating your first workflow. In this section, we'll guide you through the process of setting up a basic GitHub Actions workflow to automate the building and testing of a sample project.
+
+### Create a new repository on GitHub:
 Before you begin, create a new repository on GitHub (if you don't have one already) to host your project. This repository will serve as the base for your GitHub Actions workflow. Ensure that you have initialized the repository with a README file and added your pro- ject files.
-Add a workflow file:
+
+#### Add a workflow file:
 GitHub Actions workflows are defined using YAML files stored in the .github/workflows directory within your repository. To create your first workflow, follow these steps:
-In your repository, navigate to the "Actions" tab. Click on the "New workflow" button.
-GitHub provides several workflow templates to choose from. You can either use one of these templates as a starting point or create a new workflow from scratch by clicking on "Set up a workflow yourself."
-This will create a new YAML file in the .github/workflows directory. Give your workflow file a descriptive name, such as build-and-test.yml.
-Define the workflow triggers:
-In your new YAML file, start by defining the events that should
 
-trigger your workflow. For this example, we'll set up the workflow
+- [X] In your repository, navigate to the "Actions" tab. 
+- [X] Click on the "New workflow" button.
+- [X] GitHub provides several workflow templates to choose from. You can either use one of these templates as a starting point or create a new workflow from scratch by clicking on "Set up a workflow yourself."
+- [X] This will create a new YAML file in the .github/workflows directory. Give your workflow file a descriptive name, such as build-and-test.yml.
+
+#### Define the workflow triggers:
+In your new YAML file, start by defining the events that should trigger your workflow. For this example, we'll set up the workflow
 to run on every push and pull request to the main branch. Add the following lines to your workflow file:
-on:
-push: branches:
-- main
-pull_request: branches:
-- main
-Configure the workflow environment:
-Next, specify the operating system and programming language environment for your workflow. In this example, we'll use an Ubuntu-based environment with Node.js. Add the following lines to your workflow file:
-jobs:
-build-and-test:
-runs-on: ubuntu-latest
-steps:
-Check out your repository:
-To access your repository's files within the workflow, you'll need to check out the repository using the actions/checkout action. Add the following lines to your workflow file:
-- name: Checkout repository uses: actions/checkout@v2
-Set up your programming language environment:
-In this example, we're using Node.js, so we'll need to set up the Node.js environment using the actions/setup-node action. Add the following lines to your workflow file:
-- name: Set up Node.js
-uses: actions/setup-node@v2 with:
-node-version: 14
-Install dependencies and run build:
-With the environment set up, you can now install your project's dependencies and run the build process. Assuming your project uses npm, add the following lines to your workflow file:
-- name: Install dependencies
-run: npm ci
-- name: Build project
-run: npm run build
-Run tests:
-Finally, add a step to run your project's tests using your test runner of choice. In this example, we'll use npm test. Add the following lines to your workflow file:
-- name: Run tests
-run: npm test
 
-Save and commit the workflow file:
+```
+ on:
+  push: 
+    branches:
+      - main
+  pull_request: 
+    branches:
+      - main
+```
+
+#### Configure the workflow environment:
+Next, specify the operating system and programming language environment for your workflow. In this example, we'll use an Ubuntu-based environment with Node.js. Add the following lines to your workflow file:
+```
+jobs:
+  build-and-test:
+     runs-on: ubuntu-latest
+  steps:
+```
+#### Check out your repository:
+To access your repository's files within the workflow, you'll need to check out the repository using the actions/checkout action. Add the following lines to your workflow file:
+
+```
+- name: Checkout repository 
+  uses: actions/checkout@v2
+```
+
+#### Set up your programming language environment:
+In this example, we're using Node.js, so we'll need to set up the Node.js environment using the actions/setup-node action. Add the following lines to your workflow file:
+
+```
+- name: Set up Node.js
+  uses: actions/setup-node@v2 
+  with:
+   node-version: 14
+```
+
+### Install dependencies and run build:
+With the environment set up, you can now install your project's dependencies and run the build process. Assuming your project uses npm, add the following lines to your workflow file:
+
+```
+- name: Install dependencies
+  run: npm ci
+- name: Build project
+  run: npm run build
+```
+
+### Run tests:
+Finally, add a step to run your project's tests using your test runner of choice. In this example, we'll use npm test. Add the following lines to your workflow file:
+
+```
+- name: Run tests
+   run: npm test
+```
+
+### Save and commit the workflow file:
 Once you've finished configuring your workflow, save the YAML file and commit it to your repository. This will automatically en- able the workflow, and it will be triggered based on the events you've defined.
-With this basic GitHub Actions workflow in place, your project will be automatically built and tested on every push and pull re- quest to the main branch. This is just the beginning of what you can do with GitHub Actions, as there are many more customiza- tion options and integrations available to help you streamline and automate your development processes.
-As you continue to explore GitHub Actions, you can leverage the growing marketplace of reusable actions to expand your workflow capabilities, such as deploying your application to various hosting platforms, sending notifications, and integrating with third-party services. The modular design and event-driven architecture of Git- Hub Actions allow you to create tailored automation workflows that fit your specific needs, ensuring that your development pro- cesses are as efficient and streamlined as possible.
+
+With this basic GitHub Actions workflow in place, your project will be automatically built and tested on every push and pull request to the main branch. This is just the beginning of what you can do with GitHub Actions, as there are many more customization options and integrations available to help you streamline and automate your development processes.
+As you continue to explore GitHub Actions, you can leverage the growing marketplace of reusable actions to expand your workflow capabilities, such as deploying your application to various hosting platforms, sending notifications, and integrating with third-party services. The modular design and event-driven architecture of GitHub Actions allow you to create tailored automation workflows that fit your specific needs, ensuring that your development pro- cesses are as efficient and streamlined as possible.
 In the following sections, we will dive deeper into the advanced features and customization options of GitHub Actions, helping you to unlock its full potential and transform your software devel- opment workflows.
-Understanding YAML Syntax
-To effectively work with GitHub Actions, it's essential to under- stand the YAML syntax used to define workflows. YAML, which stands for "YAML Ain't Markup Language," is a human-readable data serialization format commonly used for configuration files and data exchange between languages with different data struc- tures. In this section, we'll cover the basics of YAML syntax and provide examples to help you gain a better understanding of how to write and maintain your GitHub Actions workflow files. Basic structure:
-YAML files use indentation to represent the structure of data, simi- lar to how programming languages like Python use whitespace. The basic building blocks of YAML are scalars (strings, numbers, and booleans), sequences (arrays or lists), and mappings (key- value pairs or dictionaries). Here's a simple example of YAML syn- tax:
+
+### Understanding YAML Syntax
+To effectively work with GitHub Actions, it's essential to understand the YAML syntax used to define workflows. YAML, which stands for "YAML Ain't Markup Language," is a human-readable data serialization format commonly used for configuration files and data exchange between languages with different data structures. In this section, we'll cover the basics of YAML syntax and provide examples to help you gain a better understanding of how to write and maintain your GitHub Actions workflow files. Basic structure:
+YAML files use indentation to represent the structure of data, simi- lar to how programming languages like Python use whitespace. The basic building blocks of YAML are scalars (strings, numbers, and booleans), sequences (arrays or lists), and mappings (key- value pairs or dictionaries). Here's a simple example of YAML syntax:
+
+```
 version: 1 languages:
-- Python - JavaScript - Go
+- Python 
+- JavaScript 
+- Go
+
 frameworks:
 Python:
-- Django
-- Flask
+  - Django
+  - Flask
 JavaScript:
+  - React 
+  - Vue
+```
 
-- React - Vue
-Scalars:
-Scalars are the simplest data type in YAML and include strings, numbers, and booleans. Strings can be written with or without quotes, but it's often best to use quotes when dealing with spe- cial characters or whitespace. Numbers can be written as integers or floating-point values. Booleans are represented using true and false. Example:
+#### Scalars:
+Scalars are the simplest data type in YAML and include strings, numbers, and booleans. Strings can be written with or without quotes, but it's often best to use quotes when dealing with special characters or whitespace. Numbers can be written as integers or floating-point values. Booleans are represented using true and false. Example:
+```
 string: "Hello, World!"
 integer: 42
 float: 3.14
 boolean: true
-Sequences:
+```
+
+#### Sequences:
 Sequences are ordered collections of items, similar to arrays or lists in programming languages. In YAML, you can represent a se- quence by starting each item on a new line with a hyphen followed by a space. Example:
+
+```
 Languages:
 - Python
 -JavaScript
 - Go
-Mappings:
-Mappings represent key-value pairs, akin to dictionaries or hash
-maps in programming languages. In YAML, you can create a map- ping by writing the key, followed by a colon and a space, and then the value. Example:
+```
+
+#### Mappings:
+Mappings represent key-value pairs, akin to dictionaries or hash maps in programming languages. In YAML, you can create a map- ping by writing the key, followed by a colon and a space, and then the value. Example:
+
+```
 Frameworks:
-Python: Django JavaScript: React
-Go: Gin
-Complex data structures:
-You can create more complex data structures in YAML by com- bining sequences and mappings. For example, you can have a sequence of mappings or a mapping with sequences as values. Example:
+Python: 
+  Django 
+  JavaScript: React
+  Go: Gin
+```
+### Complex data structures:
+You can create more complex data structures in YAML by combining sequences and mappings. For example, you can have a sequence of mappings or a mapping with sequences as values. Example:
+```
 projects:
-- name: Project A language: Python frameworks:
-- Django
-- Flask
-- name: Project B language: JavaScript
-frameworks:
-- React
-- Vue
-Anchors and aliases:
+- name: Project A 
+  language: Python 
+  frameworks:
+    - Django
+    - Flask
+- name: Project B 
+  language: JavaScript
+  frameworks:
+     - React
+     - Vue
+```
+
+### Anchors and aliases:
 YAML provides a way to reuse parts of your configuration by using anchors and aliases. An anchor is defined by adding & followed by a unique name after a value, while an alias is referenced by using followed by the anchor name. Example:
+```
 defaults: &default_setting
 timeout: 10
 retries: 3
@@ -188,8 +270,11 @@ Job_a:
 name: Job A
 Job_b:
 <<: *default_settings name: Job B
-Multi-line strings:
-YAML supports multi-line strings using the pipe | or greater-than > character. The pipe character preserves newlines in the string, while the greater-than character converts newlines to spaces. Ex- ample:
+```
+
+#### Multi-line strings:
+YAML supports multi-line strings using the pipe '|' or greater-than '>' character. The pipe character preserves newlines in the string, while the greater-than character converts newlines to spaces. Example:
+```
 multiline_pipe: |
 This is a multi-line
 string with preserved
@@ -202,33 +287,45 @@ Comments:
 You can add comments in YAML files by starting a line with the # character. Comments can help document your configuration and make it easier for others to understand your workflow. Example:
 # This is a comment in YAML
 version: 1 # You can also add inline comments
-Environment variables:
+```
+
+#### Environment variables:
 In GitHub Actions workflows, you can use environment variables to store and pass data between steps. To define an environment variable, use the env key followed by the variable name and value. Example:
+```
 jobs:
 build:
 runs-on: ubuntu-latest
 env:
 MY_VARIABLE: my_value
 steps:
-- name: Print environment variable run: echo $MY_VARIABLE
-Understanding the YAML syntax is crucial for working effectively with GitHub Actions, as it allows you to create and maintain com- plex and efficient workflows. By mastering the different aspects of YAML, you can write more maintainable, readable, and scal- able workflow files, ensuring that your development processes are streamlined and optimized.
+- name: Print environment variable 
+run: echo $MY_VARIABLE
+```
 
+Understanding the YAML syntax is crucial for working effectively with GitHub Actions, as it allows you to create and maintain complex and efficient workflows. By mastering the different aspects of YAML, you can write more maintainable, readable, and scalable workflow files, ensuring that your development processes are streamlined and optimized.
 
-In the following sections, we'll dive deeper into the advanced fea- tures and customization options of GitHub Actions, helping you to unlock its full potential and transform your software develop- ment workflows.
-Anatomy of a GitHub Actions Workflow
-To fully leverage the capabilities of GitHub Actions, it's essential to understand the different components that make up a workflow. In this section, we'll dissect the anatomy of a GitHub Actions work- flow, explaining each element in detail and providing examples to help you comprehend its function and usage.
-Workflow triggers
-Workflow triggers define the events that initiate the execution of a GitHub Actions workflow. You can specify multiple events, such as pushes, pull requests, or even custom events, to initiate the work- flow. Triggers are defined using the on keyword, followed by the event names and any additional configuration. Example:
+In the following sections, we'll dive deeper into the advanced features and customization options of GitHub Actions, helping you to unlock its full potential and transform your software development workflows.
+
+## Anatomy of a GitHub Actions Workflow
+To fully leverage the capabilities of GitHub Actions, it's essential to understand the different components that make up a workflow. In this section, we'll dissect the anatomy of a GitHub Actions workflow, explaining each element in detail and providing examples to help you comprehend its function and usage.
+
+### Workflow triggers
+Workflow triggers define the events that initiate the execution of a GitHub Actions workflow. You can specify multiple events, such as pushes, pull requests, or even custom events, to initiate the workflow. Triggers are defined using the on keyword, followed by the event names and any additional configuration. Example:
+```
 on:
 push:
 branches:
-- main
-pull_request: branches:
-- main
+   - main
+pull_request: 
+  branches:
+   - main
 schedule:
-- cron: '0 12 ***
-Jobs
+   - cron: '0 12 ***
+```
+
+### Jobs
 A workflow consists of one or more jobs, which are individual units of work that run in parallel by default. Jobs are defined using the jobs keyword, followed by a unique identifier for each job and its configuration. Example:
+```
 jobs:
 build:
 runs-on: ubuntu-latest
@@ -237,13 +334,15 @@ steps:
 test:
 runs-on: ubuntu-latest steps:
 - name: Run tests run: npm test
-Job dependencies
-By default, jobs run in parallel, but you can specify dependencies between jobs using the needs keyword. This can be useful for cre- ating sequential workflows where certain jobs must complete be- fore others can begin. Example:
+```
+
+### Job dependencies
+By default, jobs run in parallel, but you can specify dependencies between jobs using the needs keyword. This can be useful for creating sequential workflows where certain jobs must complete be- fore others can begin. Example:
+```
 jobs:
 build:
 runs-on: ubuntu-latest
 steps:
-
 - name: Build project
 run: npm run build
 test:
@@ -252,41 +351,60 @@ needs: build
 steps:
 - name: Run tests
 run: npm test
-Job environment
+```
+
+### Job environment
 Each job runs in a specific environment defined by the runs-on keyword, which specifies the operating system and version for the job. GitHub Actions provides several pre-built environments, such as ubuntu-latest, windows-latest and macos-latest . Example:
+```
 jobs:
 build:
 runs-on: ubuntu-latest
-Steps
+```
+
+### Steps
 Jobs are composed of one or more steps, which are individual tasks executed sequentially within a job. Steps can use pre-built actions from the GitHub Actions marketplace, custom actions, or simply run shell commands. Steps are defined using the steps keyword, followed by a list of step configurations. Example:
+```
 jobs:
-build:
-runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 steps:
 - name: Checkout repository
-uses: actions/checkout@v2
+  uses: actions/checkout@v2
 - name: Set up Node.js
-uses: actions/setup-node@v2 with:
-node-version: 14
+  uses: actions/setup-node@v2
+  with:
+    node-version: 14
 - name: Install dependencies
 run: npm ci
-- name: Build project run: npm run build
-Actions
-Actions are reusable units of code that can be included as steps in your workflow. You can use pre-built actions from the GitHub Actions marketplace, create your own custom actions, or refer- ence actions from other repositories. Actions are referenced using the uses keyword, followed by the action repository and version. Example:
+- name: Build project 
+  run: npm run build
+```
+### Actions
+Actions are reusable units of code that can be included as steps in your workflow. You can use pre-built actions from the GitHub Actions marketplace, create your own custom actions, or reference actions from other repositories. Actions are referenced using the uses keyword, followed by the action repository and version. Example:
+```
 steps:
-- name: Checkout repository uses: actions/checkout@v2
-Inputs and outputs
+- name: Checkout repository 
+  uses: actions/checkout@v2
+```
+
+### Inputs and outputs
 You can pass data between steps using inputs and outputs. Inputs are defined using the with keyword, followed by a mapping of input names and values. Outputs are defined using the id keyword to assign a unique identifier to a step and then accessed using the steps context in subsequent steps. Example:
+```
 jobs:
-build:
-runs-on: ubuntu-latest
-steps:
-- name: Generate a random number
-id: random_number
-run: echo "::set-output name=number::$(shuf -i 1-100 -n 1)"
-- name: Print the random number
-run: echo "The random number is ${{ steps.random_number.outputs.number }}" Environment variables and secrets
-Environment variables and secrets allow you to store and pass sensitive or reusable data between steps. Environment variables are defined using the env keyword, while secrets are managed in the repository's settings and accessed using the secrets context. Example:
+  build:
+    runs-on: ubuntu-latest
+  steps:
+   - name: Generate a random number
+       id: random_number
+      run: echo "::set-output name=number::$(shuf -i 1-100 -n 1)"
+
+   - name: Print the random number
+      run: echo "The random number is ${{ steps.random_number.outputs.number }}" 
+```
+
+### Environment variables and secrets
+Environment variables and secrets allow you to store and pass sensitive or reusable data between steps. Environment variables are defined using the env keyword, while secrets are managed in the repository's settings and accessed using the secrets context.Example:
+```
 jobs:
 deploy:
 runs-on: ubuntu-latest
@@ -297,57 +415,72 @@ steps:
 run: |
 echo "Deploying to $API_BASE_URL"
 curl -H "Authorization: Bearer ${{ secrets.DEPLOY_TOKEN }}" -X POST $API_ BASE_URL/deploy
-Contexts
+```
+
+### Contexts
 Contexts in GitHub Actions provide access to various types of metadata related to the current workflow execution, such as the event that triggered the workflow, the repository, the job, the run- ner, and any custom inputs. They enable you to create dynamic and flexible workflows that can adapt to different situations based on the available metadata.
-For example, you can use the github context to access information about the event that triggered the workflow, like the event type, the actor who initiated the event, and the associated commit SHA. Similarly, the secrets context allows you to securely access en- crypted secrets stored in your repository settings.
-To access context data, you can use the ${{ context }} syntax in your workflow file. Here's an example of using the github context to ac- cess the event name:
+For example, you can use the github context to access information about the event that triggered the workflow, like the event type, the actor who initiated the event, and the associated commit SHA. Similarly, the secrets context allows you to securely access encrypted secrets stored in your repository settings.
+To access context data, you can use the ${{ context }} syntax in your workflow file. Here's an example of using the github context to access the event name:
+```
 jobs:
 build:
 runs-on: ubuntu-latest
 steps:
 - name: Log event name
 run: echo "Event name: ${{ github.event_name}}"
+```
 
+### Expressions
+Expressions in GitHub Actions are a powerful way to evaluate and manipulate data within your workflow files. They allow you to perform calculations, access context data, and control the flow of your workflow based on conditions. Expressions are wrapped in double curly braces, like ${{ expression }}.
 
-Expressions
-Expressions in GitHub Actions are a powerful way to evaluate and manipulate data within your workflow files. They allow you to perform calculations, access context data, and control the flow of your workflow based on conditions. Expressions are wrapped in double curly braces, like ${{ expression }} .
-GitHub Actions expressions support a variety of functions, op- erators, and literals that you can use to create complex logic in your workflows. For example, you can use the contains function to check if a string contains a specific substring, or you can use the operator to compare two values for equality.
-==
+GitHub Actions expressions support a variety of functions, operators, and literals that you can use to create complex logic in your workflows. For example, you can use the contains function to check if a string contains a specific substring, or you can use the '==' operator to compare two values for equality.
+
 Here's an example of using expressions to conditionally run a step based on the event that triggered the workflow:
+```
 jobs:
 build:
 runs-on: ubuntu-latest
 steps:
 - name: Log event name
-run: echo "This step only runs for pull_request events."
-if: ${{ github.event_name == 'pull_request' }}
-In this example, the if keyword is combined with an expression to
-control whether the step will be executed. The step will only run if the event that triggered the workflow is a pull request event.
-By incorporating contexts and expressions into your GitHub Ac- tions workflows, you can create more dynamic, flexible, and adaptable automation processes that cater to the unique needs of your development projects.
-Workflow status badges:
-To display the status of your GitHub Actions workflows in your re- pository's README or other documentation, you can use work- flow status badges. The badge URL can be generated using the fol- lowing pattern: https://github.com/<OWNER>/<REPOSITORY>/ac- tions/workflows/<WORKFLOW_FILE>/badge.svg . Example:
-![Build Status](https://github.com/yourusername/yourrepository/actions/work-
-flows/build.yml/badge.svg)
-By understanding the anatomy of a GitHub Actions workflow, you can create more efficient, maintainable, and scalable workflows tailored to your specific needs. In the following sections, we'll con- tinue exploring advanced features and customization options of GitHub Actions, helping you unlock its full potential and revolu- tionize your software development processes.
+   run: echo "This step only runs for pull_request events."
+    if: ${{ github.event_name == 'pull_request' }}
+```
 
+In this example, the if keyword is combined with an expression to control whether the step will be executed. The step will only run if the event that triggered the workflow is a pull request event.
 
-Building Your First Workflow
-In this chapter, we will walk you through the process of building your first GitHub Actions workflow from scratch. Our goal is to help you gain a practical understanding of how to create and con- figure workflows to automate various tasks within your develop- ment projects.
+By incorporating contexts and expressions into your GitHub Actions workflows, you can create more dynamic, flexible, and adaptable automation processes that cater to the unique needs of your development projects.
+
+### Workflow status badges:
+To display the status of your GitHub Actions workflows in your repository's README or other documentation, you can use work- flow status badges. The badge URL can be generated using the fol- lowing pattern: 'https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg' . Example:
+
+![Build Status](https://github.com/yourusername/yourrepository/actions/workflows/build.yml/badge.svg)
+
+By understanding the anatomy of a GitHub Actions workflow, you can create more efficient, maintainable, and scalable workflows tailored to your specific needs. In the following sections, we'll continue exploring advanced features and customization options of GitHub Actions, helping you unlock its full potential and revolu- tionize your software development processes.
+
+## Building Your First Workflow
+In this chapter, we will walk you through the process of building your first GitHub Actions workflow from scratch. Our goal is to help you gain a practical understanding of how to create and con- figure workflows to automate various tasks within your development projects.
 We will begin by discussing different types of workflow triggers, including event-based triggers and scheduled triggers, which de- termine when your workflow should run. Understanding these triggers is essential for designing workflows that respond effect- ively to specific events or run on a predetermined schedule.
-Next, we will delve into defining jobs and steps within your work- flow. This section will cover the structure and configuration of jobs, including how to define steps, use pre-built actions, and run shell commands. By learning about these components, you'll be able to create custom workflows tailored to your specific needs. We will also explore how to leverage matrix builds and paralleliza- tion to efficiently test your code against multiple environments, runtime versions, or configurations. This powerful feature allows you to optimize your workflows by running multiple instances of a job simultaneously, reducing the overall execution time and im- proving reliability.
-By the end of this chapter, you will have hands-on experience in creating and configuring GitHub Actions workflows, enabling you
-to automate various tasks and processes in your software develop- ment projects. With a solid grasp of these foundational concepts, you will be ready to explore more advanced features and best prac- tices in the following chapters.
-Workflow Triggers: Events and Scheduling
-In this section, we will delve into the different types of workflow triggers available in GitHub Actions. Workflow triggers are crucial in defining when and under what circumstances your workflows should run. Understanding and utilizing the various trigger op- tions will help you create more efficient and adaptable workflows tailored to your specific needs.
-Event-based triggers:
-Event-based triggers are the most common type of triggers in GitHub Actions. These triggers initiate workflows in response to various events that occur within your repository, such as pushes, pull requests, and issues. Some of the most commonly used event- based triggers include:
-push: Triggers the workflow when commits are pushed to the repository.
-pull_request: Triggers the workflow when a pull request is created or updated.
-issues: Triggers the workflow when an issue is opened, closed, or updated.
-fork: Triggers the workflow when someone forks the repository.
 
+Next, we will delve into defining jobs and steps within your workflow. This section will cover the structure and configuration of jobs, including how to define steps, use pre-built actions, and run shell commands. By learning about these components, you'll be able to create custom workflows tailored to your specific needs. 
+
+We will also explore how to leverage matrix builds and parallelization to efficiently test your code against multiple environments, runtime versions, or configurations. This powerful feature allows you to optimize your workflows by running multiple instances of a job simultaneously, reducing the overall execution time and im- proving reliability.
+
+By the end of this chapter, you will have hands-on experience in creating and configuring GitHub Actions workflows, enabling you
+to automate various tasks and processes in your software development projects. With a solid grasp of these foundational concepts, you will be ready to explore more advanced features and best practices in the following chapters.
+
+### Workflow Triggers: Events and Scheduling
+In this section, we will delve into the different types of workflow triggers available in GitHub Actions. Workflow triggers are crucial in defining when and under what circumstances your workflows should run. Understanding and utilizing the various trigger op- tions will help you create more efficient and adaptable workflows tailored to your specific needs.
+
+#### Event-based triggers:
+Event-based triggers are the most common type of triggers in GitHub Actions. These triggers initiate workflows in response to various events that occur within your repository, such as pushes, pull requests, and issues. Some of the most commonly used event-based triggers include:
+
+- [x] push: Triggers the workflow when commits are pushed to the repository.
+- [x] pull_request: Triggers the workflow when a pull request is created or updated.
+- [x] issues: Triggers the workflow when an issue is opened, closed, or updated.
+- [x] fork: Triggers the workflow when someone forks the repository.
 
 You can specify one or multiple event-based triggers using the on keyword in your workflow file. Additionally, you can use filters to narrow down the scope of the trigger, such as specifying specific branches or tags. Example:
+```
 on:
 push:
 branches:
@@ -358,15 +491,19 @@ branches:
 types:
 - opened
 - synchronize
-Scheduled triggers:
-Scheduled triggers enable you to run workflows at specified inter- vals, using cron-like syntax. This is useful for running periodic tasks such as nightly builds, weekly reports, or monthly mainten- ance. To set up a scheduled trigger, use the schedule keyword and provide one or more cron expressions. Example:
+```
+#### Scheduled triggers:
+Scheduled triggers enable you to run workflows at specified intervals, using cron-like syntax. This is useful for running periodic tasks such as nightly builds, weekly reports, or monthly mainten- ance. To set up a scheduled trigger, use the schedule keyword and provide one or more cron expressions. Example:
+```
 on:
 schedule:
 - cron: '0 0 * * * # Run the workflow daily at midnight
-Keep in mind that the schedule is based on the UTC time zone, and the shortest possible interval between scheduled workflow runs is
-5 minutes.
-Manual triggers:
+```
+Keep in mind that the schedule is based on the UTC time zone, and the shortest possible interval between scheduled workflow runs is 5 minutes.
+
+#### Manual triggers:
 Manual triggers allow you to run workflows on-demand, using the GitHub Actions web interface or the GitHub API. This can be use- ful for running tasks that don't necessarily need to run automat- ically, such as deployments, data migrations, or one-time scripts. To set up a manual trigger, use the workflow_dispatch keyword and optionally provide input parameters. Example:
+```
 on:
 workflow_dispatch:
 inputs:
@@ -374,22 +511,30 @@ environment:
 description: 'The target environment for deployment'
 required: true
 default: 'staging'
-Once you've set up a manual trigger, you can start the workflow by clicking the "Run workflow" button in the Actions tab of your re- pository, or by using the GitHub API.
-External triggers:
-External triggers enable you to start workflows in response to events that occur outside of your repository, such as webhooks from third-party services or custom events from other reposi- tories. To set up an external trigger, use the repository_dispatch or workflow_dispatch keyword and provide a types array with the names of the custom events you want to listen for. Example:
+```
 
+Once you've set up a manual trigger, you can start the workflow by clicking the "Run workflow" button in the Actions tab of your repository, or by using the GitHub API.
 
+### External triggers:
+External triggers enable you to start workflows in response to events that occur outside of your repository, such as webhooks from third-party services or custom events from other repositories. To set up an external trigger, use the repository_dispatch or workflow_dispatch keyword and provide a types array with the names of the custom events you want to listen for. Example:
+```
 on:
 repository_dispatch:
 types:
 - my_custom_event
+```
+
 To trigger a workflow with an external event, you can send a POST request to the GitHub API with the appropriate event type and payload.
-Activity triggers:
+
+### Activity triggers:
 Activity triggers initiate workflows in response to various user or system activities, such as starring a repository, creating a release, or assigning a label. Some examples of activity triggers include:
-watch: Triggers the workflow when someone stars the repository.
-release: Triggers the workflow when a release is created, pub- lished, or updated.
-label: Triggers the workflow when a label is created, edited, or deleted.
+
+- [x] watch: Triggers the workflow when someone stars the repository.
+- [x] release: Triggers the workflow when a release is created, pub- lished, or updated.
+- [x] label: Triggers the workflow when a label is created, edited, or deleted.
+
 You can use activity triggers in combination with other triggers to create more flexible and responsive workflows. Example:
+```
 on:
 watch:
 types:
@@ -397,8 +542,10 @@ types:
 release:
 types:
 - published
-Combining triggers:
+```
+#### Combining triggers:
 You can combine multiple triggers in a single workflow to handle various events and scenarios. When combining triggers, be aware that each trigger may have its own set of filters and configuration options. Example:
+```
 on:
 push:
 branches:
@@ -412,35 +559,41 @@ environment:
 description: 'The target environment for deployment'
 required: true
 default: 'staging'
-In this example, the workflow is triggered by push and pull_re- quest events on the main branch, runs daily at midnight (UTC), and can be manually triggered with a specified environment input.
+```
 
+In this example, the workflow is triggered by push and pull_request events on the main branch, runs daily at midnight (UTC), and can be manually triggered with a specified environment input.
 
-By understanding and utilizing the different types of workflow triggers in GitHub Actions, you can create workflows that respond to various events and scenarios, making your development pro- cess more efficient and adaptable. In the next sections, we will discuss how to create jobs and steps, use actions, and manage en- vironment variables and secrets to build powerful, customizable workflows.
-Defining Jobs and Steps
+By understanding and utilizing the different types of workflow triggers in GitHub Actions, you can create workflows that respond to various events and scenarios, making your development process more efficient and adaptable. In the next sections, we will discuss how to create jobs and steps, use actions, and manage en- vironment variables and secrets to build powerful, customizable workflows.
+
+### Defining Jobs and Steps
 Jobs and steps are fundamental building blocks of GitHub Actions workflows. In this section, we will discuss how to define and con- figure jobs and steps, create job dependencies, and manage paral- lelism and concurrency in your workflows.
 Jobs overview:
-A job is an individual unit of work that runs on a specified environ- ment and consists of one or more steps. Jobs in a workflow run in parallel by default, but you can create dependencies between jobs to enforce a specific execution order. Jobs are defined using the jobs keyword, followed by a unique identifier for each job and its configuration.
-Example:
+A job is an individual unit of work that runs on a specified environment and consists of one or more steps. Jobs in a workflow run in parallel by default, but you can create dependencies between jobs to enforce a specific execution order. Jobs are defined using the jobs keyword, followed by a unique identifier for each job and its configuration. Example:
+
+```
 jobs:
-- name: Build project run: npm run build test:
-runs-on: ubuntu-latest
+- name: Build project 
+  run: npm run 
+build 
+ test:
+ runs-on: ubuntu-latest
 steps:
-- name: Run tests run: npm test
-Configuring jobs:
-Each job has a set of properties that you can configure, such as the environment in which the job runs, its dependencies, and its time- out and retry settings.
-runs-on: Specifies the operating system and version for the job. Examples include ubuntu-latest, windows-latest, and macos-latest.
-needs: Specifies the dependencies between jobs, ensuring that a job only runs after the specified jobs have completed successfully.
-timeout-minutes : Sets a timeout for the job, after which it will be cancelled if it has not completed.
-continue-on-error: Configures whether the job should con- tinue if a step fails.
-strategy: Defines the matrix configuration for running mul- tiple instances of a job with different environment variables, operating systems, or configurations.
-build:
-runs-on: ubuntu-latest
-steps:
+- name: Run tests 
+   run: npm test
+```
+#### Configuring jobs:
+Each job has a set of properties that you can configure, such as the environment in which the job runs, its dependencies, and its time-out and retry settings.
 
+- runs-on: Specifies the operating system and version for the job. Examples include ubuntu-latest, windows-latest, and macos-latest.
+- needs: Specifies the dependencies between jobs, ensuring that a job only runs after the specified jobs have completed successfully.
+- timeout-minutes : Sets a timeout for the job, after which it will be cancelled if it has not completed.
+- continue-on-error: Configures whether the job should continue if a step fails.
+- strategy: Defines the matrix configuration for running multiple instances of a job with different environment variables, operating systems, or configurations.
 
-Defining steps:
-Steps are individual tasks that run sequentially within a job. Each step can execute a shell command, use a pre-built action from the GitHub Actions marketplace, or reference a custom action. Steps are defined using the steps keyword, followed by a list of step configurations.
-Example:
+### Defining steps:
+Steps are individual tasks that run sequentially within a job. Each step can execute a shell command, use a pre-built action from the GitHub Actions marketplace, or reference a custom action. Steps are defined using the steps keyword, followed by a list of step configurations.Example:
+
+```
 jobs:
 build:
 runs-on: ubuntu-latest
@@ -454,20 +607,25 @@ node-version: 14
 run: npm ci
 - name: Build project
 run: npm run build
-Configuring steps:
+```
+
+#### Configuring steps:
 Each step has a set of properties that you can configure, such as its name, the action it uses, and the input parameters for the action.
+
 name: Specifies a human-readable name for the step, which is displayed in the GitHub Actions web interface.
-uses: References a pre-built action from the GitHub Actions marketplace, a custom action, or an action from an- other repository. The syntax is <owner>/<repo>@<ref>, where <owner> is the repository owner, <repo> is the repository name, and <ref> is a branch, tag, or commit reference. with: Provides input parameters for an action. The available parameters depend on the specific action being used.
+uses: References a pre-built action from the GitHub Actions marketplace, a custom action, or an action from an- other repository. The syntax is <owner>/<repo>@<ref>, where <owner> is the repository owner, <repo> is the repository name, and <ref> is a branch, tag, or commit reference. 
+with: Provides input parameters for an action. The available parameters depend on the specific action being used.
 run: Executes a shell command or script within the job's environment.
 env: Sets environment variables for a specific step.
 if: Adds a conditional expression that determines whether a step should run. The step will only run if the expression evaluates to true.
-Job dependencies and parallelism:
+
+#### Job dependencies and parallelism:
 By default, jobs run in parallel. However, you can create dependen- cies between jobs using the needs keyword to enforce a specific execution order. A job with a needs property will only start after all the specified jobs have completed successfully. This allows you to create complex workflows with multiple stages, such as building, testing, and deploying your application.
 Example:
+```
 jobs:
 build:
 runs-on: ubuntu-latest
-
 steps:
 - name: Build project
 run: npm run build
@@ -483,10 +641,14 @@ needs: test
 steps:
 - name: Deploy to production
 run: npm run deploy
-In this example, the test job depends on the build job, and the de- ploy job depends on the test job. This enforces a sequential execu- tion order, ensuring that the deployment only happens after both the build and test jobs have completed successfully.
-Matrix strategy:
-The matrix strategy allows you to run multiple instances of a job with different environment variables, operating systems, or con- figurations. This can be useful for testing your application across multiple platforms or versions. To set up a matrix strategy, use the strategy keyword and provide a matrix configuration.
+```
+
+In this example, the test job depends on the build job, and the deploy job depends on the test job. This enforces a sequential execution order, ensuring that the deployment only happens after both the build and test jobs have completed successfully.
+
+#### Matrix strategy:
+The matrix strategy allows you to run multiple instances of a job with different environment variables, operating systems, or configurations. This can be useful for testing your application across multiple platforms or versions. To set up a matrix strategy, use the strategy keyword and provide a matrix configuration.
 Example:
+```
 jobs:
 test:
 runs-on: ${{ matrix.os }}
@@ -501,31 +663,42 @@ with:
 node-version: ${{ matrix.node-version }}
 - name: Run tests
 run: npm test
+```
 In this example, the test job will run on three different operat- ing systems (ubuntu-latest, windows-latest, and macos-latest) and three different Node.js versions (12, 14, and 16), resulting in a total of nine job instances.
-By understanding and effectively utilizing jobs and steps in your GitHub Actions workflows, you can create powerful, adaptable, and efficient workflows that cater to your specific requirements. In the next sections, we will explore actions, environment vari- ables, secrets, and other advanced features that will help you har- ness the full potential of GitHub Actions.
-Using Pre-Built Actions
-Pre-built actions are reusable components created by the GitHub
 
+By understanding and effectively utilizing jobs and steps in your GitHub Actions workflows, you can create powerful, adaptable, and efficient workflows that cater to your specific requirements. In the next sections, we will explore actions, environment vari- ables, secrets, and other advanced features that will help you harness the full potential of GitHub Actions.
 
-community and the GitHub Actions team that help automate common tasks, making your workflows more efficient and easier to maintain. In this section, we will discuss how to find, use, and configure pre-built actions, and explore some popular actions that you can incorporate into your workflows.
-Finding pre-built actions:
-The GitHub Actions Marketplace is the primary source for dis- covering and sharing pre-built actions. You can access the market- place by visiting the following URL:
-https://github.com/marketplace?type=actions
+### Using Pre-Built Actions
+Pre-built actions are reusable components created by the GitHub community and the GitHub Actions team that help automate common tasks, making your workflows more efficient and easier to maintain. In this section, we will discuss how to find, use, and configure pre-built actions, and explore some popular actions that you can incorporate into your workflows.
+
+### Finding pre-built actions:
+The GitHub Actions Marketplace is the primary source for dis- covering and sharing pre-built actions. You can access the market- place by visiting the following URL: `https://github.com/marketplace?type=actions`
+
 Alternatively, you can navigate to the "Actions" tab in your reposi- tory, click on "New workflow", and then click on "Marketplace" to view a curated list of actions tailored to your repository's language and framework.
+
 When selecting an action, consider its popularity, maintenance status, and the trustworthiness of its author. Reading the action's documentation, reviews, and source code can help you make an in- formed decision.
-Using pre-built actions:
-To use a pre-built action in your workflow, add a new step to your job and use the uses keyword, followed by the action's repository in the format <owner>/<repo>@<ref> .
-Example:
+
+### Using pre-built actions:
+To use a pre-built action in your workflow, add a new step to your job and use the uses keyword, followed by the action's repository in the format <owner>/<repo>@<ref>. Example:
+
+```
 Jobs:
 Build:
 runs-on: ubuntu-latest
 Steps:
-- name: Checkout repository uses: actions/checkout@v2 - name: Set up Node.js
-uses: actions/setup-node@v2 with:
-node-version: 14
+- name: Checkout repository 
+  uses: actions/checkout@v2 
+- name: Set up Node.js
+  uses: actions/setup-node@v2 
+  with:
+   node-version: 14
+```
 In this example, the actions/checkout@v2 action checks out your repository's code, and the actions/setup-node@v2 action sets up Node.js with the specified version.
-Configuring pre-built actions:
+
+### Configuring pre-built actions:
 Many actions provide input parameters that you can use to cus- tomize their behaviour. To set input parameters, use the with key- word followed by a key-value map of parameter names and values. Example:
+
+```
 jobs:
 deploy:
 runs-on: ubuntu-latest
@@ -533,93 +706,708 @@ steps:
 - name: Deploy to Firebase
 uses: w9jds/firebase-action@v1.5.0
 with:
+  args: deploy --only hosting
+   env: FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+```
 
-
-args: deploy --only hosting
-env: FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 In this example, the w9jds/firebase-action@v1.5.0 action deploys your application to Firebase Hosting, with the specified argu- ments. The action also requires a FIREBASE_TOKEN environment variable, which is provided as a secret.
-Popular pre-built actions:
-There are numerous pre-built actions available in the GitHub Ac- tions Marketplace, covering various tasks such as code quality checks, deployments, and notifications. Here are some popular ac- tions that you might find useful in your workflows:
-actions/checkout: Checks out your repository's code so that your workflow can access and manipulate it.
-actions/setup-node: Sets up a specific version of Node.js in your job's environment.
-actions/cache: Caches dependencies and build artifacts to speed up your workflow.
-actions/upload-artifact and actions/download-artifact: Up- loads and downloads build artifacts, such as compiled binar- ies or test results, to share between jobs or store as workflow outputs.
-actions/create-release: Creates a new GitHub release and up- loads assets to it.
-actions/slack: Sends notifications to a Slack channel.
-Remember to consult the action's documentation and source code
-to understand its functionality, requirements, and limitations.
-Security considerations:
+
+### Popular pre-built actions:
+There are numerous pre-built actions available in the GitHub Actions Marketplace, covering various tasks such as code quality checks, deployments, and notifications. Here are some popular actions that you might find useful in your workflows:
+
+- [X] actions/checkout: Checks out your repository's code so that your workflow can access and manipulate it.
+- [X] actions/setup-node: Sets up a specific version of Node.js in your job's environment.
+- [X] actions/cache: Caches dependencies and build artifacts to speed up your workflow.
+- [X] actions/upload-artifact and actions/download-artifact: Uploads and downloads build artifacts, such as compiled binar- ies or test results, to share between jobs or store as workflow outputs.
+- [X] actions/create-release: Creates a new GitHub release and up- loads assets to it.
+- [X] actions/slack: Sends notifications to a Slack channel.
+
+Remember to consult the action's documentation and source code to understand its functionality, requirements, and limitations.
+
+### Security considerations:
 When using pre-built actions, be aware of the potential security risks associated with running third-party code in your workflows. To mitigate these risks, follow these best practices:
-Review the action's source code and documentation to understand its functionality and ensure it doesn't contain malicious or insecure code.
-Use specific version tags or commit hashes instead of branch names when referencing actions. This helps prevent unexpected changes in the action's behaviour due to updates or modifications.
-Keep your actions up-to-date to benefit from bug fixes, security patches, and new features. Regularly check for new releases and update your workflows accordingly.
-Limit access to sensitive information, such as secrets and environment variables, in your workflows. Make sure to pro- vide only the necessary permissions and data to the actions you use.
-By using pre-built actions in your GitHub Actions workflows, you can leverage the power of the GitHub community to automate various tasks, save time, and streamline your development pro- cess. As you become more familiar with GitHub Actions, you may also consider creating your own custom actions to further tailor your workflows to your specific needs. In the next sections, we will
+
+- [X] Review the action's source code and documentation to understand its functionality and ensure it doesn't contain malicious or insecure code.
+- [X] Use specific version tags or commit hashes instead of branch names when referencing actions. This helps prevent unexpected changes in the action's behaviour due to updates or modifications.
+- [X] Keep your actions up-to-date to benefit from bug fixes, security patches, and new features. Regularly check for new releases and update your workflows accordingly.
+- [X] Limit access to sensitive information, such as secrets and environment variables, in your workflows. Make sure to pro- vide only the necessary permissions and data to the actions you use.
+
+By using pre-built actions in your GitHub Actions workflows, you can leverage the power of the GitHub community to automate various tasks, save time, and streamline your development process. As you become more familiar with GitHub Actions, you may also consider creating your own custom actions to further tailor your workflows to your specific needs. In the next sections, we will
 discuss advanced topics such as managing environment variables, secrets and creating custom actions.
-Running Shell Commands
+
+### Running Shell Commands
 In addition to using pre-built actions, you can execute shell com- mands and scripts directly in your GitHub Actions workflows. This provides you with the flexibility to perform custom tasks, manipulate files, or interact with external tools and services. In this section, we will discuss how to run shell commands, control the shell environment, and manage exit codes and error handling in your workflows.
-Executing shell commands:
-To execute a shell command in your workflow, add a new step to your job and use the run keyword, followed by the command or script you want to execute.
+
+### Executing shell commands:
+To execute a shell command in your workflow, add a new step to your job and use the run keyword, followed by the command or script you want to execute. Example:
+
+## Multi-line and chained commands:
+You can execute multiple commands in a single step by using multi-line YAML strings or chaining commands with shell operators.
 Example:
+```
 jobs:
-You can execute multiple commands in a single step by using multi-line YAML strings or chaining commands with shell oper- ators.
-Example:
-jobs:
-test:
-runs-on: ubuntu-latest
+ test:
+ runs-on: ubuntu-latest
 steps:
-- name: Install dependencies and run tests run: |
+- name: Install dependencies and run tests
+run: |
 npm ci
 npm test
 - name: Build and deploy
 run: npm run build && npm run deploy
+```
 In this example, the first step installs the dependencies and runs the tests using a multi-line YAML string, while the second step builds and deploys the project using a chained command with the && shell operator.
-Specifying the shell:
-GitHub Actions supports various shells, including Bash, Power- Shell, and Windows Command Prompt. By default, the shell used depends on the operating system of the runner. You can specify the shell to use with the shell keyword.
-build:
-runs-on: ubuntu-latest
-steps:
-- name: Install dependencies
-run: npm ci
-- name: Build project
-run: npm run build
-In this example, the npm ci command installs the project's de- pendencies, and the npm run build command builds the project. Multi-line and chained commands:
+
+### Specifying the shell:
+GitHub Actions supports various shells, including Bash, PowerShell, and Windows Command Prompt. By default, the shell used depends on the operating system of the runner. You can specify the shell to use with the shell keyword. Example:
+```
 jobs:
 custom-shell:
 runs-on: ubuntu-latest
+steps:
+ - name: Run script in custom shell
+   run: echo "Hello, World!"
+   shell: python {0}
+```
+In this example, the echo "Hello, World!" command is executed using the Python interpreter as a custom shell.
+
+In this example, the first step installs the dependencies and runs the tests using a multi-line YAML string, while the second step builds and deploys the project using a chained command with the && shell operator.
+
+### Environment variables:
+You can set environment variables for a specific step or an entire job using the env keyword. Environment variables can be accessed in shell commands and scripts using the appropriate syntax for the shell being used.
 Example:
+```
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+     steps:
+       - name: Deploy with environment variable
+          run: npm run deploy -- --token $TOKEN
+          env:TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+```
+In this example, the TOKEN environment variable is set to the value of the DEPLOY_TOKEN secret and is used as an argument in the npm run deploy command.
 
-steps:- name: Run script in custom shellrun: echo "Hello, World!"shell: python {0}In this example, the echo "Hello, World!" command is executed using the Python interpreter as a custom shell.Environment variables:You can set environment variables for a specific step or an entire job using the env keyword. Environment variables can be accessed in shell commands and scripts using the appropriate syntax for the shell being used.Example:jobs:deploy:runs-on: ubuntu-lateststeps:- name: Deploy with environment variablerun: npm run deploy -- --token $TOKENenv:TOKEN: ${{ secrets.DEPLOY_TOKEN }}In this example, the TOKEN environment variable is set to the value of the DEPLOY_TOKEN secret and is used as an argument in the npm run deploy command.Exit codes and error handling:By default, a step fails if the shell command or script returns a non-zero exit code. To control the error handling behavior, you can use the continue-on-error and if keywords.continue-on-error : Set to true if the job should continue even if the step fails. The default value is false.if: Adds a conditional expression that determines whether a step should run. The step will only run if the expression evaluates to true.Example:jobs: build:runs-on: ubuntu-lateststeps:- name: Run linterrun: npm run lintcontinue-on-error: true- name: Run testsrun: npm test- name: Deployrun: npm run deployif: success()In this example, the Run linter step is configured to continue on error, allowing the workflow to proceed even if the linter fails. The Deploy step uses a conditional expression with the if keyword, en- suring that it only runs if the previous steps were successful.
+### Exit codes and error handling
+By default, a step fails if the shell command or script returns a non-zero exit code. To control the error handling behavior, you can use the continue-on-error and if keywords.
 
-Working directory:By default, shell commands and scripts are executed in the reposi- tory's root directory. You can change the working directory for a specific step or an entire job using the working-directory key- word.Example:jobs:build:runs-on: ubuntu-lateststeps:- name: Build frontendrun: npm run buildworking-directory: frontend- name: Build backendrun: npm run buildworking-directory: backendIn this example, the Build frontend and Build backend steps are executed in the frontend and backend directories, respectively.Running scripts from files:Instead of writing shell commands directly in the workflow file, you can execute scripts from external files. This is particularlyuseful for managing complex or reusable scripts.Example:jobs: deploy:runs-on: ubuntu-lateststeps:- name: Checkout repositoryuses: actions/checkout@v2- name: Execute deployment scriptrun: ./scripts/deploy.shIn this example, the Execute deployment script step runs the de- ploy.sh script from the scripts directory.Running shell commands in your GitHub Actions workflows provides you with the flexibility to perform a wide range of tasks, from simple one-liners to complex scripts. By combining shell commands with pre-built actions and advanced features like environment variables and conditional execution, you can create powerful, versatile, and efficient workflows tailored to your pro- ject's needs. In the next sections, we will explore topics like man- aging secrets, conditional execution, and creating custom actions to further enhance your GitHub Actions workflows.
+- [x] continue-on-error : Set to true if the job should continue even if the step fails. The default value is false.
+- [x] if: Adds a conditional expression that determines whether a step should run. The step will only run if the expression evaluates to true.
+Example:
+```
+jobs: 
+  build:
+  runs-on: ubuntu-latest
+    steps:
+      - name: Run linter
+         run: npm run lint
+         continue-on-error: true
+         - name: Run tests
+            run: npm test
+         - name: Deploy
+            run: npm run deploy
+            if: success()
+```
+In this example, the Run linter step is configured to continue on error, allowing the workflow to proceed even if the linter fails. The Deploy step uses a conditional expression with the if keyword, ensuring that it only runs if the previous steps were successful.
 
-Managing Workflow ExecutionIn this chapter, we will focus on managing and optimizing the execution of your GitHub Actions workflows. By learning how to control and fine-tune your workflows, you can ensure that they run efficiently, effectively, and securely, while also minimizing the consumption of resources.First, we will discuss environment variables and secrets, which are essential for managing configuration data and securely stor- ing sensitive information, such as API keys or credentials. You will learn how to define, access, and use environment variables and secrets within your workflows to make them more flexible andsecure.Next, we will explore job and step-level conditions, which enable you to control the execution of specific jobs or steps based on certain criteria. We will cover various types of conditional expres- sions, such as basic conditional execution, combining expressions with logical operators, and filtering by event type or branch. By in- corporating these conditions into your workflows, you can create more dynamic and adaptable automation processes.Lastly, we will dive into matrix builds and parallelization, which we briefly touched upon in the previous chapter. This section will provide a more in-depth look at these features, explaining how they can help you optimize resource usage, reduce workflow run- time, and improve overall maintainability.By the end of this chapter, you will have a thorough understand-ing of how to manage and optimize GitHub Actions workflow execution, allowing you to create robust, efficient, and secure automation processes for your development projects.Environment Variables and SecretsManaging sensitive data and configuration values is crucial for maintaining the security and flexibility of your workflows. Envir- onment variables and secrets provide a way to store and access this data without hardcoding it in your workflow files. In this sec- tion, we will discuss how to define, use, and manage environment variables and secrets in your GitHub Actions workflows.Environment variables:Environment variables are key-value pairs that are available to your workflow's steps as they execute. They can store configur- ation values, paths, or other data that you want to access across multiple steps or jobs. You can set environment variables at three different levels:Repository level: Set in your repository's settings and apply to all workflows in the repository.Workflow level: Set in the workflow file with the env key- word and apply to all jobs in the workflow.Job or step level: Set in the workflow file with the env key- word and apply only to the specific job or step.Example:
 
-name: My Workflowenv: GLOBAL_VARIABLE: "Global value"jobs:build:runs-on: ubuntu-latestenv:JOB_VARIABLE: "Job value"steps:- name: Print environment variablesrun: |echo "Global variable: $GLOBAL_VARIABLE"echo "Job variable: $JOB_VARIABLE"echo "Step variable: $STEP_VARIABLE"env:STEP_VARIABLE: "Step value"In this example, environment variables are set at the repository, workflow, job, and step levels. The Print environment variables step accesses and prints their values using the appropriate syntax for the shell being used.Secrets:Secrets are encrypted environment variables that store sensitive data, such as access tokens, passwords, or API keys. Secrets are not exposed in logs or available to users with read access to the reposi- tory, providing a secure way to store and use sensitive data in your workflows.To create a secret, navigate to your repository's "Settings" tab, thenclick on "Secrets" in the left sidebar. Click on "New repository se- cret" to add a new secret, providing a name and a value.To use a secret in your workflow, reference it using the secrets context in an expression. Secrets can be assigned to environment variables or used directly in expressions.Example:jobs:deploy:runs-on: ubuntu-lateststeps:- name: Deploy with secret tokenrun: npm run deploy -- --token $TOKENenv: TOKEN: ${{ secrets.DEPLOY_TOKEN }}In this example, the DEPLOY_TOKEN secret is assigned to the TOKEN environment variable, which is then used as an argument in the npm run deploy command.Masking and redacting secrets:***GitHub Actions automatically masks and redacts secrets in logs to prevent accidental exposure. If a secret value is detected in the logs, it is replaced with the character sequence. To ensure that secrets are masked correctly, avoid using secrets with very short or common values, and validate user input if it's used to construct secrets.
+### Working directory:
+By default, shell commands and scripts are executed in the repository's root directory. You can change the working directory for a specific step or an entire job using the working-directory keyword.Example:
+```
+jobs:
+  build:
+    runs-on: ubuntu-latest
+      steps:
+        - name: Build frontend
+          run: npm run build
+          working-directory: frontend
+        - name: Build backend
+           run: npm run build
+           working-directory: backend
+```
+In this example, the Build frontend and Build backend steps are executed in the frontend and backend directories, respectively.
 
-Organization and environment secrets:In addition to repository secrets, GitHub Actions supports organ- ization secrets and environment secrets. Organization secrets can be shared across multiple repositories within an organization, while environment secrets are scoped to specific environments and require approval to be accessed by a workflow.Limiting secret access:By default, secrets are not passed to workflows that are triggered by a pull request from a forked repository. This helps prevent unauthorized access to your secrets. To provide limited access to secrets for forked repositories, you can use the pull_request_target event in combination with additional checks and conditions in your workflow.Example:on:pull_request_target:types: [opened, synchronize]jobs:check_pr:runs-on: ubuntu-lateststeps:- name: Check for approvalid: checkrun: |# Add logic to check if the PR is approved,#e.g., by a specific user or using labelsif [ "${{ github.event.pull_request.user.login}}" echo "::set-output name=approved::true" Elseecho "::set-output name=approved::false" Fideploy:runs-on: ubuntu-latestneeds: check_prif: ${{ steps.check.outputs.approved == 'true'}} steps:- name: Deploy with secret tokenrun: npm run deploy -- --token $TOKENenv:TOKEN: ${{ secrets.DEPLOY_TOKEN }}=="trusted-user" ]; thenIn this example, the check_pr job checks if the pull request is approved based on custom logic (e.g., by a specific user or using labels). The deploy job uses the needs keyword to depend on the check_pr job and the if keyword to conditionally execute the de- ployment step if the pull request is approved.By effectively managing environment variables and secrets in your GitHub Actions workflows, you can securely store sensitive data and configuration values, providing a flexible and maintain- able way to manage your workflow execution. In the following sections, we will explore more advanced topics such as conditional execution, matrix strategies, and creating custom actions to fur- ther enhance your GitHub Actions workflows.
+Running scripts from files:
+Instead of writing shell commands directly in the workflow file, you can execute scripts from external files. This is particularlyuseful for managing complex or reusable scripts.
+Example:
+```
+jobs: 
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        - name: Execute deployment script
+            run: ./scripts/deploy.sh
+```
+In this example, the Execute deployment script step runs the de- ploy.sh script from the scripts directory.
+Running shell commands in your GitHub Actions workflows provides you with the flexibility to perform a wide range of tasks, from simple one-liners to complex scripts.
 
-Job and Step-Level ConditionsConditional execution is a powerful feature that allows you to control when jobs and steps run based on specific criteria. In this section, we'll cover various aspects of using conditions in your Git- Hub Actions workflows.Basic Conditional ExecutionThe basic conditional execution feature in GitHub Actions allows you to control when jobs or steps within your workflows run based on specific criteria. By using the if keyword followed by a condi- tional expression, you can determine whether a job or step should execute. The job or step will only run if the expression evaluates totrue.To set a condition for a job, add the if keyword at the job level in your workflow file:jobs:build:runs-on: ubuntu-latestif: ${{ github.event_name == 'push' }}steps:- name: Build projectrun: npm run buildIn this example, the build job will only run if the event that trig- gered the workflow is a push event.Similarly, you can set conditions for individual steps within a job by adding the if keyword at the step level:jobs:test:runs-on: ubuntu-lateststeps:- name: Checkout repository uses: actions/checkout@v2- name: Run tests on the main branch if: ${{ github.ref == 'refs/heads/main' }} run: npm run test:main- name: Run tests on other branches if: ${{ github.ref!= 'refs/heads/main' }} run: npm run testIn this example, the Run tests on the main branch step will execute only if the current branch is the main branch. Conversely, the Run tests on other branches step will execute if the current branch is not the main branch.Using basic conditional execution, you can tailor your workflows to respond to different events or branches, optimizing resource usage and reducing overall runtime. This makes your workflows more efficient and adaptable, ultimately simplifying their main-tenance.Contexts and Functions in ConditionsWhen defining conditional expressions in your GitHub Actions workflows, you can use various contexts and functions to create more dynamic and complex conditions. Contexts provide access to data about the current workflow run, repository, and event, while functions offer a way to manipulate and evaluate this data. Here's an overview of some commonly used contexts and functions:1. Contexts:github: Provides access to data related to the current workflow run, repository, and event. Some commonly used properties include github.event_name, github.ref, and github.actor .secrets: Allows you to reference encrypted secrets stored in your repository.needs: Enables you to access the output of previously completed jobs within the same workflow.steps: Grants access to the output of previous steps within the same job.env: References environment variables defined at the workflow, job, or step level.2. Functions:success(): Returns true if all the previous steps or jobs in the workflow have completed successfully, and false otherwise.failure() : Returns true if any of the previous steps or jobs in the workflow have failed, and false otherwise.cancelled(): Returns true if any of the previous steps or jobs in the workflow have been cancelled, and false otherwise.startsWith(), endsWith(), and contains() : String manipu- lation functions that can be used to check if a stringExample:jobs:deploy:starts with, ends with, or contains a specific substring, respectively.fromJson(): Parses a JSON string and returns a JSON object that can be used in expressions.runs-on: ubuntu-latest if: ${{ github.event_name steps:=='push' && startsWith(github.ref, 'refs/heads/main')}}- name: Checkout repository uses: actions/checkout@v2- name: Deployrun: npm run deployenv:API_KEY: ${{ secrets.API_KEY}}In this example, the deploy job will only run if the event that trig- gered the workflow is a push event and the current branch is the main branch. The API_KEY secret is also used as an environment variable for the Deploy step.By using contexts and functions in your conditions, you can create more versatile workflows that respond dynamically to different events, branches, statuses, and other relevant criteria. This allows you to optimize resource usage, reduce runtime, and improve the maintainability of your GitHub Actions workflows.
+By combining shell commands with pre-built actions and advanced features like environment variables and conditional execution, you can create powerful, versatile, and efficient workflows tailored to your project's needs.
 
-Combining Expressions with Logical OperatorsIn GitHub Actions, you can combine expressions in your condi- tional statements using logical operators to create more complex conditions. This flexibility allows you to tailor your workflows to run or skip jobs and steps based on multiple criteria, further op- timizing resource usage and runtime. The following logical oper- ators are available for use in conditional expressions:1. && (and): Evaluates to true if both the left and right expres- sions are true, and false otherwise.2. || (or): Evaluates to true if either the left or right expression is true, and false otherwise.3. ! (not): Negates the truth value of the expression that follows it. Returns true if the expression is false, and false if the ex- pression is true.Example:jobs:Build_and_test:runs-on: ubuntu-latestif: ${{ github.event_name=='push' && (startsWith(github.ref, 'refs/heads/main') || contains(github.event.head_commit.message, '[build]')) }} steps:- name: Checkout repositoryuses: actions/checkout@v2- name: Install dependenciesrun: npm ci- name: Run testsrun: npm test- name: Build project run: npm run buildIn this example, the build_and_test job will only run if the event that triggered the workflow is a push event and either the current branch is the main branch or the commit message contains the [build] string.By combining expressions with logical operators, you can create more nuanced conditions for executing jobs and steps in your Git- Hub Actions workflows. This added level of control enables you to create more efficient and adaptable workflows, ultimately simpli- fying their maintenance and improving resource management. Conditional Job DependenciesConditional job dependencies in GitHub Actions enable you to cre- ate dependencies between jobs and control their execution order based on the success or failure of previous jobs. This functionality can help you optimize resource usage, reduce runtime, and im- prove the maintainability of your workflows.To create a job dependency, use the needs keyword at the job level, followed by the name of the job(s) it depends on. The depend- ent job will only run if all the jobs it depends on have completed successfully.Example:
+In the next sections, we will explore topics like managing secrets, conditional execution, and creating custom actions to further enhance your GitHub Actions workflows.
 
-jobs:build:runs-on: ubuntu-lateststeps:- name: Checkout repositoryuses: actions/checkout@v2- name: Install dependencies run: npm ci- name: Build projectrun: npm run buildtest:runs-on: ubuntu-latestneeds: buildsteps:- name: Checkout repositoryuses: actions/checkout@v2- name: Install dependencies run: npm ci- name: Run testsrun: npm testdeploy:runs-on: ubuntu-latestneeds: teststeps:- name: Checkout repositoryuses: actions/checkout@v2- name: Deployrun: npm run deployIn this example, the test job depends on the successful completion of the build job, and the deploy job depends on the successful com- pletion of the test job. The jobs will run in sequence, and if any job fails, the subsequent jobs will not run.You can also use conditional expressions with the needs keyword to create more complex dependencies:jobs: build:runs-on: ubuntu-lateststeps:- name: Checkout repositoryuses: actions/checkout@v2- name: Install dependencies run: npm ci- name: Build projectrun: npm run buildtest:runs-on: ubuntu-latestneeds: buildif: ${{ github.event_name != 'pull_request' || !contains(github.event.pull_request. labels.*.name, 'skip-tests') }}steps:- name: Checkout repositoryuses: actions/checkout@v2- name: Install dependencies run: npm ci- name: Run tests
+## Managing Workflow Execution
+In this chapter, we will focus on managing and optimizing the execution of your GitHub Actions workflows. By learning how to control and fine-tune your workflows, you can ensure that they run efficiently, effectively, and securely, while also minimizing the consumption of resources.
 
-run: npm testdeploy:runs-on: ubuntu-latestneeds: testif: ${{ success() }}steps:- name: Checkout repositoryuses: actions/checkout@v2- name: Deployrun: npm run deployIn this modified example, the test job will only run if the build job is successful and either the event is not a pull request or the pull request does not have a label named "skip-tests". The deploy job will run only if the test job is successful.By leveraging conditional job dependencies in your GitHub Ac- tions workflows, you can create more efficient and flexible work- flows that respond dynamically to the success or failure of previ- ous jobs, ultimately simplifying workflow maintenance and im- proving resource management.Skipping Jobs and StepsIn GitHub Actions, you can skip jobs or steps within your work- flows based on specific conditions by using the if keyword fol- lowed by a conditional expression. If the expression evaluates to false, the job or step will be skipped. Skipping unnecessary jobs or steps can help you optimize resource usage, reduce runtime, and improve the maintainability of your workflows.To skip a job, add the if keyword at the job level in your workflow file:jobs:deploy:runs-on: ubuntu-latestif: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main')}} steps:- name: Checkout repositoryuses: actions/checkout@v2- name: Deploy to production run: npm run deployIn this example, the deploy job will only run if the event that trig- gered the workflow is a push event and the current branch is the main branch. Otherwise, the job will be skipped.Similarly, you can skip individual steps within a job by adding the if keyword at the step level:jobs: test:runs-on: ubuntu-latest steps:- name: Checkout repository uses: actions/checkout@v2- name: Install dependencies run: npm ci- name: Run testsrun: npm test
+First, we will discuss environment variables and secrets, which are essential for managing configuration data and securely storing sensitive information, such as API keys or credentials. You will learn how to define, access, and use environment variables and secrets within your workflows to make them more flexible andsecure.
 
-- name: Upload test coverageif: ${{ success()}}uses: actions/upload-artifact@v2with:name: test-coverage path: coverage/In this example, the Upload test coverage step will only run if all the previous steps within the test job have completed successfully. If any previous step fails, the step will be skipped.By using conditional expressions to skip jobs and steps in your GitHub Actions workflows, you can create more efficient and adaptable workflows that respond dynamically to different events, branches, and statuses. This added level of control enables you to optimize resource usage and reduce runtime, ultimately simplify- ing workflow maintenance and improving resource management.Filtering by Event Type or BranchFiltering jobs and steps based on event type or branch in GitHub Actions allows you to create more targeted workflows that re- spond specifically to the context in which they are run. By using conditional expressions with the if keyword, you can control when a job or step is executed based on the event that triggered the workflow or the current branch.Filtering by Event TypeTo filter a job or step based on the event type, use the github.event_name context in your conditional expression. This context pro- vides access to the name of the event that triggered the workflow. Example:jobs:deploy:runs-on: ubuntu-latestif: ${{ github.event_name == 'push'}} steps:- name: Checkout repository uses: actions/checkout@v2- name: Deploy to production run: npm run deployIn this example, the deploy job will only run if the event that triggered the workflow is a push event. Otherwise, the job will be skipped.Filtering by BranchTo filter a job or step based on the current branch, use the github.ref context in your conditional expression. This context provides ac- cess to the branch or tag ref that triggered the workflow. Example:jobs:deploy:runs-on: ubuntu-latestif: ${{ startsWith(github.ref, 'refs/heads/main') }} steps:
+Next, we will explore job and step-level conditions, which enable you to control the execution of specific jobs or steps based on certain criteria. We will cover various types of conditional expressions, such as basic conditional execution, combining expressions with logical operators, and filtering by event type or branch. By incorporating these conditions into your workflows, you can create more dynamic and adaptable automation processes.
 
-- name: Checkout repositoryuses: actions/checkout@v2- name: Deploy to productionrun: npm run deployIn this example, the deploy job will only run if the current branch is the main branch. Otherwise, the job will be skipped.Combining Event Type and Branch Filtering:You can also combine event type and branch filtering in a single conditional expression using logical operators like && (and) or || (or).Example:jobs:Deploy:runs-on: ubuntu-latestif: ${{ github.event_name steps:==- name: Checkout repositoryuses: actions/checkout@v2'push' && startsWith(github.ref, 'refs/heads/main')}}- name: Deploy to productionrun: npm run deployIn this example, the deploy job will only run if the event that trig- gered the workflow is a push event and the current branch is the main branch. Otherwise, the job will be skipped.By filtering jobs and steps based on event type or branch in your GitHub Actions workflows, you can create more focused and effi-cient workflows that run only when necessary. This increased level of control helps optimize resource usage, reduce runtime, and improve overall workflow maintainability.Error Handling and continue-on-errorError handling is a crucial aspect of building robust GitHub Ac- tions workflows. By default, if a step fails, the entire job will be marked as failed, and any subsequent steps will not be executed. However, there might be cases where you want a job to continue running even if a step encounters an error. The continue-on-error keyword allows you to control this behaviour and ensure that your workflows can gracefully handle errors and continue running when necessary.Using continue-on-errorTo use continue-on-error in your workflow, add the keyword at the step level and set its value to true. This will instruct GitHub Ac- tions to continue executing the remaining steps in the job even if the current step encounters an error.Example:jobs:build:runs-on: ubuntu-latest steps:- name: Checkout repository uses: actions/checkout@v2- name: Install dependencies
+Lastly, we will dive into matrix builds and parallelization, which we briefly touched upon in the previous chapter. This section will provide a more in-depth look at these features, explaining how they can help you optimize resource usage, reduce workflow runtime, and improve overall maintainability.By the end of this chapter, you will have a thorough understand-ing of how to manage and optimize GitHub Actions workflow execution, allowing you to create robust, efficient, and secure automation processes for your development projects.
 
-run: npm ci- name: Run linterrun: npm run lintcontinue-on-error: true- name: Run testsrun: npm testIn this example, the Run linter step is configured with continue-on- error: true . If the linter encounters an error (e.g., it finds code style violations), the step will be marked as failed, but the job will con- tinue executing the remaining steps, such as running the tests.Customizing error handling behaviourYou can also use conditional expressions with the continue-on- error keyword to customize the error handling behaviour based on specific conditions.Example:jobs:build:runs-on: ubuntu-lateststeps:- name: Checkout repositoryuses: actions/checkout@v2- name: Install dependenciesrun: npmci- name: Run linterrun: npm run lintcontinue-on-error: ${{ github.event_name- name: Run tests run: npm test=='pull_request'}}In this modified example, the continue-on-error value is set to a conditional expression that evaluates to true if the event that triggered the workflow is a pull request. This means that if the workflow is triggered by a pull request event and the linter en- counters an error, the job will continue executing the remaining steps. However, if the workflow is triggered by another event type, such as a push event, the job will be marked as failed and the re- maining steps will not be executed.By using the continue-on-error keyword and conditional expres- sions in your GitHub Actions workflows, you can create more re- silient and adaptable workflows that can gracefully handle errors and continue running when appropriate. This added level of con- trol enables you to optimize resource usage, reduce runtime, and improve overall workflow maintainability.
+### Environment Variables and Secrets
+Managing sensitive data and configuration values is crucial for maintaining the security and flexibility of your workflows. Environment variables and secrets provide a way to store and access this data without hardcoding it in your workflow files. In this setion, we will discuss how to define, use, and manage environment variables and secrets in your GitHub Actions workflows.
 
-Creating Custom GitHub ActionsIn this chapter, we will guide you through the process of cre- ating custom GitHub Actions to expand the capabilities of your workflows beyond the pre-built actions available in the GitHub Marketplace. Custom actions allow you to tailor your automation processes to the specific needs of your development projects and implement unique functionality that might not be available in ex- isting actions.We will begin by discussing the two primary types of custom ac- tions: Docker-based actions and JavaScript-based actions. You will learn about their key differences, advantages, and limitations, en- abling you to make informed decisions about which type of action is best suited for your particular use case.Next, we will provide step-by-step instructions on how to create your own custom actions, covering the structure, components, and development process for both Docker-based and JavaScript- based actions. This hands-on approach will ensure you gain prac- tical experience and a deep understanding of how to create cus- tom actions effectively.Throughout the chapter, we will also share tips, best practices, and recommendations for action development, including how to write maintainable code, ensure proper error handling, and optimize performance. These insights will help you create high-quality, re- usable custom actions that can be shared with the community or used privately within your organization.By the end of this chapter, you will be equipped with the know- ledge and skills necessary to create custom GitHub Actions, enab- ling you to expand your automation capabilities and tailor your workflows to meet the unique requirements of your development projects.Docker-based Actions vs. JavaScript-based ActionsIn this section, we will compare and contrast the two pri- mary types of custom GitHub Actions: Docker-based Actions and JavaScript-based Actions. Understanding the differences between these action types, as well as their respective advantages and limi- tations, will help you make informed decisions when creating cus- tom actions for your workflows.Introduction to Docker-based ActionsDocker-based Actions are GitHub Actions that run inside a Docker container. This means that the action's runtime environment is isolated and can be customized to include any dependencies re- quired by the action.Advantages of Docker-based ActionsHighly customizable and self-contained environment. Consistent execution environment, ensuring the action be- haves the same way across different runners.Can be written in any programming language, as long as the language runtime is available in the Docker container.Limitations of Docker-based Actions
+#### Environment variables:
+Environment variables are key-value pairs that are available to your workflow's steps as they execute. They can store configuration values, paths, or other data that you want to access across multiple steps or jobs. You can set environment variables at three different levels:
 
-Can only be executed on Linux runners, as Docker is not supported on macOS or Windows runners.Slower startup time, due to the overhead of building and running the Docker container.Introduction to JavaScript-based ActionsJavaScript-based Actions are GitHub Actions that run directly on the runner's host machine using Node.js. These actions require fewer resources compared to Docker-based Actions, as they do not run inside a container.Advantages of JavaScript-based ActionsFaster startup time, as there is no need to build or run a Docker container.Can be executed on any platform, including Linux, macOS, and Windows runners.Easier to create and maintain, as they only require a single entry point script written in JavaScript or TypeScript. Limitations of JavaScript-based ActionsLimited to JavaScript or TypeScript, as the action runs dir- ectly on the Node.js runtime.The action's dependencies and runtime environment must be compatible with the runner's host environment.Choosing the Right Action Type for Your WorkflowWhen deciding between Docker-based and JavaScript-based Ac-tions, consider the following factors:Platform compatibility: If your workflow needs to run on macOS or Windows runners, JavaScript-based Actions are the better choice.Startup time: If minimizing startup time is crucial, Java- Script-based Actions generally offer faster execution.Customization and dependencies: If your action requires a highly customized environment or has complex dependen- cies, Docker-based Actions might be more suitable. Programming language: If you prefer to use a programming language other than JavaScript or TypeScript, Docker-based Actions offer greater flexibility.In conclusion, both Docker-based and JavaScript-based Actions have their merits and limitations. Carefully consider the specific needs of your workflow and the factors mentioned above to de- termine the most appropriate action type for your custom GitHub Actions.Building a Docker-based ActionIn this section, we will walk you through the process of creating a custom Docker-based GitHub Action. By following these steps, you will learn how to develop, test, and publish your own Docker- based Action for use in your workflows.Set up the project structureFirst, create a new directory for your action and navigate to it:
+- [x] Repository level: Set in your repository's settings and apply to all workflows in the repository;
+- [x] Workflow level: Set in the workflow file with the env keyword and apply to all jobs in the workflow.
+- [x] Job or step level: Set in the workflow file with the env key- word and apply only to the specific job or step.Example:
 
-mkdir my-docker-actioncd my-docker-actionNext, create the following files and folders inside the project direc- tory:Dockerfile: The Dockerfile defines the container image for your action, including the base image, runtime, and de- pendencies.entrypoint.sh: This shell script serves as the entry point for your action, containing the code that will be executed whenthe action runs.README.md : A README file that documents your action, including usage instructions, input parameters, and output values.Configure the DockerfileEdit the Dockerfile and specify the base image, dependencies, and other configurations. For example, if your action requires Python, you could use the following Dockerfile:FROM python:3.8-slim# Install any additional dependenciesRUN pip install requests# Set the working directoryWORKDIR /app# Copy the entrypoint script into the containerCOPY entrypoint.sh /app# Make the script executable RUN chmod +x /app/entrypoint.sh# Set the entrypoint for the container ENTRYPOINT ["/app/entrypoint.sh"]Implement the entrypoint scriptEdit the entrypoint.sh file and write the code that your action will execute. For instance, the following script fetches data from an API and prints the response:#!/bin/sh -1set-eAPI_URL="https://api.example.com/data"echo "Fetching data from $API_URL..." response=$(curl -s "$API_URL")echo "Response from API:" echo "$response"Make sure to set the correct permissions on the entrypoint.sh file:chmod +x entrypoint.shTest your action locallyBefore publishing your action, test it locally by building and run-ning the Docker container:
+```
+  name: My Workflow
+   env: 
+     GLOBAL_VARIABLE: "Global value"
+   jobs:
+     build:runs-on: ubuntu-latest
+     env:
+       JOB_VARIABLE: "Job value"
+     steps:
+        - name: Print environment variables
+           run: 
+               |
+                 echo "Global variable: $GLOBAL_VARIABLE"
+                 echo "Job variable: $JOB_VARIABLE"
+                 echo "Step variable: $STEP_VARIABLE"
+            env:
+                 STEP_VARIABLE: "Step value"
+```
 
-docker build -t my-docker-action. docker run --rm my-docker-actionIf everything works as expected, you can proceed to the next step.Publish your actionTo make your action available for use in workflows, push the pro- ject to a GitHub repository. Make sure to include a README.md file with instructions on how to use your action, including any re- quired input parameters and expected output values.Once your action is published, you can reference it in your work- flows by using the uses keyword with the repository's URL:jobs: my-job:runs-on: ubuntu-lateststeps:- name: Run My Docker Actionuses: your-username/my-docker-action@mainThat's it! You have now successfully created a custom Docker- based GitHub Action. By following these steps, you can develop and publish your own actions to automate various tasks and pro- cesses in your workflows.Building a JavaScript-based ActionIn this section, we will guide you through the process of creating a custom JavaScript-based GitHub Action. By following these steps, you will learn how to develop, test, and publish your own Java-Script-based Action for use in your workflows.Set up the project structureFirst, create a new directory for your action and navigate to it: mkdir my-js-actioncd my-js-actionNext, create the following files and folders inside the project direc- tory:index.js: The entry point for your action, containing the Java- Script code that will be executed when the action runs. action.yml : A YAML file that defines your action's metadata, including its name, description, inputs, and outputs.README.md: A README file that documents your action, including usage instructions, input parameters, and output values.package.json: The project's package manifest, which lists de- pendencies and other configurations.Configure the action.yml fileEdit the action.yml file and specify the metadata for your action, including its name, description, inputs, and outputs. For example:name: 'My JavaScript Action'description: 'Perform a custom task using a JavaScript-based GitHub Action' inputs: input1:description: 'An example input parameter'
+In this example, environment variables are set at the repository, workflow, job, and step levels. The Print environment variables step accesses and prints their values using the appropriate syntax for the shell being used.
+    
+### Secrets:
+Secrets are encrypted environment variables that store sensitive data, such as access tokens, passwords, or API keys. Secrets are not exposed in logs or available to users with read access to the repository, providing a secure way to store and use sensitive data in your workflows.
+To create a secret, navigate to your repository's "Settings" tab, thenclick on "Secrets" in the left sidebar.
+Click on "New repository secret" to add a new secret, providing a name and a value.
+
+To use a secret in your workflow, reference it using the secrets context in an expression.Secrets can be assigned to environment variables or used directly in expressions.Example:
+```
+jobs:
+  deploy:
+     runs-on: ubuntu-latest
+       steps:
+          - name: Deploy with secret token
+             run: npm run deploy -- --token $TOKEN
+             env: TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+```
+In this example, the DEPLOY_TOKEN secret is assigned to the TOKEN environment variable, which is then used as an argument in the npm run deploy command.
+
+### Masking and redacting secrets:
+GitHub Actions automatically masks and redacts secrets in logs to prevent accidental exposure. If a secret value is detected in the logs, it is replaced with the *** character sequence. To ensure that secrets are masked correctly, avoid using secrets with very short or common values, and validate user input if it's used to construct secrets.
+
+#### Organization and environment secrets:
+In addition to repository secrets, GitHub Actions supports organization secrets and environment secrets. Organization secrets can be shared across multiple repositories within an organization, while environment secrets are scoped to specific environments and require approval to be accessed by a workflow.
+
+### Limiting secret access:
+By default, secrets are not passed to workflows that are triggered by a pull request from a forked repository. 
+This helps prevent unauthorized access to your secrets. To provide limited access to secrets for forked repositories, you can use the pull_request_target event in combination with additional checks and conditions in your workflow.
+Example:
+```
+  on:
+    pull_request_target:
+       types: [opened, synchronize]
+        jobs:
+          check_pr:
+              runs-on: ubuntu-latest
+                steps:
+                  - name: Check for approval
+                    id: check
+                    run: |
+                         # Add logic to check if the PR is approved,
+                         #e.g., by a specific user or using labels
+                         if [ "${{ github.event.pull_request.user.login}}" =="trusted-user"]; then
+                           echo "::set-output name=approved::true"
+                         Else
+                           echo "::set-output name=approved::false" 
+                        Fi
+                        deploy:
+                          runs-on: ubuntu-latest
+                            needs: check_pr
+                            if: ${{ steps.check.outputs.approved == 'true'}} 
+                            steps:
+                              - name: Deploy with secret token
+                                 run: npm run deploy -- --token $TOKEN
+                                 env:
+                                   TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+```
+In this example, the check_pr job checks if the pull request is approved based on custom logic (e.g., by a specific user or using labels). The deploy job uses the needs keyword to depend on the check_pr job and the if keyword to conditionally execute the deployment step if the pull request is approved.
+
+By effectively managing environment variables and secrets in your GitHub Actions workflows, you can securely store sensitive data and configuration values, providing a flexible and maintainable way to manage your workflow execution. In the following sections, we will explore more advanced topics such as conditional execution, matrix strategies, and creating custom actions to fur- ther enhance your GitHub Actions workflows.
+
+### Job and Step-Level Conditions
+Conditional execution is a powerful feature that allows you to control when jobs and steps run based on specific criteria. In this section, we'll cover various aspects of using conditions in your GitHub Actions workflows.Basic Conditional ExecutionThe basic conditional execution feature in GitHub Actions allows you to control when jobs or steps within your workflows run based on specific criteria. 
+
+By using the if keyword followed by a condi- tional expression, you can determine whether a job or step should execute. The job or step will only run if the expression evaluates totrue.To set a condition for a job, add the if keyword at the job level in your workflow 
+file:
+```
+jobs:
+  build:
+     runs-on: ubuntu-latest
+      if: ${{ github.event_name == 'push' }}
+         steps:
+              - name: Build project
+                 run: npm run build
+```              
+In this example, the build job will only run if the event that triggered the workflow is a push event. 
+Similarly, you can set conditions for individual steps within a job by adding the if keyword at the step level:
+```
+jobs:
+  test:
+    runs-on: ubuntu-latest
+      steps:
+         - name: Checkout repository 
+           uses: actions/checkout@v2
+         - name: Run tests on the main branch 
+           if: ${{ github.ref == 'refs/heads/main' }} 
+           run: npm run test:main
+          - name: Run tests on other branches 
+           if: ${{ github.ref!= 'refs/heads/main' }} 
+             run: npm run test
+```
+In this example, the Run tests on the main branch step will execute only if the current branch is the main branch. Conversely, the Run tests on other branches step will execute if the current branch is not the main branch.
+
+Using basic conditional execution, you can tailor your workflows to respond to different events or branches, optimizing resource usage and reducing overall runtime. This makes your workflows more efficient and adaptable, ultimately simplifying their maintenance.
+
+### Contexts and Functions in Conditions
+When defining conditional expressions in your GitHub Actions workflows, you can use various contexts and functions to create more dynamic and complex conditions. 
+Contexts provide access to data about the current workflow run, repository, and event, while functions offer a way to manipulate and evaluate this data. Here's an overview of some commonly used contexts and functions:
+1. Contexts:
+- [x] github: Provides access to data related to the current workflow run, repository, and event. Some commonly used properties include github.event_name, github.ref, and github.actor.
+- [x] secrets: Allows you to reference encrypted secrets stored in your repository.needs: Enables you to access the output of previously completed jobs within the same workflow.- [x] steps: Grants access to the output of previous steps within the same job.env: References environment variables defined at the workflow, job, or step level.
+2. Functions:
+- [x] success(): Returns true if all the previous steps or jobs in the workflow have completed successfully, and false otherwise.
+- [x] failure() : Returns true if any of the previous steps or jobs in the workflow have failed, and false otherwise.
+- [x] cancelled(): Returns true if any of the previous steps or jobs in the workflow have been cancelled, and false otherwise.
+- [x] startsWith(), endsWith(), and contains() : String manipulation functions that can be used to check if a stringExample:jobs:deploy:starts with, ends with, or contains a specific substring, respectively.
+- [x] fromJson(): Parses a JSON string and returns a JSON object that can be used in expressions.
+```
+jobs:
+  runs-on: ubuntu-latest 
+  if: ${{ github.event_name steps:=='push' && startsWith(github.ref, 'refs/heads/main')}}
+     - name: Checkout repository 
+       uses: actions/checkout@v2
+     - name: Deployrun: npm run deploy
+        env:API_KEY: ${{ secrets.API_KEY}}
+```    
+In this example, the deploy job will only run if the event that trig- gered the workflow is a push event and the current branch is the main branch. 
+
+The API_KEY secret is also used as an environment variable for the Deploy step.
+
+By using contexts and functions in your conditions, you can create more versatile workflows that respond dynamically to different events, branches, statuses, and other relevant criteria. This allows you to optimize resource usage, reduce runtime, and improve the maintainability of your GitHub Actions workflows.
+
+### Combining Expressions with Logical Operators
+In GitHub Actions, you can combine expressions in your conditional statements using logical operators to create more complex conditions. This flexibility allows you to tailor your workflows to run or skip jobs and steps based on multiple criteria, further op- timizing resource usage and runtime. 
+
+The following logical oper- ators are available for use in conditional expressions:
+
+1. && (and): Evaluates to true if both the left and right expressions are true, and false otherwise.
+2. || (or): Evaluates to true if either the left or right expression is true, and false otherwise.3. ! (not): Negates the truth value of the expression that follows it. Returns true if the expression is false, and false if the ex- pression is true.
+
+Example:
+```
+jobs:
+  Build_and_test:
+      runs-on: ubuntu-latest
+      if: ${{ github.event_name=='push' && (startsWith(github.ref, 'refs/heads/main') || contains(github.event.head_commit.message, '[build]')) }} 
+      steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm test
+      - name: Build project 
+        run: npm run build
+```
+In this example, the build_and_test job will only run if the event that triggered the workflow is a push event and either the current branch is the main branch or the commit message contains the [build] string.
+
+By combining expressions with logical operators, you can create more nuanced conditions for executing jobs and steps in your Git- Hub Actions workflows. This added level of control enables you to create more efficient and adaptable workflows, ultimately simpli- fying their maintenance and improving resource management. 
+
+### Conditional Job Dependencies
+Conditional job dependencies in GitHub Actions enable you to create dependencies between jobs and control their execution order based on the success or failure of previous jobs. This functionality can help you optimize resource usage, reduce runtime, and improve the maintainability of your workflows.
+
+To create a job dependency, use the needs keyword at the job level, followed by the name of the job(s) it depends on. The dependent job will only run if all the jobs it depends on have completed successfully.Example:
+```
+jobs:
+   build:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Checkout repository
+         uses: actions/checkout@v2
+       - name: Install dependencies 
+         run: npm ci
+       - name: Build project
+         run: npm run 
+    buildtest:
+      runs-on: ubuntu-latest
+      needs: build
+      steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install dependencies 
+        run: npm ci
+      - name: Run tests
+        run: npm 
+      testdeploy:
+        runs-on: ubuntu-latest
+        needs: 
+         teststeps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
+          - name: Deploy
+             run: npm run deploy
+```
+In this example, the test job depends on the successful completion of the build job, and the deploy job depends on the successful completion of the test job. 
+
+The jobs will run in sequence, and if any job fails, the subsequent jobs will not run.
+
+You can also use conditional expressions with the needs keyword to create more complex dependencies:
+```
+jobs: 
+  build:
+     runs-on: ubuntu-latest
+      steps:
+         - name: Checkout repository
+           uses: actions/checkout@v2
+          - name: Install dependencies 
+             run: npm ci
+          - name: Build project
+            run: npm run 
+      buildtest:
+        runs-on: ubuntu-latest
+          needs: build
+          if: ${{ github.event_name != 'pull_request' || !contains(github.event.pull_request.labels.*.name, 'skip-tests') }}
+          steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            - name: Install dependencies 
+               run: npm ci
+            - name: Run tests
+               run: npm test
+      deploy:
+        runs-on: ubuntu-latest
+          needs: test
+          if: ${{ success() }}
+            steps:
+              - name: Checkout repository
+                uses: actions/checkout@v2
+              - name: Deploy
+                 run: npm run deploy
+```               
+
+In this modified example, the test job will only run if the build job is successful and either the event is not a pull request or the pull request does not have a label named "skip-tests". 
+
+The deploy job will run only if the test job is successful.
+
+By leveraging conditional job dependencies in your GitHub Actions workflows, you can create more efficient and flexible workflows that respond dynamically to the success or failure of previous jobs, ultimately simplifying workflow maintenance and improving resource management.
+
+### Skipping Jobs and Steps
+In GitHub Actions, you can skip jobs or steps within your workflows based on specific conditions by using the if keyword followed by a conditional expression. 
+If the expression evaluates to false, the job or step will be skipped. 
+Skipping unnecessary jobs or steps can help you optimize resource usage, reduce runtime, and improve the maintainability of your workflows.
+To skip a job, add the if keyword at the job level in your workflow file:
+```
+jobs:
+  deploy:
+  runs-on: ubuntu-latest
+  if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main')}} 
+  steps:
+   - name: Checkout repository
+     uses: actions/checkout@v2
+   - name: Deploy to production 
+     run: npm run deploy
+```
+
+In this example, the deploy job will only run if the event that triggered the workflow is a push event and the current branch is the main branch. 
+Otherwise, the job will be skipped.
+
+Similarly, you can skip individual steps within a job by adding the if keyword at the step level:
+```
+jobs: 
+ test:
+   runs-on: ubuntu-latest 
+    steps:
+      - name: Checkout repository 
+        uses: actions/checkout@v2
+      - name: Install dependencies 
+        run: npm ci
+      - name: Run tests
+        run: npm test
+      - name: Upload test coverage
+        if: ${{ success()}}
+         uses: actions/upload-artifact@v2
+           with:
+             name: test-coverage 
+             path: coverage/
+```
+
+In this example, the Upload test coverage step will only run if all the previous steps within the test job have completed successfully. 
+If any previous step fails, the step will be skipped.
+
+By using conditional expressions to skip jobs and steps in your GitHub Actions workflows, you can create more efficient and adaptable workflows that respond dynamically to different events, branches, and statuses. 
+This added level of control enables you to optimize resource usage and reduce runtime, ultimately simplifying workflow maintenance and improving resource management.
+
+### Filtering by Event Type or Branch
+Filtering jobs and steps based on event type or branch in GitHub Actions allows you to create more targeted workflows that respond specifically to the context in which they are run. 
+By using conditional expressions with the if keyword, you can control when a job or step is executed based on the event that triggered the workflow or the current branch.
+
+### Filtering by Event Type
+To filter a job or step based on the event type, use the github.event_name context in your conditional expression. 
+This context provides access to the name of the event that triggered the workflow. 
+Example:
+```
+jobs:
+  deploy:
+     runs-on: ubuntu-latest
+      if: ${{ github.event_name == 'push'}} 
+       steps:
+         - name: Checkout repository 
+           uses: actions/checkout@v2
+         - name: Deploy to production 
+           run: npm run deploy
+```
+
+In this example, the deploy job will only run if the event that triggered the workflow is a push event. 
+Otherwise, the job will be skipped.
+
+#### Filtering by Branch
+To filter a job or step based on the current branch, use the github.ref context in your conditional expression. 
+This context provides access to the branch or tag ref that triggered the workflow. 
+Example:
+```
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ startsWith(github.ref, 'refs/heads/main') }} 
+     steps:
+         - name: Checkout repository
+           uses: actions/checkout@v2
+         - name: Deploy to production
+            run: npm run deploy
+```
+In this example, the deploy job will only run if the current branch is the main branch. 
+Otherwise, the job will be skipped.
+
+### Combining Event Type and Branch Filtering:
+You can also combine event type and branch filtering in a single conditional expression using logical operators like && (and) or || (or).
+Example:
+```
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main')}}
+     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Deploy to production
+       run: npm run deploy
+```
+
+In this example, the deploy job will only run if the event that triggered the workflow is a push event and the current branch is the main branch. 
+Otherwise, the job will be skipped.By filtering jobs and steps based on event type or branch in your GitHub Actions workflows, you can create more focused and efficient workflows that run only when necessary. 
+
+This increased level of control helps optimize resource usage, reduce runtime, and improve overall workflow maintainability.
+
+### Error Handling and continue-on-error
+Error handling is a crucial aspect of building robust GitHub Actions workflows. 
+By default, if a step fails, the entire job will be marked as failed, and any subsequent steps will not be executed. 
+However, there might be cases where you want a job to continue running even if a step encounters an error. 
+The continue-on-error keyword allows you to control this behaviour and ensure that your workflows can gracefully handle errors and continue running when necessary.
+Using continue-on-errorTo use continue-on-error in your workflow, add the keyword at the step level and set its value to true. 
+This will instruct GitHub Actions to continue executing the remaining steps in the job even if the current step encounters an error.Example:
+```
+jobs:
+  build:
+    runs-on: ubuntu-latest 
+      steps:
+        - name: Checkout repository 
+          uses: actions/checkout@v2
+        - name: Install dependencies
+          run: npm ci
+        - name: Run linter
+          run: npm run lint
+      continue-on-error: true
+        - name: Run tests
+           run: npm test
+```           
+In this example, the Run linter step is configured with continue-on-error: true. 
+If the linter encounters an error (e.g., it finds code style violations), the step will be marked as failed, but the job will continue executing the remaining steps, such as running the tests.
+
+### Customizing error handling behaviour
+You can also use conditional expressions with the continue-on-error keyword to customize the error handling behaviour based on specific conditions.
+Example:
+```
+jobs:
+  build:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout repository
+       uses: actions/checkout@v2
+     - name: Install dependencies
+       run: npmci
+      - name: Run linter
+         run: npm run lint
+      continue-on-error: ${{ github.event_name=='pull_request'}}
+        - name: Run tests 
+           run: npm test
+```
+In this modified example, the continue-on-error value is set to a conditional expression that evaluates to true if the event that triggered the workflow is a pull request. 
+This means that if the workflow is triggered by a pull request event and the linter encounters an error, the job will continue executing the remaining steps. 
+However, if the workflow is triggered by another event type, such as a push event, the job will be marked as failed and the remaining steps will not be executed.
+
+By using the continue-on-error keyword and conditional expressions in your GitHub Actions workflows, you can create more resilient and adaptable workflows that can gracefully handle errors and continue running when appropriate. 
+This added level of control enables you to optimize resource usage, reduce runtime, and improve overall workflow maintainability.
+
+### Creating Custom GitHub Actions
+In this chapter, we will guide you through the process of creating custom GitHub Actions to expand the capabilities of your workflows beyond the pre-built actions available in the GitHub Marketplace. 
+
+Custom actions allow you to tailor your automation processes to the specific needs of your development projects and implement unique functionality that might not be available in existing actions.
+We will begin by discussing the two primary types of custom actions: Docker-based actions and JavaScript-based actions. 
+You will learn about their key differences, advantages, and limitations, enabling you to make informed decisions about which type of action is best suited for your particular use case.
+Next, we will provide step-by-step instructions on how to create your own custom actions, covering the structure, components, and development process for both Docker-based and JavaScript-based actions. 
+
+This hands-on approach will ensure you gain practical experience and a deep understanding of how to create custom actions effectively.
+Throughout the chapter, we will also share tips, best practices, and recommendations for action development, including how to write maintainable code, ensure proper error handling, and optimize performance. 
+
+These insights will help you create high-quality, reusable custom actions that can be shared with the community or used privately within your organization.
+By the end of this chapter, you will be equipped with the knowledge and skills necessary to create custom GitHub Actions, enabling you to expand your automation capabilities and tailor your workflows to meet the unique requirements of your development projects.
+
+### Docker-based Actions vs. JavaScript-based Actions
+In this section, we will compare and contrast the two primary types of custom GitHub Actions:Docker-based Actions and JavaScript-based Actions. 
+Understanding the differences between these action types, as well as their respective advantages and limitations, will help you make informed decisions when creating custom actions for your workflows.
+
+### Introduction to Docker-based Actions
+Docker-based Actions are GitHub Actions that run inside a Docker container. This means that the action's runtime environment is isolated and can be customized to include any dependencies required by the action.
+
+### Advantages of Docker-based Actions
+- [x] Highly customizable and self-contained environment. 
+- [x] Consistent execution environment, ensuring the action behaves the same way across different runners.
+Can be written in any programming language, as long as the language runtime is available in the Docker container.
+
+### Limitations of Docker-based Actions
+Can only be executed on Linux runners, as Docker is not supported on macOS or Windows runners.
+
+Slower startup time, due to the overhead of building and running the Docker container.
+
+### Introduction to JavaScript-based Actions
+JavaScript-based Actions are GitHub Actions that run directly on the runner's host machine using Node.js. 
+These actions require fewer resources compared to Docker-based Actions, as they do not run inside a container.
+
+#### Advantages of JavaScript-based Actions
+Faster startup time, as there is no need to build or run a Docker container.
+Can be executed on any platform, including Linux, macOS, and Windows runners.
+Easier to create and maintain, as they only require a single entry point script written in JavaScript or TypeScript. 
+
+#### Limitations of JavaScript-based Actions
+Limited to JavaScript or TypeScript, as the action runs directly on the Node.js runtime.
+The action's dependencies and runtime environment must be compatible with the runner's host environment.
+
+### Choosing the Right Action Type for Your Workflow
+When deciding between Docker-based and JavaScript-based Actions, consider the following factors:
+Platform compatibility: If your workflow needs to run on macOS or Windows runners, JavaScript-based Actions are the better choice.
+Startup time: If minimizing startup time is crucial, Java-Script-based Actions generally offer faster execution.
+Customization and dependencies: If your action requires a highly customized environment or has complex dependencies, Docker-based Actions might be more suitable. 
+Programming language: If you prefer to use a programming language other than JavaScript or TypeScript, Docker-based Actions offer greater flexibility.
+
+In conclusion, both Docker-based and JavaScript-based Actions have their merits and limitations. 
+Carefully consider the specific needs of your workflow and the factors mentioned above to determine the most appropriate action type for your custom GitHub Actions.
+
+### Building a Docker-based Action
+In this section, we will walk you through the process of creating a custom Docker-based GitHub Action. 
+By following these steps, you will learn how to develop, test, and publish your own Docker-based Action for use in your workflows.
+
+#### Set up the project structure
+First, create a new directory for your action and navigate to it:
+```
+mkdir my-docker-action
+cd my-docker-action
+```
+Next, create the following files and folders inside the project directory:
+
+Dockerfile: The Dockerfile defines the container image for your action, including the base image, runtime, and dependencies.
+entrypoint.sh: This shell script serves as the entry point for your action, containing the code that will be executed whenthe action runs.
+README.md : A README file that documents your action, including usage instructions, input parameters, and output values.
+
+### Configure the Dockerfile
+Edit the Dockerfile and specify the base image, dependencies, and other configurations. 
+For example, if your action requires Python, you could use the following Dockerfile:
+```
+FROM python:3.8-slim
+# Install any additional dependencies
+RUN pip install requests
+# Set the working directory
+WORKDIR /app
+# Copy the entrypoint script into the container
+COPY entrypoint.sh /app
+# Make the script executable 
+RUN chmod +x /app/entrypoint.sh
+# Set the entrypoint for the container 
+ENTRYPOINT ["/app/entrypoint.sh"]
+```
+#### Implement the entrypoint script
+Edit the entrypoint.sh file and write the code that your action will execute. 
+For instance, the following script fetches data from an API and prints the response:
+```
+#!/bin/sh -1
+set-e
+API_URL="https://api.example.com/data"
+echo "Fetching data from $API_URL..." 
+response=$(curl -s "$API_URL")
+echo "Response from API:" 
+echo "$response"
+```
+Make sure to set the correct permissions on the entrypoint.sh file:
+
+chmod +x entrypoint.sh
+
+### Test your action locally
+Before publishing your action, test it locally by building and running the Docker container:
+```
+docker build -t my-docker-action. 
+docker run --rm my-docker-action
+```
+If everything works as expected, you can proceed to the next step.
+
+### Publish your action
+To make your action available for use in workflows, push the project to a GitHub repository. 
+Make sure to include a README.md file with instructions on how to use your action, including any required input parameters and expected output values.
+Once your action is published, you can reference it in your workflows by using the uses keyword with the repository's URL:
+```
+jobs: 
+  my-job:
+    runs-on: ubuntu-latest
+      steps:
+        - name: Run My Docker Action
+          uses: your-username/my-docker-action@main
+```
+That's it! You have now successfully created a custom Docker-based GitHub Action. 
+By following these steps, you can develop and publish your own actions to automate various tasks and processes in your workflows.
+
+### Building a JavaScript-based Action
+In this section, we will guide you through the process of creating a custom JavaScript-based GitHub Action. 
+By following these steps, you will learn how to develop, test, and publish your own Java-Script-based Action for use in your workflows.
+
+### Set up the project structure
+First, create a new directory for your action and navigate to it: 
+```
+mkdir my-js-action
+cd my-js-action
+```
+Next, create the following files and folders inside the project directory:
+
+- [x] index.js: The entry point for your action, containing the Java-Script code that will be executed when the action runs. 
+- [x] action.yml : A YAML file that defines your action's metadata, including its name, description, inputs, and outputs.README.md: A README file that documents your action, including usage instructions, input parameters, and output values.package.json: The project's package manifest, which lists de- pendencies and other configurations.Configure the action.yml fileEdit the action.yml file and specify the metadata for your action, including its name, description, inputs, and outputs. For example:name: 'My JavaScript Action'description: 'Perform a custom task using a JavaScript-based GitHub Action' inputs: input1:description: 'An example input parameter'
 
 required: true outputs:output1:description: 'An example output value'runs:using: 'node12'main: 'index.js'Implement the index.js fileEdit the index.js file and write the JavaScript code that your action will execute. Make sure to import the @actions/core and @actions/ github packages to interact with GitHub Actions. For instance, the following script fetches data from an API and sets an output value:const core = require('@actions/core'); const axios = require('axios'); (async() => {try {const apiUrl = 'https://api.example.com/data';console.log(`Fetching data from ${apiUrl}...`);const response = await axios.get(apiUrl);console.log('Response from API:', response.data);core.setOutput('output1', response.data);} catch (error) {console.error(error.message);core.setFailed(error.message);}})0;Install dependencies and configurethe package.json fileInstall the required dependencies using npm:npm init -y npm install @actions/core @actions/github axiosTest your action locallyBefore publishing your action, test it locally by running the in- dex.js file with Node.js:node index.jsIf everything works as expected, you can proceed to the next step. Publish your actionTo make your action available for use in workflows, push the pro- ject to a GitHub repository. Make sure to include a README.md file with instructions on how to use your action, including any re- quired input parameters and expected output values.Once your action is published, you can reference it in your work- flows by using the uses keyword with the repository's URL:jobs:My-job:runs-on: ubuntu-lateststeps:
 
@@ -627,7 +1415,6 @@ required: true outputs:output1:description: 'An example output value'runs:using:
 
 To use the latest version of My Action, add the following step to your workflow:steps: - name: Run My Actionuses: your-username/my-action@mainTo use a specific version of My Action, replace main with the de- sired version number:steps: - name: Run My Action uses: your-username/my-action@v1.0.0Publishing Your ActionTo make your action available for use in workflows, push the project to a GitHub repository. Ensure that your README.md file contains comprehensive instructions on how to use your action, including any required input parameters and expected outputvalues. Once your action is published, users can reference it in their workflows using the uses keyword with the repository's URL and the desired version:jobs:my-job:runs-on: ubuntu-lateststeps:- name: Run My Custom Actionuses: your-username/my-action@v1By following these best practices for versioning and publishing your custom GitHub Actions, you can provide a stable, reliable, and easy-to-use experience for your users, while maintaining flexibility for future improvements and updates.
 
-Pagina 91.
 
 Using the GitHub Actions Marketplace
 In this chapter, we will explore the GitHub Actions Marketplace, a vast and growing ecosystem of ready-to-use actions created by the developer community. The marketplace offers a wide variety of ac- tions that can help you automate tasks, integrate with third-party services, and simplify your workflows without having to create custom actions from scratch.
@@ -3587,6 +4374,3 @@ deliver cutting-edge content to our readers in a timely manner. Our ebooks are d
 We welcome authors who share our passion for technology and
 education, and we are committed to providing support and guid- ance throughout the publishing journey. If you have an idea for a book that aligns with our mission, we would be delighted to hear from you and explore the possibilities together.
 See https://claphamtechpress.com/.
-
-
->>>>>>> Stashed changes
