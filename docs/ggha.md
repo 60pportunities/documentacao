@@ -146,6 +146,7 @@ to run on every push and pull request to the main branch. Add the following line
 
 #### Configure the workflow environment:
 Next, specify the operating system and programming language environment for your workflow. In this example, we'll use an Ubuntu-based environment with Node.js. Add the following lines to your workflow file:
+
 ```
 jobs:
   build-and-test:
@@ -192,12 +193,19 @@ Finally, add a step to run your project's tests using your test runner of choice
 Once you've finished configuring your workflow, save the YAML file and commit it to your repository. This will automatically en- able the workflow, and it will be triggered based on the events you've defined.
 
 With this basic GitHub Actions workflow in place, your project will be automatically built and tested on every push and pull request to the main branch. This is just the beginning of what you can do with GitHub Actions, as there are many more customization options and integrations available to help you streamline and automate your development processes.
-As you continue to explore GitHub Actions, you can leverage the growing marketplace of reusable actions to expand your workflow capabilities, such as deploying your application to various hosting platforms, sending notifications, and integrating with third-party services. The modular design and event-driven architecture of GitHub Actions allow you to create tailored automation workflows that fit your specific needs, ensuring that your development pro- cesses are as efficient and streamlined as possible.
-In the following sections, we will dive deeper into the advanced features and customization options of GitHub Actions, helping you to unlock its full potential and transform your software devel- opment workflows.
+
+As you continue to explore GitHub Actions, you can leverage the growing marketplace of reusable actions to expand your workflow capabilities, such as deploying your application to various hosting platforms, sending notifications, and integrating with third-party services. 
+
+The modular design and event-driven architecture of GitHub Actions allow you to create tailored automation workflows that fit your specific needs, ensuring that your development processes are as efficient and streamlined as possible.
+
+In the following sections, we will dive deeper into the advanced features and customization options of GitHub Actions, helping you to unlock its full potential and transform your software development workflows.
 
 ### Understanding YAML Syntax
-To effectively work with GitHub Actions, it's essential to understand the YAML syntax used to define workflows. YAML, which stands for "YAML Ain't Markup Language," is a human-readable data serialization format commonly used for configuration files and data exchange between languages with different data structures. In this section, we'll cover the basics of YAML syntax and provide examples to help you gain a better understanding of how to write and maintain your GitHub Actions workflow files. Basic structure:
-YAML files use indentation to represent the structure of data, simi- lar to how programming languages like Python use whitespace. The basic building blocks of YAML are scalars (strings, numbers, and booleans), sequences (arrays or lists), and mappings (key- value pairs or dictionaries). Here's a simple example of YAML syntax:
+To effectively work with GitHub Actions, it's essential to understand the YAML syntax used to define workflows. YAML, which stands for "YAML Ain't Markup Language," is a human-readable data serialization format commonly used for configuration files and data exchange between languages with different data structures. In this section, we'll cover the basics of YAML syntax and provide examples to help you gain a better understanding of how to write and maintain your GitHub Actions workflow files. 
+
+Basic structure:
+
+YAML files use indentation to represent the structure of data, similar to how programming languages like Python use whitespace. The basic building blocks of YAML are scalars (strings, numbers, and booleans), sequences (arrays or lists), and mappings (key-value pairs or dictionaries). Here's a simple example of YAML syntax:
 
 ```
 version: 1 languages:
@@ -245,6 +253,7 @@ Python:
 ```
 ### Complex data structures:
 You can create more complex data structures in YAML by combining sequences and mappings. For example, you can have a sequence of mappings or a mapping with sequences as values. Example:
+
 ```
 projects:
 - name: Project A 
@@ -261,6 +270,7 @@ projects:
 
 ### Anchors and aliases:
 YAML provides a way to reuse parts of your configuration by using anchors and aliases. An anchor is defined by adding & followed by a unique name after a value, while an alias is referenced by using followed by the anchor name. Example:
+
 ```
 defaults: &default_setting
 timeout: 10
@@ -274,6 +284,7 @@ Job_b:
 
 #### Multi-line strings:
 YAML supports multi-line strings using the pipe '|' or greater-than '>' character. The pipe character preserves newlines in the string, while the greater-than character converts newlines to spaces. Example:
+
 ```
 multiline_pipe: |
 This is a multi-line
@@ -288,9 +299,9 @@ You can add comments in YAML files by starting a line with the # character. Comm
 # This is a comment in YAML
 version: 1 # You can also add inline comments
 ```
-
 #### Environment variables:
 In GitHub Actions workflows, you can use environment variables to store and pass data between steps. To define an environment variable, use the env key followed by the variable name and value. Example:
+
 ```
 jobs:
 build:
@@ -311,6 +322,7 @@ To fully leverage the capabilities of GitHub Actions, it's essential to understa
 
 ### Workflow triggers
 Workflow triggers define the events that initiate the execution of a GitHub Actions workflow. You can specify multiple events, such as pushes, pull requests, or even custom events, to initiate the workflow. Triggers are defined using the on keyword, followed by the event names and any additional configuration. Example:
+
 ```
 on:
 push:
@@ -325,6 +337,7 @@ schedule:
 
 ### Jobs
 A workflow consists of one or more jobs, which are individual units of work that run in parallel by default. Jobs are defined using the jobs keyword, followed by a unique identifier for each job and its configuration. Example:
+
 ```
 jobs:
 build:
@@ -338,6 +351,7 @@ runs-on: ubuntu-latest steps:
 
 ### Job dependencies
 By default, jobs run in parallel, but you can specify dependencies between jobs using the needs keyword. This can be useful for creating sequential workflows where certain jobs must complete be- fore others can begin. Example:
+
 ```
 jobs:
 build:
@@ -363,6 +377,7 @@ runs-on: ubuntu-latest
 
 ### Steps
 Jobs are composed of one or more steps, which are individual tasks executed sequentially within a job. Steps can use pre-built actions from the GitHub Actions marketplace, custom actions, or simply run shell commands. Steps are defined using the steps keyword, followed by a list of step configurations. Example:
+
 ```
 jobs:
   build:
@@ -381,6 +396,7 @@ run: npm ci
 ```
 ### Actions
 Actions are reusable units of code that can be included as steps in your workflow. You can use pre-built actions from the GitHub Actions marketplace, create your own custom actions, or reference actions from other repositories. Actions are referenced using the uses keyword, followed by the action repository and version. Example:
+
 ```
 steps:
 - name: Checkout repository 
@@ -418,9 +434,11 @@ curl -H "Authorization: Bearer ${{ secrets.DEPLOY_TOKEN }}" -X POST $API_ BASE_U
 ```
 
 ### Contexts
-Contexts in GitHub Actions provide access to various types of metadata related to the current workflow execution, such as the event that triggered the workflow, the repository, the job, the run- ner, and any custom inputs. They enable you to create dynamic and flexible workflows that can adapt to different situations based on the available metadata.
+Contexts in GitHub Actions provide access to various types of metadata related to the current workflow execution, such as the event that triggered the workflow, the repository, the job, the runner, and any custom inputs. They enable you to create dynamic and flexible workflows that can adapt to different situations based on the available metadata.
+
 For example, you can use the github context to access information about the event that triggered the workflow, like the event type, the actor who initiated the event, and the associated commit SHA. Similarly, the secrets context allows you to securely access encrypted secrets stored in your repository settings.
-To access context data, you can use the ${{ context }} syntax in your workflow file. Here's an example of using the github context to access the event name:
+To access context data, you can use the `${{context}}` syntax in your workflow file. Here's an example of using the github context to access the event name:
+
 ```
 jobs:
 build:
@@ -431,11 +449,12 @@ run: echo "Event name: ${{ github.event_name}}"
 ```
 
 ### Expressions
-Expressions in GitHub Actions are a powerful way to evaluate and manipulate data within your workflow files. They allow you to perform calculations, access context data, and control the flow of your workflow based on conditions. Expressions are wrapped in double curly braces, like ${{ expression }}.
+Expressions in GitHub Actions are a powerful way to evaluate and manipulate data within your workflow files. They allow you to perform calculations, access context data, and control the flow of your workflow based on conditions. Expressions are wrapped in double curly braces, like `${{ expression}}`.
 
-GitHub Actions expressions support a variety of functions, operators, and literals that you can use to create complex logic in your workflows. For example, you can use the contains function to check if a string contains a specific substring, or you can use the '==' operator to compare two values for equality.
+GitHub Actions expressions support a variety of functions, operators, and literals that you can use to create complex logic in your workflows. For example, you can use the contains function to check if a string contains a specific substring, or you can use the `==` operator to compare two values for equality.
 
 Here's an example of using expressions to conditionally run a step based on the event that triggered the workflow:
+
 ```
 jobs:
 build:
@@ -451,7 +470,7 @@ In this example, the if keyword is combined with an expression to control whethe
 By incorporating contexts and expressions into your GitHub Actions workflows, you can create more dynamic, flexible, and adaptable automation processes that cater to the unique needs of your development projects.
 
 ### Workflow status badges:
-To display the status of your GitHub Actions workflows in your repository's README or other documentation, you can use work- flow status badges. The badge URL can be generated using the fol- lowing pattern: 'https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg' . Example:
+To display the status of your GitHub Actions workflows in your repository's README or other documentation, you can use work- flow status badges. The badge URL can be generated using the fol- lowing pattern: `https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg` . Example:
 
 ![Build Status](https://github.com/yourusername/yourrepository/actions/workflows/build.yml/badge.svg)
 
@@ -459,17 +478,17 @@ By understanding the anatomy of a GitHub Actions workflow, you can create more e
 
 ## Building Your First Workflow
 In this chapter, we will walk you through the process of building your first GitHub Actions workflow from scratch. Our goal is to help you gain a practical understanding of how to create and con- figure workflows to automate various tasks within your development projects.
-We will begin by discussing different types of workflow triggers, including event-based triggers and scheduled triggers, which de- termine when your workflow should run. Understanding these triggers is essential for designing workflows that respond effect- ively to specific events or run on a predetermined schedule.
+
+We will begin by discussing different types of workflow triggers, including event-based triggers and scheduled triggers, which determine when your workflow should run. Understanding these triggers is essential for designing workflows that respond effect- ively to specific events or run on a predetermined schedule.
 
 Next, we will delve into defining jobs and steps within your workflow. This section will cover the structure and configuration of jobs, including how to define steps, use pre-built actions, and run shell commands. By learning about these components, you'll be able to create custom workflows tailored to your specific needs. 
 
 We will also explore how to leverage matrix builds and parallelization to efficiently test your code against multiple environments, runtime versions, or configurations. This powerful feature allows you to optimize your workflows by running multiple instances of a job simultaneously, reducing the overall execution time and im- proving reliability.
 
-By the end of this chapter, you will have hands-on experience in creating and configuring GitHub Actions workflows, enabling you
-to automate various tasks and processes in your software development projects. With a solid grasp of these foundational concepts, you will be ready to explore more advanced features and best practices in the following chapters.
+By the end of this chapter, you will have hands-on experience in creating and configuring GitHub Actions workflows, enabling you to automate various tasks and processes in your software development projects. With a solid grasp of these foundational concepts, you will be ready to explore more advanced features and best practices in the following chapters.
 
 ### Workflow Triggers: Events and Scheduling
-In this section, we will delve into the different types of workflow triggers available in GitHub Actions. Workflow triggers are crucial in defining when and under what circumstances your workflows should run. Understanding and utilizing the various trigger op- tions will help you create more efficient and adaptable workflows tailored to your specific needs.
+In this section, we will delve into the different types of workflow triggers available in GitHub Actions. Workflow triggers are crucial in defining when and under what circumstances your workflows should run. Understanding and utilizing the various trigger options will help you create more efficient and adaptable workflows tailored to your specific needs.
 
 #### Event-based triggers:
 Event-based triggers are the most common type of triggers in GitHub Actions. These triggers initiate workflows in response to various events that occur within your repository, such as pushes, pull requests, and issues. Some of the most commonly used event-based triggers include:
@@ -480,6 +499,7 @@ Event-based triggers are the most common type of triggers in GitHub Actions. The
 - [x] fork: Triggers the workflow when someone forks the repository.
 
 You can specify one or multiple event-based triggers using the on keyword in your workflow file. Additionally, you can use filters to narrow down the scope of the trigger, such as specifying specific branches or tags. Example:
+
 ```
 on:
 push:
@@ -503,6 +523,7 @@ Keep in mind that the schedule is based on the UTC time zone, and the shortest p
 
 #### Manual triggers:
 Manual triggers allow you to run workflows on-demand, using the GitHub Actions web interface or the GitHub API. This can be use- ful for running tasks that don't necessarily need to run automat- ically, such as deployments, data migrations, or one-time scripts. To set up a manual trigger, use the workflow_dispatch keyword and optionally provide input parameters. Example:
+
 ```
 on:
 workflow_dispatch:
@@ -516,7 +537,8 @@ default: 'staging'
 Once you've set up a manual trigger, you can start the workflow by clicking the "Run workflow" button in the Actions tab of your repository, or by using the GitHub API.
 
 ### External triggers:
-External triggers enable you to start workflows in response to events that occur outside of your repository, such as webhooks from third-party services or custom events from other repositories. To set up an external trigger, use the repository_dispatch or workflow_dispatch keyword and provide a types array with the names of the custom events you want to listen for. Example:
+External triggers enable you to start workflows in response to events that occur outside of your repository, such as webhooks from third-party services or custom events from other repositories. To set up an external trigger, use the `repository_dispatch` or `workflow_dispatch` keyword and provide a types array with the names of the custom events you want to listen for. Example:
+
 ```
 on:
 repository_dispatch:
@@ -545,6 +567,7 @@ types:
 ```
 #### Combining triggers:
 You can combine multiple triggers in a single workflow to handle various events and scenarios. When combining triggers, be aware that each trigger may have its own set of filters and configuration options. Example:
+
 ```
 on:
 push:
