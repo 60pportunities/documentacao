@@ -1393,11 +1393,11 @@ Concluindo, as ações baseadas em Docker e JavaScript têm seus méritos e limi
 Considere cuidadosamente as necessidades específicas do seu fluxo de trabalho e os fatores mencionados acima para determinar o tipo de ação mais apropriado para suas ações personalizadas do GitHub.
 
 ### Building a Docker-based Action
-In this section, we will walk you through the process of creating a custom Docker-based GitHub Action.
-By following these steps, you will learn how to develop, test, and publish your own Docker-based Action for use in your workflows.
+Nesta seção, nós o guiaremos pelo processo de criação de uma GitHub Action personalizada baseada em Docker.
+Seguindo essas etapas, você aprenderá a desenvolver, testar e publicar sua própria Action baseada em Docker para uso em seus fluxos de trabalho.
 
 #### Set up the project structure
-First, create a new directory for your action and navigate to it:
+Primeiro, crie um novo diretório para sua ação e navegue até ele:
 ```
 mkdir my-docker-action
 cd my-docker-action
