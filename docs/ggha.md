@@ -728,7 +728,7 @@ Para usar uma ação pré-criada no seu fluxo de trabalho, adicione uma nova eta
 Neste exemplo, a ação actions/checkout@v2 verifica o código do seu repositório, e a ação actions/setup-node@v2 configura o Node.js com a versão especificada.
 
 ### Configuring pre-built actions:
-Many actions provide input parameters that you can use to customize their behaviour. To set input parameters, use the with key- word followed by a key-value map of parameter names and values. Example:
+Muitas ações fornecem parâmetros de entrada que você pode usar para personalizar seu comportamento. Para definir parâmetros de entrada, use a palavra-chave with seguida por um mapa de valores-chave de nomes e valores de parâmetros. Exemplo:
 
 ```
 jobs:
@@ -742,41 +742,41 @@ jobs:
          env: FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 ```
 
-In this example, the w9jds/firebase-action@v1.5.0 action deploys your application to Firebase Hosting, with the specified arguments. The action also requires a FIREBASE_TOKEN environment variable, which is provided as a secret.
+Neste exemplo, a ação w9jds/firebase-action@v1.5.0 implanta seu aplicativo no Firebase Hosting, com os argumentos especificados. A ação também requer uma variável de ambiente FIREBASE_TOKEN, que é fornecida como um segredo.
 
 ### Popular pre-built actions:
-There are numerous pre-built actions available in the GitHub Actions Marketplace, covering various tasks such as code quality checks, deployments, and notifications. Here are some popular actions that you might find useful in your workflows:
+Há inúmeras ações pré-criadas disponíveis no GitHub Actions Marketplace, abrangendo várias tarefas, como verificações de qualidade de código, implantações e notificações. Aqui estão algumas ações populares que você pode achar úteis em seus fluxos de trabalho:
 
-- [X] actions/checkout: Checks out your repository's code so that your workflow can access and manipulate it.
-- [X] actions/setup-node: Sets up a specific version of Node.js in your job's environment.
-- [X] actions/cache: Caches dependencies and build artifacts to speed up your workflow.
-- [X] actions/upload-artifact and actions/download-artifact: Uploads and downloads build artifacts, such as compiled binar- ies or test results, to share between jobs or store as workflow outputs.
-- [X] actions/create-release: Creates a new GitHub release and up- loads assets to it.
-- [X] actions/slack: Sends notifications to a Slack channel.
+- [X] actions/checkout: verifica o código do seu repositório para que seu fluxo de trabalho possa acessá-lo e manipulá-lo.
+- [X] actions/setup-node: configura uma versão específica do Node.js no ambiente do seu trabalho.
+- [X] actions/cache: armazena dependências em cache e artefatos de compilação para acelerar seu fluxo de trabalho.
+- [X] actions/upload-artifact e actions/download-artifact: carrega e baixa artefatos de compilação, como binários compilados ou resultados de teste, para compartilhar entre trabalhos ou armazenar como saídas do fluxo de trabalho.
+- [X] actions/create-release: cria uma nova versão do GitHub e carrega ativos para ela.
+- [X] actions/slack: envia notificações para um canal do Slack.
 
-Remember to consult the action's documentation and source code to understand its functionality, requirements, and limitations.
+Lembre-se de consultar a documentação e o código-fonte da ação para entender sua funcionalidade, requisitos e limitações.
 
-### Security considerations:
-When using pre-built actions, be aware of the potential security risks associated with running third-party code in your workflows. To mitigate these risks, follow these best practices:
+### Considerações de segurança:
+Ao usar ações pré-criadas, esteja ciente dos riscos potenciais de segurança associados à execução de código de terceiros em seus fluxos de trabalho. Para mitigar esses riscos, siga estas práticas recomendadas:
 
-- [X] Review the action's source code and documentation to understand its functionality and ensure it doesn't contain malicious or insecure code.
-- [X] Use specific version tags or commit hashes instead of branch names when referencing actions. This helps prevent unexpected changes in the action's behaviour due to updates or modifications.
-- [X] Keep your actions up-to-date to benefit from bug fixes, security patches, and new features. Regularly check for new releases and update your workflows accordingly.
-- [X] Limit access to sensitive information, such as secrets and environment variables, in your workflows. Make sure to pro- vide only the necessary permissions and data to the actions you use.
+- [X] Revise o código-fonte e a documentação da ação para entender sua funcionalidade e garantir que ela não contenha código malicioso ou inseguro.
+- [X] Use tags de versão específicas ou hashes de confirmação em vez de nomes de ramificação ao referenciar ações. Isso ajuda a evitar alterações inesperadas no comportamento da ação devido a atualizações ou modificações.
+- [X] Mantenha suas ações atualizadas para se beneficiar de correções de bugs, patches de segurança e novos recursos. Verifique regularmente se há novos lançamentos e atualize seus fluxos de trabalho adequadamente.
+- [X] Limite o acesso a informações confidenciais, como segredos e variáveis ​​de ambiente, em seus fluxos de trabalho. Certifique-se de fornecer apenas as permissões e dados necessários para as ações que você usa.
 
-By using pre-built actions in your GitHub Actions workflows, you can leverage the power of the GitHub community to automate various tasks, save time, and streamline your development process.
+Ao usar ações pré-criadas em seus fluxos de trabalho do GitHub Actions, você pode aproveitar o poder da comunidade do GitHub para automatizar várias tarefas, economizar tempo e agilizar seu processo de desenvolvimento.
 
-As you become more familiar with GitHub Actions, you may also consider creating your own custom actions to further tailor your workflows to your specific needs. In the next sections, we will
-discuss advanced topics such as managing environment variables, secrets and creating custom actions.
+À medida que você se familiariza mais com o GitHub Actions, você também pode considerar criar suas próprias ações personalizadas para adaptar ainda mais seus fluxos de trabalho às suas necessidades específicas. Nas próximas seções, discutiremos
+tópicos avançados, como gerenciamento de variáveis ​​de ambiente, segredos e criação de ações personalizadas.
 
 ### Running Shell Commands
-In addition to using pre-built actions, you can execute shell commands and scripts directly in your GitHub Actions workflows. This provides you with the flexibility to perform custom tasks, manipulate files, or interact with external tools and services. In this section, we will discuss how to run shell commands, control the shell environment, and manage exit codes and error handling in your workflows.
+Além de usar ações pré-criadas, você pode executar comandos e scripts de shell diretamente em seus fluxos de trabalho do GitHub Actions. Isso fornece a flexibilidade para executar tarefas personalizadas, manipular arquivos ou interagir com ferramentas e serviços externos. Nesta seção, discutiremos como executar comandos de shell, controlar o ambiente de shell e gerenciar códigos de saída e tratamento de erros em seus fluxos de trabalho.
 
 ### Executing shell commands:
-To execute a shell command in your workflow, add a new step to your job and use the run keyword, followed by the command or script you want to execute. Example:
+Para executar um comando shell no seu fluxo de trabalho, adicione uma nova etapa ao seu trabalho e use a palavra-chave run, seguida pelo comando ou script que você deseja executar. Exemplo:
 
 ## Multi-line and chained commands:
-You can execute multiple commands in a single step by using multi-line YAML strings or chaining commands with shell operators. Example:
+Você pode executar vários comandos em uma única etapa usando strings YAML multi-linha ou encadeando comandos com operadores de shell. Exemplo:
 
 ```
  jobs:
@@ -790,10 +790,10 @@ You can execute multiple commands in a single step by using multi-line YAML stri
         - name: Build and deploy
            run: npm run build && npm run deploy
 ```
-In this example, the first step installs the dependencies and runs the tests using a multi-line YAML string, while the second step builds and deploys the project using a chained command with the && shell operator.
+Neste exemplo, a primeira etapa instala as dependências e executa os testes usando uma string YAML de várias linhas, enquanto a segunda etapa compila e implanta o projeto usando um comando encadeado com o operador de shell &&.
 
 ### Specifying the shell:
-GitHub Actions supports various shells, including Bash, PowerShell, and Windows Command Prompt. By default, the shell used depends on the operating system of the runner. You can specify the shell to use with the shell keyword. Example:
+O GitHub Actions oferece suporte a vários shells, incluindo Bash, PowerShell e Windows Command Prompt. Por padrão, o shell usado depende do sistema operacional do executor. Você pode especificar o shell a ser usado com a palavra-chave shell. Exemplo:
 
 ```
 jobs:
@@ -804,12 +804,12 @@ steps:
    run: echo "Hello, World!"
    shell: python {0}
 ```
-In this example, the echo "Hello, World!" command is executed using the Python interpreter as a custom shell.
+Neste exemplo, o comando echo "Hello, World!" é executado usando o interpretador Python como um shell personalizado.
 
-In this example, the first step installs the dependencies and runs the tests using a multi-line YAML string, while the second step builds and deploys the project using a chained command with the && shell operator.
+Neste exemplo, a primeira etapa instala as dependências e executa os testes usando uma string YAML multi-linha, enquanto a segunda etapa constrói e implementa o projeto usando um comando encadeado com o operador shell &&.
 
 ### Environment variables:
-You can set environment variables for a specific step or an entire job using the env keyword. Environment variables can be accessed in shell commands and scripts using the appropriate syntax for the shell being used. Example:
+Você pode definir variáveis ​​de ambiente para uma etapa específica ou um trabalho inteiro usando a palavra-chave env. Variáveis ​​de ambiente podem ser acessadas em comandos e scripts de shell usando a sintaxe apropriada para o shell que está sendo usado. Exemplo:
 
 ```
 jobs:
@@ -821,13 +821,13 @@ jobs:
           env:TOKEN: ${{ secrets.DEPLOY_TOKEN }}
 ```
 
-In this example, the TOKEN environment variable is set to the value of the DEPLOY_TOKEN secret and is used as an argument in the npm run deploy command.
+Neste exemplo, a variável de ambiente TOKEN é definida como o valor do segredo DEPLOY_TOKEN e é usada como um argumento no comando npm run deploy.
 
 ### Exit codes and error handling
-By default, a step fails if the shell command or script returns a non-zero exit code. To control the error handling behavior, you can use the continue-on-error and if keywords.
+Por padrão, uma etapa falha se o comando shell ou script retornar um código de saída diferente de zero. Para controlar o comportamento de tratamento de erros, você pode usar as palavras-chave continue-on-error e if.
 
-- [x] continue-on-error : Set to true if the job should continue even if the step fails. The default value is false.
-- [x] if: Adds a conditional expression that determines whether a step should run. The step will only run if the expression evaluates to true.
+- [x] continue-on-error : Defina como true se o trabalho deve continuar mesmo se a etapa falhar. O valor padrão é false.
+- [x] if: Adiciona uma expressão condicional que determina se uma etapa deve ser executada. A etapa será executada somente se a expressão for avaliada como true.
 
 Example:
 ```
@@ -844,10 +844,11 @@ jobs:
             run: npm run deploy
             if: success()
 ```
-In this example, the Run linter step is configured to continue on error, allowing the workflow to proceed even if the linter fails. The Deploy step uses a conditional expression with the if keyword, ensuring that it only runs if the previous steps were successful.
+Neste exemplo, a etapa Run linter é configurada para continuar em caso de erro, permitindo que o fluxo de trabalho prossiga mesmo se o linter falhar. A etapa Deploy usa uma expressão condicional com a palavra-chave if, garantindo que ela seja executada somente se as etapas anteriores forem bem-sucedidas.
 
 ### Working directory:
-By default, shell commands and scripts are executed in the repository's root directory. You can change the working directory for a specific step or an entire job using the working-directory keyword.Example:
+Por padrão, comandos e scripts de shell são executados no diretório raiz do repositório. Você pode alterar o diretório de trabalho para uma etapa específica ou um trabalho inteiro usando a palavra-chave working-directory. Exemplo:
+
 ```
 jobs:
   build:
@@ -863,7 +864,7 @@ jobs:
 In this example, the Build frontend and Build backend steps are executed in the frontend and backend directories, respectively.
 
 ### Running scripts from files:
-Instead of writing shell commands directly in the workflow file, you can execute scripts from external files. This is particularlyuseful for managing complex or reusable scripts. Example:
+Em vez de escrever comandos shell diretamente no arquivo de fluxo de trabalho, você pode executar scripts de arquivos externos. Isso é particularmente útil para gerenciar scripts complexos ou reutilizáveis. Exemplo:
 ```
 jobs:
   deploy:
@@ -874,44 +875,44 @@ jobs:
         - name: Execute deployment script
             run: ./scripts/deploy.sh
 ```
-In this example, the Execute deployment script step runs the deploy.sh script from the scripts directory.
+Neste exemplo, a etapa Execute deployment script executa o script deploy.sh do diretório scripts.
 
-Running shell commands in your GitHub Actions workflows provides you with the flexibility to perform a wide range of tasks, from simple one-liners to complex scripts.
+Executar comandos shell em seus fluxos de trabalho do GitHub Actions fornece a flexibilidade para executar uma ampla gama de tarefas, de simples one-liners a scripts complexos.
 
-By combining shell commands with pre-built actions and advanced features like environment variables and conditional execution, you can create powerful, versatile, and efficient workflows tailored to your project's needs.
+Ao combinar comandos shell com ações pré-criadas e recursos avançados, como variáveis ​​de ambiente e execução condicional, você pode criar fluxos de trabalho poderosos, versáteis e eficientes, adaptados às necessidades do seu projeto.
 
-In the next sections, we will explore topics like managing secrets, conditional execution, and creating custom actions to further enhance your GitHub Actions workflows.
+Nas próximas seções, exploraremos tópicos como gerenciamento de segredos, execução condicional e criação de ações personalizadas para aprimorar ainda mais seus fluxos de trabalho do GitHub Actions.
 
 ## Managing Workflow Execution
-In this chapter, we will focus on managing and optimizing the execution of your GitHub Actions workflows.
+Neste capítulo, focaremos em gerenciar e otimizar a execução dos seus fluxos de trabalho do GitHub Actions.
 
-By learning how to control and fine-tune your workflows, you can ensure that they run efficiently, effectively, and securely, while also minimizing the consumption of resources.
+Ao aprender a controlar e ajustar seus fluxos de trabalho, você pode garantir que eles sejam executados de forma eficiente, eficaz e segura, ao mesmo tempo em que minimiza o consumo de recursos.
 
-First, we will discuss environment variables and secrets, which are essential for managing configuration data and securely storing sensitive information, such as API keys or credentials.
+Primeiro, discutiremos variáveis ​​de ambiente e segredos, que são essenciais para gerenciar dados de configuração e armazenar com segurança informações confidenciais, como chaves de API ou credenciais.
 
-You will learn how to define, access, and use environment variables and secrets within your workflows to make them more flexible andsecure.
+Você aprenderá a definir, acessar e usar variáveis ​​de ambiente e segredos dentro dos seus fluxos de trabalho para torná-los mais flexíveis e seguros.
 
-Next, we will explore job and step-level conditions, which enable you to control the execution of specific jobs or steps based on certain criteria.
+Em seguida, exploraremos condições de nível de trabalho e etapa, que permitem que você controle a execução de trabalhos ou etapas específicas com base em determinados critérios.
 
-We will cover various types of conditional expressions, such as basic conditional execution, combining expressions with logical operators, and filtering by event type or branch.
+Abordaremos vários tipos de expressões condicionais, como execução condicional básica, combinação de expressões com operadores lógicos e filtragem por tipo de evento ou ramificação.
 
-By incorporating these conditions into your workflows, you can create more dynamic and adaptable automation processes.
+Ao incorporar essas condições aos seus fluxos de trabalho, você pode criar processos de automação mais dinâmicos e adaptáveis.
 
-Lastly, we will dive into matrix builds and parallelization, which we briefly touched upon in the previous chapter. This section will provide a more in-depth look at these features, explaining how they can help you optimize resource usage, reduce workflow runtime, and improve overall maintainability.
+Por fim, vamos nos aprofundar em builds de matriz e paralelização, que abordamos brevemente no capítulo anterior. Esta seção fornecerá uma visão mais aprofundada desses recursos, explicando como eles podem ajudar você a otimizar o uso de recursos, reduzir o tempo de execução do fluxo de trabalho e melhorar a manutenibilidade geral.
 
-By the end of this chapter, you will have a thorough understanding of how to manage and optimize GitHub Actions workflow execution, allowing you to create robust, efficient, and secure automation processes for your development projects.
+Ao final deste capítulo, você terá um entendimento completo de como gerenciar e otimizar a execução do fluxo de trabalho do GitHub Actions, permitindo que você crie processos de automação robustos, eficientes e seguros para seus projetos de desenvolvimento.
 
 ### Environment Variables and Secrets
-Managing sensitive data and configuration values is crucial for maintaining the security and flexibility of your workflows.
+Gerenciar dados sensíveis e valores de configuração é crucial para manter a segurança e a flexibilidade dos seus fluxos de trabalho.
 
-Environment variables and secrets provide a way to store and access this data without hardcoding it in your workflow files. In this setion, we will discuss how to define, use, and manage environment variables and secrets in your GitHub Actions workflows.
+Variáveis ​​de ambiente e segredos fornecem uma maneira de armazenar e acessar esses dados sem codificá-los em seus arquivos de fluxo de trabalho. Nesta seção, discutiremos como definir, usar e gerenciar variáveis ​​de ambiente e segredos em seus fluxos de trabalho do GitHub Actions.
 
 #### Environment variables:
-Environment variables are key-value pairs that are available to your workflow's steps as they execute. They can store configuration values, paths, or other data that you want to access across multiple steps or jobs. You can set environment variables at three different levels:
+Variáveis ​​de ambiente são pares de chave-valor que estão disponíveis para as etapas do seu fluxo de trabalho conforme elas são executadas. Elas podem armazenar valores de configuração, caminhos ou outros dados que você deseja acessar em várias etapas ou trabalhos. Você pode definir variáveis ​​de ambiente em três níveis diferentes:
 
-- [x] Repository level: Set in your repository's settings and apply to all workflows in the repository;
-- [x] Workflow level: Set in the workflow file with the env keyword and apply to all jobs in the workflow.
-- [x] Job or step level: Set in the workflow file with the env key- word and apply only to the specific job or step.Example:
+- [x] Nível do repositório: definido nas configurações do seu repositório e aplicado a todos os fluxos de trabalho no repositório;
+- [x] Nível do fluxo de trabalho: definido no arquivo de fluxo de trabalho com a palavra-chave env e aplicado a todos os trabalhos no fluxo de trabalho.
+- [x] Nível do trabalho ou etapa: definido no arquivo de fluxo de trabalho com a palavra-chave env e aplicado somente ao trabalho ou etapa específica. Exemplo:
 
 ```
   name: My Workflow
@@ -932,17 +933,18 @@ Environment variables are key-value pairs that are available to your workflow's 
                  STEP_VARIABLE: "Step value"
 ```
 
-In this example, environment variables are set at the repository, workflow, job, and step levels. The Print environment variables step accesses and prints their values using the appropriate syntax for the shell being used.
+Neste exemplo, as variáveis ​​de ambiente são definidas nos níveis de repositório, fluxo de trabalho, tarefa e etapa. A etapa Print environment variables acessa e imprime seus valores usando a sintaxe apropriada para o shell que está sendo usado.
 
 ### Secrets:
-Secrets are encrypted environment variables that store sensitive data, such as access tokens, passwords, or API keys.
+Segredos são variáveis ​​de ambiente criptografadas que armazenam dados confidenciais, como tokens de acesso, senhas ou chaves de API.
 
-Secrets are not exposed in logs or available to users with read access to the repository, providing a secure way to store and use sensitive data in your workflows.
-To create a secret, navigate to your repository's "Settings" tab, thenclick on "Secrets" in the left sidebar.
+Os segredos não são expostos em logs ou disponibilizados para usuários com acesso de leitura ao repositório, fornecendo uma maneira segura de armazenar e usar dados confidenciais em seus fluxos de trabalho.
+Para criar um segredo, navegue até a guia "Configurações" do seu repositório e clique em "Segredos" na barra lateral esquerda.
 
-Click on "New repository secret" to add a new secret, providing a name and a value.
+Clique em "Novo segredo do repositório" para adicionar um novo segredo, fornecendo um nome e um valor.
 
-To use a secret in your workflow, reference it using the secrets context in an expression.Secrets can be assigned to environment variables or used directly in expressions.Example:
+Para usar um segredo em seu fluxo de trabalho, faça referência a ele usando o contexto de segredos em uma expressão. Os segredos podem ser atribuídos a variáveis ​​de ambiente ou usados ​​diretamente em expressões. Exemplo:
+
 ```
 jobs:
   deploy:
@@ -952,17 +954,18 @@ jobs:
              run: npm run deploy -- --token $TOKEN
              env: TOKEN: ${{ secrets.DEPLOY_TOKEN }}
 ```
-In this example, the DEPLOY_TOKEN secret is assigned to the TOKEN environment variable, which is then used as an argument in the npm run deploy command.
+
+Neste exemplo, o segredo DEPLOY_TOKEN é atribuído à variável de ambiente TOKEN, que é então usada como um argumento no comando npm run deploy.
 
 ### Masking and redacting secrets:
-GitHub Actions automatically masks and redacts secrets in logs to prevent accidental exposure. If a secret value is detected in the logs, it is replaced with the *** character sequence. To ensure that secrets are masked correctly, avoid using secrets with very short or common values, and validate user input if it's used to construct secrets.
+O GitHub Actions mascara e redige automaticamente segredos em logs para evitar exposição acidental. Se um valor secreto for detectado nos logs, ele será substituído pela sequência de caracteres ***. Para garantir que os segredos sejam mascarados corretamente, evite usar segredos com valores muito curtos ou comuns e valide a entrada do usuário se ela for usada para construir segredos.
 
 #### Organization and environment secrets:
-In addition to repository secrets, GitHub Actions supports organization secrets and environment secrets. Organization secrets can be shared across multiple repositories within an organization, while environment secrets are scoped to specific environments and require approval to be accessed by a workflow.
+Além dos segredos do repositório, o GitHub Actions oferece suporte a segredos da organização e segredos do ambiente. Os segredos da organização podem ser compartilhados entre vários repositórios dentro de uma organização, enquanto os segredos do ambiente são delimitados para ambientes específicos e exigem aprovação para serem acessados ​​por um fluxo de trabalho.
 
 ### Limiting secret access:
-By default, secrets are not passed to workflows that are triggered by a pull request from a forked repository.
-This helps prevent unauthorized access to your secrets. To provide limited access to secrets for forked repositories, you can use the pull_request_target event in combination with additional checks and conditions in your workflow. Example:
+Por padrão, os segredos não são passados ​​para fluxos de trabalho que são acionados por uma solicitação de pull de um repositório bifurcado.
+Isso ajuda a evitar acesso não autorizado aos seus segredos. Para fornecer acesso limitado aos segredos para repositórios bifurcados, você pode usar o evento pull_request_target em combinação com verificações e condições adicionais no seu fluxo de trabalho. Exemplo:
 
 ```
   on:
@@ -992,14 +995,14 @@ This helps prevent unauthorized access to your secrets. To provide limited acces
                                  env:
                                    TOKEN: ${{ secrets.DEPLOY_TOKEN }}
 ```
-In this example, the check_pr job checks if the pull request is approved based on custom logic (e.g., by a specific user or using labels). The deploy job uses the needs keyword to depend on the check_pr job and the if keyword to conditionally execute the deployment step if the pull request is approved.
+Neste exemplo, o trabalho check_pr verifica se a solicitação de pull é aprovada com base na lógica personalizada (por exemplo, por um usuário específico ou usando rótulos). O trabalho de implantação usa a palavra-chave needs para depender do trabalho check_pr e a palavra-chave if para executar condicionalmente a etapa de implantação se a solicitação de pull for aprovada.
 
-By effectively managing environment variables and secrets in your GitHub Actions workflows, you can securely store sensitive data and configuration values, providing a flexible and maintainable way to manage your workflow execution. In the following sections, we will explore more advanced topics such as conditional execution, matrix strategies, and creating custom actions to fur- ther enhance your GitHub Actions workflows.
+Ao gerenciar efetivamente variáveis ​​de ambiente e segredos em seus fluxos de trabalho do GitHub Actions, você pode armazenar com segurança dados confidenciais e valores de configuração, fornecendo uma maneira flexível e sustentável de gerenciar a execução do seu fluxo de trabalho. Nas seções a seguir, exploraremos tópicos mais avançados, como execução condicional, estratégias de matriz e criação de ações personalizadas para aprimorar ainda mais seus fluxos de trabalho do GitHub Actions.
 
 ### Job and Step-Level Conditions
-Conditional execution is a powerful feature that allows you to control when jobs and steps run based on specific criteria. In this section, we'll cover various aspects of using conditions in your GitHub Actions workflows.Basic Conditional ExecutionThe basic conditional execution feature in GitHub Actions allows you to control when jobs or steps within your workflows run based on specific criteria.
+A execução condicional é um recurso poderoso que permite que você controle quando os trabalhos e as etapas são executados com base em critérios específicos. Nesta seção, abordaremos vários aspectos do uso de condições em seus fluxos de trabalho do GitHub Actions.Execução condicional básicaO recurso de execução condicional básica no GitHub Actions permite que você controle quando os trabalhos ou as etapas em seus fluxos de trabalho são executados com base em critérios específicos.
 
-By using the if keyword followed by a conditional expression, you can determine whether a job or step should execute. The job or step will only run if the expression evaluates totrue.To set a condition for a job, add the if keyword at the job level in your workflow file:
+Ao usar a palavra-chave if seguida por uma expressão condicional, você pode determinar se um trabalho ou etapa deve ser executado. O trabalho ou etapa será executado somente se a expressão for avaliada como true.Para definir uma condição para um trabalho, adicione a palavra-chave if no nível do trabalho no seu arquivo de fluxo de trabalho:
 
 ```
 jobs:
@@ -1011,9 +1014,10 @@ jobs:
                  run: npm run build
 ```
 
-In this example, the build job will only run if the event that triggered the workflow is a push event.
+Neste exemplo, o trabalho de construção só será executado se o evento que disparou o fluxo de trabalho for um evento push.
 
-Similarly, you can set conditions for individual steps within a job by adding the if keyword at the step level:
+Da mesma forma, você pode definir condições para etapas individuais dentro de um trabalho adicionando a palavra-chave if no nível da etapa:
+
 ```
 jobs:
   test:
@@ -1028,24 +1032,24 @@ jobs:
            if: ${{ github.ref!= 'refs/heads/main' }}
              run: npm run test
 ```
-In this example, the Run tests on the main branch step will execute only if the current branch is the main branch. Conversely, the Run tests on other branches step will execute if the current branch is not the main branch.
+Neste exemplo, a etapa Executar testes na ramificação principal será executada somente se a ramificação atual for a ramificação principal. Por outro lado, a etapa Executar testes em outras ramificações será executada se a ramificação atual não for a ramificação principal.
 
-Using basic conditional execution, you can tailor your workflows to respond to different events or branches, optimizing resource usage and reducing overall runtime. This makes your workflows more efficient and adaptable, ultimately simplifying their maintenance.
+Usando a execução condicional básica, você pode adaptar seus fluxos de trabalho para responder a diferentes eventos ou ramificações, otimizando o uso de recursos e reduzindo o tempo de execução geral. Isso torna seus fluxos de trabalho mais eficientes e adaptáveis, simplificando, em última análise, sua manutenção.
 
 ### Contexts and Functions in Conditions
-When defining conditional expressions in your GitHub Actions workflows, you can use various contexts and functions to create more dynamic and complex conditions.
-Contexts provide access to data about the current workflow run, repository, and event, while functions offer a way to manipulate and evaluate this data. Here's an overview of some commonly used contexts and functions:
+Ao definir expressões condicionais em seus fluxos de trabalho do GitHub Actions, você pode usar vários contextos e funções para criar condições mais dinâmicas e complexas.
+Contextos fornecem acesso a dados sobre a execução do fluxo de trabalho atual, repositório e evento, enquanto funções oferecem uma maneira de manipular e avaliar esses dados. Aqui está uma visão geral de alguns contextos e funções comumente usados:
 
-1. Contexts:
-- [x] github: Provides access to data related to the current workflow run, repository, and event. Some commonly used properties include github.event_name, github.ref, and github.actor.
-- [x] secrets: Allows you to reference encrypted secrets stored in your repository.needs: Enables you to access the output of previously completed jobs within the same workflow.- [x] steps: Grants access to the output of previous steps within the same job.env: References environment variables defined at the workflow, job, or step level.
+1. Contextos:
+- [x] github: fornece acesso a dados relacionados à execução do fluxo de trabalho atual, repositório e evento. Algumas propriedades comumente usadas incluem github.event_name, github.ref e github.actor.
+- [x] secrets: permite que você faça referência a segredos criptografados armazenados em seu repositório.needs: permite que você acesse a saída de trabalhos concluídos anteriormente dentro do mesmo fluxo de trabalho.- [x] steps: concede acesso à saída de etapas anteriores dentro do mesmo trabalho.env: faz referência a variáveis ​​de ambiente definidas no nível do fluxo de trabalho, trabalho ou etapa.
 
-2. Functions:
-- [x] success(): Returns true if all the previous steps or jobs in the workflow have completed successfully, and false otherwise.
-- [x] failure() : Returns true if any of the previous steps or jobs in the workflow have failed, and false otherwise.
-- [x] cancelled(): Returns true if any of the previous steps or jobs in the workflow have been cancelled, and false otherwise.
-- [x] startsWith(), endsWith(), and contains() : String manipulation functions that can be used to check if a stringExample:jobs:deploy:starts with, ends with, or contains a specific substring, respectively.
-- [x] fromJson(): Parses a JSON string and returns a JSON object that can be used in expressions.
+2. Funções:
+- [x] success(): retorna true se todas as etapas ou trabalhos anteriores no fluxo de trabalho foram concluídos com sucesso e false caso contrário.
+- [x] failure(): retorna true se qualquer uma das etapas ou trabalhos anteriores no fluxo de trabalho falhou e false caso contrário.
+- [x] cancelled(): retorna true se qualquer uma das etapas ou trabalhos anteriores no fluxo de trabalho foram cancelados e false caso contrário.
+- [x] startsWith(), endsWith() e contains(): funções de manipulação de string que podem ser usadas para verificar se uma stringExample:jobs:deploy:starts with, ends with ou contains uma substring específica, respectivamente.
+- [x] fromJson(): analisa uma string JSON e retorna um objeto JSON que pode ser usado em expressões.
 
 ```
 jobs:
@@ -1056,22 +1060,22 @@ jobs:
      - name: Deployrun: npm run deploy
         env:API_KEY: ${{ secrets.API_KEY}}
 ```
-In this example, the deploy job will only run if the event that triggered the workflow is a push event and the current branch is the main branch.
+Neste exemplo, o trabalho de implantação será executado somente se o evento que disparou o fluxo de trabalho for um evento push e a ramificação atual for a ramificação principal.
 
-The API_KEY secret is also used as an environment variable for the Deploy step.
+O segredo API_KEY também é usado como uma variável de ambiente para a etapa Deploy.
 
-By using contexts and functions in your conditions, you can create more versatile workflows that respond dynamically to different events, branches, statuses, and other relevant criteria. This allows you to optimize resource usage, reduce runtime, and improve the maintainability of your GitHub Actions workflows.
+Ao usar contextos e funções em suas condições, você pode criar fluxos de trabalho mais versáteis que respondem dinamicamente a diferentes eventos, ramificações, status e outros critérios relevantes. Isso permite que você otimize o uso de recursos, reduza o tempo de execução e melhore a capacidade de manutenção dos seus fluxos de trabalho do GitHub Actions.
 
 ### Combining Expressions with Logical Operators
-In GitHub Actions, you can combine expressions in your conditional statements using logical operators to create more complex conditions. This flexibility allows you to tailor your workflows to run or skip jobs and steps based on multiple criteria, further optimizing resource usage and runtime.
+No GitHub Actions, você pode combinar expressões em suas instruções condicionais usando operadores lógicos para criar condições mais complexas. Essa flexibilidade permite que você adapte seus fluxos de trabalho para executar ou pular tarefas e etapas com base em vários critérios, otimizando ainda mais o uso de recursos e o tempo de execução.
 
-The following logical oper- ators are available for use in conditional expressions:
+Os seguintes operadores lógicos estão disponíveis para uso em expressões condicionais:
 
-1. `&& (and)`: Evaluates to true if both the left and right expressions are true, and false otherwise.
-2. `|| (or)`: Evaluates to true if either the left or right expression is true, and false otherwise.
-3. `! (not)`: Negates the truth value of the expression that follows it. Returns true if the expression is false, and false if the ex- pression is true.
+1. `&& (e)`: Avalia como verdadeiro se as expressões esquerda e direita forem verdadeiras e falso caso contrário.
+2. `|| (ou)`: Avalia como verdadeiro se a expressão esquerda ou direita for verdadeira e falso caso contrário.
+3. `! (não)`: Nega o valor verdade da expressão que o segue. Retorna verdadeiro se a expressão for falsa e falso se a expressão for verdadeira.
 
-Example:
+Exemplo:
 ```
 jobs:
   Build_and_test:
@@ -1087,14 +1091,14 @@ jobs:
       - name: Build project
         run: npm run build
 ```
-In this example, the build_and_test job will only run if the event that triggered the workflow is a push event and either the current branch is the main branch or the commit message contains the [build] string.
+Neste exemplo, o trabalho build_and_test será executado somente se o evento que disparou o fluxo de trabalho for um evento push e o branch atual for o branch principal ou a mensagem de commit contiver a string [build].
 
-By combining expressions with logical operators, you can create more nuanced conditions for executing jobs and steps in your Git- Hub Actions workflows. This added level of control enables you to create more efficient and adaptable workflows, ultimately simplifying their maintenance and improving resource management.
+Ao combinar expressões com operadores lógicos, você pode criar condições mais diferenciadas para executar trabalhos e etapas em seus fluxos de trabalho do Git-Hub Actions. Esse nível adicional de controle permite que você crie fluxos de trabalho mais eficientes e adaptáveis, simplificando sua manutenção e melhorando o gerenciamento de recursos.
 
 ### Conditional Job Dependencies
-Conditional job dependencies in GitHub Actions enable you to create dependencies between jobs and control their execution order based on the success or failure of previous jobs. This functionality can help you optimize resource usage, reduce runtime, and improve the maintainability of your workflows.
+Dependências condicionais de trabalho no GitHub Actions permitem que você crie dependências entre trabalhos e controle sua ordem de execução com base no sucesso ou falha de trabalhos anteriores. Essa funcionalidade pode ajudar a otimizar o uso de recursos, reduzir o tempo de execução e melhorar a manutenibilidade dos seus fluxos de trabalho.
 
-To create a job dependency, use the needs keyword at the job level, followed by the name of the job(s) it depends on. The dependent job will only run if all the jobs it depends on have completed successfully.Example:
+Para criar uma dependência de trabalho, use a palavra-chave needs no nível do trabalho, seguida pelo nome do(s) trabalho(s) do(s) qual(is) ele(s) depende. O trabalho dependente só será executado se todos os trabalhos dos quais ele depende tiverem sido concluídos com sucesso. Exemplo:
 ```
 jobs:
    build:
@@ -1125,11 +1129,11 @@ jobs:
           - name: Deploy
              run: npm run deploy
 ```
-In this example, the test job depends on the successful completion of the build job, and the deploy job depends on the successful completion of the test job.
+Neste exemplo, o trabalho de teste depende da conclusão bem-sucedida do trabalho de construção, e o trabalho de implantação depende da conclusão bem-sucedida do trabalho de teste.
 
-The jobs will run in sequence, and if any job fails, the subsequent jobs will not run.
+Os trabalhos serão executados em sequência e, se algum trabalho falhar, os trabalhos subsequentes não serão executados.
 
-You can also use conditional expressions with the needs keyword to create more complex dependencies:
+Você também pode usar expressões condicionais com a palavra-chave needs para criar dependências mais complexas:
 
 ```
 jobs:
@@ -1164,20 +1168,20 @@ jobs:
                  run: npm run deploy
 ```
 
-In this modified example, the test job will only run if the build job is successful and either the event is not a pull request or the pull request does not have a label named "skip-tests".
+Neste exemplo modificado, o trabalho de teste será executado somente se o trabalho de construção for bem-sucedido e o evento não for uma solicitação de pull ou a solicitação de pull não tiver um rótulo chamado "skip-tests".
 
-The deploy job will run only if the test job is successful.
+O trabalho de implantação será executado somente se o trabalho de teste for bem-sucedido.
 
-By leveraging conditional job dependencies in your GitHub Actions workflows, you can create more efficient and flexible workflows that respond dynamically to the success or failure of previous jobs, ultimately simplifying workflow maintenance and improving resource management.
+Ao aproveitar as dependências de trabalho condicionais em seus fluxos de trabalho do GitHub Actions, você pode criar fluxos de trabalho mais eficientes e flexíveis que respondem dinamicamente ao sucesso ou falha de trabalhos anteriores, simplificando, em última análise, a manutenção do fluxo de trabalho e melhorando o gerenciamento de recursos.
 
 ### Skipping Jobs and Steps
-In GitHub Actions, you can skip jobs or steps within your workflows based on specific conditions by using the if keyword followed by a conditional expression.
+No GitHub Actions, você pode pular trabalhos ou etapas dentro dos seus fluxos de trabalho com base em condições específicas usando a palavra-chave if seguida por uma expressão condicional.
 
-If the expression evaluates to false, the job or step will be skipped.
+Se a expressão for avaliada como falsa, o trabalho ou etapa será ignorado.
 
-Skipping unnecessary jobs or steps can help you optimize resource usage, reduce runtime, and improve the maintainability of your workflows.
+Pular trabalhos ou etapas desnecessárias pode ajudar a otimizar o uso de recursos, reduzir o tempo de execução e melhorar a capacidade de manutenção dos seus fluxos de trabalho.
 
-To skip a job, add the if keyword at the job level in your workflow file:
+Para pular um trabalho, adicione a palavra-chave if no nível do trabalho no seu arquivo de fluxo de trabalho:
 ```
 jobs:
   deploy:
@@ -1190,11 +1194,11 @@ jobs:
      run: npm run deploy
 ```
 
-In this example, the deploy job will only run if the event that triggered the workflow is a push event and the current branch is the main branch.
+Neste exemplo, o trabalho de implantação será executado somente se o evento que disparou o fluxo de trabalho for um evento push e a ramificação atual for a ramificação principal.
 
-Otherwise, the job will be skipped.
+Caso contrário, o trabalho será ignorado.
 
-Similarly, you can skip individual steps within a job by adding the if keyword at the step level:
+Da mesma forma, você pode pular etapas individuais dentro de um trabalho adicionando a palavra-chave if no nível da etapa:
 ```
 jobs:
  test:
@@ -1214,20 +1218,20 @@ jobs:
              path: coverage/
 ```
 
-In this example, the Upload test coverage step will only run if all the previous steps within the test job have completed successfully. If any previous step fails, the step will be skipped.
+Neste exemplo, a etapa Upload test coverage será executada somente se todas as etapas anteriores dentro do trabalho de teste tiverem sido concluídas com sucesso. Se qualquer etapa anterior falhar, a etapa será ignorada.
 
-By using conditional expressions to skip jobs and steps in your GitHub Actions workflows, you can create more efficient and adaptable workflows that respond dynamically to different events, branches, and statuses.
+Ao usar expressões condicionais para ignorar trabalhos e etapas em seus fluxos de trabalho do GitHub Actions, você pode criar fluxos de trabalho mais eficientes e adaptáveis ​​que respondem dinamicamente a diferentes eventos, ramificações e status.
 
-This added level of control enables you to optimize resource usage and reduce runtime, ultimately simplifying workflow maintenance and improving resource management.
+Este nível adicional de controle permite que você otimize o uso de recursos e reduza o tempo de execução, simplificando, em última análise, a manutenção do fluxo de trabalho e melhorando o gerenciamento de recursos.
 
 ### Filtering by Event Type or Branch
-Filtering jobs and steps based on event type or branch in GitHub Actions allows you to create more targeted workflows that respond specifically to the context in which they are run.
-By using conditional expressions with the if keyword, you can control when a job or step is executed based on the event that triggered the workflow or the current branch.
+Filtrar trabalhos e etapas com base no tipo de evento ou ramificação no GitHub Actions permite que você crie fluxos de trabalho mais direcionados que respondem especificamente ao contexto em que são executados.
+Ao usar expressões condicionais com a palavra-chave if, você pode controlar quando um trabalho ou etapa é executado com base no evento que acionou o fluxo de trabalho ou a ramificação atual.
 
 ### Filtering by Event Type
-To filter a job or step based on the event type, use the github.event_name context in your conditional expression.
-This context provides access to the name of the event that triggered the workflow.
-Example:
+Para filtrar um trabalho ou etapa com base no tipo de evento, use o contexto github.event_name na sua expressão condicional.
+Este contexto fornece acesso ao nome do evento que disparou o fluxo de trabalho.
+Exemplo:
 ```
 jobs:
   deploy:
@@ -1240,11 +1244,11 @@ jobs:
            run: npm run deploy
 ```
 
-In this example, the deploy job will only run if the event that triggered the workflow is a push event. Otherwise, the job will be skipped.
+Neste exemplo, o job de implantação será executado somente se o evento que disparou o fluxo de trabalho for um evento push. Caso contrário, o job será ignorado.
 
 #### Filtering by Branch
-To filter a job or step based on the current branch, use the github.ref context in your conditional expression.
-This context provides access to the branch or tag ref that triggered the workflow. Example:
+Para filtrar um trabalho ou etapa com base no branch atual, use o contexto github.ref na sua expressão condicional.
+Este contexto fornece acesso ao branch ou tag ref que disparou o fluxo de trabalho. Exemplo:
 
 ```
 jobs:
@@ -1257,12 +1261,11 @@ jobs:
          - name: Deploy to production
             run: npm run deploy
 ```
-In this example, the deploy job will only run if the current branch is the main branch.
-Otherwise, the job will be skipped.
+Neste exemplo, o trabalho de implantação será executado somente se o branch atual for o branch principal.
+Caso contrário, o trabalho será ignorado.
 
 ### Combining Event Type and Branch Filtering:
-You can also combine event type and branch filtering in a single conditional expression using logical operators like && (and) or || (or).
-Example:
+Você também pode combinar filtragem de tipo de evento e ramificação em uma única expressão condicional usando operadores lógicos como && (e) ou || (ou). Exemplo:
 ```
 jobs:
   Deploy:
@@ -1275,18 +1278,18 @@ jobs:
        run: npm run deploy
 ```
 
-In this example, the deploy job will only run if the event that triggered the workflow is a push event and the current branch is the main branch.
-Otherwise, the job will be skipped.By filtering jobs and steps based on event type or branch in your GitHub Actions workflows, you can create more focused and efficient workflows that run only when necessary.
+Neste exemplo, o trabalho de implantação será executado somente se o evento que disparou o fluxo de trabalho for um evento push e a ramificação atual for a ramificação principal.
+Caso contrário, o trabalho será ignorado. Ao filtrar trabalhos e etapas com base no tipo de evento ou ramificação em seus fluxos de trabalho do GitHub Actions, você pode criar fluxos de trabalho mais focados e eficientes que são executados somente quando necessário.
 
-This increased level of control helps optimize resource usage, reduce runtime, and improve overall workflow maintainability.
+Esse nível maior de controle ajuda a otimizar o uso de recursos, reduzir o tempo de execução e melhorar a capacidade de manutenção geral do fluxo de trabalho.
 
 ### Error Handling and continue-on-error
-Error handling is a crucial aspect of building robust GitHub Actions workflows.
-By default, if a step fails, the entire job will be marked as failed, and any subsequent steps will not be executed.
-However, there might be cases where you want a job to continue running even if a step encounters an error.
-The continue-on-error keyword allows you to control this behaviour and ensure that your workflows can gracefully handle errors and continue running when necessary.
-Using continue-on-errorTo use continue-on-error in your workflow, add the keyword at the step level and set its value to true.
-This will instruct GitHub Actions to continue executing the remaining steps in the job even if the current step encounters an error.Example:
+O tratamento de erros é um aspecto crucial da construção de fluxos de trabalho robustos do GitHub Actions.
+Por padrão, se uma etapa falhar, todo o trabalho será marcado como falhado e quaisquer etapas subsequentes não serão executadas.
+No entanto, pode haver casos em que você deseja que um trabalho continue em execução mesmo se uma etapa encontrar um erro.
+A palavra-chave continue-on-error permite que você controle esse comportamento e garanta que seus fluxos de trabalho possam lidar com erros com elegância e continuar em execução quando necessário.
+Usando continue-on-errorPara usar continue-on-error em seu fluxo de trabalho, adicione a palavra-chave no nível da etapa e defina seu valor como true.
+Isso instruirá o GitHub Actions a continuar executando as etapas restantes no trabalho, mesmo se a etapa atual encontrar um erro.Exemplo:
 ```
 jobs:
   build:
@@ -1302,12 +1305,12 @@ jobs:
         - name: Run tests
            run: npm test
 ```
-In this example, the Run linter step is configured with continue-on-error: true.
-If the linter encounters an error (e.g., it finds code style violations), the step will be marked as failed, but the job will continue executing the remaining steps, such as running the tests.
+Neste exemplo, a etapa Run linter é configurada com continue-on-error: true.
+Se o linter encontrar um erro (por exemplo, ele encontrar violações de estilo de código), a etapa será marcada como falha, mas o trabalho continuará executando as etapas restantes, como executar os testes.
 
 ### Customizing error handling behaviour
-You can also use conditional expressions with the continue-on-error keyword to customize the error handling behaviour based on specific conditions.
-Example:
+Você também pode usar expressões condicionais com a palavra-chave continue-on-error para personalizar o comportamento de tratamento de erros com base em condições específicas.
+Exemplo:
 ```
 jobs:
   build:
@@ -1323,70 +1326,71 @@ jobs:
         - name: Run tests
            run: npm test
 ```
-In this modified example, the continue-on-error value is set to a conditional expression that evaluates to true if the event that triggered the workflow is a pull request.
+Neste exemplo modificado, o valor continue-on-error é definido como uma expressão condicional que avalia como true se o evento que acionou o fluxo de trabalho for uma solicitação de pull.
 
-This means that if the workflow is triggered by a pull request event and the linter encounters an error, the job will continue executing the remaining steps.
+Isso significa que se o fluxo de trabalho for acionado por um evento de solicitação de pull e o linter encontrar um erro, o trabalho continuará executando as etapas restantes.
 
-However, if the workflow is triggered by another event type, such as a push event, the job will be marked as failed and the remaining steps will not be executed.
+No entanto, se o fluxo de trabalho for acionado por outro tipo de evento, como um evento push, o trabalho será marcado como falha e as etapas restantes não serão executadas.
 
-By using the continue-on-error keyword and conditional expressions in your GitHub Actions workflows, you can create more resilient and adaptable workflows that can gracefully handle errors and continue running when appropriate.
-This added level of control enables you to optimize resource usage, reduce runtime, and improve overall workflow maintainability.
+Ao usar a palavra-chave continue-on-error e expressões condicionais em seus fluxos de trabalho do GitHub Actions, você pode criar fluxos de trabalho mais resilientes e adaptáveis ​​que podem lidar com erros com elegância e continuar em execução quando apropriado.
+Este nível adicional de controle permite otimizar o uso de recursos, reduzir o tempo de execução e melhorar a capacidade de manutenção geral do fluxo de trabalho.
 
 ### Creating Custom GitHub Actions
-In this chapter, we will guide you through the process of creating custom GitHub Actions to expand the capabilities of your workflows beyond the pre-built actions available in the GitHub Marketplace.
+Neste capítulo, nós o guiaremos pelo processo de criação de GitHub Actions personalizadas para expandir os recursos dos seus fluxos de trabalho além das ações pré-criadas disponíveis no GitHub Marketplace.
 
-Custom actions allow you to tailor your automation processes to the specific needs of your development projects and implement unique functionality that might not be available in existing actions.
+As ações personalizadas permitem que você adapte seus processos de automação às necessidades específicas dos seus projetos de desenvolvimento e implemente funcionalidades exclusivas que podem não estar disponíveis em ações existentes.
 
-We will begin by discussing the two primary types of custom actions: Docker-based actions and JavaScript-based actions.
+Começaremos discutindo os dois tipos principais de ações personalizadas: ações baseadas em Docker e ações baseadas em JavaScript.
 
-You will learn about their key differences, advantages, and limitations, enabling you to make informed decisions about which type of action is best suited for your particular use case.
-Next, we will provide step-by-step instructions on how to create your own custom actions, covering the structure, components, and development process for both Docker-based and JavaScript-based actions.
+Você aprenderá sobre suas principais diferenças, vantagens e limitações, permitindo que você tome decisões informadas sobre qual tipo de ação é mais adequado para seu caso de uso específico.
+Em seguida, forneceremos instruções passo a passo sobre como criar suas próprias ações personalizadas, abrangendo a estrutura, os componentes e o processo de desenvolvimento para ações baseadas em Docker e JavaScript.
 
-This hands-on approach will ensure you gain practical experience and a deep understanding of how to create custom actions effectively.
-Throughout the chapter, we will also share tips, best practices, and recommendations for action development, including how to write maintainable code, ensure proper error handling, and optimize performance.
+Esta abordagem prática garantirá que você ganhe experiência prática e um profundo entendimento de como criar ações personalizadas de forma eficaz.
+Ao longo do capítulo, também compartilharemos dicas, melhores práticas e recomendações para o desenvolvimento de ações, incluindo como escrever código sustentável, garantir o tratamento adequado de erros e otimizar o desempenho.
 
-These insights will help you create high-quality, reusable custom actions that can be shared with the community or used privately within your organization.
-By the end of this chapter, you will be equipped with the knowledge and skills necessary to create custom GitHub Actions, enabling you to expand your automation capabilities and tailor your workflows to meet the unique requirements of your development projects.
+Esses insights ajudarão você a criar ações personalizadas reutilizáveis ​​e de alta qualidade que podem ser compartilhadas com a comunidade ou usadas de forma privada em sua organização.
+Ao final deste capítulo, você estará equipado com o conhecimento e as habilidades necessárias para criar ações personalizadas do GitHub, permitindo que você expanda seus recursos de automação e adapte seus fluxos de trabalho para atender aos requisitos exclusivos de seus projetos de desenvolvimento.
 
 ### Docker-based Actions vs. JavaScript-based Actions
-In this section, we will compare and contrast the two primary types of custom GitHub Actions:Docker-based Actions and JavaScript-based Actions.
-Understanding the differences between these action types, as well as their respective advantages and limitations, will help you make informed decisions when creating custom actions for your workflows.
+Nesta seção, compararemos e contrastaremos os dois tipos principais de ações personalizadas do GitHub: ações baseadas em Docker e ações baseadas em JavaScript.
+Entender as diferenças entre esses tipos de ação, bem como suas respectivas vantagens e limitações, ajudará você a tomar decisões informadas ao criar ações personalizadas para seus fluxos de trabalho.
 
 ### Introduction to Docker-based Actions
-Docker-based Actions are GitHub Actions that run inside a Docker container. This means that the action's runtime environment is isolated and can be customized to include any dependencies required by the action.
+Ações baseadas em Docker são Ações do GitHub que são executadas dentro de um contêiner Docker. Isso significa que o ambiente de tempo de execução da ação é isolado e pode ser personalizado para incluir quaisquer dependências necessárias para a ação.
 
 ### Advantages of Docker-based Actions
-- [x] Highly customizable and self-contained environment.
-- [x] Consistent execution environment, ensuring the action behaves the same way across different runners.
-Can be written in any programming language, as long as the language runtime is available in the Docker container.
+- [x] Ambiente altamente personalizável e autocontido.
+- [x] Ambiente de execução consistente, garantindo que a ação se comporte da mesma forma em diferentes executores.
+
+Pode ser escrito em qualquer linguagem de programação, desde que o tempo de execução da linguagem esteja disponível no contêiner Docker.
 
 ### Limitations of Docker-based Actions
-Can only be executed on Linux runners, as Docker is not supported on macOS or Windows runners.
+Só pode ser executado em executores Linux, pois o Docker não é suportado em executores macOS ou Windows.
 
-Slower startup time, due to the overhead of building and running the Docker container.
+Tempo de inicialização mais lento, devido à sobrecarga de construção e execução do contêiner Docker.
 
 ### Introduction to JavaScript-based Actions
-JavaScript-based Actions are GitHub Actions that run directly on the runner's host machine using Node.js.
-These actions require fewer resources compared to Docker-based Actions, as they do not run inside a container.
+Ações baseadas em JavaScript são Ações do GitHub que são executadas diretamente na máquina host do executor usando Node.js.
+Essas ações exigem menos recursos em comparação com Ações baseadas em Docker, pois não são executadas dentro de um contêiner.
 
 #### Advantages of JavaScript-based Actions
-Faster startup time, as there is no need to build or run a Docker container.
-Can be executed on any platform, including Linux, macOS, and Windows runners.
-Easier to create and maintain, as they only require a single entry point script written in JavaScript or TypeScript.
+Tempo de inicialização mais rápido, pois não há necessidade de construir ou executar um contêiner Docker.
+Pode ser executado em qualquer plataforma, incluindo Linux, macOS e Windows.
+Mais fácil de criar e manter, pois eles exigem apenas um script de ponto de entrada único escrito em JavaScript ou TypeScript.
 
 #### Limitations of JavaScript-based Actions
-Limited to JavaScript or TypeScript, as the action runs directly on the Node.js runtime.
-The action's dependencies and runtime environment must be compatible with the runner's host environment.
+Limitado a JavaScript ou TypeScript, pois a ação é executada diretamente no tempo de execução do Node.js.
+As dependências da ação e o ambiente de tempo de execução devem ser compatíveis com o ambiente host do executor.
 
 ### Choosing the Right Action Type for Your Workflow
-When deciding between Docker-based and JavaScript-based Actions, consider the following factors:
-- [X] Platform compatibility: If your workflow needs to run on macOS or Windows runners, JavaScript-based Actions are the better choice.
-- [X] Startup time: If minimizing startup time is crucial, Java-Script-based Actions generally offer faster execution.
-- [X] Customization and dependencies: If your action requires a highly customized environment or has complex dependencies, Docker-based Actions might be more suitable.
-- [X] Programming language: If you prefer to use a programming language other than JavaScript or TypeScript, Docker-based Actions offer greater flexibility.
+Ao decidir entre ações baseadas em Docker e baseadas em JavaScript, considere os seguintes fatores:
+- [X] Compatibilidade de plataforma: se seu fluxo de trabalho precisa ser executado em executores macOS ou Windows, as ações baseadas em JavaScript são a melhor escolha.
+- [X] Tempo de inicialização: se minimizar o tempo de inicialização for crucial, as ações baseadas em JavaScript geralmente oferecem execução mais rápida.
+- [X] Personalização e dependências: se sua ação requer um ambiente altamente personalizado ou tem dependências complexas, as ações baseadas em Docker podem ser mais adequadas.
+- [X] Linguagem de programação: se você preferir usar uma linguagem de programação diferente de JavaScript ou TypeScript, as ações baseadas em Docker oferecem maior flexibilidade.
 
-In conclusion, both Docker-based and JavaScript-based Actions have their merits and limitations.
-Carefully consider the specific needs of your workflow and the factors mentioned above to determine the most appropriate action type for your custom GitHub Actions.
+Concluindo, as ações baseadas em Docker e JavaScript têm seus méritos e limitações.
+Considere cuidadosamente as necessidades específicas do seu fluxo de trabalho e os fatores mencionados acima para determinar o tipo de ação mais apropriado para suas ações personalizadas do GitHub.
 
 ### Building a Docker-based Action
 In this section, we will walk you through the process of creating a custom Docker-based GitHub Action.
