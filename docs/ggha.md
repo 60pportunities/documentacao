@@ -335,7 +335,7 @@ schedule:
 ```
 
 ### Jobs
-A workflow consists of one or more jobs, which are individual units of work that run in parallel by default. Jobs are defined using the jobs keyword, followed by a unique identifier for each job and its configuration. Example:
+Um fluxo de trabalho consiste em um ou mais trabalhos, que são unidades individuais de trabalho que são executadas em paralelo por padrão. Os trabalhos são definidos usando a palavra-chave jobs, seguida por um identificador exclusivo para cada trabalho e sua configuração. Exemplo:
 
 ```
 jobs:
@@ -349,7 +349,7 @@ runs-on: ubuntu-latest steps:
 ```
 
 ### Job dependencies
-By default, jobs run in parallel, but you can specify dependencies between jobs using the needs keyword. This can be useful for creating sequential workflows where certain jobs must complete be- fore others can begin. Example:
+Por padrão, os trabalhos são executados em paralelo, mas você pode especificar dependências entre os trabalhos usando a palavra-chave needs. Isso pode ser útil para criar fluxos de trabalho sequenciais em que certos trabalhos devem ser concluídos antes que outros possam começar. Exemplo:
 
 ```
 jobs:
@@ -367,7 +367,8 @@ run: npm test
 ```
 
 ### Job environment
-Each job runs in a specific environment defined by the runs-on keyword, which specifies the operating system and version for the job. GitHub Actions provides several pre-built environments, such as ubuntu-latest, windows-latest and macos-latest . Example:
+Cada trabalho é executado em um ambiente específico definido pela palavra-chave runs-on, que especifica o sistema operacional e a versão do trabalho. O GitHub Actions fornece vários ambientes pré-construídos, como ubuntu-latest, windows-latest e macos-latest. Exemplo:
+
 ```
 jobs:
 build:
@@ -375,7 +376,7 @@ runs-on: ubuntu-latest
 ```
 
 ### Steps
-Jobs are composed of one or more steps, which are individual tasks executed sequentially within a job. Steps can use pre-built actions from the GitHub Actions marketplace, custom actions, or simply run shell commands. Steps are defined using the steps keyword, followed by a list of step configurations. Example:
+Os trabalhos são compostos de uma ou mais etapas, que são tarefas individuais executadas sequencialmente dentro de um trabalho. As etapas podem usar ações pré-criadas do mercado GitHub Actions, ações personalizadas ou simplesmente executar comandos shell. As etapas são definidas usando a palavra-chave steps, seguida por uma lista de configurações de etapas. Exemplo:
 
 ```
 jobs:
@@ -394,7 +395,7 @@ run: npm ci
   run: npm run build
 ```
 ### Actions
-Actions are reusable units of code that can be included as steps in your workflow. You can use pre-built actions from the GitHub Actions marketplace, create your own custom actions, or reference actions from other repositories. Actions are referenced using the uses keyword, followed by the action repository and version. Example:
+Ações são unidades reutilizáveis ​​de código que podem ser incluídas como etapas no seu fluxo de trabalho. Você pode usar ações pré-criadas do marketplace GitHub Actions, criar suas próprias ações personalizadas ou referenciar ações de outros repositórios. As ações são referenciadas usando a palavra-chave uses, seguida pelo repositório de ações e versão. Exemplo:
 
 ```
 steps:
@@ -403,7 +404,8 @@ steps:
 ```
 
 ### Inputs and outputs
-You can pass data between steps using inputs and outputs. Inputs are defined using the with keyword, followed by a mapping of input names and values. Outputs are defined using the id keyword to assign a unique identifier to a step and then accessed using the steps context in subsequent steps. Example:
+Você pode passar dados entre etapas usando entradas e saídas. As entradas são definidas usando a palavra-chave with, seguida por um mapeamento de nomes e valores de entrada. As saídas são definidas usando a palavra-chave id para atribuir um identificador exclusivo a uma etapa e, em seguida, acessadas usando o contexto steps em etapas subsequentes. Exemplo:
+
 ```
 jobs:
   build:
@@ -418,7 +420,8 @@ jobs:
 ```
 
 ### Environment variables and secrets
-Environment variables and secrets allow you to store and pass sensitive or reusable data between steps. Environment variables are defined using the env keyword, while secrets are managed in the repository's settings and accessed using the secrets context.Example:
+Variáveis ​​de ambiente e segredos permitem que você armazene e passe dados sensíveis ou reutilizáveis ​​entre etapas. Variáveis ​​de ambiente são definidas usando a palavra-chave env, enquanto segredos são gerenciados nas configurações do repositório e acessados ​​usando o contexto secrets.Exemplo:
+
 ```
 jobs:
 deploy:
@@ -431,12 +434,12 @@ run: |
 echo "Deploying to $API_BASE_URL"
 curl -H "Authorization: Bearer ${{ secrets.DEPLOY_TOKEN }}" -X POST $API_ BASE_URL/deploy
 ```
-
 ### Contexts
-Contexts in GitHub Actions provide access to various types of metadata related to the current workflow execution, such as the event that triggered the workflow, the repository, the job, the runner, and any custom inputs. They enable you to create dynamic and flexible workflows that can adapt to different situations based on the available metadata.
+Contextos no GitHub Actions fornecem acesso a vários tipos de metadados relacionados à execução atual do fluxo de trabalho, como o evento que acionou o fluxo de trabalho, o repositório, o trabalho, o executor e quaisquer entradas personalizadas. Eles permitem que você crie fluxos de trabalho dinâmicos e flexíveis que podem se adaptar a diferentes situações com base nos metadados disponíveis.
 
-For example, you can use the github context to access information about the event that triggered the workflow, like the event type, the actor who initiated the event, and the associated commit SHA. Similarly, the secrets context allows you to securely access encrypted secrets stored in your repository settings.
-To access context data, you can use the `${{context}}` syntax in your workflow file. Here's an example of using the github context to access the event name:
+Por exemplo, você pode usar o contexto do github para acessar informações sobre o evento que acionou o fluxo de trabalho, como o tipo de evento, o ator que iniciou o evento e o SHA de confirmação associado. Da mesma forma, o contexto de segredos permite que você acesse com segurança segredos criptografados armazenados nas configurações do seu repositório.
+
+Para acessar dados de contexto, você pode usar a sintaxe `${{context}}` no seu arquivo de fluxo de trabalho. Aqui está um exemplo de uso do contexto do github para acessar o nome do evento:
 
 ```
 jobs:
@@ -448,11 +451,11 @@ run: echo "Event name: ${{ github.event_name}}"
 ```
 
 ### Expressions
-Expressions in GitHub Actions are a powerful way to evaluate and manipulate data within your workflow files. They allow you to perform calculations, access context data, and control the flow of your workflow based on conditions. Expressions are wrapped in double curly braces, like `${{ expression}}`.
+Expressões no GitHub Actions são uma maneira poderosa de avaliar e manipular dados dentro dos seus arquivos de fluxo de trabalho. Elas permitem que você execute cálculos, acesse dados de contexto e controle o fluxo do seu fluxo de trabalho com base em condições. As expressões são encapsuladas em chaves duplas, como `${{ expression}}`.
 
-GitHub Actions expressions support a variety of functions, operators, and literals that you can use to create complex logic in your workflows. For example, you can use the contains function to check if a string contains a specific substring, or you can use the `==` operator to compare two values for equality.
+As expressões do GitHub Actions oferecem suporte a uma variedade de funções, operadores e literais que você pode usar para criar lógica complexa em seus fluxos de trabalho. Por exemplo, você pode usar a função contains para verificar se uma string contém uma substring específica ou pode usar o operador `==` para comparar dois valores para igualdade.
 
-Here's an example of using expressions to conditionally run a step based on the event that triggered the workflow:
+Aqui está um exemplo de uso de expressões para executar condicionalmente uma etapa com base no evento que acionou o fluxo de trabalho:
 
 ```
 jobs:
@@ -464,40 +467,40 @@ steps:
     if: ${{ github.event_name == 'pull_request' }}
 ```
 
-In this example, the if keyword is combined with an expression to control whether the step will be executed. The step will only run if the event that triggered the workflow is a pull request event.
+Neste exemplo, a palavra-chave if é combinada com uma expressão para controlar se a etapa será executada. A etapa será executada somente se o evento que disparou o fluxo de trabalho for um evento de solicitação de pull.
 
-By incorporating contexts and expressions into your GitHub Actions workflows, you can create more dynamic, flexible, and adaptable automation processes that cater to the unique needs of your development projects.
+Ao incorporar contextos e expressões em seus fluxos de trabalho do GitHub Actions, você pode criar processos de automação mais dinâmicos, flexíveis e adaptáveis ​​que atendem às necessidades exclusivas de seus projetos de desenvolvimento.
 
 ### Workflow status badges:
-To display the status of your GitHub Actions workflows in your repository's README or other documentation, you can use work- flow status badges. The badge URL can be generated using the fol- lowing pattern: `https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg` . Example:
+Para exibir o status dos seus fluxos de trabalho do GitHub Actions no README do seu repositório ou em outra documentação, você pode usar emblemas de status do fluxo de trabalho. A URL do emblema pode ser gerada usando o seguinte padrão: `https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg`. Exemplo:
 
 ![Build Status](https://github.com/yourusername/yourrepository/actions/workflows/build.yml/badge.svg)
 
-By understanding the anatomy of a GitHub Actions workflow, you can create more efficient, maintainable, and scalable workflows tailored to your specific needs. In the following sections, we'll continue exploring advanced features and customization options of GitHub Actions, helping you unlock its full potential and revolu- tionize your software development processes.
+Ao entender a anatomia de um fluxo de trabalho do GitHub Actions, você pode criar fluxos de trabalho mais eficientes, sustentáveis ​​e escaláveis, adaptados às suas necessidades específicas. Nas seções a seguir, continuaremos explorando recursos avançados e opções de personalização do GitHub Actions, ajudando você a desbloquear todo o seu potencial e revolucionar seus processos de desenvolvimento de software.
 
 ## Building Your First Workflow
-In this chapter, we will walk you through the process of building your first GitHub Actions workflow from scratch. Our goal is to help you gain a practical understanding of how to create and con- figure workflows to automate various tasks within your development projects.
+Neste capítulo, vamos orientá-lo no processo de criação do seu primeiro fluxo de trabalho do GitHub Actions do zero. Nosso objetivo é ajudar você a obter uma compreensão prática de como criar e configurar fluxos de trabalho para automatizar várias tarefas em seus projetos de desenvolvimento.
 
-We will begin by discussing different types of workflow triggers, including event-based triggers and scheduled triggers, which determine when your workflow should run. Understanding these triggers is essential for designing workflows that respond effect- ively to specific events or run on a predetermined schedule.
+Começaremos discutindo diferentes tipos de gatilhos de fluxo de trabalho, incluindo gatilhos baseados em eventos e gatilhos agendados, que determinam quando seu fluxo de trabalho deve ser executado. Entender esses gatilhos é essencial para projetar fluxos de trabalho que respondam efetivamente a eventos específicos ou sejam executados em um cronograma predeterminado.
 
-Next, we will delve into defining jobs and steps within your workflow. This section will cover the structure and configuration of jobs, including how to define steps, use pre-built actions, and run shell commands. By learning about these components, you'll be able to create custom workflows tailored to your specific needs.
+Em seguida, vamos nos aprofundar na definição de trabalhos e etapas em seu fluxo de trabalho. Esta seção abordará a estrutura e a configuração de trabalhos, incluindo como definir etapas, usar ações pré-criadas e executar comandos de shell. Ao aprender sobre esses componentes, você poderá criar fluxos de trabalho personalizados adaptados às suas necessidades específicas.
 
-We will also explore how to leverage matrix builds and parallelization to efficiently test your code against multiple environments, runtime versions, or configurations. This powerful feature allows you to optimize your workflows by running multiple instances of a job simultaneously, reducing the overall execution time and im- proving reliability.
+Também exploraremos como aproveitar compilações de matriz e paralelismo para testar seu código com eficiência em vários ambientes, versões de tempo de execução ou configurações. Este recurso poderoso permite que você otimize seus fluxos de trabalho executando várias instâncias de um trabalho simultaneamente, reduzindo o tempo geral de execução e melhorando a confiabilidade.
 
-By the end of this chapter, you will have hands-on experience in creating and configuring GitHub Actions workflows, enabling you to automate various tasks and processes in your software development projects. With a solid grasp of these foundational concepts, you will be ready to explore more advanced features and best practices in the following chapters.
+Ao final deste capítulo, você terá experiência prática na criação e configuração de fluxos de trabalho do GitHub Actions, permitindo que você automatize várias tarefas e processos em seus projetos de desenvolvimento de software. Com uma sólida compreensão desses conceitos fundamentais, você estará pronto para explorar recursos mais avançados e melhores práticas nos capítulos seguintes.
 
 ### Workflow Triggers: Events and Scheduling
-In this section, we will delve into the different types of workflow triggers available in GitHub Actions. Workflow triggers are crucial in defining when and under what circumstances your workflows should run. Understanding and utilizing the various trigger options will help you create more efficient and adaptable workflows tailored to your specific needs.
+Nesta seção, vamos nos aprofundar nos diferentes tipos de gatilhos de fluxo de trabalho disponíveis no GitHub Actions. Os gatilhos de fluxo de trabalho são cruciais para definir quando e em quais circunstâncias seus fluxos de trabalho devem ser executados. Entender e utilizar as várias opções de gatilho ajudará você a criar fluxos de trabalho mais eficientes e adaptáveis, adaptados às suas necessidades específicas.
 
 #### Event-based triggers:
-Event-based triggers are the most common type of triggers in GitHub Actions. These triggers initiate workflows in response to various events that occur within your repository, such as pushes, pull requests, and issues. Some of the most commonly used event-based triggers include:
+Os gatilhos baseados em eventos são o tipo mais comum de gatilhos no GitHub Actions. Esses gatilhos iniciam fluxos de trabalho em resposta a vários eventos que ocorrem no seu repositório, como pushes, pull requests e issues. Alguns dos gatilhos baseados em eventos mais comumente usados ​​incluem:
 
-- [x] push: Triggers the workflow when commits are pushed to the repository.
-- [x] pull_request: Triggers the workflow when a pull request is created or updated.
-- [x] issues: Triggers the workflow when an issue is opened, closed, or updated.
-- [x] fork: Triggers the workflow when someone forks the repository.
+- [x] push: Aciona o fluxo de trabalho quando os commits são enviados para o repositório.
+- [x] pull_request: Aciona o fluxo de trabalho quando um pull request é criado ou atualizado.
+- [x] issues: Aciona o fluxo de trabalho quando um problema é aberto, fechado ou atualizado.
+- [x] fork: Aciona o fluxo de trabalho quando alguém faz um fork do repositório.
 
-You can specify one or multiple event-based triggers using the on keyword in your workflow file. Additionally, you can use filters to narrow down the scope of the trigger, such as specifying specific branches or tags. Example:
+Você pode especificar um ou vários gatilhos baseados em eventos usando a palavra-chave on no seu arquivo de fluxo de trabalho. Além disso, você pode usar filtros para restringir o escopo do gatilho, como especificar branches ou tags específicas. Exemplo:
 
 ```
 on:
@@ -512,7 +515,8 @@ types:
 - synchronize
 ```
 #### Scheduled triggers:
-Scheduled triggers enable you to run workflows at specified intervals, using cron-like syntax. This is useful for running periodic tasks such as nightly builds, weekly reports, or monthly mainten- ance. To set up a scheduled trigger, use the schedule keyword and provide one or more cron expressions. Example:
+Os gatilhos agendados permitem que você execute fluxos de trabalho em intervalos especificados, usando sintaxe semelhante à do cron. Isso é útil para executar tarefas periódicas, como compilações noturnas, relatórios semanais ou manutenção mensal. Para configurar um gatilho agendado, use a palavra-chave schedule e forneça uma ou mais expressões cron. Exemplo:
+
 ```
 on:
 schedule:
@@ -521,7 +525,7 @@ schedule:
 Keep in mind that the schedule is based on the UTC time zone, and the shortest possible interval between scheduled workflow runs is 5 minutes.
 
 #### Manual triggers:
-Manual triggers allow you to run workflows on-demand, using the GitHub Actions web interface or the GitHub API. This can be use- ful for running tasks that don't necessarily need to run automat- ically, such as deployments, data migrations, or one-time scripts. To set up a manual trigger, use the workflow_dispatch keyword and optionally provide input parameters. Example:
+Os gatilhos manuais permitem que você execute fluxos de trabalho sob demanda, usando a interface da web do GitHub Actions ou a API do GitHub. Isso pode ser útil para executar tarefas que não precisam necessariamente ser executadas automaticamente, como implantações, migrações de dados ou scripts únicos. Para configurar um gatilho manual, use a palavra-chave workflow_dispatch e, opcionalmente, forneça parâmetros de entrada. Exemplo:
 
 ```
 on:
@@ -533,10 +537,10 @@ required: true
 default: 'staging'
 ```
 
-Once you've set up a manual trigger, you can start the workflow by clicking the "Run workflow" button in the Actions tab of your repository, or by using the GitHub API.
+Depois de configurar um gatilho manual, você pode iniciar o fluxo de trabalho clicando no botão "Executar fluxo de trabalho" na guia Ações do seu repositório ou usando a API do GitHub.
 
 ### External triggers:
-External triggers enable you to start workflows in response to events that occur outside of your repository, such as webhooks from third-party services or custom events from other repositories. To set up an external trigger, use the `repository_dispatch` or `workflow_dispatch` keyword and provide a types array with the names of the custom events you want to listen for. Example:
+Os gatilhos externos permitem que você inicie fluxos de trabalho em resposta a eventos que ocorrem fora do seu repositório, como webhooks de serviços de terceiros ou eventos personalizados de outros repositórios. Para configurar um gatilho externo, use a palavra-chave `repository_dispatch` ou `workflow_dispatch` e forneça uma matriz de tipos com os nomes dos eventos personalizados que você deseja ouvir. Exemplo:
 
 ```
 on:
@@ -545,16 +549,16 @@ types:
 - my_custom_event
 ```
 
-To trigger a workflow with an external event, you can send a POST request to the GitHub API with the appropriate event type and payload.
+Para acionar um fluxo de trabalho com um evento externo, você pode enviar uma solicitação POST para a API do GitHub com o tipo de evento e a carga útil apropriados.
 
 ### Activity triggers:
-Activity triggers initiate workflows in response to various user or system activities, such as starring a repository, creating a release, or assigning a label. Some examples of activity triggers include:
+Os gatilhos de atividade iniciam fluxos de trabalho em resposta a várias atividades do usuário ou do sistema, como marcar um repositório como favorito, criar uma versão ou atribuir um rótulo. Alguns exemplos de gatilhos de atividade incluem:
 
-- [x] watch: Triggers the workflow when someone stars the repository.
-- [x] release: Triggers the workflow when a release is created, pub- lished, or updated.
-- [x] label: Triggers the workflow when a label is created, edited, or deleted.
+- [x] watch: Aciona o fluxo de trabalho quando alguém marca o repositório como favorito.
+- [x] release: Aciona o fluxo de trabalho quando uma versão é criada, publicada ou atualizada.
+- [x] label: Aciona o fluxo de trabalho quando um rótulo é criado, editado ou excluído.
 
-You can use activity triggers in combination with other triggers to create more flexible and responsive workflows. Example:
+Você pode usar gatilhos de atividade em combinação com outros gatilhos para criar fluxos de trabalho mais flexíveis e responsivos. Exemplo:
 ```
 on:
 watch:
@@ -565,7 +569,7 @@ types:
 - published
 ```
 #### Combining triggers:
-You can combine multiple triggers in a single workflow to handle various events and scenarios. When combining triggers, be aware that each trigger may have its own set of filters and configuration options. Example:
+Você pode combinar vários gatilhos em um único fluxo de trabalho para manipular vários eventos e cenários. Ao combinar gatilhos, esteja ciente de que cada gatilho pode ter seu próprio conjunto de filtros e opções de configuração. Exemplo:
 
 ```
 on:
@@ -583,15 +587,15 @@ required: true
 default: 'staging'
 ```
 
-In this example, the workflow is triggered by push and pull_request events on the main branch, runs daily at midnight (UTC), and can be manually triggered with a specified environment input.
+Neste exemplo, o fluxo de trabalho é acionado por push e `pull_request events` no branch principal, é executado diariamente à meia-noite (UTC) e pode ser acionado manualmente com uma entrada de ambiente especificada.
 
-By understanding and utilizing the different types of workflow triggers in GitHub Actions, you can create workflows that respond to various events and scenarios, making your development process more efficient and adaptable. In the next sections, we will discuss how to create jobs and steps, use actions, and manage en- vironment variables and secrets to build powerful, customizable workflows.
+Ao entender e utilizar os diferentes tipos de acionadores de fluxo de trabalho no GitHub Actions, você pode criar fluxos de trabalho que respondem a vários eventos e cenários, tornando seu processo de desenvolvimento mais eficiente e adaptável. Nas próximas seções, discutiremos como criar trabalhos e etapas, usar ações e gerenciar variáveis ​​de ambiente e segredos para construir fluxos de trabalho poderosos e personalizáveis.
 
 ### Defining Jobs and Steps
-Jobs and steps are fundamental building blocks of GitHub Actions workflows. In this section, we will discuss how to define and configure jobs and steps, create job dependencies, and manage paral- lelism and concurrency in your workflows.
+Jobs e steps são blocos de construção fundamentais dos fluxos de trabalho do GitHub Actions. Nesta seção, discutiremos como definir e configurar jobs e steps, criar dependências de job e gerenciar paralelismo e simultaneidade em seus fluxos de trabalho.
 
 ### Jobs overview:
-A job is an individual unit of work that runs on a specified environment and consists of one or more steps. Jobs in a workflow run in parallel by default, but you can create dependencies between jobs to enforce a specific execution order. Jobs are defined using the jobs keyword, followed by a unique identifier for each job and its configuration. Example:
+Um job é uma unidade individual de trabalho que é executada em um ambiente especificado e consiste em uma ou mais etapas. Os jobs em um fluxo de trabalho são executados em paralelo por padrão, mas você pode criar dependências entre os jobs para impor uma ordem de execução específica. Os jobs são definidos usando a palavra-chave jobs, seguida por um identificador exclusivo para cada job e sua configuração. Exemplo:
 
 ```
 jobs:
@@ -605,16 +609,16 @@ steps:
    run: npm test
 ```
 #### Configuring jobs:
-Each job has a set of properties that you can configure, such as the environment in which the job runs, its dependencies, and its time-out and retry settings.
+Cada trabalho tem um conjunto de propriedades que você pode configurar, como o ambiente em que o trabalho é executado, suas dependências e suas configurações de tempo limite e repetição.
 
-- [x] runs-on: Specifies the operating system and version for the job. Examples include ubuntu-latest, windows-latest, and macos-latest.
-- [x] needs: Specifies the dependencies between jobs, ensuring that a job only runs after the specified jobs have completed successfully.
-- [x] timeout-minutes : Sets a timeout for the job, after which it will be cancelled if it has not completed.
-- [x] continue-on-error: Configures whether the job should continue if a step fails.
-- [x] strategy: Defines the matrix configuration for running multiple instances of a job with different environment variables, operating systems, or configurations.
+- [x] runs-on: Especifica o sistema operacional e a versão do trabalho. Exemplos incluem ubuntu-latest, windows-latest e macos-latest.
+- [x] needs: Especifica as dependências entre os trabalhos, garantindo que um trabalho seja executado somente após os trabalhos especificados terem sido concluídos com sucesso.
+- [x] timeout-minutes: Define um tempo limite para o trabalho, após o qual ele será cancelado se não tiver sido concluído.
+- [x] continue-on-error: Configura se o trabalho deve continuar se uma etapa falhar.
+- [x] strategy: Define a configuração da matriz para executar várias instâncias de um trabalho com diferentes variáveis ​​de ambiente, sistemas operacionais ou configurações.
 
 ### Defining steps:
-Steps are individual tasks that run sequentially within a job. Each step can execute a shell command, use a pre-built action from the GitHub Actions marketplace, or reference a custom action. Steps are defined using the steps keyword, followed by a list of step configurations.Example:
+Etapas são tarefas individuais que são executadas sequencialmente dentro de um trabalho. Cada etapa pode executar um comando shell, usar uma ação pré-criada do marketplace GitHub Actions ou referenciar uma ação personalizada. As etapas são definidas usando a palavra-chave steps, seguida por uma lista de configurações de etapas. Exemplo:
 
 ```
 jobs:
@@ -633,19 +637,19 @@ run: npm run build
 ```
 
 #### Configuring steps:
-Each step has a set of properties that you can configure, such as its name, the action it uses, and the input parameters for the action.
+Cada etapa tem um conjunto de propriedades que você pode configurar, como seu nome, a ação que ela usa e os parâmetros de entrada para a ação.
 
-- [x] name: Specifies a human-readable name for the step, which is displayed in the GitHub Actions web interface.
-- [x] uses: References a pre-built action from the GitHub Actions marketplace, a custom action, or an action from another repository. The syntax is <owner>/<repo>@<ref>, where <owner> is the repository owner, <repo> is the repository name, and <ref> is a branch, tag, or commit reference.
-- [x] with: Provides input parameters for an action. The available parameters depend on the specific action being used.
-- [x] run: Executes a shell command or script within the job's environment.
-- [x] env: Sets environment variables for a specific step.
-- [x] if: Adds a conditional expression that determines whether a step should run. The step will only run if the expression evaluates to true.
+- [x] name: especifica um nome legível para a etapa, que é exibido na interface da web do GitHub Actions.
+- [x] uses: faz referência a uma ação pré-criada do mercado do GitHub Actions, uma ação personalizada ou uma ação de outro repositório. A sintaxe é <owner>/<repo>@<ref>, onde <owner> é o proprietário do repositório, <repo> é o nome do repositório e <ref> é uma referência de branch, tag ou commit.
+- [x] with: fornece parâmetros de entrada para uma ação. Os parâmetros disponíveis dependem da ação específica que está sendo usada.
+- [x] run: executa um comando shell ou script dentro do ambiente do trabalho.
+- [x] env: define variáveis ​​de ambiente para uma etapa específica.
+- [x] if: adiciona uma expressão condicional que determina se uma etapa deve ser executada. A etapa só será executada se a expressão for avaliada como verdadeira.
 
 #### Job dependencies and parallelism:
-By default, jobs run in parallel. However, you can create dependencies between jobs using the needs keyword to enforce a specific execution order.
+Por padrão, os trabalhos são executados em paralelo. No entanto, você pode criar dependências entre os trabalhos usando a palavra-chave needs para impor uma ordem de execução específica.
 
-A job with a needs property will only start after all the specified jobs have completed successfully. This allows you to create complex workflows with multiple stages, such as building, testing, and deploying your application. Example:
+Um trabalho com uma propriedade needs só será iniciado após todos os trabalhos especificados terem sido concluídos com sucesso. Isso permite que você crie fluxos de trabalho complexos com vários estágios, como construir, testar e implantar seu aplicativo. Exemplo:
 
 ```
 jobs:
@@ -668,12 +672,11 @@ steps:
 run: npm run deploy
 ```
 
-In this example, the test job depends on the build job, and the deploy job depends on the test job. This enforces a sequential execution order, ensuring that the deployment only happens after both the build and test jobs have completed successfully.
+Neste exemplo, o trabalho de teste depende do trabalho de construção, e o trabalho de implantação depende do trabalho de teste. Isso impõe uma ordem de execução sequencial, garantindo que a implantação só aconteça depois que os trabalhos de construção e teste forem concluídos com sucesso.
 
 #### Matrix strategy:
-The matrix strategy allows you to run multiple instances of a job with different environment variables, operating systems, or configurations.
-
-This can be useful for testing your application across multiple platforms or versions. To set up a matrix strategy, use the strategy keyword and provide a matrix configuration. Example:
+A estratégia matrix permite que você execute várias instâncias de um trabalho com diferentes variáveis ​​de ambiente, sistemas operacionais ou configurações.
+Isso pode ser útil para testar seu aplicativo em várias plataformas ou versões. Para configurar uma estratégia matrix, use a palavra-chave strategy e forneça uma configuração matrix. Exemplo:
 
 ```
 jobs:
@@ -692,22 +695,22 @@ jobs:
           run: npm test
 ```
 
-In this example, the test job will run on three different operat- ing systems (ubuntu-latest, windows-latest, and macos-latest) and three different Node.js versions (12, 14, and 16), resulting in a total of nine job instances.
+Neste exemplo, o trabalho de teste será executado em três sistemas operacionais diferentes (ubuntu-latest, windows-latest e macos-latest) e três versões diferentes do Node.js (12, 14 e 16), resultando em um total de nove instâncias de trabalho.
 
-By understanding and effectively utilizing jobs and steps in your GitHub Actions workflows, you can create powerful, adaptable, and efficient workflows that cater to your specific requirements. In the next sections, we will explore actions, environment vari- ables, secrets, and other advanced features that will help you harness the full potential of GitHub Actions.
+Ao entender e utilizar efetivamente trabalhos e etapas em seus fluxos de trabalho do GitHub Actions, você pode criar fluxos de trabalho poderosos, adaptáveis ​​e eficientes que atendem aos seus requisitos específicos. Nas próximas seções, exploraremos ações, variáveis ​​de ambiente, segredos e outros recursos avançados que ajudarão você a aproveitar todo o potencial do GitHub Actions.
 
 ### Using Pre-Built Actions
-Pre-built actions are reusable components created by the GitHub community and the GitHub Actions team that help automate common tasks, making your workflows more efficient and easier to maintain. In this section, we will discuss how to find, use, and configure pre-built actions, and explore some popular actions that you can incorporate into your workflows.
+Ações pré-construídas são componentes reutilizáveis ​​criados pela comunidade do GitHub e pela equipe do GitHub Actions que ajudam a automatizar tarefas comuns, tornando seus fluxos de trabalho mais eficientes e fáceis de manter. Nesta seção, discutiremos como encontrar, usar e configurar ações pré-construídas e explorar algumas ações populares que você pode incorporar em seus fluxos de trabalho.
 
 ### Finding pre-built actions:
-The GitHub Actions Marketplace is the primary source for dis- covering and sharing pre-built actions. You can access the market- place by visiting the following URL: `https://github.com/marketplace?type=actions`
+O GitHub Actions Marketplace é a principal fonte para descobrir e compartilhar ações pré-criadas. Você pode acessar o marketplace visitando a seguinte URL: `https://github.com/marketplace?type=actions`
 
-Alternatively, you can navigate to the "Actions" tab in your reposi- tory, click on "New workflow", and then click on "Marketplace" to view a curated list of actions tailored to your repository's language and framework.
+Alternativamente, você pode navegar até a aba "Ações" no seu repositório, clicar em "Novo fluxo de trabalho" e então clicar em "Marketplace" para visualizar uma lista com curadoria de ações adaptadas à linguagem e estrutura do seu repositório.
 
-When selecting an action, consider its popularity, maintenance status, and the trustworthiness of its author. Reading the action's documentation, reviews, and source code can help you make an in- formed decision.
+Ao selecionar uma ação, considere sua popularidade, status de manutenção e a confiabilidade do seu autor. Ler a documentação, as avaliações e o código-fonte da ação pode ajudar você a tomar uma decisão informada.
 
 ### Using pre-built actions:
-To use a pre-built action in your workflow, add a new step to your job and use the uses keyword, followed by the action's repository in the format `<owner>/<repo>@<ref>`. Example:
+Para usar uma ação pré-criada no seu fluxo de trabalho, adicione uma nova etapa ao seu trabalho e use a palavra-chave uses, seguida pelo repositório da ação no formato `<owner>/<repo>@<ref>`. Exemplo:
 
 ```
  jobs:
@@ -722,7 +725,7 @@ To use a pre-built action in your workflow, add a new step to your job and use t
               node-version: 14
 ```
 
-In this example, the actions/checkout@v2 action checks out your repository's code, and the actions/setup-node@v2 action sets up Node.js with the specified version.
+Neste exemplo, a ação actions/checkout@v2 verifica o código do seu repositório, e a ação actions/setup-node@v2 configura o Node.js com a versão especificada.
 
 ### Configuring pre-built actions:
 Many actions provide input parameters that you can use to customize their behaviour. To set input parameters, use the with key- word followed by a key-value map of parameter names and values. Example:
