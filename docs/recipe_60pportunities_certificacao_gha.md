@@ -1,11 +1,9 @@
 ```mermaid
-flowchart LR
-DS[(Data Source)] & newLines["`Data
-    Sources`"] --> |Pull/Push| id1(Ferramentas</br>Ingestão)
-    id1 --> id2(Processamento</br>de dados)
-    id2 --> id3(Armazenamento</br>de dados)
-    id3 --> id4(Consumo</br>de dados)
-```
+flowchart TD
+  id1(Autoaprendizagem) --> id2(Tutoriais)
+  id1  --> id3(Certificações)
+  id1  --> id4(Projetos)
+ ``` 
 # Questão 1
 
 - [x] In a GitHub Actions workflow, how can you efficiently reduce duplication of code when the same steps are used across multiple jobs? `Implement a custom action and reference it in each job where the steps are required.`
@@ -279,7 +277,14 @@ DS[(Data Source)] & newLines["`Data
 
 
 
-
+```mermaid
+flowchart LR
+DS[(Data Source)] & newLines["`Data
+    Sources`"] --> |Pull/Push| id1(Ferramentas</br>Ingestão)
+    id1 --> id2(Processamento</br>de dados)
+    id2 --> id3(Armazenamento</br>de dados)
+    id3 --> id4(Consumo</br>de dados)
+```
 
 
 https://docs.edgeimpulse.com/docs/tutorials/lifecycle-management/gitactions-docker
