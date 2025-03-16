@@ -26,6 +26,7 @@ flowchart TD
   id2           --> id10(Processos Ágeis)
   id2           --> id11(Observabilidade)
   id2           --> id12(Documentação)
+  id2           --> id13(Linguagem)
 ```
 #### Linux
 ```mermaid
@@ -99,3 +100,12 @@ flowchart TD
 id12(Documentação) --> id1201(Markdown) & id1202(CSS) & id1203(HTML) & id1204(JavaScript)  & id1205(Static Site</br>Generators)
 id1205 --> id120501(MkDocs) & id120502(Hugo) & id120503(Jekyll) & id120504(Gatsby)
 ```
+#### Linguagem Tecnologia
+
+```mermaid
+flowchart TD
+id13(Linguagem)  --> id1301(Oracle) & id1302(Supravisio)
+id1301           --> id130101(SQL Developer) & id130102(SQL DataModeler) & id130103(Apex) & id130104(ORDS) & id130105(Forms) & id130106(XML Publisher) & id130107(ODI) & id130108(SQLcl)
+id1302 --> id130201(Python) & id130202(C/C++) & id130203(Java) & id130204(SQL/PLSQL) & id130205(Ladder/Structured Text) & id130206(BPMN)
+```
+
