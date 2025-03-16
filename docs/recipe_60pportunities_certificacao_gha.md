@@ -279,21 +279,3 @@ DS[(Data Source)] & newLines["`Data
     id2 --> id3(Armazenamento</br>de dados)
     id3 --> id4(Consumo</br>de dados)
 ```
-
-
-https://docs.edgeimpulse.com/docs/tutorials/lifecycle-management/gitactions-docker
-https://davecross.substack.com/p/github-actions-essentials-is-published?utm_campaign=post&utm_medium=web
-
-https://docs.openedx.org/en/latest/developers/references/developer_guide/testing/github-actions.html
-https://medium.com/@ravipatel.it/key-concepts-of-github-actions-a-guide-from-beginner-to-advanced-abb95c59e0f4
-https://davecross.substack.com/p/github-actions-essentials-is-published?utm_campaign=post&utm_medium=web
-
-https://docs.openedx.org/en/latest/developers/references/developer_guide/testing/github-actions.html
-
-
-https://docs.github.com/pt/actions/about-github-actions/understanding-github-actions
-https://docs.github.com/pt/actions/writing-workflows/quickstart
-
-https://docs.github.com/en/actions/guides
-
-https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions
