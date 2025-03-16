@@ -222,7 +222,7 @@ nav:
    - 'Felicidade do imperfeito'                                      :
       - 'Aprender, desaprender e reaprender'                         : 'recipe_60pportunities_felicidade_001.md'
       - 'Entender'                                                   : 'recipe_60pportunities_felicidade_002.md'
-      - 'Tecnologia'                                                 : 'recipe_60pportunities_felicidade_003.md'      
+      - 'Tecnologia'                                                 : 'recipe_60pportunities_felicidade_003.md'
    - 'Registro'                                                      :
       - 'Domínio'                                                    : 'recipe_60pportunities_registro_001.md'
       - 'Conta no GitHub'                                            : 'recipe_60pportunities_registro_002.md'
@@ -279,6 +279,7 @@ nav:
       - 'Certiprof DevOps Essentials'                                : 'recipe_60pportunities_certificacao_depc.md'
       - 'GitHub Foundations'                                         : 'recipe_60pportunities_certificacao_ghf.md'
       - 'GitHub Actions'                                             : 'recipe_60pportunities_certificacao_gha.md'
+      - 'Resumo para prova GitHub Actions'                           : 'recipe_60pportunities_certificacao_gha_resumo.md'
    - 'Projetos'                                      :
       - 'PMI e Standish Group'                       : 'recipe_60pportunities_projetos_standishgroup.md'
    - 'Arquitetura'                                   :

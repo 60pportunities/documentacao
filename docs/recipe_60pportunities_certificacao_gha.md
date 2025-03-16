@@ -266,9 +266,415 @@
 
 - [x] You are creating a new GitHub Action. What is the necessary file and directory structure you should set up? `A directory at the root of the repository containing a Dockerfile or a JavaScript file, and an action.yml file.`
 
+# Questão 3
+
+What is a key step when publishing to GitHub Packages using a GitHub Actions workflow? `Configure the workflow to authenticate with GitHub Packages and push the package using the appropriate command.`
+
+How are database and service containers utilized in a GitHub Actions workflow? `By defining services in the workflow file, allowing jobs to use the containers as part of the runtime environment.`
+
+What is crucial for the correct syntax of jobs in a GitHub Actions workflow file? `Jobs should be defined under the jobs key with proper indentation to ensure the structure is correctly interpreted.`
+
+You are setting up a CI/CD pipeline for a project that requires a specific operating system. How should you select an appropriate runner? `Choose a GitHub-hosted runner that supports the required operating system.`
+
+How can you use an organization's templated workflow in a repository? `By selecting the template from the repository's Actions tab and then customizing it as needed.`
+
+You are managing secrets for a specific repository in your organization. What should you consider when creating repository-level encrypted secrets? `Repository-level secrets are best for sensitive data specific to one repository and are not accessible by other repositories.`
+
+Which of the following are true regarding the components and integration of actions, workflows, jobs, steps, runs, and the marketplace in GitHub Actions? `Workflows are automated processes defined by jobs, which in turn consist of steps that can include actions or shell commands., Marketplace is a platform where pre-built actions can be published and used within workflows without custom coding. e Conditional keywords can be used in steps to control their execution based on certain conditions.`
+
+Your enterprise requires a secure and efficient method to distribute GitHub Actions across multiple teams. What is the best approach? `Create a centralized shared repository for actions and enforce access controls.`
+
+When designing a custom GitHub Action to facilitate code reviews by automatically assigning reviewers based on the type of changes made, what method should be used to determine the most appropriate reviewers for each pull request? `Use a configuration file in the repository that maps specific types of changes to relevant reviewers, allowing for easy updates and customization.`
+
+You want to ensure that specific GitHub Actions are only used by authorized personnel within your organization. What's an effective way to achieve this? `Implement role-based access controls and integrate with the organization's identity management system.`
+
+What is the role of CodeQL when used as a step in a GitHub Actions workflow? `To automatically analyze the codebase for vulnerabilities and code quality issues.`
+
+Your team frequently creates new repositories and wants to standardize the CI/CD process.What's the most effective way to achieve this with GitHub Actions? `Utilize workflow templates stored in a designated .github repository and reference them in new repositories.`
+
+When implementing a GitHub Actions workflow, how can you conditionally skip a job unless a manual trigger is activated, such as a comment in a pull request? `Use the on: issue_comment trigger combined with a job-level if condition checking the comment content.`
+
+How can you enable step debug logging in a GitHub Actions workflow? `By setting the ACTIONS_STEP_DEBUG secret to true in the repository settings.`
+
+You are setting up encrypted secrets for your projects. How does the scope of encrypted secrets differ between organization-level and repository-level in GitHub Actions? `Organization-level secrets can be made available to multiple repositories, while repository-level secrets are accessible only to the repository they are set in.`
+
+What is the recommended way to pass data between jobs in a GitHub Actions workflow? `Use artifacts to share data between jobs, ensuring the output from one job is available to subsequent jobs.`
+
+As a GitHub organization administrator, you want to make a secret available to multiple repositories. What is the correct approach? `Create an organization-level secret and select the repositories that should have access to it.`
+
+What is the correct syntax for defining custom environment variables in a step of a GitHub Actions workflow? `steps:
+  - name: Example step
+    run: echo "Hello world"
+    env:
+      CUSTOM_VAR: "value"`
+
+What is the purpose of using conditional keywords in steps within a GitHub Actions workflow? `To run steps only if certain conditions are met, adding flexibility and control to the workflow.`
+
+What are indicators that a GitHub Action is trustworthy? `The action is published by a known organization, has a significant number of stars, and thorough documentation.`
+
+When creating a custom GitHub Action that integrates with third-party services, what approach should be adopted to handle service outages or downtime to ensure minimal impact on workflow execution? `Implement retry logic in the action to attempt reconnection to the third-party service a set number of times before failing. e Provide users with the option to skip steps dependent on the third-party service during outages, through input parameters in the action.`
+
+How can workflow artifacts be removed from GitHub after they are no longer needed? `Artifacts can be configured to automatically expire after a certain number of days.`
+
+What is an essential aspect of defining the syntax for jobs in a GitHub Actions workflow file? `Jobs should be defined with correct indentation and encapsulated within the jobs keyword.`
+
+When creating a custom GitHub Action that is expected to evolve and scale over time, how should version control and release management be handled to ensure backward compatibility and minimize disruption for users? `Implement semantic versioning for the action, using tags to mark stable release versions, and instruct users to reference specific versions.`
+
+You are drafting organizational use policies for GitHub Actions. Which of the following should be included in your policies? `Implement monitoring and auditing mechanisms to track the usage and performance of actions. , Define clear guidelines on the creation, sharing, and usage of GitHub Actions within the organization. e Regularly review and update actions to ensure compliance with security standards and best practices.`
+
+In the development of a custom GitHub Action, what is the most effective way to handle different runtime environments (e.g., production, staging, development) within the action's logic? `Utilize GitHub's environment secrets and have the action dynamically adjust its behavior based on these secrets. e Include environment-specific parameters as inputs in the action's action.yml file, allowing users to specify the environment during workflow configuration.`
+
+How are dependent jobs implemented in a GitHub Actions workflow? `By using the needs keyword to specify job dependencies, ensuring that jobs run in the correct order.`
+
+In the process of creating a custom GitHub Action, what is the best practice for ensuring that the action remains maintainable and easy to update as GitHub Actions evolves and new features are released? `Subscribe to GitHub's changelog and update the action only when necessary to maintain compatibility with the GitHub Actions platform. e Build the action with modular components, allowing for easy updates and integration of new features without major refactoring.`
+
+When developing a custom GitHub Action for code analysis and linting, how can you best ensure that the action remains up-to-date with the latest coding standards and practices in a rapidly evolving programming language ecosystem? `Allow users to specify their own set of rules or link to an external ruleset in their workflow configuration. E Integrate the action with a popular, actively maintained linting tool or library, automatically updating to the latest version on each run.`
+
+You are managing a set of self-hosted runners for your enterprise on GitHub Actions. How can you effectively manage access and organize these runners? `Create groups for runners and assign runners to groups based on usage or department needs.`
+
+Which event configuration correctly triggers a workflow in GitHub Actions? `Using the on keyword in the workflow file to specify the type of event, such as push, pull_request, or schedule.`
+
+In an enterprise setting, how should a GitHub Actions workflow be configured to ensure that sensitive data, such as production database credentials, is securely managed and accessed only by authorized workflows? `Store sensitive data as encrypted secrets in GitHub and restrict access to these secrets using GitHub's environment protection rules`
+
+In an enterprise environment, what is the best practice for monitoring and analyzing the usage and performance of GitHub Actions across multiple repositories and teams? `Implement a centralized logging and monitoring system that aggregates data from all GitHub Actions workflows`
+
+Which of the following statements are correct regarding the use of environment variables in GitHub Actions workflows? `The GITHUB_ENV workflow command can be used to set environment variables for subsequent steps in a job. AND Default environment variables provide predefined context about the workflow run, like the branch name or commit SHA AND Custom environment variables can be set at the workflow, job, or step level using the env keyword.`
+
+When developing a custom GitHub Action for automating dependency updates in a multi-language project environment, what is the most efficient approach to handle updates across different programming languages and package managers? `Implement a modular action with plug-ins or scripts for each language and package manager, allowing the action to be extended as needed.`
+
+What can you understand by reading a GitHub Actions workflow configuration file? `The specific steps and actions that the workflow will execute, along with the events that trigger it.`
+
+What is a best practice for maintaining self-hosted runners in GitHub Actions? `Regularly update the runners' software and monitor their performance and logs`
+
+How can a script be incorporated into a GitHub Actions workflow? `By using the run keyword in a step to execute shell commands or scripts.`
+
+Which aspect is least likely to contribute to the trustworthiness of an action listed on the GitHub Marketplace? `The action is published by an individual with no prior contributions to open source.`
+
+In creating a custom GitHub Action to enforce coding standards across multiple projects within an organization, what strategy should be employed to allow for project-specific customizations while maintaining a common set of standards? `Create a base action with common standards and allow projects to extend or override these standards through a configuration file in each project's repository`
+
+Your organization wants to ensure that only specific teams have access to certain self-hosted runners. How can you manage access effectively? `Use GitHub's runner management interface to set access permissions for each runner group.`
+
+What is a primary method for diagnosing a failed GitHub Actions workflow run? `Checking the workflow run history and logs to identify error messages and the steps where the failure occurred.`
+
+When developing a custom GitHub Action that involves complex computational tasks, what is the best approach to optimize performance and reduce execution time? `Implement caching mechanisms in the action to store and reuse computational results where possible. AND Offload the computational tasks to an external server or cloud service, and have the action interact with that service.`
+
+In developing a custom GitHub Action to integrate with a project management tool for automated task creation, how should the action be designed to customize task attributes based on different types of events in a GitHub repository? `Allow users to define mappings between GitHub events and task attributes in a configuration file within their repository.`
+
+Which configuration allows a workflow to be triggered by multiple events in GitHub Actions? `Use the on keyword to specify a list of events, like push, pull_request, and schedule`
+
+
+Where can you locate a workflow file in a GitHub repository? `In the .github/workflows directory at the root of the repository.`
+
+Which of the following are components of a GitHub Actions workflow? `Conditional keywords that control the execution of jobs and steps based on certain conditions. AND Jobs, which group together individual steps that run as part of the workflow. AND Steps, which represent individual tasks like running a script or an action.`
+
+For a custom GitHub Action designed to deploy applications to multiple cloud platforms, what is the most effective method to manage and configure platform-specific deployment settings? `Utilize a configuration file in the user's repository to define platform-specific settings, which the action reads and applies during deployment. AND Require users to store platform-specific settings as encrypted secrets in their GitHub repository and reference these in the action.`
+
+How can you identify the event that triggered a GitHub Actions workflow? `By checking the GITHUB_EVENT_NAME environment variable in the workflow run logs.`
+
+In the process of building a custom GitHub Action that integrates with a bug tracking system to automatically create issues based on code commits, what approach should be taken to efficiently categorize and prioritize these issues? `Use keywords in commit messages to determine the priority and category of issues, and configure the action to parse these keywords.`
+
+In developing a custom GitHub Action that generates and publishes reports, how should the action be designed to handle large report files to ensure efficient performance and resource usage? `Store the report files externally and provide download links in the action's output., Compress the report files within the action before publishing to minimize file size.`
+
+How do you ensure a workflow uses a specific version of a GitHub Action? `By referencing the action in the workflow file with a version tag or commit SHA after the action's name (e.g., actions/checkout@v4).`
+
+How can you access encrypted secrets within a GitHub Actions workflow? `Use the secrets context to access the secrets within your workflow file.`
+
+If you're navigating a GitHub repository for the first time, where would you typically find the GitHub Actions workflow files? `In the .github/workflows directory at the root of the repository.`
+
+When authoring and maintaining workflows in GitHub Actions, which of the following statements is accurate? `Workflows are defined in YAML files and should be placed in the .github/workflows directory of the repository`
+
+What is the difference between disabling and deleting a workflow in GitHub Actions? `Disabling a workflow stops it from being triggered but retains the workflow file in the repository, while deleting a workflow removes the file entirely.`
+
+Where can you access the logs of a GitHub Actions workflow run from the GitHub user interface? `In the 'Actions' tab of the repository, by selecting the specific workflow run.`
+
+When authoring a custom GitHub Action that integrates with an external API, how should you handle potential API rate limits to prevent disruptions in user workflows? `Implement logic in the action to detect rate limit errors and automatically retry the request after a sensible delay AND Provide an option for users to input their own API keys, allowing them to manage their rate limits independently.`
+
+As a DevOps engineer, you're tasked with managing reusable components for your organization's workflows. What approach should you take? `Store reusable components in a centralized repository, establish clear naming conventions, and create a maintenance plan.`
+
+What is the role of implementing workflow commands as a run step in a GitHub Actions workflow? `To communicate with the runner, setting environment variables or altering the workflow behavior.`
+
+How can caching be configured to speed up workflow execution in GitHub Actions? `Use the cache action to store and retrieve dependencies, reducing installation time in subsequent runs.`
+
+Your organization has stringent security requirements. What would be the effect of configuring IP allow lists on GitHub-hosted and self-hosted runners? `It restricts network access, allowing only traffic from specified IP addresses to interact with the runners.`
+
+When designing a custom GitHub Action to automatically update documentation based on code changes, what is the best approach to ensure that the documentation remains synchronized with the codebase across different branches? `Trigger the action on every push event across all branches, ensuring documentation updates occur in parallel with code changes. AND
+Implement logic in the action to detect code changes that affect documentation and update relevant branches accordingly.`
+
+For a GitHub Action that requires frequent updates due to changes in external dependencies, what strategy should be employed to test and validate the action's functionality before releasing updates to ensure minimal impact on users? `Set up an automated testing suite that runs tests against a variety of scenarios whenever changes are made, using GitHub Actions' own CI/CD capabilities.`
+
+How can you download workflow artifacts from the GitHub Actions user interface? `Navigate to the Actions tab, select the specific workflow run, and download the artifacts from the Artifacts section at the bottom of the page.`
 
 
 
+# Portugues
+
+# Questão 1
+
+- [x] Em um fluxo de trabalho do GitHub Actions , como pode você eficientemente reduzir duplicação de código quando o os mesmos passos são usados entre múltiplo empregos ? ` Implementar um personalizado Ação e referencie -o em cada trabalho onde os passos são necessários .
+
+- [x] Ao configurar um fluxo de trabalho do GitHub Actions , como pode você garantir que um trabalho é apenas executado se um anterior trabalho no fluxo de trabalho tem falhou ? `Use o se : condição de falha ( ) combinado com o precisa palavra-chave , como necessidades : [ emprego_anterior ] e se : falha () no trabalho definição .`
+
+- [x] Como deve um apropriado modelo de distribuição para uma ação do GitHub ser selecionado ? ` Baseado sobre o pretendido público e uso escopo , escolhendo entre distribuição pública , privada ou de mercado .
+
+- [x] Ao desenvolver uma ação GitHub personalizada baseada em Docker , o que é o recomendado método para passar parâmetros de entrada de o fluxo de trabalho para o contêiner Docker? `Defina os parâmetros de entrada no ação arquivo de metadados ( action.yml ) e acesso eles como meio ambiente variáveis dentro o contêiner Docker.`
+
+- [x] Em GitHub Actions , como pode você garantir que um específico o trabalho em um fluxo de trabalho só é executado se mudanças eram feito para arquivos em qualquer um de dois diferente diretórios ? ` Crie um preliminar trabalho para verificar se há alterações no especificado diretórios e usar sua saída no se doença de o dependente empregos .`
+
+- [x] O que é o melhor prática para atualização auto- hospedada corredores ? ` Implementando um cronograma de atualização regular para garantir corredores ter o Últimos recursos e segurança remendos.`
+
+- [x] O que é uma chave consideração quando criando uma estratégia de lançamento para uma ação do GitHub ? ` Implementar controle de versão para rastrear mudanças , facilitar para trás compatibilidade e gerenciar lançamentos de forma eficaz .
+
+- [x] Em um fluxo de trabalho do GitHub Actions , como pode você compartilhar dados gerados em um trabalho com subsequente empregos na mesmo fluxo de trabalho? `Use o artefato de upload e baixar- artefato ações para passar dados entre empregos .,`
+
+- [x] Ao criar uma ação personalizada do GitHub para ser usado entre múltiplo projetos dentro de um organização , o que é o melhor prática para lidar com atualizações para o Ação para minimizar as interrupções naqueles projetos ? `Lançar novas versões de o Ação usando versão etiquetas , e instruir projetos para usar específico versões em vez de que o mais recente comprometer-se sobre o principal ramo .`
+
+- [x] No GitHub Actions , o que é o abordagem correta para garantir que um fluxo de trabalho é provocado por um empurrão evento apenas quando arquivos específicos ou diretórios mudar ? `Use o em : push : caminhos: [' -path/* específico '] sintaxe para acionar apenas o fluxo de trabalho quando mudanças ocorrem em arquivos ou diretórios em ' caminho específico '.`
+
+- [x] Em GitHub Actions , como pode você garantir que um trabalho em um fluxo de trabalho só é executado em um dia de o semana , por exemplo , toda sexta-feira? `Use o em : sintaxe de programação com um cron expressão no arquivo de fluxo de trabalho, como em : schedule: - cron : '0 0 * * 5 '.`
+
+- [x] No GitHub Actions , o que é o melhor prática para gerenciamento e compartilhamento comumente usado ambiente variáveis entre múltiplo empregos dentro de um fluxo de trabalho? `Use o ambiente palavra-chave no o nível do fluxo de trabalho para definir um ambiente comum variáveis para todos empregos .`
+
+- [x] Qual de o seguindo é o melhor prática para gerenciamento e alavancando reutilizável componentes em um ambiente empresarial ? `Utilize um dedicado repositório para armazenamento e estabelecer claro nomeação convenções para arquivos e pastas.`
+
+- [x] Em um fluxo de trabalho do GitHub Actions , como pode você configura um trabalho para reutilizar artefatos gerado por um anterior trabalho no mesmo fluxo de trabalho? ` Implementar os usos: ações /download-artifact@v2 passo dentro o trabalho , especificando o nome de o artefato produzido por o anterior trabalho .`
+
+- [x] Em um fluxo de trabalho do GitHub Actions que é provocado por puxar pedidos afetando qualquer arquivo, como pode você configura um trabalho para correr apenas se um arquivo específico tiver estive modificado e um precedente trabalho tem concluído com sucesso ? `Combine o se doença e empregos .< job_id >. se atributo para verificar o sucesso de um anterior trabalho e use uma etapa de script com idiota diferente para verificar se um arquivo específico foi modificado `
+
+- [x] Ao criar e manutenção de fluxos de trabalho no GitHub Actions , que declaração é correto a respeito de o uso de jobs .< job_id >. estratégia em um arquivo de fluxo de trabalho? ` Dentro estratégia , a matriz palavra-chave pode ser usado para correr testes entre múltiplo versões de uma linguagem ou operacional sistema.`
+
+- [x] O que é o melhor prática para distribuição personalizado ações no GitHub Ações ? ` Garantir o Ação é bem documentado , incluindo claro instruções sobre uso , entradas e saídas.`
+
+- [x] Como são criptografados segredos acessado dentro das Ações do GitHub e fluxos de trabalho? ` Por usando o segredos contexto no arquivo de fluxo de trabalho para referência o segredos .`
+
+- [x] O que é um aspecto crucial de monitoramento auto- hospedado corredores em um empresa ambiente ? ` Regularmente verificando as métricas de status e desempenho de corredores para garantir eles operar otimamente .`
+
+- [x] Em GitHub Actions , como seria você configurar corretamente um fluxo de trabalho para armazenar em cache dependências para um aplicativo Node.js para melhorar os tempos de construção? `Inclua uma etapa com usos: ações /cache@v2 e configure o caminho para node_modules , ao longo com um apropriado chave baseado sobre o pacote- arquivo lock.json.`
+
+- [x] Qual declaração com precisão descreve o diferença entre GitHub- hospedado e auto -hospedado corredores ? `GitHub- hospedado os corredores estão totalmente gerenciou pelo GitHub, oferecendo conveniência mas menos controle sobre o meio ambiente .`
+
+- [x] Ao criar uma ação personalizada do GitHub em um público repositório , o que é o melhor prática para garantir o ação código adere para consistente padrões de codificação e melhor práticas ? ` Implementar um linter no ação fluxo de trabalho de desenvolvimento para automaticamente verificar código submissões para adesão para definido codificação padrões.`
+
+- [x ] Em o contexto de consumindo fluxos de trabalho no GitHub Actions , como pode você aciona um fluxo de trabalho em um repositório como resultado de um evento em separado repositório ? `Use o em : repository_dispatch evento no consumindo repositório , e enviar um repositório expedição evento de o fonte repositório .`
+
+- [x] Em GitHub Actions , como deve você configurar corretamente um fluxo de trabalho para disparar apenas sobre puxar pedidos segmentação o principal ramo ? `Use em : pull_request : branches : [ main ] para especificar que o fluxo de trabalho deve apenas correr para puxar pedidos segmentação o principal ramo .`
+
+- [x] O que é um passo essencial quando publicação um Ação para o GitHub Marketplace? ` Garantir o ação repositório é público e inclui um arquivo README com detalhado uso instruções .`
+
+- [x] Ao gerenciar nível de repositório criptografado segredos , o que é um importante prática ? `Segredos devem ser escopo para específico ambientes ou ramos , limitando acesso onde necessário .`
+
+- [x] Qual de o a seguir estão as etapas eficazes de solução de problemas para hospedagem própria corredores ? ( Escolha 2) ` Verificando a conectividade de rede e acesso controles ., Revisando logs para erros mensagens ou avisos .`
+
+- [x] Em GitHub Actions , como seria você configura um fluxo de trabalho para automaticamente cancelar execuções anteriores de o mesmo fluxo de trabalho em o mesmo filial quando uma nova corrida é acionado ? `Use o simultaneidade palavra-chave com um único grupo nome que inclui o filial nome para automaticamente cancelar sobreposição corre.`
+
+- [x ] Em o contexto de consumindo fluxos de trabalho no GitHub Actions , que de o seguindo é um correto método para especificar uma dependência entre empregos ? `Use o precisa palavra- chave no trabalho que depende sobre o conclusão de outro trabalho .`
+
+- [x] Ao criar um código baseado em JavaScript Ação GitHub personalizada , o que é o abordagem recomendada para gerenciar terceiro dependências que o ação requer? ` Pacote o dependências com uma ferramenta como o Webpack e comprometer-se o arquivo agrupado junto com seu Ação código para o repositório .`
+
+- [x] Ao desenvolver uma ação personalizada do GitHub que interage com APIs externas , o que é o melhor estratégia para gerenciar e girar chaves de API ou fichas para melhorar segurança ? `Armazene as chaves da API ou tokens criptografados segredos no repositório GitHub e referência eles no ação código .`
+
+- [x ] Em o contexto de Ações do GitHub , o que é o uso correto de ambiente palavra-chave em um arquivo de fluxo de trabalho? ` ambiente é utilizado para especificar o Implantação ambiente , como produção , preparação ou desenvolvimento , e pode fazer cumprir adicional regras como aprovações manuais .
+
+- [x ] Para uma ação personalizada do GitHub você está desenvolvendo , o que método é maioria apropriado para depuração problemas que ocorrer durante o ação execução em um fluxo de trabalho? `Utilize instruções console.log no ação código e revise a saída nos logs do fluxo de trabalho do GitHub Actions.
+
+- [x] Como pode você aciona um fluxo de trabalho do GitHub Actions no Repositório B sempre que uma nova versão é publicado no Repositório A, assumindo ambos os repositórios estão dentro o mesmo organização ? `Use o repositório_despacho evento no Repositório B e acioná-lo usando um webhook de Repositório A sobre liberação.`
+
+- [x] O que é o maioria abordagem eficaz para distribuição ações dentro de um empresa ? ` Crie uma centralizada compartilhado repositório e utilizar o GitHub recursos de rede interna para distribuição .
+
+- [x ] Em o contexto de criando uma ação GitHub personalizada , o que é o melhor abordagem para lidar confidencial informações , como chaves de API ou credenciais , necessárias por o ação ? ` Aconselhar Usuários para armazenar informações sensíveis informações criptografadas segredos em seu repositório GitHub e passar eles como meio ambiente variáveis para o ação .`
+
+- [x] Como deve um organização configura políticas de uso para GitHub Actions para garantir a conformidade e eficiência ? `Defina claramente diretrizes sobre uso , segurança e manutenção , e fazer cumprir eles através automatizado verificações e saldos.`
+
+- [x] Qual de o os seguintes são os melhores práticas para gerenciar criptografado segredos em GitHub Actions ? `Use ambiente específico segredos para alfaiate acesso baseado sobre Implantação estágios ., Auditoria acesso para segredos e revisar o uso em fluxos de trabalho regularmente ., Regularmente girar segredos para minimizar o risco de exposição .`
+
+- [x] Em GitHub Actions , como pode você seletivamente correr empregos dentro de um fluxo de trabalho baseado sobre o tipo de evento que provocado o fluxo de trabalho? ` Empregar o se : github.event _name == ' event_type ' condição no o começo de cada trabalho para especificar quando o trabalho deve correr baseado sobre o evento tipo .`
+
+- [x] Em GitHub Actions , como pode você configura um fluxo de trabalho para disparar apenas sobre puxar pedidos que estão abertos ou reaberto , e adicionalmente apenas quando mudanças são feitas para arquivos em um específico diretório ? `Use o em : gatilho pull_request com um tipo campo especificando aberto e reaberto , combinado com um filtro de caminhos incluindo o específico diretório .`
+
+- [x ] Em o processo de criando uma ação personalizada do GitHub , o que é o abordagem recomendada para garantir que o Ação é compatível com ambos os executores Linux e Windows ? ` Desenvolver o Ação usando JavaScript , que é multiplataforma e suportado por as ações do GitHub corredor ambiente sobre tanto Linux quanto Janelas.`
+
+- [x] Você está revisando um fluxo de trabalho do GitHub Actions e encontro um Ação definido no arquivo de fluxo de trabalho. Como pode você identificar o tipo de Ação usado (por exemplo, JavaScript , contêiner Docker ou composto )? ` Por verificando a seção de corridas no ação ação.yml ou arquivo action.yaml.`
+
+- [x] No GitHub Actions , você querer para consumir um fluxo de trabalho de outro repositório e acioná-lo sempre que surgir um novo problema é aberto em seu repositório . Como pode você alcançar isto ? `Use o em : repository_dispatch evento no repositório de destino fluxo de trabalho e expedição um evento de seu repositório quando um novo problema é aberto .`
+
+- [x] O que é um passo essencial quando configurando auto -hospedado corredores para uso empresarial ? `Configurar as configurações de rede, incluindo proxies e IP permitido listas , para garantir seguro e eficiente operação dentro de o empresa meio ambiente .`
+
+- [x] Em GitHub Actions , como pode você configura um fluxo de trabalho para ser acionado somente em um horário específico se lá ter estive mudanças em um ramo específico desde o durar bem-sucedido correr de o fluxo de trabalho? `Configure o fluxo de trabalho com o em : gatilho de agendamento e um cron expressão e, em seguida, use uma etapa de script para verificar se há alterações no filial desde o durar corre .`
+
+[ x] No GitHub Actions , como você configurar corretamente um fluxo de trabalho para executar apenas um trabalho quando um anterior trabalho tem falhou ? `Use o precisa palavra-chave com se : condição de falha ( ) , como necessidades : job1 e se : falha () no trabalho definição .`
+
+- [x] Qual de o a seguir estão os benefícios de reutilizando modelos para ações e fluxos de trabalho no GitHub Actions ? ( Escolha 2) ` Significativamente reduz o tempo necessário para integrar uma nova equipe membros ., Garante consistência e melhor práticas entre múltiplo projetos .`
+
+- [x] Em GitHub Actions , como pode você garantir que um específico o trabalho em um fluxo de trabalho só é executado após dois outro empregos ter com sucesso concluído ? ` Implementar o necessidades : [job1, job2] palavra -chave no trabalho definição para estabelecer uma dependência no trabalho1 e no trabalho 2.`
+
+- [x] Em GitHub Actions , como pode você dinamicamente gerar uma matriz para um trabalho para correr contra múltiplo configurações , usando dados de um arquivo JSON externo hospedado no mesmo repositório ? ` Implementar um personalizado Ação que lê o arquivo JSON e gera o matriz configuração , então use esta saída no trabalho matriz configuração.`
+
+- [x] Ao consumir fluxos de trabalho no GitHub Actions , como pode você garantir que um fluxo de trabalho é provocado apenas quando um novo lançamento é publicado em outro repositório dentro de o mesmo organização ? `Configurar um repository_dispatch evento no fonte repositório e acioná-lo manualmente quando um novo lançamento é publicado .`
+
+- [x] Ao desenvolver um composto executar ações de etapas no GitHub Actions , o que é o recomendado caminho para incluir scripts externos ou arquivos de código que o Ação depende em ? `Incluir o scripts externos ou arquivos de código no mesmo repositório como o Ação e referência eles usando caminhos relativos no corre.passos entradas .`
+
+- [x] No GitHub Actions , o que é o correto método para reutilizar fluxos de trabalho armazenados em um público repositório em seu da organização privado repositório ? ` Referência o fluxo de trabalho público usando a palavra-chave usa com o URL do repositório e caminho para o arquivo de fluxo de trabalho.`
+
+- [x] No GitHub Actions , o que é o abordagem recomendada para gerenciar e usar segredos (como chaves de API ou senhas ) em um fluxo de trabalho que precisa para acesso um externo serviço ? `Use o GitHub criptografado segredos apresentam para armazenar e acesso segredos no fluxo de trabalho.`
+
+- [x] O que define com precisão o escopo de criptografado segredos em GitHub Actions ? ` Criptografado segredos pode ser definido no o repositório ou organização nível , com acesso limitado para específico fluxos de trabalho.`
+
+- [x] Ao criar uma ação personalizada do GitHub , o que é o melhor prática para gerenciamento e controle de versão o Ação para garantir estabilidade e facilidade de manutenção para usuários ? ` Criar lançamentos específicos ou tags para estável versões de o ação , e conselho Usuários para referência estes em seus fluxos de trabalho.`
+
+- [x] Em GitHub Actions , como pode você configura um fluxo de trabalho para correr sobre ambos empurrar e solicitação de pull eventos , mas garantir específico os trabalhos são executados somente para pullrequest eventos ? `Configurar o fluxo de trabalho com em : [ push , pull_request ] e use if : github.event _name == ' pull_request ' condicionais sobre específico empregos .`
+
+- [x] Ao configurar o IP permitir listas para GitHub- hospedado e auto -hospedado corredores , o que é o primário efeito ? `Ele restringe quais endereços IP pode interagir com seu corredores , melhorando segurança .`
+
+- [x] Você ter dois repositórios GitHub : Repositório A e Repositório B. Você querer para configurar um fluxo de trabalho no Repositório A para acionar automaticamente sempre que um novo puxão solicitar é criado no Repositório B. O que é o melhor caminho para configurar esse integração ? `Configurar um webhook no Repositório B para acionar um repository_dispatch evento no Repositório A sempre que um pull solicitar é criado .`
+
+- [x] Em GitHub Actions , como pode você utiliza artefatos gerado em um fluxo de trabalho em um fluxo de trabalho subsequente separado dentro o mesmo repositório ? `Use o em : gatilho workflow_run no fluxo de trabalho subsequente e utilizar o ações /download-artifact@v2 ação para buscar o artefatos `
+
+- [x ] Em o desenvolvimento de uma ação GitHub personalizada , como deve você lidar e relatório erros que ocorrer durante o ação execução para garantir Usuários de o Ação pode depurar problemas de forma eficaz ? ` Implementar personalizado erro manuseio no ação código que captura e registra detalhes erro mensagens , usando do GitHub registro comandos para melhorado visibilidade .`
+
+- [x] Em um fluxo de trabalho do GitHub Actions , como deve você com segurança gerenciar confidencial informações como chaves de API ou banco de dados credenciais ? `Use os segredos do GitHub e referência eles no arquivo de fluxo de trabalho usando a sintaxe $ { { secrets .SECRET_NAME }} .`
+
+- [x] Em GitHub Actions , como pode você depurar efetivamente uma falha trabalho dentro de um fluxo de trabalho? ` Inserir eco comandos no arquivo de fluxo de trabalho para imprimir variáveis valores e saídas de comando em vários estágios .`
+
+- [x ] Para uma ação personalizada do GitHub que requer atualizações periódicas e manutenção , o que é o melhor estratégia para informar Usuários sobre por vir mudanças ou depreciações que poder afetar seus fluxos de trabalho? `Use o ação código para exibir aviso mensagens nos logs do fluxo de trabalho quando recursos obsoletos são usados ., Atualize o arquivo README de o ação repositório com detalhes sobre o mudanças e depreciações .`
+
+- [x] Como pode você corretamente chamar um fluxo de trabalho reutilizável no GitHub Actions ? ` Por especificando o caminho do arquivo do fluxo de trabalho na palavra -chave uses sob um trabalho.`
+
+- [x] O que é o primário beneficiar de ser capaz para mover auto- hospedado corredores em e entre grupos ? ` Permite flexibilidade gestão de recursos e adapta-se para mudando projeto precisa ou organizacional estruturas .`
+
+# Questão 2
+
+- [x] O que é crucial para o correto sintaxe de trabalhos em um arquivo de fluxo de trabalho do GitHub Actions ? `Os trabalhos devem ser definido sob o empregos chave com apropriado recuo para garantir o estrutura é corretamente interpretado.`
+
+- [x] Ao configurar um fluxo de trabalho do GitHub Actions , como pode você garantir que um trabalho é apenas executado se um anterior trabalho no fluxo de trabalho tem falhou ? `Use o se : condição de falha ( ) combinado com o precisa palavra-chave , como necessidades : [ emprego_anterior ] e se : falha () no trabalho definição .`
+
+- [x] No GitHub Actions , o que é o melhor prática para gerenciamento e compartilhamento comumente usado ambiente variáveis entre múltiplo empregos dentro de um fluxo de trabalho? `Use o ambiente palavra-chave no o nível do fluxo de trabalho para definir um ambiente comum variáveis para todos empregos .`
+
+- [x] Como pode fluxo de trabalho artefatos ser removido do GitHub depois eles não são mais necessário ? ` Artefatos pode ser configurado para expira automaticamente após um certo número de dias .`
+
+- [x] Como pode cache ser configurado para velocidade execução do fluxo de trabalho no GitHub Actions ? `Use a ação de cache para armazenar e recuperar dependências , reduzindo tempo de instalação subsequente corre.`
+
+- [x] Em GitHub Actions , como pode você depurar efetivamente uma falha trabalho dentro de um fluxo de trabalho? ` Inserir eco comandos no arquivo de fluxo de trabalho para imprimir variáveis valores e saídas de comando em vários estágios .`
+
+- [x] Em GitHub Actions , como pode você configura um fluxo de trabalho para correr sobre ambos empurrar e solicitação de pull eventos , mas garantir específico os trabalhos são executados somente para pullrequest eventos ? `Configurar o fluxo de trabalho com em : [ push , pull_request ] e use if : github.event _name == ' pull_request ' condicionais sobre específico empregos .`
+
+[ x] No GitHub Actions , como você configurar corretamente um fluxo de trabalho para executar apenas um trabalho quando um anterior trabalho tem falhou ? `Use o precisa palavra-chave com se : condição de falha ( ) , como necessidades : job1 e se : falha () no trabalho definição .`
+
+- [x] Qual configuração permite um fluxo de trabalho para ser provocado por múltiplo eventos no GitHub Actions ? `Use o sobre palavra-chave para especificar uma lista de eventos , como push , pull_request e cronograma.`
+
+- [x] O que é o recomendado caminho para passar dados entre trabalhos em um fluxo de trabalho do GitHub Actions ? `Usar artefatos para compartilhar dados entre empregos , garantindo a saída de um trabalho é disponível para subsequente empregos .`
+
+- [x] Como estão os bancos de dados e contêineres de serviço utilizados em um fluxo de trabalho do GitHub Actions ? ` Por definindo serviços no arquivo de fluxo de trabalho, permitindo empregos para usar os recipientes como parte de o tempo de execução meio ambiente .`
+
+- [x] O que é o propósito de adicionando um emblema de status do fluxo de trabalho para um repositório ? ` Para fornecer uma representação visual de o status do fluxo de trabalho (por exemplo, aprovado , reprovado ) em o README do repositório ou outras páginas da web.`
+
+- [x] Qual de o as seguintes são verdadeiras a respeito de o componentes e integração de ações , fluxos de trabalho, tarefas , etapas, execuções e o mercado em GitHub Actions ? `Marketplace é uma plataforma onde pré-construído ações pode ser publicado e usado dentro de fluxos de trabalho sem personalizado codificação ., Condicional palavras-chave pode ser usado em etapas para controlar deles execução baseado sobre certo condições . e fluxos de trabalho são processos automatizados definidos por empregos , que por sua vez consiste de passos que pode incluir ações ou concha comandos .`
+
+- [x] Em GitHub Actions , como pode você garantir que um trabalho em um fluxo de trabalho só é executado em um dia de o semana , por exemplo , toda sexta-feira? `Use o em : sintaxe de programação com um cron expressão no arquivo de fluxo de trabalho, como em : schedule: - cron : '0 0 * * 5 '.`
+
+- [x] O que é o propósito de usando condicional palavras-chave em etapas dentro de um fluxo de trabalho do GitHub Actions ? ` Para controlar o execução de etapas específicas baseadas sobre o resultado de etapas anteriores ou o contexto de o fluxo de trabalho é executado.`
+
+- [x] Qual de o a seguir estão os avançados configurações nos fluxos de trabalho do GitHub Actions ? ` Adicionando ambiente proteções para garantir que os fluxos de trabalho sejam executados somente em locais seguros e aprovados contextos ., Definindo uma matriz de diferente trabalho configurações para teste entre múltiplo ambientes . e Removendo artefatos de fluxo de trabalho depois de um certo período para gerenciar armazenar e manter limpeza .`
+
+- [x] Qual evento configuração aciona corretamente um fluxo de trabalho no GitHub Actions ? ` Usando o sobre palavra-chave no arquivo de fluxo de trabalho para especificar o tipo de evento , como push , pull_request ou cronograma.`
+
+- [x] Você está integrando uma nova ação em seu fluxo de trabalho. Como pode você identificar o ação tipo , entradas necessárias e esperado saídas?` Por leitura o arquivo README.md da ação e o Ação arquivo de metadados ( action.yml ou ação.yaml ).`
+
+- [x] Como pode você corretamente chamar um fluxo de trabalho reutilizável no GitHub Actions ? ` Por especificando o caminho do arquivo do fluxo de trabalho na palavra -chave uses sob um trabalho.`
+
+- [x] Como pode você identificar uma ação do GitHub tipo , entradas e saídas? ` Por leitura o ação arquivo action.yml , que define o interface da ação , incluindo seu tipo , entradas necessárias e saídas.`
+
+- [x] Em GitHub Actions , como pode você garantir que um específico o trabalho em um fluxo de trabalho só é executado se mudanças eram feito para arquivos em qualquer um de dois diferente diretórios ? ` Crie um preliminar trabalho para verificar se há alterações no especificado diretórios e usar sua saída no se doença de o dependente empregos .`
+
+- [x] O que é o correto sintaxe para definir personalizado ambiente variáveis em uma etapa de um fluxo de trabalho do GitHub Actions ? `etapas:
+- nome : Etapa de exemplo
+    executar : eco " Olá mundo"
+    ambiente :
+CUSTOM_VAR: " valor "`
+
+- [x] O que pode você entender por lendo um arquivo de configuração de fluxo de trabalho do GitHub Actions ? `As etapas específicas e ações que o fluxo de trabalho será executado, junto com o eventos que o desencadeiam.`
+
+- [x] Qual de o seguindo as afirmações estão corretas a respeito de o uso de ambiente variáveis nos fluxos de trabalho do GitHub Actions ? ` Ambiente padrão variáveis fornecer predefinido contexto sobre o fluxo de trabalho é executado , como o filial nome ou commit SHA., Ambiente personalizado variáveis pode ser definido em o fluxo de trabalho, trabalho ou nível de etapa usando o ambiente palavra-chave . e o comando de fluxo de trabalho GITHUB_ENV pode ser usado para definir o ambiente variáveis para etapas subsequentes em um trabalho .
+
+- [x] No GitHub Actions , o que é o correto método para reutilizar fluxos de trabalho armazenados em um público repositório em seu da organização privado repositório ? ` Referência o fluxo de trabalho público usando a palavra-chave usa com o URL do repositório e caminho para o arquivo de fluxo de trabalho.`
+
+- [x] Você querer para garantir estabilidade em seus fluxos de trabalho por usando um específico versão de um ação . Como pode você corretamente referência a um específico versão de um ação no seu arquivo de fluxo de trabalho? ` Por usando o ação nome seguido por o símbolo @ e o versão marcação ou confirmar SHA (por exemplo, ações /checkout@v2 ).
+
+- [x] O que é o diferença entre desabilitando e excluindo um fluxo de trabalho no GitHub Actions ? ` Desabilitar um fluxo de trabalho o impede de ser provocado mas retém o arquivo de fluxo de trabalho no repositório , enquanto excluir um fluxo de trabalho remove o arquivo completamente .
+
+- [x] Em GitHub Actions , como pode você configura um fluxo de trabalho para disparar apenas sobre puxar pedidos que estão abertos ou reaberto , e adicionalmente apenas quando mudanças são feitas para arquivos em um específico diretório ? `Use o em : gatilho pull_request com um tipo campo especificando aberto e reaberto , combinado com um filtro de caminhos incluindo o específico diretório .`
+
+- [x] Você está gerenciando fluxos de trabalho do GitHub Actions em seu da organização repositórios . Quais de o seguindo práticas deve você segue? `Use criptografado segredos para armazenar e acesso confidencial informações como chaves de API e senhas em fluxos de trabalho., Revise e integrar atualizações para ações cautelosamente , garantindo eles não quebram os fluxos de trabalho existentes . e Revise e atualize regularmente o ações usado em seus fluxos de trabalho para garantir eles receber atualizações de segurança e melhorias .`
+
+- [x] Ao implementar um fluxo de trabalho do GitHub Actions , como pode você condicionalmente pular um trabalho a menos que um gatilho manual seja ativado , como um comentário em um pull solicitação ? `Use o em : issue_comment gatilho combinado com um nível de trabalho se doença verificando o comentário conteúdo .`
+
+- [x] Em um fluxo de trabalho do GitHub Actions que é provocado por puxar pedidos afetando qualquer arquivo, como pode você configura um trabalho para correr apenas se um arquivo específico tiver estive modificado e um precedente trabalho tem concluído com sucesso ? `Combine o se doença e empregos .< job_id >. se atributo para verificar o sucesso de um anterior trabalho e use uma etapa de script com idiota diferente para verificar se um arquivo específico foi modificado `
+
+- [x] Como pode você identificar o evento que acionou um fluxo de trabalho do GitHub Actions ? ` Por verificando o ambiente GITHUB_EVENT_NAME variável na execução do fluxo de trabalho registros.`
+
+- [x] Qual método pode ser usado para acesso os logs de uma execução de fluxo de trabalho do GitHub Actions usando API REST do GitHub ? ` Envie uma solicitação GET para o apropriado ponto final com o ID de execução do fluxo de trabalho para recuperar o registros.`
+
+- [x] Como são criptografados segredos acessado dentro das Ações do GitHub e fluxos de trabalho? ` Por usando o segredos contexto no arquivo de fluxo de trabalho para referência o segredos .`
+
+- [x] Você está gerenciando segredos para um específico repositório em seu organização . O que deve você considerar quando criando nível de repositório criptografado segredos ? ` Nível de repositório segredos são melhores para dados sensíveis específicos para um repositório e não são acessível por outro repositórios .`
+
+- [x] Você querer para garantir que Ações específicas do GitHub são apenas usado por autorizado pessoal dentro de seu organização . O que é um eficaz caminho para alcançar isto ? ` Implementar baseado em função acesso controles e integrar com o da organização sistema de gerenciamento de identidade .
+
+- [x] Seu organização tem rigoroso segurança requisitos . O que seria ser o efeito de configurando IP permitir listas no GitHub- hospedado e auto -hospedado corredores ? `Ele restringe o acesso à rede , permitindo apenas tráfego de endereços IP especificados para interagir com o corredores .`
+
+- [x] Seu organização quer para garantir que apenas específico equipes ter acesso para certos auto- hospedados corredores . Como pode você gerenciar acesso efetivamente ? `Use o GitHub interface de gerenciamento do corredor para definir o acesso permissões para cada corredor grupo .`
+
+- [x] Qual declaração com precisão descreve o diferença entre GitHub- hospedado e auto -hospedado corredores ? `GitHub- hospedado os corredores estão totalmente gerenciou pelo GitHub, oferecendo conveniência mas menos controle sobre o meio ambiente .`
+
+- [x] Seu a empresa requer um ambiente seguro e eficiente método para distribuir ações do GitHub entre múltiplo equipes . O que é o melhor abordagem? ` Crie um centralizado compartilhado repositório para ações e fazer cumprir acesso controles .`
+
+- [x] Qual de o os seguintes são os melhores práticas para gerenciar criptografado segredos em GitHub Actions ? ` Regularmente girar segredos para minimizar o risco de exposição ., Uso específico do ambiente segredos para alfaiate acesso baseado sobre Implantação estágios . e Auditoria acesso para segredos e revisar o uso em fluxos de trabalho regularmente .
+
+- [x] Ao gerenciar nível de repositório criptografado segredos , o que é um importante prática ? `Segredos devem ser escopo para específico ambientes ou ramos , limitando acesso onde necessário .`
+
+- [x] Seu equipe quer para padronizar processos de CI/CD em múltiplo projetos . Como pode fluxo de trabalho e Ação modelos ser reutilizado efetivamente ? `Use um .github centralizado repositório para armazenar modelos de fluxo de trabalho e referência eles em projeto individual repositórios .`
+
+- [x] O que é uma chave consideração quando selecionando o apropriado corredores para apoiar específico cargas de trabalho ? ` Selecione corredores baseado sobre carga de trabalho requisitos , como processamento poder ou dependências de software específicas .
+
+- [x] Como são criptografados segredos acessado dentro dos fluxos de trabalho do GitHub Actions ? ` Por usando o segredos contexto no arquivo de fluxo de trabalho para referência o segredos por nome .`
+
+- [x ] Em um ambiente empresarial , como deve ser um fluxo de trabalho do GitHub Actions configurado para garantir que dados sensíveis , como produção banco de dados credenciais , é com segurança gerenciou e acessado apenas por fluxos de trabalho autorizados ? `Armazenar dados confidenciais como criptografados segredos no GitHub e restringir acesso para esses segredos usando do GitHub ambiente proteção regras .`
+
+- [x] O que é uma chave diferença entre GitHub- hospedado e auto -hospedado corredores em GitHub Actions ? `GitHub- hospedado corredores fornecer um predefinido ambiente , enquanto auto- hospedado corredores oferecer mais controle e personalização opções .`
+
+- [x] Você está configurando criptografado segredos para o seu projetos . Como o escopo de criptografado segredos diferir entre nível de organização e nível de repositório em Ações do GitHub ? ` Nível de organização segredos pode ser feito disponível para múltiplo repositórios , enquanto nível de repositório segredos são acessíveis apenas para o repositório eles estão definidos.`
+
+- [x] Você é responsável por garantir que as ações do GitHub são usadas com segurança e apropriadamente dentro de seu empreendimento . Como pode você controlar acesso para esses ações ? ` Implementar funções baseadas acesso controles no o organização nível e integrar com o da empresa sistema de gerenciamento de identidade .
+
+- [x] O que é o melhor prática para distribuição personalizado ações no GitHub Ações ? ` Garantir o Ação é bem documentado , incluindo claro instruções sobre uso , entradas e saídas.`
+
+- [x ] Em o processo de construindo uma ação GitHub personalizada que integra com um sistema de rastreamento de bugs para automaticamente criar problemas baseado sobre código compromete-se , qual abordagem deveria ser levado para categorizar e eficientemente priorizar esses problemas ? `Use palavras-chave no commit mensagens para determinar o prioridade e categoria de problemas e configurar o Ação para analisar estes palavras-chave .`
+
+- [x] Ao criar uma ação personalizada do GitHub que integra com terceiro serviços , qual abordagem deveria ser adotado para lidar serviço interrupções ou tempo de inatividade para garantir mínimo impacto na execução do fluxo de trabalho ? ` Implementar tentar novamente lógica no Ação para tentar reconexão para o terceiro atender um número definido de tempos antes falhando ., fornecer Usuários com o opção para pular etapas dependentes sobre o terceiro serviço durante interrupções , através de parâmetros de entrada no ação .`
+
+- [x] Ao desenvolver uma ação GitHub personalizada para código análise e fiapos , como pode você melhor garantir que o Ação restos atualizado com o mais recente padrões de codificação e práticas de forma rápida evoluindo programação linguagem ecossistema ? ` Integrar o Ação com um popular, ativamente mantido ferramenta de remoção de fiapos ou biblioteca , automaticamente atualizando para o mais recente versão sobre cada executar . E permitir Usuários para especificar deles próprio conjunto de regras ou link para um externo conjunto de regras em sua configuração de fluxo de trabalho .
+
+- [x] Um fluxo de trabalho do GitHub Actions falha durante uma etapa que executa um JavaScript ação . Os logs indicam um problema com um faltando pacote . O que é o maioria apropriado Ação para resolver isso problema ? ` Modificar o JavaScript Ação para incluir uma etapa para instalação o ausente pacote .`
+
+- [x] Ao criar uma ação personalizada do GitHub em um público repositório , o que é o melhor prática para garantir o ação código adere para consistente padrões de codificação e melhor práticas ? ` Implementar um linter no ação fluxo de trabalho de desenvolvimento para automaticamente verificar código submissões para adesão para definido codificação padrões.`
+
+- [x ] Em o desenvolvimento de uma ação GitHub personalizada , o que é o maioria eficaz caminho para lidar diferente tempo de execução ambientes (por exemplo, produção , preparação , desenvolvimento ) dentro o ação lógica ? `Incluir ambiente específico parâmetros como entradas no ação arquivo action.yml , permitindo Usuários para especificar o ambiente durante a configuração do fluxo de trabalho . e utilizar o GitHub ambiente segredos e ter o Ação dinamicamente ajustar seu comportamento baseado sobre esses segredos .`
+
+- [x] O que é um passo essencial quando publicação um Ação para o GitHub Marketplace? ` Garantir o ação repositório é público e inclui um arquivo README com detalhado uso instruções .`
+
+- [x] O que é uma chave consideração quando criando uma estratégia de lançamento para uma ação do GitHub ? ` Implementar controle de versão para rastrear mudanças , facilitar para trás compatibilidade e gerenciar lançamentos de forma eficaz .
+
+- [x] Um fluxo de trabalho de ações do GitHub consistentemente falha em uma etapa utilizando um JavaScript Ação com um erro mensagem indicando um emitir com a versão do nó . O que é o maioria apropriado caminho para endereço esse problema ? ` Adicione uma etapa para atualizar a versão do nó no corredor ambiente antes executando o JavaScript ação .`
+
+- [x] Ao criar uma ação personalizada do GitHub que integra com um API externa , como deve você lidar limites de taxa de API potenciais para evitar interrupções nos fluxos de trabalho do usuário ? ` Fornecer um opção para usuários para inserir seus próprias chaves de API , permitindo eles para gerenciar seus limites de taxa independentemente . E implementar lógica no Ação para detectar limite de taxa erros e automaticamente tentar novamente o solicitar depois de um sensato atraso.`
+
+- [x] Ao gerenciar e publicando GitHub Actions , que de o seguindo práticas são recomendadas ? ` Atualizar regularmente e manter seu ações , garantindo eles são compatíveis com o últimos recursos do GitHub e padrões de segurança e uso claro e descritivo nomeação convenções para o seu ações e repositórios . E fornecer abrangente documentação , incluindo uso instruções , descrições de entrada e saída e exemplo fluxos de trabalho.`
+
+- [x] Ao desenvolver uma ação personalizada do GitHub que envolve complexo computacional tarefas , o que é o melhor abordagem para otimizar o desempenho e reduzir tempo de execução ? ` Descarregar o computacional tarefas para um externo servidor ou serviço de nuvem e ter o Ação interagir com que serviço . e Implement cache mecanismos no Ação para armazenar e reutilizar dados computacionais resultados onde possível .`
+
+- [x] Você tem desenvolveu uma ação GitHub personalizada para automatizar implantações . Seu Ação é provável para ser benéfico para outro projetos fora seu organização . Como deve você distribuir seu ação ? ` Publicar o Ação para o GitHub Marketplace para torná-lo público disponível .`
+
+- [x ] Em criando uma ação GitHub personalizada para fazer cumprir padrões de codificação em múltiplo projetos dentro de um organização , o que estratégia deve ser empregado para permitir projetos específicos personalizações enquanto mantendo um conjunto comum de padrões? ` Crie uma ação base com padrões comuns e permitir projetos para estender ou substituir esses padrões por meio de um arquivo de configuração em cada do projeto repositório .`
+
+- [x] Você está criando uma nova ação do GitHub . O que é o arquivo necessário e diretório estrutura você deve configurar ? ` Um diretório no a raiz de o repositório contendo um Dockerfile ou um arquivo JavaScript e um ação.yml arquivo.`
 
 
 ```mermaid
