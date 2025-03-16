@@ -97,5 +97,5 @@ id110405 --> id11040501(Alertmanager)  & id11040502(PagerDuty) & id11040503(OpsG
 ```mermaid
 flowchart TD
 id12(Documentação) --> id1201(Markdown) & id1202(CSS) & id1203(HTML) & id1204(JavaScript)  & id1205(Static Site</br>Generators)
-id1205 --> id120501(MkDocs) & id120502(Hugo) & id120503(Jekyll) & id120503(Gatsby)
+id1205 --> id120501(MkDocs) & id120502(Hugo) & id120503(Jekyll) & id120504(Gatsby)
 ```
