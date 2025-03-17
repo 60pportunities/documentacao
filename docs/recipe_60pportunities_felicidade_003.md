@@ -83,6 +83,7 @@ flowchart TD
    id7(Container)   --> id701(Docker) & id702(Orquestração)
 
   subgraph Orquestradores
+    direction LR
    id130101(Nomad HashiCorp)
    id130102(Kubernetes K8s)
    id130103(OpenShift)
@@ -90,6 +91,7 @@ flowchart TD
    id130105(Rancher)
   end
   subgraph ContainerBasico
+   direction LR
    id70101(Arquitetura Básica)
    id70102(Docker CLI)
    id70103(DockerFile)
@@ -187,8 +189,15 @@ id1006 --> Cultura
 <div class="center-table" markdown>
 ```mermaid
 flowchart TD
-id12(Documentação) --> id1201(Markdown) & id1202(CSS) & id1203(HTML) & id1204(JavaScript)  & id1205(Static Site</br>Generators)
-id1205 --> id120501(MkDocs) & id120502(Hugo) & id120503(Jekyll) & id120504(Gatsby)
+id12(Documentação) --> id1201(Markdown) & id1202(CSS) & id1203(HTML) & id1204(JavaScript)  & id1205(Sites) & id1206(Wiki)
+subgraph SSG
+  direction LR
+ id120501(MkDocs)
+ id120502(Hugo)
+ id120503(Jekyll)
+ id120504(Gatsby)
+end
+id1205 --> SSG
 ```
 </div>
 #### Linguagem Tecnologia
