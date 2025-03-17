@@ -53,6 +53,7 @@ Repositórios privados
 Clientes corporativos/empresariais do GitHub podem frequentemente usar esse modelo.
 
 Existem dois tipos de itens pelos quais você paga com o GitHub Action:
+
 - [x] Armazenamento: Ações permitem que você armazene artefatos e pacotes nos recursos do GitHub.
 - [x] Minutos: As ações exigem tempo de processamento em sistemas virtuais.
 
