@@ -387,13 +387,18 @@ O design modular e a arquitetura orientada a eventos do GitHub Actions permitem 
 Nas seções a seguir, nos aprofundaremos nos recursos avançados e nas opções de personalização do GitHub Actions, ajudando você a desbloquear todo o seu potencial e transformar seus fluxos de trabalho de desenvolvimento de software.
 
 ### Entendendo a sintaxe YAML
-Para trabalhar efetivamente com o GitHub Actions, é essencial entender a sintaxe YAML usada para definir fluxos de trabalho. YAML, que significa "YAML Ain't Markup Language", é um formato de serialização de dados legível por humanos comumente usado para arquivos de configuração e troca de dados entre linguagens com diferentes estruturas de dados. Nesta seção, abordaremos os conceitos básicos da sintaxe YAML e forneceremos exemplos para ajudar você a entender melhor como escrever e manter seus arquivos de fluxo de trabalho do GitHub Actions.
+Para trabalhar efetivamente com o GitHub Actions, é essencial entender a sintaxe YAML usada para definir fluxos de trabalho. YAML, que significa "YAML Ain't Markup Language", é um formato de serialização de dados legível por humanos comumente usado para arquivos de configuração e troca de dados entre linguagens com diferentes estruturas de dados. 
+
+Nesta seção, abordaremos os conceitos básicos da sintaxe YAML e forneceremos exemplos para ajudar você a entender melhor como escrever e manter seus arquivos de fluxo de trabalho do GitHub Actions.
 
 #### Estrutura básica:
-Os arquivos YAML usam recuo para representar a estrutura dos dados, semelhante a como linguagens de programação como Python usam espaços em branco. Os blocos de construção básicos do YAML são escalares (strings, números e booleanos), sequências (matrizes ou listas) e mapeamentos (pares chave-valor ou dicionários). Aqui está um exemplo simples da sintaxe YAML:
+Os arquivos YAML usam recuo para representar a estrutura dos dados, semelhante a como linguagens de programação como Python usam espaços em branco. 
+
+Os blocos de construção básicos do YAML são escalares (strings, números e booleanos), sequências (matrizes ou listas) e mapeamentos (pares chave-valor ou dicionários). Aqui está um exemplo simples da sintaxe YAML:
 
 ```
-version: 1 languages:
+version: 1 
+  languages:
 - Python
 - JavaScript
 - Go
@@ -453,7 +458,10 @@ projects:
 ```
 
 ### Anchors and aliases:
-YAML fornece uma maneira de reutilizar partes da sua configuração usando âncoras e aliases. Uma âncora é definida adicionando & seguido por um nome exclusivo após um valor, enquanto um alias é referenciado usando seguido pelo nome da âncora. Exemplo:
+YAML fornece uma maneira de reutilizar partes da sua configuração usando âncoras e aliases. 
+
+Uma âncora é definida adicionando `&` seguido por um nome exclusivo após um valor, enquanto um alias é referenciado usando seguido pelo nome da âncora. 
+Exemplo:
 
 ```
 defaults: &default_setting
@@ -482,6 +490,7 @@ You can add comments in YAML files by starting a line with the # character. Comm
 # This is a comment in YAML
 version: 1 # You can also add inline comments
 ```
+
 #### Environment variables:
 Nos fluxos de trabalho do GitHub Actions, você pode usar variáveis de ambiente para armazenar e passar dados entre etapas. Para definir uma variável de ambiente, use a chave env seguida pelo nome e valor da variável. Exemplo:
 
@@ -501,10 +510,14 @@ Entender a sintaxe YAML é crucial para trabalhar efetivamente com o GitHub Acti
 Nas seções a seguir, vamos nos aprofundar nos recursos avançados e opções de personalização do GitHub Actions, ajudando você a desbloquear todo o seu potencial e transformar seus fluxos de trabalho de desenvolvimento de software.
 
 ## Anatomy of a GitHub Actions Workflow
-Para aproveitar totalmente os recursos do GitHub Actions, é essencial entender os diferentes componentes que compõem um fluxo de trabalho. Nesta seção, dissecaremos a anatomia de um fluxo de trabalho do GitHub Actions, explicando cada elemento em detalhes e fornecendo exemplos para ajudar você a compreender sua função e uso.
+Para aproveitar totalmente os recursos do GitHub Actions, é essencial entender os diferentes componentes que compõem um fluxo de trabalho. 
+
+Nesta seção, dissecaremos a anatomia de um fluxo de trabalho do GitHub Actions, explicando cada elemento em detalhes e fornecendo exemplos para ajudar você a compreender sua função e uso.
 
 ### Workflow triggers
-Os gatilhos de fluxo de trabalho definem os eventos que iniciam a execução de um fluxo de trabalho do GitHub Actions. Você pode especificar vários eventos, como pushes, pull requests ou até mesmo eventos personalizados, para iniciar o fluxo de trabalho. Os gatilhos são definidos usando a palavra-chave on, seguida pelos nomes dos eventos e qualquer configuração adicional. Exemplo:
+Os gatilhos de fluxo de trabalho definem os eventos que iniciam a execução de um fluxo de trabalho do GitHub Actions. 
+
+Você pode especificar vários eventos, como pushes, pull requests ou até mesmo eventos personalizados, para iniciar o fluxo de trabalho. Os gatilhos são definidos usando a palavra-chave on, seguida pelos nomes dos eventos e qualquer configuração adicional. Exemplo:
 
 ```
 on:
@@ -597,6 +610,13 @@ steps:
 - name: Checkout repository
   uses: actions/checkout@v4
 ```
+
+As ações podem ser:
+
+- [x] Reutilizável: as ações podem ser usadas em diferentes fluxos de trabalho e repositórios, permitindo que você evite reescrever o mesmo código.
+- [x] Pré-escrito: muitas ações estão disponíveis no GitHub Marketplace, abrangendo uma ampla gama de tarefas, como verificar código, configurar ambientes, executar testes e implantar aplicativos.
+- [x] Configurável: você pode configurar ações com entradas, saídas e variáveis ​​de ambiente para adaptá-las às suas necessidades específicas.
+- [x] Orientado pela comunidade: você pode criar suas próprias ações e compartilhá-las com outras pessoas ou usar ações desenvolvidas pela comunidade.
 
 ### Inputs and outputs
 Você pode passar dados entre etapas usando entradas e saídas. As entradas são definidas usando a palavra-chave with, seguida por um mapeamento de nomes e valores de entrada. As saídas são definidas usando a palavra-chave id para atribuir um identificador exclusivo a uma etapa e, em seguida, acessadas usando o contexto steps em etapas subsequentes. Exemplo:
