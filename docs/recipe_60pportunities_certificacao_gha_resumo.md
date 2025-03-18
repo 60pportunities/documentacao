@@ -619,19 +619,23 @@ As ações podem ser:
 - [x] Orientado pela comunidade: você pode criar suas próprias ações e compartilhá-las com outras pessoas ou usar ações desenvolvidas pela comunidade.
 
 ### Inputs and outputs
-Você pode passar dados entre etapas usando entradas e saídas. As entradas são definidas usando a palavra-chave with, seguida por um mapeamento de nomes e valores de entrada. As saídas são definidas usando a palavra-chave id para atribuir um identificador exclusivo a uma etapa e, em seguida, acessadas usando o contexto steps em etapas subsequentes. Exemplo:
+Você pode passar dados entre etapas usando entradas e saídas. 
+
+As entradas são definidas usando a palavra-chave with, seguida por um mapeamento de nomes e valores de entrada. 
+
+As saídas são definidas usando a palavra-chave id para atribuir um identificador exclusivo a uma etapa e, em seguida, acessadas usando o contexto steps em etapas subsequentes. Exemplo:
 
 ```
 jobs:
   build:
     runs-on: ubuntu-latest
   steps:
-   - name: Generate a random number
-       id: random_number
-      run: echo "::set-output name=number::$(shuf -i 1-100 -n 1)"
-
-   - name: Print the random number
-      run: echo "The random number is ${{ steps.random_number.outputs.number }}"
+    - name: Generate a random number
+      id: random_number
+      # Obsoleto: run: echo "::set-output name=number::$(shuf -i 1-100 -n 1)"
+      run: echo "numero=$(shuf -i 1-100 -n 1)" >> "$GITHUB_OUTPUT"
+    - name: Print the random number
+      run: echo "The random number is ${{ steps.random_number.outputs.numero }}"
 ```
 
 ### Environment variables and secrets
