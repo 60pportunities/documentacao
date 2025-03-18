@@ -443,6 +443,7 @@ Python:
 ### Estruturas de dados complexas:
 Você pode criar estruturas de dados mais complexas em YAML combinando sequências e mapeamentos. Por exemplo, você pode ter uma sequência de mapeamentos ou um mapeamento com sequências como valores. Exemplo:
 
+
 ```
 projects:
 - name: Project A
