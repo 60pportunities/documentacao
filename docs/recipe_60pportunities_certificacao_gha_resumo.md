@@ -201,60 +201,79 @@ Jenkins permite que os desenvolvedores criem pipelines personalizados usando uma
 ### GitLab CI/CD:
 GitLab CI/CD é uma solução CI/CD integrada fornecida pelo GitLab, uma alternativa popular ao GitHub. 
 
-O GitLab CI/CD é fortemente integrado à plataforma GitLab e permite que os desenvolvedores criem pipelines usando arquivos YAML, semelhante ao GitHub Actions.
-
-#### Key differences:
-O GitHub Actions faz parte do ecossistema GitHub, enquanto o GitLab CI/CD é exclusivo do GitLab.
-Ambas as plataformas oferecem integração perfeita com seus respectivos serviços de hospedagem de repositórios, tornando a escolha entre os dois amplamente dependente da sua plataforma preferida. O GitHub Actions e o GitLab CI/CD têm abordagens de configuração semelhantes usando arquivos YAML, tornando-os relativamente fáceis de aprender e usar.
-
-O GitLab oferece um conjunto mais abrangente de recursos integrados, incluindo registros de contêineres integrados e armazenamento de artefatos, enquanto o GitHub Actions depende de serviços externos para essas funcionalidades.
+- [X] O GitLab CI/CD é fortemente integrado à plataforma GitLab e permite que os desenvolvedores criem pipelines usando arquivos YAML, semelhante ao GitHub Actions.
+- [X] O GitHub Actions faz parte do ecossistema GitHub, enquanto o GitLab CI/CD é exclusivo do GitLab.
+- [X] Ambas as plataformas oferecem integração perfeita com seus respectivos serviços de hospedagem de repositórios, tornando a escolha entre os dois amplamente dependente da sua plataforma preferida. 
+- [X] O GitHub Actions e o GitLab CI/CD têm abordagens de configuração semelhantes usando arquivos YAML, tornando-os relativamente fáceis de aprender e usar.
+- [X] O GitLab oferece um conjunto mais abrangente de recursos integrados, incluindo registros de contêineres integrados e armazenamento de artefatos, enquanto o GitHub Actions depende de serviços externos para essas funcionalidades.
 
 ### CircleCI:
-CircleCI é um serviço de CI/CD baseado em nuvem que fornece uma plataforma altamente configurável e flexível para automatizar fluxos de trabalho de desenvolvimento. CircleCI suporta uma ampla gama de linguagens de programação e frameworks, e sua configuração de pipeline também é baseada em arquivos YAML.
+CircleCI é um serviço de CI/CD baseado em nuvem que fornece uma plataforma altamente configurável e flexível para automatizar fluxos de trabalho de desenvolvimento. 
 
-#### Key differences:
+CircleCI suporta uma ampla gama de linguagens de programação e frameworks, e sua configuração de pipeline também é baseada em arquivos YAML.
+
 - [x] O GitHub Actions é integrado diretamente à plataforma GitHub, enquanto o CircleCI é um serviço separado que requer instalação e configuração adicionais.
 - [x] O CircleCI fornece uma plataforma altamente otimizada e orientada para o desempenho, com recursos como paralelismo e mecanismos avançados de cache, enquanto o GitHub Actions oferece recursos semelhantes, mas pode exigir mais otimização manual.
 - [x] O CircleCI tem um sistema de permissões mais avançado e granular para gerenciar o controle de acesso, enquanto o GitHub Actions depende do sistema de permissões do repositório GitHub.
-
-Ambas as plataformas oferecem suporte a uma ampla variedade de linguagens, estruturas e plataformas, tornando-as adequadas para diversos ambientes de desenvolvimento.
+- [X] Ambas as plataformas oferecem suporte a uma ampla variedade de linguagens, estruturas e plataformas, tornando-as adequadas para diversos ambientes de desenvolvimento.
 
 ### Travis CI:
 O Travis CI é um serviço de CI/CD baseado em nuvem que tem sido popular entre projetos de código aberto devido à sua simplicidade e facilidade de uso. O Travis CI suporta uma ampla gama de linguagens e plataformas e usa arquivos YAML para configuração de pipeline.
 
-#### Key differences:
-O GitHub Actions é integrado à plataforma GitHub, enquanto o Travis CI é um serviço externo que requer configuração e integração adicionais.
-O Travis CI tem uma abordagem mais simples e otimizada para configuração de pipeline, facilitando a configuração de fluxos de trabalho básicos, enquanto o GitHub Actions oferece opções de personalização mais avançadas e modularidade.
-O GitHub Actions se beneficia de um mercado crescente de ações reutilizáveis, enquanto o Travis CI depende de um conjunto mais limitado de recursos e integrações integrados.
-O Travis CI recentemente mudou seu foco de projetos de código aberto, limitando sua oferta gratuita e tornando-o menos atraente para desenvolvedores de código aberto, enquanto o GitHub Actions continua a oferecer uso gratuito para repositórios públicos.
+- [X] O GitHub Actions é integrado à plataforma GitHub, enquanto o Travis CI é um serviço externo que requer configuração e integração adicionais.
+- [X] O Travis CI tem uma abordagem mais simples e otimizada para configuração de pipeline, facilitando a configuração de fluxos de trabalho básicos, enquanto o GitHub Actions oferece opções de personalização mais avançadas e modularidade.
+- [X] O GitHub Actions se beneficia de um mercado crescente de ações reutilizáveis, enquanto o Travis CI depende de um conjunto mais limitado de recursos e integrações integrados.
+- [X] O Travis CI recentemente mudou seu foco de projetos de código aberto, limitando sua oferta gratuita e tornando-o menos atraente para desenvolvedores de código aberto, enquanto o GitHub Actions continua a oferecer uso gratuito para repositórios públicos.
 
 ### Azure Pipelines:
-Azure Pipelines is a cloud-based CI/CD service offered by Microsoft as part of the Azure DevOps suite. It supports a wide range of languages, frameworks, and platforms, and its pipeline configuration is based on YAML files, similar to GitHub Actions.
+O Azure Pipelines é um serviço de CI/CD baseado em nuvem oferecido pela Microsoft como parte do pacote Azure DevOps. 
 
-#### Key differences:
-O GitHub Actions é integrado nativamente à plataforma GitHub, enquanto o Azure Pipelines faz parte do conjunto Azure DevOps, exigindo configuração e instalação adicionais.
-O Azure Pipelines fornece integração perfeita com outros serviços do Azure DevOps, como Azure Repos, Azure Boards e Azure Artifacts, tornando-o uma solução mais abrangente para organizações que usam o ecossistema Azure DevOps. Ambas as plataformas oferecem uma ampla gama de opções de personalização e suporte para diversos ambientes de desenvolvimento, mas o GitHub Actions se beneficia de um mercado crescente de ações reutilizáveis e contribuições da comunidade.
-O Azure Pipelines fornece limites de uso gratuito mais generosos para repositórios privados em comparação ao GitHub Actions, tornando-o uma opção atraente para equipes menores e projetos com orçamentos limitados.
+Ele oferece suporte a uma ampla variedade de linguagens, frameworks e plataformas, e sua configuração de pipeline é baseada em arquivos YAML, semelhante ao GitHub Actions.
 
-Concluindo, o GitHub Actions é uma ferramenta de CI/CD poderosa e flexível que oferece integração perfeita com a plataforma GitHub, uma arquitetura orientada a eventos e um design modular que permite que os desenvolvedores criem fluxos de trabalho de automação personalizados. Embora outras ferramentas de CI/CD, como Jenkins, GitLab CI/CD, CircleCI, Travis CI e Azure Pipelines tenham seus próprios recursos e pontos fortes exclusivos, a escolha depende, em última análise, de fatores como sua plataforma de hospedagem de repositório preferida, requisitos de integração, necessidades de personalização e restrições de orçamento.
+- [x] O GitHub Actions é integrado nativamente à plataforma GitHub, enquanto o Azure Pipelines faz parte do conjunto Azure DevOps, exigindo configuração e instalação adicionais.
+- [x] O Azure Pipelines fornece integração perfeita com outros serviços do Azure DevOps, como Azure Repos, Azure Boards e Azure Artifacts, tornando-o uma solução mais abrangente para organizações que usam o ecossistema Azure DevOps. 
+- [x] Ambas as plataformas oferecem uma ampla gama de opções de personalização e suporte para diversos ambientes de desenvolvimento, mas o GitHub Actions se beneficia de um mercado crescente de ações reutilizáveis e contribuições da comunidade.
+- [x] O Azure Pipelines fornece limites de uso gratuito mais generosos para repositórios privados em comparação ao GitHub Actions, tornando-o uma opção atraente para equipes menores e projetos com orçamentos limitados.
 
-Ao entender as principais diferenças entre o GitHub Actions e outras ferramentas de CI/CD, você pode tomar uma decisão informada sobre a melhor solução para seus fluxos de trabalho de desenvolvimento. Independentemente da sua escolha, adotar uma ferramenta de CI/CD é essencial para equipes modernas de desenvolvimento de software, pois ajuda a garantir a qualidade do código, reduzir erros e acelerar o ciclo de lançamento, impulsionando, em última análise, a inovação e o sucesso.
+Concluindo, o GitHub Actions é uma ferramenta de CI/CD poderosa e flexível que oferece integração perfeita com a plataforma GitHub, uma arquitetura orientada a eventos e um design modular que permite que os desenvolvedores criem fluxos de trabalho de automação personalizados.
+
+Embora outras ferramentas de CI/CD, como Jenkins, GitLab CI/CD, CircleCI, Travis CI e Azure Pipelines tenham seus próprios recursos e pontos fortes exclusivos, a escolha depende, em última análise, de fatores como sua plataforma de hospedagem de repositório preferida, requisitos de integração, necessidades de personalização e restrições de orçamento.
+
+Ao entender as principais diferenças entre o GitHub Actions e outras ferramentas de CI/CD, você pode tomar uma decisão informada sobre a melhor solução para seus fluxos de trabalho de desenvolvimento. 
+
+Independentemente da sua escolha, adotar uma ferramenta de CI/CD é essencial para equipes modernas de desenvolvimento de software, pois ajuda a garantir a qualidade do código, reduzir erros e acelerar o ciclo de lançamento, impulsionando, em última análise, a inovação e o sucesso.
 
 ### Introdução ao GitHub Actions
-Neste capítulo, nós o guiaremos pelos primeiros passos do uso do GitHub Actions em seus projetos. Começaremos apresentando os blocos de construção básicos de um fluxo de trabalho do GitHub Actions, que incluem sintaxe YAML, arquivos de fluxo de trabalho e vários gatilhos de eventos. Ao entender esses conceitos fundamentais, você estará bem preparado para criar e personalizar seus próprios fluxos de trabalho.
+Neste capítulo, nós o guiaremos pelos primeiros passos do uso do GitHub Actions em seus projetos. Começaremos apresentando os blocos de construção básicos de um fluxo de trabalho do GitHub Actions, que incluem sintaxe YAML, arquivos de fluxo de trabalho e vários gatilhos de eventos. 
 
-Em seguida, nós o guiaremos pela configuração do seu primeiro fluxo de trabalho, desde a criação de um arquivo de fluxo de trabalho até a definição dos trabalhos e etapas necessários. Essa abordagem prática ajudará você a ganhar experiência prática com a interface e a estrutura do fluxo de trabalho do GitHub Actions. Além disso, discutiremos contextos e expressões essenciais do GitHub Actions, que permitirão que você crie fluxos de trabalho dinâmicos e condicionais adaptados às suas necessidades específicas. Essas ferramentas são cruciais para otimizar seus fluxos de trabalho e garantir que eles respondam efetivamente a vários eventos e circunstâncias.
+Ao entender esses conceitos fundamentais, você estará bem preparado para criar e personalizar seus próprios fluxos de trabalho.
 
-Ao final deste capítulo, você terá uma compreensão sólida dos conceitos básicos do GitHub Actions e estará pronto para implementar fluxos de trabalho simples em seus projetos de desenvolvimento. Com essa base, você estará bem equipado para explorar recursos e técnicas mais avançados nos capítulos subsequentes.
+Em seguida, nós o guiaremos pela configuração do seu primeiro fluxo de trabalho, desde a criação de um arquivo de fluxo de trabalho até a definição dos trabalhos e etapas necessários. 
+
+Essa abordagem prática ajudará você a ganhar experiência prática com a interface e a estrutura do fluxo de trabalho do GitHub Actions. 
+
+Além disso, discutiremos contextos e expressões essenciais do GitHub Actions, que permitirão que você crie fluxos de trabalho dinâmicos e condicionais adaptados às suas necessidades específicas. 
+
+Essas ferramentas são cruciais para otimizar seus fluxos de trabalho e garantir que eles respondam efetivamente a vários eventos e circunstâncias.
+
+Ao final deste capítulo, você terá uma compreensão sólida dos conceitos básicos do GitHub Actions e estará pronto para implementar fluxos de trabalho simples em seus projetos de desenvolvimento.
+
+Com essa base, você estará bem equipado para explorar recursos e técnicas mais avançados nos capítulos subsequentes.
 
 ### Configurando seu primeiro fluxo de trabalho do GitHub Actions
-Agora que cobrimos os fundamentos do GitHub Actions e discutimos seus benefícios e como ele se compara a outras ferramentas de CI/CD, é hora de mergulhar na criação do seu primeiro fluxo de trabalho. Nesta seção, guiaremos você pelo processo de configuração de um fluxo de trabalho básico do GitHub Actions para automatizar a construção e o teste de um projeto de amostra.
+Agora que cobrimos os fundamentos do GitHub Actions e discutimos seus benefícios e como ele se compara a outras ferramentas de CI/CD, é hora de mergulhar na criação do seu primeiro fluxo de trabalho.
+
+Nesta seção, guiaremos você pelo processo de configuração de um fluxo de trabalho básico do GitHub Actions para automatizar a construção e o teste de um projeto de amostra.
 
 ### Crie um novo repositório no GitHub:
-Antes de começar, crie um novo repositório no GitHub (se você ainda não tiver um) para hospedar seu projeto. Este repositório servirá como base para seu fluxo de trabalho do GitHub Actions. Certifique-se de ter inicializado o repositório com um arquivo README e adicionado seus arquivos de projeto.
+Antes de começar, crie um novo repositório no GitHub (se você ainda não tiver um) para hospedar seu projeto. Este repositório servirá como base para seu fluxo de trabalho do GitHub Actions.
+
+Certifique-se de ter inicializado o repositório com um arquivo README e adicionado seus arquivos de projeto.
 
 #### Adicionar um arquivo de fluxo de trabalho:
-Os fluxos de trabalho do GitHub Actions são definidos usando arquivos YAML armazenados no diretório .github/workflows dentro do seu repositório. Para criar seu primeiro fluxo de trabalho, siga estas etapas:
+Os fluxos de trabalho do GitHub Actions são definidos usando arquivos YAML armazenados no diretório `.github/workflows` dentro do seu repositório. 
+
+Para criar seu primeiro fluxo de trabalho, siga estas etapas:
 
 - [X] No seu repositório, navegue até a aba "Ações".
 - [X] Clique no botão "Novo fluxo de trabalho".
@@ -268,7 +287,7 @@ Fluxos de trabalho **reutilizáveis** permitem que você reutilize um fluxo de t
 | Um arquivo YAML, muito semelhante a qualquer arquivo de fluxo de trabalho padrão	                       | Uma ação que contém um pacote de etapas do fluxo de trabalho |
 | Cada fluxo de trabalho reutilizável é um único arquivo no diretório .github/workflows de um repositório | Cada ação composta é um repositório, ou um diretório, separado contendo um arquivo action.yml e, opcionalmente, outros arquivos |
 | Chamada feita referenciando um arquivo YAML específico                                                   | Chamada feita referenciando um repositório ou diretório no qual a ação está definida |
-| Chamada feita diretamente em uma tarefa, não em uma etapa	                                               | Execução feita como uma etapa dentro de uma tarefa |
+| Chamada feita diretamente em uma tarefa, não em uma etapa	| Execução feita como uma etapa dentro de uma tarefa |
 | Pode conter várias tarefas                                                                               | Não contém tarefas |
 | Cada etapa é registrada em tempo real	                                                                   | Registro como uma etapa, mesmo que contenha várias etapas |
 | Pode conectar um máximo de quatro níveis de fluxos de trabalho                                           | O aninhamento pode ser feito para ter até 10 ações compostas em um único fluxo de trabalho |
@@ -278,15 +297,21 @@ Os fluxos de trabalho são os scripts ou pipelines que controlam o fluxo e a seq
 
 #### Visão Geral
 Algum evento de disparo acontece em um repositório GitHub, ser um evento no GitHub que não é uma atualização para uma ref.
+
 Um diretório dedicado no repositório (.github/ workflows) é pesquisado para arquivos de fluxo de trabalho que são codificados para responder ao tipo de evento.
+
 Os fluxos de trabalho correspondentes são identificados e novas execuções dos fluxos de trabalho correspondentes
+
 A sintaxe cron tem cinco campos separados por um espaço, e cada campo representa uma unidade de tempo.
+
 As variáveis de ambiente padrão definidas pelo GitHub estão disponíveis em todas as etapas de um fluxo de trabalho.
 
 ![](img/github-actions-002a.png)
 
 #### Defina os gatilhos do fluxo de trabalho:
-No seu novo arquivo YAML, comece definindo os eventos que devem disparar seu fluxo de trabalho. Para este exemplo, configuraremos o fluxo de trabalho para ser executado em cada solicitação push e pull para o branch principal. Adicione as seguintes linhas ao seu arquivo de fluxo de trabalho:
+No seu novo arquivo YAML, comece definindo os eventos que devem disparar seu fluxo de trabalho. Para este exemplo, configuraremos o fluxo de trabalho para ser executado em cada solicitação push e pull para o branch principal.
+
+Adicione as seguintes linhas ao seu arquivo de fluxo de trabalho:
 
 ```
  on:
@@ -297,9 +322,10 @@ No seu novo arquivo YAML, comece definindo os eventos que devem disparar seu flu
     branches:
       - main
 ```
-
 #### Configure o ambiente do fluxo de trabalho:
-Em seguida, especifique o sistema operacional e o ambiente da linguagem de programação para seu fluxo de trabalho. Neste exemplo, usaremos um ambiente baseado em Ubuntu com Node.js. Adicione as seguintes linhas ao seu arquivo de fluxo de trabalho:
+Em seguida, especifique o sistema operacional e o ambiente da linguagem de programação para seu fluxo de trabalho. 
+
+Neste exemplo, usaremos um ambiente baseado em Ubuntu com Node.js. Adicione as seguintes linhas ao seu arquivo de fluxo de trabalho:
 
 ```
 jobs:
@@ -308,19 +334,23 @@ jobs:
   steps:
 ```
 #### Verifique seu repositório:
-Para acessar os arquivos do seu repositório dentro do fluxo de trabalho, você precisará verificar o repositório usando a ação actions/checkout. Adicione as seguintes linhas ao seu arquivo de fluxo de trabalho:
+Para acessar os arquivos do seu repositório dentro do fluxo de trabalho, você precisará verificar o repositório usando a ação actions/checkout. 
+
+Adicione as seguintes linhas ao seu arquivo de fluxo de trabalho:
 
 ```
 - name: Checkout repository
-  uses: actions/checkout@v2
+  uses: actions/checkout@v4
 ```
 
 #### Configure seu ambiente de linguagem de programação:
-Neste exemplo, estamos usando Node.js, então precisaremos configurar o ambiente Node.js usando a ação actions/setup-node. Adicione as seguintes linhas ao seu arquivo de fluxo de trabalho:
+Neste exemplo, estamos usando Node.js, então precisaremos configurar o ambiente Node.js usando a ação actions/setup-node.
+
+Adicione as seguintes linhas ao seu arquivo de fluxo de trabalho:
 
 ```
 - name: Set up Node.js
-  uses: actions/setup-node@v2
+  uses: actions/setup-node@v4
   with:
    node-version: 14
 ```
@@ -334,16 +364,19 @@ Com o ambiente configurado, agora você pode instalar as dependências do seu pr
 - name: Build project
   run: npm run build
 ```
-
 ### Executar testes:
-Finalmente, adicione uma etapa para executar os testes do seu projeto usando o executor de testes de sua escolha. Neste exemplo, usaremos o npm test. Adicione as seguintes linhas ao seu arquivo de fluxo de trabalho:
+Finalmente, adicione uma etapa para executar os testes do seu projeto usando o executor de testes de sua escolha. 
+
+Neste exemplo, usaremos o npm test. Adicione as seguintes linhas ao seu arquivo de fluxo de trabalho:
 
 ```
 - name: Run tests
    run: npm test
 ```
 ### Salve e confirme o arquivo de fluxo de trabalho:
-Depois de terminar de configurar seu fluxo de trabalho, salve o arquivo YAML e confirme-o em seu repositório. Isso habilitará automaticamente o fluxo de trabalho e ele será acionado com base nos eventos que você definiu.
+Depois de terminar de configurar seu fluxo de trabalho, salve o arquivo YAML e confirme-o em seu repositório. 
+
+Isso habilitará automaticamente o fluxo de trabalho e ele será acionado com base nos eventos que você definiu.
 
 Com esse fluxo de trabalho básico do GitHub Actions em vigor, seu projeto será criado e testado automaticamente em cada solicitação de push e pull para o branch principal. Este é apenas o começo do que você pode fazer com o GitHub Actions, pois há muito mais opções de personalização e integrações disponíveis para ajudar a simplificar e automatizar seus processos de desenvolvimento.
 
@@ -546,9 +579,9 @@ jobs:
     runs-on: ubuntu-latest
 steps:
 - name: Checkout repository
-  uses: actions/checkout@v2
+  uses: actions/checkout@v4
 - name: Set up Node.js
-  uses: actions/setup-node@v2
+  uses: actions/setup-node@v4
   with:
     node-version: 14
 - name: Install dependencies
@@ -562,7 +595,7 @@ Ações são unidades reutilizáveis de código que podem ser incluídas como et
 ```
 steps:
 - name: Checkout repository
-  uses: actions/checkout@v2
+  uses: actions/checkout@v4
 ```
 
 ### Inputs and outputs
@@ -986,9 +1019,9 @@ build:
 runs-on: ubuntu-latest
 steps:
 - name: Checkout repository
-uses: actions/checkout@v2
+uses: actions/checkout@v4
 - name: Set up Node.js
-uses: actions/setup-node@v2 with:
+uses: actions/setup-node@v4 with:
 node-version: 14
 - name: Install dependencies
 run: npm ci
@@ -1048,7 +1081,7 @@ jobs:
            node-version: [12, 14, 16]
      steps:
         - name: Set up Node.js
-          uses: actions/setup-node@v2
+          uses: actions/setup-node@v4
           with:
              node-version: ${{ matrix.node-version }}
         - name: Run tests
@@ -1082,14 +1115,14 @@ Para usar uma ação pré-criada no seu fluxo de trabalho, adicione uma nova eta
      runs-on: ubuntu-latest
        steps:
           - name: Checkout repository
-            uses: actions/checkout@v2
+            uses: actions/checkout@v4
           - name: Set up Node.js
-            uses: actions/setup-node@v2
+            uses: actions/setup-node@v4
             with:
               node-version: 14
 ```
 
-Neste exemplo, a ação actions/checkout@v2 verifica o código do seu repositório, e a ação actions/setup-node@v2 configura o Node.js com a versão especificada.
+Neste exemplo, a ação actions/checkout@v4 verifica o código do seu repositório, e a ação actions/setup-node@v4 configura o Node.js com a versão especificada.
 
 ### Configuring pre-built actions:
 Muitas ações fornecem parâmetros de entrada que você pode usar para personalizar seu comportamento. Para definir parâmetros de entrada, use a palavra-chave with seguida por um mapa de valores-chave de nomes e valores de parâmetros. Exemplo:
@@ -1368,7 +1401,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         - name: Execute deployment script
             run: ./scripts/deploy.sh
 ```
@@ -1522,7 +1555,7 @@ jobs:
     runs-on: ubuntu-latest
       steps:
          - name: Checkout repository
-           uses: actions/checkout@v2
+           uses: actions/checkout@v4
          - name: Run tests on the main branch
            if: ${{ github.ref == 'refs/heads/main' }}
            run: npm run test:main
@@ -1555,7 +1588,7 @@ jobs:
   runs-on: ubuntu-latest
   if: ${{ github.event_name steps:=='push' && startsWith(github.ref, 'refs/heads/main')}}
      - name: Checkout repository
-       uses: actions/checkout@v2
+       uses: actions/checkout@v4
      - name: Deployrun: npm run deploy
         env:API_KEY: ${{ secrets.API_KEY}}
 ```
@@ -1582,7 +1615,7 @@ jobs:
       if: ${{ github.event_name=='push' && (startsWith(github.ref, 'refs/heads/main') || contains(github.event.head_commit.message, '[build]')) }}
       steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Install dependencies
         run: npm ci
       - name: Run tests
@@ -1604,7 +1637,7 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - name: Checkout repository
-         uses: actions/checkout@v2
+         uses: actions/checkout@v4
        - name: Install dependencies
          run: npm ci
        - name: Build project
@@ -1614,7 +1647,7 @@ jobs:
       needs: build
       steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Install dependencies
         run: npm ci
       - name: Run tests
@@ -1624,7 +1657,7 @@ jobs:
         needs:
          teststeps:
         - name: Checkout repository
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
           - name: Deploy
              run: npm run deploy
 ```
@@ -1640,7 +1673,7 @@ jobs:
      runs-on: ubuntu-latest
       steps:
          - name: Checkout repository
-           uses: actions/checkout@v2
+           uses: actions/checkout@v4
           - name: Install dependencies
              run: npm ci
           - name: Build project
@@ -1651,7 +1684,7 @@ jobs:
           if: ${{ github.event_name != 'pull_request' || !contains(github.event.pull_request.labels.*.name, 'skip-tests') }}
           steps:
             - name: Checkout repository
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
             - name: Install dependencies
                run: npm ci
             - name: Run tests
@@ -1662,7 +1695,7 @@ jobs:
           if: ${{ success() }}
             steps:
               - name: Checkout repository
-                uses: actions/checkout@v2
+                uses: actions/checkout@v4
               - name: Deploy
                  run: npm run deploy
 ```
@@ -1688,7 +1721,7 @@ jobs:
   if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main')}}
   steps:
    - name: Checkout repository
-     uses: actions/checkout@v2
+     uses: actions/checkout@v4
    - name: Deploy to production
      run: npm run deploy
 ```
@@ -1704,7 +1737,7 @@ jobs:
    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Install dependencies
         run: npm ci
       - name: Run tests
@@ -1738,7 +1771,7 @@ jobs:
       if: ${{ github.event_name == 'push'}}
        steps:
          - name: Checkout repository
-           uses: actions/checkout@v2
+           uses: actions/checkout@v4
          - name: Deploy to production
            run: npm run deploy
 ```
@@ -1756,7 +1789,7 @@ jobs:
     if: ${{ startsWith(github.ref, 'refs/heads/main') }}
      steps:
          - name: Checkout repository
-           uses: actions/checkout@v2
+           uses: actions/checkout@v4
          - name: Deploy to production
             run: npm run deploy
 ```
@@ -1772,7 +1805,7 @@ jobs:
     if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main')}}
      steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Deploy to production
        run: npm run deploy
 ```
@@ -1795,7 +1828,7 @@ jobs:
     runs-on: ubuntu-latest
       steps:
         - name: Checkout repository
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
         - name: Install dependencies
           run: npm ci
         - name: Run linter
@@ -1816,7 +1849,7 @@ jobs:
    runs-on: ubuntu-latest
    steps:
      - name: Checkout repository
-       uses: actions/checkout@v2
+       uses: actions/checkout@v4
      - name: Install dependencies
        run: npmci
       - name: Run linter
@@ -2241,9 +2274,9 @@ jobs:
 yest:
 runs-on: ubuntu-latest steps:
 - name: Check out code
-uses: actions/checkout@v2
+uses: actions/checkout@v4
 - name: Set up Node.js
-uses: actions/setup-node@v2 with:
+uses: actions/setup-node@v4 with:
 node-version: 14
 - name: Install dependencies
 run: npm ci
@@ -2283,8 +2316,8 @@ jobs:
 lint:
 runs-on: ubuntu-latest steps:
 - name: Check out code
-uses: actions/checkout@v2
-- name: Set up Node.js uses: actions/setup-node@v2 with:
+uses: actions/checkout@v4
+- name: Set up Node.js uses: actions/setup-node@v4 with:
 node-version: 14
 - name: Install dependencies run: npm ci
 - name: Run ESLint run: npm run lint
@@ -2722,7 +2755,7 @@ jobs:
         os: [ubuntu-latest]
         python-version: [3.8]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     # Install python
     - name: Set up Python ${{ matrix.python-version }}
@@ -3344,9 +3377,9 @@ build:
 runs-on: ubuntu-latest
 steps:
 - name: Checkout repository
-uses: actions/checkout@v2
+uses: actions/checkout@v4
 - name: Set up Node.js
-uses: actions/setup-node@v2 with: node-version: '14'
+uses: actions/setup-node@v4 with: node-version: '14'
 - name: Install dependencies run: npm ci
 - name: Run tests
 run: npm test
@@ -3508,7 +3541,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check out the repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Log in to GitHub Container Registry
       uses: docker/login-action@v1
@@ -3547,7 +3580,7 @@ jobs:
     steps:
 steps:
   - name: Checkout code
-    uses: actions/checkout@v2
+    uses: actions/checkout@v4
 
   - name: Build project
     run: |
@@ -3642,7 +3675,7 @@ jobs:
         matrix:
           os: [ubuntu-latest, macos-latest, windows-latest]
       steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v4
         - name: Set up Python
           uses: actions/setup-python@master
           with:
@@ -3668,7 +3701,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v2
         with:
           python-version: '3.9'
@@ -3735,7 +3768,7 @@ jobs:
         python-version: [3.8]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
       with:
