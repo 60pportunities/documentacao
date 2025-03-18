@@ -626,16 +626,27 @@ As entradas são definidas usando a palavra-chave with, seguida por um mapeament
 As saídas são definidas usando a palavra-chave id para atribuir um identificador exclusivo a uma etapa e, em seguida, acessadas usando o contexto steps em etapas subsequentes. Exemplo:
 
 ```
+name: Exercicio 01
+on:
+  workflow_dispatch:
 jobs:
-  build:
+  build_random:
+    name: build_random 
     runs-on: ubuntu-latest
-  steps:
+    env:
+      API_BASE_URL: "https://api.example.com"
+    steps:
+    - name: Imprime variavel
+      run: echo "Nome da variacel $API_BASE_URL"
+      
     - name: Generate a random number
       id: random_number
       # Obsoleto: run: echo "::set-output name=number::$(shuf -i 1-100 -n 1)"
       run: echo "numero=$(shuf -i 1-100 -n 1)" >> "$GITHUB_OUTPUT"
     - name: Print the random number
-      run: echo "The random number is ${{ steps.random_number.outputs.numero }}"
+      run: |
+            echo "The random number is ${{ steps.random_number.outputs.numero }}"
+            echo "Parte: ${API_BASE_URL}"
 ```
 
 ### Environment variables and secrets
@@ -643,21 +654,23 @@ Variáveis de ambiente e segredos permitem que você armazene e passe dados sens
 Variáveis de ambiente são definidas usando a palavra-chave env, enquanto segredos são gerenciados nas configurações do repositório e acessados usando o contexto secrets.Exemplo:
 
 ```
-jobs:
-deploy:
-runs-on: ubuntu-latest
-Env:
-API_BASE_URL: "https://api.example.com"
-steps:
-- name: Deploy application
-run: |
-echo "Deploying to $API_BASE_URL"
-curl -H "Authorization: Bearer ${{ secrets.DEPLOY_TOKEN }}" -X POST $API_ BASE_URL/deploy
+  build_random:
+    name: build_random 
+    runs-on: ubuntu-latest
+    env:
+      API_BASE_URL: "https://api.example.com"
+    run: |
+          echo "Deploying to $API_BASE_URL"
+          curl -H "Authorization: Bearer ${{ secrets.DEPLOY_TOKEN }}" -X POST $API_ BASE_URL/deploy
 ```
 ### Contexts
-Contextos no GitHub Actions fornecem acesso a vários tipos de metadados relacionados à execução atual do fluxo de trabalho, como o evento que acionou o fluxo de trabalho, o repositório, o trabalho, o executor e quaisquer entradas personalizadas. Eles permitem que você crie fluxos de trabalho dinâmicos e flexíveis que podem se adaptar a diferentes situações com base nos metadados disponíveis.
+Contextos no GitHub Actions fornecem acesso a vários tipos de metadados relacionados à execução atual do fluxo de trabalho, como o evento que acionou o fluxo de trabalho, o repositório, o trabalho, o executor e quaisquer entradas personalizadas. 
 
-Por exemplo, você pode usar o contexto do github para acessar informações sobre o evento que acionou o fluxo de trabalho, como o tipo de evento, o ator que iniciou o evento e o SHA de confirmação associado. Da mesma forma, o contexto de segredos permite que você acesse com segurança segredos criptografados armazenados nas configurações do seu repositório.
+Eles permitem que você crie fluxos de trabalho dinâmicos e flexíveis que podem se adaptar a diferentes situações com base nos metadados disponíveis.
+
+Por exemplo, você pode usar o contexto do github para acessar informações sobre o evento que acionou o fluxo de trabalho, como o tipo de evento, o ator que iniciou o evento e o SHA de confirmação associado.
+
+Da mesma forma, o contexto de segredos permite que você acesse com segurança segredos criptografados armazenados nas configurações do seu repositório.
 
 Para acessar dados de contexto, você pode usar a sintaxe `${{context}}` no seu arquivo de fluxo de trabalho. Aqui está um exemplo de uso do contexto do github para acessar o nome do evento:
 
