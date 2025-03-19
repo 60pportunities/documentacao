@@ -65,7 +65,7 @@ GitHub Actions vai além de apenas DevOps e permite que você execute fluxos de 
 
 GitHub fornece máquinas virtuais do Linux, Windows e macOS para executar seus fluxos de trabalho, ou você pode hospedar seus próprios executores auto-hospedados na sua própria infraestrutura de dados ou na nuvem.
 
-![](img/github-actions-diagram.png)
+![](img/github-actions-diagram.png){width="300" height="450" style="display: block; margin: 0 auto"}
 
 ### GitHub Actions Custo
 O GitHub Actions é gratuito se uma ou ambas as duas condições a seguir forem atendidas:
@@ -84,23 +84,23 @@ Existem dois tipos de itens pelos quais você paga com o GitHub Action:
 
 #### Planos e Preços
 
-| Planejar	                        | Armazenamento | Minutos (por mês) |
+| Planejar	                         | Armazenamento | Minutos (por mês) |
 | ------                            | ----:         | ----:             |
 | GitHub Free	                      | 500 MB        | 2.000             |
-| GitHub Pro	                      | 1 GB          | 3.000             |
+| GitHub Pro	                       | 1 GB          | 3.000             |
 | GitHub Free para organizações	    | 500 MB        | 2.000             |
-| GitHub Team	                      | 2 GB	        | 3.000             |
+| GitHub Team	                      | 2 GB	         | 3.000             |
 | GitHub Enterprise Cloud	          | 50 GB	        | 50.000            |
 
 | Sistema Operacional |  Multiplicador de minutos | Taxa por minuto (USD) |
-| ----                | -----                     | -----                 |
+| ----                | -----:                    | -----:                |
 | Linux               | 1                         |  0,008                |
 | MacOs               | 10                        | 0,008                 |
 | Windows             | 2                         | 0,016                 |
 
 Observação: Eles só podem funcionar quando executados pelo mecanismo do GitHub.
 
-![](img/github-actions-001.png)
+![](img/github-actions-001.png){width="300" height="450" style="display: block; margin: 0 auto"}
 
 ## Why use GitHub Actions?
 À medida que as práticas de desenvolvimento de software continuam a evoluir, a automação se tornou cada vez mais crítica para melhorar a eficiência, reduzir erros e agilizar processos. 
@@ -306,7 +306,7 @@ A sintaxe cron tem cinco campos separados por um espaço, e cada campo represent
 
 As variáveis de ambiente padrão definidas pelo GitHub estão disponíveis em todas as etapas de um fluxo de trabalho.
 
-![](img/github-actions-002a.png)
+![](img/github-actions-002a.png){width="300" height="450" style="display: block; margin: 0 auto"}
 
 #### Defina os gatilhos do fluxo de trabalho:
 No seu novo arquivo YAML, comece definindo os eventos que devem disparar seu fluxo de trabalho. Para este exemplo, configuraremos o fluxo de trabalho para ser executado em cada solicitação push e pull para o branch principal.
@@ -531,7 +531,7 @@ pull_request:
 schedule:
    - cron: '0 12 ***
 ```
-![](img/github-actions-workflow.png)
+![](img/github-actions-workflow.png){width="300" height="450" style="display: block; margin: 0 auto"}
 
 ### [Categorias dos Fluxos de Trabalho](https://github.com/actions/starter-workflows)
 
