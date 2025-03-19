@@ -4,8 +4,8 @@ B. Security Engineer collaborates with Scrum Team from the start of the sprint.
 C. All security bugs are properly logged into a bug tracking system.
 D. Security becomes "the whole team's concern".
 
-A. O engenheiro de segurança introduz uma verificação de segurança formal antes do lançamento agendado. B. O engenheiro de segurança colabora com a equipe Scrum desde o início do sprint. C. Todos os bugs de segurança são registrados corretamente em um sistema de rastreamento de bugs. D. A segurança se torna "preocupação de toda a equipe".
-Totas as perguntas estão corretas.
+B. Security Engineer collaborates with Scrum Team from the start of the sprint.
+D. Security becomes "the whole team's concern".
 
 2) Reflect on your experience in DevOps with Lego and Chocolate simulation. How many product backlog items (PBI) have been delivered by your group in Sprint One?
 A. None. We didn't know how to build what the customers asked for.
@@ -13,7 +13,7 @@ B. Between 1 and 5 PBIs. We had a slow start.
 C. Over 10 PBIs. We were a high-performing Scrum Team!
 D. None. While the Scrum team was able to finish quite a few PBIs, none of them got delivered to the business. Operations had a code freeze.
 
-B. Between 1 and 5 PBIs. We had a slow start.
+D. None. While the Scrum team was able to finish quite a few PBIs, none of them got delivered to the business. Operations had a code freeze.
 
 3) According to Lee Reid, teams introduce additional steps into their delivery process to counterbalance the lack of Select correct response:
 A. Coffee.
@@ -35,7 +35,6 @@ F. None of the above.
 
 C. Chaos Monkey.
 
-
 5) Typical discoveries in Sprint One of the simulation. Select all that apply
 A. Disconnect between the team goals and the organizational goals (dev team feels they had a successful sprint, yet, nothing gets delivered to the business).
 B. Culture of silos impedes the flow of information in organization.
@@ -44,7 +43,6 @@ D. All of the above.
 E. None of the above.
 
 D. All of the above.
-
 
 6) Select improvement(s) introduced in Sprint Two of the simulation:
 A. Cross-training to build T-shaped skills.
@@ -99,7 +97,6 @@ E. None of the above.
 
 B. When failure occurs, we run blameless post-mortem to find and fix systemic issues. We share learning with others in the organization.
 
-
 12) Reflect on Security testing in Sprint One. Select correct response(s)
 A. We had a very effective security model implementation with rigorous security scans executed as a final step prior to production deployment.
 B. Security scans executed immediately prior to deployment resulted in significant rework for Scrum Team.
@@ -109,11 +106,10 @@ D. Security was not one of the roles included in this simulation.
 B. Security scans executed immediately prior to deployment resulted in significant rework for Scrum Team.
 D. Security was not one of the roles included in this simulation.
 
-Um dos muitos motivos para não prosseguir com a implementação da Entrega Contínua é um mal-entendido sobre os requisitos de auditoria e a segregação de funções.
-One of the many reasons for not pursuing Continuous Delivery implementation is a misunderstanding of audit requirements and segregation of duty.
+13) One of the many reasons for not pursuing Continuous Delivery implementation is a misunderstanding of audit requirements and segregation of duty.
 RESPOSTA: TRUE
 
-13) Typical discoveries in Sprint Two of the simulation:
+14) Typical discoveries in Sprint Two of the simulation:
 A. Cross-training empowers people and improves team's ability to delivery.
 B. New skills acquisition opens opportunities for better handling emergency and new business requests (i.e. security vulnerability issues, changes in market demand).
 C. Some people may be less interested in cross-training if they are concerned about their "Job Security".
@@ -122,7 +118,7 @@ E. None of the above.
 
 D. All of the above.
 
-14)  Confusion and lack of definition around DevOps concept led to many anti-patterns. Select all options that are NOT antipatterns for DevOps adoption:
+15)  Confusion and lack of definition around DevOps concept led to many anti-patterns. Select all options that are NOT antipatterns for DevOps adoption:
 A. Creating a new "DevOps engineer" role.
 B. Renaming teams of Sys Admins or Network engineers into DevOps teams.
 C. Creating a long-lived DevOps team.
@@ -132,7 +128,7 @@ F. None of the above.
 
 D. Implementing "Shift-left" on Security.
 
-15)  Select option(s) below that don't describe one of the three ways of DevOps:
+16)  Select option(s) below that don't describe one of the three ways of DevOps:
 A. Systems Thinking.
 B. Individuals & Interactions over Processes & Tools.
 C. Amplify Feedback Loop.
@@ -143,7 +139,7 @@ B. Individuals & Interactions over Processes & Tools.
 D. Build - Measure - Learn.
 
 
-16) Organizations with a successful DevOps implementation demonstrate significant improvements in these key measures (as per Accelerate State of DevOps report).
+17) Organizations with a successful DevOps implementation demonstrate significant improvements in these key measures (as per Accelerate State of DevOps report).
 A. Deployment frequency.
 B. Lead time from commit to deploy.
 C. Change failure rate.
@@ -151,18 +147,10 @@ D. Time to recover.
 E. All of the above
 F. None of the above.
 
-Organizações com uma implementação bem-sucedida de DevOps demonstram melhorias significativas nessas medidas-chave (conforme o relatório Accelerate State of DevOps).
-A. Frequência de implantação.
-B. Tempo de espera do commit à implantação.
-C. Taxa de falha de mudança.
-D. Tempo para recuperação.
-E. Todas as opções acima
-F. Nenhuma das opções acima.
 
 E. All of the above
 
-
-17) Select an option that is NOT one of the bottlenecks exposed by DevOps
+18)  Select an option that is NOT one of the bottlenecks exposed by DevOps
 A. Environment creation.
 B. Large batch size code merges.
 C. Code deployment.
@@ -170,17 +158,9 @@ D. Team members with T-shaped skills.
 E. Overly tight architecture.
 F. People unwilling to change.
 
-Selecione uma opção que NÃO seja um dos gargalos expostos pelo DevOps
-A. Criação de ambiente.
-B. Mesclagem de códigos de lotes grandes.
-C. Implantação de código.
-D. Membros da equipe com habilidades em formato de T.
-E. Arquitetura excessivamente rígida.
-F. Pessoas relutantes em mudar.
-
 D. Team members with T-shaped skills.
 
-18) Continuous Delivery includes a number of feedback loops that provide immediate insights to a developer on the quality of the latest code check-in:
+19)  Continuous Delivery includes a number of feedback loops that provide immediate insights to a developer on the quality of the latest code check-in:
 A. Build and Unit test.
 B. Automated acceptance test.
 C. User acceptance test.
@@ -189,7 +169,7 @@ E. None of the above.
 
 D. All of the above.
 
-19)  Typical discoveries in Sprint Three of the simulation. Select all that apply.
+20)  Typical discoveries in Sprint Three of the simulation. Select all that apply.
 A. Size reduction of the work item leads to a significant decrease of throughput of the organization.
 B. Automated, on-demand environment configuration enables the team to better handle security vulnerability threats.
 C. "One-piece flow" allows the team to respond more effectively to fluctuations in market demands and amplify feedback loop with the business.
@@ -199,7 +179,7 @@ E. None of the above.
 B. Automated, on-demand environment configuration does indeed enable the team to handle security vulnerability threats more effectively. This is a common discovery in agile practices.
 C. "One-piece flow" is known to help teams respond more effectively to market demand fluctuations and improve feedback loops with the business.
 
-20) Reflect on Security testing in Sprint One. Select correct response(s)
+21) Reflect on Security testing in Sprint One. Select correct response(s)
 A. We had a very effective security model implementation with rigorous security scans executed as a final step prior to production deployment.
 B. Security scans executed immediately prior to deployment resulted in significant rework for Scrum Team.
 C. Security Engineer was integrated into Scrum Team from the start.
@@ -247,154 +227,147 @@ D. Some of the most exemplary DevOps initiatives started in companies with giant
 
 Resposta: DevOps is only suitable for start-up companies.
 
-Which one of the following statements about DevOps is incorrect?
-A. DevOps is only suitable for start-up companies.
-B. DevOps is suitable for brownfield software products and services.
-C. DevOps is suitable for greenfield software products and services.
-D. Some of the most exemplary DevOps initiatives started in companies with giant and mature IT organizations.
-Resposta:  DevOps is only suitable for start-up companies.
-
-How does a DevOps organization act in principle when it comes to financing its work?
+26) How does a DevOps organization act in principle when it comes to financing its work?
 A. It finances special projects to serve its clients.
 B. It finances products and services to serve its clients.
 C. It finances teams in matrix organizations and these teams are responsible for handling their own budgets.
 D. It finances development and operations teams separately, so they take care of their own business.
 Resposta:  It finances products and services to serve its clients.
 
-In a DevOps organization which one of the following elements does not directly contribute to your value stream?
+27) In a DevOps organization which one of the following elements does not directly contribute to your value stream?
 A. DevOps team.
 B. Stakeholders of downstream work centers.
 C. Errors, incidents and fixes.
 D. Clients.
 Resposta: Errors, incidents and fixes.
 
-Why is it a good idea to limit batch size of your continuous DevOps deliveries?
+28) Why is it a good idea to limit batch size of your continuous DevOps deliveries?
 A. You will be quicker to identify root causes of issues and resolve them.
 B. By continuously delivering in production, your team will have the constant pride of contributing your organizational mission.
 C. Potentially required rollbacks from your production systems will be less cumbersome.
 D. All above choices.
 Resposta:  All above choices.
 
-What is trunk in trunk based DevOps delivery?
+29) What is trunk in trunk based DevOps delivery?
 A. Developers collaborate on code in a single branch called "trunk".
 B. Trunk is a special private branch in a developer workstation.
 C. Trunk is the process of merging code in DevOps deliveries.
 D. Trunk is a special source code version controlling system which stores mission critical special projects of your DevOps organization.
 Resposta:  Developers collaborate on code in a single branch called "trunk".
 
-Which one of the following is not one of the DevOps principles for good test automation?
+30) Which one of the following is not one of the DevOps principles for good test automation?
 A. Test Automation should give quick and early feedback about your quality of work.
 B. Never mix test driven development (TDD) together with your test automation approach.
 C. Tests should generate consistent, deterministic and repeatable results provided same conditions for different test runs.
 D. With your test automation, avoid slow and periodic feedback. What you need is fast feedback whenever you or your developer attempts to check-in code to your trunk.
 Resposta:  Never mix test driven development (TDD) together with your test automation approach.
 
-Which one of following release patterns does not enable you to do low risk DevOps code deployments in your production systems?
+31) Which one of following release patterns does not enable you to do low risk DevOps code deployments in your production systems?
 A. Canary Deployment Pattern (The Dark Launch).
 B. Blue-Green Deployment Pattern.
 C. Cluster Immune System Release Pattern.
 D. Big bang code deployments of fully tested and validated releases.
 Resposta:  Big bang code deployments of fully tested and validated releases.
 
-What is one of best techniques to convert normal changes into standard changes?
+32) What is one of best techniques to convert normal changes into standard changes?
 A. Use your track record of successful automated deployments with standard changes.
 B. Negotiate with release managers.
 C. Publicly complain about bureaucracy and make everyone be aware of it.
 D. Make sure normal changes are very carefully deployed to your production systems.
 Resposta:  Use your track record of successful automated deployments with standard changes.
 
-What is a widely used reusable asset to reinforce information security of deliverables from your DevOps team?
+33) What is a widely used reusable asset to reinforce information security of deliverables from your DevOps team?
 A. Data storage systems.
 B. Handling the logging of sensitive client information.
 C. Data transfer between clients and software.
 D. All above choices.
 Resposta:  All above choices.
 
-What is not one of major benefits of designing a safe system of work culture?
+34) What is not one of major benefits of designing a safe system of work culture?
 A. Complexity of your systems will be managed, so problems in designs and operations will be quickly detected.
 B. DevOps team does no longer need to be careful and mindful to ensure quality.
 C. Problems are quickly resolved while they are small. Resolving problems will result in spontaneous construction of new organizational knowledge and experience.
 D. Leaders in your DevOps organization develop other leaders who create and continuously improve safe systems of work.
 Resposta:  DevOps team does no longer need to be careful and mindful to ensure quality.
 
-What is telemetry?
+35) What is telemetry?
 A. Telemetry is a widely known SaaS tool to plan and execute DevOps projects.
 B. Telemetry is a communication tool used by DevOps teams at geographically distributed locations.
 C. Telemetry is the process of recording the behaviour of your systems.
 D. Telemetry is a tool to design, code and execute automated unit tests.
 Resposta: Telemetry is the process of recording the behaviour of your systems.
 
-In terms of fixing errors in your production systems what is the major benefit of using feature toggles embedded in configurations of your software applications?
+36) In terms of fixing errors in your production systems what is the major benefit of using feature toggles embedded in configurations of your software applications?
 A. This is easiest way to fix a problem. It doesn't require an urgent code deployment.
 B. You don't have to very urgently correct erroneous pieces in your deployment.
 C. Your DevOps team can take time to properly identify root cause of an issue and improve their techniques to ensure such a problem will not likely happen again in the future.
 D. All above choices.
 Resposta:  All above choices.
 
-Certain companies utilize immutable deployment, in which changes to the system are _____ as opposed to _____.
+37) Certain companies utilize immutable deployment, in which changes to the system are _____ as opposed to _____.
 A. Changes are temporarily implemented, allowing adjustments post-deployment.
 B. Changes are dynamically applied, enabling real-time system modifications.
 C. Changes are rolled back automatically if any issues arise during deployment.
 D. Changes are stored in a separate environment for future manual application.
 Resposta:  Changes are temporarily implemented, allowing adjustments post-deployment.
 
-Suppose your dev team has frequent issues with an ops teams in your company. Blame is often tossed around between both groups. how would you solve this issue?
+38) Suppose your dev team has frequent issues with an ops teams in your company. Blame is often tossed around between both groups. how would you solve this issue?
 A. Implement a shared incident tracking system to streamline issue reporting, root cause analysis, and resolution efforts, fostering a sense of joint responsibility.
 B. Assign a mediator with expertise in DevOps practices to facilitate constructive dialogues and mediate conflict resolution between the dev and ops teams.
 C. Initiate a collaborative workshop involving both dev and ops teams to openly discuss challenges, identify common goals, and establish better communication channels.
 D. Establish cross-functional teams with members from both dev and ops, encouraging collaboration on projects to build mutual understanding and trust.
 Resposta: Initiate a collaborative workshop involving both dev and ops teams to openly discuss challenges, identify common goals, and establish better communication channels.
 
-Devops supports the elimination of _____ because it can hamper collaboration, operations and morale within the company.
+39) Devops supports the elimination of _____ because it can hamper collaboration, operations and morale within the company.
 A. Excessive Documentation, which tends to create bottlenecks and hinder effective communication.
 B. Siloed Development, as it impedes the flow of information and slows down the overall delivery process.
 C. Traditional Waterfall Methodology, which lacks agility and responsiveness to changing requirements.
 D. Manual Testing Practices, as they introduce delays and are prone to human errors.
 Resposta:  Siloed Development, as breaking down organizational silos is a key aspect of fostering collaboration and efficiency in DevOps.
 
-There is a new team recruited for project and that project is handled in Devops ...
+40) There is a new team recruited for project and that project is handled in Devops ...
 A. Assemble the team and commence the project without a defined workflow, allowing each member to follow their preferred methods.
 B. Initiate a comprehensive DevOps process, involving collaboration, continuous integration, and automated testing to ensure efficient software delivery.
 C. Assign specific tasks to team members without emphasizing communication and collaboration, relying solely on individual expertise.
 D. Implement rigid project management practices without considering the principles of flexibility and continuous improvement.
 Resposta:  Initiating a comprehensive DevOps process, involving collaboration, continuous integration, and automated testing to ensure efficient software delivery.
 
-Suppose you want to test the resilience of your company's e-commerce website in preparation for the holiday shopping season. how would having a chaos monkey test the abilities of your servers?
+41) Suppose you want to test the resilience of your company's e-commerce website in preparation for the holiday shopping season. how would having a chaos monkey test the abilities of your servers?
 A. By optimizing code and reducing latency to ensure smooth performance during peak traffic, enhancing the website's overall resilience.
 B. By conducting load testing to measure the website's capacity and scalability, identifying potential bottlenecks in the server infrastructure.
 C. By implementing strict access controls and security measures to protect the website from cyber threats and potential server vulnerabilities.
 D. By simulating random failures and disruptions to assess the system's ability to recover and maintain functionality under unexpected conditions.
 Resposta:  By simulating random failures and disruptions to assess the system's ability to recover and maintain functionality under unexpected conditions.
 
-The XYZ organization is undergoing a major overhaul of its software development lifecycle, aiming to adopt a DevOps culture. As the DevOps consultant, you are tasked with implementing continuous integration practices. In this context, what is a primary benefit of incorporating automated testing into the CI/CD pipeline?
+42) The XYZ organization is undergoing a major overhaul of its software development lifecycle, aiming to adopt a DevOps culture. As the DevOps consultant, you are tasked with implementing continuous integration practices. In this context, what is a primary benefit of incorporating automated testing into the CI/CD pipeline?
 A. Accelerates the software release cycle by reducing manual testing efforts.
 B. Introduces delays in the CI/CD pipeline due to the time required for automated tests.
 C. Increases collaboration between development and operations teams.
 D. Automated testing is irrelevant in the context of continuous integration.
 Resposta:  Accelerates the software release cycle by reducing manual testing efforts.
 
-The company ABC is adopting Infrastructure as Code (IaC) to manage its cloud-based infrastructure. As the DevOps engineer, you are tasked with selecting an appropriate IaC tool. Considering the need for declarative syntax and ease of collaboration among team members, which tool would be most suitable for ABC's DevOps practices?
+43) The company ABC is adopting Infrastructure as Code (IaC) to manage its cloud-based infrastructure. As the DevOps engineer, you are tasked with selecting an appropriate IaC tool. Considering the need for declarative syntax and ease of collaboration among team members, which tool would be most suitable for ABC's DevOps practices?
 A. Terraform
 B. Puppet
 C. Chef
 D. Ansible
 Resposta:  Terraform
 
-In a DevOps environment, effective collaboration between development and operations teams is crucial. As the DevOps manager, you want to implement practices that enhance communication and cooperation. Which collaboration tool or platform would be most suitable for fostering real-time collaboration and knowledge sharing among team members?
+44) In a DevOps environment, effective collaboration between development and operations teams is crucial. As the DevOps manager, you want to implement practices that enhance communication and cooperation. Which collaboration tool or platform would be most suitable for fostering real-time collaboration and knowledge sharing among team members?
 A. GitLab
 B. Jenkins
 C. Slack
 D. Docker
 Resposta: Slack
 
-As part of the DevOps practices, continuous monitoring and performance optimization are crucial. You are tasked with improving the scalability and performance of a web application. Which technology or approach would be most effective in achieving these objectives?
+45) As part of the DevOps practices, continuous monitoring and performance optimization are crucial. You are tasked with improving the scalability and performance of a web application. Which technology or approach would be most effective in achieving these objectives?
 A. Traditional virtualization
 B. Containerization with Docker
 C. Configuration Management with Ansible
 D. Scripting with Python
 Resposta:  Containerization with Docker
 
-The DevOps team at Microsoft Azure Corp is transitioning from manual to automated deployment processes. To ensure a smooth transition, the team decides to implement Blue-Green deployment. What is the primary advantage of using Blue-Green deployment in the context of minimizing downtime during releases?
+46) The DevOps team at Microsoft Azure Corp is transitioning from manual to automated deployment processes. To ensure a smooth transition, the team decides to implement Blue-Green deployment. What is the primary advantage of using Blue-Green deployment in the context of minimizing downtime during releases?
 A. Allows for rollback to the previous version in case of issues.
 B. Requires minimal automation tools for implementation.
 C. Deploys changes gradually to reduce the impact on users.
