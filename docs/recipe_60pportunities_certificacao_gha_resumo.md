@@ -11,6 +11,52 @@ Ao final, você terá uma sólida compreensão dos conceitos fundamentais por tr
 
 Esta base preparará o cenário para a exploração aprofundada do GitHub Actions nos capítulos subsequentes, onde nos aprofundaremos em tópicos mais avançados e implementações práticas.
 
+| **Aspecto**                | **Continuous Integration (CI)**                                  | **Continuous Delivery (CD)**                                       | **Continuous Deployment (CD)**                                        |
+|----------------------------|------------------------------------------------------------------|--------------------------------------------------------------------|-----------------------------------------------------------------------|
+| **Objetivo**                | Integrar e testar código frequentemente para detectar erros cedo | Garantir que o código esteja sempre pronto para ser liberado       | Automatizar a liberação do código diretamente para produção          |
+| **Frequência de Deploy**    | Nenhum deploy automático; apenas integração e testes contínuos  | Deploy manual para produção, mas o código está sempre pronto      | Deploy automático em produção após testes e validações automáticas   |
+| **Ação Manual**             | Não envolve deploy ou release manual                            | A liberação para produção é manual ou por aprovação                | Nenhuma ação manual; o deploy ocorre automaticamente para produção   |
+| **Ponto de Feedback**       | Feedback imediato após integração e testes unitários             | Feedback contínuo com a garantia de que o código está pronto para produção | Feedback rápido com liberação contínua após aprovação de testes      |
+| **Exemplo de Ferramentas**  | Jenkins, Travis CI, CircleCI, GitLab CI                          | Jenkins, Spinnaker, GitLab CI, Bamboo                               | Jenkins, CircleCI, GitLab CI, AWS CodePipeline                        |
+| **Benefício Principal**     | Identificação precoce de problemas de integração e qualidade do código | Liberação mais rápida e controlada para produção, com menos risco de falhas | Entrega contínua, com mudanças sendo rapidamente disponibilizadas para os usuários |
+| **Foco**                    | Automatizar testes e integração de código                       | Garantir que o código esteja pronto para produção a qualquer momento | Automatizar todo o processo, incluindo o deploy em produção          |
+| **Exemplo de Workflow**     | Desenvolvedor envia código → Testes e integração contínuos      | Código aprovado → Pré-produção → Aprovação manual → Deploy em produção | Código aprovado → Deploy automático em produção                       |
+
+```mermaid
+sequenceDiagram
+    participant Delivery as Delivery Team
+    participant VersionControl as Version Control
+    participant BuildTest as Build & Unit Test
+    participant AutoAcceptTest as Automated Acceptance Test
+    participant UserAcceptTest as User Acceptance Test
+    participant Release as Release
+
+    %% Continuous Integration (CI)
+    Delivery->>VersionControl: Check-in de código
+    VersionControl->>BuildTest: Trigger de Build & Unit Test
+    BuildTest->>VersionControl: Feedback de Build & Unit Test (sucesso ou falha)
+    alt Sucesso no Build
+        BuildTest->>AutoAcceptTest: Trigger para Automated Acceptance Test
+        AutoAcceptTest->>BuildTest: Feedback de Automated Acceptance Test (sucesso ou falha)
+        alt Sucesso nos Testes Automatizados
+            %% Continuous Delivery (CD)
+            AutoAcceptTest->>UserAcceptTest: Trigger para User Acceptance Test
+            UserAcceptTest->>AutoAcceptTest: Feedback de User Acceptance Test (sucesso ou falha)
+            alt Sucesso nos Testes de Aceitação do Usuário
+                %% Continuous Deployment (CD)
+                UserAcceptTest->>Release: Trigger para Release
+                Release->>UserAcceptTest: Feedback de Release (sucesso ou falha)
+            else Falha nos Testes de Aceitação do Usuário
+                UserAcceptTest->>Delivery: Feedback de falha
+            end
+        else Falha nos Testes Automatizados
+            AutoAcceptTest->>Delivery: Feedback de falha
+        end
+    else Falha no Build
+        BuildTest->>Delivery: Feedback de falha
+    end
+```
+
 ## O que são GitHub Actions?
 O GitHub Actions é uma plataforma de automação poderosa integrada ao ecossistema GitHub que permite aos desenvolvedores criar, compartilhar e reutilizar fluxos de trabalho personalizados para automatizar tarefas em seus processos de desenvolvimento de software. 
 
