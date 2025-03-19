@@ -56,6 +56,126 @@ Sua natureza orientada a eventos, design modular, integração perfeita com o ec
 
 Nas seções a seguir, vamos nos aprofundar nos vários recursos e capacidades do GitHub Actions, fornecendo a você o conhecimento e as habilidades necessárias para aproveitar todo o seu potencial e otimizar seus fluxos de trabalho de desenvolvimento de software.
 
+```mermaid
+sequenceDiagram
+    participant Board as Azure DevOps - Board
+    participant Dev as Developer - Git
+    participant DetectSecrets as Pre-Commit - Detect-Secrets
+    participant SBOM as SBOM-Scan - OSV-Scanner
+    participant SAST as SAST
+    participant UnitTest as Unit Test
+    participant DockerfileScan as Dockerfile Scan
+    participant Build as Build
+    participant ImageScan as Container Image Scan
+    participant ContainerTest as Container Validation Test
+    participant ContainerSigning as Container Signing
+    participant K8ManifestScan as K8-Manifest-Scan
+    participant K8CISScan as K8-CIS Scan
+    participant Deploy as Deploy
+    participant SmokeTest as Smoke Test
+    participant DAST as DAST
+
+    Board->>Dev: Criar tarefas no board
+    Dev->>DetectSecrets: Commit do código
+    DetectSecrets->>Dev: Detecta segredos no código?
+    alt Falha
+        DetectSecrets->>Board: Criar ticket de bug
+        Board->>Dev: Corrigir segredos e reexecutar
+    else Sucesso
+        Dev->>SBOM: Executar SBOM Scan (OSV-Scanner)
+        SBOM->>Dev: Vulnerabilidades nas dependências?
+        alt Falha
+            SBOM->>Board: Criar ticket de bug
+            Board->>Dev: Corrigir dependências e reexecutar
+        else Sucesso
+            Dev->>SAST: Executar SAST
+            SAST->>Dev: Vulnerabilidades no código?
+            alt Falha
+                SAST->>Board: Criar ticket de bug
+                Board->>Dev: Corrigir código e reexecutar
+            else Sucesso
+                Dev->>UnitTest: Executar testes unitários
+                UnitTest->>Dev: Testes unitários falharam?
+                alt Falha
+                    UnitTest->>Board: Criar ticket de bug
+                    Board->>Dev: Corrigir falhas e reexecutar
+                else Sucesso
+                    Dev->>DockerfileScan: Escanear Dockerfile
+                    DockerfileScan->>Dev: Dockerfile seguro?
+                    alt Falha
+                        DockerfileScan->>Board: Criar ticket de bug
+                        Board->>Dev: Corrigir Dockerfile e reexecutar
+                    else Sucesso
+                        Dev->>Build: Build da aplicação
+                        Build->>Dev: Build bem-sucedido?
+                        alt Falha
+                            Build->>Board: Criar ticket de bug
+                            Board->>Dev: Corrigir build e reexecutar
+                        else Sucesso
+                            Dev->>ImageScan: Escanear imagem do contêiner
+                            ImageScan->>Dev: Imagem de contêiner segura?
+                            alt Falha
+                                ImageScan->>Board: Criar ticket de bug
+                                Board->>Dev: Corrigir imagem e reexecutar
+                            else Sucesso
+                                Dev->>ContainerTest: Validar contêiner
+                                ContainerTest->>Dev: Contêiner validado?
+                                alt Falha
+                                    ContainerTest->>Board: Criar ticket de bug
+                                    Board->>Dev: Corrigir validação e reexecutar
+                                else Sucesso
+                                    Dev->>ContainerSigning: Assinar contêiner
+                                    ContainerSigning->>Dev: Contêiner assinado?
+                                    alt Falha
+                                        ContainerSigning->>Board: Criar ticket de bug
+                                        Board->>Dev: Corrigir assinatura e reexecutar
+                                    else Sucesso
+                                        Dev->>K8ManifestScan: Escanear manifesto do Kubernetes
+                                        K8ManifestScan->>Dev: Manifests seguros?
+                                        alt Falha
+                                            K8ManifestScan->>Board: Criar ticket de bug
+                                            Board->>Dev: Corrigir manifesto e reexecutar
+                                        else Sucesso
+                                            Dev->>K8CISScan: Escanear Kubernetes com CIS Scan
+                                            K8CISScan->>Dev: Conformidade com CIS?
+                                            alt Falha
+                                                K8CISScan->>Board: Criar ticket de bug
+                                                Board->>Dev: Corrigir CIS e reexecutar
+                                            else Sucesso
+                                                Dev->>Deploy: Implantar aplicação
+                                                Deploy->>Dev: Deploy bem-sucedido?
+                                                alt Falha
+                                                    Deploy->>Board: Criar ticket de bug
+                                                    Board->>Dev: Corrigir deploy e reexecutar
+                                                else Sucesso
+                                                    Dev->>SmokeTest: Executar smoke test
+                                                    SmokeTest->>Dev: Smoke test passou?
+                                                    alt Falha
+                                                        SmokeTest->>Board: Criar ticket de bug
+                                                        Board->>Dev: Corrigir falha e reexecutar
+                                                    else Sucesso
+                                                        Dev->>DAST: Executar DAST
+                                                        DAST->>Dev: DAST passou?
+                                                        alt Falha
+                                                            DAST->>Board: Criar ticket de bug
+                                                            Board->>Dev: Corrigir falha de DAST e reexecutar
+                                                        else Sucesso
+                                                            Dev->>Board: Task concluída com sucesso
+                                                        end
+                                                    end
+                                                end
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+```
 ## Introdução
 Automatize quase tudo e mantenha tudo o que você precisa para construir, implantar, testar e liberar seu aplicativo no controle de versão.
 ## GitHub Actions
@@ -124,6 +244,17 @@ Ao aproveitar o ecossistema do GitHub, os desenvolvedores podem aproveitar recur
 O GitHub Actions emprega uma arquitetura orientada a eventos, permitindo que os fluxos de trabalho sejam acionados por uma ampla gama de eventos dentro da plataforma GitHub. Isso inclui eventos comuns, como push de código, abertura de pull requests e criação de problemas, bem como eventos agendados e acionadores manuais. 
 
 Essa flexibilidade permite que os desenvolvedores criem fluxos de trabalho altamente responsivos que executam tarefas automaticamente em resposta a ações específicas, agilizando o processo de desenvolvimento e reduzindo o potencial de erro humano.
+
+### Tarefa comuns de eventos
+- [x] Adicionar novos colaboradores;
+- [x] Fechar problemas obsoletos e PRS;
+- [x] Solicitação de pull;
+- [x] Tarefas organizacionais: Problema criado por usuários;
+- [x] Rotular o problema {menor, maior, reproduzível, prioritário etc.};
+- [x] Corrigir o problema e levantar um PR;
+- [x] Verificar PR e mesclar o código ao principal;
+- [x] Nova versão com uma nova versão;
+- [x] Construir pipeline para testar e construir código;
 
 ## Modular and reusable actions:
 Um dos principais pontos fortes do GitHub Actions é sua modularidade. 
@@ -286,6 +417,7 @@ Para criar seu primeiro fluxo de trabalho, siga estas etapas:
 
 Fluxos de trabalho **reutilizáveis** permitem que você reutilize um fluxo de trabalho inteiro, incluindo todas as suas tarefas e etapas.
 
+<div class="center-table" markdown>
 | Fluxos de trabalho reutilizáveis	| Ações compostas   |
 | --------                          | ---------       |
 | Um arquivo YAML, muito semelhante a qualquer arquivo de fluxo de trabalho padrão	                       | Uma ação que contém um pacote de etapas do fluxo de trabalho |
@@ -296,6 +428,7 @@ Fluxos de trabalho **reutilizáveis** permitem que você reutilize um fluxo de t
 | Cada etapa é registrada em tempo real	                                                                   | Registro como uma etapa, mesmo que contenha várias etapas |
 | Pode conectar um máximo de quatro níveis de fluxos de trabalho                                           | O aninhamento pode ser feito para ter até 10 ações compostas em um único fluxo de trabalho |
 | Pode usar segredos	                                                                                   | Não pode usar segredos
+</div>
 
 Os fluxos de trabalho são os scripts ou pipelines que controlam o fluxo e a sequência de atividades no GitHub Actions. As ações individuais são as funções que podem ser chamadas para fazer tarefas direcionadas de dentro dos fluxos de trabalho (como verificar o código).
 
@@ -539,6 +672,7 @@ schedule:
 
 ### [Categorias dos Fluxos de Trabalho](https://github.com/actions/starter-workflows)
 
+<div class="center-table" markdown>
 | Categoria           | Descrição |
 | ----                | ----      |
 | Implantação         | Fluxos de trabalho de exemplo para criar objetos implantáveis (como contêineres) e, em seguida, implantá-los em várias plataformas de nuvem. |
@@ -546,7 +680,7 @@ schedule:
 | Integração Contínua | número de fluxos de trabalho que abrangem as áreas de construção, teste e/ou publicação para um grande número de diferentes programas linguagens e ferramentas. |
 | Automação           | Alguns exemplos simples de automação básica.  |
 | Páginas             | Fluxos de trabalho para empacotar/implantar sites usando ferramentas comuns como Gatsby, Astro, Jekyll, etc. |
-
+</div>
 ### Jobs
 Um fluxo de trabalho consiste em um ou mais trabalhos, que são unidades individuais de trabalho que são executadas em paralelo por padrão. Os trabalhos são definidos usando a palavra-chave jobs, seguida por um identificador exclusivo para cada trabalho e sua configuração. Exemplo:
 
