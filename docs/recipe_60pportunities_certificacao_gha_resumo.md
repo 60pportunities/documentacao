@@ -84,6 +84,7 @@ Existem dois tipos de itens pelos quais você paga com o GitHub Action:
 
 #### Planos e Preços
 
+<div class="center-table" markdown>
 | Planejar	                         | Armazenamento | Minutos (por mês) |
 | ------                            | ----:         | ----:             |
 | GitHub Free	                      | 500 MB        | 2.000             |
@@ -91,12 +92,15 @@ Existem dois tipos de itens pelos quais você paga com o GitHub Action:
 | GitHub Free para organizações	    | 500 MB        | 2.000             |
 | GitHub Team	                      | 2 GB	         | 3.000             |
 | GitHub Enterprise Cloud	          | 50 GB	        | 50.000            |
+</div>
 
+<div class="center-table" markdown>
 | Sistema Operacional |  Multiplicador de minutos | Taxa por minuto (USD) |
 | ----                | -----:                    | -----:                |
 | Linux               | 1                         |  0,008                |
 | MacOs               | 10                        | 0,008                 |
 | Windows             | 2                         | 0,016                 |
+</div>
 
 Observação: Eles só podem funcionar quando executados pelo mecanismo do GitHub.
 
