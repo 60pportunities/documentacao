@@ -259,6 +259,142 @@
 - [x] Your team wants to standardize CI/CD processes across multiple projects. How can workflow and action templates be reused effectively? `Use a centralized .github repository to store workflow templates and reference them in individual project repositories.`
 - [x] Your team wants to standardize CI/CD processes across multiple projects. How can workflow and action templates be reused effectively? `Use a centralized .github repository to store workflow templates and reference them in individual project repositories.`
 
+UDEMY
+
+- [x] Why is it important to avoid passing secrets between processes from the command line? `passing secrets through the command line may expose them to other users and security audits`
+
+- [x] Your team manages its own infrastructure costs using a chargeback model and wants to ensure that development workflows do not utilize the runners paid for by your team. Which GitHub Actions feature can help achieve this goal? `runner groups`
+
+- [x] How many PowerShell commands are executed on the Windows runner with the following workflow configuration? `3 - The workflow configuration consists of two steps that execute PowerShell commands. The first step installs the PSScriptAnalyzer module using two PowerShell commands: Set-PSRepository and Install-Module. The second step retrieves a list of rules using the Get-ScriptAnalyzerRule command. Therefore, a total of 3 PowerShell commands are executed on the Windows runner in this workflow.`
+
+- [x] How many jobs will be executed in the following workflow? `6 - The workflow defines a matrix job with two axes: 'animal' with values [cat, dog, bear] and 'color' with values [black, brown]. This results in a total of 3 (animal) x 2 (color) = 6 different combinations. Each combination will result in a separate job execution, hence a total of 6 jobs will be executed in this workflow.`
+
+- [x] Which of the following statements accurately describes the syntax rules for indentation in YAML used for defining workflow jobs in GitHub Actions? `YAML allows significant newlines and indentation, similar to Python, but unlike Python, it prohibits the use of literal tab characters for indentation`
+
+- [x] When creating a custom action for GitHub Actions, which of the following files are required? (select three) `Dockerfile for containerized actions, main.js or index.js for JavaScript actions  e action.yml or action.yaml for action metadata`
+
+- [x] As the lead developer of the GitHub Action library, you are concerned about the reliability of versioning using tags. What is a recommended alternative to ensure consistency and security in versioning?  `implement commit SHAs for versioning to ensure reliability and security  - Implementing commit SHAs for versioning provides a reliable and secure alternative to using tags. Commit SHAs uniquely identify each commit in the repository, ensuring consistency and security in versioning. By referencing commit SHAs, you can track changes accurately and avoid potential issues that may arise from using tags.`
+
+- [x] What is required to manually run a private repository's workflow using the GitHub REST API? `Personal Access Token - A Personal Access Token is required to authenticate and authorize API requests when running a private repository's workflow using the GitHub REST API. This token acts as a substitute for your GitHub password and provides a secure way to access GitHub resources without compromising your actual password.`
+
+- [x] After creating a new workflow, GitHub Actions will suggest starter workflows for your repository. What option should you click on if there is a starter workflow that you want to use? `Configure - Clicking on "Configure" will allow you to customize and set up the suggested starter workflow for your repository. This option enables you to tailor the workflow to fit the specific requirements of your project before using it.`
+
+- [x] Why does GitHub recommend using variables to access the filesystem instead of hardcoded file paths? `variables provide a dynamic way to adapt to different runner environments - Using variables to access the filesystem allows for a more dynamic approach, enabling workflows to adapt to different runner environments seamlessly. This flexibility is crucial for ensuring consistent behavior across various environments and configurations.`
+
+- [x] Which YAML keyword is used to specify the events that should trigger a workflow? `on - The YAML keyword "on" is used to specify the events that should trigger a workflow in GitHub Actions. This keyword allows you to define the specific events, such as push, pull request, schedule, or other custom events, that will cause the workflow to run.`
+
+- [x] What additional steps does GitHub add to each job in a workflow run? `"Set up job" and "Complete job" GitHub adds the "Set up job" step at the beginning of each job to prepare the environment and set up any necessary configurations. The "Complete job" step is added at the end of the job to finalize any actions or clean up resources used during the job execution`
+
+- [x] Your organization uses various custom actions and scripts within GitHub Actions workflows across projects. To enhance collaboration and manage components, which file and folder naming convention approach would be most beneficial? `implement and enforce an organization-wide naming convention that clearly identifies the component type, purpose, and version`
+
+- [x] What is the primary purpose of custom labels in GitHub Actions for self-hosted runners? `routing jobs to specific types of self-hosted runners based on their labels - Custom labels in GitHub Actions are primarily used for routing jobs to specific types of self-hosted runners based on their labels. This allows for better resource management and optimization by ensuring that jobs are executed on the most suitable runners based on their capabilities and configurations.`
+
+- [x] Which of the following events can trigger workflows? (select three) `when a commit is pushed to the repository - When a commit is pushed to the repository, it can trigger workflows in GitHub Actions. This event is essential for automating tasks such as running tests, building the project, or deploying changes after a code commit.`
+
+- [x] You are building a new custom action and must pass data from one step to subsequent steps in a GitHub Actions workflow. Which key should you use in the action's metadata syntax? `outputs  - The correct key to use in the action's metadata syntax for passing data from one step to subsequent steps in a GitHub Actions workflow is 'outputs'. This key allows you to define output parameters in your custom action that can be used by other steps in the workflow.`
+
+- [x] What is the GITHUB_TOKEN secret used for in a workflow? `to authenticate on behalf of GitHub Actions - The GITHUB_TOKEN secret is used to authenticate GitHub Actions when they interact with the GitHub API on behalf of the workflow. It provides the necessary permissions for actions to perform tasks such as checking out code, pushing code changes, creating issues, and more.`
+
+- [x] You have created a GitHub Action that requires a specific Linux operating system and custom tools to run. What type of action is best suited for this environment?  `Docker container action  - Docker container actions are best suited for environments that require specific operating systems and custom tools. By using a Docker container, you can package all the necessary dependencies and tools within the container, ensuring that the action runs consistently across different environments without the need for manual setup.`
+
+- [x] Which API does GitHub Actions use to output statuses, results, and logs for a workflow? `Checks API - The Checks API is the correct choice because GitHub Actions use this API to output statuses, results, and logs for a workflow. It allows workflows to create detailed status checks, annotations, and summaries for each job and step in the workflow, providing visibility into the execution and results of the workflow.`
+
+- [x] You're developing a custom GitHub Action for your organization's CI/CD pipeline. You're considering how to manage versioning for your action. Which practice aligns best with industry standards and simplifies version control? `implement semantic versioning for your tag version to clearly communicate changes and maintain compatibility - Implementing semantic versioning for your custom GitHub Action is the best practice as it clearly communicates changes and maintains compatibility with existing workflows. Semantic versioning follows a structured format (major.minor.patch) to indicate the significance of changes, making it easier for users to understand the impact of updates.`
+
+- [x] What information is essential when drafting a new release and publishing an action to GitHub Marketplace? `the action's metadata file's category must match an existing GitHub Marketplace category - When drafting a new release and publishing an action to GitHub Marketplace, it is essential that the action's metadata file's category matches an existing GitHub Marketplace category. This ensures that the action is listed in the correct category for users to discover and use effectively.`
+
+- [x] You want to limit the use of public actions and reusable workflows so that people can only use reusable workflows in your enterprise. Where would this be configured? `In the Policies section for the targeted enterprise for your organization - Configuring the limitation of public actions and reusable workflows to only be used within your enterprise would be done in the Policies section for the targeted enterprise for your organization. This setting allows you to define and enforce specific policies and restrictions related to GitHub Actions usage within your organization.`
+
+- [x] What happens if a job is not approved within 30 days while awaiting review in a workflow? `the job will automatically fail - If a job is not approved within 30 days while awaiting review in a workflow, the job will automatically fail as the approval process has not been completed within the specified timeframe. This ensures that the workflow does not get stuck indefinitely and allows for proper handling of job statuses.`
+
+- [x] What is the filename of the metadata file that defines the inputs, outputs, and runs configuration for your action? `action.yaml - The filename "action.yaml" is correct because it is the standard filename for the metadata file that defines the inputs, outputs, and runs configuration for a GitHub Action. This file is essential for configuring and defining the behavior of the action within a repository.`
+
+- [x] What functionality does a composite action offer in GitHub Actions? `combining multiple workflow steps into one action for streamlined execution - Composite actions in GitHub Actions allow users to combine multiple workflow steps into a single reusable action. This helps streamline the execution of workflows by encapsulating complex logic or repeated steps into a single unit, making workflows easier to read and maintain.`
+
+- [x] How can encrypted secrets be accessed within actions and workflows for GitHub Actions? `using the secrets context within GitHub Actions, which allows encrypted secrets to be accessed as environment variables  - The correct way to access encrypted secrets within actions and workflows for GitHub Actions is by using the secrets context within GitHub Actions. This context allows encrypted secrets to be accessed as environment variables, providing a secure and convenient method for utilizing sensitive information in workflows.`
+
+- [x] You are trying to run a new Docker container action but getting a permission denied error when running the entrypoint.sh script. How can you resolve this? `modify the entrypoint.sh script to explicitly set executable permissions before running - Modifying the entrypoint.sh script to explicitly set executable permissions before running will resolve the permission denied error. By setting the executable permissions, the script will be allowed to run as intended within the Docker container action.`
+
+- [x] What are valid ways to specify the version of the checkout action within a GitHub workflow configuration? (select three) `- uses: actions/checkout@main , - uses: actions/checkout@v4, - uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3`
+
+- [x] What status should you filter on to see only failed workflow runs on the GitHub Actions tab? `failure - Filtering on "failure" will show only the workflow runs that have failed specifically. This is the correct status to filter on if you want to see only the failed workflow runs on the GitHub Actions tab.`
+
+- [x] In the context of actions and workflows, what roles do steps play in the overall process? `they represent individual tasks within a job - Steps in GitHub Actions represent individual tasks within a job. Each step defines a specific action to be executed, such as checking out code, running tests, or deploying an application. By breaking down the job into smaller, manageable tasks, steps help streamline the workflow process and ensure efficient execution.`
+
+- [x] What directory is used to store workflow files within a code repository? `.github/workflows - The correct directory to store workflow files within a code repository for GitHub Actions is ".github/workflows". This directory structure is the standard convention recommended by GitHub for organizing workflow files, making it easier to locate and manage them within the repository.`
+
+- [x] Ryan is looking for the GitHub Actions workflow files for his repository. Where should he look? `the .github/workflows directory of the repository - The correct location to find GitHub Actions workflow files within a repository is the .github/workflows directory. This directory is the standard location where GitHub looks for workflow files to execute when triggered by events.`
+
+- [x] Which configuration is appropriate for triggering a workflow on a pull request? `on: pull_request: branches: - main - This configuration is correct as it specifies that the workflow should be triggered on a pull request specifically for the 'main' branch. This ensures that the workflow runs when a pull request is opened, updated, or synchronized for the 'main' branch`
+
+- [x] What capability does GitHub provide to enable runners to download actions from internal or private repositories, ensuring access control and security? `GitHub creates a scoped installation token with read access to the repository, automatically expiring after one hour - GitHub provides runners with a scoped installation token that has read access to the repository where the actions are stored. This token is automatically generated and expires after one hour, ensuring access control and security by limiting the duration of access to the actions.`
+
+- [x] How can the retention period for artifacts be customized? `custom retention periods can be defined for individual artifacts using the actions/upload-artifact action - GitHub Actions allows users to customize the retention period for artifacts by defining custom retention periods for individual artifacts using the actions/upload-artifact action. This feature enables users to manage artifact storage efficiently by specifying how long each artifact should be retained before being automatically removed.`
+
+- [x] Which keyword is used to conditionally execute a step based on a specific expression or condition? `if - The 'if' keyword is used in GitHub Actions to conditionally execute a step based on a specific expression or condition. It allows you to define when a step should run based on the result of the expression provided.`
+
+- [x] Your organization uses a self-hosted runner deployed within a network that requires a proxy server for internet access. Which environment variable should you configure on the runner to ensure it can successfully communicate with GitHub? `https_proxy  - The `https_proxy` environment variable should be configured on the self-hosted runner to specify the proxy server that should be used for HTTPS requests. This ensures that the runner can successfully communicate with GitHub over HTTPS through the proxy server.`
+
+- [x] What is the primary purpose of caching dependencies in a GitHub Actions workflow? `decrease network utilization, runtime, and cost - Caching dependencies in a GitHub Actions workflow helps decrease network utilization, runtime, and cost by storing and reusing dependencies that have already been downloaded or built. This reduces the need to fetch dependencies from external sources repeatedly, leading to faster workflow execution and lower costs associated with data transfer and processing.`
+
+- [x] How can you ensure a script file in your repository is executable in a workflow job? `by manually granting execute permissions to the script file on the runner - By manually granting execute permissions to the script file on the runner, you ensure that the script can be executed during the workflow job. This approach involves changing the file permissions to allow the script to run as an executable file.`
+
+- [x] Which of the following are true about Javascript actions? (select three) `You can speed up development by using the GitHub Actions toolkit, Javascript actions run directly on the runner and will use existing binaries e Javascript actions can run on Linux, Windows, or macOS runners`
+
+- [x] You're using ephemeral runners in containers for your GitHub Actions workflows. However, you've noticed that these runners repeatedly update whenever a new runner version is released, causing disruptions. What action can you take to address this issue? `disable automatic updates to have manual control over updating the runner version on the container image - Disabling automatic updates will give you manual control over when to update the runner version on the container image. This way, you can plan and schedule updates during less critical times to avoid disruptions in your workflows.`
+
+- [x] When the workflow below is triggered, what will the Print name step evaluate to? `Hello My Action.  We are currently running the Build job.  Using Java Version 11 - This choice is correct because it correctly evaluates the environment variables and prints the values of NAME, BUILD, and JAVA_VERSION. The output will be "Hello My Action. We are currently running the Build job. Using Java Version 11".`
+
+- [x] How should you demonstrate creating a release strategy for a GitHub Action? `by defining a release-management strategy and documenting major version updates, critical fixes, and security patches - Defining a release-management strategy and documenting major version updates, critical fixes, and security patches is the correct approach to creating a release strategy for a GitHub Action. This ensures transparency, helps users understand the significance of updates, and allows for effective communication of changes. Versioning is crucial for managing dependencies and ensuring compatibility with different workflows.`
+
+- [x] What are the requirements to publish an action to the GitHub Marketplace? `the action must be in a public repository - To publish an action to the GitHub Marketplace, the action must be in a public repository. This allows other users to discover and use the action through the Marketplace.`
+
+- [x] In a private repository, why are workflow badges not accessible externally? `to prevent external embedding or linking from unauthorized sources. - Workflow badges in private repositories are not accessible externally to prevent unauthorized embedding or linking from external sources. This helps maintain the security and privacy of the repository by restricting access to only authorized users.`
+
+- [x] Dave is building a workflow configuration that includes a reference to a filesystem path. What is the best practice for referencing a filesystem within a workflow configuration? `use environment variables to reference the filesystem - Using environment variables to reference the filesystem path in a workflow configuration is a best practice as it allows for flexibility and portability. By using environment variables, the path can be easily changed or customized without having to modify the workflow configuration itself, making it more maintainable and adaptable to different environments.`
+
+- [x] You have developed a new GitHub Action and want to share it with the greater community. Where should you publish it? `GitHub Marketplace - GitHub Marketplace is the official platform where developers can share their GitHub Actions with the broader community. Publishing your GitHub Action on GitHub Marketplace makes it easily discoverable by other users and allows for seamless integration into their workflows.`
+
+- [x] Which default environment variables cannot be overwritten using the GITHUB_ENV file in a workflow? `GITHUB_* and RUNNER_* - The default environment variables starting with "GITHUB_" and "RUNNER_" cannot be overwritten using the GITHUB_ENV file in a workflow. These variables are reserved and cannot be modified to maintain the integrity and security of GitHub Actions workflows.`
+
+- [x] GitHub Packages is compatible with the following package managers: (select three) `NuGet, the .NET package manager, Maven and Gradle, two package managers for Java e npm, a NodeJS package manager`
+
+- [x] You have created a secret named api_key to use in a workflow that deploys a new application. Which of the following is the correct syntax to reference the secret as an environment variable? `steps: - shell: bash  env:   ENV_API_KEY: ${{ secrets.api_key }} run: | ./app_install.sh The correct syntax to reference a secret as an environment variable in a GitHub Actions workflow is to use the `${{ secrets.secret_name }}` syntax. In this case, the secret named api_key is referenced as `${{ secrets.api_key }}` within the `env` section of the workflow step. This allows the secret value to be securely accessed and used as an environment variable during the workflow execution.`
+
+- [x] John has configured his workflow to save artifacts created from the build job. Where can John access the artifacts from the GitHub user interface that were saved within the build job? `from the Artifacts section within the Actions workflow run - The artifacts saved from the build job can be accessed from the Artifacts section within the Actions workflow run. This section provides a convenient way for users like John to view and download any artifacts generated during the workflow execution, making it easy to access and utilize the output of the build job.`
+
+- [x] What is the primary purpose of dependent jobs in a workflow? `to define sequential execution order within a workflow - Dependent jobs in a workflow are used to define the sequential execution order within the workflow. This means that one job will only start after the successful completion of the job it depends on, ensuring a specific order of execution.`
+
+- [x] Your operations team plans to use GitHub-hosted runners for continuous integration tasks, but the security team insists on implementing an IP address allowlist to enhance security measures. Why might this approach be considered cumbersome for your operations team? `having to update the allowlist for GitHub-hosted runner IP addresses on a weekly basis could be time-consuming and error-prone  - Updating the IP address allowlist for GitHub-hosted runners on a weekly basis can be cumbersome for the operations team because it requires manual effort and is prone to errors. This repetitive task can consume valuable time and resources, leading to potential security vulnerabilities if not done accurately and promptly.`
+
+- [x] For an action that was triggered on: pull request, where can you see the workflow run status? (select three) `in a pull request before a merge, from the Actions tab of the repository e on the Checks tab of the pull request `
+
+- [x] Your organization uses GitHub Actions in Enterprise Cloud and wants to ensure automation is reused and maintained when creating new workflows in the organization's repositories. What feature should be used? `workflow templates - Workflow templates in GitHub Actions allow organizations to create standardized, reusable automation workflows that can be easily applied to multiple repositories. By using workflow templates, organizations can ensure consistency, reduce duplication of effort, and maintain automation standards across their projects.`
+
+- [x] How can you access an environment variable corresponding to an input in a Docker container action? `use the args keyword in the action metadata file to pass the input to the Docker container - Using the args keyword in the action metadata file allows you to pass the input value as an argument to the Docker container. This argument can then be accessed within the container as an environment variable, enabling you to retrieve the corresponding input value efficiently.`
+
+- [x] What is the minimum time granularity available for scheduling GitHub Actions? `five minutes - GitHub Actions allows for scheduling workflows with a minimum time granularity of five minutes. This means that workflows can be scheduled to run at specific times or intervals with a precision of five minutes, providing flexibility in automation and execution timing.`
+
+- [x] You have a workflow configured to run on branch protection rule events in your GitHub repository. However, you want to limit the workflow execution to exclude the deletion of branch protection rules. Which configuration should you use in your workflow file? `on: branch_protection_rule:  types: [created, edited] - By specifying the event types as [created, edited], the workflow will only run when branch protection rules are created or edited, excluding the deletion of branch protection rules. This configuration ensures that the workflow execution is limited to the desired events.`
+
+- [x] When might it be appropriate to use a combination of GitHub-hosted and self-hosted runners in a workflow? `when dealing with resource-intensive tasks - Using a combination of GitHub-hosted and self-hosted runners can be beneficial when dealing with resource-intensive tasks. GitHub-hosted runners may have limitations in terms of resources, so adding self-hosted runners with higher capabilities can help handle tasks that require more processing power or memory.`
+
+- [x] You encounter an issue while executing a GitHub Actions workflow and need to print a debug message to the log for troubleshooting. How can you accomplish this? `echo "::debug::executing the setup script" - The correct way to print a debug message to the log in GitHub Actions is by using the `echo "::debug::message"` syntax. This will output the specified message as a debug message in the workflow log, allowing you to troubleshoot the issue effectively.`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Portugues
 
 # Questão 1
