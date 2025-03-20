@@ -3549,6 +3549,17 @@ The knowledge and skills you've gained throughout this book will help you develo
 
 Remember, the key to success with GitHub Actions is continuous improvement and staying informed about the latest develop- ments. Embrace the power of automation, and let GitHub Actions be your trusted companion in your software development jour- ney. Good luck, and happy coding!
 
+### GitHub Actions Secrets: Security Best Practices
+Os segredos podem ser configurados no nível da empresa, organização, repositório ou ambiente, permitindo que você armazene informações confidenciais no GitHub.
+Para ajudar a evitar vazamentos acidentais, de fato, o GitHub remove quaisquer segredos que aparecem nos logs de execução e substitui seus valores por asteriscos ( ***).
+
+- [x] Do not use structure data; (Evite usar um blob de JSON, XML, YAML ou similar como valor secreto)
+- [x] Register all Secrects ... Secrets
+- [x] Audit the Secrets Handling (Auditar como os segredos são tratados)
+- [x] Use minimally Scoped credencials (Privilégio mínimo - e não apenas para os segredos do GitHub Actions, usar credenciais com escopo mínimo 
+- [x] Audit and Rotate Secrets
+- [X] Review for access to secrets
+
 ### Appendix A: GitHub Actions
 #### YAML Reference
 This appendix provides a reference for commonly used YAML elements in GitHub Actions workflows. You can use this reference as a quick guide when building and managing your GitHub Actions workflows.
