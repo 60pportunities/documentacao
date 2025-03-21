@@ -302,6 +302,13 @@ Essa flexibilidade permite que os desenvolvedores criem fluxos de trabalho altam
 - [x] Nova versão com uma nova versão;
 - [x] Construir pipeline para testar e construir código;
 
+### Os eventos podem ser
+- [x] Trigger Events
+- [x] Schedule Events
+- [x] Manually Triggers
+
+Observação: É recomendado a colocação workflow_dispatch: durante o processo de desenvolvimento do workflow.
+
 ## Modular and reusable actions:
 Um dos principais pontos fortes do GitHub Actions é sua modularidade.
 
@@ -2835,6 +2842,12 @@ Um executor é um servidor que executa seus fluxos de trabalho quando eles são 
 
 A integração contínua (CI, Continuous Integration) é uma prática de software que exige commits frequentes de códigos para um repositório compartilhado.
 
+GitHub fornece executores que você pode usar para executar seus trabalhos ou você pode hospedar seus próprios executores, cada executor hospedado em GitHub é uma nova VM (máquina virtual) hospedada por GitHub com o aplicativo executor e outras ferramentas pré-instaladas e está disponível com Ubuntu Linux, Sistemas operacionais Windows ou macOS.
+
+No plano GitHub Team ou GitHub Enterprise Cloud, poderá provisionar um executor com mais núcleos ou um executor alimentado por um processador de GPU.
+
+Você pode instalar software adicional em executores hospedados no GitHub como parte do seu fluxo de trabalho.
+
 O Runner determina o cálculo subjacente e o SO em que o fluxo de trabalho será executado. O runner pode ser:
 
 ### GitHub-hosted — Ambientes de tempo de execução predefinidos dos provedores do GitHub
@@ -4118,3 +4131,995 @@ jobs:
         with:
           args: ./...
 ```
+
+# GitHub Actions vs. Azure DevOps Pipelines – Escolhendo a ferramenta CI/CD certa para suas necessidades
+
+A automação é essencial para acelerar a entrega de software no mundo de desenvolvimento acelerado de hoje.
+
+Duas ferramentas líderes de CI/CD — GitHub Actions e Azure DevOps Pipelines — oferecem excelentes recursos de automação, mas cada uma atende a diferentes casos de uso. Agora, vamos aprender como escolher a certa.
+
+GitHub Actions: CI/CD contínuo para projetos do GitHub
+
+Melhor para:
+
+Equipes profundamente integradas ao ecossistema do GitHub.
+Projetos de código aberto
+Aplicações nativas da nuvem
+Fluxos de trabalho baseados em YAML
+
+Principais vantagens:
+
+✅ Integração nativa com GitHub – Os fluxos de trabalho são automatizados sem seus repositórios GitHub
+
+✅ Event-Driven Triggers – Triggers baseados em eventos Git
+
+✅ Ações de Marketplace – Disponibilidade de ações de marketplace pré-construídas com suporte da comunidade
+
+✅ Escalabilidade e flexibilidade – Execute os fluxos de trabalho em Custom Runners e Github Runners com amplo suporte de sistema operacional.
+
+Azure DevOps Pipelines: CI/CD de nível empresarial para cargas de trabalho complexas
+
+Melhor para:
+
+Manutenção de infraestrutura de nuvem híbrida e local
+Organizações que usam serviços do Azure ou implantações em várias nuvens.
+Equipes que exigem controles profundos de governança, segurança e conformidade.
+
+Principais vantagens:
+
+✅ Suporte a vários repositórios e várias nuvens – Fácil integração com várias nuvens - AWS, Azure, GCP, etc.
+
+✅ Segurança e conformidade robustas – Segurança de nível empresarial, controles de acesso e aplicação de políticas.
+
+✅ Pipelines gráficos e YAML – Suporta pipelines baseados em YAML e UI
+
+✅ Integração DevOps de ponta a ponta – Azure Boards, Planos de teste, Conjuntos de teste, Artefatos
+
+Fazendo a escolha certa
+
+🔹 Use o GitHub Actions se sua equipe gosta muito do GitHub e está interessada em trabalhar com ecossistemas simples e de código aberto.
+
+🔹 Escolha o Azure DevOps Pipelines se precisar de segurança de nível empresarial, gerenciar implantações em várias nuvens ou precisar de uma abordagem mais estruturada para DevOps.
+
+Preparando sua estratégia de CI/CD para o futuro
+
+As empresas precisam ser adaptáveis conforme o cenário do DevOps muda. Para equipes focadas no GitHub, o GitHub Actions é a solução preferida; no entanto, o Azure DevOps Pipelines continua sendo uma vantagem para automação de nível empresarial. Em alguns casos, usar os dois juntos pode fornecer o melhor.
+
+
+
+
+---
+GITHUB ACTIONS: UM GUIA PRÁTICO
+A história do GitHub
+e GitHub Actions
+A maioria das pessoas confunde quando se trata de Git, GitHub, GitLab, GitFlow e outros git-alguma coisa.
+
+## Git
+Git é um "software de controle de versão descentralizado" e este termo bárbaro explica precisamente o que é e o que não é
+. Git é um software, o que significa que não é uma metodologia como seria "DevOps", não é uma sigla como "CI/CD" ou nem mesmo uma maneira de fazer como "gitflow". É um aplicativo que é necessário instalar em um servidor cuja função principal é gerenciar as diferentes versões do nosso código-fonte. Essas versões, em vez de um simples backup, permitem, particularmente no mundo do software, manter uma cópia de cada modificação do código-fonte, com a capacidade de voltar e/ou selecionar uma versão precisa. Este tipo de software existe há décadas com os famosos CVS (1990), ClearCase (1992), SVN (2000), Visual SourceSafe (1994), Team Foundation Server (2005) mas também muitos outros, menos conhecidos, como o BitKeeper (que foi usado para o código fonte do Linux), etc. Todos eles têm suas vantagens e desvantagens, mas acima de tudo, eles têm um ponto em comum: a necessidade de um único servidor onde o código fonte é armazenado e no qual tudo acontece. É o famoso conceito de "centralizado".
+É justamente para quebrar esse modelo que Linus Torvalds (também o inventor do Linux!) inventou o Git em 2005. Se o Git também funciona com um servidor "principal", cada software cliente também traz recursos de gerenciamento de código-fonte (ramificação, confirmação, etc.). Isso significa que todo desenvolvedor que instala o Git em seu computador pode usar todos os recursos localmente, incluindo a criação/gerenciamento de ramificações e a mesclagem de código, registro de dados, etc. Isso levou ao surgimento de novas formas de trabalho entre os desenvolvedores. Um bom exemplo é uma nova forma de criar uma ramificação por recurso ou desenvolvedor. No passado, geralmente era uma única ramificação correspondente a um software de versão, com os riscos de que essa ramificação, quando "quebrada", impedisse todos os desenvolvedores de trabalhar.
+Hoje, o Git, graças à sua flexibilidade, se tornou o software de gerenciamento de versão de referência e dominou completamente todos os outros do cenário. Mas com grande poder, o GitHub Actions também vem com uma complexidade.
+
+
+
+## GitHub
+É justamente essa complexidade e capacidade de suporte (nenhuma empresa editou ou suportou o Git) que as empresas e equipes de desenvolvedores temiam migrar para essa nova ferramenta. É quando as pessoas decidem criar plataformas de hospedagem de código-fonte baseadas em Git (SaaS, Software as a Service) e a Internet então vê aparecer GitHub, GitLab ou Bitbucket.
+O objetivo dessas plataformas é esconder a complexidade do Git por meio de uma interface intuitiva e então adicionar recursos adicionais, como gerenciamento de projetos, rastreamento de bugs, varredura de código e muitos outros. Assim nasceu o GitHub no final de 2007, que neste momento era apenas uma oferta comercial de Git hospedado (apenas armazenamento de código-fonte).
+O GitHub, com mais de 50 milhões de usuários no início de 2021, é claramente o líder do mercado de plataformas de gerenciamento de código-fonte, mas há muito tempo é insuficiente para um projeto real.
+
+De fato, era necessário para cada equipe que esperava usá-lo como parte de um projeto real, adicionar:
+
+• Software de terceiros para gerenciar o backlog (problemas do GitHub e "Projetos" estão longe de serem perfeitos)
+. Outro software para gerenciamento de testes
+. Outro software para a parte de compilação/construção
+
+
+E, finalmente, software para a implantação.
+
+Para competir com essas plataformas mais avançadas/completas, o GitHub começou a implementar recursos para preencher essas lacunas. Assim, entre vários novos recursos, nasceu um GitHub Actions.
+Nota: GitHub, Inc, o editor do GitHub.com, foi adquirido pela Microsoft em junho de 2018, mas continua sendo uma empresa totalmente independente. Se sinergias e co-investimentos técnicos forem feitos entre as duas empresas, o GitHub mantém sua orientação e independência total. Se você estiver interessado no futuro do GitHub, esteja ciente de que a lista de próximos recursos e cronograma de implementação são públicos e acessíveis neste endereço: `https://github.com/github/roadmap/`.
+
+## GitHub Actions
+Em agosto de 2019, o GitHub anunciou o beta público do GitHub Actions, embora eles tenham sido realmente acessíveis desde o verão de 2018 para alguns sortudos.
+As GitHub Actions são então descritas como "Seu fluxo de trabalho, criado por você, executado pelo GitHub. As GitHub Actions permitem que você compile facilmente, empacote, versione, atualize e implante seu projeto em qualquer linguagem, no GitHub ou em qualquer sistema externo, sem precisar executar nenhum código sozinho”.
+As GitHub Actions, um sistema de automação, são mais do que isso, pois também podem interagir com os diferentes elementos de um projeto, como criar bugs, enviar e-mails automaticamente, atualizar os elementos do roadmap, etc. Mas vão muito além, pois você pode automatizar quase tudo com ele, como acionar o aspirador de pó robô, acender as luzes de uma árvore de Natal, fazer jogo da velha, etc. Os usos são infinitos, desde que sua criatividade esteja lá e que você esteja pronto para escrever algum código.
+GitHub Actions prometem grandes coisas que confirmaremos neste livro.
+
+## Seu primeiro fluxo de trabalho
+Nada é mais irritante do que a teoria sem prática, então iremos diretamente para a prática criando um fluxo de trabalho usando GitHub Actions. Isso permitirá que você manipule vários elementos que detalharemos mais tarde nos capítulos seguintes. Acredito que será mais fácil entender esses conceitos quando você os tiver visto e aplicado pelo menos uma vez.
+## Criando uma conta GitHub
+Se isso ainda não tiver sido feito, você precisará criar uma conta GitHub para criar e usar fluxos de trabalho em seu ambiente. A criação de uma conta é totalmente gratuita e é realizada na seguinte URL: `https://github.com/join`.
+
+Embora o GitHub ofereça várias assinaturas pagas que permitem acesso a recursos adicionais, você precisará de uma conta gratuita neste livro.
+
+Os recursos do GitHub Actions são totalmente acessíveis gratuitamente, mas alguns recursos estão disponíveis para contas gratuitas apenas em repositórios públicos. Assim, se você decidir criar um repositório privado (visível apenas para você), certos recursos como ambientes, varredura de código ou publicação de páginas não estarão acessíveis para você; o livro mencionará essas limitações quando apropriado.
+
+## Criação do repositório
+Você pode começar com um novo repositório vazio, mas para mais simplicidade neste primeiro capítulo, criamos um repositório pronto para uso que você só precisa copiar para sua conta. Para fazer isso, visite a seguinte URL: https://github.com/lgmorand/book-github-actions-repo e bifurque o repositório.
+
+## Fork do repositório
+Um fork é uma cópia de um repositório, mantendo uma conexão com o arquivamento do qual é copiado. Isso permite que você edite a cópia como quiser (é sua cópia), mas também lhe dá a capacidade de "empurrar" suas alterações para reaplicar o repositório original para contribuir (se o autor aceitar, é claro). É como operamos a maioria dos projetos de código aberto. Cada colaborador executa e trabalha na cópia e então propõe adicionar emendas ao rascunho original.
+
+O proprietário do repositório de origem pode então ver as alterações que você deseja fazer e aceitar ou rejeitar as alterações, que são automaticamente incluídas em seu código. Em breve, veremos como as Ações do GitHub são precisamente um ativo líder para facilitar o trabalho múltiplo em um repositório, para contribuir com outro projeto ou realizar controles de qualidade quando um terceiro deseja contribuir com seu projeto.
+
+Assim que o fork for alcançado, o que deve levar alguns segundos, você deve pousar em um novo repositório chamado NOME_DA_SUA_CONTA/book-github-action-repo. Você observa que o repositório já contém várias pastas e arquivos. Ignore-os por enquanto.
+
+## Criando um fluxo de trabalho
+Observe as guias disponíveis em seu repositório e anote aquela que nos interessa: Actions.
+Na aba do seu projeto em Actions é que você pode criar, editar e, principalmente, visualizar o status de seus vários fluxos de trabalho.
+Entre na guia Ações para chegar ao Assistente de criação de fluxo de trabalho. Observe a mensagem que informa que os fluxos de trabalho foram deliberadamente desabilitados pelo GitHub neste repositório devido aos riscos que eles podem causar. A mensagem recomenda que você inspecione o código-fonte dos fluxos de trabalho e certifique-se de que não haja nada perigoso lá.
+
+Se, após sua leitura cuidadosa, não houver nada suspeito, você pode clicar em "Eu entendo meus fluxos de trabalho, vá em frente e habilite-os" para reativar a funcionalidade do repositório GitHub para suas Ações.
+
+Esta etapa só é necessária porque você **bifurcou** um repositório de outra pessoa; no caso de um novo repositório de código pessoal, esta etapa não existe.
+
+1. Crie um fluxo de trabalho "vazio" que lhe dará a estrutura de um fluxo de trabalho genérico que apenas envia uma mensagem no console
+2. Crie um fluxo de trabalho a partir de um modelo predefinido. O GitHub oferece modelos que devem se alinhar com o que ele acha que detectou em seu repositório ou permitindo que você escolha entre dezenas de modelos predefinidos. Esses fluxos de trabalho são um bom ponto de partida e uma excelente maneira de aprender quando você está começando com o GitHub Actions. Sinta-se à vontade para ler o conteúdo deles.
+
+## Escolha um modelo de fluxo de trabalho
+Crie, teste e implante seu código. Faça revisões de código, gerenciamento de ramificação e triagem de problemas funcionarem da maneira que você deseja. Selecione um modelo de fluxo de trabalho para começar.
+
+## Implantação
+No nosso caso, criaremos nosso fluxo de trabalho completamente à mão.
+
+Clique em Configurar um fluxo de trabalho você mesmo, o que abre uma nova página com um arquivo em modo de edição. Você pode observar vários elementos importantes:
+
+O arquivo tem uma extensão .yml e uma sintaxe que pode parecer simplista, mas, no momento, totalmente absurda.
+
+Esta é a "linguagem" YAML (YAML Ain't Markup Language) que quer ser um formato minimalista (mais leve que JSON) para descrever as propriedades de um objeto. está, portanto, em um único arquivo e escrito usando YAML que descreveremos nosso fluxo de trabalho. O arquivo é chamado de "main.yml", mas você pode renomeá-lo como achar melhor, desde que mantenha a extensão correta.
+
+• O arquivo é criado diretamente no seu repositório, junto com seu código-fonte, mas localizado na pasta `.github/workflows`. Esta pasta deve ser nomeada exatamente assim; é o caminho onde o GitHub espera encontrar os fluxos de trabalho para usar.
+
+Isso significa que toda vez que você quiser adicionar seu próprio fluxo de trabalho, é nesta pasta específica que ele terá que registrá-lo e não em outro lugar `.github` corresponde a uma pasta oculta no Linux. Neste caso, você também pode encontrar fluxos de trabalho em uma subpasta chamada workflows, templates e outros arquivos usados ​​para personalizar o uso do GitHub. Esses outros elementos não serão abordados neste livro, mas são explicados em detalhes na documentação do GitHub.
+
+Reserve um tempo para olhar o conteúdo pré-preenchido do arquivo my-workflow.yml, mas não se preocupe se você não entendeu tudo ainda.
+
+Agora, construiremos um fluxo de trabalho associado ao código-fonte do nosso repositório.
+No repositório que você bifurcou, há dois arquivos na pasta src:
+  • Um arquivo chamado main.css que contém estilo CSS Web
+  • Um arquivo index.pug, que é uma página da Web, mas usando o formato de modelo PUG.
+
+A sintaxe PUG simplifica o código, ao contrário do XHTML, é muito prolixo com seu sistema de iluminação. O resultado final, no entanto, será exatamente o mesmo.
+
+```
+link(rel="stylesheet",href="main.css")
+.bear
+.left-ear
+.right-ear
+.left-eye
+.right-eye
+.nose
+.mouth
+.hand
+.container
+```
+
+Info: Se você estiver um pouco curioso e quiser saber mais sobre o mecanismo de template PUG, dê uma olhada no site oficial https://pugjs.org/
+
+Vamos construir juntos um fluxo de trabalho que transforma nosso código-fonte PUG em uma página da Web HTML padrão e fazer um entregável que pode ser implantado em produção.
+
+Retorne ao fluxo de trabalho que está sendo criado, que mudaremos voluntariamente com pouca explicação para ir mais rápido. Veremos cada seção em mais detalhes neste livro.
+
+O primeiro passo é nomear nosso fluxo de trabalho:
+on:
+push:
+#When code is pushed
+branches: [ main] # on the main branch
+pull_request: # When a pull request is made
+branches: [ main] # on the main branch
+name: My first workflow # The name of your choice
+workflow_dispatch: #manual trigger
+
+A segunda seção pode ser deixada como está. Ela define os casos de acionamento do nosso fluxo de trabalho.
+
+Aqui indicamos que nosso fluxo de trabalho terá que ser acionado no caso de um commit em um branch, no caso de uma solicitação de pull ou após um lançamento manual.
+
+A seção a seguir simplesmente indica o tipo de máquina virtual que ativará nosso fluxo de trabalho, aqui usando o Ubuntu.
+
+Esta máquina virtual é criada perfeitamente em servidores GitHub. Você não precisa se preocupar com isso por enquanto.
+
+```
+jobs:
+  build:
+   uses: actions/setup-node@v4
+   runs-on: ubuntu-latest
+```
+
+A última seção é a mais interessante, pois adicionaremos nossas ações para atingir. Primeiro, exclua as duas ações run que mostram apenas uma mensagem no console, o que não é útil.
+Em seguida, adicione as seguintes tarefas na parte inferior do arquivo (preste atenção ao recuo):
+1- Uma ação indica que queremos instalar o NodeJS na máquina virtual que executará o fluxo de trabalho.
+
+```
+- name: User Nodes
+  uses: actions/setup-node@v4
+```
+
+2- Uma ação que inicia um comando npm install, que analisará os pacotes necessários do nosso código-fonte (eles estão listados no arquivo /src/packages.json) e os instalará localmente (=na máquina virtual).
+
+- run: npm install
+
+3- Uma ação executa o comando gulp build, que usa os pacotes baixados pelo NPM para transformar nosso código PUG em XHTML e, em seguida, copiará o resultado gerado em uma pasta /dest. Todas essas mecânicas ocultas estão escritas no arquivo gulpfile.js, mas você não precisa se preocupar com isso.
+
+- run: gulp build
+
+4- Uma ação que pegará todos os arquivos gerados na pasta /dest, nossa página HTML gerada e o arquivo CSS, compactará como MyPackage e, em seguida, fará o upload deste arquivo para o portal do GitHub.
+
+```
+on:
+push:
+- uses: actions/upload-artifact@v4
+  with:
+    name: MyPackage # Coloque qualquer nome que você quiser
+branches: [ main]
+pull_request:
+branches: [ main]
+path: dest #pasta que será carregada no pacote
+workflow_dispatch:
+```
+
+O resultado final do seu arquivo YAML deve ser algo como isto:
+
+```
+name: My first workflow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+
+    - run: npm install
+
+    - run: gulp build
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: MyPackage
+        path: dest
+```
+
+Salve seu fluxo de trabalho clicando no botão "Start commit".
+
+Então, no pop-up que aparece, deixe todas as configurações padrão e clique em "Commit new file".
+
+
+
+## Retorne à aba Ações.
+
+Desta vez, você deve descobrir que seu fluxo de trabalho agora está listado como GitHub detectou automaticamente um arquivo válido na pasta .github/workflows.
+
+Você também percebe que uma execução do seu fluxo de trabalho também foi acionada. Ela foi acionada porque você salvou (enviou) código no branch principal no momento do commit e que seu fluxo de trabalho tem um gatilho correspondente a este caso específico.
+
+## Analisando os resultados
+Se você clicar na execução do seu fluxo de trabalho (chamado run), você chegará na tela de resultados.
+
+Os fluxos de trabalho mais recentes do Ubuntu usarão o Ubuntu-20.04 em breve.
+Para mais detalhes, consulte https://github.com/actions/virtual-environments issues/1816
+
+## Resultados
+Esta tela é separada em várias subpartes:
+1. No lado esquerdo está a lista de trabalhos no seu fluxo de trabalho.
+2. O status geral do fluxo de trabalho, seu tempo de execução, o tempo cobrado (livre até um certo número) e o número de elementos (artefatos) que foram gerados.
+3. Logo abaixo está a visualização do gráfico. No caso de um fluxo de trabalho simples, geralmente é inútil. Ainda assim, para fluxos de trabalho mais complexos, permite ver as relações entre os diferentes elementos e o status dos diferentes estágios.
+4. A seção Anotações que lista todos os avisos e erros importantes do fluxo de trabalho.
+5. Todos os fluxos de trabalho não geram artefatos, mas quando o fazem como aqui, eles são listados aqui.
+6. No lado esquerdo, se você clicar no trabalho chamado build, verá os resultados detalhados de cada ação do fluxo de trabalho. Este é o lugar onde você verifica os logs para validar se seu fluxo de trabalho se comporta conforme o esperado.
+
+Clique no artefato MyPackage e baixe o arquivo zip, e então configure-o. Ele deve conter dois arquivos: index.html e main.css. Se você abrir o arquivo com um navegador da web, você deve ver o resultado: nosso adorável panda animado.
+
+As Ações do GitHub não são mais complexas do que isso para casos simples e, graças aos conceitos mais avançados deste livro, você pode aperfeiçoar seu conhecimento e ser capaz de cobrir os assuntos mais complexos.
+
+## Algumas observações sobre YAML
+O formato YAML já tem 20 anos, mas só recentemente é amplamente conhecido, a ponto de substituir os formatos XML e JSON para tudo o que está relacionado à configuração ou descrição. Além disso, seu formato simples, em formato livre e sem nenhuma tag, o torna um formato leve, muito legível e utilizável para qualquer necessidade; portanto, o GitHub tornou o elemento central das Ações do GitHub.
+Se você nunca escreveu nenhum YAML em sua vida, nós o cobriremos junto com o básico. Em vez de cobrir toda a especificação YAML, vamos nos concentrar nas partes relevantes para o GitHub Actions.
+
+
+Um arquivo YAML pode, no caso do GitHub Actions, ser resumido com três elementos:
+1. Elementos de chave/valor
+2. Elementos aninhados
+3. Matrizes de elementos
+Os elementos de chave/valor são compostos de um nome de chave, seguido pelo caractere de coluna ":" e finalmente por seu valor. Aqui estão alguns exemplos:
+key: value # observe o espaço após os dois pontos ":", mas não antes
+```
+keyNumeric: 1235
+keyBoolean: false
+OtherKey: "Hello world" # entre aspas porque o valor contém espaços
+cmd: "echo"
+```
+
+O valor deve estar em uma linha. No entanto, se você precisar de um valor multilinha, é necessário usar o caractere pipe "|":
+```
+key: # caractere que indica que as linhas a seguir
+$var = "hello" # fazem parte de um único bloco
+echo $var # atribuído à chave
+```
+Então vêm os elementos aninhados. É uma chave que não tem nenhum valor, mas tem subelementos que precisam ser recuados. O recuo em YAML é feito com dois espaços (sem tabulações):
+
+```
+a_nested_key:
+   key: value    # subelemento recuado por dois espaços
+   other_key: other value # sub-element at the same level
+   other_nested_key: #sub-element too
+   hello: hello # sub sub-element indented by two spaces
+   weekDay: ['Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday'] # string array
+   oddNumbers: [1,3,5,7,9] # List of numeric values
+   os: [ubuntu-latest, windows-latest, macos-latest]
+jobs: # new first-level element so no indented
+build:
+runs-on: ubuntu-latest
+```
+Por fim, vêm os elementos cujo valor é uma lista de objetos. Eles estão disponíveis em duas formas.
+Primeiro vem a lista de valores escritos na mesma linha em um array, representados por colchetes.
+Depois vêm os objetos mais complexos, inclusive quando cada valor do array também é um objeto. Neste caso, o formato acima não funciona, e um novo formato é necessário. Nele, cada elemento é representado por um traço sem recuo.
+```
+students:
+    - firstname: Jean    # element, no indentation
+      name: Dupont       # property of the same element
+    - firstname: Marine  # new element
+      name: Leblanc      # property of the second element
+addresses:
+    - name: "personal address"
+      street: 1 Wisteria Lane
+city:
+  name: Paris   # sub-property and therefore indentation
+  postalCode: 75001
+ - name: "second address"
+ - street: 2 Geek street
+
+  city:
+    name: Courbevoie
+     postalCode: 92400
+```
+O formato YAML tem outras sutilezas, mas essas bases devem ser suficientes para usar o GitHub Actions serenamente e escrever qualquer fluxo de trabalho.
+Aviso: Mais um lembrete: seja muito rigoroso ao escrever seus arquivos, copiando exemplos deste livro e seja particularmente vigilante ao recuo. Ao menor erro de recuo ou espaço ao redor do sinal ":", o GitHub rejeitará o fluxo de trabalho.
+
+
+# Workflow syntax
+Você criou seu primeiro fluxo de trabalho sem realmente entender a estrutura nem os mecanismos. Neste capítulo, você descobrirá em detalhes os diferentes elementos que compõem um fluxo de trabalho e, especialmente, como usá-los para atender às suas necessidades.
+
+## Triggers
+Os gatilhos são, como o nome indica, os meios para especificar o critério de início de um fluxo de trabalho, e todo fluxo de trabalho deve conter um ou mais gatilhos.
+
+Existem três categorias de gatilhos:
+1. Gatilhos automáticos
+2. Gatilhos de programação
+3. Gatilhos manuais
+
+### The automatic trigger
+Ao criar um fluxo de trabalho, você deve primeiro definir sua finalidade e as condições para acioná-lo. O caso mais comum é querer um gatilho sempre que uma nova versão do código-fonte estiver disponível, para verificar se tudo pode ser compilado corretamente. No mundo do Git, significa agir assim que um dos desenvolvedores envia seu código para o servidor. Portanto, estamos falando aqui sobre integração contínua ("CI").
+
+Em termos de sintaxe, em nosso arquivo, usaremos a palavra-chave "on" que significa "no caso de", e especificaremos o termo "push" para indicar cada vez que um commit é enviado para o servidor.
+
+`on: push`
+
+Da mesma forma, é possível disparar o fluxo de trabalho quando uma solicitação de pull é realizada quando o desenvolvedor solicita "push" seu código para uma ramificação de outra ramificação. A pequena diferença com o caso anterior é que ele é disparado antes que seu código seja mesclado na ramificação de destino. É possível agir e bloquear modificações se um problema for detectado. No caso de "push", é tarde demais, o código já está na ramificação e, se o código tiver algum erro, a ramificação será quebrada, o que pode impactar outros desenvolvedores.
+
+```
+on:
+push: # inicia em cada push
+pullrequest: # ou solicitação de pull
+```
+
+Também pode ser escrito como:
+
+```on: push, pullrequest```
+
+Eventos como push e pullrequest são numerosos. Aqui está uma lista não exaustiva dos mais comuns. Você verá alguns deles neste livro:
+
+| Evento           | Disparo                                                    |
+| ----             | ----                                                       |
+| create           | Quando uma ramificação ou uma tag é criada                 |
+| delete           | Quando uma ramificação ou uma tag é excluída               |
+| gollum           |  Quando uma página wiki é criada ou modificada             |
+| issue_comment    | Quando um problema do GitHub é criado, editado ou excluído |
+| registry_package | Quando um pacote* é publicado                              |
+| release          | Quando uma versão é criada, excluída, editada              |
+
+* Um "pacote" como citado aqui é diferente de um artefato, como vimos no capítulo anterior. Pacotes são abordados no capítulo Gerenciamento de artefatos.
+
+## Filtros
+Se um gatilho for executado a cada modificação de código, seria normal nos questionarmos como lidar com isso no caso de um projeto mais complexo, seja porque ele contém várias ramificações ou porque apenas um repositório tem vários aplicativos dentro dele e cada um requer um fluxo de trabalho dedicado que não queremos ver ser acionado quando não deveria. Essa especialização do fluxo de trabalho é feita com os filtros que se aplicam em combinação com o critério de gatilho.
+
+### Filtros por branch
+Em alguns eventos como push e pullrequest, é possível especificar o branch que deve disparar o fluxo de trabalho (main por exemplo). Então, se um novo código de versão for enviado para outro branch, o fluxo de trabalho não será acionado.
+
+```
+on: #fires
+  push: # quando o código for enviado
+   branches: # quando o código for enviado
+   # um dos seguintes branches
+   - main
+```
+
+```
+Também é possível especificar múltiplos branches nominalmente ou, ao contrário, um conjunto de branches
+
+```
+on: #fires
+push:
+# quando o código for enviado
+   # qualquer main
+   - branch1 # qualquer branch1
+    branches: # no branch
+     - main # nomeado "main"
+     - features/** # qualquer um dos branches na pasta "features"
+     - "**bug**' # ou qualquer branch que contenha 'bug' em seu nome
+
+
+
+Mas também é possível excluir certos branches.
+
+```
+on: #fires
+  push:
+   branches-ignore: # on all branches
+     - main #except the main branch
+```
+
+Aviso: Você não pode usar branches e branches-ignore no mesmo fluxo de trabalho. Você deve usar a listagem explícita (white-Listing) ou a exclusão explícita (black-listing). Se precisar de ambas, é necessário usar o caractere "!" para fazer um padrão negativo escolhendo apenas uma das duas palavras-chave.
+
+```
+on: #fires
+ push: # as soon as a change is made
+   branches: #on one of the following branches
+     - 'releases/*** #starting with releases
+     - '!releases/**-alpha' # except those who end up with "-alpha"
+```
+## Os filtros por caminho
+Também é possível ser ainda mais granular com base na adição de código, mas apenas quando ele está localizado em um arquivo específico ou em uma pasta específica. Isso é particularmente útil quando você tem vários aplicativos no mesmo repositório, mas cada um precisa de um fluxo de trabalho dedicado, como um aplicativo Android e iOS.
+
+```
+on: #fires
+  push: # as soon as a change is made
+    paths:# on the files
+      - '**.cs' #which have the extension **.cs'
+      - 'android/*** # or that are in the code folder
+
+Aviso: Não é possível usar paths e paths-ignore no mesmo fluxo de trabalho. Quanto aos branches, você pode excluir paths com o uso do caractere "!'
+Ou, por outro lado, é possível ignorar alguns paths:
+
+```
+on: #fires
+push: # As soon as a change is made
+  paths-ignore: # unless it concerns
+    - 'docs/** # A file in the 'docs' folder
+```
+
+## Scheduled trigger
+Este gatilho serve em particular para as compilações que são comumente chamadas de Nightly Builds. Essas compilações são (geralmente) iniciadas à noite, mas descorrelacionadas do processo de CI/CD, seja porque realizam tratamentos longos (ex.: varredura de código mais avançada) ou porque as ações do fluxo de trabalho não são necessárias para o escopo da Integração Contínua (ex.: geração de um relatório de qualidade de código)
+Essa configuração é feita adicionando a propriedade schedule e um parâmetro cron, conforme mostrado no exemplo abaixo:
+
+```
+on:
+  schedule:
+    - cron: '00** *' #Every day at midnight
+```
+
+Esta formatação usa a terminologia crontab que permite que você defina qualquer agendamento. No exemplo anterior, "0 0 *** " 0 significa 0 minutos, às 0 horas (meia-noite), todos os dias, todos os meses, todos os dias da semana. Você pode especificar qualquer coisa, desde que respeite o intervalo mínimo de 5 minutos.
+
+Link útil: http://www.cronmaker.com é um site para construir sua expressão cron facilmente.
+
+Um exemplo de uso pode ser um fluxo de trabalho que começa toda segunda-feira às 9h antes da reunião standup e fecha os problemas abertos que não estão mais ativos (inativos por mais de 60 dias) graças à ação stale (https://github.com/actions/stale).
+
+
+```
+name: "Close the old issues"
+on:
+schedule:
+- cron: "0 9 ** 1" # every Monday at 9 am
+jobs:
+  stale:
+   runs-on: ubuntu-latest
+   steps:
+   - uses: actions/stale@v9
+    with:
+    repo-token: ${{ secrets.GITHUB_TOKEN }}
+   stale-issue-message: 'This bug is closed because of too long inactivity (60jrs by default)'
+```
+
+Por motivos de sustentabilidade, o GitHub desabilita qualquer fluxo de trabalho agendado quando não há atividade no repositório nos últimos dois meses. Você recebe um e-mail para estender manualmente a atividade do seu fluxo de trabalho por 60 dias. Uma alternativa é usar esta ação (https://github.com/gautamkrishnar/keepalive-workflow) que simula a atividade no repositório.
+
+## Manual triggering
+O gatilho manual é particularmente útil quando você quer que a ação seja disparada por um humano, como implantar em um ambiente após uma fase de teste.
+Este gatilho é especial porque você tem que usar o evento workflow_dispatch que indica que o fluxo de trabalho pode ser iniciado a partir de um item externo (por exemplo, outro fluxo de trabalho, uma chamada de API ou... um humano).
+
+```
+ on: workflow_dispatch
+```
+
+Uma vez configurado, o fluxo de trabalho pode ser acionado a partir de um fluxo de trabalho de terceiros e manualmente a partir do portal GitHub. Abra a aba Ações.
+
+## Iniciar manualmente um fluxo de trabalho
+Os gatilhos manuais também podem fornecer parâmetros de entrada ao iniciar o fluxo de trabalho para dar a eles um pouco de dinamicidade.
+Essas configurações são declaradas com as entradas de propriedade.
+É possível então definir um parâmetro que tenha propriedades diferentes:
+
+* Seu nome que serve como uma "chave". É por meio desse nome que você pode se referir a ele no fluxo de trabalho, como um nome de variável
+* description: uma dica que será exibida no formulário gerado pelo GitHub
+* required: indica se o valor do parâmetro é obrigatório ou não
+• default: o valor padrão e pré-preenchido no formulário de entrada
+
+
+```
+input:
+    nameOfMyParameter:
+    description: 'my first parameter'
+    required: true
+    default: 'hello'
+
+```
+É claro que é possível definir vários parâmetros, cada um com sua configuração. O GitHub cuida apenas de gerar um formulário contendo os parâmetros de entrada e então transmitir os valores para seu fluxo de trabalho. Você ainda precisa configurar seu fluxo de trabalho para usar esses parâmetros.
+Aqui está um exemplo de um fluxo de trabalho que pede para fornecer dois parâmetros obrigatórios, um dos quais já tem um valor padrão.
+
+```
+name: My workflow with params
+on:
+workflow_dispatch:
+inputs:
+myParam:
+description: 'my first param'
+required: true
+default: 'hello'
+myParam2:
+description: 'my second param'
+required: true
+jobs:
+  my-job:
+   runs-on: ubuntu-latest
+   steps:
+    run: echo "${{ github.event.inputs.myParam }} $ {{ github.event.inputs.myParam2 }}"
+```
+
+O resultado ao iniciar o fluxo de trabalho fica assim:
+
+## Manually trigger with parameters
+O formato um tanto particular $ {{ github.event.inputs.myParam }} que representa uma variável do GitHub é abordado no capítulo As variáveis.
+Lembre-se apenas por um momento que este formato informa o fluxo de trabalho:
+
+- [x] Entre as variáveis ​​do GitHub
+- [x] Look in the properties of the event that triggered the workflow
+- [x] Search among its input parameters (inputs)
+- [x] Then retrieves the value of the parameter named "myParam"
+
+Desde novembro de 2021, agora é possível atribuir tipos para parâmetros. Se as configurações fossem todas string (agora o tipo padrão), agora é possível especificar tipos como boolean, choice ou environment:
+
+```
+workflow_dispatch:
+inputs:
+name:
+type: choice
+description: Who to greet
+options:
+- monalisa
+- cschleiden
+message:
+required: true
+use-emoji:
+type: boolean
+description: Include emojis
+environment:
+type: environment
+```
+
+Também é possível dar um nome dinâmico ao fluxo de trabalho usando essas entradas. Em vez de usar a propriedade name, você pode usar a propriedade run-name
+
+run-name: O fluxo de trabalho cumprimentará ${{ inputs.name}} por @${{ github.actor}}
+
+## Desabilitar/ignorar gatilhos temporariamente
+Pode acontecer de você querer alterar um ou mais arquivos, mas não querer acionar o fluxo de trabalho associado a este evento (push ou pull-request). Por exemplo, quando você edita um arquivo que não é relevante para a implantação, como um arquivo README.md.
+Um truque não documentado consiste em inserir uma palavra-chave no comentário de um commit ou pull request, e o GitHub ignorará o evento e não acionará o fluxo de trabalho.
+
+A lista de possíveis palavras-chave para desabilitar temporariamente um fluxo de trabalho é a seguinte: [skip ci], [ci skip], [no ci], [skip actions] ou [actions skip] (não se esqueça dos colchetes).
+
+## Desativar um fluxo de trabalho
+Se desabilitar temporariamente for útil, isso requer nunca omitir a inserção de uma das palavras-chave de desativação para cada commit. Uma alternativa é desabilitar um fluxo de trabalho totalmente (until reactivated);
+O arquivo YAML permanece presente e funcional, mas tecnicamente o GitHub não o acionará até novo aviso.
+
+A desativação (ou reativação) é realizada por meio da aba Ações do repositório; ao clicar em um dos fluxos de trabalho no canto superior direito, clique no botão "..." e escolha "Desativar fluxo de trabalho".
+
+## Desativar fluxo de trabalho
+Se a desativação for efetiva, uma mensagem indicando o status e como reativar o fluxo de trabalho será exibida:
+
+## Habilitar fluxo de trabalho
+Com o que você acabou de aprender, escolher o gatilho relevante para sua necessidade deve ser fácil.
+
+### Exercícios
+Agora, vamos aplicar o que você acabou de aprender fazendo alguns exercícios.
+
+Exercício n°1
+Aqui está um fluxo de trabalho que fecha os bugs que são muito antigos. Modifique-o para que ele seja executado todas as noites às 19h30, de segunda a sexta-feira.
+
+```
+name: "triggers - exercise 1"
+on:
+# to complete
+jobs:
+stale:
+runs-on: ubuntu-latest
+steps:
+uses: actions/stale@v9
+with:
+ repo-token: ${{ secrets.GITHUB_TOKEN }}
+stale-issue-message: 'This issue is stale because it has been open 30 days with no activity. Remove stale label or comment or this will be closed in 5 days'
+days-before-stale: 30
+days-before-close: 5
+```
+
+### Exercise n°2
+Para este segundo exercício, altere este fluxo de trabalho para ser acionado sempre que o código for enviado em qualquer branch. Adicione um segundo gatilho quando uma solicitação de pull for feita no branch principal
+
+```
+name: "triggers - exercise 2"
+on:
+# to complete
+jobs:
+stale:
+runs-on: ubuntu-latest
+steps:
+- run: echo "I check that the code compiles correctly"
+
+```
+
+Exercício n°3
+Para este último exercício, você deve disparar o fluxo de trabalho quando os arquivos com extensão “.yml” forem modificados durante um pull request, exceto aqueles que têm uma pasta pai chamada “test”.
+
+```
+name: "triggers - exercise 3"
+on:
+# to complete
+jobs:
+stale:
+runs-on: ubuntu-latest
+steps:
+ - run: echo "I'm checking the YAML files"
+```
+
+Lembrete: As soluções podem ser encontradas no capítulo dedicado no final deste livro.
+
+## Jobs
+Cada fluxo de trabalho é composto de um ou mais jobs, que são um grupo de tarefas que um único agente executará. Essas tarefas, chamadas steps, serão abordadas no próximo capítulo.
+
+### A execução de um job
+Um job representa um conjunto de tarefas que serão executadas sequencialmente pelo mesmo agente. Um fluxo de trabalho, portanto, contém pelo menos um job, mas pode ter dezenas deles, se necessário. O importante a lembrar é que cada job é executado por um agente diferente.
+Cada job é composto de vários elementos:
+
+. Um nome simples e chave que será exibido se a propriedade name não for preenchida
+• Um nome de propriedade (opcional), que serve apenas para legibilidade em logs
+· Uma propriedade runs-on, a mais importante, define o tipo de máquina virtual na qual o job será executado.
+· Uma propriedade Steps, que contém um conjunto de tarefas a serem executadas
+
+Aqui está um exemplo de sintaxe de job:
+```
+jobs:
+job1:
+#Job's key
+name: "My first job" #Job's name
+runs-on: ubuntu-latest # type of machine on which the job will be executed
+steps:
+[...] # The different tasks to perform
+```
+
+## Jobs
+Cada fluxo de trabalho é composto de um ou mais jobs, que são um grupo de tarefas que um único agente executará. Essas tarefas, chamadas steps, serão abordadas no próximo capítulo.
+
+### A execução de um job
+Um job representa um conjunto de tarefas que serão executadas sequencialmente pelo mesmo agente. Um fluxo de trabalho, portanto, contém pelo menos um job, mas pode ter dezenas deles, se necessário. O importante a lembrar é que cada job é executado por um agente diferente.
+Cada job é composto de vários elementos:
+
+. Um nome simples e chave que será exibido se a propriedade name não for preenchida
+• Um nome de propriedade (opcional), que serve apenas para legibilidade em logs
+· Uma propriedade runs-on, a mais importante, define o tipo de máquina virtual na qual o job será executado.
+· Uma propriedade Steps, que contém um conjunto de tarefas a serem executadas
+
+Aqui está um exemplo de sintaxe de job:
+
+| Virtual machine     | Label                           |
+| ----                | ----                            |
+| Windows Server 2022 |  windows-latest or windows-2022 |
+| Windows Server 2019 |  windows-2019                   |
+| Ubuntu 24.04        | ubuntu-latest ou ubuntu 22.04   |
+| macOS Sequoia 15.0  | macos-latest or macos-15        |
+| macOS Sonoma 14.0   | macos-latest or macos-14        |
+| macOS Ventura 13.0  | macos-13                        |
+
+
+Executores ARM: Os executores ARM estão disponíveis apenas para planos Teams/Enterprises
+A maioria dessas VMs vem com 2 CPUs, 7 Gb de RAM e 14 Gb de armazenamento (SSD), mas CPU/RAM são duplicados se seu repositório for público. Se você estiver procurando por executores com
+
+processadores Arm64 ou GPU, eles são reservados apenas para os planos de preços Teams/Enterprise.
+
+Aviso: Um fluxo de trabalho pode conter vários trabalhos. É importante observar que cada um desses trabalhos será executado em uma máquina virtual diferente, mesmo se o mesmo sistema operacional for especificado. Portanto, se você planeja transmitir dados de um trabalho para outro, será necessário usar mecanismos mais complexos ou serviços de terceiros.
+
+Dependências entre seus trabalhos
+Por padrão, os trabalhos do mesmo fluxo de trabalho são executados em paralelo e independentemente um do outro (=iniciar simultaneamente). Isso permite, por exemplo, compilar um aplicativo para Android em um agente Linux e um aplicativo para iOS em um agente macOS simultaneamente, em vez de um após o outro.
+
+No entanto, há muitos casos em que precisaremos executar os jobs sequencialmente. Para isso, é necessário adicionar o atributo needs no job que queremos ver executando após o outro:
+
+```
+jobs:
+  job1:
+job2:
+
+needs: job1
+job3:
+needs: [job1, job2]
+```
+No exemplo anterior, o job1 deve ser executado inteiramente e com sucesso para que o job2 comece.
+Uma vez que o job2 for concluído com sucesso, o job3 será iniciado porque depende do job1 e do job2. Poderíamos ter apenas colocado uma dependência no job2 neste caso.
+
+Também é possível configurar um job para que ele seja executado após outro job que foi concluído com sucesso ou não.
+
+Útil para um job de limpeza final, por exemplo. Este comportamento é configurado usando a palavra-chave condicional if e o valor always().
+
+```
+  jobs:
+    job1:
+      job2:
+        needs: job1
+        if: always()  # says it will run whatever happens# but after job1
+```
+
+Por outro lado, é possível executar um job somente se o job do qual ele depende falhou. Portanto, é comum usar esse tipo de etapa de configuração para ações de cancelamento que não foram bem-sucedidas (rollback):
+
+```
+      job1:
+        job2:
+          needs: job1
+       if: failure() # indicates that it will only run if Job1 fails
+```
+
+Os status possíveis são:
+
+| Condição    | Descrição                                  |
+| -----       | ----                                       |
+| success()   | Quando o trabalho anterior foi (implícito) |
+| failure()   | Quando o trabalho anterior falhou          |
+| cancelled() | Quando o trabalho anterior foi cancelado   |
+| always()    | O tempo todo, se os trabalhos anteriores foram bem-sucedidos ou não |
+
+## Limitações
+
+Embora alguns limites sejam altos, há limitações no número de trabalhos executados em paralelo na mesma conta do GitHub.
+
+| Plano       | Max Parallel Jobs | Max Parallel Jobs MacOS |
+| ----        | ---- | ---- |
+| Free        |  20  |  5   |
+| Pro         |  40  |  5   |
+| Team        |  60  |  5   |
+| Enterprise  | 150  | 50   |
+
+Essas limitações devem ser consideradas ao dividir seus fluxos de trabalho, especialmente se você os usa em projetos profissionais com várias pessoas trabalhando em paralelo.
+
+Também há limites no tempo de execução. Por exemplo, cada tarefa não pode ser executada por mais de 6 horas e o total de horas de um fluxo de trabalho que está executando várias tarefas (ou usa uma matriz) não pode exceder 72 horas.
+
+## Exercícios - jobs
+Vamos passar para alguns exercícios práticos para validar o que você acabou de aprender.
+
+### Exercício n°1
+Analise o próximo fluxo de trabalho e tente adivinhar o que será exibido no console.
+
+```
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+     steps:
+        - run: echo "Hello"
+ job2:
+   needs: job1
+   runs-on: ubuntu-latest
+   steps:
+     -- run: echo "how"
+ job3:
+      needs: [job1, job2]^
+    runs-on: ubuntu-latest
+      steps:
+       - run: echo "are"
+ job4:
+   runs-on: ubuntu-latest
+       steps:
+         - run: echo "you?"
+```
+
+
+
+Exercício n°2
+Neste segundo exercício, você é solicitado a concluir o fluxo de trabalho para que o job2 seja disparado somente se o job1 falhar e o job3 seja iniciado, aconteça o que acontecer. Por exemplo, o job1 falha se o fluxo de trabalho for executado durante o fim de semana. Novamente, não altere nenhuma propriedade ou linha de código existente; você só pode adicionar novas linhas.
+
+```
+jobs:
+  job1:
+     runs-on: ubuntu-latest
+      steps:
+        - run: |
+            dayOfWeek=$(date +%u) # calculates the day of the week
+            if ($dayOfWeek > 5)
+             then
+               exit 1
+            fi
+   job2:
+     runs-on: ubuntu-latest
+       needs: job1
+      steps:
+        - run: echo "Something went wrong"
+  job3:
+    runs-on: ubuntu-latest
+      needs: job2
+      steps:
+        - run: echo "I am running whatever happens"
+```
+
+Exercício n°3
+É comum que um fluxo de trabalho tenha vários trabalhos. Aqui está um exemplo simples em que a primeira parte escreve alguma mensagem em um arquivo de texto, e a segunda etapa, que dispara após a primeira, lê e exibe o conteúdo do arquivo de texto. Qual é a exibição do fluxo de trabalho a seguir?
+
+```
+name: jobs - exercice 3
+   on:
+     workflow_dispatch:
+     jobs:
+       job1:
+         runs-on: ubuntu-latest
+         steps:
+           - run: echo "hello job2" > test.txt # writes in test.txt
+       job2:
+         runs-on: ubuntu-latest
+           needs: job1
+           steps:
+              - run: cat test.txt # reads the content of test.txt and displays it in the console
+
+## The steps
+A parte mais rica de um fluxo de trabalho é representada pelo bloco steps que contém todas as ações que um fluxo de trabalho executa. Essas ações são precisamente essas famosas GitHub Actions, módulos que executam uma tarefa específica e que podem ser facilmente combinados dentro de um fluxo de trabalho.
+
+Você pode escolher entre:
+
+- [x] Executar um comando, uma linha de comando simples ou uma série de comandos
+- [ ] Executar uma Action, um módulo rico, personalizável e reutilizável criado anteriormente por outra pessoa
+
+## Executar um comando
+A execução de um comando é o equivalente a uma tarefa CMD no Windows ou um comando bash no Linux. Ele executa uma linha de comando simples e retorna o resultado para o console. Frequentemente usado para exibir uma mensagem, para executar uma operação em arquivos, às vezes é usado para iniciar comandos do sistema ou scripts de terceiros como vimos no capítulo anterior com "npm install" e "gulp build". Este tipo de tarefa é reconhecível pela presença da palavra-chave run.
+
+Uma etapa de execução se parece com isso: `- run: echo 'Execução do meu comando'`
+
+Caso você queira executar vários comandos, você terá a opção entre duplicar cada etapa com um único comando ou usar um caractere pipe (1) e combinar comandos com o seguinte formato:
+```
+steps:
+ #way of doing no 1
+  - run: echo 'Hello'
+  - run: echo 'World'
+#way of doing n°2-
+run: | # Indicates that multiple commands have to be executed
+      echo 'Hello'
+      echo 'World'
+```
+
+A escolha de um ou outro tem forte incidência porque cada tarefa (passo) é executada em um contexto diferente. Assim, se um comando define uma variável local, o próximo passo não pode acessar essa variável. Veremos mais adiante como é possível fazer a mesma coisa usando variáveis ​​de saída e/ou ambientes.
+
+```
+steps:
+    - run: MY_VARIABLE="hello"
+    - run: echo $MY_VARIABLE # does not work
+```
+
+Também é comum dar um alias para cada etapa por meio do nome da propriedade, o que, embora completamente opcional, traz mais clareza:
+
+```
+  steps:
+    - name: My first command
+      run: echo 'Execution of my command'
+    - name: my second command
+      run: echo 'Execution of my second command'
+
+```
+Esta propriedade facilita a diferenciação e análise de logs de execução de fluxo de trabalho exibidos no portal da Web GitHub.
+
+Uma das propriedades mais interessantes para execuções de comando é a propriedade shell que permite especificar o interpretador do comando. Assim, é possível executar um comando do PowerShell ou do sistema sem configuração adicional ou instalação de um tempo de execução específico.
+
+```
+steps:
+ - name: Start a PowerShell command
+    run: Write-Host "Hello"
+  shell: pwsh # specifies that we want a PowerShell shell
+- name: Start a Python command
+   run: print("Hello")
+   shell: python # specifies that we want a python shell
+
+Esta propriedade shell pode ter valores diferentes, cada um direcionando um ambiente de linha de comando específico que depende do ambiente que foi designado para a execução do trabalho (runs-on). Aqui está a lista exaustiva:
+
+Platform | Setting | Descriptio | Commandnlaunched  |
+All      | bash    | The default shell on non- | bash -noprofile |
+
+Essa liberdade permite executar scripts personalizados e especificar o interpretador relevante. No caso a seguir, o código snippet permite que você execute um script bash:
+
+```
+ steps:
+   - run: ./.github/scripts/build.sh
+    shell: bash
+```
+
+Além das propriedades name e shell, cada passo de comando (e os "passos de ação” que veremos logo depois) tem propriedades adicionais opcionais que serão vistas em detalhes ao longo dos capítulos deste livro. Entre essas propriedades, você encontrará em particular:
+
+- [x] id: identificador único do passo quando você deseja interagir com o passo, como recuperar suas variáveis ​​de saída ⚫
+- [x] with: para transmitir parâmetros para o comando/ação
+- [x] env: para declarar variáveis ​​locais no nível do passo
+- [x] if: para tornar condicional a execução do passo
+- [x] continue-on-error: para evitar que um passo seja considerado como falha mesmo quando um problema surge ou que um de seus comandos retorna um código de erro
+- [x] timeout-minutes: para forçar a parada de um passo se ele exceder o limite de tempo
+
+## Execução de uma Ação
+Suponha que seja possível fazer quase tudo apenas com passos run. Nesse caso, o verdadeiro poder do GitHub Actions vem da possibilidade de chamar diretamente módulos de script complexos que outras pessoas criaram. Esses módulos (os famosos GitHub Actions) são, como veremos mais adiante no livro, scripts simples colocados em um pacote que facilita seu download, configuração e execução.
+
+Você pode chamar uma Action com a palavra-chave uses, especificando o nome e a "versão" da ação a ser executada. Isso pode ser feito usando três variações:
+1. usando a versão da ação: que permite direcionar uma versão específica (um lançamento correspondente a essa versão deve ter sido criado)
+2. via branch da ação: que permite usar uma versão em desenvolvimento sem precisar de nenhum lançamento existente
+3. via hash da ação: pode direcionar um commit específico. Cada um desses métodos fornece o mesmo resultado em termos de execução, mas corresponde a diferentes casos de uso. Por exemplo, quando criamos nossa ação, e ela está sendo desenvolvida, é mais fácil usar o branch de desenvolvimento dessa ação. Dessa forma, se a criação for feita de forma iterativa, o fluxo de trabalho sempre pegará a última versão, e a publicação do release oficial só precisará ser feita quando o código estiver pronto:
+
+- uses: Igmorand/github-action-hello@main # take the main branch
+
+Este método deve ser reservado para desenvolvimento e uso de suas ações. Não o use para ações de terceiros; o risco é muito grande para quebrar seu fluxo de trabalho ou de uma perspectiva de segurança. A prática atual é confiar em uma versão "fixa" de uma ação que garanta a estabilidade do código. O conceito de versionamento é visto em detalhes em um capítulo posterior neste livro; veja isso simplesmente como uma versão de software. Quando uma ação é estável e totalmente funcional, é costume que o código seja marcado para congelar sua versão. É então possível direcionar a tag, que serve como o número da versão.
+
+- uses: 1gmorand/github-action-hello@v1 # V1 is the tag corresponding to a release
+
+Na última maneira, a chamada via hash de uma ação tem como alvo um commit específico. Em alguns casos, essa maneira de fazer as coisas é considerada uma boa prática de segurança, mas vem com limitações. Este tópico é discutido no capítulo Conceitos avançados › Segurança.
+
+uses:1gmorand/github-action- hello@4ad9596b7c626f5cef5b66419d00bafac1950066 # hash (SHA)of a commit
+
+É o único método para garantir uma versão imutável da ação carregada em seu fluxo de trabalho. Se isso pode ser lógico à primeira vista, isso significa que se a ação, que está em um repositório próprio, altera ou corrige um bug nela, essa correção/melhoria nunca será cobrada pelo seu fluxo de trabalho. Por outro lado, se você referenciar uma ação “v1”, seu fluxo de trabalho baixará quaisquer atualizações dela. Então, se o autor da ação publicar uma versão "v1.1",
+ela será cobrada pelo seu fluxo de trabalho sem nenhuma intervenção de sua parte ou sem ser notificado porque v.1.1 é uma versão de lançamento menor de v.1.
+
+Importante: Se você quiser saber mais sobre essas mecânicas, leia o capítulo dedicado: Criar uma Ação › Versionamento. Você encontrará todos os pontos de atenção e como usá-los seguindo as boas práticas.
+
+Também há a opção de chamar uma Ação privada. Uma Ação privada é qualquer Ação que vem do mesmo repositório do qual é chamada. Esse mecanismo é útil quando você deseja usar uma Ação de sua criação sem expô-la ao público. Atualmente (embora esteja no roteiro do GitHub), uma ação deve estar em um repositório público para ser utilizável. Portanto, é impossível usar uma ação que viria de outro repositório pertencente a você sem ser exposto ao público.
+
+Para usar uma Ação privada, basta especificar o caminho da pasta que contém os diferentes arquivos em sua ação:
+
+`- uses: ./chemin/github-action-hello`
+
+Por convenção, espera-se que ações privadas sejam armazenadas na pasta .github/actions, mas isso não é obrigatório. Por outro lado, fluxos de trabalho devem estar em .github/workflows.
+
+`- uses: ./.github/actions/github-action-hello`
+
+A combinação de ações e tarefas de execução oferece infinitas possibilidades. Portanto, é normal (até recomendado) usar as Ações o máximo possível e concluir o fluxo de trabalho com tarefas de execução quando nenhuma ação atende à sua necessidade ou se a necessidade é tão simples que o uso de uma ação de terceiros traria mais riscos do que benefícios.
+
+## Execution within a container
+A liberdade dada dentro do fluxo de trabalho permite que você instale todos os componentes/ferramentas/programas necessários para executar as tarefas definidas no seu fluxo de trabalho. No entanto, a instalação dessas ferramentas pode ser longa e tornar cada execução do fluxo de trabalho ineficiente.
+
+O GitHub Actions permite que você execute tarefas dentro de um contêiner que será provisionado sob demanda. Além da vantagem de ser mais rápido, também permite ter o mesmo comportamento/ambiente, seja no computador do desenvolvedor ou por meio de um fluxo de trabalho em uma máquina virtual.
+
+O exemplo a seguir, através da propriedade container, solicita ao fluxo de trabalho que baixe (docker pull) a imagem do contêiner “node”, para iniciar uma instância deste contêiner e carregar dentro dele os diferentes comandos. Desta forma, não há necessidade de instalar o NodeJS no agente GitHub, pois a imagem do nó já possui todas as ferramentas necessárias.
+
+```
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: 'node:current'
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+              npm install
+              npm run build
+```
+
+Aviso: É necessário especificar o sistema operacional subjacente (propriedade runs-on) porque os contêineres serão necessariamente contêineres Linux ou Windows e precisam de sistemas operacionais correspondentes.
+
+## Descubra novas Ações
+A riqueza das Ações do GitHub é amplamente composta pelas ações criadas pela comunidade. No momento em que escrevo estas linhas, há mais de 9000 Ações publicadas no marketplace do GitHub: https://github.com/marketplace?type=actions.
+
+Marketplace: Ações
+
+De lá, você pode acessar a página detalhada de cada ação. Esta página é extremamente importante porque lhe dirá a maneira de integrar esta ação em seu fluxo de trabalho, seus parâmetros, mas também informações importantes, como o autor ou o link para o repositório da ação, o que lhe fornecerá ainda mais informações, como a possibilidade de analisar seu código-fonte:
+
+Marketplace: página detalhada
+
+Quando você tiver alguma necessidade especial em um fluxo de trabalho, incluindo uma tarefa simples como instalar uma ferramenta, comece verificando se uma ação produzida por terceiros já existe. Usar sua ação provavelmente permite que você economize tempo, adicione recursos e simplifique seu fluxo de trabalho. Se você não encontrar o que está procurando entre as ações existentes, não hesite em
+
+Pagina 79
