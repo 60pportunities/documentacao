@@ -3569,7 +3569,7 @@ Para ajudar a evitar vazamentos acidentais, de fato, o GitHub remove quaisquer s
 - [x] Do not use structure data; (Evite usar um blob de JSON, XML, YAML ou similar como valor secreto)
 - [x] Register all Secrects ... Secrets
 - [x] Audit the Secrets Handling (Auditar como os segredos são tratados)
-- [x] Use minimally Scoped credencials (Privilégio mínimo - e não apenas para os segredos do GitHub Actions, usar credenciais com escopo mínimo 
+- [x] Use minimally Scoped credencials (Privilégio mínimo - e não apenas para os segredos do GitHub Actions, usar credenciais com escopo mínimo
 - [x] Audit and Rotate Secrets
 - [X] Review for access to secrets
 
@@ -5032,11 +5032,14 @@ steps:
 - name: Start a Python command
    run: print("Hello")
    shell: python # specifies that we want a python shell
+```
 
 Esta propriedade shell pode ter valores diferentes, cada um direcionando um ambiente de linha de comando específico que depende do ambiente que foi designado para a execução do trabalho (runs-on). Aqui está a lista exaustiva:
 
+```
 Platform | Setting | Descriptio | Commandnlaunched  |
 All      | bash    | The default shell on non- | bash -noprofile |
+```
 
 Essa liberdade permite executar scripts personalizados e especificar o interpretador relevante. No caso a seguir, o código snippet permite que você execute um script bash:
 
@@ -5063,15 +5066,20 @@ Você pode chamar uma Action com a palavra-chave uses, especificando o nome e a 
 2. via branch da ação: que permite usar uma versão em desenvolvimento sem precisar de nenhum lançamento existente
 3. via hash da ação: pode direcionar um commit específico. Cada um desses métodos fornece o mesmo resultado em termos de execução, mas corresponde a diferentes casos de uso. Por exemplo, quando criamos nossa ação, e ela está sendo desenvolvida, é mais fácil usar o branch de desenvolvimento dessa ação. Dessa forma, se a criação for feita de forma iterativa, o fluxo de trabalho sempre pegará a última versão, e a publicação do release oficial só precisará ser feita quando o código estiver pronto:
 
+```
 - uses: Igmorand/github-action-hello@main # take the main branch
+```
 
 Este método deve ser reservado para desenvolvimento e uso de suas ações. Não o use para ações de terceiros; o risco é muito grande para quebrar seu fluxo de trabalho ou de uma perspectiva de segurança. A prática atual é confiar em uma versão "fixa" de uma ação que garanta a estabilidade do código. O conceito de versionamento é visto em detalhes em um capítulo posterior neste livro; veja isso simplesmente como uma versão de software. Quando uma ação é estável e totalmente funcional, é costume que o código seja marcado para congelar sua versão. É então possível direcionar a tag, que serve como o número da versão.
 
+```
 - uses: 1gmorand/github-action-hello@v1 # V1 is the tag corresponding to a release
-
+```
 Na última maneira, a chamada via hash de uma ação tem como alvo um commit específico. Em alguns casos, essa maneira de fazer as coisas é considerada uma boa prática de segurança, mas vem com limitações. Este tópico é discutido no capítulo Conceitos avançados › Segurança.
 
+```
 uses:1gmorand/github-action- hello@4ad9596b7c626f5cef5b66419d00bafac1950066 # hash (SHA)of a commit
+```
 
 É o único método para garantir uma versão imutável da ação carregada em seu fluxo de trabalho. Se isso pode ser lógico à primeira vista, isso significa que se a ação, que está em um repositório próprio, altera ou corrige um bug nela, essa correção/melhoria nunca será cobrada pelo seu fluxo de trabalho. Por outro lado, se você referenciar uma ação “v1”, seu fluxo de trabalho baixará quaisquer atualizações dela. Então, se o autor da ação publicar uma versão "v1.1",
 ela será cobrada pelo seu fluxo de trabalho sem nenhuma intervenção de sua parte ou sem ser notificado porque v.1.1 é uma versão de lançamento menor de v.1.
