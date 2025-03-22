@@ -5128,6 +5128,1037 @@ De lá, você pode acessar a página detalhada de cada ação. Esta página é e
 
 Marketplace: página detalhada
 
-Quando você tiver alguma necessidade especial em um fluxo de trabalho, incluindo uma tarefa simples como instalar uma ferramenta, comece verificando se uma ação produzida por terceiros já existe. Usar sua ação provavelmente permite que você economize tempo, adicione recursos e simplifique seu fluxo de trabalho. Se você não encontrar o que está procurando entre as ações existentes, não hesite em
+Quando você tiver alguma necessidade especial em um fluxo de trabalho, incluindo uma tarefa simples como instalar uma ferramenta, comece verificando se uma ação produzida por terceiros já existe. Usar sua ação provavelmente permite que você economize tempo, adicione recursos e simplifique seu fluxo de trabalho. Se você não encontrar o que está procurando entre as ações existentes, não hesite em crie sua própria Ação. Este tópico é abordado em detalhes no capítulo "Criar uma Ação Personalizada".
+### O editor de fluxo de trabalho
+Com a prática, você ficará mais confiante para escrever fluxos de trabalho manualmente; no entanto, para facilitar sua escrita, o GitHub fornece um editor web dedicado à escrita de fluxos de trabalho que oferece recursos úteis, como um mecanismo de busca integrado para ações, linting de estrutura e preenchimento automático.
 
-Pagina 79
+### Editor de fluxo de trabalho
+Este editor é ativado automaticamente ao abrir um arquivo YAML (a extensão *.yml ou *.yaml é obrigatória) localizado na pasta ".github/workflows". Se o arquivo YAML estiver em outro lugar, o GitHub o ignorará como fluxo de trabalho (= não será acionado) e o editor proposto será o editor de arquivo padrão.
+Pessoas que preferem trabalhar diretamente em seu computador com seu editor de código preferido também podem usar o mesmo facilidade, especialmente se o editor fornecer extensões de preenchimento automático. Por exemplo, o Visual Studio Code permite que você instale uma extensão que permite obter o mesmo preenchimento automático, a detecção de erros em seu YAML, mas também ver diretamente do Visual Studio Code os logs e os resultados de seus fluxos de trabalho, permitindo que você trabalhe totalmente localmente sem precisar abrir o portal da web.
+Dicas: Esta extensão foi escrita por Christopher Schleiden e pode ser encontrada aqui: `https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions`
+É muito mais avançado do que o editor nativo do portal da web.
+### Exercícios - As etapas
+As etapas são a parte mais importante de um fluxo de trabalho e, se nesta fase do livro, cobrimos apenas o básico, é importante ter bases sólidas adquiridas por meio de alguns exercícios.
+### Exercício 1
+Para este primeiro ano, escreva um fluxo de trabalho de gatilho manual que exiba qualquer mensagem no console. Para apimentar o exercício, vamos adicionar uma pequena restrição: não use o comando run, apenas ações do marketplace.
+### Exercício 2
+Uma pessoa publica uma ação chamada "fake-action" no marketplace com uma versão e uma tag igual a "v1.1.0". Esta ação não requer nenhum parâmetro em particular. Em vez disso, seu fluxo de trabalho faz referência à ação com o seguinte formato:
+
+O fluxo de trabalho está funcionando?
+
+E se o formato for o seguinte, o fluxo de trabalho funcionará corretamente?
+
+`- uses: user/fake-action@1.1.0 # note que "v" está faltando`
+
+Então você especifica o seguinte formato.
+
+`- uses: user/fake-action@v1.1 # note que a versão do patch está faltando`
+
+O autor da fake-action publica uma nova versão (versão "1.1.1") e, em seguida, uma segunda alguns dias depois (versão "1.2.1"). Se você executar seu fluxo de trabalho novamente (usando "fake-action@v1.1"), qual versão é carregada entre "1.1.0", "1.1.1" e "1.2.1"?
+Não hesite em consultar o capítulo Criar uma ação > Controle de versão para entender a mecânica.
+### Exercício 3
+Você deseja usar uma ação que não está publicada no mercado e chamada SuperAction. Esta ação está no repositório do usuário "someone". Este usuário não publicou nenhuma versão de sua ação, apenas manteve o repositório público. Além disso, esta Ação recebe dois parâmetros: o "nome" de uma pessoa e sua "idade".
+Qual formato seu fluxo de trabalho deve ter para chamar esta ação corretamente?
+## As matrizes
+Um fluxo de trabalho pode conter vários trabalhos. Essa flexibilidade permite, por exemplo, compilar com um único fluxo de trabalho tanto um aplicativo móvel Android no Linux quanto um iOS no macOS. Também pode ser útil compilar o mesmo código-fonte com diferentes configurações do compilador, como um recurso habilitado ou não (chamado sinalizador de recurso), ou simplesmente compilar o mesmo aplicativo em várias versões da estrutura subjacente (Java, NodeJS, etc.).
+
+Suponha que esses vários trabalhos possam realizar várias ações em uma única execução. Nesse caso, isso tem a desvantagem de ter um arquivo de fluxo de trabalho muito longo e muitas linhas de código duplicadas, levando a uma manutenção mais complexa e possíveis erros. O GitHub Actions oferece uma solução para isso: as matrizes.
+Uma matriz, que é declarada como um conjunto de valores-chave, pode gerar proativamente mais trabalhos a partir de uma única definição: cada versão "gerada" é chamada de expansão. Vantagem: um arquivo, uma definição de trabalho, mas n trabalhos gerados automaticamente e configurados em tempo de execução.
+As matrizes são declaradas no nível do trabalho, como uma propriedade de uma estratégia e, em seguida, como uma subpropriedade chamada matriz, incluindo uma (ou mais) matriz(s) do tipo "chave: [valor1, valor2]". Os valores declarados serão acessíveis como variáveis por cada expansão.
+Neste primeiro exemplo, que visa gerar jobs com base no sistema operacional, a definição do job tem uma matriz cuja chave é os e cujos valores são "ubuntu-latest", "windows-latest" e "macos-latest". A matriz injeta em cada expansão (serão, portanto, três delas, uma para cada valor) a variável chamada os com o respectivo valor. Esta variável fica então disponível como ${{ matrix.os }} dentro de cada job, permitindo, neste exemplo, obter um sistema operacional dinâmico.
+
+A declaração de uma matriz:
+```
+jobs:
+myjob:
+strategy:
+Jobs
+matrix:
+os: [ubuntu-latest, macos-latest, windows-latest]
+runs-on: ${{ matrix.os }}
+steps: # the actions #
+```
+
+Ao executar o fluxo de trabalho, você vê uma execução única do fluxo de trabalho, mas ela contém a execução de três tarefas paralelas, para as quais os valores das matrizes são injetados:
+
+## Execution of the matrix
+Observe que as matrizes também podem ser declaradas em um formato um pouco mais legível:
+```
+strategy:
+matrix:
+OS:
+-ubuntu-latest
+-macos-latest
+-windows-latest
+```
+Também é possível declarar várias matrizes, o que causará uma combinação de valores. Aqui, teremos 6 combinações possíveis e, portanto, 6 jobs: ubuntu+node10, ubuntu+node16, windows+node10, windows+node 16, macos+node10 e macos +node16:
+
+```
+runs-on: ${{ matrix.os }}
+strategy:
+matrix:
+os: [ubuntu-latest, windows-latest, macos-latest]
+node: [node10, node16]
+steps:
+- name: Setup Node
+uses: actions/setup-node@v4
+with:
+node-version: ${{ matrix.node}}
+```
+
+Importante: Um fluxo de trabalho não pode ter mais de 256 expansões de trabalho. Nesse caso, o fluxo de trabalho simplesmente não será iniciado.
+
+## Exclusions
+Matrizes combinatórias podem, portanto, gerar todas as combinações desejadas. Você pode querer excluir uma ou mais combinações porque sabe que essa combinação não é útil. Em vez de gerar expansão e adicionar uma condição nas etapas para fazer "nada" neste caso específico, é possível evitar essa expansão em particular usando a propriedade exclude.
+
+No exemplo a seguir, temos duas matrizes (uma com 3 valores, a outra com 2 valores) e, portanto, 6 expansões no total. A adição de exclusão impedirá a combinação "macos-latest + 12":
+
+```
+runs-on: ${{ matrix.os }}
+strategy:
+matrix:
+os: [ubuntu-latest, windows-latest, macos-latest]
+node: [10, 12]
+exclude:
+- os: macos-latest
+node: 12 # Note that there is no "-" in front of the key "node" because it is part of the same object as "os"
+```
+
+Então, apenas 5 expansões serão executadas:
+
+### Inclusions
+Por outro lado, você pode achar mais fácil adicionar combinações específicas. Por exemplo, queremos que as 6 expansões base testem a combinação NodeJS 8 + macOS no caso a seguir.
+
+```
+runs-on: ${{ matrix.os }}
+strategy:
+matrix:
+os: [ubuntu-latest, windows-latest, macos-latest]
+node: [10, 12]
+include:
+- os: macos-latest
+  node: 8
+```
+Esse recurso de inclusão é muito mais útil do que pode parecer à primeira vista. De fato, ele permite, por exemplo, configurar compilações de sombra para verificar se o aplicativo pode operar em casos imprevistos, por exemplo, uma versão do framework normalmente não suportada pelo aplicativo.
+
+Por exemplo, aqui está um fluxo de trabalho destinado a compilar o aplicativo com Java 8 e 11 e adicionar uma combinação para compilar com Java 14. Essa combinação também adiciona uma chave "testing" atribuída à propriedade padrão de um trabalho continues-on-error. Essa propriedade especifica que um trabalho deve continuar, não importa o estado de suas etapas.
+
+```
+jobs:
+build:
+strategy:.
+matrix:
+java: [8, 11]
+testing: [false]
+include:
+-java: 14
+testing: true
+continue-on-error: ${{ matrix.testing }}
+```
+
+## The concept of fail-fast
+Quando você executa uma matriz, cada expansão é executada em paralelo em seu agente para ir mais rápido. Quando uma das expansões falha, as outras expansões são canceladas e param no meio de suas tarefas.
+
+Esse comportamento é o comportamento padrão de uma estratégia porque é padrão pensar que a partir do momento em que parte do fluxo de trabalho falha. Portanto, o fluxo de trabalho em sua totalidade não pode ser considerado um sucesso, e que é necessário parar qualquer trabalho inútil que seria caro em tempo (e financeiramente). Isso é chamado de fail fast para parar o mais rápido possível, para corrigir rapidamente e tentar novamente.
+Na captura a seguir, você pode ver que as versões do Windows e do macOS mudaram para o status "cancelado" assim que o fluxo de trabalho do Ubuntu falhou.
+
+No entanto, isso pode acontecer, seja porque você está depurando um fluxo de trabalho ou simplesmente porque deseja que cada expansão de uma matriz conclua suas tarefas. Portanto, você tem que desabilitar esse comportamento fail-fast. Para fazer isso, adicione a propriedade fail-fast (com o valor false) à sua estratégia.
+
+```
+strategy:
+matrix:
+os: [ubuntu-latest, macos-latest, windows-latest]
+fail-fast: false # expansions won't stop
+```
+
+Neste momento, cada expansão de matriz continuará até que seja concluída com sucesso ou falhe. No nosso caso, as versões macOS e Windows continuaram até o fim, mesmo que a expansão ubuntu tenha falhado:
+
+Aviso: Como você verá no próximo capítulo sobre runners, workflows paralelos impactam a soma dos minutos de execução e, portanto, impactam o custo mensal, principalmente se você desabilitar o fail-fast e deixar os workflows continuarem.
+
+### Exercícios
+Vamos colocar em prática através de alguns exercícios.
+
+### Exercício n°1
+Neste primeiro exercício, você deve editar o próximo workflow para compilar a aplicação com duas versões do .NET Framework (4.2.x e 5.0.x), mas também precisa compilar duas versões usando um parâmetro respectivamente debug e release:
+
+```
+name: "matrix - exercise 1"
+jobs:
+build:
+strategy:
+matrix: # TO BE COMPLETED
+steps:
+- name: Retrieve source code
+  uses: actions/checkout@v4
+- name: Install .NET
+  uses: actions/setup-dotnet@v4
+   with:
+dotnet-version: # TO BE COMPLETED
+- name: Restore dependencies
+  run: dotnet restore
+- name: Build
+   run: dotnet build --no-restore --configuration ${{ env.buildMode}}
+env:
+buildMode: # TO BE COMPLETED
+```
+
+### Exercise n°2
+Quantos trabalhos são gerados com esse fluxo de trabalho?
+
+```
+name: "matrix - exercise 2"
+on:
+workflow_dispatch:
+jobs:
+build:
+runs-on: ${{ matrix.os}}
+strategy:
+matrix:
+os: [ubuntu-latest, windows-latest, macos-latest]
+node: [10, 12]
+include:
+- os: macos-latest
+ node: 8
+exclude:
+- os: macos-latest
+  node: 10
+- os: macos-latest
+node: 8
+steps:
+- run: echo "I run on ${{ matrix.os }} with the Node version $ {{ matrix.node }}"
+```
+
+### Exercise n°3
+Nossa necessidade é criar um fluxo de trabalho que implante nosso aplicativo em oito servidores de produção. O número de servidores no futuro pode aumentar, e é inaceitável duplicar etapas. Portanto, queremos usar as matrizes para simplificar nosso fluxo de trabalho, conforme mostrado pelo seguinte YAML:
+```
+runs-on: ubuntu-latest
+strategy:
+matrix:
+server: [prod1, prod2, prod3, prod4, prod5, prod6, prod7, prod8]
+steps:
+ - name: Deploy application
+    run: echo "Deploy on ${{ matrix.server}}"
+```
+
+Este fluxo de trabalho funciona perfeitamente, mas a implantação em paralelo em todos os servidores de produção pode causar interrupção do serviço para os usuários. Nossa equipe de DevOps propõe fazer a implantação progressiva (implantação canário) e implantar nos servidores, no máximo 2 por vez. Altere o YAML para obter o comportamento esperado.
+
+Dica: leia a documentação oficial sobre matrizes para descobrir como fazer isso. Procure controlar o paralelismo.
+
+## Runners
+Os agentes, também conhecidos como runners ou "runners hospedados no GitHub", são pequenos programas com apenas uma coisa a fazer: executar as tarefas dadas a eles e transmitir seus resultados de volta.
+
+## How it works
+An agent is an orchestrator; its only "intelligence" is to perform the tasks described in a workflow file. Internal behavior is the following:
+1. An event is triggered on GitHub (push, pull_request, etc.)
+2. GitHub checks the repository's workflows to see if one or more workflows have a trigger matching the event
+3. GitHub triggers the creation of a new hosted agent (it is a small virtual machine, called a virtual environment)
+4. GitHub reserves the agent for a specific workflow (the agent will only work for this workflow)
+5. GitHub reads the workflow YAML file to detect information to inject into (secrets, environment variables, GitHub variables)
+6. GitHub sends the whole to the newly created agent
+7. The agent performs the tasks one by one, sending the result to GitHub
+8. GitHub integrates the results, stores them in its database, and displays them on the portal, which allows us to monitor in "real-time" what happens
+9. Once the agent completed its work, the agent is destroyed
+Nevertheless, an agent is a program with very limited capabilities; it can only execute commands sequentially and return their result. Any action (compiling code, converting a file, deploying, scanning, etc.) is only possible through the installation of third-party tools on the system, or being present by default on the chosen operating system, or because you ask the agent to install them via a command line during the workflow.
+
+## Pre-installed tooling
+If it is possible to install any tool on an agent using a task that would download and launch an installer, GitHub- supplied agents have several pre-installed software and frameworks. This allows these agents to be already ready to use and make the workflows faster.
+On Windows agents, you will find .NET, Java, GO, PHP being pre-installed, and CLI tools to deploy on Azure, AWS, or even AliCloud. On Linux, you will have, among other things, Mono, Ruby, GNU C++, Google Cloud SDK, etc.
+If you want to know in detail the list of pre-installed tools on each system, the up-to-date list is maintained on the official repository: https://github.com/actions/virtual- environments/tree/main/images
+
+If a program needed by your workflow is not present, simply install it yourself., Create (or use an existing one) a task that downloads the tool you need at the beginning of your workflow. For example, the book you are currently reading was written in Markdown but needed tools to be transformed into PDF/EPUB. To do this, the workflow needs to install two tools (Pandoc and LaTeX) before you can use them.
+
+runs-on: ubuntu-20.04
+steps:
+name: installing Pandoc
+run: sudo apt-get install --assume-yes pandoc
+- name: installing pdflatex + modules
+run: |
+sudo apt-get install texlive-latex-base
+sudo apt-get install texlive-fonts-recommended
+sudo apt-get install texlive-latex-extra
+sudo apt-get install texlive-xetex
+- name: Generating the PDF version
+run: pandoc -V documentclass-memoir --pdf-engine-xelatex from=markdown-blank_before_header -s $(cat _includes.txt) -o './ dist/GitHub Actions-par la pratique.pdf'
+working-directory: ./book
+
+Tooling possibilities are endless; as long as the workflow can download a tool and start a command line (without any GUI) to install or run it, any third-party software should be easy.
+
+## Network considerations
+The fact that the agents managed by GitHub (GitHub hosted runners) are hosted in the Microsoft Azure cloud is a clear advantage: this avoids any particular maintenance cost (hardware, license of the OS, people salary, etc.). However, it also implies that these agents are outside your company's network.
+
+If this is not a problem for most workflows, including compilation workflows (CI) that do not usually need any specific connection, this can be very different for deployment workflows. Indeed, it is common that enterprise networks are closed to any outside access for security reasons; thus, an external deployment agent (because being in the Cloud) would be blocked as shown in the following diagram:
+
+![](img/github-runners-network.png)
+
+Because of this network constraint, some use cases where GitHub agents do not address the need or where the network/security team prohibits their use. The answer to this problem is the use of "self-hosted" agents.
+
+## The self-hosted runners
+
+GitHub provides agents (called "hosted runners" or "managed agents") which provide for each execution a "disposable" environment to compile and/or deploy your applications. If they are suitable for most uses, in many cases, they are unfortunately not sufficient. If we had, for example:
+- [x] The need to compile on a different operating system from those proposed by default
+- [x] The need to compile an application with access to specific hardware or license associated with this hardware (common usage in IoT)
+- [x] The need to deploy on servers that are not accessible from the Internet (where the GitHub hosted agents are)
+- [x] Just need a compilation server with more computing power (memory, CPU)
+
+
+For many possible scenarios where default agents are not enough, a solution exists: the “self-hosted runners”, agents you manage yourself.
+
+![](img/github-runners-network-01.png)
+
+## Adding a new agent
+The self-hosted agents have the advantage of being more flexible and are free from a license point of view. Still,they have a maintenance cost since it is your responsibility to ensure they are up to date (the GitHub agent's version) and on continuously secured/patched servers. We must also add the implicit cost of the server where the agent is installed (for example, operating system license, equipment, electricity) and ensure the resiliency of the platform, which may imply having several servers. Despite this cost, self-hosted agents are often part of the solution in enterprise projects.
+You can add an infinite number of agents per project, and their installation only takes few minutes. The declaration of a self-hosted runner is done on the screen Settings > Actions of your repository. In this screen, on the right, is located a block listing all registered runners of this repository:
+
+Click on "Add agent" to open a new screen that allows selecting the operating system corresponding to the server which will host your runner. This choice is critical because your install a runner on a Windows runner, only "windows" workflows (property runs-on) will be executed by this runner. Therefore, if one of your workflows requires executing one job on Windows and another job on Linux, then you will require two different servers with two operating systems and two runners.
+
+Warning: If an agent is bound to only one repository (except with GitHub Enterprise), it is still possible to install multiple agents managing multiple projects side
+by side on the same computer. In addition to safety issues, the risks of collision (applications installed by each project, incompatible with each other) are high. In addition, the working directories contain a copy of the source code downloaded and other items that potentially contain sensitive data. At the end of the book, in the appendix, a chapter addresses in detail the creation of a self-hosted containerized agent, allowing to override these limitations and reduce these risks.
+
+
+Declaring a new runner requires two steps. First, the installation of the runner. After choosing the operating system, the Web portal provides a command to run on the target server; this command downloads and installs the runner properly.
+
+Actions / Add self-hosted runner
+Adding a self-hosted runner requires that you download, configure, and execute the GitHub Actions Runner. By downloading and configuring the Github Actions Runner, you agree to the GitHub Terms of Service or GitHub Corporate Terms of Service, as applicable.
+
+
+## Download the latest runner package
+Once installed, the second step is configuring the runner to interact with your repository securely. The Web portal generates a command containing the repository's URL and an authentication token, which allows the runner to access read/write access to your repository. The command looks like this:
+```
+# Runner configuration
+$ ./config.cmd --url https://github.com/lgmorand/book-github-actions --token C3C13STUNF4K3TOK3N
+```
+
+When executed, the command asks several information to customize the agent, such as its name, its labels, and the type of execution (as a service or manual). Of course, you can also let those values empty and let the setup use the default values:
+
+
+## Runner configuration
+Once setup is complete, the agent should appear registered in the GitHub portal with its name and labels. However, his status is inactive (offline). This status indicates that GitHub does not communicate with the agent either because a firewall is blocking communications or simply because the agent, though installed, is not started.
+
+Warning: A self-hosted agent is linked to one and only one repository. If you want to share an agent between repositories, you must have a GitHub Enterprise account and at the runner at the organization's level.
+
+To start the runner, a command line is enough. During the execution of this command, the agent reports itself to GitHub as available and starts listening/waiting.
+Once started, the runner appears as "Idle", meaning that it is ready and waiting to be assigned a workflow.
+
+Runner available and active
+
+Information: As we will see later in this chapter, labels are used to recognize the runners and their capabilities or explicitly select a specific runner that will execute the workflow.
+
+### How to use our self-hosted runner?
+When an agent is properly registered (status Idle), we just have to tell the workflow to use it. This assignment is done via the property "runs-on: self-hosted".
+
+`runs-on: self-hosted`
+
+The property, as written above, tells GitHub that the workflow must be performed by one of the self-hosted agents. The text "self-hosted" is one of the labels automatically added to the agent during its configuration. Several default labels are added according to the machine on which the agent is installed:
+
+- [X] self-hosted: Added to all self-hosted agents
+- [X] linux, windows, or macOS: corresponding to the underlying operating system
+- [X] x64, ARM, or ARM64: Specifies the processor architecture
+
+These labels, called "routes", allow you to target an agent or a particular agent group. Thus, by combining them, it is possible to specifically target an agent whose technical characteristics will perform workflow tasks; in reality, these tasks implicitly decide the type of agent required for their proper completion. The following example tells GitHub that the workflow should be run by a self-hosted agent having a 64bits processor and which installed on a Windows operating system:
+
+``runs-on: [self-hosted, windows, x64]``
+
+The labels are declared when registering the agent but can also be added later using the GitHub portal interface:
+
+
+This practice is especially useful when your agent is located on a specific server (e.g., a production server) or a server physically connected to a hardware device (IoT or robotics). It allows you to give a unique label to this agent and target it very specifically. The choice of an agent by GitHub is made by looking for the candidate agents who match all labels.
+
+```runs-on: self-hosted, raspberry1 # target the runner which has both these labels```
+
+## Network access
+Suppose the main asset of the self-hosted runners is running within your local network and only having outgoing communications. In that case, it requires allowing the agent to communicate with GitHub and open the relevant communication streams. Here is the complete list of URLs that must be opened in your firewall to allow the agent to communicate, place, or retrieve items on/from GitHub.
+
+Needed for essential operations:
+```
+github.com
+api.github.com
+*.actions.githubusercontent.com
+````
+
+Needed for downloading actions:
+```
+codeload.github.com
+Needed for uploading/downloading job summaries and logs
+actions-results-receiver-production.githubapp.com
+*.blob.core.windows.net
+```
+
+Needed for runner version updates:
+```
+objects.githubusercontent.com
+objects-origin.githubusercontent.com
+github-releases.githubusercontent.com
+github-registry-files.githubusercontent.com
+````
+
+Needed for uploading/downloading caches and workflow artifacts:
+```
+*.blob.core.windows.net
+Needed for retrieving OIDC tokens:
+*.actions.githubusercontent.com
+````
+
+Needed for downloading or publishing packages or containers to GitHub Packages:
+```
+*.pkg.github.com
+ghcr.io
+```
+
+It will also be necessary to open access to the servers in your local network on which you want the agent to deploy your applications.
+
+## Differences between the two types of runners
+The self-managed runners bring more freedom and more features but come with more restrictions. The entire part normally managed by GitHub (management of updates, update the system components) must now be manually managed with a non-negligible overhead.
+
+### Runners managed by GitHub:
+
+- [X] Automatic update of the operating system, pre- installed tools/packages, and the agent itself.
+- [X] Maintained and managed entirely by GitHub
+- [X] Provide a new clean instance for each execution
+- [X] Use the free execution time offers by GitHub and then includes a cost if the limit is exceeded
+
+### Self-managed runners (self-hosted):
+- [X] The agent himself automatically updates. You are responsible for updating the operating system and all other components
+- [X] It can be installed almost everywhere, on the local computer, on a physical server, on a virtual machine in the Cloud
+- [X] Allows being associated with a completely customized configuration (hardware, compute capacity, or software)
+- [X] Reuse the same instance for each new pipeline
+- [X] Are completely free regardless of the duration of use
+
+If globally, GitHub runners will respond to the majority of use cases and should therefore be your first choice. In that case, self-hosted runners will be relevant for deployment needs done with strong network security constraints. The combination of both brings the best of both worlds to meet all possible scenarios.
+
+### Exercises - Runners
+Runners are the cornerstone of GitHub Actions; let's try to use them through some practical exercises.
+
+#### Exercise n°1
+In this first exercise, on the repository of your choice, declare a self-hosted runner that you will install on your local computer. Name it "my-agent” and ensure it is listed in the GitHub web portal as an active agent (“Idle” status).
+In a second step, declare any workflow and make it run by your runner. What are the means at your disposal to make sure this agent executed your workflow?
+
+
+#### Exercise n°2
+Change your workflow to browse the root of the disk drive where it is currently executed (or any other folder), list the files, and add a command to create an empty text file.
+How does the workflow behave, and what can you conclude?
+
+#### Exercise n°3
+The project is over; it is time to clean unused resources. For this last exercise, properly uninstall the runner. The uninstall procedure is done by clicking on your runner options listed in the web portal. Then follow the instructions and confirm that the agent is no longer listed.
+
+#### Exercise n°4
+You no longer have a runner, yet a workflow always refers to it. What happens if no self-hosted runner is available? Does the workflow start or not at all? The workflow starts and then crashes? Does the workflow fall back on a runner managed by GitHub? Start the workflow and confirm if your foresight was correct.
+
+## The variables
+Like any programming language or scripting, the variables allow you to define keys with reusable values within the workflows.
+
+### Declaration of a variable
+The declaration of a variable is done by adding the property env then declaring key-values as shown in the following example:
+
+```
+env:
+MY_VARIABLE_FIRSTNAME: John
+MY_VARIABLE_NAME: "Doe" # quotation marks are not mandatory even if the value contains spaces
+MY_VARIABLE_MULTILINE:|
+hello
+to all
+!
+```
+
+Variable names are case sensitive; to avoid confusion and to improve readability, it is a common usage to write them all uppercase, but this is not mandatory. In addition, the naming allows alphanumeric characters and the underscore character (_).
+Once a defined variable, statically or dynamically, it can be called with the syntax ${{ env.MY_VARIABLE }} which says to load the MY_VARIABLE from the context env, which represents the context of the level we are, either the workflow, the job, or the current step.
+
+```
+env:
+#definition at job level
+MY_VARIABLE: hello
+#variable definition
+steps:
+- run: echo ${{ env.MY_VARIABLE }} # display "hello" in the console
+```
+The variable can be used to replace any value (but not a key), to be used within a command (example above) or an action.
+
+### Dynamic variables
+In some cases, the variable is unknown and will be defined during the workflow, potentially passing from one step to another. With GitHub Actions, you cannot assign a variable as you would normally do, such as $MYVARIABLE=my value. Instead, it is necessary to both concatenate the key and the value and transfer it into the global variable $GITHUB_ENV:
+
+`echo "NAME_VARIABLE=value" >> $GITHUB_ENV`
+
+Technically speaking, you write the variable's name and its value in a temporary file. This file is read at the end of the step, and its data is injected into the environment variables. Therefore, when you dynamically define the value of a variable in a step, the new value of this variable will only be accessible for the following steps, not for the current step. The following workflow displays "yellow - yellow - green”.
+
+```
+job:
+runs-on: ubuntu-latest
+env:
+VARIABLE: yellow
+steps:
+ - run: echo $VARIABLE # displays "yellow", default value
+ - run: |
+echo "VARIABLE=green" >> $GITHUB_ENV
+echo $VARIABLE # displays "yellow", because we're still in the same step
+run: echo $VARIABLE # displays "green"
+```
+
+### Scope of variables
+The variables can be defined at different levels of a workflow and thus operate with different scopes. We have seen an example with variables defined at a job level, but it is possible to define them:
+
+- [X] At the workflow level
+- [X] At the job level
+- [X] At the step level
+
+Depending on the level, the variable will be accessible by all underlying levels. Thus, a variable defined at a workflow level will be accessible by all the jobs and steps, while a variable defined at a step level will be accessible only by it. This is important if you need to pass a variable from one step to another.
+
+If different variables with the same name are declared at different levels, then it is the most specific scope variable (lowest level), which will be chosen. Analyze the following workflow and the priority mechanism:
+
+```
+env:
+MYVARIABLE: value1
+MYVARIABLE2: value1
+jobs:
+test_variables:
+runs-on: ubuntu-latest
+env:
+MYVARIABLE: value2
+steps:
+ run: echo $MYVARIABLE #value2 appears because variable at the job level
+ run: echo ${{env.MYVARIABLE}} # value2 appears because variable at the job level
+- name: variable env we redefinition at step level
+env:
+MYVARIABLE: value3
+run: echo ${{env.MYVARIABLE}} # value3 appears because variable at step level
+- name: variable direct MYVARIABLE2
+  run: echo $MYVARIABLE2 #value1 displays because variable at the workflow level
+```
+
+## Output variables
+The use of global variables ($GITHUB_ENV) allows you to answer most uses to transmit a variable between two steps. This, however, requires that you have complete control of variable names within the full workflow. This cannot be guaranteed if you use third-party actions that define variables internally. In addition, this can cause a variable collision if you use the same action twice with different settings. The perfect answer is to use an output variable: an output variable is a variable associated with a specific step but is visible from other steps.
+
+The definition of an output variable of a step is done using the command “>> $GITHUB_OUTPUT”. This makes it possible to define a variable linked to this step and whose naming scope will also be linked.
+
+``run: echo "NAMEVARIABLE=hello" >> $GITHUB_OUTPUT``
+
+It is then necessary to carry out a second step, to access a step: give him a name through the property id.
+
+```
+steps:
+-id: myStep
+echo "NAMEVARIABLE=hello" >> $GITHUB_OUTPUT
+```
+
+Once a step gets an id, it is possible to reference its output variable with the formula $ {{ steps.STEPID.outputs.NAMEVARIABLE }}.
+
+```
+steps:
+-id: myStep
+run: echo "NAMEVARIABLE=hello" >> $GITHUB_OUTPUT
+- run: echo ${{ steps.myStep.outputs.NAMEVARIABLE}}
+```
+
+
+Muitas vezes, você encontrará variáveis ​​de saída ao usar ações do marketplace porque é a maneira mais limpa de retornar informações ao fluxo de trabalho pai.
+
+## The built-in environment variables
+Além das variáveis ​​que você cria, há muitas variáveis ​​predefinidas disponíveis dentro do seu fluxo de trabalho. Aqui está uma lista (parcial) delas:
+
+| Variable     | Description |
+| ----         | ----        |
+| CI           | It is always equal to true |
+| GITHUB_WORKFLOW | The name of the workflow |
+| GITHUB_RUN_ID   | A unique number for each run within a repository. This number does not change if you re-run the workflow run. |
+| GITHUB RUN_NUMBER |  An incremental number representing the number of executions of the same workflow. This number begins  at 1 for the workflow's first  run and increments with each new run. This number does  not change if you re-run the workflow run. |
+| GITHUB JOB        |  The job_id of the current job. |
+| GITHUB_ACTION     | Unique identifier (id) of an action |
+| GITHUB_ACTIONS    | true if executed by GitHub Actions. false if running locally  on your computer; useful for  testing |
+
+
+GITHUB_ACTOR
+Name of the person or application that started the workflow
+runner/work/my-repo-name/
+my-repo-name.
+GITHUB_SHA
+The Hash (SHA-1) of the
+GITHUB REPOSITO Full name of the repository
+RY
+GITHUB_EVENT_N Name of the event that
+commit that triggered the
+workflow. For example,
+dc57e9addd1bbba026c5c71f5
+6ad9285139967ec
+AME
+triggered the workflow
+GITHUB_REF
+The branch or tag that
+GITHUB_EVENT_PA The path of the file comprising
+TH
+all data from the webhook
+event. For example, /github/
+workflow/event.json.
+GITHUB_WORKSPA The path of the current
+CE
+workspace. This workspace
+is a copy of the repository if the workflow uses the action actions/checkout. If you do not use it, the folder is simply empty. For example, /home/
+triggered the workflow. For example, refs/heads/my- branch. If no branch or tag is
+available for this event, then
+the variable is not available.
+GITHUB_HEAD_RE Only for pull requests. Contains the name of the branch head
+F
+GITHUB_BASE_REF Only for pull requests. Contains the name of the branch base
+
+
+GITHUB_SERVER_U Returns the GitHub server
+RL
+GITHUB_API_URL
+URL. For example, https:// github.com.
+Returns the URL of the
+API. For example, https:// api.github.com.
+GITHUB GRAPHQL Returns the URL of the _URL GraphQL API. For example, https://api.github.com/graphql.
+
+Uma das variáveis ​​que você usará com mais frequência é a variável GITHUB_TOKEN que está no contexto dos segredos. Esta variável contém um token de autenticação que permite que você interaja como "você". O usuário acionou o fluxo de trabalho e permite que você execute tarefas no repositório onde o fluxo de trabalho está localizado. Se seu fluxo de trabalho quiser criar elementos (issues, pr, releases, etc.), ele precisará deste token de autenticação.
+
+```
+steps:
+- run: ./script --token {{ secrets.GITHUB_TOKEN }}
+```
+
+Essas poucas variáveis ​​predefinidas são apenas uma pequena parte das informações que é possível usar. Algumas não têm uma variável predefinida, mas ainda são recuperáveis ​​dentro de um dos contextos existentes. O contexto do github é o principal e tem uma centena de propriedades detalhadas relativas ao fluxo de trabalho, como o evento que disparou o fluxo de trabalho, o repositório, seu proprietário e muitos outros.
+
+Para exibi-lo, como outros contextos (env, strategy, matrix, steps, runner), uma solução simples consiste em converter o contexto em JSON e depois exibi-lo no console:
+
+``run: echo "${{ toJson(github)}}" # Do not forget the quotation marks, or the JSON will crash your workflow``
+
+Bom saber: A função toJson() é uma das várias funções disponíveis por padrão no GitHub Actions. O GitHub oferece os métodos toJson(), fromJson(), contains(), startsWith(), endsWith(), format() e hashFiles(). A documentação oficial é suficientemente detalhada sobre seu uso para não cobri-lo neste livro.
+
+Isso permite ter o nome de todas as propriedades do contexto (seu número muda dependendo do evento de gatilho do fluxo de trabalho):
+
+```
+{
+"token":
+"job": "build",
+"ref": "refs/heads/main",
+"repository": "lgmorand/test",
+"repository_owner": "lgmorand",
+#"repositoryUrl": "git://github.com/lgmorand/test.git",
+"run_id":"587245182",
+"run_number": "8",
+"retention_days": "90",
+"actor": "lgmorand",
+"workflow": "Test Wkf",
+"head_ref": "",
+"base_ref": "",
+"event_name": "workflow_dispatch",
+"event": {
+"inputs": null,
+"ref": "refs/heads/main",
+"repository": {
+|| ...
+// many other properties
+[] ...
+}
+}
+}
+```
+
+### Protect the content of variables with masks
+Pode haver casos em que a variável contenha um valor confidencial. Se o valor for definido manualmente, a boa prática deve ser definir um “secreto” (em vez de uma variável), um objeto do GitHub que é abordado no próximo capítulo. No entanto, se o valor for gerado durante a execução do fluxo de trabalho, o uso de secret é impossível, e apenas variáveis ​​podem armazenar esse valor. O risco é então que o conteúdo dessa variável seja inadvertidamente exibido nos logs, expondo completamente o valor que gostaríamos de manter em segredo.
+
+O GitHub oferece uma solução que não é perfeita, mas que permite evitar que um valor seja exibido nos logs. Essas mecânicas permitem adicionar uma máscara sobre o conteúdo do valor (e não a variável em si!). Isso requer o uso do comando add-mask, para quem o valor é transmitido para ser oculto. Então, se o valor for, de qualquer forma, exibido nos logs, seu conteúdo será substituído por asteriscos ("***").
+
+```
+- run: "::add-mask::hello"
+- run: echo "hello" # displays *** in the logs
+```
+
+If the variable is not known in advance (e.g., a generated token or password), masking its value can be done like this:
+```
+- run: "::add-mask::$MYVARIABLE"
+- run: echo "$MYVARIABLE" # displays
+```
+
+Um efeito perverso é que se o conteúdo de uma variável também for o valor (ou parte do valor) de outra variável, proteger o conteúdo da primeira variável fará com que o conteúdo da segunda variável também fique oculto. Fica bem claro com o exemplo a seguir, onde o conteúdo de VAR2, que não é estritamente idêntico a VAR1, fica parcialmente oculto quando exibido nos logs. Coisa boa ou ruim? Isso vai depender dos seus casos de uso, mas não ter controle preciso torna o comando add-mask um recurso propenso a bugs.
+
+```
+env:
+VAR1: hello
+VAR2: hello2
+steps:
+- run: echo "::add-mask::$VAR1" # we hide the value of VAR1
+- run: echo $VAR1 # displays
+- run: echo $VAR2 # displays ***2
+```
+## Exercises - variables
+Aplique o que você acabou de aprender fazendo alguns exercícios.
+
+### Exercício n°1
+Este primeiro exercício visa validar a teoria sobre escopos de variáveis. Primeiro, crie um fluxo de trabalho simples com uma variável de ambiente VAR1. Em seguida, crie uma tarefa que coloque o conteúdo desta variável em uma segunda variável, VAR2. Por fim, exiba o conteúdo de VAR2 no console de outra etapa sem usar as variáveis ​​de saída.
+
+### Exercício n°2
+Pesquise no marketplace a ação get-current-time, cujo autor é "josStorer". Use esta ação em um fluxo de trabalho e, em seguida, exiba no console a data atual usando o formato francês (25/01/1984).
+
+### Exercício n°3
+É comum usar informações contextuais para enriquecer seu fluxo de trabalho, suas ações ou para tomar uma decisão com base nessas informações. Crie um fluxo de trabalho que exibirá as seguintes informações no console:
+
+- [X] O nome do fluxo de trabalho atual
+- [X] O link para o perfil do proprietário (owner) do repositório do qual o fluxo de trabalho é iniciado
+- [X] Gera um alerta como uma anotação se o repositório atual for público
+
+Todas as informações podem ser encontradas no contexto github.
+
+### Os segredos
+Os segredos são o equivalente a variáveis ​​de ambiente, mas criptografados e armazenados fora do arquivo YAML do fluxo de trabalho. Eles são usados ​​para transmitir chaves de segurança ou strings de conexão para seu fluxo de trabalho sem que sejam expostas porque nunca são armazenadas no código-fonte. Os segredos são criptografados com um módulo libsodium (https://libsodium.gitbook.io), garantindo que eles sejam protegidos quando saem do seu navegador e sejam descriptografados apenas quando seu fluxo de trabalho os usa. O GitHub não tem como acessá-lo, nem um pirata.
+
+#### Declaração de um segredo
+Alguns padrões de nomenclatura devem ser observados para definir um segredo:
+- [X] O nome pode conter apenas caracteres alfanuméricos ([a-z], [A-Z], [0-9]) e o caractere sublinhado (_)
+- [X] Eles não podem começar com um número
+- [X] Eles não podem começar com "GITHUB_", porque esse prefixo é reservado para os segredos internos do GitHub, como GITHUB_TOKEN
+- [X] Os nomes não diferenciam maiúsculas de minúsculas, mas por questões de visibilidade, como para variáveis, é uma boa prática sempre escrevê-los usando letras maiúsculas
+- [X] Os nomes dos segredos devem ser exclusivos dentro de um repositório. Essa limitação pode ter um impacto se seu repositório tiver muitos fluxos de trabalho, pois a interface gráfica lista todos os segredos no mesmo lugar. Vários fluxos de trabalho do mesmo repositório podem usar o mesmo segredo. Como resultado, há sérios riscos de colisão ou efeitos indesejados.
+
+A criação de um segredo é feita no nível do repositório. O link para a tela de gerenciamento de segredo pode ser encontrado no menu esquerdo dentro da tela de Configurações. Você pode lá, clicar em "Novo segredo de repositório".
+
+A partir desta nova tela, é possível criar um segredo cujo valor nunca mais poderá ser visto (por medidas de segurança) uma vez que o botão Adicionar segredo for clicado.
+Ações segredos / Novo segredo
+
+Ambientes: Os segredos dos ambientes são apenas segredos que são particionados juntos. O assunto dos ambientes é abordado no próximo capítulo.
+
+Uma vez que um segredo é definido, o GitHub declara uma variável no contexto segredos acessíveis por fluxos de trabalho. É então possível recuperar o valor de um segredo usando o seguinte formato $ {{ secrets.MY_SECRET }}.
+```
+etapas:
+- executar: echo "${{ secrets.MY_SECRET }}"
+```
+
+O GitHub adiciona automaticamente uma máscara (add-mask) em cada segredo. Dessa forma, o conteúdo do segredo não deve vazar nos logs de execução de fluxos de trabalho.
+
+Importante: os segredos podem sugerir que eles estão perfeitamente lacrados e protegidos. No entanto, backdoors estão permitindo que o fluxo de trabalho exiba os valores dos segredos nos logs. O assunto dessa "falha de segurança" é abordado no capítulo Segurança > Gerenciamento de segredos.
+
+### Os limites dos segredos
+Cada repositório não pode ter mais de 100 segredos e 100 segredos de ambiente também. Além disso, cada segredo não pode ter mais de 64 KB, o que é suficiente para a maioria dos casos; no entanto, se você fosse armazenar um segredo maior, como um certificado ou proteger um arquivo de configuração completo. Nesse caso, é possível armazenar o segredo criptografado no repositório de código-fonte e declarar a chave de descriptografia dentro de um segredo.
+
+A abordagem não é muito intuitiva, mas é possível:
+1- No seu disco local, criptografe seu arquivo usando a criptografia AES256 (ou qualquer criptografia suportada pelo GPG).
+`gpg --symmetric --cipher-algo AES256 my_secret.txt`
+Executar o comando GPG pede que você defina uma senha (passphrase) e criptografa o conteúdo do arquivo para criar uma cópia criptografada com a extensão ".gpg".
+2- Copie a senha que foi definida e, no seu repositório, crie um novo segredo cujo valor seja a senha, por exemplo, MY_LARGE_SECRET_PASSPHRASE
+3- Copie o arquivo "my_secret.txt.gpg" no seu repositório e salve (commit) ele.
+4- Crie um arquivo de script (no nosso caso chamado decrypt_secret.sh) que será responsável por decifrar o arquivo usando o segredo previamente configurado
+```
+#!/bin/sh
+gpg --quiet --batch --yes --decrypt passphrase="$MY_LARGE_SECRET_PWD" --output my_secret.txt my_secret.txt.gpg
+```
+
+5- Certifique-se de que o arquivo é executável antes do commit:
+`chmod +x decrypt_secret.sh`
+
+6- No seu fluxo de trabalho, crie uma etapa que defina uma variável local com um valor contendo o segredo protegido e, em seguida, execute o script para regenerar o arquivo my_secret.txt cujo conteúdo será decifrado.
+
+```
+jobs:
+my-job:
+runs-on: ubuntu-latest
+steps:
+ - uses: actions/checkout@v4
+  - run: decrypt_secret.sh
+env:
+MY_LARGE_SECRET_PWD:
+{{ secrets.MY_LARGE_SECRET_PASSPHRASE}}
+```
+### Exercícios - Segredos
+#### Exercício n°1
+O primeiro exercício, crie um segredo e passe-o diretamente para a ação Igmorand@github-action-hello (https://github.com/ lgmorand/github-action-hello). Depois, verifique se seu valor não aparece nos logs.
+
+#### Exercício n°2
+O repositório que contém a ação lgmorand@github-action-hello (https://github.com/lgmorand/github-action-hello) tem um segredo chamado MY_SECRET. Este repositório tem um fluxo de trabalho disparado no push e/ou pull request e tem como objetivo validar que a ação ainda esteja totalmente funcional em um teste unitário. Execute um pull request no repositório e altere o fluxo de trabalho para obter o valor de sigilo.
+
+### Exercício n°3
+De outra conta, tente bifurcar um dos seus repositórios que contém um segredo (ou bifurcar um repositório de terceiros que contém um segredo, por exemplo este: https://github.com/lgmorand/aks-checklist). Em seguida, abra a aba Configurações e altere o valor de um dos segredos.
+
+## Variáveis ​​de configuração
+Desde janeiro de 2023, o GitHub também permite a declaração de variáveis ​​de configuração. As variáveis ​​de configuração são estritamente idênticas aos segredos, exceto que seu conteúdo não é protegido e pode ser visualizado dentro do fluxo de trabalho. É perfeito quando você quer adicionar dinamicidade ao seu fluxo de trabalho sem codificá-lo dentro do arquivo YAML ou colocá-lo em um segredo porque você não pode necessariamente ver/editar seu conteúdo facilmente.
+
+As variáveis ​​de configuração são declaradas em uma nova tela, no mesmo lugar que os segredos.
+
+Variáveis ​​de configuração
+As variáveis ​​de configuração são acessíveis dentro dos fluxos de trabalho por meio de novas variáveis ​​de contexto:
+
+```
+jobs:
+display-variables:
+runs-on: ubuntu-latest
+steps:
+- name: Use variables
+run: |
+echo "Here is my first variable : ${{ vars.MY_VARIABLE1 }}"
+echo "And my second one : ${{ vars.MY_CONFIG }}"
+```
+
+## The creation of multienvironment workflows
+O GitHub Actions permite que você faça qualquer tipo de fluxo de trabalho, como enviar um e-mail, criar aplicativos ou até mesmo automatizar uma máquina de café. Mas se houver um domínio no qual as ações são esperadas, é para implantação de aplicativos. Seja qual for a complexidade do seu aplicativo, monolítico, n-tier, microsserviços, ele geralmente será implantado em vários ambientes, como um para desenvolvedores, um para testes e outro para Produção. Embora fazer uma implantação de vários ambientes com o GitHub Actions possa ser alcançado de diferentes maneiras, a primeira solução é fazer um fluxo de trabalho pelo ambiente, cada um com sua lógica e variáveis ​​para se conectar a cada servidor de destino.
+Mas essa prática deve ser evitada por dois motivos principais:
+
+- [x] O gerenciamento de segredos e variáveis ​​pode se tornar muito complexo, com riscos de colisão entre fluxos de trabalho. Segundo, se seus fluxos de trabalho tiverem um grande número de segredos, seu gerenciamento dentro de uma tela única pode se tornar bastante complexo.
+- [x] Um dos mantras do DevOps requer que um único aplicativo binário seja gerado e implantado em diferentes ambientes sequencialmente; a única maneira de garantir que a versão implantada na Produção seja a mesma que foi testada em ambientes anteriores. Embora tecnicamente viável por meio de vários fluxos de trabalho, é complexo e propenso a erros.
+
+O GitHub Actions introduz ambientes, que são simplesmente configurações externas nomeadas para atender a esse requisito. Essas configurações podem ser aplicadas a um ou mais trabalhos dentro de um fluxo de trabalho. Além disso, cada uma dessas configurações pode definir várias regras que queremos ver aplicadas a uma parte específica do fluxo de trabalho. Essas configurações se enquadram em duas categorias:
+
+1. As regras de proteção
+2. Os segredos
+
+Vamos analisar em detalhes como definir e usar esses ambientes.
+
+## Creating an environment
+Os ambientes são vinculados a um projeto e, portanto, (apenas) a um repositório. Dentro de um repositório GitHub, o gerenciamento de ambientes é feito por meio da tela Configurações > Ambientes. O nome do ambiente é livre para escolher, mas é a ele que você precisará se referir no fluxo de trabalho.
+
+```
+Environments
+You can configure environments with protection rules and secrets. Learn more.
+PRD
+TST
+DEV
+1 protection rule
+New environment
+```
+Importante: Recursos relacionados ao ambiente não são permitidos em repositórios privados.
+
+Ao criar um ambiente, uma tela de configuração é exibida. Semelhante ao conceito de "gates" no DevOps, as regras de proteção são etapas de verificação pré-implantação. Elas tornam possível acionar apenas parte de um fluxo de trabalho somente quando todos os controles de validação estão verdes. No caso do GitHub Actions, os três controles possíveis são:
+
+1. controle sobre os branches válidos para implantação
+2. aprovação manual por uma pessoa (revisor)
+3. timer: tempo mínimo de espera antes de desbloquear a continuação do fluxo de trabalho
+
+### Protections rules screen
+Os revisores são pessoas que aprovarão manualmente a continuação do fluxo de trabalho. É possível especificar até 6 pessoas ou grupos de pessoas. Veremos mais adiante o comportamento do fluxo de trabalho e a interação que deve ser alcançada.
+
+A adição de um timer, como o nome sugere, permite atrasar a execução do fluxo de trabalho e especificar uma pausa. Seu valor é configurado usando minutos e pode assumir um valor entre 0 e 43200, correspondendo a um limite máximo de 30 dias. Uma pausa em um fluxo de trabalho faz sentido ao configurar a entrega contínua, especialmente ao usar a implantação progressiva (implantação canário). É possível fazer um fluxo de trabalho que implementa uma nova versão em um ambiente (por exemplo, Produção) em um segundo servidor e configura o tráfego para que 5% dos usuários sejam redirecionados para o segundo servidor, aguarde um dia para garantir que nenhum problema chegue, então acione uma alteração para enviar 40% do tráfego e aguarde mais 24 horas e, finalmente, se nenhum problema for detectado, redireciona todos os usuários no segundo servidor com a nova versão do aplicativo.
+
+O filtro por branch garante controle de qualidade implícito no código a ser implantado. Três modos estão disponíveis:
+1. Todos os branches são permitidos: nenhum controle é feito
+2. Alguns branches específicos são permitidos: esses branches são listados explicitamente
+3. Somente branches com regras de proteção são permitidos: esta é uma funcionalidade do GitHub que permite aplicar controles no código-fonte. Por exemplo, é possível enviar o código em um branch somente se ele vier de uma solicitação de pull ou quando houver uma revisão de código.
+
+### Branch filter
+Se um filtro de ramificação for implementado para um ambiente, ele será interrompido com um erro quando o fluxo de trabalho for iniciado a partir de uma ramificação não autorizada.
+
+### Filtro de branch desrespeitado
+Os segredos do ambiente operam na mesma mecânica que os segredos do fluxo de trabalho discutidos anteriormente, mas diferem pelo seu escopo de acesso. Eles são acessíveis apenas pelos trabalhos (e suas ações) que referenciam o ambiente ao qual pertencem. Mais do que uma questão de segurança, isso simplesmente torna possível separar os segredos uns dos outros, para poder manipulá-los mais facilmente, evitando qualquer erro humano. Também permite criar um segredo com um nome único, mas declará-lo em dois ambientes com dois valores diferentes, facilitando a chamada do fluxo de trabalho ao reutilizar o mesmo YAML.
+
+### Referenciando um ambiente
+Depois que o(s) ambiente(s) são criados e configurados, ainda temos que vincular nossos estágios de fluxos de trabalho a cada um deles. A conexão é extremamente simples adicionando no nível do trabalho a propriedade environment e o nome do ambiente ao qual você deseja ser vinculado. Cada trabalho só pode ser vinculado a um ambiente, mas todos os trabalhos de fluxo de trabalho não precisam ser vinculados a um ambiente.
+
+```
+Build:
+runs-on: ubuntu-latest # not linked to an environment
+steps:
+#...
+DeployDev:
+runs-on: ubuntu-latest
+environment:
+#...
+name: DEV # Indicates the name of the environment linked to this job
+steps:
+#...
+DeployPRD:
+runs-on: ubuntu-latest
+environment:
+name: PRD # Indicates the name of the environment linked to this job
+steps:
+```
+
+Percebemos que a implantação de produção está pausada no exemplo anterior, aguardando uma aprovação manual definida no ambiente PRD. Então, um dos aprovadores tem que clicar na caixa do ambiente, para abrir um pop-up de aprovação.
+
+### Manual approval
+Assim que a aprovação for realizada e nenhuma outra regra estiver pendente (por exemplo, um cronômetro), o fluxo de trabalho continua sua execução.
+
+### The use of custom URLS
+Os ambientes oferecem uma funcionalidade discreta, mas podem ser muito úteis, a configuração da URL do ambiente. Esta URL é exibida diretamente abaixo do nome do ambiente (na verdade, o trabalho) dentro do visualizador de fluxo de trabalho. Ele permite com um simples clique ir para o ambiente de destino e verificar se ele está funcionando corretamente.
+
+```
+environment:
+name: DEV
+url: https://dev.my-application.com
+```
+
+No entanto, codificar essas informações não tem muito mais valor do que um favorito em um navegador da Web. Esse recurso faz sentido quando a URL não é conhecida com antecedência, mas será descoberta (ou gerada) durante a implantação do aplicativo. Esse é frequentemente o caso quando o fluxo de trabalho gera a infraestrutura que hospeda o aplicativo (infraestrutura como código) e, em seguida, implanta o aplicativo; caso de uso muito comum ao trabalhar com um provedor de nuvem pública, como o Microsoft Azure.
+Vamos pegar o exemplo de uma implantação de um aplicativo em contêiner em um cluster Kubernetes. A implantação é feita por meio de um arquivo manifesto (escrito em YAML) que indica ao Kubernetes qual contêiner implantar, mas também se esse contêiner deve ser exposto na Internet. Se for esse o caso, o Kubernetes fornece um endereço IP automaticamente, o que permite o acesso ao aplicativo implantado.
+
+```
+deploy:
+name: Deployment on Dev
+runs-on: ubuntu-latest
+environment:
+name: DEV
+url: ${{ steps.retrieve_ip.outputs.IP }} # retrieves the output variable of the step retrieve_ip
+steps:
+- name: Deploying the Kubernetes manifest
+run: kubectl apply -f myapp.yaml
+- name: Recovery of the IP of the service
+id: retrieve_ip
+run: |
+IP=$(kubectl get SVC my-app jsonpath="{.status.loadBalancer.ingress[0].ip}')
+# Ask Kubernetes which IP it was created for the application
+echo 'IP=https://$IP' >> $GITHUB_OUTPUT # puts the IP in a variable
+```
+O resultado fornece a URL diretamente do aplicativo exposto pelo Kubernetes; então, essa URL é prefixada com "https://" (obrigatório porque o GitHub espera uma cadeia no formato de URL) antes de ser inserida em uma variável de saída e então recuperada automaticamente na propriedade "url".
+
+### Exercícios
+### Exercício n°1
+Crie um fluxo de trabalho multiambiente que permita que você obtenha exatamente (incluindo cada rótulo) o seguinte resultado:
+
+Informações adicionais:
+. Os quatro trabalhos são chamados de job1, job2, job3 e job4
+. O estágio Teste de carga requer esperar 5 minutos antes do início
+. O estágio Teste requer aprovação manual de uma pessoa
+
+### Exercício n°2
+Você lidera uma equipe de desenvolvimento com vários desenvolvedores que trabalham no mesmo código-fonte no mesmo repositório. Cada desenvolvedor trabalha em uma parte do aplicativo e, sempre que um desenvolvedor envia seu código para o branch principal, a implantação no ambiente DEV é acionada. Quando dois desenvolvedores enviam seu código em um curto espaço de tempo, duas implantações são acionadas em paralelo no ambiente e ocorrem erros. Você deve alterar o fluxo de trabalho para garantir que apenas um ambiente possa ocorrer ao mesmo tempo no ambiente DEV.
+A implementação dessa restrição não é explicada neste livro, mas está presente na documentação do GitHub. Dica: simultaneidade.
+
+## Controle de fluxo
+Um fluxo de trabalho executa sequencialmente as tarefas descritas em seu arquivo YAML da mesma maneira para cada execução para fornecer a confiabilidade que esperamos de um processo automatizado, ao contrário de um processo humano sujeito a erros. O arquivo YAML, no entanto, representa a versão otimista do fluxo de trabalho: a execução das tarefas sendo bem-sucedida sem que nada venha a prender as rodas. Mas, infelizmente, a experiência da vida real nos ensina, especialmente em TI, que nada é previsível em 100% e surpresas (ruins) são comuns.
+O GitHub Actions, no entanto, nos oferece vários elementos para controlar nosso fluxo de trabalho mais finamente, especialmente em erros ou comportamentos imprevistos.
+
+### Defina uma condicionalidade de execução
+Como você faria com uma linguagem de programação, o GitHub Actions permite considerar as etapas como blocos de execução e acioná-las dinamicamente de acordo com um teste condicional retornando verdadeiro/falso. Além disso, cada etapa tem uma propriedade opcional if que permite indicar uma fórmula que será avaliada no início da etapa para definir se a uma deve ser ignorada ou não. Então é possível, por exemplo, testar se uma variável específica tem um valor específico:
+
+```
+steps:
+- if: ${{MY_VAR}} = 'value'
+run: blahblah
+```
+
+Ou para fazer condições mais complexas usando valores contextuais:
+
+```
+steps:
+- if: github.repository == 'Igmorand/book' && github.event_name == 'pull_request'
+  run: blahblah
+```
+
+Também é possível controlar a execução de uma etapa quando uma etapa anterior falhou, por exemplo, usando o método failure().
+
+```
+steps:
+- run: mycommand
+- if: failure() # If previous step fails
+run: blahblah
+```
+
+Se você quiser verificar o status de uma etapa específica, que não foi colocada imediatamente antes, é necessário usar o contexto de execução das etapas e observar o status registrado pelo agente por meio do resultado da propriedade.
+
+```
+steps:
+- name: Step 1
+  id: step1
+  run: mycommand
+continue-on-error: true
+- name: Step 2
+run: echo 'still processing'
+- if: steps.step1.outcome != 'success' # check
+run: blahblah
+```
+## Ignore execution errors
+A mecânica dos fluxos de trabalho e agentes é simples: um fluxo de trabalho para assim que um erro é encontrado. Para que esse erro venha de uma linha de comando ou de uma ação de terceiros que retornaria um código de erro (código de saída diferente de O), a etapa é marcada como falha nos logs de erro, o fluxo de trabalho para instantaneamente e as outras etapas são ignoradas.
+A sintaxe do GitHub Actions permite o atributo continue-on-error que permite indicar ao agente em execução para ignorar os códigos de erro retornados pelas etapas.
+
+```
+- uses: 1gmorand/action-which-can-fail@v1
+continue-on-error: true
+```
+
+Esta palavra-chave é usada principalmente quando você tem etapas que podem falhar, mas deseja que as etapas seguintes ainda sejam executadas, aconteça o que acontecer, como etapas de limpeza.
+
+```
+- uses: 1gmorand/action-which-can-fail@v1
+continue-on-error: true
+- name: Cleaning
+run: ./cleanup.sh
+```
+
+Uma alternativa é usar a função always(), idêntica à usada com jobs. Ela controla a execução do passo. Assim, no caso a seguir, o segundo passo executará o que quer que aconteça.
+
+
+```
+- name: main command
+run: failing command
+name: cleaning
+run: ./cleanup.sh
+if: always()
+```
+
+## Control of execution time
+Normalmente, um fluxo de trabalho é executado por um "robô", seu tempo de execução não é um problema, pois não consome o tempo de um humano. Às vezes, no entanto, algumas etapas do fluxo de trabalho falham em executar sua tarefa atribuída e caem em um modo de loop infinito. Esses casos que podem ser acionados por vários motivos apresentam muitos problemas:
+• A tarefa esperada nunca é concluída.
+• O fluxo de trabalho pode durar horas antes de ser encerrado pelo GitHub (tempo máximo de execução de um trabalho de 6 horas), e os usuários só serão notificados quando o limite de tempo for atingido.
+
+O tempo de execução tem um custo porque consome parte do tempo de execução alocado a você. Isso pode ter um custo financeiro. Portanto, é importante limitar esse desvio potencial.
+
+Para responder a isso, o GitHub Actions permite que você aplique um atributo timeout-minutes em uma etapa para limitar a execução.
+
+Assim, se você acha que uma etapa pode entrar em um loop infinito, você pode aplicar um limite após o qual o GitHub irá pará-la e considerá-la como falha se a etapa não tiver terminado a tempo.
+
+```
+- run: ./my-script.sh
+timeout-minutes: 5 # max limit of 5 minutes
+```
+## Os emblemas
+A vantagem de automatizar processos usando fluxos de trabalho automáticos é simplificar o gerenciamento desses processos, pois eles não exigem interações/tratamentos humanos. No entanto, a desvantagem é que é fácil perder de vista o estado do processo e esquecer de verificar a boa execução de cada fluxo de trabalho. O GitHub oferece um sistema de alertas, mas quando você deseja dar visibilidade dos fluxos de trabalho a pessoas externas, isso pode ser mais complexo ou precisar implementar mecanismos dentro dos fluxos de trabalho, como enviar um e-mail ou enviar uma mensagem de bate-papo em um grupo do Teams/Slack.
+
+Existe outra alternativa: os emblemas. Os emblemas são botões "inativos" que permitem uma olhada para indicar se um fluxo de trabalho foi bem-sucedido ou não. É possível criar um (ou mais) emblema(s) por fluxo de trabalho. A criação de um emblema é realizada por meio da tela de execução do fluxo de trabalho e por meio do menu de contexto oculto no canto superior direito desta tela:
+
+O portal da Web exibe então um formulário que permite definir o emblema, incluindo a ramificação ou o evento que acionou o fluxo de trabalho. Por exemplo, isso permite que você tenha um emblema de combinação no caso de um fluxo de trabalho ter vários gatilhos ou poder ser executado por várias ramificações.
+
+## Configurando um emblema
+Os emblemas são então gerados dinamicamente, e um portal fornece a você um bloco de texto de empréstimo que pode ser integrado aos arquivos Markdown do GitHub. Em particular, é comum incluir emblemas no arquivo README do Repositório para dar uma visão clara e direta sobre o status dos fluxos de trabalho, seja implantação, teste de segurança ou simplesmente compilação. Aqui está um exemplo do uso de emblemas:
+
+README.md
+A lista de verificação do serviço Azure Kubernetes
+Crie e implante na licença MPL-2.0 de aprovação prévia do último commit de ontem
+
+Emblemas em um arquivo README
+
+Também é possível incluir o emblema em um site externo ao GitHub. Isso requer o uso do seguinte formato:
+
+`https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILENAME>/badge.svg`
+
+Aqui está um exemplo de um emblema injetado em uma página HTML:
+
+`<img src="https://github.com/lgmorand/aks-checklist/actions/ workflows/generate-offline.yml/badge.svg" />`
+
+Esses emblemas são mais do que um elemento estético; eles podem dar visibilidade centralizada, sem precisar ir para a parte de ações restaurativas e analisar cada fluxo de trabalho.
+
+## Fluxos de trabalho reutilizáveis
+Em vez de duplicar e transferir conteúdo entre diferentes fluxos de trabalho, é possível estabelecer fluxos de trabalho reutilizáveis. Esses fluxos de trabalho reutilizáveis ​​podem ser invocados por você ou qualquer pessoa autorizada a acessá-los, permitindo a integração em outros fluxos de trabalho.
+
+A prática de reutilizar fluxos de trabalho elimina a redundância, simplificando o gerenciamento do fluxo de trabalho. Isso acelera a criação de novos fluxos de trabalho, aproveitando a base estabelecida por outros, semelhante a como você constrói sobre ações existentes. Além disso, a reutilização de fluxos de trabalho promove a adoção de melhores práticas, facilitando a utilização de fluxos de trabalho bem elaborados, pré-testados e comprovadamente eficazes. Essa abordagem capacita sua organização a cultivar um repositório de fluxos de trabalho reutilizáveis ​​que podem ser controlados centralmente, contribuindo para uma manutenção eficiente.
+
+### Como funciona?
+De um lado, você simplesmente cria um fluxo de trabalho reutilizável que é um fluxo de trabalho padrão com uma exceção, se você quiser passar parâmetros, você precisa declará-los como workflow_call:
+
+```
+name: Reusable workflow example
+on:
+workflow_call:
+inputs:
+message:
+required: true
+type: string
+jobs:
+myjob:
+runs-on: ubuntu-latest
+steps:
+- run: echo ${{inputs.message }}
+```
+
+E então, do outro lado, a partir de um fluxo de trabalho de chamada, você apenas referencia o YAML que deseja carregar:
+
+```
+name: Reusing workflow example
+on:
+workflow_dispatch:
+jobs:
+call-workflow-in-other-repo:
+uses: ./.github/workflows/reusable.yaml
+with:
+ message: 'hello my friend'
+```
+
+Neste exemplo anterior, nós o carregamos usando um arquivo YAML local, o que significa que o fluxo de trabalho reutilizável é armazenado no mesmo repositório. Você pode imaginar um cenário onde você tem um repositório externo com todo o seu fluxo de trabalho reutilizável. Nesse caso, você deve especificar a organização (ou conta do GitHub) e o branch do seu arquivo.
+
+```
+call-workflow-in-local-repo:
+uses: lgmorand/REPO-REUSABLE/.github/workflows/reusable.yaml@main
+
+```
+P.156
