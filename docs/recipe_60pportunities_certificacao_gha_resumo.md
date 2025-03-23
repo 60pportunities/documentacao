@@ -6161,4 +6161,1122 @@ call-workflow-in-local-repo:
 uses: lgmorand/REPO-REUSABLE/.github/workflows/reusable.yaml@main
 
 ```
-P.156
+
+Note que você pode criar fluxos de trabalho mais ricos carregando diferentes fluxos de trabalho reutilizáveis, onde cada fluxo de trabalho reutilizável pode conter várias etapas, mas você não pode misturar fluxos de trabalho reutilizáveis ​​e etapas "normais" em um único trabalho. No entanto, você pode ter algo assim:
+```
+name: Reusing workflow example
+on:
+workflow_dispatch:
+jobs:
+call-workflow-1-in-local-repo:
+uses: lgmorand/test/.github/workflows/reusable.yaml@main
+with:
+message: 'hello my friend'
+job2:
+runs-on: ubuntu-latest
+steps:
+- run: echo 'a normal step'
+call-workflow-1-in-remote-repo:
+uses: lgmorand/test/.github/workflows/another-reusable.yaml@main
+```
+Você já deve estar se perguntando: qual é a diferença com Composite Actions que permite injetar vários passos de uma vez? Essa é uma boa pergunta porque a diferença é muito (muito) sutil e, como ambos os recursos continuam a remover limitações, eles se tornam cada vez mais idênticos. Use o que você acha que se encaixa em suas necessidades ou sua preferência.
+acessado.
+
+## Access to reusable workflows
+Fluxos de trabalho reutilizáveis ​​significam que um fluxo de trabalho deve ser capaz de acessar o YAML que contém o fluxo de trabalho chamado. Isso significa que pelo menos um dos seguintes requisitos deve ser verdadeiro:
+
+- [x] Ambos os fluxos de trabalho (chamador e chamado) estão no mesmo repositório.
+- [x] O fluxo de trabalho chamado é armazenado em um repositório público, e sua organização permite que você use fluxos de trabalho públicos reutilizáveis.
+- [x] O fluxo de trabalho chamado é armazenado em um repositório privado e as configurações para esse repositório permitem que ele seja acessado.
+
+### Be aware of some limtations
+A reutilização é superimportante para a governança e também para a eficiência e legibilidade dos seus fluxos de trabalho, mas vem com algumas limitações:
+- [x] Um fluxo de trabalho pode carregar um fluxo de trabalho que carrega outro modelo e assim por diante, até 4 níveis no máximo (para evitar loop infinito)
+- [x] Você pode chamar até 20 fluxos de trabalho reutilizáveis ​​de um arquivo de fluxo de trabalho raiz. A contagem inclui todos os fluxos de trabalho reutilizáveis ​​aninhados também.
+- [x] Variáveis ​​de ambiente não são propagadas para fluxos de trabalho chamados. Você tem que passá-las como parâmetros de entrada
+- [x] Da mesma forma, variáveis ​​de ambiente definidas no contexto env, definidas no fluxo de trabalho chamado, não são acessíveis no contexto env do fluxo de trabalho do chamador. Você deve usar saídas do fluxo de trabalho reutilizável
+
+Não se esqueça desse recurso quando sentir que está se repetindo em seus fluxos de trabalho.
+
+### Create your own custom GitHub Actions
+O poder do GitHub Actions não é seu modelo ou tecnologia (pipeline como código) que já existe. É sua extensibilidade, permitindo que qualquer um crie uma Action e a disponibilize para todos. As possibilidades de coisas alcançáveis ​​com o GitHub Actions se tornam quase infinitas.
+Ao criar seus fluxos de trabalho, você provavelmente encontrará a maioria de suas necessidades com Actions criadas e disponíveis no mercado (mais de 8.000 no momento em que escrevo
+estas linhas). Mas a tecnologia e as necessidades mudam rapidamente e inevitavelmente chegará um dia em que você estará enfrentando uma necessidade para a qual nenhuma ação já existe, ou se você deseja oferecer mais do que o que torna uma ação existente. Nesse dia, você terá a possibilidade de criar sua própria GitHub Action.
+A segunda seção deste livro é dedicada à criação de GitHub Actions em diferentes formas. Primeiro, abordaremos os diferentes conceitos e, em seguida, criaremos diferentes Actions, cada uma delas, usando recursos mais avançados.
+
+### Create your first Action
+Ao criar sua própria Ação do GitHub?
+Uma ação é um módulo que contém código personalizado que será executado por um dos agentes para executar uma tarefa específica. É reconhecido que uma ação deve operar no modelo de componente Linux, o que significa um componente que executa apenas algumas coisas, mas as executa perfeitamente. Você pode se deparar com ações ricas e complexas, mas esse não é o objetivo principal delas. Portanto, é preferível ter duas Ações simples enfileiradas do que apenas uma Ação complexa.
+O mercado está cheio de Ações escritas por indivíduos, mas, infelizmente, a Ação que atende às suas necessidades pode não estar lá. Também é possível que seu fluxo de trabalho tenha que executar várias ações que consistem em vários comandos sequenciais que você deseja replicar em diferentes fluxos de trabalho sem ter que copiar e colar cada reutilização. Fatoração e experiência do usuário são os dois primeiros motivos para criar uma ação personalizada.
+
+Este capítulo discutirá a criação de uma Ação, seja para compartilhá-la com a comunidade do GitHub ou mantê-la para uso pessoal.
+
+## The different types of Actions
+O primeiro conceito para desenvolver uma ação adequada é considerar um programa: um software com seus parâmetros de entrada e saída, que realiza uma tarefa dada e precisa. Esta ação tem uma versão, uma nomenclatura para chamá-la e lógica de erro (código de saída) como uma ferramenta de linha de comando. A principal diferença é que ela é empacotada para que sua integração em um fluxo de trabalho seja simplificada o máximo possível.
+
+Como qualquer programa, uma Ação tem um código de negócio que é escrito em uma linguagem de programação. Dependendo da escolha desta linguagem ou do sistema operacional de destino (do agente), você terá a oportunidade de compor uma ação de três maneiras:
+
+1. Ação escrita inteiramente em JavaScript (ou TypeScript)
+2. Uma Ação escrita em qualquer linguagem, mas empacotada como um contêiner de imagem Docker
+3. Ação escrita usando YAML, ações compostas
+
+
+Dependendo do formulário escolhido, as Ações estarão disponíveis para alguns sistemas operacionais, conforme resumido na tabela a seguir:
+
+| Туре | Sistema operacional |
+| ---- | ---- |
+| Contêiner Docker | Linux |
+| JavaScript | Linux, macOS, Windows |
+| Etapas de execução de Composites | Linux, macOS, Windows |
+
+## Pros and cons, what to choose?
+A escolha do formato da sua ação também terá impactos no seu uso diário, seja em termos de desenvolvimento/manutenção ou desempenho. Cada tipo de ação tem suas vantagens e desvantagens. Além do seu conforto para qualquer tecnologia, reserve um tempo para pesar os prós e contras de cada escolha, dependendo da sua necessidade e uso feito da sua ação.
+
+VER TABEL:A 163
+
+## Creation of your Action
+Nos próximos capítulos, você aprenderá como construir suas ações usando conceitos avançados. No entanto, para ser mais didático, começaremos criando uma ação simples e personalizada para aprender todos os conceitos básicos, ou seja, a estrutura da ação, seus vários componentes e sua publicação. Começaremos com o famoso "Hello World", uma ação que recebe um primeiro nome e exibe uma mensagem no console.
+
+Comece criando um repositório dedicado chamado github-action-hello (o nome não importa, mas ele terá que ser chamado da mesma forma dentro dos fluxos de trabalho). Este repositório deve ser público; é de fato um pré-requisito para poder hospedar uma Ação.
+
+Nota: Desde 2023, é possível usar uma ação de um repositório privado se ela pertencer ao mesmo proprietário (ou organização) e tiver sido explicitamente compartilhada por meio do
+menuConfigurações > Ação >Geral>Acesso.
+
+Depois que o repositório for criado, clone-o localmente no seu computador, pois algumas ações não podem ser realizadas no portal online.
+
+## Creating the manifest
+Uma ação é um conjunto de arquivos enviados em um repositório. Para que o mecanismo GitHub carregue e use dentro dos fluxos de trabalho, essa ação deve seguir um formato predefinido. Assim, as Ações geralmente observam a seguinte estrutura:
+
+- [x] Um arquivo README.md (opcional, mas fortemente recomendado) que descreve sua ação, mas também como usá-la, como seus parâmetros de entrada-saída
+- [x] Um arquivo LICENSE (opcional) para esclarecer se alguém pode ou não reutilizar o código para sua ação
+- [x] Um arquivo manifesto action.yaml (obrigatório!).
+- [x] Scripts que compõem a lógica de sua ação e o que ela executa
+
+Comece criando o manifesto de sua futura Ação: action.yml (ou action.yaml). Este arquivo permite que o GitHub "descubra" sua ação, suas propriedades, mas também seu comportamento. Ele contém várias propriedades que você definirá para criar sua primeira ação. O primeiro bloco descreve sua ação; ele contém o nome, uma pequena descrição e, potencialmente, o autor da Ação.
+
+```
+name: 'Hello World' # The name of your action (mandatory)
+description: 'Says hello to someone' # a simple description (mandatory)
+author: 'Louis-Guillaume MORAND' # The name of the creator (optional)
+```
+
+Um segundo bloco descreve a parte técnica: o formato da ação (JavaScript ou Docker). No nosso caso, ele também contém o ponto de entrada e a versão do JavaScript usada. No nosso caso, começaremos criando uma ação JavaScript baseada no NodeJS 12 e cujo arquivo principal será index.js.
+
+```
+runs:
+using: 'node20' #JavaScript action using NodeJS 20
+main: 'index.js' # The entry point (main script)
+```
+Uma seção é dedicada aos parâmetros de entrada e saída. Não há necessidade de parâmetros de saída em nosso caso, mas um parâmetro chamado who contém o nome da pessoa para passar como parâmetro. Vamos dar a ele um valor padrão.
+
+```
+inputs: # List of input parameters
+firstname: # (mandatory) the name of the parameter
+description: 'Name of the person' # (mandatory) a sentence that describes the parameter
+required: true # (mandatory) indicates whether the parameter is required or not
+default: 'World' # (optional) gives a default value to the parameter
+default: 'World' # (optional) gives a default value to the parameter
+```
+
+Por fim, um bloco opcional está relacionado à marca da sua ação. Este é o ícone que aparecerá no marketplace se você publicá-lo.
+```
+branding:
+icon: 'message-circle' # The name of one of the available icons
+color: 'orange' # The background color of your icon
+```
+
+A lista de ícones disponíveis está bem acima de cem se a lista de cores for limitada (branco, amarelo, azul, verde, laranja, vermelho, roxo ou cinza-escuro). Os nomes desses ícones e a exibição esperada podem ser encontrados no site FeathersIcon: https://feathericons.com/.
+
+O conteúdo final do seu arquivo manifesto deve ser semelhante a este: (a ordem dos blocos não importa)
+
+```
+name: 'Hello World' # The name of your action (mandatory)
+description: 'Say hello to someone' # a simple description (mandatory)
+author: 'Louis-Guillaume MORAND' # The name of the creator (optional)
+runs:
+using: 'node20' #JavaScript action using NodeJS 20
+main: 'index.js' # The entry point (main script)
+inputs: # List of input parameters
+firstname: # (mandatory) the name of the parameter
+description: 'Name of the person' # (mandatory) a sentence that describes the parameter
+required: true # (mandatory) indicates whether the parameter is required or not
+default: 'World' # (optional) gives a default value to the parameter
+branding:
+icon: 'message-circle' # The name of one of the available icons
+color: 'orange' # The background color of your icon
+```
+
+## The business logic file
+É hora de criar o script que executará as ações desejadas. Se o nome dele estiver livre, ele deve corresponder ao que você colocou no manifesto; no nosso caso, index.js.
+Nosso arquivo deve conter a seguinte lógica:
+1. Recuperar o primeiro nome da entrada
+2. Colocar o valor em uma variável local
+3. Exibir uma mensagem no console
+
+Vamos começar recuperando o parâmetro da ação. Nada complicado, especialmente porque o GitHub fornece um kit de ferramentas que facilita o desenvolvimento de ações. Este kit de ferramentas tem muitos módulos, mas precisamos apenas de um aqui: @action/core. Este tem métodos diferentes, incluindo getInput(), que pode recuperar o valor de um parâmetro de entrada:
+
+```
+const core = require('@actions/core'); // loading the Toolkit's core module
+const firstname = core.getInput('firstname'); // recovery of the parameter's value
+```
+
+Para a exibição, nada complicado, uma linha pura de JavaScript:
+
+`console.log(Hello ${firstname}!`);`
+
+Se essas três linhas forem suficientes para fazer uma ação que funcione perfeitamente, adicionaremos um bloco try-catch que permite que o módulo não trave se ocorrer uma exceção ou problema.
+
+Finalmente, adicionamos no bloco de tratamento de erros uma chamada para o método setfailed() que informa ao agente que a ação deve ser considerada falha. Claro, as chances de o código não funcionar são muito baixas neste caso, mas sem essa mecânica, o fluxo de trabalho pai não consegue adivinhar se o script se comportou como esperado ou se ocorreu um problema grave.
+
+```
+const core = require('@actions/core'); // loading the Toolkit's core module
+try
+{
+const firstname = core.getInput('firstname'); // recovery of the parameter's value
+console.log(`Hello ${firstname}!`);          // writes a message in the console
+}
+catch (error)
+{
+core.setFailed(error.message); // tells the agent that the process has failed and transmits the details of the problem
+}
+```
+Seu arquivo de script está completo; no entanto, se você conhece um pouco de JavaScript, a primeira linha deve questioná-lo. Com a função require(), esta indica que carrega um módulo, mas em nenhum momento disponibilizamos este módulo. Devemos instalá-lo usando o NPM (Node Package Manager), que pode ser baixado no seguinte endereço: https://nodejs.org.
+
+Abra um prompt de comando cuja pasta atual deve ser uma das cópias locais do seu repositório.
+
+Primeiro, execute o comando "npm init" para preparar o NPM para usar um package.json para configurar os módulos. Este comando fará várias perguntas. Você pode deixar os valores como padrão ou personalizá-los; eles são de pouca importância.
+
+`npm init`
+
+Then run "npm install" to install the module @actions/core.
+
+`npm install @actions/core`
+
+Este comando cria uma pasta node_modules na qual o módulo @actions/core é baixado, e um novo arquivo package-lock.json registra a lista de todos os submódulos dependentes. Esses são dois arquivos técnicos importantes, mas nunca devem ser modificados manualmente.
+
+Nossa ação está pronta; só precisamos testá-la em um fluxo de trabalho. Para fazer isso, basta usar a palavra-chave uses e fornecer o nome completo da nossa ação: Igmorand/github-action-hello@main
+
+`- uses: lgmorand/github-action-hello@main`
+
+Você pode então fazer commit e enviar seu código para o repositório que está no GitHub.
+
+Observe que "lgmorand" deve ser substituído pelo nome da sua conta no GitHub, depois vem o nome do repositório da sua ação e, finalmente, "@main", que indica usar o branch principal. Usar um nome de branch é incomum; veremos em um capítulo vindouro versionamento como sua ação e chamar esse número de versão explicitamente.
+
+O YAML final deve ser parecido com isto:
+
+```
+steps:
+- uses: Igmorand/github-action-hello@main # loading our action
+with:
+  firstname: 'Louis-Guillaume' # parameter to provide, indicate the name of your choice
+```
+
+## Versioning
+Cada Action GitHub tem um número de versão exclusivo. Esta versão é importante porque permite que você implemente alterações em suas GitHub Actions sem impactar negativamente os usuários que consomem sua ação. Você deve estar ciente de que assim que seu primeiro rascunho do seu trabalho for publicado, os usuários poderão usá-lo. É sua responsabilidade nunca interromper seus fluxos de trabalho, seja removendo a ação ou fazendo qualquer alteração importante sem alterar o número da versão. Portanto, é fundamental estar atento à definição da versão.
+
+O GitHub recomenda seguir a especificação SemVer ("Semantic Versioning) para construir e manter o número da versão da sua Ação. Uma versão compatível com SemVer contém pelo menos três blocos de números no formato MAJOR.MINOR.PATCH. Para cada produto, o trabalho de script sempre começa com a versão 1.0.0.
+
+Mas é especialmente a mudança de versão que chamamos de incremento, que depende do que é feito dentro do aplicativo. Assim, incrementamos a parte:
+
+- [x] MAJOR: sempre que grandes mudanças ou que causam mudanças de quebra são implementadas
+- [x] MINOR: sempre que recursos compatíveis com versões anteriores são adicionados
+- [x] PATCH: sempre que você corrige um bug ou um problema de segurança
+
+`MAJOR Breaking changes 2.1.7 PATCH Bug fixes`
+Semantic versioning
+
+Às vezes, você verá um quarto bloco especificando um número de compilação (por exemplo, a data e um incremento) ou um modo de lançamento, por exemplo, um rótulo "pré-lançamento" ou "beta".
+
+Certifique-se de entender completamente esse versionamento porque você inevitavelmente precisará dele para usar sua ação, pois ajudará os usuários a entender qual versão de sua ação usar.
+
+## Exercícios
+Vamos praticar com alguns exercícios sobre versionamento de ações.
+
+### Exercício n°1
+Vamos verificar se você entendeu bem as regras de versionamento. Para todas as versões a seguir, indique quais estão corretas ou não:
+
+1. v1
+2. v2.3
+3.3.2024.5
+4. 1.10.3.23230
+5. plop1.3
+6.2.0.0.pre-alpha
+7. 3.56.42.win-x64
+Easy, isn't it?
+
+### Exercício n°2
+Vamos trabalhar um pouco no ciclo de vida de uma ação. Vamos pegar o exemplo da nossa Ação HelloWorld publicada como versão 2.0.0 e rapidamente usada por muitas pessoas. Como parte de sua evolução, faremos várias atualizações e novas publicações no Marketplace.
+
+Com a primeira evolução, nossa ação 2.0.0 agora recebe dois primeiros nomes em parâmetro e permite exibi-los dentro da mensagem no console. Aqui está a assinatura para chamar a ação:
+
+```
+steps:
+-uses: YOUR-REPO/github-action-hello@v2
+with:
+firstname: 'XXX'
+firstname2: 'YYY'
+```
+Você percebe que a ação trava se o primeiro nome contiver um caractere especial como um apóstrofo ou um traço. Você corrige sua ação e a republica. Qual novo número de versão você deve dar a ela?
+Então, você decide adicionar um recurso à sua ação que permite personalizar o idioma da mensagem exibida. Definindo o idioma com um novo parâmetro obrigatório, mas um valor padrão é igual a "fr". Qual novo número de versão você deve colocar?
+
+Finalmente, você decide alterar como os nomes são fornecidos com um novo parâmetro, "firstnames", que pega uma matriz contendo todos os primeiros nomes como valores. O valor padrão é uma tabela incluindo apenas o primeiro nome "Louis-Guillaume".
+
+A nova assinatura para chamar a ação tem o seguinte formato:
+
+```
+steps:
+- uses: YOUR-REPO/github-action-hello@v???
+with:
+firstnames: ['John', 'Jane', 'Bob']
+```
+Qual novo número de versão você deve colocar?
+
+### Exercício n°3
+Você criou uma ação para integrar com um produto de terceiros. Depois de alguns meses, o publicador deste produto de terceiros decide criar uma ação oficial do GitHub, tornando sua ação obsoleta. Você decide interromper o suporte da sua ação, mas em vez de abandoná-la brutalmente; você planeja alertar todas as pessoas que usam sua ação que uma ação oficial agora está disponível.
+Você decide adicionar um aviso dentro da sua ação, que mostrará uma mensagem ao executar seu fluxo de trabalho. Você quer que a mensagem seja visível e integrada diretamente na interface do GitHub, não apenas por meio dos logs do fluxo de trabalho. Sua ação deve continuar a funcionar corretamente.
+
+Dica: Se você não sabe como exibir um aviso adequado (=anotação), leia o capítulo "Melhorar ações".
+
+## Publicar no Marketplace
+Sua ação é perfeitamente funcional e agora pode ser usada por outras pessoas porque seu repositório é público. Uma pergunta ainda surge: qual o interesse em publicá-la no GitHub Marketplace? A resposta é simples: para melhorar sua capacidade de descoberta. É improvável que uma pessoa encontre o repositório da sua ação por acaso, e sua ação pode nunca ser referenciada automaticamente pelos mecanismos de busca. A maneira mais eficaz de permitir o uso mais amplo da sua ação e, assim, participar do esforço coletivo em torno do GitHub
+Actions é publicá-la no mecanismo de busca dedicado a essas ações: o Marketplace.
+
+A publicação é extremamente simples e leva apenas alguns cliques. Requer quatro etapas:
+
+- [x] Documentando sua ação: como os usuários esperam aproveitar sua ação sem instruções para usá-la?
+- [x] Versionamento: como acabamos de ver no capítulo anterior
+- [x] Branding: dê uma identidade à sua ação por meio de seu logotipo e título
+- [x] Release: a criação de um release oficial e sua tag
+
+A seção de documentação é a mais simples, mas também a mais importante. Ela permitirá que você use sua ação e faça com que os usuários queiram usá-la. A documentação pode ser completa e rica em seu repositório e conter várias páginas, mas o Marketplace exibirá apenas uma página: o arquivo readme.me na raiz do repositório de sua Action.
+
+Este arquivo deve conter informações diferentes sobre sua Ação, como:
+
+- [x] Uma descrição de sua Ação
+- [x] Os parâmetros de entrada e saída e uma descrição de cada um deles e seus valores padrão
+- [x] Segredos e variáveis ​​de ambiente usados ​​por sua Ação
+- [x] Um exemplo de uso (trecho YAML para chamar a Ação)
+
+Para a parte de versionamento, você precisa seguir rigorosamente as regras semânticas explicadas no capítulo anterior ou correr o risco de perder usuários de sua ação ou potencialmente quebrar seus fluxos de trabalho e atrair seus miseráveis.
+
+Quanto à marca, esta é rápida, pois você só pode escolher um ícone de uma lista e uma cor de fundo. Você pode encontrar ações que tenham um ícone personalizado, como um logotipo da empresa. Saiba que é impossível personalizar o logotipo, a menos que seja um "parceiro" do GitHub, um longo processo administrativo reservado para empresas que oferecem integração com o GitHub ou serviços de nuvem. Se sua empresa estiver interessada, o processo para se tornar um parceiro é descrito no site dedicado: https://partner.github.com/.
+
+Como lembrete, a marca é feita por meio de duas propriedades do manifesto de ação:
+```
+branding:
+icon: 'message-circle' # The name of one of the available icons
+color: 'orange' # The background color of your icon
+```
+
+Então vem a parte final: a criação de um release. O propósito deste ato é congelar uma versão, ou seja, uma versão única do seu código-fonte que não pode mais mudar no futuro para este release específico, uma versão estável. Comece abrindo o repositório do seu custom
+
+Ação. Se estiver bem configurado com seu manifesto, o GitHub exibirá automaticamente um pop-up para facilitar sua implantação:
+
+Clique em Draft a release para chegar à tela que pede para você preencher um nome de release e uma tag (o famoso número da versão). Este identificador git exclusivo permite que você direcione uma versão muito específica do código-fonte do seu repositório.
+
+Marque a caixa para publicar no Marketplace
+Se esta caixa estiver desmarcada, sua ação ainda poderá ser usada pelos usuários, mas eles não terão como saber/descobri-la a menos que alguém lhes dê a URL do seu repositório.
+
+Quando a caixa de seleção estiver marcada, o GitHub realiza várias verificações, como a exclusividade do nome da sua ação. Você não pode publicar no Marketplace se todos os LEDs não estiverem verdes:
+
+Pag.183
+
+Se tudo estiver bem, clique no botão "Criar Release" na parte inferior da tela. Você pode então ir para o Marketplace (https://github.com/marketplace?type=actions) e encontrar
+lá sua Ação:
+
+Você encontrará o conteúdo da descrição, mas também o ícone (laranja neste exemplo) definido na seção de branding do manifesto.
+
+## Exercícios
+Vamos praticar um pouco.
+
+### Exercício n°1
+Se você ainda não fez isso, publique uma Ação Hello World de acordo com o capítulo que você acabou de ler. Certifique-se de encontrar sua Ação entre as ações do Marketplace: https://github.com/marketplace/actions/
+
+### Exercício n°2
+Para este segundo exercício, modifique sua ação para ser chamada pelo seguinte YAML (adicionando um parâmetro e alterando o número da versão). A ação deve exibir a seguinte mensagem no console: "Hello XXX & YYY." Você deve alterar o script, mas também seu manifesto.
+
+```
+steps:
+- uses: YOUR-REPO/github-action-hello@v2
+with:
+firstname: 'XXX'
+firstname: 'YYY'
+```
+
+### Exercício n°3
+Para o último exercício, você deve cancelar a publicação de sua ação do Marketplace. Novamente, não queremos "poluir" o Marketplace com nossos testes. Portanto, certifique-se de que sua ação não esteja mais visível nos resultados de pesquisa do Marketplace.
+
+O processo de cancelamento de publicação não foi abordado neste capítulo, mas é explicado na documentação oficial, e as etapas também serão detalhadas nas soluções dos exercícios no final deste livro.
+
+Dica: basta reverter as etapas de publicação, mas isso deve ser feito para cada lançamento da Ação. Ou procure pelo pequeno botão mágico ;-)
+
+Crie sua segunda ação
+A primeira Ação está concluída, agora construiremos uma segunda ação que aborda novos conceitos. Esta segunda ação visa simplificar a criação de uma versão do GitHub automatizando a criação da tag e gerando automaticamente um histórico de alterações (changelog). Esta nova Ação, mais relevante para casos de uso reais, cobrirá as noções de execução de código de terceiros, pré/pós script, geração de variável de saída, mas também interações com o GitHub.
+
+Um ponto de atenção em particular, a Action, contém dezenas de arquivos e conceitos que não estão relacionados ao GitHub Actions (ex: como configurar a estrutura do projeto Typescript). Esses conceitos não serão abordados neste livro, mas você pode baixar uma cópia totalmente funcional da action do repositório que contém algumas indicações adicionais: https://github.com/lgmorand/github-action-generate-relnotes.
+
+Aviso: O código-fonte da action é minimalista e está longe de ser perfeito, mas visa ser o mais conciso possível para evitar explicar centenas de linhas de código. Você pode se concentrar nas partes que têm um valor técnico real.
+
+## Estabelecimento dos pré-requisitos
+Esta segunda Ação será escrita em TypeScript, uma linguagem de programação que visa escrever um código JavaScript melhor por meio de uma sintaxe mais rigorosa. Os arquivos Typescript (*.ts) são então transpirados (transformados) em JavaScript puro e, em seguida, executados pelo NodeJS dentro do fluxo de trabalho. Você frequentemente encontrará no mercado Ações escritas com Typescript, que se tornou a linguagem de programação mais favorecida para projetos da Web nos últimos anos.
+
+Nosso código Typescript chamará vários módulos do GitHub Actions Toolkit para simplificar algumas de suas operações. A Ação usa:
+
+- [x] @actions/core: módulo que fornece funções para gerenciar variáveis ​​de entrada/saída, gerenciamento de log, acesso ao segredo/variáveis, etc.
+- [x] @actions/exec: módulo para executar programas de terceiros e executar linhas de comando. @actions/github: fornece um objeto para interagir com o GitHub, pré-configurado com o contexto atual (usuário + repositório do qual o fluxo de trabalho é executado)
+
+Esses módulos devem ser declarados no arquivo package.json, que será usado pelo NPM (npm install) para baixar o código-fonte desses módulos que nossa ação exigirá.
+
+```
+"dependencies": {
+"@actions/core": "^1.10.0",
+"@actions/exec": "^1.1.1",
+"@actions/github": "^5.1.1",
+"actions-toolkit": "^6.0.1"
+},
+"devDependencies": {
+  "typescript": "^3.7.4"
+},
+```
+
+Recurso: Como um lembrete, o GitHub Actions Toolkit é o SDK que simplifica muito o desenvolvimento de ações JavaScript usando módulos ricos, mas ainda simplificados. Sua documentação está localizada no repositório dedicado: https://github.com/actions/toolkit.
+
+## The manifest and its variables
+Naturalmente, nossa Ação precisa de um manifesto action.yml, e seu conteúdo se parece com o criado para a primeira ação. Mas é diferente para a declaração de variáveis ​​de entrada que são definidas:
+
+- [x] githubToken: Token de autenticação que permite que você interaja com o repositório no GitHub. Será uma questão de transmitir a variável GITHUB_TOKEN que o GitHub cria automaticamente para cada fluxo de trabalho
+- [x] newTag: Número da tag Git que também servirá como nome da versão
+- [x] generateArtifact: parâmetro opcional que indica se a ação deve ou não gerar um arquivo changelog.txt
+
+Aqui está um trecho do manifesto contendo a declaração de parâmetros de entrada:
+
+```
+inputs:
+github Token:
+description: 'Token to access GitHub'
+required: true
+newTag:
+description: 'New tag'
+required: true
+generateArtifact:
+description: 'Generation of changelog?'
+required: true
+default: true
+```
+
+A ação também declara uma variável de saída relnotes que contém o conteúdo do changelog gerado. Embora a ação seja autônoma para reutilizar diretamente o changelog que gerou, retornar seu conteúdo ao fluxo de trabalho pai é uma boa prática se o usuário fizer outro uso do fluxo de trabalho, como enviar uma publicação por e-mail de tal lançamento.
+
+```
+outputs:
+relnotes:
+description: 'Content of the release note"
+```
+O arquivo de manifesto global é o seguinte. Observe que a ação carregará o arquivo index.js enquanto escreve nosso código em um arquivo index.ts. O arquivo JavaScript será gerado durante a compilação do TypeScript, que deve ser realizada antes de carregar seu código. Não é o GitHub Actions que fará isso automaticamente.
+
+```
+name: 'Generate release'
+description: 'Generates a release and release notes based on commits'
+author: 'Louis-Guillaume MORAND'
+branding:
+icon: 'award'
+color: 'orange'
+inputs:
+githubToken:
+description: 'Token to access GitHub'
+required: true
+description: 'New tag'
+required: true
+generateArtifact:
+description: 'Generate changelog?'
+required: true
+default: false
+outputs:
+relnotes:
+description: 'Content of the release note'
+runs:
+using: 'node20'
+main: 'dist/index.js'
+```
+
+## The generation of the changelog
+Claro, se os desenvolvedores trabalham com metodologia, eles comentam ao enviar seu código para o repositório, o que corresponde à funcionalidade que eles adicionam ao aplicativo. Então, por exemplo, neste comentário no commit, nossa ação simplesmente listará todos os commits desde a última tag (que era logicamente o release anterior) e então usará
+suas mensagens associadas para gerar um novo arquivo, o famoso changelog.
+
+Convenção: Não será muito fácil gerar um arquivo de release limpo e legível se os desenvolvedores não respeitarem uma certa homogeneidade para suas mensagens de commit. Existe uma convenção para escrever essas mensagens; essa convenção é uma referência hoje em desenvolvimento. Ela pode ser encontrada no seguinte site: https://www.conventionalcommits.org
+
+Temos dois métodos para recuperar esses commits, seja usando a API do GitHub para listar esses commits ou simplesmente usando a linha de comando do Git. Esta segunda solução é a mais simples e pode ser testada facilmente em seu computador.
+
+O comando para listar todos os comentários de commits (com uma exibição simplificada sem metadados) de uma tag até agora é o seguinte:
+
+`git log MONTAG..HEAD --oneline --pretty-format:"%s"`
+Falta-nos um comando para encontrar automaticamente a última tag para o usuário, não fornecendo-a explicitamente para nossa ação. O comando para listar as tags é "git describe -tags" e o comando para exibir apenas a última tag:
+
+`git describe --tags --abbrev=0`
+
+Agora que temos nossos comandos CLI, como fazê-los serem executados por nossa Ação JavaScript? O GitHub Actions Toolkit tem um módulo exec; este módulo torna possível chamar uma ferramenta externa (aqui git.exe instalado por padrão no agente) para passar parâmetros e controlar sua execução (modo silencioso, códigos de erro e até mesmo recuperar logs de saída).
+
+Graças a este módulo, podemos criar um método getLastTag() que retorna o nome da última tag.
+
+```
+import * as exec from '@actions/exec'
+await exec.exec('git',
+['describe',
+'--abbrev=0',
+'--tags'],
+options);
+```
+
+Código-fonte: O código é simplificado aqui para facilitar a leitura. Encontre o código completo no repositório da Action, incluindo como recuperar o valor de retorno da linha de comando: https://github.com/actions/toolkit
+
+Então, no mesmo princípio, podemos criar um método getCommits() que retornará a lista de mensagens de commits da nossa tag:
+
+```
+let tagFilter= tag+'..HEAD';
+await exec.exec('git',
+['log',
+tagFilter,
+'--oneline',
+'--pretty-format:"%s"],
+options);
+```
+Finalmente, para formatar a exibição de nossas notas de lançamento, um pequeno método toList(). O método formata cada mensagem em uma nova linha com um traço para fazer uma lista legal:
+```
+export function toList(text: string): string {
+return text
+.split('\n')
+`-
+.map(line => (line? - ${line} :"))
+.join('\n')
+}
+```
+
+## The creation of a release
+O objetivo principal da nossa Ação é criar uma versão do GitHub. O GitHub, sendo uma plataforma moderna, expõe a maioria dos seus serviços como API REST. No nosso caso, queremos usar a API dedicada à criação de uma versão documentada aqui: https://docs.github.com/en/rest/ reference/repos#create-a-release. No entanto, antes de escrever nosso código chamando essa API, vamos ver o que o GitHub oferece em seu kit de ferramentas. Ao ler a documentação do módulo @actions/ do github, você encontrará um objeto octokit. Este objeto contém muitas propriedades e métodos, incluindo um chamado createRelease(). Parece promissor, não é?
+
+O método pronto para uso se encaixa exatamente na nossa necessidade, mas requer vários argumentos (alguns deles são opcionais):
+
+- [x] owner: o nome do proprietário que criará o release deve ser um dos usuários do repositório
+- [x] repo: o link para o repositório que conterá o release
+- [x] tag_name: o nome da tag
+- [x] name: o título do nosso release
+- [x] body: um texto que descreve o conteúdo do nosso release (onde queremos colocar nosso changelog)
+
+Já temos todas as informações, exceto o nome do repositório e o proprietário. Eles estão localizados no contexto de um fluxo de trabalho, e seria possível usar as variáveis ​​de ambiente no fluxo de trabalho. Aqui, novamente, o GitHub nos ajuda fornecendo um objeto pré-preenchido dentro do módulo @actions/ github, o famoso octokit.
+
+```
+// Creating a context object with our GITHUB_TOKEN
+const octokit = github.getOctokit(repoToken);
+// Creation of the release
+const response = await octokit.repos.createRelease({
+owner: github.context.repo.owner, // owner's name
+repo: github.context.repo.repo, // repository's name
+tag_name: newTag, // The tag we found
+name: newTag, // The tag we found
+body: releaseNotes, // release notes
+})
+```
+Aviso: Dependendo da versão do pacote NPM @actions/github, a assinatura para chamar o método é octokit.rest.repos.createRelease() ou octokit.repos.createRelease(). Uma nova versão foi publicada após a escrita deste livro.
+
+## The core of our Action
+Agora que todos os métodos estão prontos, ainda temos que conectá-los e viver nossas ações. Primeiro, criaremos um arquivo index.ts, que corresponderá ao ponto de entrada da nossa ação.
+O primeiro passo do método é ler os parâmetros conforme declarado no manifesto acima:
+
+```
+const token = core.getInput("githubToken");
+const newTag = core.getInput("newTag");
+const isChangeLogEnabled = core.getInput("generateArtifact");
+```
+
+Então obtemos a última tag:
+
+```
+const tag = await git.getLastTag();
+```
+
+Essa tag é então passada para o método getCommits() para recuperar a lista de mensagens. Essas mensagens são então formatadas por toList().
+```
+const messages = await git.getCommits(tag)
+const releaseNotes = text.toList(messages);
+```
+Em seguida, são transmitidos para o método que cria a liberação.
+
+`release.createRelease(newTag, token, releaseNotes);`
+
+Por fim, um pedaço de código funcional correspondente ao parâmetro generateArtifact para decidir se um arquivo (changelog.txt) deve ou não ser gerado.
+
+```
+if (isChangeLogEnabled)
+{
+  io.writeOutput("changelog.txt", releaseNotes);
+}
+```
+O código completo deste arquivo (index.ts) é:
+
+```
+import * as core from '@actions/core'
+import * as git from './git'
+import * as release from './release'
+import * as text from './text'
+import * as io from './io'
+
+export async function start(): Promise<void>
+{
+try {
+// retrieving parameters
+const token = core.getInput("githubToken");
+const newTag = core.getInput("newTag");
+const isChangeLogEnabled = core.getInput("generateArtifact");
+core.debug("Token: ${token}");
+core.debug("Tag: ${newTag}");
+core.debug("Generate changelog: ${isChangeLogEnabled}");
+// retrieving tag
+const tag = await git.getLastTag();
+// retrieving history message
+if (tag != ")
+{
+const messages = await git.getCommits(tag)
+const releaseNotes = text.toList(messages);
+core.debug("Releases notes: ${releaseNotes}");
+// create release
+release.createRelease(newTag, token, releaseNotes);
+if (isChangeLogEnabled)
+{
+  io.writeOutput("changelog.txt", releaseNotes);
+}
+
+// set output variable
+core.setOutput("relnotes", releaseNotes);
+}
+}
+catch (error)
+{
+core.setFailed(error.message)
+}
+}
+start();
+```
+
+## TypeScript compilation
+A geração do código final da nossa ação é extremamente simples, pois requer apenas dois comandos:
+
+- [x] npm install
+- [x] npm run build
+
+O comando "npm install", baixa na pasta node_modules todos os pacotes declarados em package.json, ou seja, todos os pacotes necessários para a nossa Ação e o módulo typescript que adicionamos manualmente. Além disso, dentro deste mesmo package.json são declaradas as configurações de script, uma das quais, chamada build, irá lançar o "TSC", o compilador Typescript.
+
+```
+"scripts" :{
+  "build": "tsc",
+"test": "echo \"Error: no test specified\" && exit 1"
+},
+"build": "tsc",
+"test": "echo \"Error: no test specified\" && exit 1"
+```
+
+Por fim, um arquivo tsconfig.json é criado manualmente para definir a compilação do typescript. É declarado onde encontrar os arquivos de origem (**.ts*), mas o diretório de destino onde os arquivos JavaScript gerados serão colocados.
+
+```
+{
+"compilerOptions": {
+"target":"es6",
+"module": "commonjs",
+"outDir": "./js",
+"rootDir": "./src",
+"strict": true,
+"noImplicitAny": true,
+"esModuleInterop": true
+},
+```
+
+É como a mecânica funciona dentro de um projeto TypeScript, um pouco complexo de configurar para neófitos, mas muito flexível. Sinta-se à vontade para verificar o repositório de amostra para analisar os diferentes arquivos: https://github.com/lgmorand/github-action-generate-relnotes
+
+Nossa ação está tecnicamente pronta, mas ainda temos que enviar todos os arquivos de origem (incluindo arquivos baixados/gerados) para o repositório GitHub.
+
+## Integration with a workflow
+Outros usuários agora podem referenciar e usar nossa ação usando sua ramificação, já que nenhuma versão foi publicada ainda. Nossa responsabilidade é garantir que nossa Ação seja funcional, e a melhor maneira é criar um fluxo de trabalho de teste dentro do mesmo repositório.
+
+```
+- uses: ./ # called the action from the current repository
+with:
+githubToken: ${{ secrets.GITHUB_TOKEN }}
+newTag: ${{ github.event.inputs.tag}}"
+generateArtifact: true
+```
+
+Pequena sutileza, por padrão, quando um fluxo de trabalho baixa o código-fonte usando a ação checkout, ele realiza um "shallow checkout", um download apenas da versão mais recente do código-fonte, sem o histórico dos commits para ter o download mais rápido possível. No entanto, esse histórico é necessário porque contém as informações necessárias para encontrar tags e comentários. Portanto, é importante definir a ação checkout e indicar para retornar mais informações para nossa necessidade. Isso pode ser feito modificando o valor fetch-depth e dando a ele "O" para dizer à ação para baixar o histórico completo do Git.
+
+```
+- uses: actions/checkout@v4
+with:
+fetch-depth: 0
+```
+
+Um exemplo de um fluxo de trabalho que permite especificar a tag no momento do acionamento manual:
+
+```
+on:
+workflow_dispatch:
+inputs:
+tag:
+description: 'Tag'
+required: true
+jobs:
+build:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+  with:
+  fetch-depth: 0
+- name: Generate release + changelog
+- id: genRelease # an ID is required to recover relnotes
+uses: ./ # called the action from the current repository
+with:
+githubToken: ${{ secrets.GITHUB_TOKEN }}
+newTag: ${{ github.event.inputs.tag}}"
+generateArtifact: true
+- name: Test the generated release notes
+- run: echo "${{ steps.genRelease.outputs.relnotes }}"
+
+- uses: actions/upload-artifact@v4
+  with:
+name: changelog
+path: changelog.txt
+```
+Quando o fluxo de trabalho é executado, um artefato contendo o arquivo changelog.txt contendo o histórico das mensagens dos commits é criado.
+Artefato contendo o changelog
+E um release com uma descrição profissional também é gerado.
+
+## Our release and its changelog
+E aqui para nossa segunda ação que mostra a interação com o GitHub. Também é possível fazer ações que interagem com outros itens, como criar issues quando um problema é detectado, interagir com repositórios, gerenciar usuários, além, é claro, de poder interagir com qualquer serviço de terceiros. Conto com sua imaginação para criar todos os tipos de fluxo de trabalho que atendam às suas necessidades.
+
+## Create a docker Action
+Além das Ações JavaScript, as Ações GitHub suportam ações no formato Docker (somente Linux). Se precisamos lembrar do interesse das ações Docker em comparação com as Ações JavaScript, nesse caso, é a capacidade de pré-empacotar vários elementos juntos: ferramentas, bibliotecas, intérpretes, etc., e garantir a consistência de um ambiente que nunca mudará ao longo do tempo. Reuni-los em um único pacote torna possível simplificar o fluxo de trabalho e evitar surpresas ruins criando uma imagem de contêiner imutável (que nunca mudará novamente). Assim, a ação sempre se comportará da mesma maneira. Infelizmente, as Ações JavaScript baixam e instalam essas mesmas ferramentas a cada execução. Portanto, pode haver conflitos de versão, pacotes que não estão mais disponíveis, etc.
+
+## How does it work?
+Integrar uma ação do tipo Docker em um fluxo de trabalho é feito da mesma forma que uma Ação JavaScript (autor/ repositório@versão), mas a mecânica por trás disso é diferente. Um fluxo de trabalho, quando executado, realiza tarefas muito específicas:
+1. Ao iniciar o fluxo de trabalho, o GitHub cria uma nova máquina virtual cujo sistema operacional é baseado na propriedade runs-on que você definiu no fluxo de trabalho
+2. Nesta máquina virtual é iniciado um runner que baixa o manifesto do fluxo de trabalho para saber as tarefas a serem executadas
+3. A primeira ação (primeiro passo) deste runner é geralmente a ação checkout que baixa o código-fonte do repositório localmente
+4. Então, quando se trata da nossa ação Docker, ele baixa todo o código-fonte do repositório que hospeda a ação
+5. O runner busca um arquivo Dockerfile dentro do código-fonte e o usa para criar uma imagem Docker usando o comando "docker build"
+6. Uma vez que a imagem é criada, o runner inicia uma instância de contêiner local e lhe dá acesso à pasta atual (mount). Dessa forma, seu container pode interagir com seus arquivos de código-fonte
+7. O container executa sua ação e devolve o controle ao runner, que pode continuar a executar as próximas tarefas
+8. Os logs são enviados ao GitHub para serem exibidos no portal
+
+A mecânica usada para Docker Actions foi projetada para facilitar seu uso sem nenhuma adaptação do seu container (sua ação) ou mesmo da estrutura do seu repositório.
+
+## Creating a Pandoc Action
+Neste capítulo, para misturar teoria e prática, criaremos uma Docker Action contendo a ferramenta "Pandoc". O Pandoc é uma ferramenta de conversão de documentos. Ele pode pegar um formato de entrada e convertê-lo para outro, por exemplo, converter do HTML markdown ou texto bruto para arquivo do Microsoft Word, de um formato científico latex para PDF ou uma combinação de todos esses, porque o Pandoc sabe como gerenciar cerca de trinta formatos; ele é frequentemente chamado de canivete suíço da geração de documentos.
+O livro que você está lendo atualmente foi escrito no formato Markdown em um repositório do GitHub e transformado com o Pandoc em diferentes formatos (Microsoft Word, PDF, epub) para ser compartilhado com meus leitores. Aqui está parte do fluxo de trabalho que gera o arquivo PDF; ele contém várias etapas. O tempo de instalação das diferentes ferramentas não é insignificante (2 minutos e 30 segundos no total para gerar o livro).
+
+```
+steps:
+- uses: actions/checkout@v4 # downloading source code
+  name: Apt-get update # update the package database
+run: sudo apt-get update
+- name: install pandoc #installing pandoc
+run: sudo apt-get install --assume-yes pandoc
+- name: install pdflatex # installing latex and several additional modules
+run: |
+sudo apt-get install texlive-latex-base
+sudo apt-get install texlive-fonts-recommended
+sudo apt-get install texlive-latex-extra
+sudo apt-get install texlive-xetex
+- name: Build PDF version # Generating a PDF from markdown
+run: pandoc -V documentclass-memoir --pdf-engine-xelatex -- from=markdown-blank_before_header -o './dist/GitHub Actions-a
+practical guide.pdf'
+working-directory: ./book
+```
+
+O fluxo de trabalho não é tão complicado (mesmo que você veja apenas uma pequena parte), mas gostaríamos de reduzi-lo a uma única etapa para facilitar a leitura. Além disso, explicamos anteriormente que as ações baseadas em um arquivo docker eram mais lentas, especialmente porque leva o GitHub para gerar uma imagem docker e, em seguida, implantar (girar) um contêiner. No entanto, esse tempo de processamento do Docker pode ser menor do que o tempo cumulativo de diferentes ações sequenciais de um fluxo de trabalho padrão, especialmente como veremos, a instalação do Pandoc e suas extensões leva 2 minutos atualmente, onde uma ação do docker realizando a mesma coisa levaria apenas 30 segundos. Portanto, para responder a esse tipo de cenário, é interessante que você aprenda como criar ações do Docker.
+Para hospedar sua ação, é necessário criar um novo repositório, nomeie-o "github-action-pandoc". Se você escolher outro nome, terá que adaptar os exemplos de código de acordo.
+
+## The structure of a Docker Action
+Uma Docker Action é geralmente mais sintética do que uma JavaScript Action; ela geralmente contém quatro arquivos:
+- [x] Um arquivo action.yaml, o manifesto do aplicativo para sua publicação no Marketplace (o mesmo formato das JavaScript Actions)
+- [x] Um Dockerfile contendo as instruções para criar a imagem Docker
+- [x] Um arquivo de script que será executado dentro do nosso contêiner
+- [x] Um arquivo README.md para descrever sua ação
+
+O arquivo README.md contém a descrição da sua ação e um exemplo de YAML para usar nossa Action:
+```
+- uses: lgmorand/github-action-pandoc@v1
+with:
+args: "--standalone --output-readme.pdf README.md"
+```
+
+A seção manifest difere muito ligeiramente daquela das ações JavaScript. A seção runs será específica, pois especificamos o tempo de execução do Docker, mas também um nome de arquivo que serve para gerar a imagem do contêiner. É um uso comum chamá-lo de Dockerfile.
+
+```
+runs:
+using: "docker"
+image: "Dockerfile"
+```
+O manifesto também contém as seções descritivas e de marca:
+
+```
+name: 'Pandoc Converter'
+description: 'GitHub Action to Convert Documents via Pandoc'
+author: 'Louis-Guillaume MORAND'
+runs:
+using: "docker"
+image: "Dockerfile"
+branding:
+icon: 'book-open'
+color: 'green'
+```
+
+Depois vêm os dois arquivos mais importantes: o arquivo docker de receitas e o script principal (que pode, é claro, ser composto de vários scripts dependendo de sua complexidade). O arquivo Dockerfile é uma lista de comandos que o Docker usará para criar sua imagem de contêiner; esta "receita" especifica todos os ingredientes a serem integrados, começando pelo sistema operacional, depois os módulos a serem instalados nele e, finalmente, os comandos a serem executados na inicialização.
+
+Nota: Este livro não aborda em detalhes a escrita do Dockerfile e suas boas práticas. Se este tópico lhe interessa, a melhor fonte de informação continua sendo a documentação oficial: https://docs.docker.com/engine/reference/builder/. Em particular, existem boas práticas para iluminar imagens de contêiner, mas não as aplicaremos para manter o máximo de simplicidade e legibilidade.
+
+O primeiro reflexo para atender à nossa necessidade de criar um contêiner Pandoc é escrever uma receita como esta, perfeitamente funcional:
+
+```
+# We choose a base OS Image: alpine is very lightweight
+FROM alpine: 3.12
+# Installing pandoc
+RUN apk update && apk --no-cache add pandoc
+# Installing additional modules and various tools
+RUN apk add texlive-full\
+texlive-xetex\
+biber\
+make\
+rsync\
+tar\
+libarchive-tools\
+gmp\
+curl
+ADD entrypoint.sh /entrypoint.sh
+RUN ["chmod", "+x","/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
+```
+
+No entanto, a geração desta imagem é relativamente lenta devido ao grande número de ferramentas para instalar (vários minutos), e o interesse de uma ação do Docker seria muito limitado em comparação ao nosso fluxo de trabalho original. Felizmente, os editores do Pandoc fizeram uma imagem de contêiner do Pandoc, permitindo-nos usá-la como base de trabalho e adicionar os módulos ausentes de que precisamos.
+
+O novo arquivo Dockerfile é bastante simplificado e muito mais rápido de gerar:
+
+```
+# Base OS image: Alpine with already integrated Pandoc
+FROM pandoc/latex:2.6
+# Reduced installation of modules because many tools are already in the base image
+RUN apk update\
+&& apk add texlive-full\
+texlive-xetex\
+biber
+# Integration of our script
+ADD entrypoint.sh /entrypoint.sh
+#Allowing script execution
+RUN ["chmod", "+x", "/entrypoint.sh"]
+#Defining the script to run at startup of the container
+ENTRYPOINT ["/entrypoint.sh"]
+```
+
+Você certamente notou esse arquivo estranho chamado entrypoint.sh. Este é um arquivo de script simples para colocar ao lado do Dockerfile. Este é o ponto de entrada do nosso contêiner, o que significa que ele será chamado quando o contêiner iniciar e que os parâmetros foram enviados para o contêiner. Intrinsecamente, quando o runner executa sua ação, ele percebe algo como isto:
+
+`docker run image-of-my-action --parameter-of-my-choice`
+
+Assim, os parâmetros de uma ação são transmitidos para o container e então para o arquivo Entrypoint.sh que pode então usá-los. A estrutura de um script é geralmente da seguinte forma:
+
+```
+#!/bin/sh # the "shebang", header that tells the system by which interpreter
+set -e
+
+[...] # commands to run
+```
+No nosso caso, nada complicado, pois queremos apenas chamar a ferramenta Pandoc, pré-instalada em nosso contêiner, e então passar parâmetros que podem ser recuperados com "$ *":
+```
+#!/bin/sh
+set-e
+sh -c "pandoc $*" # opens a shell, and runs Pandoc by giving him the arguments
+```
+
+De quais argumentos estamos falando? Argumentos que estão no arquivo YAML. O runner os lê e então os passa para um contêiner que pode, por sua vez, transmiti-los para o script:
+
+```
+- uses: 1gmorand/github-action-pandoc@main # replace with your action
+   with:
+   args: "--standalone --output-readme.pdf README.md"
+```
+Portanto, o comando final é "pandoc standalone -output=readme.pdf README.md", que diz ao Pandoc para pegar o arquivo README.md e transformá-lo em readme.pdf. Finalmente, se você ainda não fez isso, crie um arquivo README.md com conteúdo markdown.
+
+Nota: Você pode encontrar minha ação pronta para o usuário e bifurcá-la se desejar. Ela está localizada neste repositório: https://github.com/lgmorand/github-action-pandoc. Eu recomendo que você pegue o arquivo sample.md e coloque seu conteúdo em seu arquivo README.md. O resultado deste arquivo transformado em PDF pode surpreendê-lo.
+
+Seu repositório deve ser parecido com isto:
+
+Resta testar sua Ação. Para fazer isso, vamos criar um fluxo de trabalho dentro do repositório de sua Ação. Temos que testar várias coisas:
+
+- [x] Que o arquivo dockerfile seja válido e gere com sucesso uma imagem de contêiner (isso será feito automaticamente ao chamar nossa função)
+- [x] Que a chamada para nosso contêiner passando parâmetros seja executada sem erros
+- [x] Que o arquivo gerado esteja no formato correto e não contenha nenhum erro
+
+Isso pode ser feito com um fluxo de trabalho muito simples que contém três ações:
+
+1. A primeira ação baixa o código-fonte (checkout)
+2. A segunda, a ação Pandoc, transforma o README.md em um arquivo PDF
+3. A terceira ação carrega o arquivo PDF como um artefato
+
+```
+name: Generate PDF
+on:
+workflow_dispatch: # manual trigger
+push:
+# and each commit on the main branch
+jobs:
+generate:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+- uses: lgmorand/github-action-pandoc@main # replace with your action and your branch
+with:
+args: "--standalone --output-readme.pdf README.md"
+- uses: actions/upload-artifact@v4
+with:
+name: "PDF"
+path: readme.pdf
+
+```
+A execução deste fluxo de trabalho permite que você gere uma imagem de contêiner na inicialização antes de executar as ações. De fato, o GitHub começa validando todos os pré-requisitos de execução cuja validade das ações antes de executá-las.
+
+Finalmente, você notará que entre os artefatos associados ao seu fluxo de trabalho está um arquivo pdf.zip que contém o arquivo readme.pdf que acabamos de gerar. Se você usou o conteúdo do arquivo sample.md, você deve ter um PDF com uma página de rosto, um índice e um layout bonito. Novamente, é o poder do Pandoc.
+
+## How to optimize Docker Actions
+A principal lentidão de uma Docker Action é a "compilação" da própria imagem. Em nosso fluxo de trabalho de exemplo, em quase 4 minutos para executar todo o fluxo de trabalho, 3 minutos e 33 segundos são consumidos apenas pela criação desta imagem.
+
+Mais problemático, uma imagem de contêiner é recriada com cada execução do fluxo de trabalho, o que significa que tempo é perdido a cada vez (o que também não é favorável ao meio ambiente!). Como a ação em si não muda entre duas execuções, a solução elegante seria gerar a imagem uma vez e reutilizá-la depois.
+
+Esta solução é viável com GitHub Actions ao atingir três etapas:
+1. Geração da imagem de contêiner da sua ação
+2. Publicação da ação no Docker Hub (ou qualquer registro de contêiner)
+3. Edite seu fluxo de trabalho para carregar a ação do Registro do Docker Hub
+
+Se você ainda não tiver uma, precisará criar uma conta no Docker Hub (https://hub.docker.com/). Isso permitirá que você tenha um registro de contêiner pessoal, ou seja, uma biblioteca onde armazenar suas imagens de contêiner que podem ser baixadas de qualquer lugar. Anote seu login e sua senha porque você precisará deles.
+
+No repositório da sua ação, crie um novo fluxo de trabalho de publicação de imagem do Docker. Para o exemplo, escolheremos um gatilho manual para publicar somente quando uma versão estável estiver pronta. Adicionamos dois parâmetros para fornecer no momento do gatilho: o nome da imagem e sua tag (número da versão). A primeira parte do nome da imagem deve incluir seu login do Docker e corresponde ao seu "namespace".
+
+```
+name: Publish Docker Image
+on:
+workflow_dispatch:
+inputs:
+version:
+description: 'name of the container image'
+required: true
+image:
+description: 'version of the container image'
+required: true
+default: "lgmorand/github-action-pandoc"
+```
+Isso tem a consequência de exibir um formulário durante a inicialização do fluxo de trabalho:
+
+Então vem a parte dos passos. O primeiro passo baixa o código-fonte e os arquivos que precisaremos (Dockerfile e entrypoint.sh).
+```
+jobs:
+publish:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+```
+
+O próximo passo é conectar-se ao Docker Hub. Ao fazer isso, uma chave de conexão (token) é baixada localmente pelo runner e será reutilizada pelos seguintes comandos:
+
+```
+- name: Docker Hub login
+run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "$ {{ secrets.DOCKER_USERNAME }}" --password-stdin
+```
+
+Depois vem o último passo, responsável por recuperar as variáveis ​​que você insere no workflow iniciado, para construir a imagem docker da nossa ação, marcá-la com um número de versão e, finalmente, publicar a imagem no seu Docker Hub. A imagem então estará disponível e reutilizável:
+
+```
+- name: Push image to Docker Hub
+run:|
+VERSION="${{ github.event.inputs.version}}"
+IMAGE_NAME="${{ github.event.inputs.image }}"
+TAG="$IMAGE_NAME: $VERSION"
+
+docker build --file Dockerfile --tag $IMAGE_NAME --label "org.opencontainers.image.version= $VERSION"
+docker tag $IMAGE_NAME $TAG
+docker push $TAG
+```
+
+O resultado final do fluxo de trabalho é:
+
+Recurso: em caso de problemas ou se você não quiser reescrever o fluxo de trabalho completamente, você pode encontrar uma versão pronta para uso no repositório https://github.com/ lgmorand/github-action-pandoc
+
+```
+name: Publish Docker Image
+on:
+workflow_dispatch:
+inputs:
+version:
+description: 'version of the container image'
+required: true
+image:
+description: 'name of the container image'
+required: true
+default: "lgmorand/github-action-pandoc"
+jobs:
+publish:
+runs-on: ubuntu-latest
+steps:
+uses: actions/checkout@v4
+- name: Docker Hub login
+run: echo "${{ secrets.DOCKER_PASSWORD}}" | docker login -u "${{ secrets.DOCKER_USERNAME}}" --password-stdin
+name: Push image to Docker Hub
+run: |
+VERSION="${{ github.event.inputs.version}}"
+IMAGE_NAME="${{ github.event.inputs.image}}"
+TAG="$IMAGE_NAME:$VERSION"
+docker build. --file Dockerfile --tag $IMAGE_NAME --label "org.opencontainers.image.version= $VERSION"
+docker tag $IMAGE_NAME $TAG
+docker push $TAG
+```
+
+Quando o fluxo de trabalho é executado com sucesso, o contêiner da sua ação pode ser encontrado no seu namespace no Docker Hub.
+
+Agora que a imagem foi gerada, é necessário indicar ao fluxo de trabalho para usá-la em vez de gerar uma do Dockerfile. Isso é feito com uma nova maneira de chamar uma
+Ação do Docker e o prefixo "docker://":
+
+```
+- uses: docker://NAMESPACE/NAME_DOCKER_IMAGE:VERSION
+with:
+args: "--blahblah" # parameters
+```
+
+Isso nos permite escrever um fluxo de trabalho substancialmente idêntico ao que havíamos escrito anteriormente:
+
+```
+name: Generate PDF - optimized version
+on:
+workflow_dispatch:
+jobs:
+generate:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+- uses: docker://lgmorand/github-action-pandoc:1.0.1
+with:
+args: "--standalone --output-readme.html README.md"
+- uses: actions/upload-artifact@v4
+with:
+name: "Artifact"
+path: readme.html
+```
+
+Mas cujo tempo de execução será significativamente menor:
+
+Tempo de execução reduzido
+
+Concluindo, criar uma Docker Action nos permitiu ir de um fluxo de trabalho "JavaScript" que levava 2 min 30 para um fluxo de trabalho usando Docker, que levava 3 min 30 antes de otimizá-lo para atingir um tempo de execução de 20 segundos. Em larga escala ou simplesmente dentro de uma equipe de desenvolvimento, ganhar velocidade em cada execução do fluxo de trabalho é uma prioridade para a eficiência geral e faz parte da mentalidade DevOps.
+
+No entanto, lembre-se de que uma parte do tempo de execução do fluxo de trabalho vem do download da imagem do Docker. Portanto, deve-se manter seu tamanho o menor possível, o que pode ser feito usando imagens minimalistas básicas (Alpine e outras versões chamadas distroless) e por meio do procedimento "multiestágio" dentro dos arquivos Dockerfile. Esta parte, embora não seja complexa, não é abordada neste livro; no entanto, você encontrará facilmente informações sobre ela na Internet.
+
+## Create composite Actions
+Depois de abordar ações JavaScript e sua alternativa Docker, vamos abordar ações compostas (etapas de execução compostas na documentação). Ação composta é uma ação composta de outras ações. Ela simplifica fluxos de trabalho (legibilidade) e facilita a reutilização quando uma ação de grupo é repetida várias vezes em vários fluxos de trabalho. Essas ações compostas são "partes" de fluxo de trabalho que serão injetadas em seus fluxos de trabalho de chamada.
+
+Ação composta não é muito diferente de ação JavaScript ou Docker. Ela tem o manifesto action.yaml contendo os mesmos campos com uma exceção para o campo runs. Este contém o valor "using: composite" bem como uma propriedade "steps", que conterá as diferentes etapas no mesmo formato de um fluxo de trabalho "padrão":
+
+```
+runs:
+using: "composite" # Specific mode that means that this module is a composite action
+steps:
+- run: echo "I'm the first step"
+name: step1
+- run: echo "I'm the second step"
+name: step2
+```
+
+Nada realmente complexo. Especialmente porque no fluxo de trabalho pai, chamar uma ação composta é feito da mesma forma que para qualquer ação padrão:
+
+```
+jobs:
+test:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+- uses: 1gmorand/mon-action-composite@v1
+```
+
+Vamos colocar isso em prática criando juntos uma ação composta verdadeira. Nosso exemplo é uma ação que escaneia o código-fonte para verificar se as senhas foram codificadas no código-fonte, o que seria uma prática ruim e mereceria bloquear uma compilação/lançamento.
+
+Crie um novo repositório chamado "github-action-composite- credscanning" e crie lá um arquivo manifesto action.yaml. Comece adicionando os metadados padrão:
+
+```
+name: 'Credentials scanning'
+description: 'Scan source code to find if credentials have been hardcoded'
+branding:
+icon: 'lock' # The name of one of the available icons
+color: 'orange' # The background color of your icon
+```
+
+Nota: O código-fonte completo desta ação de exemplo está no repositório público: https://github.com/lgmorand/github-action-composite-credscanning
+
+Em seguida, adicione um parâmetro de entrada folderToScan que especifica a pasta (e subpastas) que você deseja que o scanner. Útil quando não queremos escanear o repositório completo.
+
+```
+inputs:
+folderToScan: #path
+description: 'The folder where to scan files'
+required: true
+default: '/src'
+```
+Então adicione o primeiro passo. Graças ao seu comando Bash particular, ele faz uma busca recursiva que permite que você encontre todos os arquivos contendo a palavra "password" e salva a lista de arquivos "em risco" em um arquivo chamado result.txt. Note que seu diretório de trabalho é especificado por meio da propriedade working- directory, que recupera o valor do parâmetro de entrada. Assim, seremos capazes de ter uma ação composta cujo caminho será dinâmico de um fluxo de trabalho para outro:
+
+```
+runs:
+using: "composite"
+steps:
+- run: grep "password" . -R > ../result.txt
+shell: bash
+working-directory: ${{ inputs.folderToScan }} # Retrieves the input parameter
+```
+Adicione uma segunda etapa que conta o número de arquivos encontrados contando o número de linhas que foram escritas no arquivo result.txt. Para isso, você pode usar o comando "wc" (significa "contagem de palavras") e passar o parâmetro "-1" para pedir que ele conte as linhas.
+
+```
+- shell: bash
+run: COUNT=$(wc -1 < result.txt) # counts and puts the result in the variable COUNT
+```
+
+Exporte essa variável como saída em seu passo para então ser transmitida ao pai do fluxo de trabalho. Para isso, é necessário dar um ID exclusivo ao seu passo.
+
+```
+-id: count-files # unique ID of your step
+shell: bash
+run: |
+      COUNT=$(wc-1 < result.txt)
+      echo "filesCount=$(echo $COUNT)" >> $GITHUB_OUTPUT # export of our variable
+```
+
+Por fim, resta apenas recuperar a saída desta etapa e transformá-la em uma saída de ação. Assim, o valor da variável é acessível pelo fluxo de trabalho pai. Isso acontece declarando um bloco de saída compreendendo uma variável de saída "scanned-files", que será mapeada para o valor de saída da etapa de contagem "count-files".
+
+```
+outputs:
+scanned-files: # name of the output variable
+description: "Number of files scanned"
+value: ${{ steps.count-files.outputs.filesCount}}
+```
+
+O resultado completo do arquivo YAML deve ficar assim:
+
+```
+name: 'Credentials scanning'
+description: 'Scan source code to find if credentials have been hardcoded'
+inputs:
+folderToScan:
+description: 'The folder where to scan files'
+required: true
+default: '/src'
+outputs:
+scanned-files:
+description: "Number of files scanned"
+value: ${{ steps.count-files.outputs.filesCount}}
+runs:
+using: "composite"
+steps:
+· run: grep "password" . -R > ../result.txt
+shell: bash
+working-directory: ${{inputs.folderToScan }}
+-id: count-files
+```
+
+Pagina: 237
