@@ -1,0 +1,36 @@
+name: Wiki Page Created
+
+on:
+  gollum
+
+jobs:
+  log-wiki-page:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Registrar evento da wiki
+        run: echo "Uma nova página da Wiki foi criada: ${{ github.event.pages[0].title }}"
+
+      - name: Criar issue para rastrear mudanças (opcional)
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issueTitle = `📄 Nova página na Wiki: ${{ github.event.pages[0].title }}`;
+            const issueBody = `Uma nova página foi criada na Wiki do repositório: **${{ github.event.pages[0].title }}**.\n\n🔗 [Veja a página](${{ github.event.pages[0].html_url }})`;
+
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: issueTitle,
+              body: issueBody
+            });
+
+      - name: Notificar no Slack (opcional)
+        if: success()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_MESSAGE: "📢 Nova página criada na Wiki: ${{ github.event.pages[0].title }}\n🔗 [Veja aqui](${{ github.event.pages[0].html_url }})"
