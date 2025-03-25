@@ -662,7 +662,8 @@ Job_a:
 <<: *default_settings
 name: Job A
 Job_b:
-<<: *default_settings name: Job B
+<<: *default_settings
+name: Job B
 ```
 #### Multi-line strings:
 YAML suporta strings multi-linha usando o caractere pipe '|' ou maior que '>'. O caractere pipe preserva novas linhas na string, enquanto o caractere maior que converte novas linhas em espaços. Exemplo:
@@ -677,11 +678,10 @@ This is a multi-line
 string with newlines
 converted to spaces.
 Comments:
-You can add comments in YAML files by starting a line with the # character. Comments can help document your configuration and make it easier for others to understand your workflow. Example:
-# This is a comment in YAML
-version: 1 # You can also add inline comments
+Você pode adicionar comentários em arquivos YAML iniciando uma linha com o caractere #. Comentários podem ajudar a documentar sua configuração e facilitar para outros entenderem seu fluxo de trabalho. Exemplo:
+# Este é um comentário em YAML
+versão: 1 # Você também pode adicionar comentários inline
 ```
-
 #### Environment variables:
 Nos fluxos de trabalho do GitHub Actions, você pode usar variáveis de ambiente para armazenar e passar dados entre etapas. Para definir uma variável de ambiente, use a chave env seguida pelo nome e valor da variável. Exemplo:
 
@@ -693,14 +693,14 @@ env:
 MY_VARIABLE: my_value
 steps:
 - name: Print environment variable
-run: echo $MY_VARIABLE
+   run: echo $MY_VARIABLE
 ```
 
 Entender a sintaxe YAML é crucial para trabalhar efetivamente com o GitHub Actions, pois permite que você crie e mantenha fluxos de trabalho complexos e eficientes. Ao dominar os diferentes aspectos do YAML, você pode escrever arquivos de fluxo de trabalho mais sustentáveis, legíveis e escaláveis, garantindo que seus processos de desenvolvimento sejam simplificados e otimizados.
 
 Nas seções a seguir, vamos nos aprofundar nos recursos avançados e opções de personalização do GitHub Actions, ajudando você a desbloquear todo o seu potencial e transformar seus fluxos de trabalho de desenvolvimento de software.
 
-## Anatomy of a GitHub Actions Workflow
+## Anatomia de um fluxo de trabalho de ações do GitHub
 Para aproveitar totalmente os recursos do GitHub Actions, é essencial entender os diferentes componentes que compõem um fluxo de trabalho.
 
 Nesta seção, dissecaremos a anatomia de um fluxo de trabalho do GitHub Actions, explicando cada elemento em detalhes e fornecendo exemplos para ajudar você a compreender sua função e uso.
@@ -708,18 +708,18 @@ Nesta seção, dissecaremos a anatomia de um fluxo de trabalho do GitHub Actions
 ### Workflow triggers
 Os gatilhos de fluxo de trabalho definem os eventos que iniciam a execução de um fluxo de trabalho do GitHub Actions.
 
-Você pode especificar vários eventos, como pushes, pull requests ou até mesmo eventos personalizados, para iniciar o fluxo de trabalho. Os gatilhos são definidos usando a palavra-chave on, seguida pelos nomes dos eventos e qualquer configuração adicional. Exemplo:
+Você pode especificar vários eventos, como pushes, pull requests ou até mesmo eventos personalizados, para iniciar o fluxo de trabalho. Os gatilhos são definidos usando a palavra-chave `on`, seguida pelos nomes dos eventos e qualquer configuração adicional. Exemplo:
 
 ```
 on:
 push:
-branches:
-   - main
+  branches:
+    - main
 pull_request:
   branches:
    - main
 schedule:
-   - cron: '0 12 ***
+   - cron: '0 12 ***' 
 ```
 ![](img/github-actions-workflow.png){width="600" height="450" style="display: block; margin: 0 auto"}
 
@@ -735,67 +735,67 @@ schedule:
 | Páginas             | Fluxos de trabalho para empacotar/implantar sites usando ferramentas comuns como Gatsby, Astro, Jekyll, etc. |
 </div>
 ### Jobs
-Um fluxo de trabalho consiste em um ou mais trabalhos, que são unidades individuais de trabalho que são executadas em paralelo por padrão. Os trabalhos são definidos usando a palavra-chave jobs, seguida por um identificador exclusivo para cada trabalho e sua configuração. Exemplo:
+Um fluxo de trabalho consiste em um ou mais trabalhos, que são unidades individuais de trabalho que são executadas em paralelo por padrão. Os trabalhos são definidos usando a palavra-chave `jobs`, seguida por um identificador exclusivo para cada trabalho e sua configuração. Exemplo:
 
 ```
 jobs:
-build:
-runs-on: ubuntu-latest
-steps:
-- name: Build project run: npm run build
+  build:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Build project run: npm run build
 test:
-runs-on: ubuntu-latest steps:
-- name: Run tests run: npm test
+  runs-on: ubuntu-latest
+  steps:
+  - name: Run tests run: npm test
 ```
 
 ### Job dependencies
-Por padrão, os trabalhos são executados em paralelo, mas você pode especificar dependências entre os trabalhos usando a palavra-chave needs. Isso pode ser útil para criar fluxos de trabalho sequenciais em que certos trabalhos devem ser concluídos antes que outros possam começar. Exemplo:
+Por padrão, os trabalhos são executados em paralelo, mas você pode especificar dependências entre os trabalhos usando a palavra-chave `needs`. Isso pode ser útil para criar fluxos de trabalho sequenciais em que certos trabalhos devem ser concluídos antes que outros possam começar. Exemplo:
 
 ```
 jobs:
 build:
-runs-on: ubuntu-latest
-steps:
-- name: Build project
-run: npm run build
+  runs-on: ubuntu-latest
+  steps:
+    - name: Build project
+       run: npm run build
 test:
-runs-on: ubuntu-latest
-needs: build
-steps:
-- name: Run tests
-run: npm test
+  runs-on: ubuntu-latest
+  needs: build
+  steps:
+    - name: Run tests
+      run: npm test
 ```
 
 ### Job environment
-Cada trabalho é executado em um ambiente específico definido pela palavra-chave runs-on, que especifica o sistema operacional e a versão do trabalho. O GitHub Actions fornece vários ambientes pré-construídos, como ubuntu-latest, windows-latest e macos-latest. Exemplo:
-
-```
-jobs:
-build:
-runs-on: ubuntu-latest
-```
-
-### Steps
-Os trabalhos são compostos de uma ou mais etapas, que são tarefas individuais executadas sequencialmente dentro de um trabalho. As etapas podem usar ações pré-criadas do mercado GitHub Actions, ações personalizadas ou simplesmente executar comandos shell. As etapas são definidas usando a palavra-chave steps, seguida por uma lista de configurações de etapas. Exemplo:
+Cada trabalho é executado em um ambiente específico definido pela palavra-chave `runs-on`, que especifica o sistema operacional e a versão do trabalho. O GitHub Actions fornece vários ambientes pré-construídos, como **ubuntu-latest**, **windows-latest** e **macos-latest**. Exemplo:
 
 ```
 jobs:
   build:
     runs-on: ubuntu-latest
-steps:
-- name: Checkout repository
-  uses: actions/checkout@v4
-- name: Set up Node.js
-  uses: actions/setup-node@v4
-  with:
-    node-version: 14
-- name: Install dependencies
-run: npm ci
-- name: Build project
-  run: npm run build
+```
+### Steps
+Os trabalhos são compostos de uma ou mais etapas, que são tarefas individuais executadas sequencialmente dentro de um trabalho. As etapas podem usar ações pré-criadas do mercado GitHub Actions, ações personalizadas ou simplesmente executar comandos shell. As etapas são definidas usando a palavra-chave `steps`, seguida por uma lista de configurações de etapas. Exemplo:
+
+```
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 14
+      - name: Install dependencies
+          run: npm ci
+      - name: Build project
+          run: npm run build
 ```
 ### Actions
-Ações são unidades reutilizáveis de código que podem ser incluídas como etapas no seu fluxo de trabalho. Você pode usar ações pré-criadas do marketplace GitHub Actions, criar suas próprias ações personalizadas ou referenciar ações de outros repositórios. As ações são referenciadas usando a palavra-chave uses, seguida pelo repositório de ações e versão. Exemplo:
+Ações são unidades reutilizáveis de código que podem ser incluídas como etapas no seu fluxo de trabalho. Você pode usar ações pré-criadas do marketplace GitHub Actions, criar suas próprias ações personalizadas ou referenciar ações de outros repositórios. As ações são referenciadas usando a palavra-chave `uses`, seguida pelo repositório de ações e versão. Exemplo:
 
 ```
 steps:
@@ -805,17 +805,17 @@ steps:
 
 As ações podem ser:
 
-- [x] Reutilizável: as ações podem ser usadas em diferentes fluxos de trabalho e repositórios, permitindo que você evite reescrever o mesmo código.
-- [x] Pré-escrito: muitas ações estão disponíveis no GitHub Marketplace, abrangendo uma ampla gama de tarefas, como verificar código, configurar ambientes, executar testes e implantar aplicativos.
-- [x] Configurável: você pode configurar ações com entradas, saídas e variáveis ​​de ambiente para adaptá-las às suas necessidades específicas.
-- [x] Orientado pela comunidade: você pode criar suas próprias ações e compartilhá-las com outras pessoas ou usar ações desenvolvidas pela comunidade.
+- [x] **Reutilizável**: as ações podem ser usadas em diferentes fluxos de trabalho e repositórios, permitindo que você evite reescrever o mesmo código.
+- [x] **Pré-escrito**: muitas ações estão disponíveis no GitHub Marketplace, abrangendo uma ampla gama de tarefas, como verificar código, configurar ambientes, executar testes e implantar aplicativos.
+- [x] **Configurável**: você pode configurar ações com entradas, saídas e variáveis ​​de ambiente para adaptá-las às suas necessidades específicas.
+- [x] **Orientado pela comunidade**: você pode criar suas próprias ações e compartilhá-las com outras pessoas ou usar ações desenvolvidas pela comunidade.
 
 ### Inputs and outputs
 Você pode passar dados entre etapas usando entradas e saídas.
 
-As entradas são definidas usando a palavra-chave with, seguida por um mapeamento de nomes e valores de entrada.
+As entradas são definidas usando a palavra-chave `with`, seguida por um mapeamento de nomes e valores de entrada.
 
-As saídas são definidas usando a palavra-chave id para atribuir um identificador exclusivo a uma etapa e, em seguida, acessadas usando o contexto steps em etapas subsequentes. Exemplo:
+As saídas são definidas usando a palavra-chave `id` para atribuir um identificador exclusivo a uma etapa e, em seguida, acessadas usando o contexto steps em etapas subsequentes. Exemplo:
 
 ```
 name: Exercicio 01
@@ -843,7 +843,7 @@ jobs:
 
 ### Environment variables and secrets
 Variáveis de ambiente e segredos permitem que você armazene e passe dados sensíveis ou reutilizáveis entre etapas.
-Variáveis de ambiente são definidas usando a palavra-chave env, enquanto segredos são gerenciados nas configurações do repositório e acessados usando o contexto secrets.Exemplo:
+Variáveis de ambiente são definidas usando a palavra-chave `env`, enquanto segredos são gerenciados nas configurações do repositório e acessados usando o contexto `secrets`. Exemplo:
 
 ```
   build_random:
@@ -860,7 +860,7 @@ Contextos no GitHub Actions fornecem acesso a vários tipos de metadados relacio
 
 Eles permitem que você crie fluxos de trabalho dinâmicos e flexíveis que podem se adaptar a diferentes situações com base nos metadados disponíveis.
 
-Por exemplo, você pode usar o contexto do github para acessar informações sobre o evento que acionou o fluxo de trabalho, como o tipo de evento, o ator que iniciou o evento e o SHA de confirmação associado.
+Por exemplo, você pode usar o contexto do `GITHUB` para acessar informações sobre o evento que acionou o fluxo de trabalho, como o tipo de evento, o ator que iniciou o evento e o SHA de confirmação associado.
 
 Da mesma forma, o contexto de segredos permite que você acesse com segurança segredos criptografados armazenados nas configurações do seu repositório.
 
@@ -868,11 +868,11 @@ Para acessar dados de contexto, você pode usar a sintaxe `${{context}}` no seu 
 
 ```
 jobs:
-build:
-runs-on: ubuntu-latest
-steps:
-- name: Log event name
-run: echo "Event name: ${{ github.event_name}}"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log event name
+        run: echo "Event name: ${{ github.event_name}}"
 ```
 
 ### Workflow Contexts
@@ -904,9 +904,6 @@ steps:
     env:
       MY_SECRET: ${{ secrets.MY_SECRET }}
 ```
-
-
-
 ### Expressions
 Expressões no GitHub Actions são uma maneira poderosa de avaliar e manipular dados dentro dos seus arquivos de fluxo de trabalho. Elas permitem que você execute cálculos, acesse dados de contexto e controle o fluxo do seu fluxo de trabalho com base em condições. As expressões são encapsuladas em chaves duplas, como `${{ expression}}`.
 
@@ -920,7 +917,7 @@ build:
 runs-on: ubuntu-latest
 steps:
 - name: Log event name
-   run: echo "This step only runs for pull_request events."
+   run: echo "Esta etapa só é executada para eventos pull_request."
     if: ${{ github.event_name == 'pull_request' }}
 ```
 
@@ -935,27 +932,33 @@ Para exibir o status dos seus fluxos de trabalho do GitHub Actions no README do 
 
 Ao entender a anatomia de um fluxo de trabalho do GitHub Actions, você pode criar fluxos de trabalho mais eficientes, sustentáveis e escaláveis, adaptados às suas necessidades específicas. Nas seções a seguir, continuaremos explorando recursos avançados e opções de personalização do GitHub Actions, ajudando você a desbloquear todo o seu potencial e revolucionar seus processos de desenvolvimento de software.
 
-## Building Your First Workflow
+## Construindo seu primeiro fluxo de trabalho
 Neste capítulo, vamos orientá-lo no processo de criação do seu primeiro fluxo de trabalho do GitHub Actions do zero. Nosso objetivo é ajudar você a obter uma compreensão prática de como criar e configurar fluxos de trabalho para automatizar várias tarefas em seus projetos de desenvolvimento.
 
 Começaremos discutindo diferentes tipos de gatilhos de fluxo de trabalho, incluindo gatilhos baseados em eventos e gatilhos agendados, que determinam quando seu fluxo de trabalho deve ser executado. Entender esses gatilhos é essencial para projetar fluxos de trabalho que respondam efetivamente a eventos específicos ou sejam executados em um cronograma predeterminado.
 
-Em seguida, vamos nos aprofundar na definição de trabalhos e etapas em seu fluxo de trabalho. Esta seção abordará a estrutura e a configuração de trabalhos, incluindo como definir etapas, usar ações pré-criadas e executar comandos de shell. Ao aprender sobre esses componentes, você poderá criar fluxos de trabalho personalizados adaptados às suas necessidades específicas.
+Em seguida, vamos nos aprofundar na definição de trabalhos e etapas em seu fluxo de trabalho. Esta seção abordará a estrutura e a configuração de trabalhos, incluindo como definir etapas, usar ações pré-criadas e executar comandos de shell. 
+
+Ao aprender sobre esses componentes, você poderá criar fluxos de trabalho personalizados adaptados às suas necessidades específicas.
 
 Também exploraremos como aproveitar compilações de matriz e paralelismo para testar seu código com eficiência em vários ambientes, versões de tempo de execução ou configurações. Este recurso poderoso permite que você otimize seus fluxos de trabalho executando várias instâncias de um trabalho simultaneamente, reduzindo o tempo geral de execução e melhorando a confiabilidade.
 
-Ao final deste capítulo, você terá experiência prática na criação e configuração de fluxos de trabalho do GitHub Actions, permitindo que você automatize várias tarefas e processos em seus projetos de desenvolvimento de software. Com uma sólida compreensão desses conceitos fundamentais, você estará pronto para explorar recursos mais avançados e melhores práticas nos capítulos seguintes.
+Ao final, você terá experiência prática na criação e configuração de fluxos de trabalho do GitHub Actions, permitindo que você automatize várias tarefas e processos em seus projetos de desenvolvimento de software. 
+
+Com uma sólida compreensão desses conceitos fundamentais, você estará pronto para explorar recursos mais avançados e melhores práticas nos capítulos seguintes.
 
 ### Workflow Triggers: Events and Scheduling
-Nesta seção, vamos nos aprofundar nos diferentes tipos de gatilhos de fluxo de trabalho disponíveis no GitHub Actions. Os gatilhos de fluxo de trabalho são cruciais para definir quando e em quais circunstâncias seus fluxos de trabalho devem ser executados. Entender e utilizar as várias opções de gatilho ajudará você a criar fluxos de trabalho mais eficientes e adaptáveis, adaptados às suas necessidades específicas.
+Vamos nos aprofundar nos diferentes tipos de gatilhos de fluxo de trabalho disponíveis no GitHub Actions. Os gatilhos de fluxo de trabalho são cruciais para definir quando e em quais circunstâncias seus fluxos de trabalho devem ser executados. 
+
+Entender e utilizar as várias opções de gatilho ajudará você a criar fluxos de trabalho mais eficientes e adaptáveis, adaptados às suas necessidades específicas.
 
 #### Event-based triggers:
-Os gatilhos baseados em eventos são o tipo mais comum de gatilhos no GitHub Actions. Esses gatilhos iniciam fluxos de trabalho em resposta a vários eventos que ocorrem no seu repositório, como pushes, pull requests e issues. Alguns dos gatilhos baseados em eventos mais comumente usados incluem:
+Os gatilhos baseados em eventos são o tipo mais comum de gatilhos no GitHub Actions. Esses gatilhos iniciam fluxos de trabalho em resposta a vários eventos que ocorrem no seu repositório, como **pushes**, **pull requests** e **issues**. Alguns dos gatilhos baseados em eventos mais comumente usados incluem:
 
-- [x] push: Aciona o fluxo de trabalho quando os commits são enviados para o repositório.
-- [x] pull_request: Aciona o fluxo de trabalho quando um pull request é criado ou atualizado.
-- [x] issues: Aciona o fluxo de trabalho quando um problema é aberto, fechado ou atualizado.
-- [x] fork: Aciona o fluxo de trabalho quando alguém faz um fork do repositório.
+- [x] **push**: Aciona o fluxo de trabalho quando os commits são enviados para o repositório.
+- [x] **pull_request**: Aciona o fluxo de trabalho quando um pull request é criado ou atualizado.
+- [x] **issues**: Aciona o fluxo de trabalho quando um problema é aberto, fechado ou atualizado.
+- [x] **fork**: Aciona o fluxo de trabalho quando alguém faz um fork do repositório.
 
 Um evento é uma atividade específica em um repositório que dispara a execução de um fluxo de trabalho.
 
@@ -967,50 +970,47 @@ Um evento é uma atividade específica em um repositório que dispara a execuç�
 | create                                   | - | Quando alguém cria uma referência Git (branch ou tag) no repositório do fluxo de trabalho. | `on: create` |
 | delete                                   | - | Quando alguém exclui uma referência Git (branch ou tag) no repositório do fluxo de trabalho. | `on: delete` |
 | deployment                               | - | quando alguém cria uma implantação no repositório do fluxo de trabalho. | `on: deployment` |
-| deployment_status                        | - | mplantações criadas com um commit SHA podem não ter uma referência Git.  |  `on: deployment_status` |
-| discussion                               | created,edited,deleted,transferred,pinned,unpinned,labeled,unlabeled,locked,unlocked,category_changed,answered,unanswered | quando uma discussão no repositório do fluxo de trabalho é criada ou modificada. | `on: discussion: types: [created, edited, answered]` |
-| discussion_comment                       | created,edited,deleted | quando um comentário em uma discussão no repositório do fluxo de trabalho é criado ou modificado. | `on:discussion_comment: types: [created, deleted]` |
+| deployment_status                        | - | Implantações criadas com um commit SHA podem não ter uma referência Git.  |  `on: deployment_status` |
+| discussion                               | created,edited,deleted,transferred,pinned,unpinned,labeled,unlabeled,locked,unlocked,category_changed,answered,unanswered | Quando uma discussão no repositório do fluxo de trabalho é criada ou modificada. | `on: discussion: types: [created, edited, answered]` |
+| discussion_comment                       | created,edited,deleted | Quando um comentário em uma discussão no repositório do fluxo de trabalho é criado ou modificado. | `on:discussion_comment: types: [created, deleted]` |
 | fork                                     | - | Fluxo de trabalho quando alguém bifurca um repositório. | `on: fork`  |
-| gollum                                   | -  | Quando alguém cria ou atualiza uma página wiki.         |  `on: fork` |
+| gollum                                   | -  | Quando alguém cria ou atualiza uma página wiki.         |  `on: gollum` |
 | issue_comment                            |    | Quando um problema ou comentário de pull request é criado, editado ou excluído.  | `on: issue_comment: types: [created, deleted]` |
-| issues                                   | opened,edited,deleted,transferred,pinned,unpinned,closed,reopened,assigned,unassigned,labeled,unlabeled,locked,unlocked,milestoned,demilestoned | quando um problema no repositório do fluxo de trabalho é criado ou modificado. | `on: issues: types: [opened, edited, milestoned]` |
+| issues                                   | opened,edited,deleted,transferred,pinned,unpinned,closed,reopened,assigned,unassigned,labeled,unlabeled,locked,unlocked,milestoned,demilestoned | Quando um problema no repositório do fluxo de trabalho é criado ou modificado. | `on: issues: types: [opened, edited, milestoned]` |
 | label                                    | created,edited,deleted  | Quando uma etiqueta no repositório do fluxo de trabalho é criada ou modificada.  | `on: label: types: [created, deleted]` |
 | merge_group                              | checks_requested | Quando uma solicitação de pull é adicionada a uma fila de mesclagem, o que adiciona a solicitação de pull a um grupo de mesclagem. | `on: pull_request: branches: [ "main" ] merge_group: types: [checks_requested]` |
-| milestone                                | created,closed,opened,edited,deleted | quando um marco no repositório do fluxo de trabalho é criado ou modificado.  |  `on: milestone:    types: [opened, deleted]` |
+| milestone                                | created,closed,opened,edited,deleted | Quando um marco no repositório do fluxo de trabalho é criado ou modificado.  |  `on: milestone:    types: [opened, deleted]` |
 | page_build                               | - | Quando alguém faz push em um branch que é a fonte de publicação para GitHub Pages, se o GitHub Pages estiver habilitado no repositório. | `on: page_build` |
 | public                                   | - | Quando o repositório do fluxo de trabalho é alterado de privado para público.  | ``
 | pull_request                             | assigned,unassigned,labeled,unlabeled,opened,edited,closed,reopened,synchronize,converted_to_draft,locked,unlocked,enqueued,dequeued,milestoned,demilestoned,ready_for_review,review_requested,review_request_removed,auto_merge_enabled,auto_merge_disabled | quando ocorre uma atividade em uma pull request no repositório do fluxo de trabalho. | `on:
   pull_request:
     types: [opened, reopened]`
-| pull_request_comment (use issue_comment) | -  | quando um comentário em uma solicitação de pull (não na comparação de uma solicitação de pull) é criado, editado ou excluído, use o evento issue_comment |  |
+| pull_request_comment (use issue_comment) | -  | Quando um comentário em uma solicitação de pull (não na comparação de uma solicitação de pull) é criado, editado ou excluído, use o evento issue_comment |  |
 | pull_request_review                      | submitted, edited, dismissed | Quando uma revisão de pull request é enviada, editada ou ignorada. | `on: pull_request_review:  types: [edited, dismissed]` |
 | pull_request_review_comment              | created, edited, deleted | Quando um comentário de revisão de pull request é modificado.  | `on: pull_request_review_comment:    types: [created, deleted]` |
 | pull_request_target                      | assigned,unassigned,labeled,unlabeled,opened,edited,closed,reopened,synchronize,converted_to_draft,ready_for_review,locked,unlocked,review_requested,review_request_removed,auto_merge_enabled,auto_merge_disabled | Quando ocorre uma atividade em uma pull request no repositório do fluxo de trabalho.  | `on: pull_request_target: types: [assigned, opened, synchronize, reopened]` |
-| push                                     | - | quando você efetua push em um commit ou tag ou quando cria um repositório a partir de um modelo. | `on:
+| push                                     | - | Quando você efetua push em um commit ou tag ou quando cria um repositório a partir de um modelo. | `on:
   push` |
 | registry_package                         | published, updated | Quando uma atividade relacionada ao GitHub Packages ocorre no seu repositório.  | `on:
   registry_package:
     types: [published]` |
-| release                                  | published,unpublished,created,edited,deleted,prereleased,released | quando a atividade de da versão no repositório ocorre.  | `on:
+| release                                  | published,unpublished,created,edited,deleted,prereleased,released | Quando a atividade de da versão no repositório ocorre.  | `on:
   release:
     types: [published]` |
-| repository_dispatch                      | | quando você deseja disparar um fluxo de trabalho para a atividade que ocorre fora do GitHub. | `on: repository_dispatch:  types: [test_result]` |
+| repository_dispatch                      | | Quando você deseja disparar um fluxo de trabalho para a atividade que ocorre fora do GitHub. | `on: repository_dispatch:  types: [test_result]` |
 | schedule                                 | | O evento schedule pode ser atrasado durante períodos de cargas altas de execuções de fluxo de trabalho do GitHub Actions.  | `on:
   schedule:
     - cron: "15 4,5 * * *"` |
-| status                                   | | quando o status do commit de Git é alterado. Por exemplo, os commits podem ser marcados como error, failure, pending ou success.  | `on:
+| status                                   | | Quando o status do commit de Git é alterado. Por exemplo, os commits podem ser marcados como error, failure, pending ou success.  | `on:
   status`
-| watch                                    | started | quando o repositório do fluxo de trabalho é favoritado.  | `on: watch: types: [started]` |
+| watch                                    | started | Quando o repositório do fluxo de trabalho é favoritado.  | `on: watch: types: [started]` |
 | workflow_call                            |         | É usado para indicar que um fluxo de trabalho pode ser chamado por outro fluxo de trabalho.   | `on: workflow_call` |
 | workflow_dispatch                        |  | Para permitir que um fluxo de trabalho seja disparado manualmente, configure o evento workflow_dispatch | `on: workflow_dispatch` |
-| workflow_run                             | completed, requested, in_progress | quando uma execução do fluxo de trabalho é solicitada ou concluída.  | `on:
+| workflow_run                             | completed, requested, in_progress | Quando uma execução do fluxo de trabalho é solicitada ou concluída.  | `on:
   workflow_run:
     workflows: [Staging, Lab]
     types:
       - completed` |
-
-através da tecnologia de IA. Incentive suas equipes a participarem de conferências, hackathons e fazerem parte de conselhos consultivos universitários. Ao apresentar e participar dessas iniciativas, você ganh
-
 
 Um workflow do GitHub Actions é um conjunto de códigos que define. uma sequência e um conjunto de etapas para executar, semelhante a um script ou programa.
 
@@ -1022,18 +1022,20 @@ Um evento pode ser definido de várias maneiras diferentes:
 - [x] Um fluxo de trabalho é iniciado manualmente, sem que nenhuma operação precise ser realizada primeiro.
 
 
-A palavra-chave on e as linhas que a seguem definem quais tipos de gatilhos o fluxo de trabalho corresponderá e começará a executar.
+A palavra-chave `on` e as linhas que a seguem definem quais tipos de gatilhos o fluxo de trabalho corresponderá e começará a executar.
+
 Alguns tipos básicos de gatilhos e exemplos simples da sintaxe para cada um seguem:
+
 - [x] O fluxo de trabalho pode responder a um único evento, como quando ocorre um push: `on: push`
-- [ ] O fluxo de trabalho pode responder a uma lista (vários eventos): `on: [push, pull_request]`
-- [ ] O fluxo de trabalho pode responder a tipos de eventos com qualificadores:
+- [x] O fluxo de trabalho pode responder a uma lista (vários eventos): `on: [push, pull_request]`
+- [x] O fluxo de trabalho pode responder a tipos de eventos com qualificadores:
 
 ```
 on:
   push:
     branches:
       - main
-      - 'rel/v*'
+         - 'rel/v*'
     tags:
       - v1.*
       - beta
@@ -1046,10 +1048,11 @@ on:
   scheduled:
     - cron: '30 5,15 * * *'
 ```
-- [x] O fluxo de trabalho pode responder a eventos manuais específicos: `on: [workflow-dispatch, repository-dispatch]`
+- [x] O fluxo de trabalho pode responder a eventos manuais específicos: `on: [workflow_dispatch, repository_dispatch]`
 - [ ] O fluxo de trabalho pode ser chamado de outros fluxos de trabalho (chamado de evento de reutilização): `on: workflow_call`
 
 Onservação:
+
 - [x] Para esses eventos, se você tiver o arquivo de fluxo de trabalho somente em um branch não padrão e acionar a atividade que normalmente faria o fluxo de trabalho ser executado, nada acontecerá.
 
 Você pode especificar um ou vários gatilhos baseados em eventos usando a palavra-chave on no seu arquivo de fluxo de trabalho. Além disso, você pode usar filtros para restringir o escopo do gatilho, como especificar branches ou tags específicas. Exemplo:
@@ -1057,15 +1060,16 @@ Você pode especificar um ou vários gatilhos baseados em eventos usando a palav
 ```
 on:
 push:
-branches:
-· main
+  branches:
+    - main
 pull_request:
-branches:
-- main
-types:
-- opened
-- synchronize
+  branches:
+    - main
+  types:
+    - opened
+    - synchronize
 ```
+
 #### Scheduled triggers:
 Os gatilhos agendados permitem que você execute fluxos de trabalho em intervalos especificados, usando sintaxe semelhante à do cron. Isso é útil para executar tarefas periódicas, como compilações noturnas, relatórios semanais ou manutenção mensal. Para configurar um gatilho agendado, use a palavra-chave schedule e forneça uma ou mais expressões cron. Exemplo:
 
@@ -1091,8 +1095,8 @@ Keep in mind that the schedule is based on the UTC time zone, and the shortest p
 
 Você pode usar estes operadores em qualquer um dos cinco campos:
 
-| Operador	| Descrição	                    | Exemplo                                                                                          |
-| ----      | ----                          | -------                                                                                          |
+| Operador	| Descrição	                    | Exemplo                             |
+| ----      | ----                          | -------                             |
 | *	        | Qualquer valor	            | 15 * * * * é executado a cada quarto de hora todos os dias.                                      |
 | ,	        | Separador de lista de valor	| 2,10 4,5 * * * é executado nos minutos 2 e 10 da quarta e da quinta hora todos os dias.          |
 | -	        | Intervalo de valores	        | 30 4-6 * * * é executado a cada meia hora da quarta, da quinta e da sexta hora.                  |
@@ -1101,16 +1105,16 @@ Você pode usar estes operadores em qualquer um dos cinco campos:
 Observação: Use  o site [Crontab](https://crontab.guru).
 
 #### Manual triggers:
-Os gatilhos manuais permitem que você execute fluxos de trabalho sob demanda, usando a interface da web do GitHub Actions ou a API do GitHub. Isso pode ser útil para executar tarefas que não precisam necessariamente ser executadas automaticamente, como implantações, migrações de dados ou scripts únicos. Para configurar um gatilho manual, use a palavra-chave workflow_dispatch e, opcionalmente, forneça parâmetros de entrada. Exemplo:
+Os gatilhos manuais permitem que você execute fluxos de trabalho sob demanda, usando a interface da web do GitHub Actions ou a API do GitHub. Isso pode ser útil para executar tarefas que não precisam necessariamente ser executadas automaticamente, como **implantações, migrações de dados ou scripts únicos**. Para configurar um gatilho manual, use a palavra-chave **workflow_dispatch** e, opcionalmente, forneça parâmetros de entrada. Exemplo:
 
 ```
 on:
-workflow_dispatch:
-inputs:
-environment:
-description: 'The target environment for deployment'
-required: true
-default: 'staging'
+  workflow_dispatch:
+  inputs:
+    environment:
+      description: 'The target environment for deployment'
+         required: true
+          default: 'staging'
 ```
 
 Depois de configurar um gatilho manual, você pode iniciar o fluxo de trabalho clicando no botão "Executar fluxo de trabalho" na guia Ações do seu repositório ou usando a API do GitHub.
@@ -1120,51 +1124,51 @@ Os gatilhos externos permitem que você inicie fluxos de trabalho em resposta a 
 
 ```
 on:
-repository_dispatch:
-types:
-- my_custom_event
+  repository_dispatch:
+  types:
+    - my_custom_event
 ```
-
 Para acionar um fluxo de trabalho com um evento externo, você pode enviar uma solicitação POST para a API do GitHub com o tipo de evento e a carga útil apropriados.
 
 ### Webhooks de repositório
-É um mecanismo que permite a comunicação entre diferentes sistemas de forma automatizada e em tempo real. Ele funciona como um callback HTTP, onde um sistema envia automaticamente dados para outro sistema assim que um evento específico ocorre.
-você só pode criar até 20 webhooks que se inscrevam em cada tipo de evento individual.
+É um mecanismo que permite a comunicação entre diferentes sistemas de forma automatizada e em tempo real. Ele funciona como um callback HTTP, onde um sistema envia automaticamente dados para outro sistema assim que um evento específico ocorre. Você só pode criar até **20 webhooks** que se inscrevam em cada tipo de evento individual.
 
 ### Activity triggers:
 Os gatilhos de atividade iniciam fluxos de trabalho em resposta a várias atividades do usuário ou do sistema, como marcar um repositório como favorito, criar uma versão ou atribuir um rótulo. Alguns exemplos de gatilhos de atividade incluem:
 
-- [x] watch: Aciona o fluxo de trabalho quando alguém marca o repositório como favorito.
-- [x] release: Aciona o fluxo de trabalho quando uma versão é criada, publicada ou atualizada.
-- [x] label: Aciona o fluxo de trabalho quando um rótulo é criado, editado ou excluído.
+- [x] **watch**: Aciona o fluxo de trabalho quando alguém marca o repositório como favorito.
+- [x] **release**: Aciona o fluxo de trabalho quando uma versão é criada, publicada ou atualizada.
+- [x] **label**: Aciona o fluxo de trabalho quando um rótulo é criado, editado ou excluído.
 
 Você pode usar gatilhos de atividade em combinação com outros gatilhos para criar fluxos de trabalho mais flexíveis e responsivos. Exemplo:
 ```
 on:
-watch:
-types:
-- started
-release:
-types:
-- published
+  watch:
+   types:
+    - started
+  release:
+   types:
+    - published
 ```
 #### Combining triggers:
 Você pode combinar vários gatilhos em um único fluxo de trabalho para manipular vários eventos e cenários. Ao combinar gatilhos, esteja ciente de que cada gatilho pode ter seu próprio conjunto de filtros e opções de configuração. Exemplo:
 
 ```
 on:
-push:
-branches:
-main
-pull_request:
-branches:
-- main schedule:
-- cron: '0 0***1 workflow_dispatch:
-inputs:
-environment:
-description: 'The target environment for deployment'
-required: true
-default: 'staging'
+  push:
+    branches:
+      - main
+   pull_request:
+     branches:
+       - main
+   schedule:
+       - cron: '0 0 * * *'
+   workflow_dispatch:
+     inputs: 
+        environment:
+            description: 'The target environment for deployment'
+               required: true
+                default: 'staging'
 ```
 
 Neste exemplo, o fluxo de trabalho é acionado por push e `pull_request events` no branch principal, é executado diariamente à meia-noite (UTC) e pode ser acionado manualmente com uma entrada de ambiente especificada.
@@ -1185,7 +1189,8 @@ O sucesso ou fracasso é exibido no nível do trabalho, não nas etapas individu
 O hífen no início desta linha indica que este é o início de um segundo passo.
 
 Cada etapa é um script de shell que será executado ou uma ação que será executada.
-Você pode configurar as dependências de um trabalho com outros trabalhos; por padrão, os trabalhos não têm dependências e são executados em paralelo. Cada trabalho é executado em um ambiente do executor(runner) especificado por runs-on.
+
+Você pode configurar as dependências de um trabalho com outros trabalhos; **por padrão, os trabalhos não têm dependências e são executados em paralelo**. Cada trabalho é executado em um ambiente do executor(runner) especificado por `runs-on`.
 
 O job que vai conter todas as operações deste exercício que estamos fazendo aqui é composta de quatro etapas:
 
@@ -1198,30 +1203,36 @@ Os jobs são o que você geralmente vê em outros aplicativos como estágios, ou
 
 Embora CI ou CI/CD seja o propósito principal que vem à mente, fluxos de trabalho e ações podem ser usados para automatizar quase qualquer processo.
 
-Um trabalho no GitHub Actions consiste em uma série de etapas executadas no mesmo executor. Os trabalhos podem ser executados em paralelo ou sequencialmente, dependendo das dependências definidas no fluxo de trabalho. Os trabalhos que não dependem da saída de outros trabalhos podem ser executados em paralelo, o que ajuda a reduzir o tempo geral de compilação.
+Um trabalho no GitHub Actions consiste em uma série de etapas executadas no mesmo executor. 
+
+Os trabalhos podem ser executados em paralelo ou sequencialmente, dependendo das dependências definidas no fluxo de trabalho. 
+
+Os trabalhos que não dependem da saída de outros trabalhos podem ser executados em paralelo, o que ajuda a reduzir o tempo geral de compilação.
 
 ### Jobs overview:
 Um job é uma unidade individual de trabalho que é executada em um ambiente especificado e consiste em uma ou mais etapas. Os jobs em um fluxo de trabalho são executados em paralelo por padrão, mas você pode criar dependências entre os jobs para impor uma ordem de execução específica. Os jobs são definidos usando a palavra-chave jobs, seguida por um identificador exclusivo para cada job e sua configuração. Exemplo:
 
 ```
 jobs:
+build:
+ runs-on: ubuntu-latest
+ steps:
 - name: Build project
   run: npm run
-build
- test:
+test:
  runs-on: ubuntu-latest
 steps:
 - name: Run tests
    run: npm test
 ```
 #### Configuring jobs:
-Cada trabalho tem um conjunto de propriedades que você pode configurar, como o ambiente em que o trabalho é executado, suas dependências e suas configurações de tempo limite e repetição.
+Cada job tem um conjunto de propriedades que você pode configurar, como o ambiente em que o trabalho é executado, suas dependências e suas configurações de tempo limite e repetição.
 
-- [x] runs-on: Especifica o sistema operacional e a versão do trabalho. Exemplos incluem ubuntu-latest, windows-latest e macos-latest.
-- [x] needs: Especifica as dependências entre os trabalhos, garantindo que um trabalho seja executado somente após os trabalhos especificados terem sido concluídos com sucesso.
-- [x] timeout-minutes: Define um tempo limite para o trabalho, após o qual ele será cancelado se não tiver sido concluído.
-- [x] continue-on-error: Configura se o trabalho deve continuar se uma etapa falhar.
-- [x] strategy: Define a configuração da matriz para executar várias instâncias de um trabalho com diferentes variáveis de ambiente, sistemas operacionais ou configurações.
+- [x] **runs-on**: Especifica o sistema operacional e a versão do trabalho. Exemplos incluem ubuntu-latest, windows-latest e macos-latest.
+- [x] **needs**: Especifica as dependências entre os trabalhos, garantindo que um trabalho seja executado somente após os trabalhos especificados terem sido concluídos com sucesso.
+- [x] **timeout-minutes**: Define um tempo limite para o trabalho, após o qual ele será cancelado se não tiver sido concluído.
+- [x] **continue-on-error**: Configura se o trabalho deve continuar se uma etapa falhar.
+- [x] **strategy**: Define a configuração da matriz para executar várias instâncias de um trabalho com diferentes variáveis de ambiente, sistemas operacionais ou configurações.
 
 #### Dependent Jobs
 Uma execução de fluxo de trabalho é composta de um ou mais trabalhos, que são executados em paralelo por padrão. Para executar trabalhos sequencialmente, você pode definir dependências em outros trabalhos usando:
