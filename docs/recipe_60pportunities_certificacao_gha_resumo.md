@@ -719,7 +719,7 @@ pull_request:
   branches:
    - main
 schedule:
-   - cron: '0 12 ***' 
+   - cron: '0 12 ***'
 ```
 ![](img/github-actions-workflow.png){width="600" height="450" style="display: block; margin: 0 auto"}
 
@@ -937,18 +937,18 @@ Neste capítulo, vamos orientá-lo no processo de criação do seu primeiro flux
 
 Começaremos discutindo diferentes tipos de gatilhos de fluxo de trabalho, incluindo gatilhos baseados em eventos e gatilhos agendados, que determinam quando seu fluxo de trabalho deve ser executado. Entender esses gatilhos é essencial para projetar fluxos de trabalho que respondam efetivamente a eventos específicos ou sejam executados em um cronograma predeterminado.
 
-Em seguida, vamos nos aprofundar na definição de trabalhos e etapas em seu fluxo de trabalho. Esta seção abordará a estrutura e a configuração de trabalhos, incluindo como definir etapas, usar ações pré-criadas e executar comandos de shell. 
+Em seguida, vamos nos aprofundar na definição de trabalhos e etapas em seu fluxo de trabalho. Esta seção abordará a estrutura e a configuração de trabalhos, incluindo como definir etapas, usar ações pré-criadas e executar comandos de shell.
 
 Ao aprender sobre esses componentes, você poderá criar fluxos de trabalho personalizados adaptados às suas necessidades específicas.
 
 Também exploraremos como aproveitar compilações de matriz e paralelismo para testar seu código com eficiência em vários ambientes, versões de tempo de execução ou configurações. Este recurso poderoso permite que você otimize seus fluxos de trabalho executando várias instâncias de um trabalho simultaneamente, reduzindo o tempo geral de execução e melhorando a confiabilidade.
 
-Ao final, você terá experiência prática na criação e configuração de fluxos de trabalho do GitHub Actions, permitindo que você automatize várias tarefas e processos em seus projetos de desenvolvimento de software. 
+Ao final, você terá experiência prática na criação e configuração de fluxos de trabalho do GitHub Actions, permitindo que você automatize várias tarefas e processos em seus projetos de desenvolvimento de software.
 
 Com uma sólida compreensão desses conceitos fundamentais, você estará pronto para explorar recursos mais avançados e melhores práticas nos capítulos seguintes.
 
 ### Workflow Triggers: Events and Scheduling
-Vamos nos aprofundar nos diferentes tipos de gatilhos de fluxo de trabalho disponíveis no GitHub Actions. Os gatilhos de fluxo de trabalho são cruciais para definir quando e em quais circunstâncias seus fluxos de trabalho devem ser executados. 
+Vamos nos aprofundar nos diferentes tipos de gatilhos de fluxo de trabalho disponíveis no GitHub Actions. Os gatilhos de fluxo de trabalho são cruciais para definir quando e em quais circunstâncias seus fluxos de trabalho devem ser executados.
 
 Entender e utilizar as várias opções de gatilho ajudará você a criar fluxos de trabalho mais eficientes e adaptáveis, adaptados às suas necessidades específicas.
 
@@ -1164,7 +1164,7 @@ on:
    schedule:
        - cron: '0 0 * * *'
    workflow_dispatch:
-     inputs: 
+     inputs:
         environment:
             description: 'The target environment for deployment'
                required: true
@@ -1203,9 +1203,9 @@ Os jobs são o que você geralmente vê em outros aplicativos como estágios, ou
 
 Embora CI ou CI/CD seja o propósito principal que vem à mente, fluxos de trabalho e ações podem ser usados para automatizar quase qualquer processo.
 
-Um trabalho no GitHub Actions consiste em uma série de etapas executadas no mesmo executor. 
+Um trabalho no GitHub Actions consiste em uma série de etapas executadas no mesmo executor.
 
-Os trabalhos podem ser executados em paralelo ou sequencialmente, dependendo das dependências definidas no fluxo de trabalho. 
+Os trabalhos podem ser executados em paralelo ou sequencialmente, dependendo das dependências definidas no fluxo de trabalho.
 
 Os trabalhos que não dependem da saída de outros trabalhos podem ser executados em paralelo, o que ajuda a reduzir o tempo geral de compilação.
 
@@ -7231,6 +7231,7 @@ description: 'The folder where to scan files'
 required: true
 default: '/src'
 ```
+
 Então adicione o primeiro passo. Graças ao seu comando Bash particular, ele faz uma busca recursiva que permite que você encontre todos os arquivos contendo a palavra "password" e salva a lista de arquivos "em risco" em um arquivo chamado result.txt. Note que seu diretório de trabalho é especificado por meio da propriedade working- directory, que recupera o valor do parâmetro de entrada. Assim, seremos capazes de ter uma ação composta cujo caminho será dinâmico de um fluxo de trabalho para outro:
 
 ```
@@ -7288,6 +7289,1570 @@ steps:
 shell: bash
 working-directory: ${{inputs.folderToScan }}
 -id: count-files
+ run: |
+      COUNT=$(wc -l < result.txt)
+      echo "File count: $COUNT ">> $GITHUB_OUTPUT
+      shell: bash
 ```
 
-Pagina: 237
+Qualquer ação deve sempre ter seu próprio fluxo de trabalho de teste para garantir que esteja totalmente funcional, integrando-a de alguma forma. Por exemplo, crie um fluxo de trabalho de gatilho manual no repositório da sua ação e proponha um parâmetro de entrada "pasta" para personalizar a pasta escaneada.
+```
+name: Test composite action
+on:
+workflow_dispatch:
+inputs:
+folder:
+required: true
+jobs:
+test:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+ [...] our steps
+```
+
+Em seguida, basta chamar sua ação composta transmitindo o parâmetro de entrada do fluxo de trabalho (pasta) por meio do parâmetro de entrada da ação (folderToScan):
+
+```
+-id: myCompositeAction
+uses: 1gmorand/github-action-composite-credscanning@main
+default: "src"
+with:
+folderToScan: "${{ github.event.inputs.folder }}" # Using the input parameter
+```
+
+Em seguida, adicione uma etapa que recupere a variável de saída da ação e gere uma mensagem de erro do GitHub se senhas codificadas forem encontradas.
+
+
+```
+- run: |
+if [ ${{ env.COUNT }}> 0]
+then
+echo "::error::Some files contain hardcoded passwords"
+exit 1
+fi
+env:
+COUNT: ${{ steps.myCompositeAction.outputs.scanned-files }}
+```
+
+Idealmente, deveríamos colocar o gerenciamento da exceção e sua configuração dentro da ação composta para esconder a lógica de negócios e simplificar seu uso. Primeiro, no entanto, é interessante entender como retornar variáveis ​​internas ao fluxo de trabalho pai para pedagogia.
+
+Limitações
+Ações compostas, infelizmente, ainda têm muitas limitações. Se algumas podem desaparecer em breve, elas ainda estão presentes (verão de 2021) e podem ser suficientemente impactantes em muitos casos para tornar essas ações inutilizáveis.
+A primeira limitação importante foi a impossibilidade de usar a palavra-chave “uses” nessas ações e chamar uma ação de terceiros. Felizmente, esse recurso está disponível desde agosto de 2021 e fornece uma unidade maior de reutilização, como:
+
+```
+runs:
+using: "composite"
+steps:
+- uses: docker/setup-buildx-action@v3
+- uses: docker/login-action@v3
+with:
+username: ${{inputs.registry_username}}
+password: ${{inputs.registry_password}}
+- uses: docker/build-push-action@v5
+with:
+context: .
+push: true
+tags: user/app:latest
+```
+
+Outros recursos estão, no momento, indisponíveis ao usar Ações compostas:
+- [x] Não é possível usar dependências (palavra-chave "needs")
+- [x] Recursos de tempo limite não funcionam (timeout-minutes)
+- [x] Falha silenciosa de uma etapa (continue-on-error)
+- [x] Acesso a segredos. Eles devem ser recuperados pelo fluxo de trabalho pai e passados ​​para a Ação como parâmetros
+
+Esses recursos estão atualmente em desenvolvimento pelas equipes do GitHub, e esses limites podem desaparecer em um futuro próximo. Minhas fontes internas no GitHub me dizem que o uso da palavra-chave uses deve estar disponível por volta de agosto de 2021.
+
+## GitHub Script
+Vimos que é possível criar vários tipos de ações do github, algumas das quais são desenvolvidas usando JavaScript e que podem tirar proveito do framework octokit.js (https://octokit.github.io/rest.js). Este framework permite que você faça quase tudo no GitHub usando um cliente REST que pode chamar as diferentes APIs. Qualquer ação na sua conta do Github (repositórios, branches, segurança, etc.) que você queira fazer pode ser feita facilmente por meio deste framework.
+
+GitHub Script https://github.com/actions/github-script é uma Action que permite que você acesse a API do GitHub a partir de qualquer fluxo de trabalho e permite, entre outras coisas, chamar todos os métodos disponíveis no octokit sem precisar criar uma ação personalizada do github. O exemplo a seguir mostra como criar facilmente um Issue :
+
+```
+- uses: actions/github-script@v7
+with:
+github-token: ${{secrets.GITHUB_TOKEN}}
+script:
+github.rest.issues.create({
+owner: context.repo.owner,
+repo: context.repo.repo,
+title: "You've created this issue using GitHub Script!!!"
+})
+```
+
+
+Isso também permite que você crie cenários avançados, como enviar uma mensagem para qualquer colaborador iniciante:
+
+```
+on: pull_request_target
+jobs:
+welcome:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/github-script@v7
+with:
+script: |
+// We get all issues created by the user
+// because issues and PR are mixed up together in events
+const creator = context.payload.sender.login
+const opts = github.rest.issues.listForRepo.endpoint.merge({
+...context.issue,
+creator,
+state: 'all'
+})
+const issues = await github.paginate(opts)
+for (const issue of issues) {
+if (issue.number === context.issue.number) {
+continue
+}
+if (issue.pull_request) {
+return // person already contributed, we stop here
+}
+}
+
+await github.rest.issues.createComment({
+issue_number: context.issue.number,
+owner: context.repo.owner,
+repo: context.repo.repo,
+body: ***Welcome**, new contributor!
+
+Certifique-se de ler nosso [guia de contribuição](CONTRIBUTING.md) e estamos ansiosos para analisar sua solicitação de Pull em breve.})
+```
+## Interact on other repositories
+O GitHub Script é uma ação que fornece um cliente octokit autenticado. Ele recupera automaticamente o contexto do fluxo de trabalho atual e o usa para executar suas ações. Por padrão, quando um fluxo de trabalho é acionado, ele preenche uma variável (GITHUB_TOKEN) com direitos de acesso no repositório atual, e a ação do GitHub Script carrega essa variável implicitamente. No entanto, pode acontecer de você querer interagir em um repositório de terceiros ou alterar algo na configuração da sua conta/organização. Para isso, é necessário fornecer um token de autenticação com direitos de acesso suficientes.
+
+Informações: A criação de um token PAT é feita no portal GitHub, clicando no seu perfil, depois em Configurações, Configurações do desenvolvedor e, finalmente, Tokens de acesso pessoal.
+
+No exemplo a seguir, criamos um token que colocamos em um segredo e o passamos para a ação por meio da propriedade github-token. Este token tem um escopo maior do que o repositório atual e, portanto, torna possível interagir nos elementos de uma conta de usuário ou de uma organização. No caso a seguir, simplesmente listamos os repositórios existentes, mas também podemos completar o código para configurar esses repositórios com proteções de ramificação ou gerenciar usuários.
+
+
+```
+- uses: actions/github-script@v7
+id: get-repos
+with:
+github-token: ${{secrets.MY_GITHUB_TOKEN}}
+script:|
+return github.rest.repos.listForUser({
+username: "lgmorand"
+});
+```
+
+Então, mesmo que não seja uma Ação que você mesmo cria, pareceu essencial apresentá-la para que você possa usá-la para enriquecer seus fluxos de trabalho.
+
+Agora, vamos dar uma olhada em como melhorar suas Ações.
+
+## Improve the user experience of your actions
+Ao criar uma ação para seu uso pessoal ou compartilhá-la com o maior público, é importante tornar a experiência do usuário a mais simples e agradável possível. Portanto, o uso de sua Ação pode ter uma boa experiência do usuário se você seguir regras básicas. Aqui estão algumas:
+
+- [x] Qualquer ação deve ter um README claro e completo, idealmente escrito em inglês
+- [x] Forneça exemplos de como usar sua ação (trechos YAML)
+- [x] Considere também fornecer fluxos de trabalho de amostra abrangentes. Um trecho de código às vezes omite mostrar o que acontece antes e depois
+- [x] Simplifique seu uso com parâmetros explícitos e de nome curto, mas também com valores padrão
+- [x] Se você criar uma ação docker, mesmo que ofereça uma imagem de contêiner pronta para o usuário, forneça o arquivo Dockerfile para permitir que as pessoas vejam o que ele contém e para permitir que reconstruam a imagem do seu lado
+- [x] Considere, dependendo da complexidade da sua ação, fornecer um modo DEBUG/VERBOSE para exibir mais detalhes se ocorrerem problemas de configuração
+- [x] Se sua ação gerar arquivos, exponha um parâmetro para permitir que o usuário especifique o nome e o caminho do arquivo gerado
+
+Existem outras boas práticas, que exigem algum esforço, mas cujo valor agregado, por menor que seja, melhora muito o uso da sua ação.
+
+## Improving logs
+Os logs da sua ação são a principal maneira de um usuário verificar se o comportamento esperado ocorreu bem e o melhor lugar para obter informações sobre as várias atividades realizadas. Os logs da sua ação aparecem nos logs de execução do fluxo de trabalho no portal do GitHub e são mais ou menos legíveis.
+
+No entanto, há muitas maneiras de melhorar a legibilidade. A primeira maneira é usar os métodos dedicados para mensagens de aviso e erro, respectivamente: error() e warning().
+
+```
+core.warning('my warning message');
+core.error('my error message');
+```
+
+Também pode ser usado sem o kit de ferramentas:
+
+```
+echo '::error::my error message'
+echo '::warning::my warning message'
+```
+
+Além de serem enfatizadas dentro dos logs, as mensagens digitadas como “aviso” ou “erro” também são exibidas na tela de resumo do fluxo de trabalho.
+
+Isso permite que você destaque mensagens importantes no meio de centenas de linhas de logs que um fluxo de trabalho pode produzir.
+
+
+## Annotations
+Essa coloração também pode ser realizada manualmente, seja para a cor do texto, cor de fundo ou estilo do texto (negrito, itálico, sublinhado). Então, prefixe o texto a ser exibido com um código de escape, com base nos códigos ANSI (https://en.wikipedia.org/wiki/ANSI_escape_code), que torna possível controlar totalmente o layout do texto que o segue:
+
+
+```
+core.info("\u001b[38;5;6mText in blue')
+core.info("\u001b[48;2;255;0;0mOr a blue background')
+core.info("\u001b[1mOr just bold text')
+```
+Posso brincar com cores
+
+Também é possível injetar ícones nos logs para tornar uma mensagem mais visual.
+
+Também posso incorporar ícones se quiser 13 qualquer tipo de ícone
+
+Inclusão de ícones
+
+A lista de ícones possíveis é baseada na lista de emojis suportados pelo portal GitHub. A lista inclui várias centenas deles, o suficiente para atender a cada uso. A lista completa de códigos de ícones e a imagem associada a cada um deles está na seguinte página: https://github.com/ikatyang/emoji-cheat-sheet.
+
+Por fim, saiba que também é possível agrupar logs em blocos dobráveis ​​usando os métodos startGroup() e endGroup(), conforme mostrado no exemplo a seguir:
+
+```
+core.startGroup('A group of logs')
+core.info('my first log')
+core.info('my second log')
+core.info('my third log')
+core.endGroup()
+```
+
+## Customizando Sumário Job
+Assim como as anotações que já discutimos, que permitem enfatizar alguns avisos ou mensagens de erro, é possível adicionar informações na página de resumo da execução de um fluxo de trabalho. Pode ser um link, detalhes, um status da implantação ou qualquer coisa que você queira fornecer ao usuário final.
+
+Para gerar um resumo do Job, você só precisa anexar conteúdo markdown na variável $GITHUB_STEP_SUMMARY e esse conteúdo será formatado e adicionado ao portal GitHub automaticamente.
+
+echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
+
+Os recursos são tão infinitos quanto o markdown permite, como layout, lista, tabelas, ícones, mas também esquemas (usando o formato Mermaid https://mermaid-js.github.io/mermaid).
+
+```
+- run: |
+echo "# This is a title"                               >> $GITHUB_STEP_SUMMARY
+echo ""                                                >> $GITHUB_STEP_SUMMARY # this is a blank line build summary
+echo "- My first element"                              >> $GITHUB_STEP_SUMMARY
+echo "- My second one"                                 >> $GITHUB_STEP_SUMMARY
+echo " How about a third one with an icon :thumbsup:?" >> $GITHUB_STEP_SUMMARY
+```
+
+## Job Summary
+Observe que, dentro das Ações personalizadas do GitHub, você pode carregar o SDK (pacote NPM @action/core) para formatar facilmente o Resumo do Trabalho, como:
+
+```
+import * as core from '@actions/core'
+await core.summary
+.addHeading('Test Results')
+.addTable([
+[{data: 'Test', header: true}, {data: 'Result', header: true}],
+['Test n°1', 'Pass'],
+['Test n°2', 'Fail'],
+['Test n°3', 'Pass']
+.addLink('View deployed application!', 'https://my-link.com')
+.write()
+```
+## Set up a DEBUG mode
+Como você verá mais adiante neste livro durante o capítulo sobre depuração, o GitHub oferece a possibilidade de ativar o “Debug Mode”, um tipo de variável global que diz a um fluxo de trabalho para ser mais verboso. Este capítulo explicará diferentes técnicas de depuração, mas para a que nos interessa agora, é suficiente que você crie um segredo chamado ACTIONS_STEP_DEBUG com o valor "true" no repositório onde o fluxo de trabalho é executado (e não o da sua Action!). Naturalmente, isso tem o efeito de tornar o agente mais verboso sobre as tarefas que ele realiza.
+
+### Activation du mode DEBUG
+Estando ciente desse modo, sua ação pode então tirar vantagem dele para exibir informações adicionais ao usuário. A maneira mais fácil é usar o GitHub Actions Toolkit (https://github.com/actions/toolkit) e, em particular, seu módulo core que fornece métodos para exibir uma mensagem no console somente se o usuário tiver ativado o modo DEBUG.
+
+
+```
+#Loading the module
+const core = require('@actions/core');
+#Displaying a message
+core.debug('This is my DEBUG message');
+```
+Caso você não consiga usar o kit de ferramentas de ação JavaScript, há um método alternativo com a seguinte formatação para escrever uma mensagem no console que funciona com todas as tecnologias:
+
+`echo "::debug::This is my DEBUG message"`
+
+O Toolkit também fornece uma função (isDebug()) que permite que você execute o processamento somente se o modo Debug estiver habilitado. Útil para iniciar diferentes comandos ou executar ações em arquivos, por exemplo. Conforme mostrado no exemplo a seguir:
+
+```
+if (!core.isDebug()) // Normal mode > Note the "!" meaning NOT
+{
+//curl https://github.com
+// Deletes temporary files
+}
+else // Mode Debug
+{
+  //curl -v https://github.com
+// does not delete temporary files for analysis
+}
+```
+Cada uma dessas boas práticas é importante porque, com esses pequenos detalhes, sua ação será adotada por um número maior de pessoas.
+
+## Using Pre and Post Scripts
+A ação torna possível executar um conjunto de comandos quando o agente a inicia, mas infelizmente é impossível para ela controlar sua posição dentro do fluxo de trabalho; pode estar no início, no meio ou no final, de acordo com o autor do fluxo de trabalho. Às vezes, no entanto, podemos precisar que nosso processamento de trabalho seja feito em várias etapas, potencialmente no início do fluxo de trabalho para executar tarefas de inicialização ou às vezes no final do fluxo de trabalho para executar um script de limpeza. Criar uma ação padrão não dá liberdade para fazer isso fora da própria ação: a limpeza será feita após o código principal terminar, mas antes que a próxima ação seja chamada. Não é o que queremos. Depois de todas as outras ações que desconhecemos, como executar um script no final do fluxo de trabalho?
+
+O GitHub Actions fornece um recurso específico para essa necessidade usando palavras-chave pre e post, que devem ser definidas no manifesto action.yaml da nossa ação. Como a palavra-chave main que especifica o script principal, essas palavras-chave especificam um script para executar no início do fluxo de trabalho e outro no final dele. O exemplo a seguir declara um script (pre.js) acionado antes de qualquer outra ação e outro script (post.js) acionado no final do fluxo de trabalho.
+
+```
+runs:
+using: 'node20'
+main: 'index.js'
+pre: 'pre.js'
+post: 'post.js'
+```
+
+A ação é então carregada três vezes no fluxo de trabalho e executada a cada vez apenas o script correspondente à etapa do fluxo de trabalho:
+
+## Conditionality
+Durante suas experiências, você descobrirá que é costume compactar os diferentes arquivos JavaScript de um único arquivo para facilitar o gerenciamento e reduzir o tamanho do código-fonte (as pessoas geralmente usam o módulo CNN do npmJS para fazer isso). Você encontrará ações que chamam o mesmo arquivo que o script principal, pre ou post. Por exemplo, se você olhar o código-fonte da ação CHECKOUT (muito informativo: https://github.com/actions/checkout/), você descobrirá que é um uso duplo do mesmo arquivo index.js:
+
+```
+runs:
+using: node20
+main: dist/index.js
+post: dist/index.js
+```
+
+Como explicar que o script não executa a mesma coisa que é chamada como script principal ou pós-script? O script simplesmente tem uma lógica interna que o faz executar um código diferente dependendo do momento no fluxo de trabalho. Isso é feito com a variável de ambiente STATE_isPost. Por exemplo, o código JavaScript poderia ser assim:
+
+```
+const isPost = Boolean(process.env['STATE_isPost'])
+if (isPost)
+{
+  myPostCode();
+}
+else
+{
+  myStandardCode();
+}
+```
+
+Existe uma alternativa se você tiver scripts separados e não quiser colocar uma lógica de negócios dentro do script. Por exemplo, você quer ter um script de inicialização que seja acionado somente no Windows. Em vez de colocar esse controle da versão do Windows dentro do script que será iniciado e potencialmente não fará nada depois, é possível pedir ao agente para fazer esse teste para você usando a propriedade pre-if.
+
+```
+pre: 'pre-script.js'
+pre-if: runner.os == 'windows'
+```
+
+Existe a propriedade post-if que funciona da mesma forma. Ela também pode ser baseada no resultado da execução do script principal. Assim, no caso a seguir, o script post.js só será executado se o script principal tiver sucesso sem error:
+
+```
+post: 'post.js'
+post-if: 'failure()'
+```
+Docker: Existe uma mecânica idêntica para ações do Docker, mas ela usa propriedades como pre-entrypoint e post-entrypoint.
+Com essas poucas opções adicionais, agora você pode criar uma ação que controla perfeitamente seu fluxo de trabalho. Quando este capítulo for assimilado, vire a página para começar a próxima seção que aborda conceitos ainda mais avançados do GitHub Actions.
+
+## Conceitos avançados
+Esta terceira seção do livro lida com conceitos avançados. Esses conceitos não são necessariamente complexos, mas vêm como um segundo passo na jornada de aprendizado e uso da plataforma.
+
+### Artifact management
+Os fluxos de trabalho podem executar qualquer tipo de tarefa e, para muitos deles, durante sua execução, gerarão elementos: binários, ativos de aplicativos da Web, arquivos compactados, resultados de testes ou logs. Esses elementos gerados, comumente chamados de artefatos, são criados nas máquinas virtuais usadas para executar o fluxo de trabalho e são perdidos permanentemente no final do fluxo de trabalho quando o GitHub reinicializa automaticamente a máquina virtual.
+
+Às vezes, é necessário manter esses artefatos, seja para necessidades de arquivamento ou simplesmente porque o objetivo principal do fluxo de trabalho é gerar um elemento que deve ser recuperado e preservado. Além disso, é claro, é possível pedir ao fluxo de trabalho para copiá-los por meio de ações em serviços de terceiros (hosts da web, servidor FTP, etc.). Ainda assim, o GitHub oferece um serviço de arquivamento diretamente integrado ao seu portal da web.
+
+### Artifacts vs. Packages
+Os elementos gerados podem ser armazenados em duas categorias, dependendo do uso que será feito deles.
+
+A primeira categoria está relacionada aos elementos técnicos. É aceito que todos os elementos gerados por um fluxo de trabalho se enquadrem nessa categoria (arquivo zip, binários, logs, imagem de contêiner, etc.). Combinar esses elementos para executar um fluxo de trabalho e disponibilizar seu download sob demanda é possível. É nessa categoria que o GitHub nomeia os Artefatos.
+
+A segunda categoria contém os elementos técnicos reutilizáveis ​​por outros fluxos de trabalho/projetos: pacotes ou bibliotecas que são baixados automaticamente por alguns projetos que os referenciam. Esses elementos específicos, que devem ser baixáveis ​​por outros fluxos de trabalho, serão salvos em outro serviço do GitHub: Pacotes do GitHub. Isso é o equivalente a outros produtos com os quais você pode estar familiarizado, como Nexus, Artifactory ou Azure DevOps Artifacts. Os seguintes formatos são suportados:
+
+- [x] Pacotes NuGet, usados ​​por projetos .NET
+- [x] Maven para projetos Java
+- [x] NPM para projetos JavaScript
+- [x] Gradle para projetos Java
+- [x] RubyGems para projetos Ruby
+
+E mais do que isso, o GitHub Packages oferece um registro de contêiner docker.
+
+Assim, dependendo do tipo de item gerado e seu uso, você pode usar o GitHub Artifacts ou o GitHub Packages.
+
+### Publication of an artifact
+A publicação de um artefato é extremamente simples e consiste em usar a ação actions/upload-artifact. Esta requer apenas dois parâmetros:
+- [x] path: o(s) arquivo(s) ou pasta(s) a serem incluídos no arquivo zip gerado
+- [x] name: o nome do arquivo Zip gerado
+
+```
+- name: Archiving the binaries of the application
+uses: actions/upload-artifact@v4
+with:
+path: myapplication.exe # Take and zip a particular file
+name: Release           # And upload it as Release.zip
+- name: Archiving the technical logs
+uses: actions/upload-artifact@v4
+with:
+path: logs # Take all files in the logs folder
+name: logs # Upload them as logs.zip
+```
+
+Após executar o fluxo de trabalho na tela de resultados, são listados todos os artefatos gerados. Eles podem ser facilmente baixados.
+
+### Retention
+No entanto, esses artefatos não podem ser considerados um arquivo confiável. Primeiro, os arquivos associados são destruídos porque o histórico do fluxo de trabalho pode ser excluído manualmente (ou por engano). Mas, acima de tudo, esses elementos têm um tempo máximo de retenção, após o qual o GitHub os remove automaticamente. Essa duração é configurável nas configurações do repositório do GitHub:
+
+- [x] 90 dias máximos de retenção para repositórios públicos.
+- [x] 400 dias máximos de retenção para repositórios privados.
+
+Essa é a duração máxima padrão aplicada a cada artefato. Também é possível personalizar essa duração de retenção (menor que o limite padrão) para um determinado elemento, especialmente onde os artefatos são significativamente maiores. Como lembrete, a cota de armazenamento gratuito no GitHub é de apenas 500 MB para uma conta gratuita do GitHub. Portanto, para liberar algum espaço limitando o tempo de retenção de um artefato específico, é necessário usar a propriedade retention-delay:
+
+```
+- uses: actions/upload-artifact@v4
+with:
+name: my-artifact
+path: /output
+retention-days: 5 # days of retention
+```
+Dica: Se você atingir o tamanho máximo de armazenamento da sua conta, o upload de um novo artefato falhará. É possível abrir os resultados de fluxos de trabalho antigos e remover os artefatos manualmente e um por um. Há também uma Ação para excluí-los todos de uma vez: kolpav/purge-artifacts-action. Por fim, observe que, uma vez que a remoção é feita, o GitHub pode levar uma ou duas horas antes de considerar o espaço e permitir que você faça o upload novamente.
+
+Se sua necessidade é manter esses itens indefinidamente, várias possibilidades estão disponíveis para você:
+- [x] Para baixá-los manualmente e armazená-los no seu disco rígido
+- [x] Adicione ao seu fluxo de trabalho a capacidade de salvá-los em um serviço de hospedagem de terceiros (servidor FTP, armazenamento de blobs, etc.)
+- [x] Adicione-os a uma versão do seu projeto
+
+Essa noção de arquivo de versão (ativo) é abordada um pouco mais adiante neste capítulo.
+
+### Downloading an artifact
+O download de um artefato também é possível (com a ação actions/ download-artifact), mas apenas para os artefatos que a execução do fluxo de trabalho em andamento publicou. Eles respondem a um caso de uso único: transferir dados de um trabalho para outro dentro do mesmo fluxo de trabalho, conforme explicado nos primeiros capítulos deste livro, os trabalhos são executados em máquinas diferentes. Vamos supor que você queira compilar um aplicativo no primeiro trabalho; o segundo trabalho não pode acessar os binários gerados porque eles não estão no mesmo disco. A única alternativa, editar o primeiro trabalho para carregar um artefato chamado e pedir ao segundo para baixar esse artefato.
+
+```
+job1:
+steps:
+- name: Archiving the binaries of the application
+uses: actions/upload-artifact@v4
+with:
+path: /bin # takes the bin folder and zip it
+name: Release # uploads it as that release.zip
+job2:
+runs-on: ubuntu-latest
+needs: job1 # in order for job2 to only start after job1
+steps:
+- name: Downloading the artifact
+uses: actions/download-artifact@v4
+with:
+name: Release
+#performs actions using the artifact
+```
+Às vezes, você cria um fluxo de trabalho usando as matrizes para construir várias versões do mesmo aplicativo, gerando assim vários artefatos. Você pode baixar todos os artefatos simplesmente omitindo a propriedade "name":
+
+
+```
+- name: Download all artifacts
+  uses: actions/download-artifact@v4
+```
+
+### Publication of a release element
+Se as execuções de fluxos de trabalho não forem retidas para sempre, não será o caso para lançamentos (versões estáveis ​​do projeto). Em vez disso, você deve usar o mesmo procedimento de lançamento que discutimos para publicar uma Ação no Marketplace. Um lançamento de uma Ação requer apenas uma tag para congelar uma versão do código-fonte, mas no nosso caso, aproveitaremos a capacidade de adicionar arquivos ao lançamento para que eles sejam retidos indefinidamente (desde que o lançamento não seja excluído manualmente).
+
+Há duas maneiras de anexar arquivos a um lançamento:
+- [x] Adicionar manualmente arquivos (chamados de ativos) a um lançamento existente usando o Portal da Web do GitHub
+- [x] Criar um lançamento por meio do fluxo de trabalho e adicionar a ele os arquivos desejados
+
+Para adicionar arquivos a um lançamento existente, potencialmente arquivos que você carregou anteriormente como artefatos e baixou, clique em qualquer lançamento do seu repositório e clique no botão editar. Uma tela permite que você altere as propriedades do lançamento e arraste e solte arquivos na parte inferior desta tela.
+
+Adição manual de arquivos de release
+
+O segundo método, mais simples porque totalmente automatizado, simplesmente substitui a ação de upload de um artefato por uma ação de upload dos arquivos em um novo release. Novamente, a comunidade recomenda usar a ação softprops/action-gh-release que é fácil de usar e completa.
+
+Aviso: Há uma ação oficial do GitHub para gerenciar releases e seus ativos (actions/upload-release-asset), mas o GitHub interrompeu seu suporte e manutenção. Prefira; portanto, é uma alternativa.
+
+Quando essa ação é colocada em um fluxo de trabalho, ela criará automaticamente um release com base na tag do fluxo de trabalho. Além disso, permite usar a propriedade with.files para listar os arquivos que serão adicionados ao release.
+
+```
+- name: Create a release
+uses: softprops/action-gh-release@v2
+env:
+GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+with:
+files: | # List of files to attach to the release
+CHANGELOG.txt
+MyApplication.windows.x86.msi
+MyApplication.windows.x64.msi
+MyApplication.linux.tar.gz
+```
+
+Quando o fluxo de trabalho é executado com sucesso, uma nova versão aparece no seu repositório, incluindo seus arquivos anexados e o código-fonte que o GitHub anexa automaticamente.
+
+Adição automática de arquivos de versão
+O uso de versões tem muitas vantagens. Além do armazenamento de longo prazo, ele serve principalmente para fornecer aos usuários de seus projetos acesso rápido a binários ou informações de que precisam. Não há necessidade de bifurcar um repositório e gerenciar a compilação você mesmo; você fornece binários prontos para uso para as pessoas.
+
+### Publish a package
+Infelizmente, os lançamentos não respondem a todos os usos do compartilhamento de binários; alguns exigem o uso de pacotes. Pacotes, também chamados de dependências, são hoje em dia a maneira moderna de compartilhar bibliotecas entre projetos. Se referenciadas por um projeto, as Dependências são baixadas automaticamente de galerias públicas, como www.nuget.org ou www.npmjs.com. Pacotes do GitHub é uma galeria adicional onde você pode armazenar pública ou privadamente suas próprias dependências.
+
+Publicaremos um pacote Nuget para projetos escritos na linguagem .NET para cobrir a geração de pacotes via GitHub Actions. Os pacotes de projetos .Net, chamados pacotes NuGet (com uma *.nupkg_extension) e sua publicação requerem duas etapas:
+
+1. Criar projeto de aplicativo .Net autônomo
+2. (Opcional) Criar um arquivo .nuspec, arquivo de metadados contendo informações como o autor do pacote, o editor, licença, versão, etc.
+3. Construir o projeto para gerar uma biblioteca (.dll)
+4. Transformar em um arquivo nuget (*.nupkg)
+5. Carregar o arquivo em uma galeria listando os pacotes nuget
+
+O primeiro passo é criar um projeto .NET. O comando "dotnet new" gera um projeto .Net vazio, mas perfeitamente válido.
+
+`dotnet new console --name DemoNuGet`
+
+A compilação de um projeto .Net normalmente é feita com o comando "dotnet build", mas o comando que permite criar o arquivo Nuget ("dotnet pack") também cuida da compilação, então podemos omitir o primeiro:
+
+`dotnet pack --configuration Release # Creating the package`
+
+O upload do pacote é feito no repositório do seu projeto. No entanto, a ferramenta de gerenciamento de pacotes (nuget.exe no nosso caso) conhece apenas a galeria oficial. Portanto, é necessário declarar outra galeria (chamada source) e fornecer as credenciais para conectar e fazer upload do nosso pacote.
+
+`nuget sources add -name "github" -Source https://nuget.pkg.github.com/OWNER/ index.json -Username USERNAME -Password PASSWORD`
+
+OWNER representa o nome da sua conta ou organização aqui, enquanto USERNAME é o nome do usuário que carrega o pacote. A senha é um PAT (Personal Access Token). É possível criar uma nova ou simplesmente reutilizar a que é injetada automaticamente em cada fluxo de trabalho: GITHUB_TOKEN.
+
+``nuget sources add -name "github" -Source https://nuget.pkg.github.com/lgmorand/ index.json -Username lgmorand -Password ${{ secrets.GITHUB_TOKEN}}``
+
+Isso tem o efeito de produzir um arquivo de configuração que contém todas as galerias do NuGet, que ele pode acessar para carregar ou baixar pacotes. Por exemplo, aqui está o arquivo após o comando anterior:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+<packageSources>
+<add key="github" value="https://nuget.pkg.github.com/lgmorand/index.json" protocolVersion="3" />
+<add  key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
+</packageSources>
+</configuration>
+
+```
+
+Por fim, o comando mais importante, “nuget push”, permite que você carregue o pacote na galeria Nuget. O comando recebe dois parâmetros: o caminho do arquivo para carregar e onde publicá-lo. Aqui, estamos usando a galeria GitHub declarada anteriormente.
+
+```dotnet nuget push "bin/Release/DemoNuget.1.0.0.nupkg" --source "github"```
+
+O arquivo de fluxo de trabalho completo se parece com isto:
+
+```
+jobs:
+build:
+runs-on: windows-latest
+steps:
+- uses: actions/checkout@v4
+- name: Creating the NuGet package
+   run: dotnet pack --configuration Release
+- name: Adding the source
+   run: nuget sources add
+-name "github" -Source https://nuget.pkg.github.com/ lgmorand/index.json -Username lgmorand -Password ${{ secrets.GITHUB_TOKEN }}
+- name: Upload package
+   run: dotnet nuget push "bin/Release/DemoNuget.1.0.0.nupkg" --source "github"
+```
+Uma vez que o pacote é publicado, ele fica visível por dois meios. Ou indo para a página inicial da conta e clicando na aba Pacotes que aparece no topo ou na página inicial do repositório de onde ele foi gerado. No lado direito há um link para a página de pacotes
+
+Nota: Embora não seja exigido pelo Nuget Standard, os Pacotes do GitHub podem gerar um erro durante o upload do pacote se ele não contiver a propriedade Meta RepositoryURL. Isso pode ser adicionado manualmente ao arquivo .csproj ou .nuspec do seu projeto.
+
+```
+<PropertyGroup>
+<OutputType>Exe</OutputType>
+<TargetFramework>net5.0</TargetFramework>
+<RepositoryUrl>https://github.com/compte-github/name-repo</RepositoryUrl>
+</PropertyGroup>
+```
+
+O procedimento para publicar pacotes JavaScript, Java e Ruby segue o mesmo princípio, usando cada vez a especificidade e a configuração de cada ferramenta de gerenciamento de pacotes (NPM, Maven, Gradle, Ruby, etc.). Seria muito longo cobrir todos eles neste livro. Em vez disso, sua configuração é explicada em detalhes na documentação oficial GitHub Actions.
+
+### Debugging a workflow
+Apesar da experiência adquirida por meio da escrita de fluxos de trabalho, pode ocorrer o dia em que um dos seus fluxos de trabalho não se comportará como esperado, e pode exigir que você execute muitas tentativas e falhas para atingir o resultado desejado.
+
+Um dos truques para economizar tempo analisando o problema é ativar o modo de depuração (verbose). Assim, informações de fundo, parâmetros, testes condicionais e muito mais são adicionados aos logs do fluxo de trabalho. A análise do problema é então bastante simplificada.
+
+Existem duas configurações para habilitar a depuração:
+
+1. ACTIONS_RUNNER_DEBUG: que permite mais informações sobre o executor que executa o fluxo de trabalho
+2. ACTIONS_STEP_DEBUG: que fornece mais detalhes sobre as diferentes ações executadas por um fluxo de trabalho
+
+Para ativá-los, basta criar um segredo nas Configurações do repositório e ter um valor de true:
+Ao executar o fluxo de trabalho, os logs devem ser enriquecidos com detalhes adicionais:
+
+Logs enriquecidos
+Uma solução fácil para habilitar a depuração apenas durante uma execução é esperar que um fluxo de trabalho falhe e usar o botão Re-run que habilitará a depuração apenas durante a próxima execução. Para fazer isso, marque Habilitar registro de depuração
+
+Conexão direta com o executor
+Se habilitar a verbosidade permitir algumas informações adicionais, há casos em que o que acontece no agente e especialmente na árvore de arquivos é uma caixa preta; mas é precisamente fácil ter problemas de caminho de arquivo e outros erros de um shell de configuração simples.
+
+A depuração passo a passo por meio de várias execuções de fluxo de trabalho pode se tornar longa e dolorosa antes de encontrar a origem do problema.
+
+A solução mais simples seria conectar-se diretamente na máquina virtual que executa o fluxo de trabalho para ver o que acontece, mas como os agentes do host são gerenciados pelo GitHub e em uma rede particionada, é mais complicado do que parece. No entanto, existe uma solução simples e elegante, o Tmate (www.tmate.io). O Tmate é um produto gratuito que permite que você se conecte a uma máquina remota sem acessar um site que serve como proxy. É ainda melhor conectar-se a uma máquina e executar comandos diretamente por meio de uma página da Web sem instalar ferramentas.
+
+Tudo passa pelo uso da ação mxschmitt/action-tmate. Basta adicionar a etapa ao fluxo de trabalho onde você deseja que o fluxo de trabalho pause e permita que você se conecte.
+
+`- uses: mxschmitt/action-tmate@v3`
+
+Ao executar o fluxo de trabalho, dentro dos logs, o TMATE adicionará regularmente duas maneiras de se conectar. Uma para se conectar diretamente com SSH (funciona de qualquer console de terminal capaz de usar SSH) e outra de um site.
+
+Se você abrir a URL exibida, uma página da Web contendo um terminal será aberta. Este terminal está sendo executado em seu agente e agora você pode interagir diretamente com ele.
+
+Observe que quando você está conectado em SSH, o Tmate bloqueia o fluxo de trabalho e o impede de continuar. Então, pare a sessão e peça para o fluxo de trabalho continuar, volte para o diretório de trabalho do runner e crie um arquivo vazio chamado "continue".
+
+`touch continue`
+
+Depois que o arquivo é criado, o Tmate para e retorna o controle ao fluxo de trabalho para permitir que ele continue sua execução.
+
+Também é possível dizer ao Tmate para parar automaticamente após X minutos com a propriedade timeout-minutes. Se nenhum atraso for especificado, será o tempo máximo de execução de um fluxo de trabalho do GitHub. Ainda assim, seu fluxo de trabalho será "morto" pelo GitHub antes de terminar sua execução se outras etapas forem declaradas após o TMATE.
+
+```
+- uses: mxschmitt/action-tmate@v3
+   timeout-minutes: 5 # maximum delay before TMATE turns off itself
+```
+
+Gosto especialmente de adicioná-lo como a última etapa, mas somente acionado quando ocorre um problema:
+
+```
+- name: Setup tmate session
+if: ${{failure() }}
+uses: mxschmitt/action-tmate@v3
+```
+
+Esta dica deve ajudar você a depurar seus fluxos de trabalho mais facilmente.
+
+Há também uma solução alternativa que permite que você execute os fluxos de trabalho do GitHub diretamente no seu computador e sem instalar um agente. Isso requer a ferramenta "Act", que pode ser encontrada no GitHub (https://github.com/nektos/act).
+
+Apesar de algumas limitações, o Act analisa os arquivos YAML e tenta reproduzir o comportamento de um runner. Seu uso não é abordado neste livro, mas adiciona uma corda ao seu arco.
+
+## Improve the performance of your workflows
+Se você leu este livro, entendeu que a automação de tarefas e evitar erros humanos durante projetos de computador permite uma economia de tempo significativa porque uma máquina sempre será rápida como um humano e permitirá que ele se concentre em outras tarefas durante esse tempo. No entanto, também é importante que as tarefas automatizadas sejam executadas o mais rápido possível. Tomemos o exemplo de um fluxo de trabalho de compilação e implantação. Este desenvolvedor cria um aplicativo deve esperar que o fluxo de trabalho seja concluído para validar se seu desenvolvimento é confiável ou não. Um desenvolvedor pode fazer isso cerca de cinquenta vezes por dia nesta operação e representa tanto tempo perdido à toa. Multiplicando esse tempo pelo número de desenvolvedores da equipe, podemos facilmente imaginar as horas perdidas todos os dias.
+
+Outro ponto importante, dependendo da sua conta do GitHub, o custo do final do mês depende do tempo de execução dos agentes. Embora o limite seja alto por padrão (2000 minutos por mês para uma conta gratuita), é fácil alcançá-lo. Portanto, é importante acelerar os fluxos de trabalho o máximo possível, e existem vários pontos de melhoria. Abordaremos esses pontos neste capítulo.
+
+### Improving Actions
+Ações são as bases dos fluxos de trabalho. Existem tantas possibilidades de Ações que não podemos cobrir tudo sobre otimização, mas existem regras gerais para manter seus fluxos de trabalho saudáveis.
+
+- [x] Desabilite (se: ${{ false }}) ou comente ações que não agregam valor ao seu fluxo de trabalho
+- [x] Prefira fluxos de trabalho em execução no Linux, a geração da máquina virtual subjacente sendo um pouco mais rápida
+- [x] Paralelize etapas por meio de trabalhos ou matrizes quando não tiverem dependências entre si
+
+O último ponto, quando seu fluxo de trabalho requer o download e a instalação de várias ferramentas e/ou utilitários, usar uma ação do Docker pode melhorar muito o tempo de execução do fluxo de trabalho, ainda mais, se a imagem do Docker da Ação foi gerada upstream. Este ponto de desempenho, embelezado com um exemplo factual, é abordado em detalhes no capítulo "Criar uma ação do Docker".
+
+### Improve the source code checkout
+Se for possível fazer coisas infinitas com ações do GitHub. Nesse caso, a maioria dos projetos do GitHub, em algum momento, um fluxo de trabalho usando uma porção de elementos (código-fonte, script, binários) armazenados no repositório. Todos eles usarão a ação checkout que você encontrou várias vezes neste livro:
+
+`
+- uses: actions/checkout@v4
+`
+
+Este usado no estado não representa um problema porque ele tem, em sua versão 2.x, otimizado com uma configuração padrão que indica para baixar apenas a versão mais recente do código-fonte do branch padrão (geralmente o branch "main" ou "master") e somente este.
+
+No entanto, algumas operações podem exigir o download do histórico de commits para executar algumas operações neles. Isso pode ser feito com o parâmetro fetch-depth:
+
+```
+- uses: actions/checkout@v4
+with:
+fetch-depth: 5 # Number of historic versions to download
+```
+
+O valor padrão quando o parâmetro está faltando é 1 (fetch-depth: 1). Também é possível (ou você pode encontrar exemplos na Net) definir o valor fetch-depth como 0. Esse valor indica para baixar o histórico inteiro de todos os branches e todas as tags.
+
+```
+uses: actions/checkout@v4
+fetch-depth: 0 # WARNING! Do you really want to do that?
+```
+
+O tempo de download pode então ser multiplicado por dez e só aumentará com o tempo. Então, certifique-se de verificar cada um dos seus fluxos de trabalho para usar o parâmetro fetch-depth somente quando realmente necessário.
+
+### Caching dependencies
+A grande maioria dos projetos de TI, independentemente da linguagem de programação, usa bibliotecas de terceiros (pacotes nuget, npm, maven, ruby, etc.), representando centenas ou até milhares de arquivos para seu código-fonte no momento da compilação de seu aplicativo. Mesmo para um aplicativo pequeno, baixar essas dependências pode levar vários minutos. A ferramenta que baixa essas dependências (nuget.exe, npm.exe, etc.) é inteligente o suficiente para baixar apenas os arquivos ausentes no computador do desenvolvedor. Assim, se a primeira compilação for longa, a segunda é quase instantânea porque todos os arquivos já estão presentes localmente. Infelizmente, essa solução não funciona para fluxos de trabalho do GitHub porque cada nova execução de fluxo de trabalho é acionada em uma nova máquina virtual.
+
+No entanto, o GitHub Actions oferece uma solução elegante para responder a esse problema: um recurso de cache persistente. Essa solução inclui a adição da ação actions/cache dentro do seu fluxo de trabalho que salva e recupera elementos automaticamente de/para um cache persistente localizado nos servidores do GitHub. Essa ação deve ser inserida no início do fluxo de trabalho antes da resolução da dependência. Ele opera da seguinte forma:
+
+1. Durante a primeira execução do fluxo de trabalho, a ação Cache não encontra um cache que atenda ao critério
+2. O fluxo de trabalho então baixa as dependências normalmente por meio da ferramenta de resolução de dependência
+3. A ação Cache injeta uma etapa no final de um fluxo de trabalho (pós-etapas) que salva os arquivos no cache
+4. O fluxo de trabalho para
+
+Na próxima execução do fluxo de trabalho:
+1. A ação Cache encontra um cache que corresponde ao critério. Ele baixa o cache localmente e o coloca na pasta de destino
+2. A ação cache define uma variável “cache-hit” como true para indicar que um cache foi encontrado
+3. A ferramenta de resolução de dependência não precisa baixar arquivos porque eles já estão presentes localmente
+4. A ação Cache injeta uma etapa no final do fluxo de trabalho, mas não salva os arquivos no cache porque a variável cache-hit é true. O cache é considerado já atualizado
+
+A implementação é extremamente simples, pois basta colocar a ação no início do fluxo de trabalho, especificar a(s) pasta(s) para fazer backup e dar um nome ao cache.
+
+
+```
+uses: actions/cache@v4
+with:
+path: # folder to back up (e.g., nodes_modules)
+key: # cache's name
+restore-keys: # (optional) Alternative cache keys
+```
+
+Cada propriedade tem uma mecânica própria. Vamos pegar aqui o exemplo de um projeto JavaScript usando NPM (NodeJS Package Manager) Para baixar as dependências necessárias para o projeto colocadas em uma pasta padrão chamada node_modules. A árvore de dependências, representando todos os arquivos para baixar, é gerada pelo NPM em um arquivo chamado package-lock.json.
+
+A propriedade path é usada para indicar as pastas (e seu conteúdo) que serão salvas no cache. Ela também é a pasta de destino onde o cache é restaurado. Então, para o nosso exemplo, o valor a ser especificado é a pasta node_modules:
+
+```
+uses: actions/cache@v4
+with:
+path: '**/node_modules'
+```
+
+A propriedade key indica o nome do cache. A chave com a qual os arquivos serão salvos e a chave com a qual encontraremos nosso cache entre os outros caches do repositório. Este ponto é importante; você pode ter vários caches por projeto, correspondendo para cada um deles, a um fluxo de trabalho específico. Então, para nosso exemplo, podemos chamar o cache de "node-modules", mas como você sabe se o cache corresponde à lista de arquivos listados no arquivo package-lock.json. Se compararmos os arquivos um por um, pode levar anos. A solução é calcular um hash de arquivo e usar esse hash no nome do cache; dessa forma, cada vez que uma dependência é adicionada, removida ou modificada de/para package-lock.json, seu hash muda, e podemos concluir diretamente que o cache contendo outro hash está obsoleto. O resultado então se torna:
+
+```
+uses: actions/cache@v4
+with:
+path: **/node_modules'
+key: node-modules-${{ hashFiles("**/package-lock.json')}}
+#ex:mode-modules-5805ee260f7996bab5bb7c1e4be38d9653dd02417df04f712d68c7364a6daed2
+```
+
+Por fim, a propriedade restore-keys, opcional, permite definir chaves alternativas no cache onde um cache não é encontrado. Por exemplo, tome o caso onde um conjunto de cem dependências são armazenadas em cache, se apenas uma dependência for adicionada ao arquivo package-lock.json, o hash será alterado, e o cache será ignorado, causando o download de 101 dependências. É possível indicar a ação para baixar o cache correspondente ao hash. Se o cache não corresponder, diga para ele procurar se existe outro cache quase equivalente (aqui, aquele com as 100 dependências). Dessa forma, a ação baixará o conteúdo do cache secundário (a variável cache-hit permanece falsa porque não é o cache exato desejado), o NPM então baixa a dependência ausente. Por fim, a ação (cache) injetada no final do fluxo de trabalho recria um novo cache contendo 101 dependências, tornando-se o novo cache primário.
+
+```
+uses: actions/cache@v4
+with:
+path: **/node_modules'
+key: node-modules-${{ hashFiles("**/package-lock.json')}}
+restore-keys: nodes-modules-
+```
+
+O resultado é claro. Em um projeto pequeno, o ganho já é de 30% do tempo total do fluxo de trabalho. Se o download do cache adicionar um pouco de tempo, é muito mais rápido do que baixar os mesmos arquivos por meio do mecanismo de resolução de dependência:
+
+Limitação: O cache é gratuito, mas é limitado a 10 GB por conta para todos os caches salvos. Ao exceder 10 GB, o novo cache (fluxo de trabalho atual) é salvo, mas o cache de dados antigo será excluído para voltar a ficar abaixo de 10 GB. Em paralelo, se um cache não for acessado por 7 dias, o cache será excluído automaticamente.
+
+Usamos aqui o exemplo muito comum das dependências, mas esse cache pode servir a muitos outros casos quando a necessidade é reutilizar o mesmo grupo de dados estáticos durante várias execuções de fluxo de trabalho.
+
+### The usage of matrices
+No capítulo dedicado às matrizes, abordamos casos de uso para compilar uma versão iOS e uma versão Android em paralelo, mas também exemplos da necessidade de compilar o código-fonte em duas versões (ou mais) de um framework como o NodeJS. Existem muitos outros casos de usos ainda mais comuns para alavancar matrizes, como a realização de testes.
+
+Vamos pegar o exemplo de um fluxo de trabalho realizando testes de integração contidos no código-fonte. Em um fluxo de trabalho sendo simplificado aqui, por exemplo, um compila o aplicativo, o implementa, realiza alguns testes de integração e, em seguida, empacota tudo se todos os testes estiverem verdes.
+
+```
+jobs:
+my-project:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+- name: build
+run: # build project
+- name: deploy
+run: # deploy the app
+- name: Run integration tests
+run: # run/tests
+- name: Create package
+run: # generate a zipped release
+```
+
+A realização de testes unitários leva dois minutos e parece incompressível, pois é uma tarefa única. No entanto, as matrizes podem ajudar a acelerar a execução dos testes cortando-os por lote. Além disso, adaptando o fluxo de trabalho e distribuindo as tarefas por jobs, é possível "dividir" a parte dos testes unitários. Assim, o próximo novo fluxo de trabalho realizará as mesmas ações, mas com um tempo de execução muito diferente:
+
+```
+jobs:
+build:
+runs-on: ubuntu-latest
+steps:
+run: # build project
+- name: deploy
+run: # deploy the app
+testing:
+runs-on: ubuntu-latest
+needs: build
+strategy:
+matrix:
+test-path:
+- tests/integration/login/
+steps:
+- tests/integration/orders/
+- uses: actions/checkout@v4
+- tests/integration/basket/
+- name: build
+- tests/integration/other/
+steps:
+- name: Run integration tests
+run: # run ${{ matrix.test-path}}''
+packing:
+runs-on: ubuntu-latest
+needs: testing
+steps:
+- name: Create package
+run: #generate a zipped release
+```
+
+Essa abordagem, como os processadores multithread, pode cortar uma tarefa em tarefas menores e economizar tempo. O resultado do fluxo de trabalho é o mesmo, mas sua árvore de execução (diagrama) e seu tempo de execução são divididos por quatro com uma etapa de teste paralelizada levando mais de vinte segundos:
+
+## The security within GitHub Actions
+Hoje em dia, a segurança é muitas vezes deixada de lado quando considerada uma prioridade, especialmente no mundo da computação. No entanto, as últimas notícias têm mostrado que operações de hacking em larga escala podem ser realizadas comprometendo a cadeia de CI/CD. Ao ter acesso à fábrica de software, os invasores podem acessar o código-fonte do aplicativo e, então, procurar mais facilmente por falhas no software, extrair os segredos/strings de conexão/certificados para obter acesso aos ambientes de produção, mas também injetar malware dentro dos aplicativos e, assim, ter um malware quase indetectável que será então distribuído para outras empresas (por exemplo, o caso da pirataria da SolarWinds descoberta em 2021, mas que teria começado em 2015!).
+
+Longe de ser exaustivo, este capítulo tem como objetivo compartilhar as principais boas práticas e os principais erros das pessoas quando usam o GitHub Actions.
+
+## The secrets management
+Os "segredos" discutidos aqui se referem a duas coisas que geralmente andam de mãos dadas:
+• Informações confidenciais (senha, certificado, string de conexão, chave)
+• Segredos GitHub: a funcionalidade que permite que você armazene essas informações críticas em uma variável segura
+
+A primeira boa prática referente a informações confidenciais é estritamente nunca, de forma alguma, escrever esses dados sensíveis no código-fonte, pela simples razão de que qualquer pessoa com acesso ao seu repositório (seja porque o repositório é público ou acessível por um colaborador) pode recuperar esses dados. Uma vez que o segredo é armazenado no histórico de commits, torna-se difícil apagá-lo. Isso permanece tecnicamente viável com comandos como "git rebase -i", mas pode ter consequências infelizes se outra pessoa já usa a versão atual do código-fonte. No próximo push/merge de um ou outro, podem ocorrer erros. Portanto, prefira a vigilância ou crie o hábito de nunca escrever um segredo no código-fonte.
+
+Como um anjo da guarda, o GitHub protege você escaneando automaticamente o código-fonte de seus repositórios públicos (ou privados com a Enterprise Edition). Ele alerta você por e-mail e pelo portal se encontrar segredos, como chaves para Azure, AWS, Dropbox, MailChimp e muitos outros.
+
+Info: A lista completa dos tipos de segredos gerenciados nativamente pelo GitHub pode ser encontrada na página https://docs.github.com/en/github/administering-a-repository/about-secret-scanning
+
+Como o repositório é necessariamente público, o dano está feito, e potencialmente piratas podem ter escaneado seu código-fonte; o segredo deve então ser considerado vulnerável e deve ser revogado instantaneamente por você. O tempo de detecção por um serviço de terceiros é em segundos, com os meios que os piratas possuem hoje; uma vez recebido o alerta, a desativação do segredo deve ser uma prioridade absoluta.
+
+Seu reflexo deve sempre armazenar dados sensíveis dentro dos segredos do GitHub abordados no capítulo "Segredos do GitHub". Mas eles são 100% confiáveis?
+
+### The secrets' flaws
+Conforme explicado no capítulo dedicado aos segredos, quando o valor do seu segredo pode ser exibido nos logs, o GitHub substitui o valor do "*' e impede de ver seu conteúdo. O comportamento é o seguinte: o GitHub analisa os valores dos segredos no início do fluxo de trabalho e, sempre que o valor corre o risco de aparecer em um log, ele substitui seu valor usando o recurso add-mask:
+
+```
+- run: echo "${{ secrets.MY_SECRET }}" # affiche
+```
+
+Isso também pode causar comportamentos inesperados. Vamos pegar o exemplo de um nome secreto MY_SECRET com um valor de “p@ssword”. Se outro comando usar o mesmo valor coincidentemente, ele será ofuscado ao mesmo tempo. Se testarmos o seguinte comando:
+
+```
+- run: echo "my p@ssword is visible"
+```
+
+Será exibida a seguinte mensagem: `my *** is visible`
+
+Não é bem o que queremos, mas é inevitável.
+
+Em contraste, essa proteção não deve ser considerada suficientemente segura. De fato, uma pessoa com direitos suficientes para modificar o arquivo de fluxo de trabalho usa uma falha para obter o valor. Para isso, basta que ele “corte/edite” o valor para que ele não seja mais estritamente idêntico ao valor do segredo. Um exemplo pode ser injetar um espaço entre cada caractere como no comando a seguir:
+
+
+```
+- run: echo "${{ secrets.MY_SECRET }}" | sed 's/./ & /g' # adds a space between each character's secret
+```
+
+Isso exibirá a seguinte mensagem no console: `p@ssword`
+
+Nosso segredo não é mais tão secreto quanto o esperado. Lembre-se de que seus segredos são transmitidos para seus fluxos de trabalho e utilizáveis ​​por eles, mas, portanto, expostos dentro deles. Este é um ponto de atenção a ter em mente quando você adiciona colaboradores ao seu repositório.
+
+A situação é complicada durante solicitações de pull em seu repositório. Qualquer um pode bifurcar seu repositório (claro, os segredos não são copiados), editar um fluxo de trabalho ou criar (ou criar um novo) e fazer uma solicitação de pull em seu repositório. Isso resultará no acionamento do fluxo de trabalho modificado dentro do contexto do seu repositório e dará a ele a possibilidade de roubar seus segredos. Desta vez, a proteção padrão do GitHub é mais consistente porque quando uma solicitação de pull vem de um repositório de terceiros (bifurcação), nenhum dos segredos (exceto GITHUB_TOKEN) é transmitido ao executor. Portanto, se o fluxo de trabalho tentar exibir o valor de um segredo, ele receberá uma mensagem de erro "O segredo XXX não existe". Essa proteção é ideal para a maioria dos casos, mas às vezes pode interferir no que queremos fazer. Então, se você criar um fluxo de trabalho de verificação de qualidade de código que dispara quando uma solicitação de pull é feita, mas precisa de um segredo para se conectar a um serviço de terceiros e executar a varredura, isso não é viável porque o segredo estará vazio, a varredura falhará.
+
+Se você realmente precisar disponibilizar um segredo em uma solicitação de pull externa, é possível, mas por sua conta e risco, desabilitando a proteção padrão do GitHub. Para isso, vá para as configurações (Settings) do seu repositório, depois na parte de ações e marque a caixa "Enviar segredos para fluxos de trabalho de solicitações de pull de fork".
+
+Compartilhando segredos com solicitações de pull externas
+
+## Securing self-hosted agents
+Agentes auto-hospedados estão sendo executados em seu ambiente (computador, servidor); este é o primeiro ponto de entrada e ataque para comprometê-lo. Portanto, é essencial nunca definir estritamente um agente auto-hospedado em um repositório público, incluindo se nenhum de seus fluxos de trabalho o usar. Qualquer um pode bifurcar o repositório, criar um fluxo de trabalho que tenha como alvo seu agente auto-hospedado (runs-on: self-hosted) e que contenha um script malicioso ou um vírus e, em seguida, executar uma solicitação de pull em seu repositório. Isso potencialmente executaria o fluxo de trabalho perigoso em seu agente e o usaria como um backdoor.
+
+O GitHub desabilita os fluxos de trabalho de bifurcações por padrão para evitar erros humanos, mas você pode ter ativado esse recurso para transmitir segredos, como visto antes.
+
+### Limiting the access
+O agente pode ser comprometido de fora e por pessoas com acesso ao repositório, deliberadamente ou porque suas credenciais foram roubadas.
+
+Portanto, é essencial considerar seu agente e a máquina em que está instalado como potencialmente vulneráveis. Algumas boas práticas permitem reduzir o risco em tais casos:
+1. Instale o agente com os menores privilégios. Não instale com direitos de administrador; você evitará que ele possa assumir o controle total do servidor em que está localizado
+2. Limite o acesso à rede desta máquina. Se o agente não tiver motivo para acessar a rede, não permita que ele o faça, e se o acesso a certos recursos precisar ser feito (por exemplo, um servidor de produção, um banco de dados), abra essas rotas de rede exclusivamente.
+3. Não use um agente para vários repositórios (possível com contas do GitHub Enterprise) e não instale vários agentes de vários repositórios na mesma máquina. Existe o risco de "ataque à cadeia de suprimentos" em que, por meio de um repositório corrompido, um fluxo de trabalho pode sair de sua pasta de trabalho e potencialmente acessar/modificar o código-fonte de outro fluxo de trabalho executado por um segundo agente na mesma máquina.
+
+A solução ideal seria implantar agentes em contêineres, mas infelizmente, o GitHub não fornece esses agentes em contêineres. Cabe a você fazer essa tarefa, mas tutoriais podem ser facilmente encontrados online. Fique atento novamente; é melhor ter controle total sobre a imagem de contêiner gerada.
+
+## Using third-party Actions
+Ações de terceiros são certamente o primeiro ponto de vigilância a ser levado em conta. Uma regra de ouro a ser lembrada é que usar uma ação de terceiros é potencialmente arriscado, incluindo aquelas publicadas no GitHub Marketplace. De fato, o GitHub não inspeciona nem valida o conteúdo das ações publicadas em seu Marketplace, e cada ação é segura apenas pela boa vontade de seu autor. Como no ecossistema Open Source, todos podem contribuir e ver o que os outros fazem, mas infelizmente é impossível assistir a tudo.
+
+Além disso, encontrar os aplicativos ou ações do GitHub do Marketplace com um selo "validado" pode ser reconfortante. No entanto, não caia na armadilha. Isso significa apenas que o autor da ação faz parte de uma conta do GitHub (organização) que pertence a uma empresa que validou certos critérios, como suas informações (nome real, endereço real, nome de domínio real). Isso simplesmente garante que é o publicador oficial (ex: Microsoft, Terraform, etc.), mas isso não implica que o conteúdo publicado seja seguro ou à prova de bugs.
+
+Sempre inspecione o código-fonte de uma ação que você pretende integrar ao seu fluxo de trabalho. Quanto mais complexo o código-fonte, mais difícil será detectar um comportamento malicioso em potencial que seu autor terá bem escondido. Essa regra é especialmente verdadeira se você usar agentes auto-hospedados, pois você abre a porta para acessar seu servidor ou sua rede.
+
+Se um agente executado pelo GitHub executar seu fluxo de trabalho, os riscos serão reduzidos, mas ainda presentes. De fato, vamos pegar o exemplo de uma ação que permite que você publique um aplicativo no servidor de terceiros de um provedor de nuvem (por exemplo, Azure). Essa ação provavelmente solicitará credenciais para se conectar ao servidor remoto. Que garantia você tem de que essa ação não enviará suas credenciais para um servidor desonesto em paralelo? Nenhuma. Pior, a solução para analisar o código-fonte antes de usar uma Ação não é 100% confiável devido à mecânica de atualizações automáticas abordadas no capítulo Crie sua Ação > Controle de versão.
+
+Lembre-se, se você quiser declarar em seu fluxo de trabalho para carregar uma Ação "v1", não há garantia de que depois disso o código-fonte da ação que será carregada em seu fluxo de trabalho seja sempre o mesmo, porque o autor pode excluir sua versão "v1", modificar o código-fonte para inserir código malicioso e, em seguida, recriar uma versão "v1". A modificação seria então invisível e indetectável do seu lado.
+
+Devemos usar terceiros? A resposta é "sim", mas isso deve ser feito com a maior vigilância possível.
+
+Existem vários níveis de confiança em relação a ações de terceiros. Se todas forem permitidas por padrão, é bem possível limitar o acesso apenas a certas ações. Por exemplo, você pode permitir apenas aquelas de repositórios pertencentes a você, aquelas publicadas pelo GitHub (que podem ser consideradas realmente seguras) e aquelas publicadas por editores confiáveis ​​(lembrete para editores aprovados: isso não prova que a ação em si seja confiável).
+
+Em relação a outras ações que não se encaixam em nenhuma dessas categorias, seu uso dependerá do seu contexto (particularmente da criticidade do seu projeto). Também é possível limitar os riscos de modificações descontroladas, como explicado acima, usando o hash do commit. Este método é explicado no capítulo “steps” e faz referência a uma versão específica do código. Embora o commit seja imutável, ele garante a recuperação da versão do código-fonte quando o commit foi feito.
+
+Somente ações que correspondem a critérios especificados, mais ações definidas em um repositório dentro do Igmorand, podem ser usadas.
+Para recuperar o commit, uma pequena manipulação é realizada. Primeiro, vá para o repositório Action que você gostaria de usar, depois vá para sua página listando seus lançamentos. Uma vez nesta página, observe um identificador estranho de 7 caracteres na versão em que você está interessado.
+
+Esta é uma versão curta do hash do commit vinculado a esta versão.
+Clique neste número para abrir uma segunda página onde você pode obter a versão completa do hash.
+
+Hash completo
+
+Então use esse hash para referenciar uma versão bem específica da ação.
+
+```
+- uses: lgmorand/github-action-hello@7f2e08be313d58f0d0133b76514dda947b4c1f79
+  with:
+    firstname: 'Louis-Guillaume'
+```
+Importante: Se antes era possível usar esse hash curto de identificador para referenciar uma Ação, não é mais possível por motivos de segurança, e o GitHub agora autoriza apenas a versão completa do hash. Se você encontrar exemplos usando versões curtas, saiba que elas estão obsoletas.
+
+Um pequeno resumo de pontos de vigilância a serem lembrados sobre o uso de Ações de terceiros:
+
+- [x] Não confie em nenhuma ação
+- [x] Sempre dê uma olhada em seu código-fonte
+- [x] Limite o uso de ações de terceiros nos fluxos de trabalho implantados por meio de agentes auto-hospedados
+- [x] Se tal uso for necessário, seja ainda mais vigilante
+- [x] Prefira o uso do hash para referenciar uma ação, mesmo que isso signifique não obter os patches/evoluções automaticamente
+- [x] O ideal é bifurcar a ação e usar apenas a versão clonada. Certamente, você não terá atualizações, mas terá total controle sobre o código-fonte da ação e, acima de tudo, dificilmente verá a ação desaparecer porque o autor decidiu fazer isso (não subestime).
+
+### Keep up with the good security practices
+O GitHub Actions evolui dia a dia, e devido à sua complexidade, os possíveis maus usos da solução são numerosos, por isso é impossível listar todos e/ou todos os conhecidos.
+
+Quando uma vulnerabilidade é séria o suficiente ou amplamente utilizada (principalmente por ignorância), o GitHub pode desabilitar drasticamente um recurso e substituí-lo por outro. Por exemplo, este foi o caso do uso de hashes de "versões curtas" (risco de colisão) e da desabilitação do set-env para o gerenciamento de variáveis. No entanto, é impossível desativar tudo, e às vezes, o mau uso da funcionalidade causa uma vulnerabilidade.
+
+O GitHub atualiza regularmente sua documentação, especialmente quando um ponto de recurso merece atenção, mas não são cobertos todos os riscos associados ao mau uso do produto. Além disso, um bom hábito é a vigilância tecnológica e o aprendizado das boas e más práticas lendo os "Relatórios de Pesquisa de Vulnerabilidade" publicados pelo GitHub no portal dedicado: https://securitylab.github.com/advisories.
+
+Nada como ver os erros dos outros para aprender a não fazer o mesmo.
+
+## Controlling the GITHUB_TOKEN's authorizations
+Por padrão, esse token é gerado automaticamente para cada execução de fluxo de trabalho, o que simplifica a autenticação com o GitHub tem os direitos somente leitura' no repositório, o que é bom, mas até 2023, ele tem gravações de 'contribuidor', o que era fácil, mas poderia ser perigoso. É recomendável reduzir os direitos atribuídos ao token (privilégio mínimo) por motivos de segurança. Esse controle pode ser obtido de duas maneiras:
+
+- [x] No nível do repositório, definindo uma configuração padrão
+- [x] No nível de cada fluxo de trabalho
+
+No repositório, por meio do menu Configurações > Ações, você pode especificar que o token tenha apenas direitos de leitura:
+
+Dentro de um fluxo de trabalho, isso pode ser definido usando as permissões de atributo no nível do fluxo de trabalho ou para um trabalho específico:
+
+```
+myjob:
+  runs-on: ubuntu-latest
+     permissions:
+       actions: read
+       issues: write # checks: read/write/none
+                     # contents: read/write/none
+                     # deployments: read/write/none
+                     # issues: read/write/none
+                     #packages: read/write/none
+                     #pull-requests: read/write/none
+                     #repository-projects: read/write/none
+                     #security-events: read/write/none
+                     #statuses: read/write/none
+```
+
+## Stay protected against command injection
+Injeção de comando, é uma reminiscência do princípio de injeção de SQL: envolve enviar a você um texto que será interpretado e executado quando não deveria.
+
+Aqui está um exemplo simples de um fluxo de trabalho que é acionado quando alguém cria um Issue no seu repositório e, portanto, pode ser feito por qualquer pessoa sem direitos específicos.
+
+```
+- name: print title
+   run: echo "${{ github.event.issue.title}}"
+```
+
+A pessoa cria um Issue com um título específico:
+Issue with injected command
+
+Devido à maneira como a sintaxe ${{}} é expandida antes da execução por um agente (isso significa que as variáveis ​​são substituídas no YAML), isso faz com que o fluxo de trabalho execute o seguinte comando:
+
+```
+- name: print title
+run: echo "$(touch pwned.txt)"
+```
+
+Dessa forma, um novo comando é executado pelo seu fluxo de trabalho sem o seu consentimento. Assim, o invasor poderia, como mostrado na captura de tela a seguir, criar um arquivo pwnded.txt, mas potencialmente fazer coisas mais perigosas, como baixar um vírus (se você usar um self-agent) ou exportar segredos acessíveis pelo fluxo de trabalho e enviá-los para um servidor remoto.
+
+A solução é usar variáveis ​​intermediárias ao usar uma entrada de fora (parâmetro do fluxo de trabalho, variável de um nome externo (nome do problema, nome da mensagem de confirmação, etc.) dentro do seu fluxo de trabalho.
+
+```
+- name: print title
+env:
+TITLE: ${{ github.event.issue.title}}
+run: echo "$TITLE"
+```
+
+Dessa forma, o comando é “expandido” em uma variável, mas como é uma variável, o comando não será executado na seção de execução.
+
+# My Real-World Workflows
+Nesta última parte, um pouco abrangente, decidi dissecar alguns fluxos de trabalho que uso em meus projetos. Úteis ou não para você, você verá diferentes fluxos de trabalho, diferentes tópicos abordados e a riqueza de possíveis casos de uso.
+
+Cada fluxo de trabalho é explicado neste livro, mas você encontrará todos os fluxos de trabalho neste repositório: https://github.com/lgmorand/book-github-actions-advanced-workflows.
+
+## PowerPoint
+É comum no meu trabalho fazer apresentações técnicas. Embora eu aprecie o software Microsoft PowerPoint, também gosto da flexibilidade do Markdown, que me permite transformar ou traduzir meu texto rapidamente para vários idiomas antes de gerar uma apresentação.
+
+## Prepare the markdown
+O fluxo de trabalho
+
+O fluxo de trabalho é bem simples. Em um runner Linux, basta instalar o Pandoc (https://github.com/jgm/pandoc) e pedir para ele gerar uma versão do PowerPoint, bem como uma versão HTML dinâmica (que usa o plugin RevealJS (https://revealjs.com/) e então armazenar os arquivos gerados como anexos do fluxo de trabalho.
+
+```
+jobs:
+GenerateFile:
+runs-on: ubuntu-latest
+steps: # retrieve the markdown content from the repo
+- uses: actions/checkout@v4
+- run: sudo apt-get update # update the agent's packages
+- name: Apt-get update # pandoc will transform the markdown into PowerPoint
+- name: install pandoc
+   run: sudo apt-get install --assume-yes pandoc # create the PowerPoint
+- name: Build PPTX version
+   run: pandoc content.md --output=demo.pptx
+     working-directory: ./powerpoint # create a dynamic HTML version
+- name: Build HTML version
+ run: pandoc --to-revealjs --standalone content.md --output-demo.html -V revealjs- url="https://cdn.jsdelivr.net/npm/reveal.js@3.9.2"
+ working-directory: ./powerpoint # Upload a zip to easily retrieve it
+- name: Upload a Build Artifact
+  uses: actions/upload-artifact@v4
+  with:
+    name: Generated documents
+    retention-days: 1
+    path: |
+           ./powerpoint/*
+
+working-directory: ./powerpoint
+```
+
+Upon execution, a zip containing your two presentations is published:
+
+## Points of Attention
+Observe o parâmetro -assume-yes que diz à linha de comando apt-get para sempre aceitar se uma pergunta for feita ao usuário que está executando o comando. O agente não é "interativo" e, portanto, você deve sempre pensar em passar parâmetros que evitem qualquer interação com o usuário (por exemplo, pedir uma senha, confirmar uma ação, etc.).
+
+O segundo ponto é "retention-days" definido como 1. No GitHub, o armazenamento não é ilimitado nem gratuito. Não há sentido em manter artefatos por muito tempo. Neste caso específico, quero meu PowerPoint hoje, não em dez dias.
+
+## Book Generation
+Como vimos anteriormente no livro, embora seja publicado em formato de papel e e-book, ele é, na verdade, inteiramente escrito e gerado via GitHub Actions. Aqui está o fluxo de trabalho quase completo e um exemplo de um livro gerado, caso você sinta vontade de escrever um livro ou publicar um e-book.
+
+```
+name: Generate a book
+on:
+workflow_dispatch:
+jobs:
+generating-the-book:
+name: Generate the books
+runs-on: ubuntu-latest
+steps:
+- name: Apt-get update
+run: sudo apt-get update
+- name: install pandoc
+- run: |
+         wget https://github.com/jgm/pandoc/releases/download/3.3/pandoc-3.3-1-amd64.deb
+         sudo dpkg -i pandoc-3.3-1-amd64.deb # to make a PDF I need additional plugins
+- name: install pdflatex
+run: |
+sudo apt-get install texlive-latex-base
+sudo apt-get install texlive-fonts-recommended
+sudo apt-get install texlive-latex-extra
+sudo apt-get install texlive-xetex
+
+- uses: actions/checkout@v4
+
+- name: Create dist folder
+   run: mkdir ./book/dist
+- #I modify some markdown on the fly
+- name: inject date
+run: |
+today=$(date + "%d-%m-%Y")
+echo '' >> 00-01-edition.md
+echo '## Edition {.unlisted .unnumbered}' >> 00-01-edition.md
+echo '' >> 00-01-edition.md
+echo 'Last modification of content' >> 00-01-edition.md
+echo $today >> 00-01-edition.md
+working-directory: ./book/en
+working-directory: ./book/en # I generate an intermediate text version # I prepare a listing that will allow me to give all the files to merge with a single parameter
+- name: prepare files to include
+- name: Build TXT result EN
+run: |
+run:
+ls *.md >>_includes.txt
+cat_includes.txt
+working-directory: ./book/en # a PDF version that I send to my printer
+- name: Build PDF version EN
+toc.txt
+pandoc -V documentclass=memoir -s $(cat_includes.txt) -o ../dist/result-en.txt
+pandoc -V documentclass-memoir -s $(cat_includes.txt) --toc -o ../dist/result-en-
+working-directory: ./book/en # I transform this TXT into Epub
+- name: Build EPUB version EN
+run: pandoc -V documentclass=memoir -V lang=en --listings --pdf-engine-xelatex --from-markdown-blank_before_header -s $(cat _includes.txt) -o'../dist/Implementing DevSecOps with GitHub Actions.pdf'
+run: pandoc -s ../dist/result-en-toc.txt --epub-cover-image-./assets/cover.png epub-metadata=./assets/metadata.xml -o '../dist/Implementing DevSecOps with GitHub
+Actions.epub'
+working-directory: ./book/en # I can also generate a Word version if I want
+- name: Build Word version EN
+run: pandoc -s ../dist/result-en.txt -o '../dist/Implementing DevSecOps with GitHub Actions.docx' --reference-doc=../latex/custom-reference.docx --toc
+working-directory: ./book/en # I make a zip
+- uses: actions/upload-artifact@v4
+ with:
+name: "Implementing DevSecOps with GitHub Actions - books"
+path: book/dist
+retention-days: 1
+```
+
+Nada muito complicado, são apenas comandos encontrados na documentação do Pandoc. Mas esse fluxo de trabalho é muito útil para mim porque posso rastrear minhas alterações, o que não seria capaz de fazer se tivesse escrito meu livro em um documento do Word. A outra alternativa (LaTex) não me agradou, o Markdown é muito mais simples.
+
+## Documentary Website
+É comum precisar gerar documentação para vários projetos, e nada supera um site que fornece uma interface gráfica agradável, um mecanismo de busca e/ou vários links. É mais fácil do que um arquivo PDF que todos precisam baixar. Existem diferentes ferramentas para gerar essas documentações, como Docusaurus (https://docusaurus.io), MKDocs (https://www.mkdocs.org/) ou Hugo (https://gohugo.io/). Este último é muito leve e contém vários temas muito bons, daí minha escolha preferida.
+
+Como bônus, usaremos o GitHub, mais especificamente o GitHub Pages, para hospedar nosso site. Não há necessidade de comprar um servidor de hospedagem, temos um site e uma URL pública.
+
+## Preparing the content
+Para isso, nada de mágica, basta seguir a documentação do Hugo (https://gohugo.io/content-management/organization/) e organizar as páginas do site seguindo uma estrutura:
+
+```
+content/
+blog/
+- hugo-is-cool/
+- images/
+- funnier-cat.jpg
+-funny-cat.jpg
+cats-info.md
+index.md
+posts/
+post1.md
+- post2.md
+1-landscape.jpg
+- 2-sunset.jpg
+_index.md
+content-1.md
+content-2.md
+1-logo.png _index.md
+name: Build Hugo site
+runs-on: ubuntu-22.04
+steps: # installation of the CLI tool
+- name: Setup Hugo CLI
+run:
+wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/ download/v0.125.6/hugo_0.125.6_linux-amd64.deb
+sudo dpkg -i ${{ runner.temp }}/hugo.deb
+Le workflow
+jobs:
+build-hugo: # installation of prerequisites. Sass allows generating CSS files
+- name: Setup Dart Sass
+run: sudo snap install dart-sass # we take the content of our site
+- name: Checkout
+uses: actions/checkout@v4.1.1
+with:
+submodules: recursive
+fetch-depth: 0 # we activate GitHub Pages to host our website
+- name: Setup Pages
+id: pages
+uses: actions/configure-pages@v5.0.0
+env: # For maximum backward compatibility with Hugo modules, we put the two possible
+variables
+HUGO_ENVIRONMENT: production
+HUGO_ENV: production
+run:
+hugo\
+--gc\
+--minify\
+--baseURL"${{ steps.pages.outputs.base_url}}/" # we build the website from our markdown
+- name: Build with Hugo
+working-directory: website
+deploy:
+environment:
+name: github-pages
+>
+```
+
+url: ${{ steps.deployment.outputs.page_url}}
+runs-on: ubuntu-latest
+needs: build-hugo
+steps:
+- name: Deploy to GitHub Pages
+id: deployment
+uses: actions/deploy-pages@v4
+
+## Points of Attention
+Não foi necessário criar dois jobs, pois eles são sequenciais, no entanto, isso torna a renderização gráfica no portal e a legibilidade do código mais fáceis. Além disso, força o isolamento de etapas principais em um fluxo de trabalho e permite mais flexibilidade em caso de evolução futura (ou divisão).
+
+## DevSecOps
+A segurança do projeto começa na estação de trabalho do desenvolvedor, e há uma infinidade de ferramentas de segurança disponíveis. Quando você é um DevOps experiente, você quer ser capaz de implantar na produção com confiança executando uma série de testes que permitirão ou impedirão a implantação na produção.
+
+Como os aplicativos vêm em diferentes formatos (por exemplo, móvel, web, desktop, conteinerizado), você pode precisar implementar diferentes tipos de controles - e até mesmo diferentes tipos de ferramentas para proteger cada componente do seu aplicativo. Vamos dar uma olhada nos principais tipos de testes que você deve usar. Aqui estão os principais tipos:
+
+### STATIC APPLICATION SECURITY TESTING
+Ferramentas de Static Application Security Testing (SAST) analisam o código-fonte de um aplicativo (o código escrito por seus desenvolvedores) para detectar vulnerabilidades potenciais sem executar o programa. Ao analisar a base de código durante a fase de desenvolvimento, o SAST fornece aos desenvolvedores informações sobre falhas de segurança e erros de codificação. Uma boa ferramenta SAST pode detectar odores de código, bem como quaisquer práticas ruins que possam levar a vulnerabilidades, como SQL ou injeção de caminho, estouro de buffer, XSS e validação de entrada.
+
+### SOFTWARE COMPOSITION ANALYSIS
+A Análise de Composição de Software (SCA) é essencial para identificar e gerenciar riscos de segurança associados a componentes de código aberto usados ​​no desenvolvimento de software, normalmente de pacotes adicionais (por exemplo, pacotes NPM para JavaScript, NuGet para .NET, Maven, gems). A maioria dos desenvolvedores carrega um pacote quando precisa, mas nunca verifica se o pacote tem uma vulnerabilidade conhecida. Uma ferramenta SCA alertará você quando seu aplicativo usar um pacote vulnerável e quando uma correção já existir, mas você não estiver usando a versão corrigida da dependência.
+
+### DYNAMIC APPLICATION SECURITY TESTING
+As ferramentas Dynamic Application Security Testing (DAST) avaliam os aplicativos em seu estado de execução, simulando ataques reais para identificar vulnerabilidades. Ao integrar o DAST ao processo de teste, as equipes de DevSecOps podem descobrir fraquezas de segurança que podem não ser aparentes durante a análise estática. Uma ferramenta DAST atua como uma ferramenta de teste de penetração totalmente automatizada que testará as principais vulnerabilidades conhecidas (OWASP) e muitas outras práticas ruins, como vazamento/exposição de informações.
+
+### INTERACTIVE APPLICATION SECURITY TESTING
+As ferramentas Interactive Application Security Testing (IAST) são uma combinação de uma ferramenta DAST e uma ferramenta SAST porque, ao permitir acesso ao código-fonte ("caixa cinza"), elas ajudam o DAST a ter um melhor desempenho, mas também limitam o número de falsos positivos. O IAST é superefetivo, mas mais difícil de configurar, pois tende a testar cada aplicativo profundamente.
+
+### CONTAINER SCANNER
+Os contêineres oferecem agilidade e escalabilidade, mas também apresentam desafios de segurança exclusivos. Por exemplo, se seu aplicativo for conteinerizado, você precisa implementar controles adicionais. Primeiramente, os scanners examinarão seu Dockerfile para verificar se a imagem base contém vulnerabilidades conhecidas e também procurarão por práticas ruins, como executar como root, usar a tag "latest" ou expor portas perigosas. O exemplo de Dockerfile a seguir contém pelo menos três práticas ruins e pode haver uma vulnerabilidade na imagem base do Node.js:
+
+```
+FROM node:latest
+WORKDIR /usr/src/app
+COPY package*.json
+RUN npm install
+COPY..
+EXPOSE 3000 22
+HEALTHCHECK CMD Curl --fail https://localhost:3000 | exit 1
+CMD ["node","app.js"]
+```
+
+### INFRASTRUCTURE-AS-CODE SCANNER
+A infraestrutura como código (IaC) permite que as organizações gerenciem e provisionem infraestrutura por meio de código, trazendo os benefícios do controle de versão e automação para a camada de infraestrutura. A varredura de IaC garante que o código de infraestrutura passe por rigorosas verificações de segurança, como validação de configuração, adesão às melhores práticas, detecção de configurações incorretas de segurança e aplicação de políticas de segurança durante todo o processo de implantação da infraestrutura.
+
+### SECRETS SCANNER
+Um segredo (por exemplo, uma chave de API, uma senha, uma string de conexão para um banco de dados) não deve ser armazenado no código-fonte (hardcoded) ou em um arquivo de configuração armazenado no repositório de código, porque se um hacker obtiver acesso ao código, ele poderá acessar ambientes de produção e/ou outros ambientes críticos. Os scanners de segredos podem detectar mais de 150 tipos de segredos que os desenvolvedores podem deixar no código e, uma vez que um segredo tenha sido armazenado no código (commit), ele deve ser considerado "comprometido" e revogado imediatamente.
+
+Depois de ver todas essas ferramentas, vamos configurar um fluxo de trabalho para melhorar a qualidade do que produzimos.
+
+## The Workflow
+O fluxo de trabalho consiste em várias etapas:
+1. Análise estática, ou seja, todas as verificações que podem ser feitas antes mesmo da compilação (idealmente para serem executadas no momento de uma solicitação de pull): SCA + SAST + linter + credscan
+2. Compilação e empacotamento
+3. Implantação no ambiente de teste
+4. Análise dinâmica (teste de desempenho e teste de penetração): DAST
+5. Implantação na produção
+
+Observe que o fluxo de trabalho paraleliza as etapas quando possível e, em seguida, adiciona dependências para que todos os testes sejam aprovados antes de passar para a próxima etapa.
+
+```
+workflow DevSecOps
+name: DevSecOps
+on:
+workflow_dispatch:
+jobs:
+secrets:
+  runs-on: ubuntu-latest
+    env:
+SPECTRAL_DSN: ${{ secrets.SPECTRAL_DSN}}
+steps:
+- uses: actions/checkout@v4
+- name: scan secrets with Spectral
+uses: spectralops/spectral-github-action@v5
+with:
+spectral-dsn: ${{ env.SPECTRAL_DSN }}
+spectral-args: scan --ok --engines iac --include-tags base,azure
+IaC:
+runs-on: ubuntu-latest
+env:
+SPECTRAL_DSN: ${{ secrets.SPECTRAL_DSN}}
+steps:
+- uses: actions/checkout@v4
+- name: scan IaC with Spectral
+uses: spectralops/spectral-github-action@v5
+with:
+spectral-dsn: ${{ env.SPECTRAL_DSN}}
+spectral-args: scan --ok --engines secrets --include-tags base,audit
+SAST:
+runs-on: ubuntu-latest
+env:
+SPECTRAL_DSN: ${{ secrets.SPECTRAL_DSN }}
+steps:
+- uses: actions/checkout@v4
+- uses: bearer/bearer-action@v2
+with:
+path: "./devsecops/src/frontend"
+skip-rule: javascript_lang_dynamic_regex,javascript_lang_logger_leak
+
+SCA:
+runs-on: ubuntu-latest
+env:
+SPECTRAL_DSN: ${{ secrets.SPECTRAL_DSN }}
+steps:
+- uses: actions/checkout@v4
+- name: Setup .NET
+uses: actions/setup-dotnet@v4
+- name: Restore dependencies
+run: dotnet restore ./devsecops/src/frontend/CafeReadConf.sln
+- name: dotnet publish
+run: dotnet publish -c Release -o ./myapp --property WarningLevel=0
+working-directory: ./devsecops/src/frontend
+
+- name: scan SCA with Spectral
+uses: spectralops/spectral-github-action@v5
+with:
+spectral-dsn: ${{ env.SPECTRAL_DSN }}
+spectral-args: scan --ok --engines oss --include-tags base,audit
+- name: Run Snyk to check for vulnerabilities
+uses: snyk/actions/dotnet@master
+env:
+SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+with:
+args:
+--sarif-file-output=snyk.sarif --file=./devsecops/src/frontend/CafeReadConf.sln --severity-threshold=medium
+
+- name: Upload result to GitHub Code Scanning
+uses: github/codeql-action/upload-sarif@v3
+with:
+sarif_file: snyk.sarif
+Docker:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+name: hadolint
+run: |
+echo 'Downloading Hadolint to lint Dockerfile...'
+wget https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint- Linux-x86_64
+chmod +x hadolint-Linux-x86_64
+mv hadolint-Linux-x86_64 hadolint
+echo 'Start Dockerfile lint...'
+./hadolint Dockerfile -f tty > results.txt
+
+echo 'Results:'
+cat results.txt
+working-directory: ./devsecops/src/frontend
+
+build:
+needs: [secrets, SCA, Docker, IaC, SAST]
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+- name: Setup .NET
+uses: actions/setup-dotnet@v4
+with:
+dotnet-version: "8.0.x"
+- name: Restore dependencies
+run: dotnet restore ./devsecops/src/frontend/CafeReadConf.sln
+- name: Build
+run: dotnet build --no-restore --configuration Release --property WarningLevel=0
+working-directory: ./devsecops/src/frontend
+- name: dotnet publish
+run: dotnet publish -c Release --property WarningLevel=0
+working-directory: ./devsecops/src/frontend
+- name: Upload artifact for deployment job
+uses: actions/upload-artifact@v4
+  with:
+    name: .net-app
+    path: ./devsecops/src/frontend/bin/Release/net8.0/publish
+deployToDev:
+ needs: [build]
+  runs-on: windows-latest
+    environment:
+      name: "dev"
+      url: ${{ steps.deploy-to-webapp-dev.outputs.webapp-url}}
+  steps:
+   - name: Download artifact from build job
+     uses: actions/download-artifact@v4
+     with:
+       name: .net-app
+   - name: Deploy to Azure Web App
+       id: deploy-to-webapp-dev
+      uses: azure/webapps-deploy@v2
+      with:app-name: "ghactions-dev"
+       publish-profile: ${{ secrets. AZUREAPPSERVICE_PUBLISHPROFILE_DEV }}
+       package:.
+DAST:
+  needs: [deployToDev]
+  runs-on: ubuntu-latest
+steps:
+  - uses: actions/checkout@v4
+  - name: ZAP Scan
+    uses: zaproxy/action-full-scan@v0.8.0
+     with:
+       token: ${{ secrets.GITHUB_TOKEN }}
+       docker_name: "ghcr.io/zaproxy/zaproxy:stable"
+       target:https://ghactions-dev-gjbyf4c5hhhzgecw.westeurope-01.azurewebsites.net
+        rules_file_name: ".zap/rules.tsv"
+        cmd_options: "-a"
+LoadTest:
+needs: [deployToDev]
+runs-on: ubuntu-latest
+  steps:
+  - uses: actions/checkout@v4
+  - name: Login to Azure
+  uses: azure/login@v1
+  continue-on-error: false
+   with:
+     creds: ${{ secrets. AZURE_CREDENTIALS }}
+  - name: "Azure Load Testing"
+    uses: azure/load-testing@v1
+    with:
+    resourceGroup: "rg-book-gha"
+    loadTestConfigFile: "devsecops/.load/loadtest.yaml"
+    loadTestResource: "loadtestbookgha"
+  deployToProd:
+    needs: [LoadTest, DAST]
+     runs-on: ubuntu-latest
+     environment:name: "production"
+     url: ${{ steps.deploy-to-webapp.outputs.webapp-url}}
+     steps:
+     - name: Download artifact from build job
+       uses: actions/download-artifact@v4
+         with:
+           name: .net-app
+    - name: Deploy to Azure Web App
+       id: deploy-to-webapp
+       uses: azure/webapps-deploy@v2
+       with:
+       app-name: "ghactions-prd"
+       publish-profile: ${{ secrets. AZUREAPPSERVICE_PRD}}
+       package:.
+```
+
+## Create a Public Container
+Às vezes, você precisa distribuir software dentro da sua empresa ou para terceiros. O fluxo de trabalho a seguir usa o exemplo de um Azure Agente de produto DevOps (uma alternativa ao GitHub/Gitlab) e o empacota como um contêiner, publicado na Internet.
+O fluxo de trabalho a seguir faz várias coisas:
+1. Executa análise DevSecOps para verificar vulnerabilidades de segurança
+2. Compila e empacota vários contêineres em várias plataformas (Windows e Linux)
+3. Produz manifestos de implantação (HELM Chart dedicado à implantação em um cluster Kubernetes)
+4. Gera um site de documentação
+5. Executa testes de integração
+
+## The Workflow
+Este fluxo de trabalho tem quase 900 linhas, então cobriremos apenas certos detalhes e a apresentação das etapas. O código-fonte inteiro pode ser encontrado aqui: https://github.com/clemlesne/blue-agent/blob/main/.github/workflows/pipeline.yaml
+
+Dica: para vê-lo em execução completa, recomendo que você o analise diretamente no repositório dedicado: https://github.com/clemlesne/blue-agent/actions/.
+
+A primeira etapa (Inicializar) consiste em criar variáveis ​​de ambiente (notavelmente versão e ramificação) que serão usadas posteriormente para marcar os contêineres.
+
+Em seguida, três etapas de análise estática são executadas: SAST - Credenciais que verifica se uma senha foi esquecida no código, Semgrep estático que analisará a qualidade do código e, finalmente, Teste estático que executará uma análise do arquivo Docker, uma análise de conformidade do código (legibilidade) e também simulará uma implantação de infraestrutura no Azure. Três ações ocultas em um Makefile:
+
+```
+test:
+Build Helm chart
+40s.
+@echo' Running Prettier" npx --yes prettier@2.8.8 --editorconfig --check.'
+@echo "Running Hadolint"
+find. -name "Dockerfile*" -exec bash -c "echo 'File {}:' && hadolint {}" \;
+
+
+@echo " Running Azure Bicep Validate"
+az deployment sub validate\
+--location francecentral \
+--parameters container/test/bicep/example.json \
+--template-file container/src/bicep/main.bicep \
+--verbose \
+--name lgmorandgha
+```
+
+Em seguida vem a parte técnica onde para cada distribuição (sistema operacional), um Dockerfile dedicado é executado, etiquetado, assinado e verificado novamente com uma ferramenta DevSecOps (Snyk). Assim, usando matrizes, o fluxo de trabalho publica 7 versões diferentes em paralelo com um único fluxo de trabalho:
+
+```
+build-release-linux:
+name: Build & release image (Linux ${{ matrix.os }})
+needs:
+ - init
+ - sast-creds
+ - sast-semgrep
+runs-on: ubuntu-24.04
+strategy:
+fail-fast: false
+matrix:
+include:
+- os: bookworm
+arch: linux/amd64,linux/arm64
+- os: bullseye
+#steps to build the container image
+arch: linux/amd64,linux/arm64
+- os: focal
+arch: linux/amd64,linux/arm64
+os: jammy
+arch: linux/amd64,linux/arm64
+- os: noble
+arch: linux/amd64
+- os: ubi8
+arch: linux/amd64,linux/arm64
+- os: ubi9
+arch: linux/amd64,linux/arm64
+steps:
+````
+
+Então vêm os passos finais:
+
+- [x] publicar e atualizar o Docker Hub
+- [x] publicar um Helm chart que facilitará a implantação de artefatos em clusters Kubernetes
+- [x] atualizar e publicar um site de documentação
+
+Este fluxo de trabalho é interessante porque representa excelência quando você quer publicar um componente open-source, garantindo a segurança dos componentes, documentação atualizada e também considerando a experiência do usuário com facilidades de implantação (aqui uma imagem de contêiner e um manifesto Helm opcional).
+
+## Conclusão
+É com estas palavras que este livro termina. Espero que através dos capítulos e principalmente dos exercícios, você tenha conseguido descobrir e até mesmo apreciar a facilidade com que é possível construir coisas usando GitHub Actions. Este livro é apenas uma grande introdução às possibilidades que eles trazem, e certamente virão para enriquecer e se tornar um jogador-chave no cenário DevOps.
+
+Ao ler o livro, sinta-se à vontade para olhar os apêndices, que contêm diferentes recursos que considerei apropriado reunir. Além disso, se você encontrar algum erro no livro ou quiser trocar comigo, me fazer uma pergunta ou qualquer coisa, escreva um e-mail para book@morand.me.
+Desejo que você se divirta brincando com essas Ações e espero que você automatize com sucesso todos os tipos de tarefas ou coisas.
+Louis-Guillaume MORAND
+
+
+https://github.com/lgmorand/book-github-actions-content?tab=readme-ov-file
+
+## Appendices
+Resources of the book
+A maximum of codes, examples, exercises, and Actions built within this book are available in open access to their dedicated repositories.
+Examples of code and responses to the exercises are on the main repository: https://github.com/lgmorand/book-github-actions-content
+The Actions can be found on:
+• Hello World: https://github.com/lgmorand/github-action-hello .Generate Release: https://github.com/lgmorand/github-action- generate-relnotes
+• Pandoc: https://github.com/lgmorand/github-action-pandoc . CredScanning:
+https://github.com/lgmorand/github-action-
+composite-credscanning
+Recommended resources
+Here are some resources that I recommend going further on the use of GitHub Actions:
+·
+The official documentation: https://docs.github.com/en/actions • The official GitHub's blog: https://github.blog/
+• The GitHub Actions Toolkit: https://github.com/actions/toolkit
+• The action github-script which allows to easily interact with GitHub within any workflow: https://github.com/actions/github- script
+. The Changelog of GitHub https://github.blog/changelog/
+. The forums of GitHub: https://github.community, You will find help but especially many information or features that GitHub did not judge relevant to indicate in the documentation.
+. The Awesome List: a list of Actions deemed to be the most relevant or having the best quality https://github.com/sdras/awesome- actions. Reading their source code will allow you to learn a lot about good practices
+. The blog of the security team of GitHub: https:// securitylab.github.com/advisories
+Some very useful examples of workflows to deploy in the Cloud:
+
+
+• Azure: https://github.com/Azure/actions-workflow-samples •AWS: https://github.com/actions/starter-workflows/blob/master/ ci/aws.yml
+⚫ GCP: https://github.com/google-github-actions/setup-gcloud
+Over the months, other resources surely will emerge, and you will complete your own list of favorite resources.
+How to create a dockerized self-hosted runner
+Within the chapter dedicated to agents is addressed the notion of self-hosted runners, the ability to install an agent that runs on a private server rather than GitHub with the main objective to provide additional functionality or access a private network. Self-Hosted agents are installed on a server on which agents download and install as needed to third-party tools (SDK, runtime, other). If an agent is bound to a single repository by default (except with GitHub Enterprise). In that case, it is possible to install multiple agents managing multiple projects side by side on the same computer. Besides security issues, the risk of collision (applications installed by each project, incompatible with each other) is real. In addition to this, the working directories contain a copy of the downloaded source code and other elements that potentially contain sensitive data.
+The answer to this problem is to execute runners within a container to isolate them from each other and reset them whenever required to provide a clean working environment.
+The creation of a containerized agent is relatively simple. Its implementation requires creating an image container that automatically downloads the latest version of the runner, an action you normally do via the page Settings > Actions your repository. This container then launches at startup, the command to register.
+The first step consists of creating a Dockerfile that takes care of the installation of the agent and launches an entrypoint.sh script:
+FROM ubuntu:20.04
+# we need a default version
+ENV RUNNER_VERSION=2.277.1
+RUN useradd -m actions
+RUN apt-get -yqq update && apt-get install -yqq curl ją wget
+
+# calls the GitHub api to retrieve the last version
+RUN\
+COPY entrypoint.sh.
+RUN chmod +x entrypoint.sh
+LABEL="$(curl -s -X GET 'https://api.github.com/repos/actions/runner/releases/latest' | jq -r '.tag_name')" \
+USER actions
+ENTRYPOINT ["./entrypoint.sh"]
+RUNNER_VERSION=":
+="$(echo ${latest_version_label:1})" \
+cd /home/actions && mkdir actions-runner && cd actions-runner\
+&& wget
+https://github.com/actions/runner/releases/download/v$
+{RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
+&& tar xzf./actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz
+WORKDIR /home/actions/actions-runner
+RUN chown -R actions ~actions && /home/actions/actions-runner/bin/ installdependencies.sh
+Then comes the entrypoint.sh file, which is accountable to realize several actions
+1. Authenticate against GitHub and request a new registration token. Each runner requires a dedicated token, and requesting this token dynamically allows creating of several containers side by side, each one using its own token
+2. Use the file config.sh to register to the good GitHub repository, the variables being passed as parameters
+3. Once the runner is registered on GitHub, starts the runner (will be seen as "idle" on GitHub)
+4. At the end, when the container is closing, unregisters the runner
+The life of the container is ephemeral and would leave no trace. It is possible to create a new pristine agent by spinning a new container.
+# set up the starting script
+#!/usr/bin/env bash
+x
+set -eEuo pipefail
+GITHUB ACTIONS: A PRACTICAL GUIDE
+# retrive a registration token
+TOKEN=$(curl -s -X POST -H "authorization: token ${TOKEN}" "https://api.github.com/ repos/${OWNER}/${REPO}/actions/runners/registration-token" | jq -r .token)
+cleanup() {
+}
+./config.sh remove --token "${TOKEN}"
+--unattended \
+--work_work
+#starting
+./run.sh
+#cleaning
+cleanup
+# registrering the runner
+./config.sh \
+--url "https://github.com/${OWNER}/${REPO}" \
+--token "${TOKEN}" \
+--name "${NAME}" \
+Now that all elements are ready, you have to generate a container image and publish it on any docker registry (or locally using Docker build). The procedure is exactly the same as creating a dockerized Action explained previously in this book.
+Source code: If you are looking for a ready-to-use sample and its workflow to generate the docker image, you can find an example of this public repository: https://github.com/lgmorand/self-hosted- runner-dockerized.
+
+
+
+Once your container image is generated and made available in a registry, you have to spin up an instance of the container by transmitting the required parameters:
+• NAME: name of the runner, must be unique
+⚫ OWNER: the name of your GitHub account
+• REPO: the name of the repository, to which the runner will be linked ⚫ IMAGE: The name of your Docker image you just built .TOKEN: a Personal Access Token that provides access to your repositories. Creating a PAT is done on the GitHub portal by clicking on your profile and then Settings > Developer Settings
+Settings / Developer settings
+GitHub Apps
+OAuth Apps
+Personal access tokens
+Tokens you have generated that can be used to access the GitHub API.
+Generate new token
+Revoke all
+Once the command is executed, the container running, a new runner should appear among the agents of your repository
+Self-hosted runners
+Runners
+redtower-runner
+self-hosted X64 Linux
+Creation of a PAT
+Idle ⚫
+Add runner
+The use of it can go further by deploying, for example, instances of your container within a Kubernetes cluster or a serverless offer for containers (e.g., Azure Container Instance, Cloud Run at GCP, Fargate at AWS). Up to you, you now have more agility than with a runner installed directly on a
+server.
+Personal access tokens
+Github-Api-Token - repo, workflow
+Last used within the last week Enable SSO -
+Delete
+Personal access tokens function like ordinary OAuth access tokens. They can be used instead of a password for Git over HTTPS, or can be used to authenticate to the API over Basic Authentication.
+Creating a PAT
+docker run --env OWNER={OWNER} --
+--env TOKEN={TOKEN} --env NAME={NAME} --
+--env
+REPO={REPO} {IMAGE}
+Here is an example:
+docker run --env OWNER=1gmorand --env TOKEN=ghp_mXkDnajJQjM921W1UqfkO --
+env NAME=redtower-runner --env REPO-my-repo lgmorand/self-hosted-runnner
+
+
+
+
+
+Pag.346
