@@ -8,8 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-22.04
-    env:
-        LAST_TAG: 'v01.00.01'
+
     permissions:
       contents: write  # Explicitly set permissions to allow writing to the repository
 
@@ -72,7 +71,7 @@ jobs:
         changelog_filename: CHANGELOG.md
         config_file: .github/changelogConfig.yml
         #release_version: ${{ env.LAST_TAG }}
-        release_version: 'v01.00.01'
+        release_version: ${{ env.LAST_TAG }}
         committer_username: 'HVasconcellos'
         committer_email: 'horacio.vasconcellos@gmail.com'
         github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -89,5 +88,6 @@ jobs:
         LASTTAG: $LAST_TAG
         MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
       run: |
-        mike deploy --update-aliases "${LAST_TAG}" latest --allow-empty
+        echo "Deploy a versão: ${{ env.LAST_TAG }} "
+        mike deploy --update-aliases "${{ env.LAST_TAG }}" latest --allow-empty
         mike set-default --push latest --allow-empty
