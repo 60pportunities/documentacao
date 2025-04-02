@@ -17,10 +17,9 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      #with:
+      with:
       #  fetch-depth: 0
-      #  submodules: 'recursive'
-
+        submodules: 'recursive'
 #    - name: Upload artifact
 #      uses: actions/upload-artifact@v4
 #      with:
@@ -53,7 +52,7 @@ jobs:
          
     - name: Install dependencies Requirements
       run: |
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        if [ -f requirements.txt ]; trelease_versionhen pip install -r requirements.txt; fi
 
     - name: Get latest tag
       id: get_tag
@@ -68,7 +67,8 @@ jobs:
       with:
         changelog_filename: CHANGELOG.md
         config_file: .github/changelogConfig.yml
-        release_version: ${{ env.LAST_TAG }}
+        #release_version: ${{ env.LAST_TAG }}
+        release_version: 'v01.00.01'
         committer_username: 'HVasconcellos'
         committer_email: 'horacio.vasconcellos@gmail.com'
         github_token: ${{ secrets.GITHUB_TOKEN }}
