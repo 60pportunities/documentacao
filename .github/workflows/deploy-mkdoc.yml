@@ -42,7 +42,9 @@ jobs:
 
     - name: Install dependencies Requirements
       run: |
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        if [ -f requirements.txt ]; then 
+           pip install -r requirements.txt;
+        fi
 
     - name: Get latest tag
       id: get_tag
@@ -53,7 +55,7 @@ jobs:
 
     - name: Create and switch to changelog branch
       run: |
-        git checkout -b changelog-ci-${{ env.LAST_TAG }}
+           git checkout -b changelog-ci-${{ env.LAST_TAG }}
 
     - name: Create Changelog
       uses: saadmk11/changelog-ci@v1.1.2
@@ -72,5 +74,5 @@ jobs:
         MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
       run: |
             echo "LAST-TAG: ${{ env.LAST_TAG }}"
-            mike deploy --update-aliases "${LAST_TAG}" latest --allow-empty
+            mike deploy --update-aliases "${{ env.LAST_TAG }}" latest --allow-empty
             mike set-default --push latest --allow-empty
