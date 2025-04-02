@@ -1,7 +1,7 @@
 name: Wiki Page Created
 
 on:
-  gollum
+  workflow_dispatch:
 
 jobs:
   log-wiki-page:
