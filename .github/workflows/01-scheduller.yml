@@ -1,4 +1,4 @@
-name: Cobra Teste
+name: 01-schedulle
 
 on:
   workflow_dispatch: # execute manually
