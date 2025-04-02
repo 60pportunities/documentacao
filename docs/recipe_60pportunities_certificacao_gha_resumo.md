@@ -675,7 +675,7 @@ projects:
         - Vue
 ```
 
-### Anchors and aliases (Há bugs - https://github.com/actions/runner/issues/1182#issuecomment-2722005293)
+### [Anchors and aliases](https://github.com/actions/runner/issues/1182#issuecomment-2722005293)
 YAML fornece uma maneira de reutilizar partes da sua configuração usando âncoras e aliases.
 
 Uma âncora é definida adicionando `&` seguido por um nome exclusivo após um valor, enquanto um alias é referenciado usando seguido pelo nome da âncora.
@@ -706,6 +706,45 @@ multiline_gt: >
    This is a multi-line
    string with newlines
    converted to spaces.
+
+
+# Este é um exemplo de um Workflow
+
+name: 17-manual_teste_variavel_linha
+
+on:
+  workflow_dispatch:
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "greet"
+  greet:
+    # The type of runner that the job will run on
+    runs-on: [ self-hosted, linux ]
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Runs a single command using the runners shell
+    - name: Send greeting
+      run: echo "Hello ${{ inputs.name }}"
+
+    - name: Usando | para string multi-linha
+      run: |
+            echo "Esta é uma linha
+            e aqui começa outra linha" > output10.txt
+
+    - name: Redirecionando string para um arquivo com >
+      run: |
+          echo "Esta é a primeira linha
+          Esta é a segunda linha
+          Esta é a terceira linha" > output20.txt
+
+    - name: Mostrar conteúdo do arquivo com >
+      run: |
+            cat output10.txt
+            echo "--------------------------- Separando ----------------------"
+            cat output20.txt
 ```
 
 #### Comentários
@@ -781,11 +820,11 @@ on:
 <div class="center-table" markdown>
 | Categoria           | Descrição |
 | ----                | ----      |
-| Implantação         | Fluxos de trabalho de exemplo para criar objetos implantáveis (como contêineres) e, em seguida, implantá-los em várias plataformas de nuvem. |
-| Segurança           | Conjunto de fluxos de trabalho de varredura de código usando vários métodos de segurança plataformas e suas ferramentas.                     |
-| Integração Contínua | número de fluxos de trabalho que abrangem as áreas de construção, teste e/ou publicação para um grande número de diferentes programas linguagens e ferramentas. |
 | Automação           | Alguns exemplos simples de automação básica.  |
 | Páginas             | Fluxos de trabalho para empacotar/implantar sites usando ferramentas comuns como Gatsby, Astro, Jekyll, etc. |
+| Segurança           | Conjunto de fluxos de trabalho de varredura de código usando vários métodos de segurança plataformas e suas ferramentas.                     |
+| Implantação         | Fluxos de trabalho de exemplo para criar objetos implantáveis (como contêineres) e, em seguida, implantá-los em várias plataformas de nuvem. |
+| Integração Contínua | número de fluxos de trabalho que abrangem as áreas de construção, teste e/ou publicação para um grande número de diferentes programas linguagens e ferramentas. |
 </div>
 
 ### Jobs
@@ -898,6 +937,46 @@ jobs:
             echo "The random number is ${{ steps.random_number.outputs.numero }}"
             echo "Parte: ${API_BASE_URL}"
 ```
+Outro exemplo:
+```
+# This is a basic workflow that is manually triggered
+
+name: 18-input-output-variaveis
+
+on:
+  workflow_dispatch:  # Permite a execução manual do workflow e a entrada de parâmetros
+    inputs:
+      environment:
+        description: 'Ambiente específico (opcional)'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+        - all
+        - DEVELOPER
+        - HOMOLOGACAO
+        - PRODUCAO
+jobs:
+  input_output_job:
+    runs-on: [ self-hosted, linux ]
+    steps:
+
+      # Etapa 1: Recebe o input
+      - name: Solicitar Input do Usuário
+        id: input_step
+        run: |
+          # Solicita o input através de uma variável definida pelo usuário na execução do workflow
+          echo "Input fornecido: ${{ github.event.inputs.environment }}"
+          # echo "::set-output name=processed_input::${{ github.event.inputs.user_input }}"
+          echo "name=${{ github.event.inputs.environment }}" >> $GITHUB_OUTPUT
+
+
+      # Etapa 2: Usar o Output da Etapa 1
+      - name: Usar o Output da Etapa 1
+        run: |
+          # Usa o valor de output da etapa anterior
+          echo "O output processado da etapa 1 é: ${{ steps.input_step.outputs.name }}"
+```
 
 ### Environment variables and secrets
 Variáveis de ambiente e segredos permitem que você armazene e passe dados sensíveis ou reutilizáveis entre etapas.
@@ -914,6 +993,21 @@ Variáveis de ambiente são definidas usando a palavra-chave `env:`, enquanto se
           echo "Deploying to $API_BASE_URL"
           curl -H "Authorization: Bearer ${{ secrets.DEPLOY_TOKEN }}" -X POST $API_ BASE_URL/deploy
 ```
+
+```
+name: 19-environment-secrets
+on:
+  workflow_dispatch:  # Permite disparar o workflow manualmente
+jobs:
+  print_secret:
+    runs-on: ubuntu-latest
+    environment: DESENVOLVIMENTO
+    steps:
+      - name: Acessar e imprimir o valor de EMAIL_PASS
+        run: |
+              echo "O valor do EMAIL_PASS é: ${{ secrets.EMAIL_PASS }}"
+```
+
 ### Contexts
 Contextos no GitHub Actions fornecem acesso a vários tipos de metadados relacionados à execução atual do fluxo de trabalho, como o evento que acionou o fluxo de trabalho, o repositório, o trabalho, o executor e quaisquer entradas personalizadas.
 
@@ -926,12 +1020,24 @@ Da mesma forma, o contexto de segredos permite que você acesse com segurança s
 Para acessar dados de contexto, você pode usar a sintaxe `${{ context }}` no seu arquivo de fluxo de trabalho. Aqui está um exemplo de uso do contexto do github para acessar o nome do evento:
 
 ```
+name: 20-imprimir-contexto-github
+on:
+  workflow_dispatch:  # Permite disparar o workflow manualmente
 jobs:
-  build:
-    runs-on: self-hosted
+  print_github_context:
+    runs-on: [ self-hosted, Linux]
     steps:
-      - name: Log event name
-        run: echo "Event name: ${{ github.event_name}}"
+      - name: Imprimir informações do contexto GitHub
+        run: |
+          # Imprimindo o contexto github completo
+          echo "Repositório: ${{ github.repository }}"
+          echo "Evento: ${{ github.event_name }}"
+          echo "Branch: ${{ github.ref }}"
+          echo "SHA do Commit: ${{ github.sha }}"
+          echo "Ator do Commit: ${{ github.actor }}"
+          echo "Padrão de caminho: ${{ github.event.pull_request.head.ref }}"
+          echo "Número da PR: ${{ github.event.pull_request.number }}"
+          echo "Tipo de workflow: ${{ github.workflow }}"
 ```
 
 ### Workflow Contexts
@@ -977,13 +1083,18 @@ Por exemplo, você pode usar a função contains para verificar se uma string co
 Aqui está um exemplo de uso de expressões para executar condicionalmente uma etapa com base no evento que acionou o fluxo de trabalho:
 
 ```
+name: 21-expressoes-impressao-steps
+on:
+  workflow_dispatch:
 jobs:
   build:
-   runs-on: self-hosted
+   runs-on: [ self-hosted, Linux ]
    steps:
      - name: Log event name
-       run: echo "Esta etapa só é executada para eventos pull_request."
-       if: ${{ github.event_name == 'pull_request' }}
+       run: |
+             echo "Você esta no repositorio horaciovasconcellos/estudo-actions"
+             echo "Exemplo: ${{ github.repository }}"
+       if: ${{ github.repository  == 'horaciovasconcellos/estudo-actions' }}
 ```
 
 Neste exemplo, a palavra-chave `if` é combinada com uma expressão para controlar se a etapa será executada.
@@ -992,35 +1103,52 @@ A etapa será executada somente se o evento que disparou o fluxo de trabalho for
 
 Ao incorporar contextos e expressões em seus fluxos de trabalho do GitHub Actions, você pode criar processos de automação mais dinâmicos, flexíveis e adaptáveis que atendem às necessidades exclusivas de seus projetos de desenvolvimento.
 
-### Workflow status badges:
+### Workflow status badges
 Para exibir o status dos seus fluxos de trabalho do GitHub Actions no README do seu repositório ou em outra documentação, você pode usar emblemas de status do fluxo de trabalho. A URL do emblema pode ser gerada usando o seguinte padrão: `https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg`. Exemplo:
 
-![Build Status](https://github.com/yourusername/yourrepository/actions/workflows/build.yml/badge.svg)
+![CI Status](https://github.com/horaciovasconcellos/estudo-actions/workflows/21-expressoes-impressao-steps/badge.svg)
+
+- [x] O badge mostrará:
+    - [x] ✅ (verde) quando o último workflow foi bem-sucedido
+    - [x] ❌ (vermelho) quando falhou
+    - [x] 🟠 (amarelo/laranja) quando está em andamento ou foi cancelado
 
 Ao entender a anatomia de um fluxo de trabalho do GitHub Actions, você pode criar fluxos de trabalho mais eficientes, sustentáveis e escaláveis, adaptados às suas necessidades específicas. Nas seções a seguir, continuaremos explorando recursos avançados e opções de personalização do GitHub Actions, ajudando você a desbloquear todo o seu potencial e revolucionar seus processos de desenvolvimento de software.
 
 ## Construindo seu primeiro fluxo de trabalho
-Neste capítulo, vamos orientá-lo no processo de criação do seu primeiro fluxo de trabalho do GitHub Actions do zero. Nosso objetivo é ajudar você a obter uma compreensão prática de como criar e configurar fluxos de trabalho para automatizar várias tarefas em seus projetos de desenvolvimento.
+Vamos agora orientá-lo no processo de criação do seu primeiro fluxo de trabalho do GitHub Actions do zero.
 
-Começaremos discutindo diferentes tipos de gatilhos de fluxo de trabalho, incluindo gatilhos baseados em eventos e gatilhos agendados, que determinam quando seu fluxo de trabalho deve ser executado. Entender esses gatilhos é essencial para projetar fluxos de trabalho que respondam efetivamente a eventos específicos ou sejam executados em um cronograma predeterminado.
+Meu objetivo é ajudar você a obter uma compreensão prática de como criar e configurar fluxos de trabalho para automatizar várias tarefas em seus projetos de desenvolvimento.
 
-Em seguida, vamos nos aprofundar na definição de trabalhos e etapas em seu fluxo de trabalho. Esta seção abordará a estrutura e a configuração de trabalhos, incluindo como definir etapas, usar ações pré-criadas e executar comandos de shell.
+Começaremos discutindo diferentes tipos de gatilhos de fluxo de trabalho, incluindo gatilhos baseados em eventos e gatilhos agendados, que determinam quando seu fluxo de trabalho deve ser executado.
+
+Entender esses gatilhos é essencial para projetar fluxos de trabalho que respondam efetivamente a eventos específicos ou sejam executados em um cronograma predeterminado.
+
+Em seguida, vamos nos aprofundar na definição de trabalhos e etapas em seu fluxo de trabalho.
+
+Esta seção abordará a estrutura e a configuração de trabalhos, incluindo como definir etapas, usar ações pré-criadas e executar comandos de shell.
 
 Ao aprender sobre esses componentes, você poderá criar fluxos de trabalho personalizados adaptados às suas necessidades específicas.
 
-Também exploraremos como aproveitar compilações de matriz e paralelismo para testar seu código com eficiência em vários ambientes, versões de tempo de execução ou configurações. Este recurso poderoso permite que você otimize seus fluxos de trabalho executando várias instâncias de um trabalho simultaneamente, reduzindo o tempo geral de execução e melhorando a confiabilidade.
+Também exploraremos como aproveitar compilações de matriz e paralelismo para testar seu código com eficiência em vários ambientes, versões de tempo de execução ou configurações.
+
+Este recurso poderoso permite que você otimize seus fluxos de trabalho executando várias instâncias de um trabalho simultaneamente, reduzindo o tempo geral de execução e melhorando a confiabilidade.
 
 Ao final, você terá experiência prática na criação e configuração de fluxos de trabalho do GitHub Actions, permitindo que você automatize várias tarefas e processos em seus projetos de desenvolvimento de software.
 
 Com uma sólida compreensão desses conceitos fundamentais, você estará pronto para explorar recursos mais avançados e melhores práticas nos capítulos seguintes.
 
 ### Gatilhos de fluxo de trabalho: eventos e agendamento
-Vamos nos aprofundar nos diferentes tipos de gatilhos de fluxo de trabalho disponíveis no GitHub Actions. Os gatilhos de fluxo de trabalho são cruciais para definir quando e em quais circunstâncias seus fluxos de trabalho devem ser executados.
+Vamos nos aprofundar nos diferentes tipos de gatilhos de fluxo de trabalho disponíveis no GitHub Actions.
+
+Os gatilhos de fluxo de trabalho são cruciais para definir quando e em quais circunstâncias seus fluxos de trabalho devem ser executados.
 
 Entender e utilizar as várias opções de gatilho ajudará você a criar fluxos de trabalho mais eficientes e adaptáveis, adaptados às suas necessidades específicas.
 
 #### Gatilhos baseados em eventos
-Os gatilhos baseados em eventos são o tipo mais comum de gatilhos no GitHub Actions. Esses gatilhos iniciam fluxos de trabalho em resposta a vários eventos que ocorrem no seu repositório, como **pushes**, **pull requests** e **issues**. Alguns dos gatilhos baseados em eventos mais comumente usados incluem:
+Os gatilhos baseados em eventos são o tipo mais comum de gatilhos no GitHub Actions.
+
+Esses gatilhos iniciam fluxos de trabalho em resposta a vários eventos que ocorrem no seu repositório, como **push**, **pull requests** e **issues**. Alguns dos gatilhos baseados em eventos mais comumente usados incluem:
 
 - [x] **push**: Aciona o fluxo de trabalho quando os commits são enviados para o repositório.
 - [x] **pull_request**: Aciona o fluxo de trabalho quando um pull request é criado ou atualizado.
@@ -1080,7 +1208,8 @@ Um evento é uma atividade específica em um repositório que dispara a execuç�
       - completed` |
 
 Um workflow do GitHub Actions é um conjunto de códigos que define:
- uma sequência e um conjunto de etapas para executar, semelhante a um script ou programa.
+
+- [x] Uma sequência e um conjunto de etapas para executar, semelhante a um script ou programa.
 
 Um evento pode ser definido de várias maneiras diferentes:
 
@@ -1094,7 +1223,7 @@ A palavra-chave `on:` e as linhas que a seguem definem quais tipos de gatilhos o
 Alguns tipos básicos de gatilhos e exemplos simples da sintaxe para cada um seguem:
 
 - [x] O fluxo de trabalho pode responder a um único evento, como quando ocorre um push: `on: push`
-- [x] O fluxo de trabalho pode responder a uma lista (vários eventos): `on: [push, pull_request]`
+- [x] O fluxo de trabalho pode responder a uma lista (vários eventos): `on: [ push, pull_request ]`
 - [x] O fluxo de trabalho pode responder a tipos de eventos com qualificadores:
 
 ```
@@ -1115,16 +1244,15 @@ on:
   scheduled:
     - cron: '30 5,15 * * *'
 ```
+
 - [x] O fluxo de trabalho pode responder a eventos manuais específicos: `on: [workflow_dispatch, repository_dispatch]`
 - [x] O fluxo de trabalho pode ser chamado de outros fluxos de trabalho (chamado de evento de reutilização): `on: workflow_call`
 
-Onservação:
+Observação:
 
 - [x] Para esses eventos, se você tiver o arquivo de fluxo de trabalho somente em um branch não padrão e acionar a atividade que normalmente faria o fluxo de trabalho ser executado, nada acontecerá.
-
-Você pode especificar um ou vários gatilhos baseados em eventos usando a palavra-chave `on:` no seu arquivo de fluxo de trabalho.
-
-Além disso, você pode usar filtros para restringir o escopo do gatilho, como especificar branches ou tags específicas. Exemplo:
+- [x] Você pode especificar um ou vários gatilhos baseados em eventos usando a palavra-chave `on:` no seu arquivo de fluxo de trabalho.
+- [x] Além disso, você pode usar filtros para restringir o escopo do gatilho, como especificar branches ou tags específicas. Exemplo:
 
 ```
 on:
@@ -1138,9 +1266,8 @@ pull_request:
     - opened
     - synchronize
 ```
-
 #### Gatilhos programados/agendados
-Os gatilhos agendados permitem que você execute fluxos de trabalho em intervalos especificados, usando sintaxe semelhante à do cron.
+Os gatilhos agendados permitem que você execute fluxos de trabalho em **intervalos especificados**, usando sintaxe semelhante à do cron.
 
 Isso é útil para executar tarefas periódicas, como compilações noturnas, relatórios semanais ou manutenção mensal. Para configurar um gatilho agendado, use a palavra-chave schedule e forneça uma ou mais expressões cron. Exemplo:
 
@@ -1174,10 +1301,12 @@ Você pode usar estes operadores em qualquer um dos cinco campos:
 
 Observação: Use  o site [Crontab](https://crontab.guru).
 
-#### Manual triggers:
+#### Manual triggers
 Os gatilhos manuais permitem que você execute fluxos de trabalho sob demanda, usando a interface da web do GitHub Actions ou a API do GitHub.
 
-Isso pode ser útil para executar tarefas que não precisam necessariamente ser executadas automaticamente, como **implantações, migrações de dados ou scripts únicos**. Para configurar um gatilho manual, use a palavra-chave **workflow_dispatch** e, opcionalmente, forneça parâmetros de entrada. Exemplo:
+Isso pode ser útil para executar tarefas que não precisam necessariamente ser executadas automaticamente, como **implantações, migrações de dados ou scripts únicos**.
+
+Para configurar um gatilho manual, use a palavra-chave **workflow_dispatch** e, opcionalmente, forneça parâmetros de entrada. Exemplo:
 
 ```
 on:
@@ -1209,9 +1338,46 @@ on:
 Para acionar um fluxo de trabalho com um evento externo, você pode enviar uma solicitação POST para a API do GitHub com o tipo de evento e a carga útil apropriados.
 
 ### Webhooks de repositório
-É um mecanismo que permite a comunicação entre diferentes sistemas de forma automatizada e em tempo real. Ele funciona como um callback HTTP, onde um sistema envia automaticamente dados para outro sistema assim que um evento específico ocorre. Você só pode criar até **20 webhooks** que se inscrevam em cada tipo de evento individual.
+É um mecanismo que permite a comunicação entre diferentes sistemas de forma automatizada e em tempo real.
 
-### Activity triggers:
+Ele funciona como um callback HTTP, onde um sistema envia automaticamente dados para outro sistema assim que um evento específico ocorre. Você só pode criar até **20 webhooks** que se inscrevam em cada tipo de evento individual.
+
+
+```
+name: 22-webhook_triggered_action
+
+on:
+  repository_dispatch:
+    types: [webhook-event] # Você pode definir tipos personalizados
+
+jobs:
+  process-webhook:
+    runs-on: [ self-hosted , Linux ]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Display payload
+        run: |
+          echo "Event payload: ${{ toJSON(github.event.client_payload) }}"
+          # Processe os dados do webhook aqui
+
+      - name: Execute custom logic
+        run: |
+          echo "Webhook received with data: ${{ github.event.client_payload.data }}"
+
+```
+
+```
+curl -X POST \
+  -H "Authorization: token TOKEN-PAT-" \
+  -H "Accept: application/vnd.github.v3+json" \
+  https://api.github.com/repos/horaciovasconcellos/estudo-actions/dispatches \
+  -d '{"event_type":"webhook-event","client_payload":{"data":"valor","outro_dado":"outro_valor"}}'
+```
+
+
+### Activity triggers
 Os gatilhos de atividade iniciam fluxos de trabalho em resposta a várias atividades do usuário ou do sistema, como marcar um repositório como favorito, criar uma versão ou atribuir um rótulo. Alguns exemplos de gatilhos de atividade incluem:
 
 - [x] **watch**: Aciona o fluxo de trabalho quando alguém marca o repositório como favorito.
@@ -1219,14 +1385,50 @@ Os gatilhos de atividade iniciam fluxos de trabalho em resposta a várias ativid
 - [x] **label**: Aciona o fluxo de trabalho quando um rótulo é criado, editado ou excluído.
 
 Você pode usar gatilhos de atividade em combinação com outros gatilhos para criar fluxos de trabalho mais flexíveis e responsivos. Exemplo:
+
 ```
+name: 23-on_repository_watch
+
 on:
   watch:
-   types:
-    - started
-  release:
-   types:
-    - published
+    types: [started]  # Dispara quando alguém começa a observar o repositório
+
+jobs:
+  thank-watcher:
+    runs-on: [ self-hosted, Linux ]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get watcher info
+        id: watcher-info
+        run: |
+          echo "Watcher: ${{ github.actor }}"
+          echo "Event: ${{ github.event_name }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Timestamp: ${{ github.event.repository.updated_at }}"
+
+          # Armazenar informações para uso posterior
+          echo "WATCHER_LOGIN=${{ github.actor }}" >> $GITHUB_ENV
+          echo "REPO_NAME=${{ github.repository }}" >> $GITHUB_ENV
+
+      - name: Send thank you message (simulado)
+        run: |
+          echo "🤖 Obrigado por observar o repositório, @${{ env.WATCHER_LOGIN }}!"
+          echo "📌 Agora você receberá notificações sobre atividades em ${{ env.REPO_NAME }}"
+          echo "⭐ Se você gostou do projeto, considere dar uma estrela também!"
+
+      - name: Create GitHub Issue (opcional)
+        if: github.event.repository.stargazers_count > 100  # Só cria issue para repositórios populares
+        uses: actions/github-script@v6
+        with:
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Novo observador: @${{ github.actor }}`,
+              body: `O usuário @${{ github.actor }} começou a observar este repositório! Total de observadores agora: ${{ github.event.repository.subscribers_count }}`
+            })
 ```
 #### Combining triggers:
 Você pode combinar vários gatilhos em um único fluxo de trabalho para manipular vários eventos e cenários. Ao combinar gatilhos, esteja ciente de que cada gatilho pode ter seu próprio conjunto de filtros e opções de configuração. Exemplo:
@@ -1256,52 +1458,208 @@ Ao entender e utilizar os diferentes tipos de acionadores de fluxo de trabalho n
 ### Defining Jobs and Steps
 Jobs e steps são blocos de construção fundamentais dos fluxos de trabalho do GitHub Actions. Nesta seção, discutiremos como definir e configurar jobs e steps, criar dependências de job e gerenciar paralelismo e simultaneidade em seus fluxos de trabalho.
 
-Um JOB é um conjunto de etapas em um fluxo de trabalho executadas no mesmo executor.
-
-Os JOBs agregam etapas e definem em qual executor executá-los.
-
-Ele é composto de uma série de comandos individuais para executar e/ou ações predefinidas para chamar.
-
-O sucesso ou fracasso é exibido no nível do trabalho, não nas etapas individuais.
-
-O hífen no início desta linha indica que este é o início de um segundo passo.
-
-Cada etapa é um script de shell que será executado ou uma ação que será executada.
-
-Você pode configurar as dependências de um trabalho com outros trabalhos; **por padrão, os trabalhos não têm dependências e são executados em paralelo**. Cada trabalho é executado em um ambiente do executor(runner) especificado por `runs-on`.
+- [x] Um JOB é um conjunto de etapas em um fluxo de trabalho executadas no mesmo executor.
+- [x] Os JOBs agregam etapas e definem em qual executor executá-los.
+- [x] Ele é composto de uma série de comandos individuais para executar e/ou ações predefinidas para chamar.
+- [x] O sucesso ou fracasso é exibido no nível do trabalho, não nas etapas individuais.
+- [x] O hífen no início desta linha indica que este é o início de um segundo passo.
+- [x] Cada etapa é um script de shell que será executado ou uma ação que será executada.
+- [x] Você pode configurar as dependências de um trabalho com outros trabalhos; **por padrão, os trabalhos não têm dependências e são executados em paralelo**. Cada trabalho é executado em um ambiente do executor(runner) especificado por `runs-on`.
 
 O job que vai conter todas as operações deste exercício que estamos fazendo aqui é composta de quatro etapas:
 
-- [x] Primeira etapa para permitir que seu workflow tenha acesso aos arquivos e diretórios do repositório através da ação checkout.
-- [x] Segunda etapa para instalar a versão do Python específica que desejamos usar. Neste caso, usaremos a ação setup-python, que permite informar como input a versão de python específica: aqui 3.8.
-- [x] Terceira etapa para instalar as dependências ou bibliotecas. Neste caso, vamos usar um comando shell utilizando pip para fazer a instalação da biblioteca requests.
-- [x] Uma quarta etapa para executar o script usando Python.
+- [x] **Primeira** etapa para permitir que seu workflow tenha acesso aos arquivos e diretórios do repositório através da ação checkout.
+- [x] **Segunda** etapa para instalar a versão do Python específica que desejamos usar. Neste caso, usaremos a ação setup-python, que permite informar como input a versão de python específica: aqui 3.8.
+- [x] **Terceira** etapa para instalar as dependências ou bibliotecas. Neste caso, vamos usar um comando shell utilizando pip para fazer a instalação da biblioteca requests.
+- [x] **Quarta** etapa para executar o script usando Python.
 
 Os jobs são o que você geralmente vê em outros aplicativos como estágios, ou seja, partes de um processo maior que executam uma função distinta e separada.
 
 Embora CI ou CI/CD seja o propósito principal que vem à mente, fluxos de trabalho e ações podem ser usados para automatizar quase qualquer processo.
 
-Um trabalho no GitHub Actions consiste em uma série de etapas executadas no mesmo executor.
+- [x] Um trabalho no GitHub Actions consiste em uma série de etapas executadas no mesmo executor.
+- [x] Os trabalhos podem ser executados em paralelo ou sequencialmente, dependendo das dependências definidas no fluxo de trabalho.
+- [x] Os trabalhos que não dependem da saída de outros trabalhos podem ser executados em paralelo, o que ajuda a reduzir o tempo geral de compilação.
 
-Os trabalhos podem ser executados em paralelo ou sequencialmente, dependendo das dependências definidas no fluxo de trabalho.
-
-Os trabalhos que não dependem da saída de outros trabalhos podem ser executados em paralelo, o que ajuda a reduzir o tempo geral de compilação.
-
-### Jobs overview:
+### Jobs overview
 Um job é uma unidade individual de trabalho que é executada em um ambiente especificado e consiste em uma ou mais etapas. Os jobs em um fluxo de trabalho são executados em paralelo por padrão, mas você pode criar dependências entre os jobs para impor uma ordem de execução específica. Os jobs são definidos usando a palavra-chave jobs, seguida por um identificador exclusivo para cada job e sua configuração. Exemplo:
 
 ```
+name: 24-SDLC_pipeline_microsoft_model
+
+on:
+  workflow_dispatch:
+
 jobs:
-build:
- runs-on: self-hosted
- steps:
-- name: Build project
-  run: npm run
-test:
- runs-on: self-hosted
-steps:
-- name: Run tests
-   run: npm test
+  # Fase 1: Requisitos e Análise
+  requirements_analysis:
+    name: "1. Requisitos e Análise"
+    runs-on: [ self-hosted, Linux ]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Impressao Sep
+        run: |
+              echo "Passo: Checkout code - Baixando o código-fonte"
+
+      - name: Analyze requirements
+        run: |
+          echo "Passo: Analyze requirements - Analisando requisitos do sistema"
+          echo "Simulando análise de requisitos..."
+          sleep 2
+
+      - name: Generate documentation
+        run: |
+          echo "Passo: Generate documentation - Gerando documentação inicial"
+          echo "Documentação técnica criada" > docs.txt
+
+    outputs:
+      requirements_approved: ${{ steps.analyze_requirements.outputs.approved }}
+
+  # Fase 2: Design do Sistema
+  system_design:
+    name: "2. Design do Sistema"
+    needs: requirements_analysis
+    runs-on: [ self-hosted, Linux ]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Impressao
+        run: |
+               echo "Passo: Checkout code - Baixando o código-fonte"
+
+      - name: Architectural design
+        run: |
+          echo "Step: Architectural design - Criando arquitetura do sistema"
+          echo "Diagrama de arquitetura gerado" > architecture.txt
+
+      - name: Database design
+        run: |
+          echo "Step: Database design - Projetando modelo de banco de dados"
+          echo "Modelo ERD criado" > database-design.txt
+
+  # Fase 3: Implementação (Coding)
+  implementation:
+    name: "3. Implementação"
+    needs: system_design
+    runs-on: [ self-hosted, Linux ]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Impressao
+        run: |
+               echo "Step: Checkout code - Baixando o código-fonte"
+
+      - name: Install dependencies
+        run: |
+          echo "Step: Install dependencies - Instalando dependências"
+          echo "npm install (simulado)" && sleep 1
+
+      - name: Build application
+        run: |
+          echo "Step: Build application - Compilando aplicação"
+          echo "Build concluído" > build.log
+
+      - name: Run unit tests
+        run: |
+          echo "Step: Run unit tests - Executando testes unitários"
+          echo "Todos os 42 testes passaram!" > test-results.txt
+
+  # Fase 4: Testes
+  testing:
+    name: "4. Testes"
+    needs: implementation
+    runs-on: [ self-hosted, Linux ]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Impressao
+        run: |
+               echo "Step: Checkout code - Baixando o código-fonte"
+
+      - name: Integration tests
+        run: |
+          echo "Step: Integration tests - Testes de integração"
+          echo "Testes de integração concluídos" > integration-tests.log
+
+      - name: System tests
+        run: |
+          echo "Step: System tests - Testes de sistema"
+          echo "Sistema validado" > system-tests.log
+
+      - name: Performance tests
+        run: |
+          echo "Step: Performance tests - Testes de performance"
+          echo "Performance: 98.7% de uptime" > performance-tests.log
+
+  # Fase 5: Deploy
+  deployment:
+    name: "5. Deployment"
+    needs: testing
+    runs-on: [ self-hosted, Linux ]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Impressao
+        run: |
+               echo "Step: Checkout code - Baixando o código-fonte"
+
+      - name: Prepare deployment
+        run: |
+          echo "Step: Prepare deployment - Preparando pacote de deploy"
+          echo "Pacote .zip criado" > deployment-package.zip
+
+      - name: Deploy to staging
+        run: |
+          echo "Step: Deploy to staging - Implantando em ambiente de staging"
+          echo "Deploy para staging concluído" > staging-deploy.log
+
+      - name: Approve production
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "Step: Approve production - Aprovação para produção"
+          echo "Aguardando aprovação manual..." && sleep 5
+          echo "Aprovado!"
+
+      - name: Deploy to production
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "Step: Deploy to production - Implantando em produção"
+          echo "Deploy para produção concluído" > production-deploy.log
+
+  # Fase 6: Manutenção
+  maintenance:
+    name: "6. Manutenção"
+    needs: deployment
+    runs-on: [ self-hosted, Linux ]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Impressao
+        run: |
+               echo "Passo: Checkout code - Baixando o código-fonte"
+
+      - name: Monitor application
+        run: |
+          echo "Step: Monitor application - Monitorando aplicação"
+          echo "Coletando métricas..." && sleep 3
+          echo "Tudo operacional!"
+
+      - name: Generate report
+        run: |
+          echo "Step: Generate report - Gerando relatório final"
+          echo "Relatório do ciclo SDLC:" > sdlc-report.md
+          echo "- Requisitos analisados" >> sdlc-report.md
+          echo "- Sistema projetado" >> sdlc-report.md
+          echo "- Código implementado" >> sdlc-report.md
+          echo "- Testes concluídos" >> sdlc-report.md
+          echo "- Deploy realizado" >> sdlc-report.md
+
 ```
 #### Configuring jobs:
 Cada job tem um conjunto de propriedades que você pode configurar, como o ambiente em que o trabalho é executado, suas dependências e suas configurações de tempo limite e repetição.
