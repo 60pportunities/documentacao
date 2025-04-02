@@ -1,0 +1,61 @@
+/* Personalizar a cor de fundo e a cor do texto da dica */
+.md-typeset .admonition.tip {
+    background-color: #e0f7fa; /* Cor de fundo personalizada */
+    color: #00796b; /* Cor do texto personalizada */
+}
+
+/* Personalizar a cor da borda da dica */
+.md-typeset .admonition.tip .admonition-title {
+    border-color: #00796b; /* Cor da borda personalizada */
+}
+
+.mdx-columns3 {
+    ol,
+    ul {
+      columns: 3;
+      @include break-to-device(mobile portrait) {
+        columns: initial;
+      }
+    }
+   li {
+      break-inside: avoid;
+    }
+  }
+  .mdx-columns2 {
+    ol,
+    ul {
+      columns: 2;
+      @include break-to-device(mobile portrait) {
+        columns: initial;
+      }
+    }
+   li {
+      break-inside: avoid;
+    }
+  }
+  .center-table {
+  text-align: center;
+}
+.md-typeset .center-table :is(td,th):not([align]) {
+  text-align: initial; /* Reset alignment for table cells */
+}
+
+nav ul li a[href*="Protec"] {
+    background-color: #ffcc00; /* Altere esta cor para a cor desejada */
+}
+
+/* Cor de fundo para o grupo de menu "Referência" */
+nav ul li a[href*="referencia"] {
+    background-color: #00ccff; /* Altere esta cor para a cor desejada */
+}
+
+.container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px; /* Espaçamento entre as imagens */
+}
+
+.container img {
+            width: 45%; /* Ajuste o tamanho conforme necessário */
+            height: auto;
+}
