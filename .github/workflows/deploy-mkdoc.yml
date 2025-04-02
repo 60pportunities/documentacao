@@ -76,7 +76,7 @@ jobs:
         committer_username: 'HVasconcellos'
         committer_email: 'horacio.vasconcellos@gmail.com'
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        comment_changelog: true
+        comment_changelog: 'Gerador'
         commit_changelog: true
 
     - name: Get Changelog Output
