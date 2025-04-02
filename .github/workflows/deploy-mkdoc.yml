@@ -1,9 +1,7 @@
 name: Deploy MkDocs
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -19,16 +17,13 @@ jobs:
       with:
         fetch-depth: 0
         submodules: 'recursive'
+        ref: main  # Garante que o checkout seja feito na branch main
 
-#    - name: Upload artifact
-#      uses: actions/upload-artifact@v4
-#      with:
-#        name: my-artifact
-#        path: path/to/artifact/ # or path/to/artifact
-
-    - name: Set up GitHub token
+    - name: Install Git LFS
       run: |
-        echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+        sudo apt-get update
+        sudo apt-get install -y git-lfs
+        git lfs install
 
     - name: Configurar Git
       run: |
@@ -43,7 +38,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8  mkdocs mike
+        pip install flake8 mkdocs mike
 
     - name: Install dependencies Requirements
       run: |
@@ -52,9 +47,13 @@ jobs:
     - name: Get latest tag
       id: get_tag
       run: |
-          LAST_TAG=$(git tag -l --sort=v:refname | head -n 1)
-          echo "Última tag: $LAST_TAG"
-          echo "LAST_TAG=$LAST_TAG" >> $GITHUB_ENV
+        LAST_TAG=$(git tag -l --sort=v:refname | tail -n 1)
+        echo "Última tag: $LAST_TAG"
+        echo "LAST_TAG=$LAST_TAG" >> $GITHUB_ENV
+
+    - name: Create and switch to changelog branch
+      run: |
+        git checkout -b changelog-ci-${{ env.LAST_TAG }}
 
     - name: Create Changelog
       uses: saadmk11/changelog-ci@v1.1.2
@@ -69,7 +68,7 @@ jobs:
 
     - name: Deploy to GitHub Pages
       env:
-        LASTTAG: $LAST_TAG
+        LAST_TAG: ${{ env.LAST_TAG }}
         MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
       run: |
         mike deploy --update-aliases "${LAST_TAG}" latest --allow-empty
