@@ -1,5 +1,4 @@
-name: Deploy MkDocs
-
+name: deploy-mkdoc
 on:
   workflow_dispatch:
   push:
@@ -9,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-22.04
+    env:
+        LAST_TAG: 'v01.00.01'
     permissions:
       contents: write  # Explicitly set permissions to allow writing to the repository
 
@@ -18,8 +19,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-      #  fetch-depth: 0
+        fetch-depth: 0
         submodules: 'recursive'
+        
 #    - name: Upload artifact
 #      uses: actions/upload-artifact@v4
 #      with:
@@ -52,7 +54,9 @@ jobs:
          
     - name: Install dependencies Requirements
       run: |
-        if [ -f requirements.txt ]; trelease_versionhen pip install -r requirements.txt; fi
+        if [ -f requirements.txt ]; then 
+           pip install -r requirements.txt; 
+        fi
 
     - name: Get latest tag
       id: get_tag
