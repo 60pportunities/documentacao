@@ -76,7 +76,7 @@ jobs:
         committer_email: 'horacio.vasconcellos@gmail.com'
         github_token: ${{ secrets.GITHUB_TOKEN }}
         comment_changelog: 'Gerador'
-        commit_changelog: true
+        #commit_changelog: true
 
     - name: Get Changelog Output
       run: |
@@ -85,9 +85,9 @@ jobs:
             
     - name: Deploy to GitHub Pages
       env:
-        LASTTAG: $LAST_TAG
         MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
       run: |
         echo "Deploy a versão: ${{ env.LAST_TAG }} "
+        echo "Local  a versão: ${{ env.LAST_TAG }} "
         mike deploy --update-aliases "${{ env.LAST_TAG }}" latest --allow-empty
         mike set-default --push latest --allow-empty
