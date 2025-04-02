@@ -1,6 +1,6 @@
-name: deploy-mkdoc
+name: Deploy MkDocs
+
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
@@ -8,7 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-22.04
-
     permissions:
       contents: write  # Explicitly set permissions to allow writing to the repository
 
@@ -20,7 +19,7 @@ jobs:
       with:
         fetch-depth: 0
         submodules: 'recursive'
-        
+
 #    - name: Upload artifact
 #      uses: actions/upload-artifact@v4
 #      with:
@@ -46,16 +45,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8  mkdocs mike
 
-#    - name: Install git-lfs
-#      run: |
-#         sudo apt-get install git-lfs
-#         git lfs install
-         
     - name: Install dependencies Requirements
       run: |
-        if [ -f requirements.txt ]; then 
-           pip install -r requirements.txt; 
-        fi
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Get latest tag
       id: get_tag
@@ -64,30 +56,21 @@ jobs:
           echo "Última tag: $LAST_TAG"
           echo "LAST_TAG=$LAST_TAG" >> $GITHUB_ENV
 
-    - name: Run Changelog CI
+    - name: Create Changelog
       uses: saadmk11/changelog-ci@v1.1.2
       id: changelog_ci
       with:
         changelog_filename: CHANGELOG.md
-        config_file: .github/changelogConfig.yml
-        #release_version: ${{ env.LAST_TAG }}
         release_version: ${{ env.LAST_TAG }}
         committer_username: 'HVasconcellos'
         committer_email: 'horacio.vasconcellos@gmail.com'
+        config_file: .github/changelogConfig.yml
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        #comment_changelog: 'Gerador'
-        #commit_changelog: true
 
-    - name: Get Changelog Output
-      run: |
-            echo "${{ steps.changelog-ci.outputs.changelog }}"
-            echo "${{ steps.changelog-ci.outputs.changelog }}" >> $GITHUB_STEP_SUMMARY
-            
     - name: Deploy to GitHub Pages
       env:
+        LASTTAG: $LAST_TAG
         MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
       run: |
-        echo "Deploy a versão: ${{ env.LAST_TAG }} "
-        echo "Local  a versão: ${{ env.LAST_TAG }} "
-        mike deploy --update-aliases "${{ env.LAST_TAG }}" latest --allow-empty
+        mike deploy --update-aliases "${LAST_TAG}" latest --allow-empty
         mike set-default --push latest --allow-empty
