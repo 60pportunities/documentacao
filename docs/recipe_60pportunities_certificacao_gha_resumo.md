@@ -3317,7 +3317,6 @@ Self-hosted runners podem ser:
     - [x] Executores de nível empresarial podem ser atribuídos a várias organizações em uma conta empresarial.
     - [x] Para configurar o auto-hospedado, você precisa adicionar um executor e instalar o GitHub Actions Runner para conectar a computação externa ao executor auto-hospedado.
 
-```
 Self-Hosted Runner Follow Along: Hands-On Setup -  GitHub Actions Course
 Estas notas de laboratório orientam você na configuração de um executor auto-hospedado para GitHub Actions. Este tutorial é benéfico para entender o processo de configuração, mesmo que não concluamos todas as etapas devido a limitações com ambientes como GitHub Codespaces. Se você estiver trabalhando localmente ou em um provedor de nuvem, as etapas devem funcionar de forma semelhante.
 
@@ -3563,26 +3562,54 @@ Os modelos de fluxo de trabalho podem simplificar significativamente o processo 
 
 Para criar um modelo de fluxo de trabalho, siga estas etapas:
 
-- [x] Crie um repositório .github: comece criando um novo repositório chamado .github em sua organização. Este repositório armazenará os modelos de fluxo de trabalho da sua organização e outros recursos compartilhados.
+- [x] Crie um repositório **.github**: Comece criando um novo repositório chamado .github em sua organização. Este repositório armazenará os modelos de fluxo de trabalho da sua organização e outros recursos compartilhados.
 - [x] Crie um diretório workflow-templates: dentro do repositório .github, crie um novo diretório chamado workflow-templates.
-- [ ] Crie um arquivo de modelo: no diretório workflow-templates, crie um novo arquivo de fluxo de trabalho com uma extensão yaml. Este arquivo conterá o modelo para seu fluxo de trabalho reutilizável. Defina o fluxo de trabalho como faria para um fluxo de trabalho regular do GitHub Actions, incluindo gatilhos, trabalhos, etapas e ações. No entanto, lembre-se de que esse arquivo deve ser genérico o suficiente para ser usado em vários repositórios.
-- [x] Adicione um arquivo de metadados de modelo: crie um arquivo de metadados JSON para seu modelo com o mesmo nome do arquivo de modelo de fluxo de trabalho, mas com uma extensão properties.json. Esse arquivo deve ser colocado no diretório workflow-templates. O arquivo de metadados contém informações sobre seu modelo, como seu nome, descrição e quaisquer entradas necessárias. Aqui está um exemplo de um arquivo de metadados:
+    - [ ] `.github/workflow-templates`
+- [x] Crie um arquivo de modelo: no diretório workflow-templates, crie um novo arquivo de fluxo de trabalho com uma extensão yaml ou yml. Este arquivo conterá o modelo para seu fluxo de trabalho reutilizável. Defina o fluxo de trabalho como faria para um fluxo de trabalho regular do GitHub Actions, incluindo gatilhos, trabalhos, etapas e ações. No entanto, lembre-se de que esse arquivo deve ser genérico o suficiente para ser usado em vários repositórios.
+
+```
+name: Octo Organization CI
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo Hello from Octo Organization
+```
+- [x] Adicione um arquivo de metadados de modelo: Crie um arquivo de metadados JSON para seu modelo (**octo-organization-ci.properties.json**) com o mesmo nome do arquivo de modelo de fluxo de trabalho, mas com uma extensão properties.json. Esse arquivo deve ser colocado no diretório workflow-templates. O arquivo de metadados contém informações sobre seu modelo, como seu nome, descrição e quaisquer entradas necessárias. Aqui está um exemplo de um arquivo de metadados:
 
 ```
 {
-"name": "My Workflow Template",
-"description": "A reusable workflow template for building and testing code",
-"iconName": "example-icon",
-"categories":["CI", "Build"],
-"inputs": {
-    "buildConfiguration": {
-             "description": "The build configuration to use",
-             "default": "Release",
-             "required": false
-    }
-  }
+    "name": "Octo Organization Workflow",
+    "description": "Octo Organization CI workflow template.",
+    "iconName": "example-icon",
+    "categories": [
+        "Go"
+    ],
+    "filePatterns": [
+        "package.json$",
+        "^Dockerfile",
+        ".*\\.md$"
+    ]
 }
 ```
+| Campo | Entenda |
+| ----- | ------  |
+| name  | Necessário. O nome do fluxo de trabalho. Isso é exibido na lista de fluxos de trabalho disponíveis. |
+|description | Necessário. A descrição do fluxo de trabalho. Isso é exibido na lista de fluxos de trabalho disponíveis.|
+|iconName | Opcional. Especifica um ícone para o fluxo de trabalho que é exibido na lista de fluxos de trabalho. pode um dos seguintes tipos:iconName. Um arquivo SVG armazenado no diretório. Para fazer referência a um arquivo, o valor deve ser o nome do arquivo sem a extensão do arquivo. Por exemplo, um arquivo SVG chamado é referenciado como .workflow-templatesexample-icon.svgexample-icon. Um ícone do conjunto de Octicons do GitHub. Para fazer referência a um octicon, o valor deve ser . Por exemplo.octicon <icon name>octicon smiley |
+| categories | Opcional. Define as categorias nas quais o fluxo de trabalho é mostrado. Você pode usar nomes de categoria das seguintes listas:|
+|            | Nomes de categorias gerais do repositório starter-workflows. |
+|            | Idiomas lingüísticos da lista no repositório lingüístico.    |
+|            | Pilhas de tecnologia compatíveis da lista no repositório starter-workflows. |
+| filePatterns | Opcional. Permite que o fluxo de trabalho seja usado se o repositório do usuário tiver um arquivo em seu diretório raiz que corresponda a uma expressão regular definida. |
+
 - [x] Confirme e envie suas alterações: confirme e envie as alterações para seu repositório .github. O novo modelo de fluxo de trabalho agora estará disponível para uso nos repositórios da sua organização.
 
 Para usar um modelo de fluxo de trabalho em um repositório, siga estas etapas:
