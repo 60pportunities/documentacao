@@ -71,5 +71,6 @@ jobs:
         LAST_TAG: ${{ env.LAST_TAG }}
         MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
       run: |
-        mike deploy --update-aliases "${LAST_TAG}" latest --allow-empty
-        mike set-default --push latest --allow-empty
+            echo "LAST-TAG: ${{ env.LAST_TAG }}"
+            mike deploy --update-aliases "${LAST_TAG}" latest --allow-empty
+            mike set-default --push latest --allow-empty
