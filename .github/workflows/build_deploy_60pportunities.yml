@@ -17,30 +17,42 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0  # Necessário para o changelog gerar o histórico completo
-        lfs: true       # Habilita o Git LFS
+        lfs: false       # Habilita o Git LFS
 
     # 2. Instalação do Git LFS
     - name: Install Git LFS
       run: |
         sudo apt-get update
         sudo apt-get install -y git-lfs
-        git lfs install
+        git lfs install --skip-repo  # Não configura o repositório atual
 
     # 3. Verificação da instalação do Git LFS
     - name: Verify Git LFS installation
       run: |
         git lfs version
-        if ! command -v git-lfs &> /dev/null; then
-          echo "Git LFS not installed!"
-          exit 1
+        if ! git lfs version; then
+          echo "::error::Git LFS not properly installed!"
         fi
 
+    - name: Checkout repository with LFS
+      uses: actions/checkout@v4
+      with:
+        lfs: true
+        clean: false  # Mantém os arquivos já baixados
+        
     # 4. Setup do Python
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.*'
 
+    - name: Remove LFS hooks temporarily
+      run: |
+           # Remove os hooks do LFS se existirem
+           if [ -f .git/hooks/post-checkout ]; then
+               rm .git/hooks/post-checkout
+           fi
+           
     # 5. Instalação de pacotes Python básicos
     - name: Install Python packages
       run: |
