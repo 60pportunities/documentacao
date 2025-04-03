@@ -2544,13 +2544,21 @@ Ao usar a palavra-chave continue-on-error e expressões condicionais em seus flu
 Este nível adicional de controle permite otimizar o uso de recursos, reduzir o tempo de execução e melhorar a capacidade de manutenção geral do fluxo de trabalho.
 
 ### Creating Custom GitHub Actions
-Neste capítulo, nós o guiaremos pelo processo de criação de GitHub Actions personalizadas para expandir os recursos dos seus fluxos de trabalho além das ações pré-criadas disponíveis no GitHub Marketplace.
+Nós o guiaremos pelo processo de criação de GitHub Actions personalizadas para expandir os recursos dos seus fluxos de trabalho além das ações pré-criadas disponíveis no GitHub Marketplace.
 
 As ações personalizadas permitem que você adapte seus processos de automação às necessidades específicas dos seus projetos de desenvolvimento e implemente funcionalidades exclusivas que podem não estar disponíveis em ações existentes.
 
-Começaremos discutindo os dois tipos principais de ações personalizadas: ações baseadas em Docker e ações baseadas em JavaScript.
+#### Tipos de ações do GitHub
+Existem três tipos de ações do GitHub: ações de contêiner, ações JavaScript e ações compostas.
+
+Com ações de contêiner , o ambiente é parte do código da ação. Essas ações só podem ser executadas em um ambiente Linux que o GitHub hospeda. As ações de contêiner suportam muitas linguagens diferentes.
+
+As ações JavaScript não incluem o ambiente no código. Você terá que especificar o ambiente para executar essas ações. Você pode executar essas ações em uma VM (máquina virtual) na nuvem ou no local. As ações JavaScript oferecem suporte a ambientes Linux, macOS e Windows.
+
+Ações compostas permitem que você combine várias etapas de fluxo de trabalho em uma ação. Por exemplo, você pode usar esse recurso para agrupar vários comandos de execução em uma ação e, então, ter um fluxo de trabalho que executa os comandos agrupados como uma única etapa usando essa ação.
 
 Você aprenderá sobre suas principais diferenças, vantagens e limitações, permitindo que você tome decisões informadas sobre qual tipo de ação é mais adequado para seu caso de uso específico.
+
 Em seguida, forneceremos instruções passo a passo sobre como criar suas próprias ações personalizadas, abrangendo a estrutura, os componentes e o processo de desenvolvimento para ações baseadas em Docker e JavaScript.
 
 Esta abordagem prática garantirá que você ganhe experiência prática e um profundo entendimento de como criar ações personalizadas de forma eficaz.
