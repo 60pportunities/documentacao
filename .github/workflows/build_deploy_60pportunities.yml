@@ -6,7 +6,11 @@ on:
       - main  # ou master, dependendo do seu branch principal
     tags:
       - '*'   # Executa também quando tags são criadas
-
+      
+permissions:
+  contents: write
+  pull-requests: write
+  
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
