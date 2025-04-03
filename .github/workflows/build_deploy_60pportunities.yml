@@ -77,6 +77,7 @@ jobs:
     - name: Setup environment
       run: |
         echo "MKDOCS_GIT_COMMITTERS_APIKEY=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+        rm .git/hooks/pre-push
       shell: bash
       
     # 10. Get latest tag
@@ -109,7 +110,7 @@ jobs:
         git config --global user.name "HVasconcellos"
         git config --global user.email "horacio.vasconcellos@gmail.com"
         #git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-        rm .git/hooks/pre-push
+
         VERSION=${{ steps.get-tag.outputs.tag }}
         echo "Versão deploy mike : ${VERSION}"
         mike deploy --update-aliases "${VERSION}" latest
