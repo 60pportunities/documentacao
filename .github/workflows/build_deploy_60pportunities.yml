@@ -98,14 +98,15 @@ jobs:
       run: |
         # Configura o git
         git config --global user.name "HVasconcellos"
-        git config --global user.email "s60pportunities@gmail.com"
+        git config --global user.email "horacio.vasconcellos@gmail.com"
         #git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         
-        VERSION=${{ steps.get-tag.outputs.tag || 'latest' }}
-        mike deploy --push --update-aliases $VERSION latest
-        mike set-default latest  
+        VERSION=${{ steps.get-tag.outputs.tag }}
+        echo "Versão deploy mike : ${VERSION}"
+        mike deploy --update-aliases "${VERSION}" latest
+        mike set-default --push latest --allow-empty
         # Usa Mike para fazer o deploy
         #mike deploy --push --update-aliases ${{ steps.get-tag.outputs.tag }} latest
-        #mike set-default latest
+        #mike set-default --push latest --allow-empty
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
