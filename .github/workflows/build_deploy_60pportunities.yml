@@ -113,7 +113,7 @@ jobs:
 
         VERSION=${{ steps.get-tag.outputs.tag }}
         echo "Versão deploy mike : ${VERSION}"
-        mike deploy --update-aliases "${VERSION}" latest
+        mike deploy --push --branch gh-pages --update-aliases "${VERSION}" latest
         mike set-default --push latest --allow-empty
         # Usa Mike para fazer o deploy
         #mike deploy --push --update-aliases ${{ steps.get-tag.outputs.tag }} latest
