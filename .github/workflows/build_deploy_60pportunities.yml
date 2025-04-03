@@ -72,7 +72,8 @@ jobs:
       id: get-tag
       run: |
         # Obtém a última tag por data de criação
-        TAG=$(git describe --tags --abbrev=0)
+        #TAG=$(git describe --tags --abbrev=0)
+        TAG=$(git tag -l --sort=v:refname | tail -n 1)
         echo "Latest tag: $TAG"
         echo "tag=$TAG" >> $GITHUB_OUTPUT
         
