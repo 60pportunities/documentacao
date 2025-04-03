@@ -109,7 +109,7 @@ jobs:
         git config --global user.name "HVasconcellos"
         git config --global user.email "horacio.vasconcellos@gmail.com"
         #git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-        
+        rm .git/hooks/pre-push
         VERSION=${{ steps.get-tag.outputs.tag }}
         echo "Versão deploy mike : ${VERSION}"
         mike deploy --update-aliases "${VERSION}" latest
