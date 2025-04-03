@@ -19,7 +19,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
-        submodules: 'recursive'
+        #submodules: 'recursive'
         ref: 'main'  # Garante que o checkout seja feito na branch main
 
     - name: Install Git LFS
@@ -28,6 +28,10 @@ jobs:
         sudo apt-get install -y git-lfs
         git lfs install
 
+    - name: Verify Git LFS
+      run: |
+            git lfs ls-files || echo "Testa LFS-tracked files found"
+  
     - name: Configurar Git
       run: |
         git config --global user.name "HVasconcellos"
@@ -56,9 +60,10 @@ jobs:
         echo "Última tag: $LAST_TAG"
         echo "LAST_TAG=$LAST_TAG" >> $GITHUB_ENV
 
-#    - name: Create and switch to changelog branch
-#      run: |
-#           git checkout -b changelog-ci-${{ env.LAST_TAG }}
+    - name: Create and switch to changelog branch
+      run: |
+            git checkout -b changelog-ci-${{ env.LAST_TAG }}
+            git push origin changelog-ci-${{ env.LAST_TAG }}
 
     - name: Create Changelog
       uses: saadmk11/changelog-ci@v1.1.2
