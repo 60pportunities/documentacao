@@ -1,5 +1,6 @@
 # Distribution / packaging
 .Python
+site/
 build/
 develop-eggs/
 dist/
