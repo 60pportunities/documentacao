@@ -33,19 +33,20 @@ jobs:
         if ! git lfs version; then
           echo "::error::Git LFS not properly installed!"
         fi
-
+    # 4. Checkout do repositório
     - name: Checkout repository with LFS
       uses: actions/checkout@v4
       with:
         lfs: true
         clean: false  # Mantém os arquivos já baixados
         
-    # 4. Setup do Python
+    # 5. Setup do Python
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.*'
 
+    # 6. Checkout do repositório
     - name: Remove LFS hooks temporarily
       run: |
            # Remove os hooks do LFS se existirem
@@ -53,13 +54,13 @@ jobs:
                rm .git/hooks/post-checkout
            fi
            
-    # 5. Instalação de pacotes Python básicos
+    # 7. Instalação de pacotes Python básicos
     - name: Install Python packages
       run: |
         python -m pip install --upgrade pip
         pip install flake8 mkdocs mike
 
-    # 6. Instalação de requirements.txt se existir
+    # 8. Instalação de requirements.txt se existir
     - name: Install requirements
       run: |
         if [ -f "requirements.txt" ]; then
@@ -67,12 +68,14 @@ jobs:
         else
           echo "requirements.txt not found, skipping..."
         fi
-    # 5. Configurar token de acesso para git-committers
+        
+    # 9. Configurar token de acesso para git-committers
     - name: Setup environment
       run: |
         echo "MKDOCS_GIT_COMMITTERS_APIKEY=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
       shell: bash
       
+    # 10. Get latest tag
     - name: Get latest tag
       id: get-tag
       run: |
@@ -82,18 +85,20 @@ jobs:
         echo "Latest tag: $TAG"
         echo "tag=$TAG" >> $GITHUB_OUTPUT
         
-    # 7. Geração do Changelog
+    # 11. Geração do Changelog
     - name: Generate Changelog
       uses: saadmk11/changelog-ci@v1.1.2
       with:
+        changelog_filename: CHANGELOG.md
         release_version: ${{ steps.get-tag.outputs.tag || '0.0.0' }}  # Usa a tag ou um valor padrão
-        committer_username: "HVasconcellos"
-        committer_email:  "s60pportunities@gmail.com"
+        committer_username: 'HVasconcellos'
+        committer_email: 'horacio.vasconcellos@gmail.com'
+        config_file: .github/changelogConfig.yml
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
-    # 9. Deploy com Mike para GitHub Pages
+    # 12. Deploy com Mike para GitHub Pages
     - name: Deploy documentation
       run: |
         # Configura o git
