@@ -29,7 +29,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y git-lfs
         git lfs install --skip-repo  # Não configura o repositório atual
-
+        
     # 3. Verificação da instalação do Git LFS
     - name: Verify Git LFS installation
       run: |
@@ -41,7 +41,7 @@ jobs:
     - name: Checkout repository with LFS
       uses: actions/checkout@v4
       with:
-        lfs: true
+        lfs: false
         clean: false  # Mantém os arquivos já baixados
         
     # 5. Setup do Python
