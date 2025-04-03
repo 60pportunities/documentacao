@@ -68,16 +68,6 @@ jobs:
           echo "requirements.txt not found, skipping..."
         fi
 
-    # 7. Geração do Changelog
-    - name: Generate Changelog
-      uses: saadmk11/changelog-ci@v1.1.2
-      with:
-        latest: true
-        #config_file: ".changelog-ci.json"  # Opcional: arquivo de configuração
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    # 8. Buscar a última tag do repositório
     - name: Get latest tag
       id: get-tag
       run: |
@@ -85,6 +75,17 @@ jobs:
         TAG=$(git describe --tags --abbrev=0)
         echo "Latest tag: $TAG"
         echo "tag=$TAG" >> $GITHUB_OUTPUT
+        
+    # 7. Geração do Changelog
+    - name: Generate Changelog
+      uses: saadmk11/changelog-ci@v1.1.2
+      with:
+        release_version: ${{ steps.get-tag.outputs.tag || '0.0.0' }}  # Usa a tag ou um valor padrão
+        committer_username: "HVasconcellos"
+        committer_email:  "s60pportunities@gmail.com"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
     # 9. Deploy com Mike para GitHub Pages
     - name: Deploy documentation
