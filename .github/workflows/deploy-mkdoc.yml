@@ -3,7 +3,7 @@ name: Deploy MkDocs
 on:
   push:
     branches:
-      - gh_pages 
+      - main 
   workflow_dispatch:
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
       with:
         fetch-depth: 0
         submodules: 'recursive'
-        ref: gh-pages  # Garante que o checkout seja feito na branch main
+        ref: 'main'  # Garante que o checkout seja feito na branch main
 
     - name: Install Git LFS
       run: |
@@ -56,9 +56,9 @@ jobs:
         echo "Última tag: $LAST_TAG"
         echo "LAST_TAG=$LAST_TAG" >> $GITHUB_ENV
 
-    - name: Create and switch to changelog branch
-      run: |
-           git checkout -b changelog-ci-${{ env.LAST_TAG }}
+#    - name: Create and switch to changelog branch
+#      run: |
+#           git checkout -b changelog-ci-${{ env.LAST_TAG }}
 
     - name: Create Changelog
       uses: saadmk11/changelog-ci@v1.1.2
@@ -76,6 +76,7 @@ jobs:
         LAST_TAG: ${{ env.LAST_TAG }}
         MKDOCS_GIT_COMMITTERS_APIKEY: ${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }}
       run: |
+            
             echo "LAST-TAG: ${{ env.LAST_TAG }}"
             mike deploy --update-aliases "${{ env.LAST_TAG }}" latest --allow-empty
             mike set-default --push latest --allow-empty
