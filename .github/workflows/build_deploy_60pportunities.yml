@@ -67,7 +67,12 @@ jobs:
         else
           echo "requirements.txt not found, skipping..."
         fi
-
+    # 5. Configurar token de acesso para git-committers
+    - name: Setup environment
+      run: |
+        echo "MKDOCS_GIT_COMMITTERS_APIKEY=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+      shell: bash
+      
     - name: Get latest tag
       id: get-tag
       run: |
@@ -94,9 +99,13 @@ jobs:
         # Configura o git
         git config --global user.name "HVasconcellos"
         git config --global user.email "s60pportunities@gmail.com"
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         
+        VERSION=${{ steps.get-tag.outputs.tag || 'latest' }}
+        mike deploy --push --update-aliases $VERSION latest
+        mike set-default latest  
         # Usa Mike para fazer o deploy
-        mike deploy --push --update-aliases ${{ steps.get-tag.outputs.tag }} latest
-        mike set-default latest
+        #mike deploy --push --update-aliases ${{ steps.get-tag.outputs.tag }} latest
+        #mike set-default latest
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
