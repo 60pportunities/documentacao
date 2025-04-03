@@ -99,7 +99,7 @@ jobs:
         # Configura o git
         git config --global user.name "HVasconcellos"
         git config --global user.email "s60pportunities@gmail.com"
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+        #git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         
         VERSION=${{ steps.get-tag.outputs.tag || 'latest' }}
         mike deploy --push --update-aliases $VERSION latest
