@@ -1113,14 +1113,119 @@ Para exibir o status dos seus fluxos de trabalho do GitHub Actions no README do 
     - [x] ❌ (vermelho) quando falhou
     - [x] 🟠 (amarelo/laranja) quando está em andamento ou foi cancelado
 
-Ao entender a anatomia de um fluxo de trabalho do GitHub Actions, você pode criar fluxos de trabalho mais eficientes, sustentáveis e escaláveis, adaptados às suas necessidades específicas. Nas seções a seguir, continuaremos explorando recursos avançados e opções de personalização do GitHub Actions, ajudando você a desbloquear todo o seu potencial e revolucionar seus processos de desenvolvimento de software.
+Ao entender a anatomia de um fluxo de trabalho do GitHub Actions, você pode criar fluxos de trabalho mais eficientes, sustentáveis e escaláveis, adaptados às suas necessidades específicas. 
+
+Continuaremos explorando recursos avançados e opções de personalização do GitHub Actions, ajudando você a desbloquear todo o seu potencial e revolucionar seus processos de desenvolvimento de software.
 
 ## Construindo seu primeiro fluxo de trabalho
 Vamos agora orientá-lo no processo de criação do seu primeiro fluxo de trabalho do GitHub Actions do zero.
 
 Meu objetivo é ajudar você a obter uma compreensão prática de como criar e configurar fluxos de trabalho para automatizar várias tarefas em seus projetos de desenvolvimento.
 
-Começaremos discutindo diferentes tipos de gatilhos de fluxo de trabalho, incluindo gatilhos baseados em eventos e gatilhos agendados, que determinam quando seu fluxo de trabalho deve ser executado.
+Começaremos discutindo diferentes tipos de gatilhos de fluxo de trabalho, incluindo: 
+- [x] Gatilhos baseados em eventos;
+    - [x] Disparam quando ocorrem eventos específicos no repositório:
+        - [x] push: Quando código é enviado para um branch ou tag
+        - [x] pull_request: Quando há atividade em pull requests (abertura, atualização, etc.)
+        - [x] issues: Quando issues são abertas, editadas, fechadas, etc.
+        - [x] fork: Quando o repositório é bifurcado
+        - [x] release: Quando uma nova release é publicada
+        - [x] watch: Quando alguém começa a "observar" o repositório
+        - [x] star: Quando o repositório recebe uma estrela
+        - [x] discussion: Eventos relacionados a discussões
+- [x] Gatilhos Baseados em Agenda (Scheduled)
+    - [x] Disparam em horários específicos usando sintaxe cron
+        - schedule:
+          - cron: '0 0 * * *'  # Executa diariamente à meia-noite
+- [x] Gatilhos Manuais
+    - [x] Permitem executar workflows manualmente:
+        - [x] workflow_dispatch: Disparado através da interface do GitHub ou API
+        - [x] repository_dispatch: Disparado por eventos externos via API
+- [x] Gatilhos de Webhook
+    - [x] Disparam quando webhooks específicos são recebidos
+
+- [x] Gatilhos Específicos
+    - [x] workflow_run: Dispara quando outro workflow é concluído
+    - [x] check_suite: Relacionado a verificações de código
+    - [x] label: Quando labels são criadas, editadas ou removidas
+    - [x] milestone: Eventos relacionados a milestone
+
+Exemplo:
+```
+name: Multi-Trigger Example
+
+on:
+  # Gatilho manual
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Ambiente para deploy'
+        required: true
+        default: 'staging'
+      debug:
+        description: 'Executar em modo debug?'
+        type: boolean
+        default: false
+
+  # Gatilho quando outro workflow é concluído
+  workflow_run:
+    workflows: ["CI Pipeline"]  # Nome do workflow que deve ser concluído
+    branches: [main]
+    types:
+      - completed
+
+  # Gatilho para eventos de check suite
+  check_suite:
+    types:
+      - completed
+
+  # Gatilho para eventos de label
+  label:
+    types:
+      - created
+      - edited
+      - deleted
+
+  # Gatilho para eventos de milestone
+  milestone:
+    types:
+      - created
+      - closed
+
+jobs:
+  process-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check event type
+        run: |
+          echo "Evento que disparou o workflow: ${{ github.event_name }}"
+          
+          case "${{ github.event_name }}" in
+            "workflow_dispatch")
+              echo "Execução manual"
+              echo "Ambiente: ${{ github.event.inputs.environment }}"
+              echo "Debug: ${{ github.event.inputs.debug }}"
+              ;;
+            "workflow_run")
+              echo "Workflow CI Pipeline concluído"
+              echo "Status: ${{ github.event.workflow_run.conclusion }}"
+              ;;
+            "check_suite")
+              echo "Check suite concluído"
+              echo "Status: ${{ github.event.check_suite.conclusion }}"
+              ;;
+            "label")
+              echo "Evento de label"
+              echo "Ação: ${{ github.event.action }}"
+              echo "Label: ${{ github.event.label.name }}"
+              ;;
+            "milestone")
+              echo "Evento de milestone"
+              echo "Ação: ${{ github.event.action }}"
+              echo "Milestone: ${{ github.event.milestone.title }}"
+              ;;
+          esac
+```
 
 Entender esses gatilhos é essencial para projetar fluxos de trabalho que respondam efetivamente a eventos específicos ou sejam executados em um cronograma predeterminado.
 
