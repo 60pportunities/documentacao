@@ -1135,8 +1135,8 @@ Começaremos discutindo diferentes tipos de gatilhos de fluxo de trabalho, inclu
         - [x] discussion: Eventos relacionados a discussões
 - [x] Gatilhos Baseados em Agenda (Scheduled)
     - [x] Disparam em horários específicos usando sintaxe cron
-        - schedule:
-          - cron: '0 0 * * *'  # Executa diariamente à meia-noite
+        - [x] schedule:
+            - [x] cron: '0 0 * * *'  # Executa diariamente à meia-noite
 - [x] Gatilhos Manuais
     - [x] Permitem executar workflows manualmente:
         - [x] workflow_dispatch: Disparado através da interface do GitHub ou API
