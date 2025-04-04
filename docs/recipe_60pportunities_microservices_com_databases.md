@@ -133,22 +133,3 @@ sequenceDiagram
     T->>S: Reverter Comando A
     S->>T: Reversão A Completa
 ```
-gh run delete 14254813782 --repo 60pportunities/documentacao
-gh run delete 14254788362 --repo 60pportunities/documentacao
-gh run delete 14254736457 --repo 60pportunities/documentacao
-gh run delete 13955415472 --repo 60pportunities/documentacao
-gh run delete 13954893913 --repo 60pportunities/documentacao
-gh run delete 13952858069 --repo 60pportunities/documentacao
-gh run delete 13911917416 --repo 60pportunities/documentacao
-gh run delete 13911265347 --repo 60pportunities/documentacao
-gh run delete 13908309584 --repo 60pportunities/documentacao
-gh run delete 13885108401 --repo 60pportunities/documentacao
-gh run delete 13883280087 --repo 60pportunities/documentacao
-gh run delete 13747092060 --repo 60pportunities/documentacao
-gh run delete 13747081843 --repo 60pportunities/documentacao
-
-13821488008 --repo 60pportunities/documentacao
-
-
-Browse the BookBildunterschrift zur Leseproben-Auswahl (optional)Browse the BookBildunterschrift zur Leseproben-Auswahl (optional)
-Profitability Analysis with SAP S/4HANA
