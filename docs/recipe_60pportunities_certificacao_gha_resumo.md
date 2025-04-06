@@ -2939,7 +2939,7 @@ Contextos fornecem acesso a dados sobre a execução do fluxo de trabalho atual,
 - [x] **github**: Fornece acesso a dados relacionados à execução do fluxo de trabalho atual, repositório e evento. Algumas propriedades comumente usadas incluem github.event_name, github.ref e github.actor.
 - [x] **secrets**: Permite que você faça referência a segredos criptografados armazenados em seu repositório.needs: permite que você acesse a saída de trabalhos concluídos anteriormente dentro do mesmo fluxo de trabalho.
 - [x] **steps**: Concede acesso à saída de etapas anteriores dentro do mesmo trabalho.
-- [ ] **env**: Faz referência a variáveis de ambiente definidas no nível do fluxo de trabalho, trabalho ou etapa.
+- [x] **env**: Faz referência a variáveis de ambiente definidas no nível do fluxo de trabalho, trabalho ou etapa.
 
 #### Funções:
 - [x] **success()**: Retorna true se todas as etapas ou trabalhos anteriores no fluxo de trabalho foram concluídos com sucesso e false caso contrário.
@@ -2949,13 +2949,98 @@ Contextos fornecem acesso a dados sobre a execução do fluxo de trabalho atual,
 - [x] **fromJson()**: Analisa uma string JSON e retorna um objeto JSON que pode ser usado em expressões.
 
 ```
+name: CI with Tests
+
+on:
+  push:
+    branches: [ "main", "dev" ]
+  pull_request:
+    branches: [ "*" ]
+
+env:
+  NODE_ENV: "test"
+  PYTHON_VERSION: "3.9"
+
 jobs:
-  runs-on: self-hosted
-  if: ${{ github.event_name steps:=='push' && startsWith(github.ref, 'refs/heads/main')}}
-     - name: Checkout repository
-       uses: actions/checkout@v4
-     - name: Deployrun: npm run deploy
-        env:API_KEY: ${{ secrets.API_KEY}}
+  lint-and-unit-tests:
+    name: Lint & Unit Tests (Node.js)
+    runs-on: ubuntu-latest  # Runner padrão do GitHub
+    strategy:
+      matrix:
+        node-version: ["16.x", "18.x", "20.x"]  # Matrix de versões do Node
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint (Linter)
+        run: npm run lint  # Exemplo: "eslint ." no package.json
+
+      - name: Run unit tests (Jest)
+        run: npm test
+        env:
+          CI: true  # Variável de ambiente para testes
+
+  integration-tests:
+    name: Integration Tests (Python)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest
+
+      - name: Run integration tests
+        run: pytest tests/integration/ --verbose
+
+  e2e-tests:
+    name: End-to-End Tests (Cypress)
+    runs-on: ubuntu-latest
+    env:
+      CYPRESS_BASE_URL: "http://localhost:3000"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v5
+        with:
+          start: npm start  # Inicia o servidor local
+          wait-on: "http://localhost:3000"
+        env:
+          API_KEY: ${{ secrets.E2E_TEST_API_KEY }}  # Segredo para autenticação
+
+  notify-on-failure:
+    name: Notify Slack on Failure
+    if: failure()  # Só executa se algum job anterior falhar
+    runs-on: ubuntu-latest
+    needs: [lint-and-unit-tests, integration-tests, e2e-tests]
+    steps:
+      - name: Send Slack notification
+        uses: slackapi/slack-github-action@v1
+        with:
+          channel-id: "dev-alerts"
+          slack-message: "🔥 Workflow failed! Check ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 ```
 
 Ao usar contextos e funções em suas condições, você pode criar fluxos de trabalho mais versáteis que respondem dinamicamente a diferentes eventos, ramificações, status e outros critérios relevantes.
@@ -3035,41 +3120,119 @@ Os trabalhos serão executados em sequência e, se algum trabalho falhar, os tra
 Você também pode usar expressões condicionais com a palavra-chave needs para criar dependências mais complexas:
 
 ```
+name: CI/CD Pipeline with Status Checks
+
+on:
+  push:
+    branches:
+      - 'main'          # Dispara apenas no branch main
+      - 'refs/heads/feature/*'  # Exemplo: dispara em branches de feature
+  pull_request:
+    branches: [ 'main' ]
+
+env:
+  NODE_ENV: 'production'
+  DOCKER_IMAGE: 'myapp'
+
 jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['18.x', '20.x']
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests
+        run: npm test
+        env:
+          CI: true
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        if: always()  # Upload mesmo se os testes falharem
+        with:
+          name: test-results-${{ matrix.node-version }}
+          path: test-results.xml
+
   build:
-     runs-on: self-hosted
-      steps:
-         - name: Checkout repository
-           uses: actions/checkout@v4
-          - name: Install dependencies
-             run: npm ci
-          - name: Build project
-            run: npm run
-      buildtest:
-        runs-on: self-hosted
-          needs: build
-          if: ${{ github.event_name != 'pull_request' || !contains(github.event.pull_request.labels.*.name, 'skip-tests') }}
-          steps:
-            - name: Checkout repository
-              uses: actions/checkout@v4
-            - name: Install dependencies
-               run: npm ci
-            - name: Run tests
-               run: npm test
-      deploy:
-        runs-on: self-hosted
-          needs: test
-          if: ${{ success() }}
-            steps:
-              - name: Checkout repository
-                uses: actions/checkout@v4
-              - name: Deploy
-                 run: npm run deploy
+    name: Build Docker Image
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'  # Só executa no branch main
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          tags: ${{ env.DOCKER_IMAGE }}:latest
+
+  deploy:
+    name: Deploy to Staging
+    needs: [test, build]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && success()  # Só se tudo passou
+    steps:
+      - name: Check deployment status
+        run: echo "Deploying to staging..."
+
+      - name: Notify Slack
+        uses: slackapi/slack-github-action@v1
+        if: success()  # Só notifica se o deploy for bem-sucedido
+        with:
+          channel-id: 'deployments'
+          slack-message: '🚀 Deploy to staging succeeded!'
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+  check-status:
+    name: Check Final Status
+    needs: [test, build, deploy]
+    runs-on: ubuntu-latest
+    if: always()  # Sempre executa, mesmo se outros jobs falharem
+    steps:
+      - name: Determine workflow status
+        id: check-status
+        run: |
+          if [[ ${{ needs.test.result }} == 'success' && ${{ needs.build.result }} == 'success' ]]; then
+            echo "STATUS=success" >> $GITHUB_OUTPUT
+          else
+            echo "STATUS=failure" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update GitHub Commit Status
+        uses: actions/github-script@v6
+        with:
+          script: |
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: context.sha,
+              state: '${{ steps.check-status.outputs.STATUS }}',
+              target_url: '${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}',
+              description: 'CI/CD Pipeline',
+              context: 'ci-cd/status'
+            })
 ```
-
-Neste exemplo modificado, o trabalho de teste será executado somente se o trabalho de construção for bem-sucedido e o evento não for uma solicitação de pull ou a solicitação de pull não tiver um rótulo chamado "skip-tests".
-
-O trabalho de implantação será executado somente se o trabalho de teste for bem-sucedido.
 
 Ao aproveitar as dependências de trabalho condicionais em seus fluxos de trabalho do GitHub Actions, você pode criar fluxos de trabalho mais eficientes e flexíveis que respondem dinamicamente ao sucesso ou falha de trabalhos anteriores, simplificando, em última análise, a manutenção do fluxo de trabalho e melhorando o gerenciamento de recursos.
 
@@ -3133,15 +3296,98 @@ Para filtrar um trabalho ou etapa com base no tipo de evento, use o contexto git
 Este contexto fornece acesso ao nome do evento que disparou o fluxo de trabalho.
 Exemplo:
 ```
+name: CI/CD with Conditional Skips
+
+on:
+  push:
+    branches: [ 'main', 'dev' ]
+  pull_request:
+    types: [opened, synchronize]
+
+env:
+  DEPLOY_ENV: ${{ github.ref == 'refs/heads/main' && 'production' || 'staging' }}
+
 jobs:
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Skip if [skip lint] in commit message
+        if: contains(github.event.head_commit.message, '[skip lint]')
+        run: echo "Skipping lint per commit message" && exit 78  # Código especial para skip
+        continue-on-error: true  # Permite que o workflow continue mesmo com "erro" (skip)
+
+      - name: Run ESLint
+        if: success() || failure()  # Executa mesmo se o passo anterior "falhou" (skip)
+        run: npm run lint
+
+  test:
+    name: Run Tests
+    needs: lint
+    runs-on: ubuntu-latest
+    if: |
+      !contains(github.event.head_commit.message, '[skip tests]') &&
+      (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev')
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+
+      - name: Run Unit Tests
+        run: npm test
+
   deploy:
-     runs-on: self-hosted
-      if: ${{ github.event_name == 'push'}}
-       steps:
-         - name: Checkout repository
-           uses: actions/checkout@v4
-         - name: Deploy to production
-           run: npm run deploy
+    name: Deploy
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && success()
+    steps:
+      - name: Check if manual deploy requested
+        id: check-manual
+        if: github.event_name == 'workflow_dispatch'
+        run: echo "manual_deploy=true" >> $GITHUB_OUTPUT
+
+      - name: Skip auto-deploy (manual only)
+        if: ${{ !inputs.force_deploy && !steps.check-manual.outputs.manual_deploy }}
+        run: echo "Skipping auto-deploy (use manual trigger)" && exit 78
+        continue-on-error: true
+
+      - name: Real Deploy
+        if: success() || failure()  # Captura tanto sucesso quanto "skip"
+        run: ./deploy.sh ${{ env.DEPLOY_ENV }}
+        env:
+          AWS_ACCESS_KEY: ${{ secrets.AWS_KEY }}
+
+  notify:
+    name: Notify Status
+    needs: [lint, test, deploy]
+    runs-on: ubuntu-latest
+    if: always()  # Sempre executa
+    steps:
+      - name: Determine overall status
+        id: status-check
+        run: |
+          if [[ ${{ needs.test.result }} == 'skipped' ]]; then
+            echo "MESSAGE=Tests were skipped" >> $GITHUB_OUTPUT
+          elif [[ ${{ needs.deploy.result }} == 'skipped' ]]; then
+            echo "MESSAGE=Deploy was skipped" >> $GITHUB_OUTPUT
+          else
+            echo "MESSAGE=All steps completed" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Send Slack Notification
+        uses: slackapi/slack-github-action@v1
+        with:
+          channel-id: 'ci-notifications'
+          slack-message: "Status: ${{ steps.status-check.outputs.MESSAGE }}"
 ```
 
 Neste exemplo, o job de implantação será executado somente se o evento que disparou o fluxo de trabalho for um evento push.
@@ -3238,7 +3484,7 @@ As ações personalizadas permitem que você adapte seus processos de automaçã
 #### Tipos de ações do GitHub
 Existem três tipos de ações do GitHub:
 
-- [x] Ações de contêiner;
+- [x] Ações de Contêiner;
 - [x] Ações JavaScript;
 - [x] Ações compostas;
 
@@ -3279,9 +3525,24 @@ Esses insights ajudarão você a criar ações personalizadas reutilizáveis e d
 - [x] Uma ação composta permite que você combine várias etapas do fluxo de trabalho em uma ação;
 
 ### Ações baseadas em Docker vs. Ações baseadas em JavaScript
-Compararemos e contrastaremos os dois tipos principais de ações personalizadas do GitHub: ações baseadas em Docker e ações baseadas em JavaScript.
+Compararemos e contrastaremos os dois tipos principais de ações personalizadas do GitHub: Ações baseadas em Docker e Ações baseadas em JavaScript.
 
 Entender as diferenças entre esses tipos de ação, bem como suas respectivas vantagens e limitações, ajudará você a tomar decisões informadas ao criar ações personalizadas para seus fluxos de trabalho.
+
+
+| Característica	  | Actions Baseadas em Docker 🐳	|  Actions Baseadas em JavaScript 📜 |
+| ----              | ----                          |  ----                             |
+| Definição    	    | Usa um contêiner Docker como ambiente de execução.	 | Roda diretamente no runner (Node.js).      |
+| Arquivo de Conf.	| Dockerfile + action.yml (ou action.yaml).	           | action.yml com runs.using: node12/node16.  |
+| Tempo de Execução	| Mais lento (precisa construir/puxar a imagem).	     | Mais rápido (execução nativa no runner).   |
+| Dependências	    | Gerenciadas via Dockerfile (instalação no contêiner).|	Declaradas em package.json (npm/yarn).         |
+| Portabilidade	    | Alta (roda em qualquer sistema com Docker).	         | Dependente do runner (Node.js instalado). |
+| Complexidade	    | Maior (requer conhecimento de Docker).               | Mais simples (JavaScript puro).                  |
+| Acesso ao Sistema	| Limitado ao contêiner (isolamento forte).	           | Acesso direto ao sistema do runner (mais flexível).  |
+| Uso de Secrets	  | Via variáveis de ambiente (env).	                   | Via core.getInput() ou process.env.      |
+| Manutenção      	| Mais complexa (atualizar imagens Docker).  	         | Mais simples (atualizar pacotes npm). |
+Exemplos Oficiais	  | actions/checkout (Docker).	                         |  actions/github-script (JS). |
+
 
 ### Introdução às ações baseadas em Docker
 Ações baseadas em Docker são Ações do GitHub que são executadas dentro de um contêiner Docker. Isso significa que o ambiente de tempo de execução da ação é isolado e pode ser personalizado para incluir quaisquer dependências necessárias para a ação.
@@ -3454,10 +3715,8 @@ Antes de publicar sua ação, teste-a localmente executando o arquivo index.js c
 
 - [x] `node index.js`
 
-Se tudo funcionar como esperado, você pode prosseguir para a próxima etapa.
-
-Publique sua açãoPara tornar sua ação disponível para uso em fluxos de trabalho, envie o projeto para um repositório GitHub.
-
+### Publique sua ação
+Para tornar sua ação disponível para uso em fluxos de trabalho, envie o projeto para um repositório GitHub.
 Certifique-se de incluir um arquivo README.md com instruções sobre como usar sua ação, incluindo quaisquer parâmetros de entrada necessários e valores de saída esperados.
 
 Depois que sua ação for publicada, você pode referenciá-la em seus fluxos de trabalho usando a palavra-chave uses com a URL do repositório:
@@ -3480,9 +3739,9 @@ O controle de versão semântico (SemVer) é um esquema de controle de versão a
 
 Ele usa um formato de número de versão MAJOR.MINOR.PATCH, onde:
 
-- [x] MAJOR: incrementado quando você introduz alterações de quebra ou remove funcionalidades.
-- [x] MINOR: incrementado quando você adiciona novos recursos que são compatíveis com versões anteriores.
-- [x] PATCH: incrementado quando você corrige bugs ou faz pequenas melhorias que são compatíveis com versões anteriores.
+- [x] MAJOR: Incrementado quando você introduz alterações de quebra ou remove funcionalidades.
+- [x] MINOR: Incrementado quando você adiciona novos recursos que são compatíveis com versões anteriores.
+- [x] PATCH: Incrementado quando você corrige bugs ou faz pequenas melhorias que são compatíveis com versões anteriores.
 
 Adotar o SemVer ajuda os usuários a entender o impacto das atualizações e torna mais fácil para eles escolherem a versão apropriada de sua ação.
 
@@ -3490,19 +3749,21 @@ Adotar o SemVer ajuda os usuários a entender o impacto das atualizações e tor
 As tags Git são uma maneira conveniente de marcar pontos específicos no histórico do seu repositório como um lançamento.
 
 Ao criar um novo lançamento da sua ação, crie uma tag Git com o número da versão correspondente:
+
 ```
 git tag -a v1.0.0 -m "Release v1.0.0"
 git push origin v1.0.0
 ```
 ### Criando ramificações de lançamento
 Além das tags do Git, você pode querer criar branches de lançamento para cada versão principal da sua ação.
+
 Isso permite que você mantenha várias versões simultaneamente, fornecendo correções de bugs e melhorias para versões mais antigas enquanto continua a desenvolver novos recursos.
+
 Por exemplo, você pode criar um branch chamado v1 para a versão principal 1:
 ```
 git checkout -b v1
 git push -u origin v1
 ```
-
 ### Atualizando o README
 No arquivo `README.md` da sua ação, inclua instruções claras sobre como referenciar diferentes versões da sua ação em um fluxo de trabalho.
 
@@ -3512,16 +3773,17 @@ steps:
   - name: Run My Action
     uses: your-username/my-action@main
 ```
+
 Para usar uma versão específica do My Action, substitua main pelo número da versão desejada:
 ```
 steps:
   - name: Run My Action
     uses: your-username/my-action@v1.0.0
 ```
-### Publishing Your Action
+### Publicando sua ação
 Para tornar sua ação disponível para uso em fluxos de trabalho, envie o projeto para um repositório do GitHub.
 
-Certifique-se de que seu arquivo README.md contenha instruções abrangentes sobre como usar sua ação, incluindo quaisquer parâmetros de entrada necessários e valores de saída esperados.
+Certifique-se de que seu arquivo `README.md` contenha instruções abrangentes sobre como usar sua ação, incluindo quaisquer parâmetros de entrada necessários e valores de saída esperados.
 
 Depois que sua ação for publicada, os usuários podem referenciá-la em seus fluxos de trabalho usando a palavra-chave uses com a URL do repositório e a versão desejada:
 
@@ -3540,15 +3802,14 @@ O marketplace oferece uma ampla variedade de ações que podem ajudar você a au
 Ao usar as ações disponíveis no marketplace, você pode economizar tempo, reduzir a complexidade e se concentrar nos principais recursos dos seus projetos.
 
 #### Descobrindo e avaliando ações
-Nesta seção, discutiremos como encontrar, avaliar e selecionar as ações certas do GitHub Actions Marketplace para seu caso de uso específico.
-Ao seguir essas diretrizes, você pode ter confiança nas ações que escolher e garantir que elas atendam aos seus requisitos.
-
-### Navegando e pesquisando no Marketplace
+Diretrizes que você pode ter confiança nas ACTIONS que escolher e garantir que elas atendam aos seus requisitos.
+#### Navegando e pesquisando no Marketplace
 O GitHub Actions Marketplace pode ser acessado em `https://github.com/marketplace?type=actions`.
+
 Aqui, você pode navegar por várias categorias ou usar a barra de pesquisa para encontrar ações que atendam às suas necessidades específicas.
 
 Você pode filtrar seus resultados de pesquisa por categoria, editora ou classificação por popularidade, classificação ou atualidade.
-### Avaliando a qualidade da ação
+#### Avaliando a qualidade da ação
 Ao avaliar uma ação, considere os seguintes fatores para garantir que ela atenda às suas expectativas:
 
 - [X] **Popularidade**: Verifique o número de estrelas, bifurcações e downloads para ter uma ideia da popularidade da ação na comunidade. Ações populares têm mais probabilidade de serem mantidas e atualizadas regularmente.
@@ -3557,22 +3818,21 @@ Ao avaliar uma ação, considere os seguintes fatores para garantir que ela aten
 - [X] **Problemas abertos e solicitações de pull**: Revise o repositório da ação para problemas abertos e solicitações de pull. Isso pode lhe dar uma ideia da capacidade de resposta do mantenedor e de qualquer desenvolvimento ou problemas em andamento que possam afetar o desempenho da ação.
 - [X] **Licença**: Verifique se a ação é lançada sob uma licença de código aberto que seja compatível com as políticas do seu projeto e da organização.
 
-### Ações de teste
+#### Ações de teste
 Crie um repositório de teste, configure um fluxo de trabalho de amostra e inclua a ação que deseja testar.
 
 Monitore a execução do fluxo de trabalho e analise os resultados para garantir que a ação se comporte conforme o esperado.
 
-### Lendo avaliações de usuários
+#### Lendo avaliações de usuários
 As avaliações de usuários podem fornecer insights valiosos sobre o desempenho, a confiabilidade e a usabilidade de uma ação.
 
 Ao ler as experiências de outros usuários, você pode obter uma melhor compreensão dos pontos fortes e fracos da ação, o que pode ajudá-lo a tomar uma decisão informada.
 
 Ao seguir estas etapas, você pode descobrir, avaliar e selecionar as ações mais adequadas do GitHub Actions Marketplace para aprimorar seus fluxos de trabalho e agilizar seu processo de desenvolvimento.
-
-### Ações populares para tarefas comuns
+#### Ações populares para tarefas comuns
 Essas ações podem ajudar você a economizar tempo e esforço automatizando processos repetitivos e integrando-se com ferramentas e serviços amplamente utilizados.
 
-### Integração e Implantação Contínua
+##### Integração e Implantação Contínua
 - [X] **GitHub Actions para Node.js**: Esta ação configura um ambiente Node.js no runner, permitindo que você crie, teste e implante aplicativos Node.js.
 - [X] **GitHub Actions para Python**: Semelhante à ação Node.js, esta ação configura um ambiente Python no runner, permitindo que você crie, teste e implante aplicativos Python.
 - [X] **Implantar em GitHub Pages**: Esta ação automatiza a implantação de sites estáticos ou documentação em GitHub Pages.
@@ -3580,14 +3840,14 @@ Essas ações podem ajudar você a economizar tempo e esforço automatizando pro
 - [X] **ESLint**: Esta ação executa o ESLint na sua base de código, ajudando você a manter um estilo de código consistente e identificar problemas potenciais.
 - [X] **Codecov**: Esta ação carrega seus relatórios de cobertura de código para o Codecov, uma ferramenta popular de análise de cobertura de código que fornece insights sobre a cobertura de teste do seu projeto.
 
-### Project Management and Collaboration
+##### Project Management and Collaboration
 - [X] **Ação do GitHub para Triagem**: Esta ação adiciona rótulos a novos problemas com base no conteúdo do problema, ajudando você a categorizar e priorizar problemas de forma mais eficaz.
 - [X] **Obsoleto**: Esta ação marca automaticamente problemas inativos e solicitações de pull como obsoletos e, eventualmente, os fecha se permanecerem inativos, mantendo o rastreador de problemas do seu projeto limpo e gerenciável.
 
-### Integrações de terceiros
+##### Integrações de terceiros
 - [x] **Notificação do Slack**: Esta ação envia notificações para um canal do Slack quando eventos específicos ocorrem no seu fluxo de trabalho, como falhas de build ou conclusões de implantação.
 - [x] **AWS CLI:** esta ação permite que você use a AWS Command Line Interface (CLI) dentro dos seus fluxos de trabalho do GitHub Actions, permitindo que você interaja com os serviços da AWS.
-### Miscellaneous
+##### Miscellaneous
 - [X] **Cache**: Esta ação armazena em cache dependências e saídas de build, reduzindo o tempo necessário para executar builds subsequentes.
 - [X] **Labeler**: Esta ação adiciona automaticamente rótulos a pull requests com base nas alterações feitas, melhorando a organização e a colaboração do projeto.
 
@@ -3616,13 +3876,13 @@ steps:
         with:
           token: ${{ secrets.SLACK_API_TOKEN }}
 ```
-### Configurar a ação
-Após adicionar a ação ao seu fluxo de trabalho e configurar a autenticação necessária, configure a ação com os parâmetros de entrada necessários.
-Esses parâmetros geralmente são documentados no arquivo README da ação.
-Certifique-se de ler a documentação cuidadosamente para entender as opções disponíveis e garantir a integração adequada.
-### Teste a integração
+#### Configurar a ação
+Após adicionar a ação ao seu fluxo de trabalho e configurar a autenticação necessária, configure a ação com os parâmetros de entrada necessários. Esses parâmetros geralmente são documentados no arquivo README da ação.
+
+#### Teste a integração
 Antes de incorporar totalmente a integração de terceiros ao seu fluxo de trabalho principal, teste-a em um ambiente isolado. Crie um repositório de teste e fluxo de trabalho, inclua a ação e monitore sua execução. Analise os resultados para confirmar se a integração funciona conforme o esperado e satisfaz seus requisitos.
-### Monitorar e manter a integração
+
+#### Monitorar e manter a integração
 Monitore suas execuções de fluxo de trabalho regularmente para garantir que a integração de terceiros continue a funcionar conforme o esperado. Se você encontrar problemas ou precisar atualizar a integração, siga a documentação e as diretrizes da ação para resolver o problema ou implementar novos recursos.
 
 Ao integrar serviços de terceiros em seus fluxos de trabalho do GitHub Actions, você pode aproveitar o poder de várias ferramentas, plataformas e serviços para automatizar tarefas, melhorar a colaboração e otimizar seu processo de desenvolvimento.
@@ -3636,33 +3896,31 @@ Integração Contínua (CI) é um aspecto crucial das práticas modernas de dese
 
 Ao incorporar CI em seus projetos, você pode garantir que novas alterações de código sejam frequentemente integradas em um repositório compartilhado, testadas automaticamente e validadas em relação à base de código existente. Essa abordagem ajuda na detecção precoce de problemas potenciais, reduz o risco de conflitos de mesclagem e, finalmente, leva a um desenvolvimento de software mais rápido e confiável.
 
-O GitHub Actions é uma excelente plataforma para implementar CI em seus projetos, pois fornece uma solução flexível, escalável e fácil de usar para automatizar várias tarefas, como construir, testar e implantar seu código.
-
 Com seu amplo mercado, integração nativa com repositórios do GitHub e suporte para várias plataformas e idiomas, o GitHub Actions permite que você crie fluxos de trabalho de CI poderosos e eficientes, adaptados aos requisitos específicos do seu projeto.
-Neste capítulo, exploraremos os fundamentos da Integração Contínua, discutiremos os benefícios de implementar CI com GitHub Actions e o guiaremos pelo processo de configuração de um pipeline de CI para seu projeto.
-Ao final deste capítulo, você terá um entendimento sólido de como usar GitHub Actions para criar fluxos de trabalho de CI eficazes que melhoram seu processo de desenvolvimento e garantem a qualidade do código.
-### Automated Testing
+
+### Testes automatizados
 O teste automatizado é um componente central da Integração Contínua, pois permite que os desenvolvedores validem novas alterações de código em relação à base de código existente de forma rápida e eficiente.
 Nesta seção, discutiremos a importância do teste automatizado no contexto de CI, os tipos de testes que você pode incorporar em seus fluxos de trabalho e como configurar o GitHub Actions para executar seus testes automaticamente.
-### Why Automated Testing is Crucial for CI
+### Por que o teste automatizado é crucial para CI
 Os testes automatizados desempenham um papel crítico no processo de CI por vários motivos:
 - [x] Feedback mais rápido: executar testes automaticamente como parte do seu pipeline de CI fornece feedback imediato sobre o impacto de novas alterações de código, permitindo que os desenvolvedores resolvam problemas antes que se tornem problemas mais significativos.
 - [x] Esforço manual reduzido: automatizar testes elimina a necessidade de testes manuais, liberando tempo dos desenvolvedores para se concentrarem na implementação de novos recursos e na correção de bugs.
 - [x] Ambiente de teste consistente: testes automatizados são executados em um ambiente consistente, reduzindo a probabilidade de discrepâncias entre execuções de teste e garantindo um processo de validação confiável.
 - [x] Colaboração aprimorada: com testes automatizados em vigor, os membros da equipe podem ter mais confiança na estabilidade da base de código, facilitando a colaboração em novos recursos e correções de bugs.
 
-### Types of Tests in CI
+### Tipos de testes em CI
 Existem vários tipos de testes que você pode incorporar em seus fluxos de trabalho de CI, dependendo dos requisitos do seu projeto e do nível de validação necessário:
-- [x] Testes de unidade: os testes de unidade focam em pequenos pedaços isolados de código, como funções ou classes individuais. Esses testes garantem que cada componente funcione conforme o esperado isoladamente.
-- [x] Testes de integração: os testes de integração examinam as interações entre diferentes componentes do seu aplicativo para garantir que eles funcionem juntos corretamente.
-- [x] Testes funcionais: os testes funcionais validam a funcionalidade geral do seu aplicativo da perspectiva do usuário, geralmente por meio de interações de IU automatizadas ou chamadas de API.
-- [x] Testes de desempenho: os testes de desempenho avaliam a capacidade de resposta, a escalabilidade e a estabilidade do seu aplicativo sob várias condições de carga.
-### Configuring GitHub Actions for Automated Testing
+- [x] **Testes de unidade**: Os testes de unidade focam em pequenos pedaços isolados de código, como funções ou classes individuais. Esses testes garantem que cada componente funcione conforme o esperado isoladamente.
+- [x] **Testes de integração**: Os testes de integração examinam as interações entre diferentes componentes do seu aplicativo para garantir que eles funcionem juntos corretamente.
+- [x] **Testes Funcionais**: Os testes funcionais validam a funcionalidade geral do seu aplicativo da perspectiva do usuário, geralmente por meio de interações de IU automatizadas ou chamadas de API.
+- [x] **Testes de Desempenho**: Os testes de desempenho avaliam a capacidade de resposta, a escalabilidade e a estabilidade do seu aplicativo sob várias condições de carga.
+
+### Configurando ações do GitHub para testes automatizados
 Para configurar testes automatizados no seu fluxo de trabalho do GitHub Actions, siga estas etapas:
-- [x] Escolha um executor de teste: Selecione um executor de teste que seja compatível com a linguagem de programação e a estrutura de teste do seu projeto. Alguns executores de teste populares incluem Jest para JavaScript, pytest para Python e JUnit para Java.
-- [x] Configure o executor de teste: Certifique-se de que o executor de teste esteja configurado corretamente no seu projeto, com as dependências necessárias instaladas e os scripts de teste definidos no seu arquivo package.json (para projetos JavaScript) ou outros arquivos de configuração.
-- [x] Crie um fluxo de trabalho do GitHub Actions: No seu repositório, crie um novo arquivo de fluxo de trabalho do GitHub Actions (por exemplo, .github/workflows/ci.yml) e defina as etapas necessárias para configurar o ambiente de teste. Isso normalmente envolve verificar seu código, configurar o ambiente de tempo de execução (por exemplo, Node.js ou Python) e instalar dependências.
-- [x] Execute os testes: adicione uma etapa ao seu fluxo de trabalho para executar seus scripts de teste usando o executor de teste escolhido. Certifique-se de que o executor de teste esteja configurado para gerar os resultados em um formato que possa ser facilmente analisado e relatado.
+- [x] **Escolha um executor de teste**: Selecione um executor de teste que seja compatível com a linguagem de programação e a estrutura de teste do seu projeto. Alguns executores de teste populares incluem Jest para JavaScript, pytest para Python e JUnit para Java.
+- [x] **Configure o executor de teste**: Certifique-se de que o executor de teste esteja configurado corretamente no seu projeto, com as dependências necessárias instaladas e os scripts de teste definidos no seu arquivo package.json (para projetos JavaScript) ou outros arquivos de configuração.
+- [x] **Crie um fluxo de trabalho do GitHub Actions**: No seu repositório, crie um novo arquivo de fluxo de trabalho do GitHub Actions (por exemplo, .github/workflows/ci.yml) e defina as etapas necessárias para configurar o ambiente de teste. Isso normalmente envolve verificar seu código, configurar o ambiente de tempo de execução (por exemplo, Node.js ou Python) e instalar dependências.
+- [x] **Execute os testes**: adicione uma etapa ao seu fluxo de trabalho para executar seus scripts de teste usando o executor de teste escolhido. Certifique-se de que o executor de teste esteja configurado para gerar os resultados em um formato que possa ser facilmente analisado e relatado.
 ```
 name: CI
 on: [ push, pull_request]
@@ -3679,30 +3937,31 @@ run: npm ci
 - name: Run tests
 run: npm test
 ```
-- [x] Relatar resultados de teste: Opcionalmente, você pode configurar seu fluxo de trabalho para relatar resultados de teste para serviços ou ferramentas externas, como Codecov para análise de cobertura de código ou Slack para notificações.
+- [x] **Relatar resultados de teste**: Opcionalmente, você pode configurar seu fluxo de trabalho para relatar resultados de teste para serviços ou ferramentas externas, como Codecov para análise de cobertura de código ou Slack para notificações.
 
-Ao incorporar testes automatizados em seu fluxo de trabalho de CI do GitHub Actions, você pode garantir que seu código seja completamente validado antes de ser mesclado ao branch principal. Isso não apenas ajuda a manter uma base de código de alta qualidade, mas também promove um ambiente de desenvolvimento colaborativo onde os membros da equipe podem ter mais confiança na estabilidade do código.
-Em resumo, o teste automatizado é um aspecto essencial da implementação da Integração Contínua com o GitHub Actions. Ele fornece vários benefícios, como feedback mais rápido, esforço manual reduzido, ambientes de teste consistentes e colaboração aprimorada. Ao selecionar cuidadosamente os tipos de testes mais relevantes para seu projeto e configurar o GitHub Actions para executá-los automaticamente, você pode criar um pipeline de CI robusto que garante a qualidade e a confiabilidade de sua base de código.
-### Code Quality and Linting
-Manter um alto nível de qualidade de código é crucial para qualquer projeto de software, pois garante que o código seja legível, sustentável e
-menos propenso a erros. Linting é uma prática comum empregada por desenvolvedores para verificar automaticamente padrões de codificação, melhores práticas e problemas potenciais em seu código. Nesta seção, discutiremos a importância da qualidade do código e linting no contexto da Integração Contínua e demonstraremos como configurar o GitHub Actions para executar linting como parte do seu pipeline de CI.
-### The Importance of Code Quality and Linting in CI
+Ao incorporar testes automatizados em seu fluxo de trabalho de CI do GitHub Actions, você pode garantir que seu código seja completamente validado antes de ser mesclado ao branch principal.
+
+Isso não apenas ajuda a manter uma base de código de alta qualidade, mas também promove um ambiente de desenvolvimento colaborativo onde os membros da equipe podem ter mais confiança na estabilidade do código.
+
+### Qualidade do código e Linting
+Manter um alto nível de qualidade de código é crucial para qualquer projeto de software, pois garante que o código seja legível, sustentável e menos propenso a erros. Linting é uma prática comum empregada por desenvolvedores para verificar automaticamente padrões de codificação, melhores práticas e problemas potenciais em seu código. Nesta seção, discutiremos a importância da qualidade do código e linting no contexto da Integração Contínua e demonstraremos como configurar o GitHub Actions para executar linting como parte do seu pipeline de CI.
+### A importância da qualidade do código e do Linting em CI
 A qualidade do código e o linting são aspectos essenciais do CI por vários motivos:
 - [x] Legibilidade e manutenibilidade: garantir que o código siga um estilo consistente e cumpra as melhores práticas estabelecidas torna mais fácil para os membros da equipe ler, entender e manter o código.
 - [x] Erros reduzidos: ferramentas de linting podem detectar problemas potenciais, como erros de sintaxe, variáveis não utilizadas ou chamadas de função incorretas antes que causem problemas no aplicativo.
 - [x] Revisões de código mais rápidas: ao impor padrões de codificação e melhores práticas por meio do linting, os desenvolvedores podem se concentrar em aspectos mais críticos das revisões de código, como lógica e funcionalidade, em vez de gastar tempo em questões estilísticas ou de formatação.
 - [x] Colaboração simplificada: o linting como parte do CI ajuda a garantir que todo o código contribuído para o projeto cumpra os mesmos padrões, levando a uma base de código mais coesa e consistente.
 
-### Choosing a Linter for Your Project
+### Escolhendo um Linter para seu projeto
 Existem vários linters disponíveis para várias linguagens de programação e frameworks, cada um com seu próprio conjunto de regras e configurações. Alguns linters populares incluem ESLint para JavaScript, Flake8 para Python e RuboCop para Ruby. Ao selecionar um linter para seu projeto, considere os seguintes fatores:
-- [x] Compatibilidade: certifique-se de que o linter suporta sua linguagem de programação e a versão específica que você está usando.
-- [x] Configurabilidade: escolha um linter que permita personalizar as regras e configurações para corresponder aos requisitos do seu projeto e padrões de codificação.
-- [x] Integração: selecione um linter que possa ser facilmente integrado ao seu ambiente de desenvolvimento, pipeline de CI e outras ferramentas que você possa estar usando.
-### Configuring GitHub Actions for Linting
+- [x] **Compatibilidade**: Certifique-se de que o linter suporta sua linguagem de programação e a versão específica que você está usando.
+- [x] **Configurabilidade**: Escolha um linter que permita personalizar as regras e configurações para corresponder aos requisitos do seu projeto e padrões de codificação.
+- [x] **Integração**: Selecione um linter que possa ser facilmente integrado ao seu ambiente de desenvolvimento, pipeline de CI e outras ferramentas que você possa estar usando.
+### Configurando ações do GitHub para Linting
 Para configurar o linting no seu pipeline do GitHub Actions CI, siga estas etapas:
-- [x] Instale e configure o linter: adicione o linter escolhido ao seu projeto e configure-o de acordo com seus padrões de codificação e melhores práticas. Certifique-se de que o arquivo de configuração do linter (por exemplo, .eslintrc para ESLint ou flakes para Flake8) esteja presente no seu repositório.
-- [x] Crie um fluxo de trabalho do GitHub Actions: no seu repositório, crie um novo arquivo de fluxo de trabalho do GitHub Actions (por exemplo, .github/workflows/lint.yml) e defina as etapas necessárias para configurar o ambiente de linting. Isso normalmente envolve verificar seu código, configurar o ambiente de tempo de execução (por exemplo, Node.js ou Python) e instalar dependências.
-- [x] Execute o linter: adicione uma etapa ao seu fluxo de trabalho para executar o linter no seu código. Certifique-se de que o linter esteja configurado para gerar os resultados em um formato que possa ser facilmente analisado e relatado.
+- [x] **Instale e configure o linter**: Adicione o linter escolhido ao seu projeto e configure-o de acordo com seus padrões de codificação e melhores práticas. Certifique-se de que o arquivo de configuração do linter (por exemplo, .eslintrc para ESLint ou flakes para Flake8) esteja presente no seu repositório.
+- [x] **Crie um fluxo de trabalho do GitHub Actions**: No seu repositório, crie um novo arquivo de fluxo de trabalho do GitHub Actions (por exemplo, .github/workflows/lint.yml) e defina as etapas necessárias para configurar o ambiente de linting. Isso normalmente envolve verificar seu código, configurar o ambiente de tempo de execução (por exemplo, Node.js ou Python) e instalar dependências.
+- [x] **Execute o linter**: adicione uma etapa ao seu fluxo de trabalho para executar o linter no seu código. Certifique-se de que o linter esteja configurado para gerar os resultados em um formato que possa ser facilmente analisado e relatado.
 
 ```
 name: Lint
@@ -3717,13 +3976,13 @@ node-version: 14
 - name: Install dependencies run: npm ci
 - name: Run ESLint run: npm run lint
 ```
-- [x] Anotar e relatar problemas de linting: Opcionalmente, você pode configurar seu fluxo de trabalho para anotar o código com problemas de linting, tornando-os visíveis na aba "Arquivos alterados" de uma solicitação de pull. Para fazer isso, você pode usar GitHub Actions de terceiros como reviewdog/action-eslint para ESLint ou suo/flake8-github-action para Flake8. Além disso, você pode configurar notificações para problemas de linting, enviando-as para plataformas de comunicação como Slack ou e-mail.
+- [x] **Anotar e relatar problemas de linting**: Opcionalmente, você pode configurar seu fluxo de trabalho para anotar o código com problemas de linting, tornando-os visíveis na aba "Arquivos alterados" de uma solicitação de pull. Para fazer isso, você pode usar GitHub Actions de terceiros como reviewdog/action-eslint para ESLint ou suo/flake8-github-action para Flake8. Além disso, você pode configurar **notificações para problemas de linting**, enviando-as para plataformas de comunicação como Slack ou e-mail.
 Ao incorporar o linting em seu pipeline de CI do GitHub Actions, você pode manter um estilo de código consistente e detectar problemas potenciais antes que eles se tornem problemas mais significativos. Isso não apenas ajuda a garantir uma base de código de alta qualidade, mas também promove um ambiente de colaboração mais simplificado entre os membros da equipe.
 
 Em resumo, a qualidade do código e o linting são aspectos vitais da implementação da Integração Contínua com GitHub Actions. Eles fornecem vários benefícios, como melhor legibilidade e manutenibilidade, redução de erros, revisões de código mais rápidas e colaboração simplificada. Ao selecionar cuidadosamente um linter que atenda aos requisitos do seu projeto e configurar o GitHub Actions para executá-lo automaticamente, você pode criar um pipeline de CI robusto que aplica padrões de codificação e práticas recomendadas, ao mesmo tempo em que detecta possíveis problemas no início do processo de desenvolvimento.
-### Code Coverage and Reporting
+### Cobertura e relatórios de código
 A cobertura de código é uma métrica importante que mede a porcentagem do seu código que é executada durante o teste. Ela ajuda os desenvolvedores a identificar áreas do código que podem não ser testadas adequadamente e exigem testes adicionais para garantir a correção e a confiabilidade. Nesta seção, discutiremos a importância da cobertura de código no contexto da Integração Contínua e demonstraremos como configurar o GitHub Actions para gerar relatórios de cobertura de código como parte do seu pipeline de CI.
-### Introduction to Code Coverage
+### Introdução à Cobertura de Código
 A cobertura de código é uma métrica que quantifica o grau em que o código-fonte de um programa é testado por um conjunto de testes específico. Geralmente é expressa como uma porcentagem e representa a proporção de linhas de código, ramificações, funções ou outras unidades lógicas que foram executadas durante o processo de teste. A cobertura de código fornece insights valiosos sobre a eficácia do seu conjunto de testes, destacando áreas do código que podem não ser testadas adequadamente e potencialmente abrigando bugs ou problemas não descobertos.
 
 Ao medir a cobertura de código, os desenvolvedores podem identificar lacunas em sua cobertura de teste e priorizar a criação de novos testes para garantir que a funcionalidade crítica seja completamente testada. É importante observar, no entanto, que uma alta porcentagem de cobertura de código não garante a ausência de bugs ou a qualidade geral do software.
@@ -3731,55 +3990,58 @@ Ao medir a cobertura de código, os desenvolvedores podem identificar lacunas em
 Outros fatores, como a minúcia dos próprios testes, também desempenham um papel crucial na confiabilidade e na manutenibilidade da base de código.
 No contexto da Integração Contínua, a cobertura de código serve como uma métrica útil para monitorar a eficácia contínua do seu conjunto de testes e orientar melhorias na sua estratégia de testes.
 
-### Importance of Code Coverage in CI
+### Importância da cobertura de código em CI
 A cobertura de código desempenha um papel crucial na Integração Contínua (CI) por vários motivos:
+
 - [x] Detecção precoce de código não testado: Ao medir regularmente a cobertura de código como parte do seu pipeline de CI, você pode identificar rapidamente áreas do código que não foram suficientemente testadas. Isso permite que os desenvolvedores abordem problemas potenciais antes que se tornem problemas mais significativos e ajuda a manter uma base de código robusta e confiável.
 - [x] Monitoramento da eficácia do conjunto de testes: As métricas de cobertura de código fornecem insights sobre a eficácia geral do seu conjunto de testes, garantindo que ele continue a fornecer cobertura adequada conforme a base de código evolui. Isso permite que os desenvolvedores tomem decisões informadas sobre onde concentrar seus esforços de teste, garantindo que as partes mais críticas do código sejam completamente testadas.
 - [x] Qualidade de código aprimorada: Um conjunto de testes abrangente, combinado com análise regular de cobertura de código, incentiva os desenvolvedores a escrever código mais limpo e modular, mais fácil de testar e manter. Isso resulta em uma base de código de maior qualidade com menos bugs e problemas.
 - [x] Maior confiança nas alterações de código: Ao manter um alto nível de cobertura de código, os desenvolvedores podem ter maior confiança de que suas alterações não introduzirão novos bugs ou regressões. Isso pode levar a ciclos de desenvolvimento mais rápidos e melhor colaboração entre os membros da equipe, pois há menos risco associado a fazer alterações no código.
-- [ ] Responsabilidade e visibilidade: Integrar métricas de cobertura de código em seu pipeline de CI fornece uma medida transparente e objetiva da eficácia do conjunto de testes. Isso pode ajudar a estabelecer expectativas claras e responsabilidade para a equipe, garantindo que os testes permaneçam uma prioridade durante todo o processo de desenvolvimento.
+- [x] Responsabilidade e visibilidade: Integrar métricas de cobertura de código em seu pipeline de CI fornece uma medida transparente e objetiva da eficácia do conjunto de testes. Isso pode ajudar a estabelecer expectativas claras e responsabilidade para a equipe, garantindo que os testes permaneçam uma prioridade durante todo o processo de desenvolvimento.
 
 Em resumo, a cobertura de código é um aspecto essencial da implementação da Integração Contínua, pois ajuda a garantir uma base de código confiável e de alta qualidade.
+
 Ao medir e monitorar regularmente a cobertura de código como parte de seu pipeline de CI, você pode identificar lacunas em sua cobertura de teste, priorizar os esforços de teste e manter um conjunto de testes abrangente que minimiza o risco de bugs e regressões.
 
-### Choosing a Code Coverage Tool
+### Escolhendo uma ferramenta de cobertura de código
 Selecionar a ferramenta de cobertura de código certa para seu projeto é uma decisão importante, pois impactará a eficácia com que você pode medir e monitorar o desempenho do seu conjunto de testes. Há vários fatores a serem considerados ao escolher uma ferramenta de cobertura de código:
-- [x] Suporte a idiomas: certifique-se de que a ferramenta suporte as linguagens de programação usadas em seu projeto. Diferentes ferramentas atendem a diferentes idiomas e algumas fornecem suporte para vários idiomas. Por exemplo, JaCoCo é uma escolha popular para projetos Java, enquanto Istanbul é comumente usado para projetos Java-Script.
-- [x] Integração com estruturas de teste: verifique se a ferramenta é compatível com suas estruturas de teste escolhidas e pode ser facilmente integrada à sua configuração de teste existente. O ideal é que a ferramenta forneça integração perfeita com configuração mínima necessária.
 
-- [x] Integração com pipelines de CI/CD: a ferramenta de cobertura de código deve ser compatível com sua plataforma de CI/CD, permitindo que você incorpore facilmente a análise de cobertura de código em seu pipeline. Muitas ferramentas oferecem plug-ins pré-construídos ou integrações para plataformas populares de CI/CD, como GitHub Actions, Jenkins ou GitLab CI.
-- [x] Métricas de cobertura: Diferentes ferramentas podem oferecer métricas de cobertura variadas, como cobertura de linha, cobertura de ramificação, cobertura de declaração ou cobertura de função. Escolha uma ferramenta que forneça as métricas mais relevantes para as necessidades do seu projeto e da equipe.
-- [x] Recursos de relatórios: Considere os recursos de relatórios oferecidos pela ferramenta, como a capacidade de gerar relatórios detalhados e legíveis por humanos ou exportar dados de cobertura em vários formatos (por exemplo, XML, JSON ou HTML). Uma boa ferramenta de cobertura de código deve fornecer insights claros e acionáveis sobre o desempenho do seu conjunto de testes.
-- [x] Facilidade de uso e configuração: Avalie a facilidade de uso e configuração da ferramenta, particularmente em termos de configuração de limites de cobertura, geração de relatórios e visualização de dados de cobertura. Uma ferramenta amigável com documentação abrangente tornará mais fácil para sua equipe adotar e manter um processo de cobertura de código robusto.
-- [x] Comunidade e suporte: Por fim, considere a comunidade e os recursos de suporte da ferramenta. Uma ferramenta com uma comunidade ativa e desenvolvimento contínuo tem mais probabilidade de receber atualizações regulares, correções de bugs e novos recursos.
+- [x] **Suporte a Linguagem**: Certifique-se de que a ferramenta suporte as linguagens de programação usadas em seu projeto. Diferentes ferramentas atendem a diferentes idiomas e algumas fornecem suporte para vários idiomas. Por exemplo, JaCoCo é uma escolha popular para projetos Java, enquanto Istanbul é comumente usado para projetos Java-Script.
+- [x] **Integração com estruturas de teste**: verifique se a ferramenta é compatível com suas estruturas de teste escolhidas e pode ser facilmente integrada à sua configuração de teste existente. O ideal é que a ferramenta forneça integração perfeita com configuração mínima necessária.
+- [x] **Integração com pipelines de CI/CD**: A ferramenta de cobertura de código deve ser compatível com sua plataforma de CI/CD, permitindo que você incorpore facilmente a análise de cobertura de código em seu pipeline. Muitas ferramentas oferecem plug-ins pré-construídos ou integrações para plataformas populares de CI/CD, como GitHub Actions, Jenkins ou GitLab CI.
+- [x] **Métricas de cobertura**: Diferentes ferramentas podem oferecer métricas de cobertura variadas, como cobertura de linha, cobertura de ramificação, cobertura de declaração ou cobertura de função. Escolha uma ferramenta que forneça as métricas mais relevantes para as necessidades do seu projeto e da equipe.
+- [x] **Recursos de relatórios**: Considere os recursos de relatórios oferecidos pela ferramenta, como a capacidade de gerar relatórios detalhados e legíveis por humanos ou exportar dados de cobertura em vários formatos (por exemplo, XML, JSON ou HTML). Uma boa ferramenta de cobertura de código deve fornecer insights claros e acionáveis sobre o desempenho do seu conjunto de testes.
+- [x] **Facilidade de uso e configuração**: Avalie a facilidade de uso e configuração da ferramenta, particularmente em termos de configuração de limites de cobertura, geração de relatórios e visualização de dados de cobertura. Uma ferramenta amigável com documentação abrangente tornará mais fácil para sua equipe adotar e manter um processo de cobertura de código robusto.
+- [x] **Comunidade e suporte**: Por fim, considere a comunidade e os recursos de suporte da ferramenta. Uma ferramenta com uma comunidade ativa e desenvolvimento contínuo tem mais probabilidade de receber atualizações regulares, correções de bugs e novos recursos.
 
 Ao avaliar cuidadosamente os requisitos do seu projeto e considerar esses fatores, você pode escolher uma ferramenta de cobertura de código que o ajudará a monitorar e melhorar efetivamente o desempenho do seu conjunto de testes no contexto da Integração Contínua.
 
-### Integrating Code Coverage Tools with GitHub Actions
+### Integrando ferramentas de cobertura de código com ações do GitHub
 Integrar uma ferramenta de cobertura de código com o GitHub Actions permite automatizar a análise de cobertura de código como parte do seu pipeline de CI/CD. Nesta seção, discutiremos as etapas gerais para integrar ferramentas de cobertura de código com o GitHub Actions. Observe que as etapas específicas podem variar dependendo da linguagem, estrutura de teste e ferramenta de cobertura de código que você está usando.
-- [x] Instale a ferramenta de cobertura de código: primeiro, certifique-se de que a ferramenta de cobertura de código esteja instalada e configurada no seu projeto. Isso pode envolver adicioná-la como uma dependência no seu gerenciador de pacotes (por exemplo, npm, pip ou Maven) ou baixá-la e instalá-la manualmente.
-- [x] Configure a estrutura de teste: em seguida, configure sua estrutura de teste para gerar dados de cobertura de código durante a execução do teste. Isso pode envolver modificar o comando test ou adicionar opções de configuração ao seu executor de teste. Por exemplo, se você estiver usando o Jest para testes de JavaScript, poderá adicionar o sinalizador --coverage ao seu comando Jest.
-- [x] Crie um fluxo de trabalho do GitHub Actions: se você ainda não tiver um, crie um fluxo de trabalho do GitHub Actions no seu repositório adicionando um diretório .github/workflows e criando um arquivo YAML dentro dele (por exemplo, ci.yml). Neste arquivo de fluxo de trabalho, defina as etapas necessárias para instalar dependências, construir seu projeto e executar testes.
-- [x] Adicione análise de cobertura de código ao fluxo de trabalho: no seu fluxo de trabalho do GitHub Actions, adicione uma etapa para executar a análise de cobertura de código após seus testes terem sido executados. Dependendo da ferramenta de cobertura de código, isso pode envolver a execução de um comando separado ou a adição de um sinalizador ao seu comando de teste existente. Por exemplo, se você estiver usando o Istanbul para cobertura de código JavaScript, você pode adicionar a seguinte etapa:
+
+- [x] **Instale a ferramenta de cobertura de código**: Primeiro, certifique-se de que a ferramenta de cobertura de código esteja instalada e configurada no seu projeto. Isso pode envolver adicioná-la como uma dependência no seu gerenciador de pacotes (por exemplo, npm, pip ou Maven) ou baixá-la e instalá-la manualmente.
+- [x] **Configure a estrutura de teste**: em seguida, configure sua estrutura de teste para gerar dados de cobertura de código durante a execução do teste. Isso pode envolver modificar o comando test ou adicionar opções de configuração ao seu executor de teste. Por exemplo, se você estiver usando o Jest para testes de JavaScript, poderá adicionar o sinalizador --coverage ao seu comando Jest.
+- [x] **Crie um fluxo de trabalho do GitHub Actions**: se você ainda não tiver um, crie um fluxo de trabalho do GitHub Actions no seu repositório adicionando um diretório .github/workflows e criando um arquivo YAML dentro dele (por exemplo, ci.yml). Neste arquivo de fluxo de trabalho, defina as etapas necessárias para instalar dependências, construir seu projeto e executar testes.
+- [x] **Adicione análise de cobertura de código ao fluxo de trabalho**: no seu fluxo de trabalho do GitHub Actions, adicione uma etapa para executar a análise de cobertura de código após seus testes terem sido executados. Dependendo da ferramenta de cobertura de código, isso pode envolver a execução de um comando separado ou a adição de um sinalizador ao seu comando de teste existente. Por exemplo, se você estiver usando o Istanbul para cobertura de código JavaScript, você pode adicionar a seguinte etapa:
 
 ```
 - name: Run code coverage analysis
-run: npm run coverage
+  run: npm run coverage
 ```
 
-- [x] Configurar limites de cobertura (opcional): se desejar, configure sua ferramenta de cobertura de código para impor limites mínimos de cobertura, fazendo com que o pipeline de CI falhe se a cobertura ficar abaixo dos níveis especificados. Isso pode ajudar a garantir que seu conjunto de testes mantenha um alto nível de cobertura ao longo do tempo. Consulte a documentação da sua ferramenta de cobertura de código para obter instruções sobre como configurar limites de cobertura.
-- [x] Gerar e publicar relatórios de cobertura: configure sua ferramenta de cobertura de código para gerar relatórios de cobertura em um formato compatível com o GitHub Actions. Algumas ferramentas de cobertura de código têm suporte integrado para publicar relatórios no GitHub ou integrar com outros serviços de relatórios como Codecov ou Coveralls. Como alternativa, você pode usar GitHub Actions dedicados, como actions/upload-artifact, para armazenar os relatórios gerados como artefatos de fluxo de trabalho.
-- [x] Visualizar dados de cobertura (opcional): Opcionalmente, você pode usar serviços de terceiros como Codecov ou Coveralls para visualizar seus dados de cobertura de código, rastrear tendências de cobertura ao longo do tempo e exibir emblemas de cobertura no arquivo README do seu repositório.
+- [x] **Configurar limites de cobertura (opcional)**: Se desejar, configure sua ferramenta de cobertura de código para impor limites mínimos de cobertura, fazendo com que o pipeline de CI falhe se a cobertura ficar abaixo dos níveis especificados. Isso pode ajudar a garantir que seu conjunto de testes mantenha um alto nível de cobertura ao longo do tempo. Consulte a documentação da sua ferramenta de cobertura de código para obter instruções sobre como configurar limites de cobertura.
+- [x] **Gerar e publicar relatórios de cobertura**: Configure sua ferramenta de cobertura de código para gerar relatórios de cobertura em um formato compatível com o GitHub Actions. Algumas ferramentas de cobertura de código têm suporte integrado para publicar relatórios no GitHub ou integrar com outros serviços de relatórios como Codecov ou Coveralls. Como alternativa, você pode usar GitHub Actions dedicados, como actions/upload-artifact, para armazenar os relatórios gerados como artefatos de fluxo de trabalho.
+- [x] **Visualizar dados de cobertura (opcional)**: Opcionalmente, você pode usar serviços de terceiros como Codecov ou Coveralls para visualizar seus dados de cobertura de código, rastrear tendências de cobertura ao longo do tempo e exibir emblemas de cobertura no arquivo README do seu repositório.
 
 Seguindo essas etapas, você pode integrar a análise de cobertura de código ao seu fluxo de trabalho do GitHub Actions, ajudando a garantir que seu conjunto de testes permaneça eficaz e abrangente à medida que sua base de código evolui.
 
-### Configuring Code Coverage Thresholds
+### Configurando Limites de Cobertura de Código
 Limites de cobertura de código são uma maneira eficaz de garantir que seu conjunto de testes mantenha um alto nível de cobertura ao longo do tempo. Ao definir requisitos mínimos de cobertura, você pode impor um certo padrão de qualidade de código e evitar que código não testado seja mesclado em seu branch principal. Nesta seção, discutiremos o processo geral para configurar limites de cobertura de código. Observe que as etapas específicas podem variar dependendo da linguagem, estrutura de teste e ferramenta de cobertura de código que você está usando.
 
-- [x] Revise a documentação da sua ferramenta de cobertura de código: consulte a documentação da sua ferramenta de cobertura de código específica para entender como configurar limites de cobertura. A maioria das ferramentas oferece uma maneira de especificar níveis mínimos de cobertura, e algumas até permitem que você defina limites diferentes para diferentes métricas de cobertura (por exemplo, cobertura de linha, branch ou função).
-- [x] Decida sobre valores de limite apropriados: determine os níveis mínimos de cobertura que você deseja impor ao seu projeto. Esses valores devem ser realistas e atingíveis, ao mesmo tempo em que promovem alta qualidade de código. Tenha em mente que definir limites muito altos pode ser contraproducente, pois pode desencorajar os desenvolvedores de escrever testes e criar uma barreira para contribuição.
-- [x] Atualize sua configuração de cobertura de código: adicione os valores de limite ao arquivo de configuração ou às configurações da sua ferramenta de cobertura de código. Isso pode envolver a atualização de um arquivo JSON, YAML ou XML, ou a modificação de um argumento de linha de comando ou variável de ambiente. Por exemplo, se você estiver usando Istanbul para cobertura de código JavaScript, você pode adicionar a seguinte configuração ao seu arquivo package.json:
-- [ ]
+- [x] **Revise a documentação da sua ferramenta de cobertura de código**: consulte a documentação da sua ferramenta de cobertura de código específica para entender como configurar limites de cobertura. A maioria das ferramentas oferece uma maneira de especificar níveis mínimos de cobertura, e algumas até permitem que você defina limites diferentes para diferentes métricas de cobertura (por exemplo, cobertura de linha, branch ou função).
+- [x] **Decida sobre valores de limite apropriados**: determine os níveis mínimos de cobertura que você deseja impor ao seu projeto. Esses valores devem ser realistas e atingíveis, ao mesmo tempo em que promovem alta qualidade de código. Tenha em mente que definir limites muito altos pode ser contraproducente, pois pode desencorajar os desenvolvedores de escrever testes e criar uma barreira para contribuição.
+- [x] **Atualize sua configuração de cobertura de código**: adicione os valores de limite ao arquivo de configuração ou às configurações da sua ferramenta de cobertura de código. Isso pode envolver a atualização de um arquivo JSON, YAML ou XML, ou a modificação de um argumento de linha de comando ou variável de ambiente. Por exemplo, se você estiver usando Istanbul para cobertura de código JavaScript, você pode adicionar a seguinte configuração ao seu arquivo package.json:
+- [x]
 ```
 "nyc": {
 }
@@ -3790,77 +4052,84 @@ Limites de cobertura de código são uma maneira eficaz de garantir que seu conj
 "statements": 80
 }
 ```
+
 Esta configuração impõe uma cobertura mínima de 80% para ramificações, funções, linhas e instruções.
-- [x] Integre a imposição de limites ao seu pipeline de CI/CD: garanta que seu pipeline de CI/CD verifique a conformidade do limite de cobertura durante a etapa de análise de cobertura de código. Se os limites não forem atingidos, o pipeline deve falhar, impedindo que as alterações de código sejam mescladas. Isso pode ser feito modificando o comando de cobertura ou adicionando uma etapa separada no seu fluxo de trabalho do GitHub Actions ou outra plataforma de CI/CD.
-- [x] Monitore e ajuste os limites ao longo do tempo: conforme seu projeto evolui, você pode precisar ajustar seus limites de cobertura para refletir as alterações em sua base de código ou estratégia de teste. Revise regularmente suas métricas de cobertura e atualize seus limites conforme necessário para manter um alto padrão de qualidade de código. Ao configurar limites de cobertura de código e aplicá-los como parte do seu pipeline de CI/CD, você pode promover uma cultura de testes completos e ajudar a garantir que sua base de código permaneça robusta e confiável ao longo do tempo.
-### Generating and Publishing Code Coverage Reports
+
+- [x] **Integre a imposição de limites ao seu pipeline de CI/CD**: garanta que seu pipeline de CI/CD verifique a conformidade do limite de cobertura durante a etapa de análise de cobertura de código. Se os limites não forem atingidos, o pipeline deve falhar, impedindo que as alterações de código sejam mescladas. Isso pode ser feito modificando o comando de cobertura ou adicionando uma etapa separada no seu fluxo de trabalho do GitHub Actions ou outra plataforma de CI/CD.
+- [x] **Monitore e ajuste os limites ao longo do tempo**: conforme seu projeto evolui, você pode precisar ajustar seus limites de cobertura para refletir as alterações em sua base de código ou estratégia de teste. Revise regularmente suas métricas de cobertura e atualize seus limites conforme necessário para manter um alto padrão de qualidade de código.
+
+Ao configurar limites de cobertura de código e aplicá-los como parte do seu pipeline de CI/CD, você pode promover uma cultura de testes completos e ajudar a garantir que sua base de código permaneça robusta e confiável ao longo do tempo.
+### Gerando e publicando relatórios de cobertura de código
 Gerar e publicar relatórios de cobertura de código é um aspecto importante para manter a qualidade do código e garantir que seu conjunto de testes permaneça abrangente. Os relatórios de cobertura fornecem insights valiosos sobre o quão bem seu código é testado e podem ajudar a identificar áreas que precisam de melhorias. Nesta seção, discutiremos o processo geral para gerar e publicar relatórios de cobertura de código. Observe que as etapas específicas podem variar dependendo da linguagem, estrutura de teste e ferramenta de cobertura de código que você está usando.
 
-- [x] Configure sua ferramenta de cobertura de código para gerar relatórios: a maioria das ferramentas de cobertura de código oferece suporte à geração de relatórios em vários formatos, como HTML, JSON, XML ou texto. Verifique a documentação da sua ferramenta de cobertura de código para entender como configurar o formato de saída e especificar o diretório de saída para os relatórios gerados.
-- [x] Execute seu conjunto de testes com a cobertura de código habilitada: execute seu conjunto de testes com a ferramenta de cobertura de código configurada para gerar o formato de relatório desejado. Isso pode envolver a execução de um comando específico ou a adição de um sinalizador ao seu comando de teste existente. Por exemplo, se você estiver usando o Jest para testes de JavaScript, poderá adicionar o sinalizador --coverage ao seu comando Jest.
-- [x] Revise os relatórios gerados localmente: depois de executar o conjunto de testes com a cobertura de código habilitada, revise os relatórios gerados localmente para garantir que estejam precisos e completos. Se necessário, ajuste a configuração da sua ferramenta de cobertura de código para capturar dados adicionais ou modificar o formato do relatório.
+- [x] **Configure sua ferramenta de cobertura de código para gerar relatórios**: a maioria das ferramentas de cobertura de código oferece suporte à geração de relatórios em vários formatos, como HTML, JSON, XML ou texto. Verifique a documentação da sua ferramenta de cobertura de código para entender como configurar o formato de saída e especificar o diretório de saída para os relatórios gerados.
+- [x] **Execute seu conjunto de testes com a cobertura de código habilitada**: execute seu conjunto de testes com a ferramenta de cobertura de código configurada para gerar o formato de relatório desejado. Isso pode envolver a execução de um comando específico ou a adição de um sinalizador ao seu comando de teste existente. Por exemplo, se você estiver usando o Jest para testes de JavaScript, poderá adicionar o sinalizador --coverage ao seu comando Jest.
+- [x] **Revise os relatórios gerados localmente**: depois de executar o conjunto de testes com a cobertura de código habilitada, revise os relatórios gerados localmente para garantir que estejam precisos e completos. Se necessário, ajuste a configuração da sua ferramenta de cobertura de código para capturar dados adicionais ou modificar o formato do relatório.
 
-- [ ] Publique relatórios de cobertura no GitHub ou em um serviço de terceiros: depois de gerar os relatórios de cobertura de código desejados, você pode publicá-los no GitHub ou integrá-los a serviços de terceiros como Codecov ou Coveralls. Algumas ferramentas de cobertura de código têm suporte integrado para publicar relatórios no GitHub ou integrar-se a esses serviços. Como alternativa, você pode usar GitHub Actions dedicados ou outras integrações de plataforma CI/CD para carregar os relatórios gerados. Por exemplo, para publicar um relatório de cobertura HTML no GitHub Pages, você pode usar a ação peaceiris/actions-gh-pages no seu fluxo de trabalho GitHub Actions.
+- [x] **Publique relatórios de cobertura no GitHub ou em um serviço de terceiros**: depois de gerar os relatórios de cobertura de código desejados, você pode publicá-los no GitHub ou integrá-los a serviços de terceiros como Codecov ou Coveralls. Algumas ferramentas de cobertura de código têm suporte integrado para publicar relatórios no GitHub ou integrar-se a esses serviços. Como alternativa, você pode usar GitHub Actions dedicados ou outras integrações de plataforma CI/CD para carregar os relatórios gerados. Por exemplo, para publicar um relatório de cobertura HTML no GitHub Pages, você pode usar a ação peaceiris/actions-gh-pages no seu fluxo de trabalho GitHub Actions.
 
-- [x] Visualize dados de cobertura e acompanhe tendências: serviços de terceiros como Codecov ou Coveralls oferecem recursos adicionais para visualizar seus dados de cobertura de código, acompanhar tendências de cobertura ao longo do tempo e exibir emblemas de cobertura no arquivo README do seu repositório. Ao integrar esses serviços com seu fluxo de trabalho do GitHub Actions ou outra plataforma de CI/CD, você pode obter insights mais profundos sobre a qualidade do código do seu projeto e tomar decisões baseadas em dados sobre sua estratégia de teste.
+- [x] **Visualize dados de cobertura e acompanhe tendências**: serviços de terceiros como Codecov ou Coveralls oferecem recursos adicionais para visualizar seus dados de cobertura de código, acompanhar tendências de cobertura ao longo do tempo e exibir emblemas de cobertura no arquivo README do seu repositório. Ao integrar esses serviços com seu fluxo de trabalho do GitHub Actions ou outra plataforma de CI/CD, você pode obter insights mais profundos sobre a qualidade do código do seu projeto e tomar decisões baseadas em dados sobre sua estratégia de teste.
 
 Ao seguir essas etapas, você pode gerar e publicar relatórios de cobertura de código como parte do seu pipeline de CI/CD, ajudando a garantir que seu conjunto de testes permaneça abrangente e eficaz ao longo do tempo. Além disso, a integração com serviços de terceiros pode fornecer insights valiosos sobre a qualidade do código do seu projeto e orientar os esforços da sua equipe para manter altos níveis de cobertura.
 
-### Visualizing Code Coverage Data
+### Visualizando dados de cobertura de código
 A visualização eficaz dos dados de cobertura de código é crucial para entender a qualidade e a abrangência do seu conjunto de testes. Ao apresentar dados de cobertura em um formato de fácil digestão, você pode identificar rapidamente áreas da sua base de código que precisam de mais testes e acompanhar seu progresso em direção ao cumprimento de suas metas de cobertura. Nesta seção, discutiremos diferentes maneiras de visualizar dados de cobertura de código, incluindo formatos de relatórios locais e serviços de terceiros.
 
-- [x] Formatos de relatórios locais: a maioria das ferramentas de cobertura de código oferece vários formatos para gerar relatórios de cobertura localmente. Esses formatos podem incluir relatórios HTML, JSON, XML ou baseados em texto. Os relatórios HTML são particularmente úteis para visualizar dados de cobertura de código, pois geralmente fornecem uma interface interativa para explorar sua base de código com métricas de cobertura exibidas junto com o código-fonte. Para visualizar um relatório de cobertura HTML, basta abrir o arquivo index.html gerado no seu navegador da web.
-- [x] Emblemas de cobertura: Um emblema de cobertura é um pequeno gráfico que exibe a porcentagem de cobertura de código atual do seu projeto. Emblemas de cobertura podem ser adicionados ao arquivo README do seu repositório ou outra documentação do projeto para fornecer um resumo visual rápido do status da cobertura do seu código. Serviços de terceiros como Codecov ou Coveralls podem gerar emblemas de cobertura automaticamente para o seu projeto, e você pode incorporar esses emblemas na sua documentação usando Markdown ou HTML.
+- [x] **Formatos de relatórios locais**: a maioria das ferramentas de cobertura de código oferece vários formatos para gerar relatórios de cobertura localmente. Esses formatos podem incluir relatórios HTML, JSON, XML ou baseados em texto. Os relatórios HTML são particularmente úteis para visualizar dados de cobertura de código, pois geralmente fornecem uma interface interativa para explorar sua base de código com métricas de cobertura exibidas junto com o código-fonte. Para visualizar um relatório de cobertura HTML, basta abrir o arquivo index.html gerado no seu navegador da web.
+- [x] **Emblemas de cobertura**: Um emblema de cobertura é um pequeno gráfico que exibe a porcentagem de cobertura de código atual do seu projeto. Emblemas de cobertura podem ser adicionados ao arquivo README do seu repositório ou outra documentação do projeto para fornecer um resumo visual rápido do status da cobertura do seu código. Serviços de terceiros como Codecov ou Coveralls podem gerar emblemas de cobertura automaticamente para o seu projeto, e você pode incorporar esses emblemas na sua documentação usando Markdown ou HTML.
 
-- [x] Serviços de terceiros: Serviços como Codecov ou Coveralls oferecem recursos de visualização poderosos para analisar seus dados de cobertura de código. Esses serviços podem ser integrados ao seu repositório GitHub e pipeline de CI/CD, permitindo que você rastreie tendências de cobertura ao longo do tempo, compare alterações de cobertura entre confirmações e receba notificações quando os níveis de cobertura mudarem. Ao se inscrever em um desses serviços e integrá-lo ao seu fluxo de trabalho do GitHub Actions ou outra plataforma de CI/CD, você pode obter insights valiosos sobre a qualidade do código do seu projeto e monitorar a eficácia da sua estratégia de teste.
+- [x] **Serviços de terceiros**: Serviços como Codecov ou Coveralls oferecem recursos de visualização poderosos para analisar seus dados de cobertura de código. Esses serviços podem ser integrados ao seu repositório GitHub e pipeline de CI/CD, permitindo que você rastreie tendências de cobertura ao longo do tempo, compare alterações de cobertura entre confirmações e receba notificações quando os níveis de cobertura mudarem. Ao se inscrever em um desses serviços e integrá-lo ao seu fluxo de trabalho do GitHub Actions ou outra plataforma de CI/CD, você pode obter insights valiosos sobre a qualidade do código do seu projeto e monitorar a eficácia da sua estratégia de teste.
 
-- [x] Integrações do GitHub: Algumas ferramentas de cobertura de código oferecem suporte integrado para publicar relatórios de cobertura no GitHub ou exibir dados de cobertura na interface do GitHub. Por exemplo, o pacote Python de cobertura pode ser configurado para gerar relatórios em um formato compatível com o recurso de anotação de código do GitHub, permitindo que você visualize dados de cobertura diretamente na visualização de arquivo do seu repositório. Além disso, você pode usar o GitHub Actions ou outras integrações de plataforma CI/CD para publicar relatórios de cobertura no GitHub Pages ou exibir informações de cobertura em comentários de solicitação de pull.
+- [x] **Integrações do GitHub**: Algumas ferramentas de cobertura de código oferecem suporte integrado para publicar relatórios de cobertura no GitHub ou exibir dados de cobertura na interface do GitHub. Por exemplo, o pacote Python de cobertura pode ser configurado para gerar relatórios em um formato compatível com o recurso de anotação de código do GitHub, permitindo que você visualize dados de cobertura diretamente na visualização de arquivo do seu repositório. Além disso, você pode usar o GitHub Actions ou outras integrações de plataforma CI/CD para publicar relatórios de cobertura no GitHub Pages ou exibir informações de cobertura em comentários de solicitação de pull.
 
 Ao aproveitar esses diferentes métodos de visualização, você pode obter uma melhor compreensão da cobertura de código do seu projeto e tomar decisões informadas sobre onde concentrar seus esforços de teste. A visualização de dados de cobertura de código pode ajudá-lo a manter uma base de código de alta qualidade e garantir que seu conjunto de testes permaneça abrangente e eficaz ao longo do tempo.
 
-### Best Practices for Code Coverage
-A cobertura de código é uma métrica valiosa para avaliar a qualidade e a abrangência do seu conjunto de testes. No entanto, simplesmente almejar altas porcentagens de cobertura sem considerar outros fatores pode levar a uma falsa sensação de confiança na sua estratégia de teste. Nesta seção, discutiremos as melhores práticas para utilizar efetivamente a cobertura de código para melhorar a qualidade geral do seu projeto.
+### Melhores práticas para cobertura de código
+A cobertura de código é uma métrica valiosa para avaliar a qualidade e a abrangência do seu conjunto de testes.
 
-- [x] Almeje uma cobertura significativa: embora uma alta porcentagem de cobertura de código seja desejável, é importante garantir que seus testes estejam genuinamente testando a funcionalidade do seu código, em vez de apenas executar linhas para inflar as métricas de cobertura. Concentre-se em escrever testes que cubram uma variedade de cenários, casos extremos e condições de erro potenciais para garantir que seu código seja robusto e confiável.
+No entanto, simplesmente almejar altas porcentagens de cobertura sem considerar outros fatores pode levar a uma falsa sensação de confiança na sua estratégia de teste. Nesta seção, discutiremos as melhores práticas para utilizar efetivamente a cobertura de código para melhorar a qualidade geral do seu projeto.
 
-- [x] Defina metas de cobertura realistas: definir uma porcentagem de cobertura de código alvo pode ajudar a orientar seus esforços de teste e motivar sua equipe a manter um código de alta qualidade. No entanto, é importante definir metas realistas que levem em consideração a complexidade do seu projeto e os recursos disponíveis para teste. Visar 100% de cobertura pode não ser sempre viável ou econômico, e uma meta mais modesta ainda pode fornecer benefícios significativos para a qualidade do seu projeto.
+- [x] **Almeje uma cobertura significativa**: embora uma alta porcentagem de cobertura de código seja desejável, é importante garantir que seus testes estejam genuinamente testando a funcionalidade do seu código, em vez de apenas executar linhas para inflar as métricas de cobertura. Concentre-se em escrever testes que cubram uma variedade de cenários, casos extremos e condições de erro potenciais para garantir que seu código seja robusto e confiável.
 
-- [x] Use a cobertura como uma ferramenta de diagnóstico: a cobertura de código é mais eficaz quando usada como uma ferramenta de diagnóstico para identificar áreas da sua base de código que precisam de mais testes. Ao analisar seus dados de cobertura e identificar áreas com baixa ou nenhuma cobertura, você pode priorizar seus esforços de teste e garantir que seu conjunto de testes permaneça abrangente ao longo do tempo.
+- [x] **Defina metas de cobertura realistas**: definir uma porcentagem de cobertura de código alvo pode ajudar a orientar seus esforços de teste e motivar sua equipe a manter um código de alta qualidade. No entanto, é importante definir metas realistas que levem em consideração a complexidade do seu projeto e os recursos disponíveis para teste. Visar 100% de cobertura pode não ser sempre viável ou econômico, e uma meta mais modesta ainda pode fornecer benefícios significativos para a qualidade do seu projeto.
 
-- [x] Combine a cobertura com outras métricas de qualidade: a cobertura de código não deve ser a única métrica usada para avaliar a qualidade da sua base de código. Combinar dados de cobertura com outras métricas de qualidade, como resultados de análise estática, complexidade ciclomática e densidade de defeitos, pode fornecer uma visão mais abrangente da saúde geral do seu projeto.
+- [x] **Use a cobertura como uma ferramenta de diagnóstico**: a cobertura de código é mais eficaz quando usada como uma ferramenta de diagnóstico para identificar áreas da sua base de código que precisam de mais testes. Ao analisar seus dados de cobertura e identificar áreas com baixa ou nenhuma cobertura, você pode priorizar seus esforços de teste e garantir que seu conjunto de testes permaneça abrangente ao longo do tempo.
 
-- [x] Monitore as tendências de cobertura ao longo do tempo: rastrear as tendências de cobertura de código ao longo do tempo pode ajudá-lo a identificar áreas do seu projeto que podem precisar de mais atenção e garantir que seu conjunto de testes permaneça eficaz à medida que sua base de código evolui. Integrar relatórios de cobertura de código em seu pipeline de CI/CD e usar serviços de terceiros como Codecov ou Coveralls pode facilitar o monitoramento de tendências de cobertura e receber notificações quando os níveis de cobertura mudarem.
+- [x] **Combine a cobertura com outras métricas de qualidade**: a cobertura de código não deve ser a única métrica usada para avaliar a qualidade da sua base de código. Combinar dados de cobertura com outras métricas de qualidade, como resultados de análise estática, complexidade ciclomática e densidade de defeitos, pode fornecer uma visão mais abrangente da saúde geral do seu projeto.
 
-- [x] Incentive uma cultura de testes: Promova uma cultura de testes dentro de sua equipe, enfatizando a importância da cobertura completa de testes e o valor que ela traz para seu projeto. Incentive os membros da equipe a escrever testes para novos recursos e correções de bugs, e considere incorporar métricas de cobertura de código em seu processo de revisão de código para ajudar a manter altos níveis de cobertura.
+- [x] **Monitore as tendências de cobertura ao longo do tempo**: rastrear as tendências de cobertura de código ao longo do tempo pode ajudá-lo a identificar áreas do seu projeto que podem precisar de mais atenção e garantir que seu conjunto de testes permaneça eficaz à medida que sua base de código evolui. Integrar relatórios de cobertura de código em seu pipeline de CI/CD e usar serviços de terceiros como Codecov ou Coveralls pode facilitar o monitoramento de tendências de cobertura e receber notificações quando os níveis de cobertura mudarem.
+
+- [x] **Incentive uma cultura de testes**: Promova uma cultura de testes dentro de sua equipe, enfatizando a importância da cobertura completa de testes e o valor que ela traz para seu projeto. Incentive os membros da equipe a escrever testes para novos recursos e correções de bugs, e considere incorporar métricas de cobertura de código em seu processo de revisão de código para ajudar a manter altos níveis de cobertura.
 
 Seguindo essas práticas recomendadas, você pode utilizar efetivamente a cobertura de código para melhorar a qualidade da sua base de código e garantir que seu conjunto de testes permaneça abrangente e eficaz.
 
 Lembre-se de que a cobertura de código é apenas um aspecto de uma estratégia de teste robusta e deve ser usada em conjunto com outras métricas de qualidade para manter uma base de código de alta qualidade.
 
-Neste capítulo, exploramos os aspectos essenciais da implementação de um pipeline de Integração Contínua (CI) usando o GitHub Actions. Começamos discutindo a importância dos testes automatizados, qualidade do código e linting, destacando a necessidade de conjuntos de testes robustos e adesão aos padrões de codificação. Em seguida, nos aprofundamos na cobertura e relatórios de código, enfatizando o valor da cobertura significativa e das práticas recomendadas para alavancar dados de cobertura para melhorar a qualidade geral da sua base de código.
-
-Ao implementar o CI com o GitHub Actions, você pode aproveitar uma plataforma poderosa e flexível que se integra perfeitamente aos seus repositórios do GitHub. A capacidade de personalizar seus fluxos de trabalho, integrar ferramentas de terceiros e aproveitar o GitHub Actions Marketplace permite que você crie um pipeline de CI adaptado às necessidades específicas do seu projeto. Como resultado, você pode garantir que sua base de código permaneça de alta qualidade, confiável e sustentável durante todo o seu ciclo de vida.
-
-No futuro, é essencial se manter atualizado com novos recursos, práticas recomendadas e tendências emergentes no mundo do GitHub Actions e CI/CD em geral. A melhoria contínua é um aspecto fundamental do CI e, ao manter suas habilidades e conhecimentos atualizados, você pode continuar a otimizar seus fluxos de trabalho e aprimorar a qualidade do seu projeto ao longo do tempo.
-
 Com uma base sólida em CI usando o GitHub Actions, agora você pode criar, manter e expandir com confiança seu pipeline de CI para atender às necessidades em constante evolução do seu projeto. Ao adotar o CI e seus princípios, você estará no caminho certo para construir um software mais robusto, confiável e de alta qualidade.
 
-### Implementing Continuous Deployment with GitHub Actions
-No Capítulo 8, exploraremos o poderoso conceito de Implantação Contínua (CD) e como você pode implementá-lo usando o GitHub Actions. A Implantação Contínua é a extensão natural da Integração Contínua, permitindo a implantação automática do seu código em vários ambientes sempre que alterações forem enviadas para o branch principal ou uma versão específica for criada. Essa abordagem garante que seu aplicativo esteja sempre atualizado com os recursos mais recentes, correções de bugs e melhorias, permitindo que sua equipe entregue valor de forma mais rápida e consistente.
-Ao longo deste capítulo, discutiremos os principais componentes e estratégias para configurar um pipeline de Implantação Contínua usando o GitHub Actions. Abordaremos tópicos como gerenciamento de ambiente, estratégias de implantação, tratamento de segredos e dados confidenciais e implantação em várias plataformas e serviços, incluindo provedores de nuvem e servidores locais.
+### Implementando a implantação contínua com ações do GitHub
+A Implantação Contínua é a extensão natural da Integração Contínua, permitindo a implantação automática do seu código em vários ambientes sempre que alterações forem enviadas para o branch principal ou uma versão específica for criada.
+
+Essa abordagem garante que seu aplicativo esteja sempre atualizado com os recursos mais recentes, correções de bugs e melhorias, permitindo que sua equipe entregue valor de forma mais rápida e consistente.
+
+Discutiremos os principais componentes e estratégias para configurar um pipeline de Implantação Contínua usando o GitHub Actions.
+
+Abordaremos tópicos como gerenciamento de ambiente, estratégias de implantação, tratamento de segredos e dados confidenciais e implantação em várias plataformas e serviços, incluindo provedores de nuvem e servidores locais.
+
 Além disso, exploraremos as melhores práticas para monitorar e manter seu pipeline de CD, garantindo que suas implantações sejam confiáveis, seguras e eficientes.
 
-Ao final deste capítulo, você terá adquirido uma compreensão abrangente dos princípios e práticas de Implantação Contínua, juntamente com as habilidades necessárias para implementar um pipeline de CD eficaz usando o GitHub Actions.
-Esse conhecimento permitirá que você otimize seu processo de entrega de software, minimize a intervenção manual e melhore a qualidade geral de seus aplicativos implantados.
+### Implantando em plataformas de nuvem
+As plataformas de nuvem oferecem uma variedade de serviços e recursos que podem ajudar você a dimensionar, gerenciar e monitorar seus aplicativos com facilidade.
 
-### Deploying to Cloud Platforms
-Nesta seção, discutiremos a implantação de seus aplicativos em plataformas de nuvem populares usando o GitHub Actions. As plataformas de nuvem oferecem uma variedade de serviços e recursos que podem ajudar você a dimensionar, gerenciar e monitorar seus aplicativos com facilidade. Alguns dos provedores de nuvem mais populares incluem Amazon Web Services (AWS), Microsoft Azure e Google Cloud Platform (GCP). Cada um desses provedores oferece seu próprio conjunto exclusivo de ferramentas, serviços e ecossistemas que podem ser aproveitados para implantar e gerenciar seus aplicativos.
-#### Amazon Web Services (AWS)
+Alguns dos provedores de nuvem mais populares incluem Amazon Web Services (AWS), Microsoft Azure e Google Cloud Platform (GCP).
+
+Cada um desses provedores oferece seu próprio conjunto exclusivo de ferramentas, serviços e ecossistemas que podem ser aproveitados para implantar e gerenciar seus aplicativos.
+#### Serviços Web da Amazon (AWS)
 A AWS é uma plataforma de nuvem abrangente que fornece uma ampla gama de serviços de infraestrutura e plataforma, incluindo computação, armazenamento, bancos de dados, rede e muito mais. A implantação do seu aplicativo na AWS usando o GitHub Actions envolve as seguintes etapas:
 
-- [x] Configurando credenciais da AWS: para autenticar e implantar seu aplicativo na AWS, você precisa criar um usuário do IAM com as permissões necessárias e configurar o GitHub Actions com a chave de acesso e a chave secreta geradas.
-- [x] Configurando serviços da AWS: determine os serviços da AWS que você usará para seu aplicativo, como EC2, Elastic Beanstalk ou Lambda, e configure-os adequadamente.
-- [x] Criando um fluxo de trabalho do GitHub Actions: projete um fluxo de trabalho que crie, teste e implante seu aplicativo no ambiente AWS apropriado. Use as AWS Actions oficiais disponíveis no GitHub Actions Marketplace para interagir com os serviços da AWS. Por exemplo, você pode usar aws-actions/configure-aws-credentials para configurar credenciais da AWS e aws-actions/amazon-ecs-deploy-task-definition para implantar uma tarefa do Amazon ECS.
+- [x] **Configurando credenciais da AWS**: para autenticar e implantar seu aplicativo na AWS, você precisa criar um usuário do IAM com as permissões necessárias e configurar o GitHub Actions com a chave de acesso e a chave secreta geradas.
+- [x] **Configurando serviços da AWS**: determine os serviços da AWS que você usará para seu aplicativo, como EC2, Elastic Beanstalk ou Lambda, e configure-os adequadamente.
+- [x] **Criando um fluxo de trabalho do GitHub Actions**: projete um fluxo de trabalho que crie, teste e implante seu aplicativo no ambiente AWS apropriado. Use as AWS Actions oficiais disponíveis no GitHub Actions Marketplace para interagir com os serviços da AWS. Por exemplo, você pode usar aws-actions/configure-aws-credentials para configurar credenciais da AWS e aws-actions/amazon-ecs-deploy-task-definition para implantar uma tarefa do Amazon ECS.
 
 #### Microsoft Azure
 O Azure é a plataforma de nuvem da Microsoft, que oferece uma variedade de serviços para computação, armazenamento, bancos de dados e redes. Para implantar seu aplicativo no Azure usando o GitHub Actions, siga estas etapas:
@@ -3880,121 +4149,143 @@ Ao automatizar o processo de implantação, você pode garantir que seus aplicat
 
 Lembre-se de seguir as práticas recomendadas, como configurar ambientes separados para cada estágio do seu pipeline de implantação, para minimizar possíveis problemas e manter um processo de implantação estável, seguro e eficiente.
 
-### Deploying to On-Premises Servers
-Nesta seção, discutiremos a implantação de seus aplicativos em servidores locais usando o GitHub Actions. A implantação local se refere à hospedagem de seu aplicativo em seus próprios servidores físicos ou virtuais, em vez de utilizar plataformas de nuvem. Embora a implantação em servidores locais possa exigir mais gerenciamento de infraestrutura em comparação às plataformas de nuvem, ela pode oferecer maior controle sobre sua infraestrutura, segurança aprimorada e possíveis economias de custos.
+### Implantando em servidores locais
+A implantação local se refere à hospedagem de seu aplicativo em seus próprios servidores físicos ou virtuais, em vez de utilizar plataformas de nuvem.
+
+Embora a implantação em servidores locais possa exigir mais gerenciamento de infraestrutura em comparação às plataformas de nuvem, ela pode oferecer maior controle sobre sua infraestrutura, segurança aprimorada e possíveis economias de custos.
 
 Certifique-se de criar um ambiente dedicado para cada estágio do seu pipeline de implantação (desenvolvimento, preparação e produção).
 
-- [x] Preparando sua infraestrutura local
+#### Preparando sua infraestrutura local
 Antes de implantar seu aplicativo em servidores locais, certifique-se de que sua infraestrutura esteja configurada e configurada corretamente. Isso inclui:
-- [x] Provisionamento de servidor: provisione e configure os servidores que você usará para seu aplicativo. Isso pode envolver a configuração de máquinas virtuais, a instalação do sistema operacional e software necessários e a configuração de configurações de rede e firewall.
-- [ ] Configuração do ambiente: crie ambientes separados para cada estágio do seu pipeline de implantação (desenvolvimento, preparação e produção) para minimizar possíveis problemas e manter um processo de implantação estável.
-- [ ] Segurança: garanta que sua infraestrutura esteja segura implementando mecanismos fortes de autenticação e autorização, bem como criptografando a comunicação entre seu aplicativo e suas dependências.
-- [x] Configurando o acesso aos seus servidores locais
-Para implantar seu aplicativo em seus servidores locais usando o GitHub Actions, você precisa estabelecer uma conexão segura entre o executor do GitHub Actions e seus servidores. Isso pode ser alcançado usando vários métodos
-- [ ]SSH: Configure uma conexão SSH entre seu executor do GitHub Actions e seus servidores locais. Gere um par de chaves SSH, adicione a chave pública às chaves autorizadas do seu servidor e armazene a chave privada como um segredo do GitHub. Você pode usar o ssh-action disponível no GitHub Actions Marketplace para executar comandos em seus servidores por meio de SSH.
-- [ ]VPN: Se sua organização usa uma rede privada virtual (VPN), configure o executor do GitHub Actions para se conectar à VPN. Armazene credenciais de VPN e arquivos de configuração como segredos do GitHub e use o openvpn-action do GitHub Actions Marketplace para configurar a conexão VPN.
-- [ ] Executor auto-hospedado: Como alternativa, você pode usar um executor do GitHub Actions auto-hospedado instalado diretamente em seu servidor local ou em sua rede privada. Essa abordagem elimina a necessidade de configurar uma conexão segura entre o executor do GitHub Actions e seu servidor. No entanto, tenha em mente que os corredores auto-hospedados exigem manutenção adicional e considerações de segurança.
-- [ ]
-- [x] Criando um fluxo de trabalho do GitHub Actions para implantação local
+- [x] **Provisionamento de servidor**: Provisione e configure os servidores que você usará para seu aplicativo. Isso pode envolver a configuração de máquinas virtuais, a instalação do sistema operacional e software necessários e a configuração de configurações de rede e firewall.
+- [x] **Configuração do ambiente**: Crie ambientes separados para cada estágio do seu pipeline de implantação (desenvolvimento, homologação e produção) para minimizar possíveis problemas e manter um processo de implantação estável.
+- [x] **Segurança**: Garanta que sua infraestrutura esteja segura implementando mecanismos fortes de autenticação e autorização, bem como criptografando a comunicação entre seu aplicativo e suas dependências.
+#### Configurando o acesso aos seus servidores locais
+Para implantar seu aplicativo em seus servidores locais usando o GitHub Actions, você precisa estabelecer uma conexão segura entre o executor do GitHub Actions e seus servidores. Isso pode ser alcançado usando vários métodos:
+- [x] **SSH**: Configure uma conexão SSH entre seu executor do GitHub Actions e seus servidores locais. Gere um par de chaves SSH, adicione a chave pública às chaves autorizadas do seu servidor e armazene a chave privada como um segredo do GitHub. Você pode usar o ssh-action disponível no GitHub Actions Marketplace para executar comandos em seus servidores por meio de SSH.
+- [x]**VPN**: Se sua organização usa uma rede privada virtual (VPN), configure o executor do GitHub Actions para se conectar à VPN. Armazene credenciais de VPN e arquivos de configuração como segredos do GitHub e use o openvpn-action do GitHub Actions Marketplace para configurar a conexão VPN.
+- [x] **Executor auto-hospedado**: Como alternativa, você pode usar um executor do GitHub Actions auto-hospedado instalado diretamente em seu servidor local ou em sua rede privada. Essa abordagem elimina a necessidade de configurar uma conexão segura entre o executor do GitHub Actions e seu servidor. No entanto, tenha em mente que os corredores auto-hospedados exigem manutenção adicional e considerações de segurança.
+#### Criando um fluxo de trabalho do GitHub Actions para implantação local
 Depois que sua infraestrutura estiver preparada e o acesso aos seus servidores locais estiver configurado, crie um fluxo de trabalho do GitHub Actions para criar, testar e implantar seu aplicativo. O fluxo de trabalho deve incluir as seguintes etapas:
-- [ ] Checkout: use a ação actions/checkout para buscar o código-fonte do seu aplicativo.
-- [ ] Build and test: crie e teste seu aplicativo usando ferramentas de construção e estruturas de teste apropriadas. Você pode usar ações disponíveis no GitHub Actions Marketplace para várias linguagens de programação e estruturas, como actions/setup-node para Node.js ou actions/setup-python para Python.
-- [ ] Implantação: implante seu aplicativo em seus servidores locais usando um dos métodos de acesso mencionados anteriormente (SSH, VPN ou executor auto-hospedado). Por exemplo, se você estiver usando SSH, empregue a ação ssh para executar os comandos de implantação em seu servidor.
-- [ ] Notificações: configure notificações para manter sua equipe informada sobre o status de suas implantações. Você pode usar ações como actions-gh-notifier para enviar notificações para sua equipe por e-mail, Slack ou outros canais de comunicação.
-- [ ] Configurações específicas do ambiente: use os segredos e configurações específicos do ambiente do GitHub Actions para gerenciar diferentes configurações para seus ambientes de desenvolvimento, preparação e produção. Isso ajuda a manter uma separação limpa entre ambientes e garante que dados confidenciais, como chaves de API ou credenciais de banco de dados, não sejam expostos acidentalmente.
-- [x] Manutenção e monitoramento de sua implantação
+- [x] **Configurações específicas do ambiente**: Use os segredos e configurações específicos do ambiente do GitHub Actions para gerenciar diferentes configurações para seus ambientes de desenvolvimento, preparação e produção. Isso ajuda a manter uma separação limpa entre ambientes e garante que dados confidenciais, como chaves de API ou credenciais de banco de dados, não sejam expostos acidentalmente.
+- [x] **Checkout**: Use a ação actions/checkout para buscar o código-fonte do seu aplicativo.
+- [x] **Build and test**: Crie e teste seu aplicativo usando ferramentas de construção e estruturas de teste apropriadas. Você pode usar ações disponíveis no GitHub Actions Marketplace para várias linguagens de programação e estruturas, como actions/setup-node para Node.js ou actions/setup-python para Python.
+- [x] **Implantação**: Implante seu aplicativo em seus servidores locais usando um dos métodos de acesso mencionados anteriormente (SSH, VPN ou executor auto-hospedado). Por exemplo, se você estiver usando SSH, empregue a ação ssh para executar os comandos de implantação em seu servidor.
+- [x] **Notificações**: Configure notificações para manter sua equipe informada sobre o status de suas implantações. Você pode usar ações como actions-gh-notifier para enviar notificações para sua equipe por e-mail, Slack ou outros canais de comunicação.
+#### Manutenção e monitoramento de sua implantação
 Após implantar com sucesso seu aplicativo em seus servidores locais, é importante monitorar e manter sua infraestrutura para garantir desempenho, segurança e confiabilidade ideais. Isso pode envolver:
-- [ ] Monitoramento: implemente ferramentas de monitoramento para rastrear o desempenho do seu aplicativo, o uso de recursos e possíveis erros. Ferramentas como Prometheus, Grafana e ELK Stack (Elasticsearch, Logstash e Kibana) podem fornecer insights valiosos sobre a saúde do seu aplicativo e ajudar a identificar e resolver problemas rapidamente.
-- [ ] Registro: garanta que seu aplicativo e infraestrutura gerem registros abrangentes que podem ser facilmente acessados e analisados. Configure soluções de registro centralizadas, como ELK Stack ou Graylog, para agregar registros de várias fontes e facilitar a pesquisa, visualização e análise de dados de registro.
-- [ ] Alerta: configure mecanismos de alerta para notificar sua equipe sobre possíveis problemas, como erros de aplicativo, restrições de recursos ou incidentes de segurança. Ferramentas como PagerDuty, Opsgenie ou VictorOps podem ajudar a gerenciar e responder a alertas de forma eficaz.
-- [ ] Backup e recuperação de desastres: estabeleça planos de backup e recuperação de desastres para proteger seu aplicativo e dados contra possíveis perdas ou corrupção. Faça backup regularmente de seus dados e teste seus procedimentos de recuperação para garantir que funcionem conforme o esperado.
-- [ ] Melhoria contínua: avalie e melhore continuamente seu processo de implantação incorporando feedback de sua equipe, aprendendo com incidentes e mantendo-se atualizado com as melhores práticas e novas tecnologias.
+- [x] **Monitoramento**: Implemente ferramentas de monitoramento para rastrear o desempenho do seu aplicativo, o uso de recursos e possíveis erros. Ferramentas como Prometheus, Grafana e ELK Stack (Elasticsearch, Logstash e Kibana) podem fornecer insights valiosos sobre a saúde do seu aplicativo e ajudar a identificar e resolver problemas rapidamente.
+- [x] **Registro de Logs**: Garanta que seu aplicativo e infraestrutura gerem registros abrangentes que podem ser facilmente acessados e analisados. Configure soluções de registro centralizadas, como ELK Stack ou Graylog, para agregar registros de várias fontes e facilitar a pesquisa, visualização e análise de dados de registro.
+- [x] **Alertas**: Configure mecanismos de alerta para notificar sua equipe sobre possíveis problemas, como erros de aplicativo, restrições de recursos ou incidentes de segurança. Ferramentas como PagerDuty, Opsgenie ou VictorOps podem ajudar a gerenciar e responder a alertas de forma eficaz.
+- [x] **Backup e Recuperação de Desastres**: Estabeleça planos de backup e recuperação de desastres para proteger seu aplicativo e dados contra possíveis perdas ou corrupção. Faça backup regularmente de seus dados e teste seus procedimentos de recuperação para garantir que funcionem conforme o esperado.
+- [x] **Melhoria Contínua**: Avalie e melhore continuamente seu processo de implantação incorporando feedback de sua equipe, aprendendo com incidentes e mantendo-se atualizado com as melhores práticas e novas tecnologias.
 
-Concluindo, a implantação em servidores locais usando o GitHub Actions pode oferecer várias vantagens, incluindo maior controle, segurança e potencial economia de custos. Ao preparar cuidadosamente sua infraestrutura, configurar acesso seguro e criar um fluxo de trabalho de implantação eficiente, você pode agilizar o processo de implantação e garantir que seu aplicativo permaneça com desempenho, confiável e seguro. Além disso, implementar estratégias de monitoramento, registro, alerta e backup ajudará você a manter a integridade de sua infraestrutura local e permitirá que você responda rapidamente a quaisquer problemas que possam surgir. Ao avaliar e melhorar continuamente seu processo de implantação, você pode garantir que sua estratégia de implantação local permaneça eficaz e eficiente, permitindo que sua equipe se concentre no desenvolvimento e na entrega de software de alta qualidade para seus usuários.
-### Deploying Static Websites and GitHub Pages
-- [x] Introdução
-Implantar sites estáticos e GitHub Pages com GitHub Actions é uma maneira poderosa e eficiente de automatizar o processo de construção e implantação para seus projetos web. Sites estáticos oferecem várias vantagens sobre os dinâmicos, incluindo tempos de carregamento mais rápidos, melhor segurança e carga reduzida do servidor. GitHub Pages é uma plataforma de hospedagem popular que permite hospedar sites estáticos diretamente de um repositório GitHub. Nesta seção, exploraremos como usar GitHub Actions para automatizar a implantação de sites estáticos e GitHub Pages.
-- [x] Geradores de sites estáticos
-Geradores de sites estáticos são ferramentas que convertem arquivos de origem, normalmente escritos em Markdown ou outras linguagens de marcação, em arquivos HTML, CSS e JavaScript estáticos. Alguns geradores de sites estáticos populares incluem Jekyll, Hugo e Gatsby. Esses geradores oferecem vários recursos, como modelos, organização de conteúdo e suporte para plug-ins personalizados, o que facilita a criação e o gerenciamento de sites estáticos.
-- [ ] Escolhendo um gerador de site estático: Selecione um gerador de site estático que melhor se adapte às necessidades e requisitos do seu projeto. Considere fatores como facilidade de uso, desempenho, suporte da comunidade e plugins disponíveis ao tomar sua decisão.
-- [ ] Integrando com GitHub Actions: Depois de escolher um gerador de site estático, crie um fluxo de trabalho GitHub Actions para automatizar o processo de construção. Isso normalmente envolve instalar as dependências necessárias, executar o comando de construção e gerar os arquivos estáticos. Você pode encontrar ações pré-construídas para geradores de site estáticos populares no GitHub Actions Marketplace, como actions/setup-node para Gatsby, actions/setup-ruby para Jekyll e actions/setup-hugo para Hugo.
-- [x] Implantando no GitHub Pages
+Concluindo, a implantação em servidores locais usando o GitHub Actions pode oferecer várias vantagens, incluindo maior controle, segurança e potencial economia de custos.
+
+Ao preparar cuidadosamente sua infraestrutura, configurar acesso seguro e criar um fluxo de trabalho de implantação eficiente, você pode agilizar o processo de implantação e garantir que seu aplicativo permaneça com desempenho, confiável e seguro.
+
+Além disso, implementar estratégias de monitoramento, registro, alerta e backup ajudará você a manter a integridade de sua infraestrutura local e permitirá que você responda rapidamente a quaisquer problemas que possam surgir.
+
+Ao avaliar e melhorar continuamente seu processo de implantação, você pode garantir que sua estratégia de implantação local permaneça eficaz e eficiente, permitindo que sua equipe se concentre no desenvolvimento e na entrega de software de alta qualidade para seus usuários.
+
+### Implantando sites estáticos e páginas do GitHub
+#### Introdução
+Sites estáticos oferecem várias vantagens sobre os dinâmicos, incluindo tempos de carregamento mais rápidos, melhor segurança e carga reduzida do servidor. GitHub Pages é uma plataforma de hospedagem popular que permite hospedar sites estáticos diretamente de um repositório GitHub.
+#### Geradores de sites estáticos
+Geradores de sites estáticos são ferramentas que convertem arquivos de origem, normalmente escritos em Markdown ou outras linguagens de marcação, em arquivos HTML, CSS e JavaScript estáticos. Alguns geradores de sites estáticos populares incluem Jekyll, MkDocs, Hugo e Gatsby. Esses geradores oferecem vários recursos, como modelos, organização de conteúdo e suporte para plug-ins personalizados, o que facilita a criação e o gerenciamento de sites estáticos.
+- [x] **Escolhendo um gerador de site estático**: Selecione um gerador de site estático que melhor se adapte às necessidades e requisitos do seu projeto. Considere fatores como facilidade de uso, desempenho, suporte da comunidade e plugins disponíveis ao tomar sua decisão.
+- [x] **Integrando com GitHub Actions**: Depois de escolher um gerador de site estático, crie um fluxo de trabalho GitHub Actions para automatizar o processo de construção. Isso normalmente envolve instalar as dependências necessárias, executar o comando de construção e gerar os arquivos estáticos. Você pode encontrar ações pré-construídas para geradores de site estáticos populares no GitHub Actions Marketplace, como actions/setup-node para Gatsby, actions/setup-ruby para Jekyll e actions/setup-hugo para Hugo.
+#### Implantando no GitHub Pages
 O GitHub Pages fornece uma maneira fácil de hospedar sites estáticos diretamente do seu repositório GitHub. Para implantar seu site estático no GitHub Pages usando GitHub Actions, siga estas etapas:
-    - [ ] Configurar GitHub Pages: Nas configurações do seu repositório GitHub, habilite GitHub Pages selecionando o branch e o diretório onde seus arquivos estáticos serão armazenados. Normalmente, esse é o branch gh-pages ou o diretório docs no branch principal.
-    - [ ] Criar um fluxo de trabalho GitHub Actions: Crie um novo fluxo de trabalho GitHub Actions para automatizar o processo de construção e implantação. O fluxo de trabalho deve incluir etapas para verificar o código-fonte, instalar as dependências necessárias, construir os arquivos estáticos e implantá-los no branch ou diretório GitHub Pages.
-    - [ ] Usar a ação GitHub Pages Deploy: Para simplificar o processo de implantação, você pode usar a ação peaceiris/actions-gh-pages, que manipula automaticamente a implantação de seus arquivos estáticos no branch ou diretório GitHub Pages configurado. Configure a ação com as entradas necessárias, como o diretório de construção, branch e token GitHub.
-    - [ ] Domínios personalizados e SSL: Se você quiser usar um domínio personalizado para seu site GitHub Pages, configure as configurações de domínio em seu repositório e atualize os registros DNS do seu domínio adequadamente. O GitHub Pages fornece certificados SSL gratuitos para domínios personalizados, garantindo conexões seguras para seus usuários.
-
-- [x] Implantando em outras plataformas de hospedagem estática
+- [x] **Configurar GitHub Pages**: Nas configurações do seu repositório GitHub, habilite GitHub Pages selecionando o branch e o diretório onde seus arquivos estáticos serão armazenados. Normalmente, esse é o branch gh-pages ou o diretório docs no branch principal.
+- [x] **Criar um fluxo de trabalho GitHub Actions**: Crie um novo fluxo de trabalho GitHub Actions para automatizar o processo de construção e implantação. O fluxo de trabalho deve incluir etapas para verificar o código-fonte, instalar as dependências necessárias, construir os arquivos estáticos e implantá-los no branch ou diretório GitHub Pages.
+- [x] **Usar a ação GitHub Pages Deploy**: Para simplificar o processo de implantação, você pode usar a ação peaceiris/actions-gh-pages, que manipula automaticamente a implantação de seus arquivos estáticos no branch ou diretório GitHub Pages configurado. Configure a ação com as entradas necessárias, como o diretório de construção, branch e token GitHub.
+- [x] **Domínios personalizados e SSL**: Se você quiser usar um domínio personalizado para seu site GitHub Pages, configure as configurações de domínio em seu repositório e atualize os registros DNS do seu domínio adequadamente. O GitHub Pages fornece certificados SSL gratuitos para domínios personalizados, garantindo conexões seguras para seus usuários.
+#### Implantando em outras plataformas de hospedagem estática
 Além do GitHub Pages, há várias outras plataformas de hospedagem estática disponíveis, como Netlify, Vercel e Firebase Hosting. Para implantar seu site estático nessas plataformas usando GitHub Actions, siga a documentação e as diretrizes da respectiva plataforma.
-    - [ ] Crie um fluxo de trabalho do GitHub Actions: semelhante à implantação no GitHub Pages, crie um novo fluxo de trabalho do GitHub Actions para automatizar o processo de construção e implantação para sua plataforma de hospedagem escolhida. O fluxo de trabalho deve incluir etapas para verificar o código-fonte, instalar dependências, construir os arquivos estáticos e implantá-los na plataforma de hospedagem.
-    - [ ] Ações específicas da plataforma: a maioria das plataformas de hospedagem estática oferece GitHub Actions oficiais para simplificar o processo de implantação. Por exemplo, o Netlify fornece as ações netlify/actions/build e netlify/actions/deploy, enquanto o Vercel oferece a ação vercel/action. Use essas ações para integrar seu fluxo de trabalho de implantação com sua plataforma de hospedagem escolhida.
-    - [ ] Gerenciando variáveis de ambiente e segredos: certifique-se de que qualquer informação sensível, como chaves de API ou tokens de acesso, seja armazenada com segurança usando o GitHub Secrets. Você pode então referenciar esses segredos em seu fluxo de trabalho do GitHub Actions para manter a segurança do seu processo de implantação.
+- [x] Crie um fluxo de trabalho do GitHub Actions: semelhante à implantação no GitHub Pages, crie um novo fluxo de trabalho do GitHub Actions para automatizar o processo de construção e implantação para sua plataforma de hospedagem escolhida. O fluxo de trabalho deve incluir etapas para verificar o código-fonte, instalar dependências, construir os arquivos estáticos e implantá-los na plataforma de hospedagem.
+- [x] Ações específicas da plataforma: a maioria das plataformas de hospedagem estática oferece GitHub Actions oficiais para simplificar o processo de implantação. Por exemplo, o Netlify fornece as ações netlify/actions/build e netlify/actions/deploy, enquanto o Vercel oferece a ação vercel/action. Use essas ações para integrar seu fluxo de trabalho de implantação com sua plataforma de hospedagem escolhida.
+- [x] Gerenciando variáveis de ambiente e segredos: certifique-se de que qualquer informação sensível, como chaves de API ou tokens de acesso, seja armazenada com segurança usando o GitHub Secrets. Você pode então referenciar esses segredos em seu fluxo de trabalho do GitHub Actions para manter a segurança do seu processo de implantação.
 
-Concluindo, implantar sites estáticos e GitHub Pages usando GitHub Actions é uma maneira eficiente de automatizar o processo de construção e implantação para seus projetos web. Ao aproveitar o poder dos geradores de sites estáticos e integrar com plataformas de hospedagem populares, você pode garantir uma experiência de implantação perfeita que mantém seu site atualizado e acessível aos seus usuários. Ao seguir as melhores práticas e técnicas descritas nesta seção, você pode criar um fluxo de trabalho simplificado e seguro que permite que sua equipe se concentre no desenvolvimento de conteúdo e recursos de alta qualidade para seu site estático, enquanto o GitHub Actions lida com o processo de implantação nos bastidores.
+Concluindo, implantar sites estáticos e GitHub Pages usando GitHub Actions é uma maneira eficiente de automatizar o processo de construção e implantação para seus projetos web.
 
-Ao aproveitar o poder do GitHub Actions, você pode estabelecer um pipeline robusto de Continuous Deployment que mantém seus aplicativos atualizados, seguros e altamente disponíveis para seus usuários.
+Ao aproveitar o poder dos geradores de sites estáticos e integrar com plataformas de hospedagem populares, você pode garantir uma experiência de implantação perfeita que mantém seu site atualizado e acessível aos seus usuários.
 
 Como resultado, sua equipe pode se concentrar em fornecer recursos e melhorias de alta qualidade, mantendo um ciclo de lançamento rápido, garantindo que seus projetos permaneçam competitivos e responsivos às necessidades em constante mudança de seus usuários.
 
-### Securing and Optimizing Your GitHub Actions Workflows
-À medida que você continua a expandir e refinar seus fluxos de trabalho do GitHub Actions, torna-se cada vez mais importante garantir sua segurança e otimizar seu desempenho. Neste capítulo, exploraremos práticas essenciais para proteger seus fluxos de trabalho e aumentar sua eficiência.
+### Protegendo e otimizando seus fluxos de trabalho do GitHub Actions
+À medida que você continua a expandir e refinar seus fluxos de trabalho do GitHub Actions, torna-se cada vez mais importante garantir sua segurança e otimizar seu desempenho.
 
-Aprofundaremos tópicos como proteger dados confidenciais com segredos, mitigar riscos de segurança e aderir ao princípio do menor privilégio. Além disso, discutiremos as melhores práticas para otimizar seus fluxos de trabalho, reduzir os tempos de compilação e minimizar o consumo de recursos. Ao implementar essas estratégias, você não apenas garantirá a integridade e a confiabilidade do seu pipeline de CI/CD, mas também maximizará sua eficácia.
+Aprofundaremos tópicos como proteger dados confidenciais com segredos, mitigar riscos de segurança e aderir ao princípio do menor privilégio.
+
+Além disso, discutiremos as melhores práticas para otimizar seus fluxos de trabalho, reduzir os tempos de compilação e minimizar o consumo de recursos. Ao implementar essas estratégias, você não apenas garantirá a integridade e a confiabilidade do seu pipeline de CI/CD, mas também maximizará sua eficácia.
 
 Ao final deste capítulo, você terá uma compreensão sólida das várias técnicas para proteger e otimizar seus fluxos de trabalho do GitHub Actions, capacitando você a criar pipelines de CI/CD mais resilientes e de alto desempenho para seus projetos.
 
-#### Workflow Security Best Practices
-O GitHub Actions pode otimizar significativamente seu pipeline de CI/CD, mas é crucial priorizar a segurança ao projetar e gerenciar seus fluxos de trabalho. Nesta seção, discutiremos as melhores práticas essenciais de segurança para ajudar a proteger seus fluxos de trabalho do GitHub Actions e proteger seus projetos de ameaças potenciais.
+#### Melhores práticas de segurança de fluxo de trabalho
+O GitHub Actions pode otimizar significativamente seu pipeline de CI/CD, mas é crucial priorizar a segurança ao projetar e gerenciar seus fluxos de trabalho.
 
-- [x] Proteja dados confidenciais com segredos: armazene informações confidenciais como chaves de API, tokens de acesso e credenciais usando os segredos criptografados do GitHub. Os segredos podem ser definidos no nível do repositório, organização ou ambiente e são expostos apenas a fluxos de trabalho em execução no mesmo repositório ou organização. Ao usar segredos, você pode evitar que dados confidenciais sejam acidentalmente vazados ou expostos em logs.
-- [x] Limite o uso de ações de terceiros: embora o GitHub Actions Marketplace ofereça uma ampla variedade de ações pré-construídas para aprimorar seus fluxos de trabalho, é crucial ser cauteloso ao incorporar ações de terceiros. Use apenas ações confiáveis de fontes confiáveis e considere fixá-las em uma versão ou confirmação específica para evitar possíveis problemas de segurança introduzidos por atualizações.
-- [x] Restringir acesso a repositórios e ambientes: siga o princípio do menor privilégio ao conceder acesso aos seus repositórios e ambientes. Limite o acesso de gravação a um número mínimo de colaboradores confiáveis e restrinja o acesso ao ambiente usando as regras de proteção de ambiente do GitHub. Ao fazer isso, você pode minimizar o risco de acesso não autorizado aos seus fluxos de trabalho e dados confidenciais.
-- [x] Validar a entrada do usuário e higienizar dados externos: quando seu fluxo de trabalho aceitar entrada do usuário ou processar dados externos, valide e higienize as informações para evitar potenciais vulnerabilidades de segurança, como injeção de código ou ataques de script entre sites (XSS). Use funções e bibliotecas integradas para processar a entrada com segurança e evitar a execução de código não confiável em seus fluxos de trabalho.
-- [x] Implementar práticas de codificação seguras: aplique práticas de codificação seguras às suas ações personalizadas e scripts de fluxo de trabalho. Isso inclui evitar o uso de funções potencialmente inseguras, validar e higienizar a entrada e seguir as melhores práticas para desenvolvimento seguro, como as recomendações do OWASP Top Ten Project.
-- [x] Monitore e audite a atividade do fluxo de trabalho: revise regularmente seus logs de fluxo de trabalho e a atividade do GitHub Actions para identificar possíveis problemas de segurança ou acesso não autorizado. Use as ferramentas de monitoramento integradas do GitHub e integre-se com soluções de registro e monitoramento de terceiros para manter uma visão abrangente da atividade do seu fluxo de trabalho.
-- [x] Mantenha suas ações e dependências atualizadas: atualize regularmente suas GitHub Actions e suas dependências para garantir que você esteja usando os patches e melhorias de segurança mais recentes. Considere usar ferramentas como Dependabot para monitorar e atualizar automaticamente suas dependências, reduzindo o risco de vulnerabilidades de segurança conhecidas.
-- [x] Habilite a proteção de ramificação e revisões de código: use os recursos de proteção de ramificação do GitHub para impor revisões de código e evitar confirmações diretas em ramificações críticas, como principal ou mestre. Isso ajuda a manter a integridade da sua base de código e garante que as alterações em seus fluxos de trabalho sejam revisadas por colaboradores confiáveis antes de serem mescladas.
-- [x] Use confirmações assinadas: para garantir a autenticidade das alterações de código, considere usar confirmações assinadas com GPG. Isso adiciona uma camada de segurança ao verificar se os commits são genuinamente criados pelo colaborador designado, ajudando a evitar alterações não autorizadas ou maliciosas em seus fluxos de trabalho.
-- [x] Implemente verificações de segurança automatizadas: integre ferramentas de varredura de segurança automatizadas, como o CodeQL do GitHub, em seu pipeline de CI/CD para detectar vulnerabilidades potenciais em sua base de código. Ao escanear regularmente seu código em busca de problemas de segurança, você pode abordar vulnerabilidades proativamente antes que elas se tornem exploráveis na produção.
+Nesta seção, discutiremos as melhores práticas essenciais de segurança para ajudar a proteger seus fluxos de trabalho do GitHub Actions e proteger seus projetos de ameaças potenciais.
 
-Ao seguir essas práticas recomendadas de segurança de fluxo de trabalho, você pode reduzir significativamente o risco de violações de segurança e proteger seus projetos de ameaças potenciais. Implementar uma estratégia de segurança robusta é um processo contínuo, e é essencial manter-se atualizado com as recomendações de segurança e práticas recomendadas mais recentes para manter a integridade e a segurança de seus fluxos de trabalho do GitHub Actions.
-### Caching and Artifact Management
-Gerenciar caches e artefatos de forma eficaz é essencial para otimizar seus fluxos de trabalho do GitHub Actions, pois pode reduzir significativamente os tempos de compilação e o consumo de recursos. Nesta seção, exploraremos estratégias de cache e técnicas de gerenciamento de artefatos para ajudar você a melhorar a eficiência e o desempenho do seu pipeline de CI/CD.
+- [x] **Proteja dados confidenciais com segredos**: Armazene informações confidenciais como chaves de API, tokens de acesso e credenciais usando os segredos criptografados do GitHub. Os segredos podem ser definidos no nível do repositório, organização ou ambiente e são expostos apenas a fluxos de trabalho em execução no mesmo repositório ou organização. Ao usar segredos, você pode evitar que dados confidenciais sejam acidentalmente vazados ou expostos em logs.
+- [x] **Limite o uso de ações de terceiros**: embora o GitHub Actions Marketplace ofereça uma ampla variedade de ações pré-construídas para aprimorar seus fluxos de trabalho, é crucial ser cauteloso ao incorporar ações de terceiros. Use apenas ações confiáveis de fontes confiáveis e considere fixá-las em uma versão ou confirmação específica para evitar possíveis problemas de segurança introduzidos por atualizações.
+- [x] **Restringir acesso a repositórios e ambientes**: Siga o princípio do menor privilégio ao conceder acesso aos seus repositórios e ambientes. Limite o acesso de gravação a um número mínimo de colaboradores confiáveis e restrinja o acesso ao ambiente usando as regras de proteção de ambiente do GitHub. Ao fazer isso, você pode minimizar o risco de acesso não autorizado aos seus fluxos de trabalho e dados confidenciais.
+- [x] **Validar a entrada do usuário e higienizar dados externos**: Quando seu fluxo de trabalho aceitar entrada do usuário ou processar dados externos, valide e higienize as informações para evitar potenciais vulnerabilidades de segurança, como injeção de código ou ataques de script entre sites (XSS). Use funções e bibliotecas integradas para processar a entrada com segurança e evitar a execução de código não confiável em seus fluxos de trabalho.
+- [x] **Implementar práticas de codificação seguras**: Aplique práticas de codificação seguras às suas ações personalizadas e scripts de fluxo de trabalho. Isso inclui evitar o uso de funções potencialmente inseguras, validar e higienizar a entrada e seguir as melhores práticas para desenvolvimento seguro, como as recomendações do OWASP Top Ten Project.
+- [x] **Monitore e audite a atividade do fluxo de trabalho**: Revise regularmente seus logs de fluxo de trabalho e a atividade do GitHub Actions para identificar possíveis problemas de segurança ou acesso não autorizado. Use as ferramentas de monitoramento integradas do GitHub e integre-se com soluções de registro e monitoramento de terceiros para manter uma visão abrangente da atividade do seu fluxo de trabalho.
+- [x] **Mantenha suas ações e dependências Atualizadas**: Atualize regularmente suas GitHub Actions e suas dependências para garantir que você esteja usando os patches e melhorias de segurança mais recentes. Considere usar ferramentas como Dependabot para monitorar e atualizar automaticamente suas dependências, reduzindo o risco de vulnerabilidades de segurança conhecidas.
+- [x] **Habilite a proteção de ramificação e revisões de código**: Use os recursos de proteção de ramificação do GitHub para impor revisões de código e evitar confirmações diretas em ramificações críticas, como principal ou mestre. Isso ajuda a manter a integridade da sua base de código e garante que as alterações em seus fluxos de trabalho sejam revisadas por colaboradores confiáveis antes de serem mescladas.
+- [x] **Use confirmações assinadas**: Para garantir a autenticidade das alterações de código, considere usar confirmações assinadas com **GPG**. Isso adiciona uma camada de segurança ao verificar se os commits são genuinamente criados pelo colaborador designado, ajudando a evitar alterações não autorizadas ou maliciosas em seus fluxos de trabalho.
+- [x] **Implemente verificações de segurança automatizadas**: Integre ferramentas de varredura de segurança automatizadas, como o CodeQL do GitHub, em seu pipeline de CI/CD para detectar vulnerabilidades potenciais em sua base de código. Ao escanear regularmente seu código em busca de problemas de segurança, você pode abordar vulnerabilidades proativamente antes que elas se tornem exploráveis na produção.
+
+Implementar uma estratégia de segurança robusta é um processo contínuo, e é essencial manter-se atualizado com as recomendações de segurança e práticas recomendadas mais recentes para manter a integridade e a segurança de seus fluxos de trabalho do GitHub Actions.
+
+### Gerenciamento de cache e artefatos
+Gerenciar caches e artefatos de forma eficaz é essencial para otimizar seus fluxos de trabalho do GitHub Actions, pois pode reduzir significativamente os tempos de compilação e o consumo de recursos.
 #### Caching in GitHub Actions
-O cache é uma técnica poderosa que permite armazenar e reutilizar os resultados de tarefas demoradas, como instalação de dependências ou processos de construção. Ao armazenar esses resultados em cache, você pode evitar trabalho desnecessário em execuções subsequentes, levando a uma execução mais rápida do fluxo de trabalho e uso reduzido de recursos.
-- [x] Dependências de cache: Um dos usos mais comuns do cache no GitHub Actions é armazenar em cache as dependências do seu projeto. Ao armazenar em cache as dependências, você pode economizar tempo e recursos ao não ter que buscá-las e instalá-las para cada execução do fluxo de trabalho. O GitHub Actions fornece uma ação de cache integrada que simplifica o cache e a restauração de dependências para vários gerenciadores de pacotes, como npm, yarn ou pip. Para usar a ação de cache, inclua-a no seu fluxo de trabalho e especifique o caminho para as dependências e uma chave de cache. A chave de cache deve incluir o hash do arquivo de configuração do pacote relevante, garantindo que o cache seja invalidado quando as dependências forem alteradas.
-- [x] Cache de saídas de build: além de armazenar em cache as dependências, você também pode armazenar em cache saídas de build intermediárias ou ativos compilados, como binários ou arquivos CSS e JavaScript compilados. Isso pode reduzir significativamente os tempos de build em casos em que o processo de compilação consome muito tempo ou recursos.
+O cache é uma técnica poderosa que permite armazenar e reutilizar os resultados de tarefas demoradas, como instalação de dependências ou processos de construção.
+
+Ao armazenar esses resultados em cache, você pode evitar trabalho desnecessário em execuções subsequentes, levando a uma execução mais rápida do fluxo de trabalho e uso reduzido de recursos.
+
+- [x] **Dependências de cache**: Um dos usos mais comuns do cache no GitHub Actions é armazenar em cache as dependências do seu projeto. Ao armazenar em cache as dependências, você pode economizar tempo e recursos ao não ter que buscá-las e instalá-las para cada execução do fluxo de trabalho. O GitHub Actions fornece uma ação de cache integrada que simplifica o cache e a restauração de dependências para vários gerenciadores de pacotes, como npm, yarn ou pip. Para usar a ação de cache, inclua-a no seu fluxo de trabalho e especifique o caminho para as dependências e uma chave de cache. A chave de cache deve incluir o hash do arquivo de configuração do pacote relevante, garantindo que o cache seja invalidado quando as dependências forem alteradas.
+- [x] **Cache de saídas de build**: além de armazenar em cache as dependências, você também pode armazenar em cache saídas de build intermediárias ou ativos compilados, como binários ou arquivos CSS e JavaScript compilados. Isso pode reduzir significativamente os tempos de build em casos em que o processo de compilação consome muito tempo ou recursos.
 Para armazenar em cache as saídas de build, use a ação cache e especifique os caminhos apropriados e a chave de cache. Esteja atento ao tamanho do cache, pois armazenar grandes saídas de build pode consumir sua cota de armazenamento do GitHub Actions.
-- [x] Cache de camadas do Docker: se seus fluxos de trabalho dependem do Docker, armazenar em cache as camadas do Docker pode ajudar a acelerar o processo de build. Ao armazenar em cache as camadas do Docker, você pode evitar a reconstrução de camadas inalteradas e reduzir o tempo necessário para extrair ou enviar imagens.
-Para armazenar em cache as camadas do Docker, use a ação cache do GitHub em combinação com o plugin buildx do Docker. Como alternativa, você pode usar uma ação dedicada, como a ação satackey/action-docker-layer-caching, que simplifica o armazenamento em cache de camadas do Docker em seus fluxos de trabalho do GitHub Actions.
+- [x] **Cache de camadas do Docker**: se seus fluxos de trabalho dependem do Docker, armazenar em cache as camadas do Docker pode ajudar a acelerar o processo de build. Ao armazenar em cache as camadas do Docker, você pode evitar a reconstrução de camadas inalteradas e reduzir o tempo necessário para extrair ou enviar imagens.
 
-### Artifact Management in GitHub Actions
+Para armazenar em cache as camadas do Docker, use a ação cache do GitHub em combinação com o plugin buildx do Docker.
+
+Como alternativa, você pode usar uma ação dedicada, como a ação satackey/action-docker-layer-caching, que simplifica o armazenamento em cache de camadas do Docker em seus fluxos de trabalho do GitHub Actions.
+
+### Gerenciamento de artefatos em ações do GitHub
 Artefatos são arquivos ou coleções de arquivos produzidos por seus fluxos de trabalho, como saídas de build, resultados de testes ou documentação. Gerenciar artefatos de forma eficiente é crucial para otimizar seus fluxos de trabalho do GitHub Actions, pois permite que você compartilhe, armazene e acesse esses arquivos em diferentes trabalhos, fluxos de trabalho ou até mesmo repositórios.
-- [x] Carregar e baixar artefatos: o GitHub Actions fornece ações integradas, upload-artifact e download-artifact, que permitem que você carregue e baixe artefatos em seus fluxos de trabalho. Essas ações permitem que você compartilhe arquivos entre trabalhos ou os armazene para uso posterior, como implantar seu aplicativo ou distribuir ativos de build. Ao usar a ação upload-artifact, especifique o caminho para os arquivos que deseja carregar e forneça um nome para o artefato. Para baixar o artefato em outro trabalho, use a ação download-artifact e especifique o nome do artefato.
-- [x] Armazenar artefatos por períodos mais longos: por padrão, o GitHub Actions armazena artefatos por 90 dias. No entanto, você pode precisar armazenar artefatos por períodos mais longos, como por motivos de conformidade ou análise histórica. Nesses casos, considere usar um serviço de armazenamento externo, como Amazon S3 ou Google Cloud Storage, para persistir seus artefatos. Para armazenar artefatos em um serviço de armazenamento externo, use uma ação ou script dedicado em seu fluxo de trabalho para carregar os artefatos no local de armazenamento desejado. Certifique-se de gerenciar o controle de acesso e as permissões para garantir a segurança e a privacidade de seus artefatos.
-- [x] Otimize o armazenamento de artefatos: gerenciar com eficiência o armazenamento de artefatos é essencial para otimizar seus fluxos de trabalho do GitHub Actions e evitar limitações de cota de armazenamento. Aqui estão algumas estratégias para ajudar você a otimizar o armazenamento de artefatos:
-- [x] Compactar artefatos: compactar seus artefatos pode reduzir significativamente seu tamanho e consumo de armazenamento. Use ferramentas como gzip ou zip para compactar seus arquivos antes de carregá-los como artefatos. Além disso, alguns formatos de arquivo, como imagens ou arquivos de texto, podem se beneficiar de algoritmos de compactação especializados, como WebP para imagens ou Brotli para arquivos de texto.
-- [x] Excluir artefatos desnecessários: com o tempo, seus fluxos de trabalho podem gerar um grande número de artefatos, alguns dos quais podem não ser mais necessários. Revise e exclua periodicamente artefatos desnecessários para liberar espaço de armazenamento. Você pode usar a API do GitHub ou um script do GitHub Actions para automatizar o processo de identificação e exclusão de artefatos desnecessários.
-- [x] Limitar a retenção de artefatos: por padrão, o GitHub Actions retém artefatos por 90 dias. No entanto, você pode configurar um período de retenção personalizado para melhor atender às suas necessidades. Por exemplo, se você só precisa manter artefatos por um curto período, pode reduzir o período de retenção para economizar espaço de armazenamento. Seja cauteloso ao definir um período de retenção mais curto, pois isso pode afetar sua capacidade de acessar e analisar artefatos históricos.
 
-Concluindo, gerenciar caches e artefatos de forma eficaz é crucial para otimizar seus fluxos de trabalho do GitHub Actions. Ao empregar estratégias de cache e técnicas eficientes de gerenciamento de artefatos, você pode reduzir significativamente os tempos de compilação, o consumo de recursos e os requisitos de armazenamento, levando a um pipeline de CI/CD mais eficiente e econômico.
+- [x] **Carregar e baixar artefatos**: o GitHub Actions fornece ações integradas, upload-artifact e download-artifact, que permitem que você carregue e baixe artefatos em seus fluxos de trabalho. Essas ações permitem que você compartilhe arquivos entre trabalhos ou os armazene para uso posterior, como implantar seu aplicativo ou distribuir ativos de build. Ao usar a ação upload-artifact, especifique o caminho para os arquivos que deseja carregar e forneça um nome para o artefato. Para baixar o artefato em outro trabalho, use a ação download-artifact e especifique o nome do artefato.
+- [x] **Armazenar artefatos por períodos mais longos**: por padrão, o GitHub Actions armazena artefatos por 90 dias. No entanto, você pode precisar armazenar artefatos por períodos mais longos, como por motivos de conformidade ou análise histórica. Nesses casos, considere usar um serviço de armazenamento externo, como Amazon S3 ou Google Cloud Storage, para persistir seus artefatos. Para armazenar artefatos em um serviço de armazenamento externo, use uma ação ou script dedicado em seu fluxo de trabalho para carregar os artefatos no local de armazenamento desejado. Certifique-se de gerenciar o controle de acesso e as permissões para garantir a segurança e a privacidade de seus artefatos.
+- [x] **Otimize o armazenamento de artefatos**: gerenciar com eficiência o armazenamento de artefatos é essencial para otimizar seus fluxos de trabalho do GitHub Actions e evitar limitações de cota de armazenamento. Aqui estão algumas estratégias para ajudar você a otimizar o armazenamento de artefatos:
+- [x] **Compactar artefatos**: Compactar seus artefatos pode reduzir significativamente seu tamanho e consumo de armazenamento. Use ferramentas como gzip ou zip para compactar seus arquivos antes de carregá-los como artefatos. Além disso, alguns formatos de arquivo, como imagens ou arquivos de texto, podem se beneficiar de algoritmos de compactação especializados, como WebP para imagens ou Brotli para arquivos de texto.
+- [x] **Excluir artefatos desnecessários**: Com o tempo, seus fluxos de trabalho podem gerar um grande número de artefatos, alguns dos quais podem não ser mais necessários. Revise e exclua periodicamente artefatos desnecessários para liberar espaço de armazenamento. Você pode usar a API do GitHub ou um script do GitHub Actions para automatizar o processo de identificação e exclusão de artefatos desnecessários.
+- [x] **Limitar a retenção de artefatos**: Por padrão, o GitHub Actions retém artefatos por 90 dias. No entanto, você pode configurar um período de retenção personalizado para melhor atender às suas necessidades. Por exemplo, se você só precisa manter artefatos por um curto período, pode reduzir o período de retenção para economizar espaço de armazenamento. Seja cauteloso ao definir um período de retenção mais curto, pois isso pode afetar sua capacidade de acessar e analisar artefatos históricos.
 
-#### Performance Optimization Tips
-Ao trabalhar com o GitHub Actions, otimizar o desempenho dos seus fluxos de trabalho é essencial para garantir um pipeline de CI/CD rápido e eficiente. Um pipeline bem otimizado reduz o tempo de execução, minimiza o consumo de recursos e permite que você obtenha feedback mais rápido sobre suas alterações de código. Nesta seção, exploraremos várias dicas e práticas recomendadas para otimizar o desempenho dos seus fluxos de trabalho do GitHub Actions. Abordaremos aspectos como estrutura do fluxo de trabalho, uso do executor, paralelismo, otimização de imagem do Docker, execução condicional, avaliação de ação de terceiros e monitoramento de desempenho.
-Ao implementar essas estratégias de otimização, você pode melhorar significativamente a eficiência dos seus fluxos de trabalho do GitHub Actions e garantir um processo de CI/CD tranquilo e econômico para seus projetos.
+Concluindo, gerenciar caches e artefatos de forma eficaz é crucial para otimizar seus fluxos de trabalho do GitHub Actions.
 
-#### Optimize Workflow Structure
+Ao empregar estratégias de cache e técnicas eficientes de gerenciamento de artefatos, você pode reduzir significativamente os tempos de compilação, o consumo de recursos e os requisitos de armazenamento, levando a um pipeline de CI/CD mais eficiente e econômico.
+
+### Dicas de otimização de desempenho
+Um pipeline bem otimizado reduz o tempo de execução, minimiza o consumo de recursos e permite que você obtenha feedback mais rápido sobre suas alterações de código.
+
+Abordaremos aspectos como estrutura do fluxo de trabalho, uso do executor, paralelismo, otimização de imagem do Docker, execução condicional, avaliação de ação de terceiros e monitoramento de desempenho.
+
+#### Otimizar a estrutura do fluxo de trabalho
 Uma estrutura de fluxo de trabalho eficiente do GitHub Actions pode impactar significativamente o desempenho geral do seu pipeline de CI/CD. Ao projetar seus fluxos de trabalho com o desempenho em mente, você pode reduzir o tempo de execução e o consumo de recursos. Aqui estão algumas dicas para otimizar sua estrutura de fluxo de trabalho:
 
-- [x] Organize os trabalhos de forma eficiente: divida seu fluxo de trabalho em trabalhos menores e focados que podem ser executados em paralelo ou sequencialmente, dependendo de suas dependências. Ao organizar seus trabalhos de forma eficiente, você pode minimizar o tempo ocioso e aproveitar ao máximo os recursos de execução paralela do GitHub Actions. Garanta que tarefas independentes sejam executadas simultaneamente, enquanto tarefas dependentes sejam organizadas sequencialmente.
-- [x] Minimize as dependências de trabalho: embora alguns trabalhos possam depender da saída de outros trabalhos, minimizar as dependências de trabalho pode ajudar a reduzir o tempo geral de execução. Ao minimizar as dependências, você permite maior paralelismo, o que pode levar à conclusão mais rápida de seus fluxos de trabalho.
-- [x] Reutilizar etapas comuns: se seus fluxos de trabalho contiverem etapas comuns, como configurar o ambiente ou instalar dependências, considere consolidar essas etapas em componentes reutilizáveis, como ações compostas ou scripts de shell compartilhados. Reutilizar etapas comuns pode ajudar a manter uma estrutura de fluxo de trabalho limpa e eficiente e reduzir a duplicação de código entre fluxos de trabalho.
-- [x] Dividir fluxos de trabalho por evento ou ramificação: em vez de ter um único fluxo de trabalho que lida com vários eventos ou ramificações, considere dividir seus fluxos de trabalho com base no evento de disparo ou na ramificação de destino. Essa abordagem permite que você adapte cada fluxo de trabalho à sua finalidade específica, facilitando a otimização e a manutenção. Por exemplo, você pode ter fluxos de trabalho separados para solicitações de pull, pushes para a ramificação principal e eventos agendados.
-- [x] Otimizar compilações de matriz: compilações de matriz permitem que você execute um trabalho em várias combinações de sistemas operacionais, versões de tempo de execução ou outras configurações. Embora as compilações de matriz possam ser incrivelmente poderosas, elas também podem consumir uma quantidade significativa de recursos se não forem gerenciadas com cuidado. Para otimizar as compilações de matriz, limite o número de combinações que você testa e concentre-se nas configurações mais importantes ou relevantes para seu projeto. Você também pode aproveitar as opções de exclusão ou inclusão para ajustar sua configuração de matriz.
-- [ ] Priorize tarefas críticas: organize seu fluxo de trabalho de forma a priorizar tarefas críticas, como compilar e testar seu aplicativo. Ao garantir que essas tarefas sejam executadas primeiro, você pode identificar rapidamente quaisquer problemas e falhar o fluxo de trabalho antecipadamente, evitando trabalho desnecessário e consumo de recursos.
-- [x] Use artefatos de forma eficaz: os artefatos permitem que você compartilhe dados entre trabalhos ou armazene saídas de compilação para uso posterior. Ao usar artefatos de forma eficaz, você pode evitar a duplicação de trabalho entre trabalhos e melhorar a eficiência geral do seu fluxo de trabalho. Esteja atento ao tamanho e ao número de artefatos que você gera, pois armazenar artefatos grandes ou numerosos pode impactar suas cotas de armazenamento.
+- [x] **Organize os trabalhos de forma eficiente**: divida seu fluxo de trabalho em trabalhos menores e focados que podem ser executados em paralelo ou sequencialmente, dependendo de suas dependências. Ao organizar seus trabalhos de forma eficiente, você pode minimizar o tempo ocioso e aproveitar ao máximo os recursos de execução paralela do GitHub Actions. Garanta que **tarefas independentes sejam executadas simultaneamente**, enquanto **tarefas dependentes sejam organizadas sequencialmente**.
+- [x] **Minimize as dependências de trabalho**: Embora alguns trabalhos possam depender da saída de outros trabalhos, minimizar as dependências de trabalho pode ajudar a reduzir o tempo geral de execução. Ao minimizar as dependências, você permite maior paralelismo, o que pode levar à conclusão mais rápida de seus fluxos de trabalho.
+- [x] **Reutilizar etapas comuns**: Se seus fluxos de trabalho contiverem etapas comuns, como configurar o ambiente ou instalar dependências, considere consolidar essas etapas em componentes reutilizáveis, como ações compostas ou scripts de shell compartilhados. Reutilizar etapas comuns pode ajudar a manter uma estrutura de fluxo de trabalho limpa e eficiente e reduzir a duplicação de código entre fluxos de trabalho.
+- [x] **Dividir fluxos de trabalho por evento ou ramificação**: Em vez de ter um único fluxo de trabalho que lida com vários eventos ou ramificações, **considere dividir seus fluxos de trabalho com base no evento de disparo ou na ramificação de destino**. Essa abordagem permite que você adapte cada fluxo de trabalho à sua finalidade específica, facilitando a otimização e a manutenção. Por exemplo, você pode ter fluxos de trabalho separados para solicitações de pull, pushes para a ramificação principal e eventos agendados.
+- [x] **Otimizar compilações de matriz**: Compilações de matriz permitem que você execute um trabalho em várias combinações de sistemas operacionais, versões de tempo de execução ou outras configurações. Embora as compilações de matriz possam ser incrivelmente poderosas, elas também podem consumir uma quantidade significativa de recursos se não forem gerenciadas com cuidado. Para otimizar as compilações de matriz, limite o número de combinações que você testa e concentre-se nas configurações mais importantes ou relevantes para seu projeto. Você também pode aproveitar as opções de exclusão ou inclusão para ajustar sua configuração de matriz.
+- [x] **Priorize tarefas críticas**: Organize seu fluxo de trabalho de forma a priorizar tarefas críticas, como compilar e testar seu aplicativo. Ao garantir que essas tarefas sejam executadas primeiro, você pode identificar rapidamente quaisquer problemas e falhar o fluxo de trabalho antecipadamente, evitando trabalho desnecessário e consumo de recursos.
+- [x] **Use artefatos de forma eficaz**: Os artefatos permitem que você compartilhe dados entre trabalhos ou armazene saídas de compilação para uso posterior. Ao usar artefatos de forma eficaz, você pode evitar a duplicação de trabalho entre trabalhos e melhorar a eficiência geral do seu fluxo de trabalho. Esteja atento ao tamanho e ao número de artefatos que você gera, pois armazenar artefatos grandes ou numerosos pode impactar suas cotas de armazenamento.
 
 Ao otimizar sua estrutura de fluxo de trabalho, você pode melhorar significativamente o desempenho e a eficiência do seu pipeline de CI/CD do GitHub Actions. Uma estrutura de fluxo de trabalho bem projetada não apenas reduz o tempo de execução e o consumo de recursos, mas também melhora a manutenibilidade e a legibilidade, facilitando a colaboração entre você e sua equipe em seus projetos.
 
@@ -4043,7 +4334,8 @@ Self-hosted runners podem ser:
     - [x] Executores de nível empresarial podem ser atribuídos a várias organizações em uma conta empresarial.
     - [x] Para configurar o auto-hospedado, você precisa adicionar um executor e instalar o GitHub Actions Runner para conectar a computação externa ao executor auto-hospedado.
 
-Self-Hosted Runner Follow Along: Hands-On Setup -  GitHub Actions Course
+### Self-Hosted Runner Follow Along: Hands-On Setup -  GitHub Actions Course
+
 Estas notas de laboratório orientam você na configuração de um executor auto-hospedado para GitHub Actions. Este tutorial é benéfico para entender o processo de configuração, mesmo que não concluamos todas as etapas devido a limitações com ambientes como GitHub Codespaces. Se você estiver trabalhando localmente ou em um provedor de nuvem, as etapas devem funcionar de forma semelhante.
 
 Etapa 1: verificar o acesso ao repositório e preparar a computação
@@ -4101,7 +4393,6 @@ jobs:
       - name: Check Runner
         run: echo "Running on self-hosted runner"
 ```
-
 5.3. Commit e Push este arquivo para acionar o fluxo de trabalho.
 5.4. Monitore o fluxo de trabalho: vá para a aba Ações e verifique se o fluxo de trabalho é acionado. Você pode ver um status "aguardando executor" se o executor não puder se conectar.
 Solução de problemas de rede e conectividade
@@ -4121,31 +4412,23 @@ runs-on: macos-latest
 runs-on: [macos-14, macos-13, macos-12]
 
 # specify Self-Hosted runner
-
+```
 
 ## Contextos
 Os contextos são uma forma de acessar informações sobre execuções de fluxo de trabalho, variáveis, ambientes dos executores, trabalhos e etapas. ${{ <context> }}
 
-
+```
 ### github actions to build & deploy book, following https://github.com/executablebooks/cookiecutter-jupyter-book/blob/main/.github/workflows/deploy.yml
 
 name: deploy
-
 on:
-  # Trigger the deploy on push to main branch
   push:
     branches:
       - main
   schedule:
-    # jupyter-book is updated regularly, let's run this deployment every month in case something fails
-    # <minute [0,59]> <hour [0,23]> <day of the month [1,31]> <month of the year [1,12]> <day of the week [0,6]>
-    # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07
-    # https://crontab.guru/every-month
-    # Run cron job every month
-    - cron: '0 0 1 * *'
+      - cron: '0 0 1 * *'
 
 jobs:
-  # This job deploys the example book
   deploy-example-book:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -4160,41 +4443,29 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: ${{ matrix.python-version }}
-
-    # install virtual environment with caching, so only updates when requirements.txt changes,
-    # based on https://github.com/marketplace/actions/restore-or-create-a-python-virtualenv#custom_virtualenv_dir
-    # Note: virtual environment by default will be created under ~/.venv
     - uses: syphar/restore-virtualenv@v1
       id: cache-virtualenv
       with:
         requirement_files: docs/requirements_py.txt
     - uses: syphar/restore-pip-download-cache@v1
       if: steps.cache-virtualenv.outputs.cache-hit != 'true'
-
-    # install python dependencies
     - name: Install python dependencies
       run: pip install -r docs/requirements_py.txt
       if: steps.cache-virtualenv.outputs.cache-hit != 'true'
 
-    # update kernel of all jupyter notebooks to .venv to match GH action environment
     - name: Update Jupyter Notebook kernels
-      run: python docs/update_jupyter_kernels.py .venv |
+      run:
+          |
+           python docs/update_jupyter_kernels.py .venv
            python -m ipykernel install --user --name=.venv
-
-    # install R
     - name: Install R
       uses: r-lib/actions/setup-r@v2
       with:
         use-public-rspm: true
-    # install R dependencies
     - name: Install R dependencies
       run: sh docs/install_R_dependencies.sh
-
-    # Build the example book
     - name: Build book
       run: jupyter-book build --all docs/
-
-    # Deploy html to gh-pages
     - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v3.6.1
       with:
@@ -4203,95 +4474,140 @@ jobs:
         publish_branch: gh-pages
 ```
 
-### Minimize Use of GitHub-hosted Runners
-Os executores hospedados no GitHub são uma opção conveniente para executar seus fluxos de trabalho, pois fornecem um ambiente pré-configurado com várias ferramentas e suporte para vários sistemas operacionais. No entanto, usar executores hospedados no GitHub pode ter algumas desvantagens, incluindo recursos limitados, possíveis tempos de fila e implicações de custo, especialmente para projetos ou organizações de grande escala.
+### Minimize o uso de Runners hospedados no GitHub
+Os executores hospedados no GitHub são uma opção conveniente para executar seus fluxos de trabalho, pois fornecem um ambiente pré-configurado com várias ferramentas e suporte para vários sistemas operacionais.
+
+No entanto, usar executores hospedados no GitHub pode ter algumas desvantagens, incluindo recursos limitados, possíveis tempos de fila e implicações de custo, especialmente para projetos ou organizações de grande escala.
+
 Aqui estão algumas estratégias para minimizar o uso de executores hospedados no GitHub e otimizar o desempenho do seu fluxo de trabalho:
-- [x] Use executores auto-hospedados: ao configurar executores auto-hospedados, você obtém mais controle sobre o ambiente, hardware e recursos disponíveis para seus fluxos de trabalho. Os executores auto-hospedados podem ser personalizados de acordo com as necessidades específicas do seu projeto e podem ajudar a reduzir os tempos de fila, especialmente se sua organização tiver muitos fluxos de trabalho simultâneos. Além disso, usar executores auto-hospedados pode ser mais econômico a longo prazo, especialmente para projetos de grande escala ou que exigem muitos recursos.
-- [x] Otimize o uso de recursos: aproveite ao máximo os recursos disponíveis nos executores hospedados no GitHub otimizando seus fluxos de trabalho para usar menos recursos. Isso pode incluir a redução do número de trabalhos paralelos, a limitação de configurações de build de matriz e a otimização de processos de build e teste. Ao usar os recursos de forma mais eficiente, você pode reduzir as chances de atingir limites de recursos ou experimentar gargalos de desempenho.
-- [x] Dependências de cache: o cache de dependências pode reduzir significativamente o tempo gasto na instalação e configuração do seu ambiente em cada trabalho. Ao aproveitar os mecanismos de cache integrados do GitHub Actions, você pode minimizar a necessidade de transferências de rede e reduzir a carga nos executores hospedados no GitHub.
-- [x] Agende fluxos de trabalho não críticos: se você tiver fluxos de trabalho não críticos, como builds noturnos ou tarefas de manutenção programadas, considere executá-los fora do horário de pico para reduzir a carga nos executores hospedados no GitHub. Isso pode ajudar a aliviar os tempos de fila e garantir que os fluxos de trabalho críticos, como aqueles acionados por solicitações de pull ou pushes, tenham acesso mais rápido aos executores.
-- [x] Limitar a simultaneidade do fluxo de trabalho: use a palavra-chave concurrency para limitar o número de execuções simultâneas para um fluxo de trabalho ou tarefa específica. Ao limitar a simultaneidade, você pode evitar o uso excessivo de recursos em executores hospedados no GitHub e garantir que os recursos estejam disponíveis para outros fluxos de trabalho críticos.
-- [x] Otimizar os tempos de compilação: invista tempo na otimização de seus processos de compilação e teste para reduzir o tempo geral de execução de seus fluxos de trabalho. Compilações e testes mais rápidos não apenas economizam tempo, mas também reduzem o consumo de recursos em executores hospedados no GitHub.
+- [x] **Use executores auto-hospedados**: Ao configurar executores auto-hospedados, você obtém mais controle sobre o ambiente, hardware e recursos disponíveis para seus fluxos de trabalho. Os executores auto-hospedados podem ser personalizados de acordo com as necessidades específicas do seu projeto e podem ajudar a reduzir os tempos de fila, especialmente se sua organização tiver muitos fluxos de trabalho simultâneos. Além disso, usar executores auto-hospedados pode ser mais econômico a longo prazo, especialmente para projetos de grande escala ou que exigem muitos recursos.
+- [x] **Otimize o uso de Recursos**: Aproveite ao máximo os recursos disponíveis nos executores hospedados no GitHub otimizando seus fluxos de trabalho para usar menos recursos. Isso pode incluir a redução do número de trabalhos paralelos, a limitação de configurações de build de matriz e a otimização de processos de build e teste. Ao usar os recursos de forma mais eficiente, você pode reduzir as chances de atingir limites de recursos ou experimentar gargalos de desempenho.
+- [x] **Dependências de Cache**: O cache de dependências pode reduzir significativamente o tempo gasto na instalação e configuração do seu ambiente em cada trabalho. Ao aproveitar os mecanismos de cache integrados do GitHub Actions, você pode minimizar a necessidade de transferências de rede e reduzir a carga nos executores hospedados no GitHub.
+- [x] **Agende fluxos de trabalho não Críticos**: Se você tiver fluxos de trabalho não críticos, como builds noturnos ou tarefas de manutenção programadas, considere executá-los fora do horário de pico para reduzir a carga nos executores hospedados no GitHub. Isso pode ajudar a aliviar os tempos de fila e garantir que os fluxos de trabalho críticos, como aqueles acionados por solicitações de pull ou pushes, tenham acesso mais rápido aos executores.
+- [x] **Limitar a simultaneidade do fluxo de trabalho**: Use a palavra-chave `concurrency` para limitar o número de execuções simultâneas para um fluxo de trabalho ou tarefa específica. Ao limitar a simultaneidade, você pode evitar o uso excessivo de recursos em executores hospedados no GitHub e garantir que os recursos estejam disponíveis para outros fluxos de trabalho críticos.
+- [x] **Otimizar os tempos de compilação**: Invista tempo na otimização de seus processos de compilação e teste para reduzir o tempo geral de execução de seus fluxos de trabalho. Compilações e testes mais rápidos não apenas economizam tempo, mas também reduzem o consumo de recursos em executores hospedados no GitHub.
 
 Ao minimizar o uso de executores hospedados no GitHub e implementar essas estratégias de otimização, você pode melhorar o desempenho de seus fluxos de trabalho do GitHub Actions, reduzir o consumo de recursos e gerenciar custos de forma mais eficaz. Essas otimizações podem ser particularmente valiosas para projetos ou organizações de grande porte, onde as demandas e os custos de recursos podem aumentar rapidamente.
-### Limit Parallelism and Concurrency
-Embora o paralelismo e a simultaneidade possam melhorar significativamente o desempenho dos seus fluxos de trabalho do GitHub Actions, é essencial encontrar um equilíbrio entre maximizar a velocidade e minimizar o consumo de recursos. Sobrecarregar seus fluxos de trabalho com muitos trabalhos paralelos ou execuções simultâneas pode levar a maiores tempos de fila, contenção de recursos e custos mais altos.
+
+### Limite de paralelismo e simultaneidade
+Embora o paralelismo e a simultaneidade possam melhorar significativamente o desempenho dos seus fluxos de trabalho do GitHub Actions, é essencial encontrar um equilíbrio entre maximizar a velocidade e minimizar o consumo de recursos.
+
+Sobrecarregar seus fluxos de trabalho com muitos trabalhos paralelos ou execuções simultâneas pode levar a maiores tempos de fila, contenção de recursos e custos mais altos.
 
 Aqui estão algumas estratégias para limitar o paralelismo e a simultaneidade em seus fluxos de trabalho:
-- [x] Limite as configurações de compilação de matriz: embora as compilações de matriz possam simplificar sua configuração de fluxo de trabalho, elas também podem multiplicar rapidamente o número de trabalhos paralelos. Limite o número de configurações de matriz concentrando-se nas combinações mais críticas de plataformas, linguagens e dependências. Além disso, use a palavra-chave exclude para remover combinações desnecessárias que não agregam valor significativo ao seu pipeline de CI/CD.
-- [x] Use dependências de trabalho: organize seu fluxo de trabalho em uma sequência lógica de trabalhos com dependências, usando a palavra-chave needs. Ao definir dependências de trabalho, você pode garantir que apenas os trabalhos necessários sejam executados em paralelo, limitando o consumo de recursos e mantendo um pipeline de CI/CD simplificado.
-- [x] Limitar a simultaneidade de trabalho: use a palavra-chave concurrency para limitar o número de execuções simultâneas para um trabalho específico. Isso pode ajudar a evitar a contenção de recursos e garantir que os recursos estejam disponíveis para outros trabalhos críticos em seu fluxo de trabalho.
-- [ ] Avaliar a execução de testes paralelos: paralelizar testes pode acelerar seu fluxo de trabalho, mas também pode levar ao aumento do consumo de recursos. Analise seu conjunto de testes para determinar se a execução paralela é necessária e benéfica. Se possível, considere otimizar seus testes ou organizá-los em conjuntos de testes menores e mais focados que podem ser executados mais rapidamente com menos paralelismo.
-- [x] Otimizar a configuração de trabalho paralelo: revise cuidadosamente sua configuração de fluxo de trabalho para identificar oportunidades de otimizar trabalhos paralelos. Certifique-se de que cada trabalho paralelo forneça valor significativo e evite executar trabalhos redundantes ou desnecessários em paralelo.
-- [x] Monitore o uso de recursos: monitore continuamente o uso de recursos dos seus fluxos de trabalho do GitHub Actions. Use as métricas de desempenho integradas e as ferramentas de monitoramento fornecidas pelo GitHub para identificar gargalos de desempenho, contenção de recursos e oportunidades de otimização.
+
+- [x] **Limite as configurações de compilação de matriz**: Embora as compilações de matriz possam simplificar sua configuração de fluxo de trabalho, elas também podem multiplicar rapidamente o número de trabalhos paralelos. Limite o número de configurações de matriz concentrando-se nas combinações mais críticas de plataformas, linguagens e dependências. Além disso, use a palavra-chave `exclude` para remover combinações desnecessárias que não agregam valor significativo ao seu pipeline de CI/CD.
+- [x] **Use dependências de trabalho**: Organize seu fluxo de trabalho em uma sequência lógica de trabalhos com dependências, usando a palavra-chave needs. Ao definir dependências de trabalho, você pode garantir que apenas os trabalhos necessários sejam executados em paralelo, limitando o consumo de recursos e mantendo um pipeline de CI/CD simplificado.
+- [x] **Limitar a simultaneidade de trabalho**: Use a palavra-chave concurrency para limitar o número de execuções simultâneas para um trabalho específico. Isso pode ajudar a evitar a contenção de recursos e garantir que os recursos estejam disponíveis para outros trabalhos críticos em seu fluxo de trabalho.
+- [x] **Avaliar a execução de testes Paralelos**: Paralelizar testes pode acelerar seu fluxo de trabalho, mas também pode levar ao aumento do consumo de recursos. Analise seu conjunto de testes para determinar se a execução paralela é necessária e benéfica. Se possível, considere otimizar seus testes ou organizá-los em conjuntos de testes menores e mais focados que podem ser executados mais rapidamente com menos paralelismo.
+- [x] **Otimizar a configuração de trabalho paralelo**: Revise cuidadosamente sua configuração de fluxo de trabalho para identificar oportunidades de otimizar trabalhos paralelos. Certifique-se de que cada trabalho paralelo forneça valor significativo e evite executar trabalhos redundantes ou desnecessários em paralelo.
+- [x] **Monitore o uso de Recursos**: Monitore continuamente o uso de recursos dos seus fluxos de trabalho do GitHub Actions. Use as métricas de desempenho integradas e as ferramentas de monitoramento fornecidas pelo GitHub para identificar gargalos de desempenho, contenção de recursos e oportunidades de otimização.
 
 Ao limitar o paralelismo e a simultaneidade nos seus fluxos de trabalho do GitHub Actions, você pode gerenciar efetivamente o consumo de recursos, reduzir os tempos de fila e controlar os custos, mantendo um pipeline de CI/CD rápido e eficiente. Encontrar o equilíbrio certo entre paralelismo e uso de recursos é essencial para otimizar seus fluxos de trabalho para desempenho e custo.
 
 ### Optimize Docker Image Usage
-As imagens do Docker desempenham um papel significativo no desempenho e no consumo de recursos dos seus fluxos de trabalho do GitHub Actions. O uso e o gerenciamento eficientes de imagens do Docker podem ajudar a reduzir o tempo necessário para configurar e executar seus fluxos de trabalho, minimizar o uso de recursos e, por fim, economizar custos. Aqui estão algumas estratégias para otimizar o uso de imagens do Docker em seus fluxos de trabalho do GitHub Actions:
-- [x] Use imagens de base leves: ao criar imagens personalizadas do Docker para seus fluxos de trabalho ou construir seus aplicativos, sempre use imagens de base leves para minimizar o tamanho e a sobrecarga de recursos. As imagens de base leves populares incluem Alpine Linux e outras distribuições mínimas que contêm apenas os componentes essenciais necessários para executar seus aplicativos.
-- [x] Armazene em cache imagens do Docker: aproveite os mecanismos de cache integrados do GitHub Actions para armazenar em cache imagens e camadas do Docker entre execuções de fluxo de trabalho. Ao armazenar em cache imagens do Docker, você pode reduzir o tempo gasto no download de imagens e minimizar a sobrecarga da rede, resultando em uma execução mais rápida do fluxo de trabalho e menor uso de recursos.
-- [x] Otimize as camadas do Docker: Ao criar suas imagens personalizadas do Docker, estruture seu Dockerfile para otimizar a disposição em camadas de suas imagens. Agrupe comandos e arquivos relacionados em cada camada para minimizar o número de camadas e reduzir o tamanho geral da imagem. Além disso, coloque camadas que mudam com frequência na parte inferior do seu Dockerfile para melhorar a eficiência do cache.
-- [x] Remova arquivos e pacotes desnecessários: Mantenha suas imagens do Docker enxutas e focadas, incluindo apenas os arquivos e pacotes necessários para executar seu aplicativo ou fluxo de trabalho. Remova quaisquer arquivos, dependências ou ferramentas estranhas que não sejam necessárias, pois podem aumentar significativamente o tamanho da imagem e o uso de recursos.
-- [x] Use compilações de vários estágios: as compilações de vários estágios permitem que você use várias instruções FROM em seu Dockerfile, permitindo que você crie imagens menores e mais otimizadas. Ao usar compilações de vários estágios, você pode separar o processo de compilação do ambiente de tempo de execução, incluindo apenas os artefatos e dependências necessários em sua imagem final.
-- [x] Atualize e mantenha imagens regularmente: revise e atualize continuamente suas imagens do Docker para garantir que estejam atualizadas com os últimos patches de segurança, melhorias de desempenho e atualizações de dependência. Manter suas imagens regularmente ajuda a evitar potenciais riscos de segurança e garante desempenho ideal.
+O uso e o gerenciamento eficientes de imagens do Docker podem ajudar a reduzir o tempo necessário para configurar e executar seus fluxos de trabalho, minimizar o uso de recursos e, por fim, economizar custos. Aqui estão algumas estratégias para otimizar o uso de imagens do Docker em seus fluxos de trabalho do GitHub Actions:
 
-Ao otimizar o uso de imagens do Docker em seus fluxos de trabalho do GitHub Actions, você pode melhorar significativamente o desempenho e a eficiência de recursos do seu pipeline de CI/CD. Implementar essas práticas recomendadas pode ajudar a reduzir o tempo gasto na configuração e execução de seus fluxos de trabalho, minimizar o consumo de recursos e gerenciar custos de forma mais eficaz.
+- [x] **Use imagens de base leves**: Ao criar imagens personalizadas do Docker para seus fluxos de trabalho ou construir seus aplicativos, sempre use imagens de base leves para minimizar o tamanho e a sobrecarga de recursos. As imagens de base leves populares incluem Alpine Linux e outras distribuições mínimas que contêm apenas os componentes essenciais necessários para executar seus aplicativos.
+- [x] **Armazene em cache imagens do Docker**: aproveite os mecanismos de cache integrados do GitHub Actions para armazenar em cache imagens e camadas do Docker entre execuções de fluxo de trabalho. Ao armazenar em cache imagens do Docker, você pode reduzir o tempo gasto no download de imagens e minimizar a sobrecarga da rede, resultando em uma execução mais rápida do fluxo de trabalho e menor uso de recursos.
+- [x] **Otimize as camadas do Docker**: Ao criar suas imagens personalizadas do Docker, estruture seu Dockerfile para otimizar a disposição em camadas de suas imagens. Agrupe comandos e arquivos relacionados em cada camada para minimizar o número de camadas e reduzir o tamanho geral da imagem. Além disso, coloque camadas que mudam com frequência na parte inferior do seu Dockerfile para melhorar a eficiência do cache.
+- [x] **Remova arquivos e pacotes desnecessários**: Mantenha suas imagens do Docker enxutas e focadas, incluindo apenas os arquivos e pacotes necessários para executar seu aplicativo ou fluxo de trabalho. Remova quaisquer arquivos, dependências ou ferramentas estranhas que não sejam necessárias, pois podem aumentar significativamente o tamanho da imagem e o uso de recursos.
+- [x] **Use compilações de vários estágios**: As compilações de vários estágios permitem que você use várias instruções FROM em seu Dockerfile, permitindo que você crie imagens menores e mais otimizadas. Ao usar compilações de vários estágios, você pode separar o processo de compilação do ambiente de tempo de execução, incluindo apenas os artefatos e dependências necessários em sua imagem final.
+- [x] **Atualize e mantenha imagens regularmente**: Revise e atualize continuamente suas imagens do Docker para garantir que estejam atualizadas com os últimos patches de segurança, melhorias de desempenho e atualizações de dependência. Manter suas imagens regularmente ajuda a evitar potenciais riscos de segurança e garante desempenho ideal.
 
-### Leverage Conditional Execution
-A execução condicional é um recurso poderoso do GitHub Actions que permite que você controle quando tarefas ou etapas específicas devem ser executadas com base em várias condições. Ao aproveitar a execução condicional, você pode otimizar o desempenho e o uso de recursos dos seus fluxos de trabalho executando apenas as tarefas ou etapas necessárias com base no contexto atual, como o tipo de evento, ramificação ou até mesmo as alterações feitas em uma solicitação de pull.
+Ao otimizar o uso de imagens do Docker em seus fluxos de trabalho do GitHub Actions, você pode melhorar significativamente o desempenho e a eficiência de recursos do seu pipeline de CI/CD.
+
+Implementar essas práticas recomendadas pode ajudar a reduzir o tempo gasto na configuração e execução de seus fluxos de trabalho, minimizar o consumo de recursos e gerenciar custos de forma mais eficaz.
+
+### Aproveite a execução condicional
+Ao aproveitar a execução condicional, você pode otimizar o desempenho e o uso de recursos dos seus fluxos de trabalho executando apenas as tarefas ou etapas necessárias com base no contexto atual, como o tipo de evento, ramificação ou até mesmo as alterações feitas em uma solicitação de pull.
+
 Aqui estão algumas estratégias para usar a execução condicional para otimizar seus fluxos de trabalho do GitHub Actions:
 
-- [x] Filtrar por tipo de evento ou ramificação: use a palavra-chave if na configuração do seu fluxo de trabalho para definir condições com base no tipo de evento ou ramificação. Por exemplo, você pode executar tarefas ou etapas específicas apenas quando uma solicitação de pull for mesclada ou quando um evento push ocorrer em uma ramificação específica. Isso ajuda a evitar a execução de tarefas ou etapas desnecessárias em determinados cenários, economizando tempo e recursos.
-- [x] Ignorar tarefas ou etapas com base em alterações: utilize as palavras-chave paths e paths-ignore para definir condições com base nas alterações feitas em uma solicitação de pull ou evento push. Isso permite que você pule trabalhos ou etapas quando arquivos ou diretórios específicos não forem afetados pelas alterações, resultando em execução mais rápida do fluxo de trabalho e consumo reduzido de recursos.
-- [x] Use contexto e expressões: aproveite o rico conjunto de contexto e expressões fornecido pelo GitHub Actions para criar condições complexas com base no ambiente de tempo de execução, resultados de trabalhos anteriores ou outros fatores dinâmicos. Isso permite que você adapte a execução do seu fluxo de trabalho às necessidades específicas de cada execução, otimizando o desempenho e o uso de recursos.
-- [x] Combine condições com operadores lógicos: use operadores lógicos como && (e), || (ou) e ! (não) para combinar várias condições e criar regras mais sofisticadas para execução condicional. Isso permite que você ajuste sua configuração de fluxo de trabalho e garanta que os trabalhos ou etapas sejam executados somente quando todas as condições necessárias forem atendidas.
-- [x] Tratamento de erros e continue-on-error: utilize a palavra-chave continue-on-error para controlar o comportamento do seu fluxo de trabalho quando uma etapa falhar. Isso pode ajudar você a evitar o consumo desnecessário de recursos ao interromper a execução de etapas ou trabalhos subsequentes quando ocorrer uma falha crítica.
+- [x] **Filtrar por tipo de evento ou ramificação**: Use a palavra-chave `if` na configuração do seu fluxo de trabalho para definir condições com base no tipo de evento ou ramificação. Por exemplo, você pode executar tarefas ou etapas específicas apenas quando uma solicitação de pull for mesclada ou quando um evento push ocorrer em uma ramificação específica. Isso ajuda a evitar a execução de tarefas ou etapas desnecessárias em determinados cenários, economizando tempo e recursos.
+- [x] **Ignorar tarefas ou etapas com base em alterações**: Utilize as palavras-chave `paths` e `paths-ignore` para definir condições com base nas alterações feitas em uma solicitação de pull ou evento push. Isso permite que você pule trabalhos ou etapas quando arquivos ou diretórios específicos não forem afetados pelas alterações, resultando em execução mais rápida do fluxo de trabalho e consumo reduzido de recursos.
+- [x] **Use contexto e expressões**: Aproveite o rico conjunto de contexto e expressões fornecido pelo GitHub Actions para criar condições complexas com base no ambiente de tempo de execução, resultados de trabalhos anteriores ou outros fatores dinâmicos. Isso permite que você adapte a execução do seu fluxo de trabalho às necessidades específicas de cada execução, otimizando o desempenho e o uso de recursos.
+- [x] **Combine condições com operadores lógicos**: Use operadores lógicos como `&& (e), || (ou) e ! (não)` para combinar várias condições e criar regras mais sofisticadas para execução condicional. Isso permite que você ajuste sua configuração de fluxo de trabalho e garanta que os trabalhos ou etapas sejam executados somente quando todas as condições necessárias forem atendidas.
+- [x] **Tratamento de erros e continue-on-error**: Utilize a palavra-chave `continue-on-error` para controlar o comportamento do seu fluxo de trabalho quando uma etapa falhar. Isso pode ajudar você a evitar o consumo desnecessário de recursos ao interromper a execução de etapas ou trabalhos subsequentes quando ocorrer uma falha crítica.
 
-Ao aproveitar a execução condicional em seus fluxos de trabalho do GitHub Actions, você pode melhorar significativamente o desempenho e a eficiência de recursos do seu pipeline de CI/CD. Implementar essas práticas recomendadas pode ajudar você a reduzir o tempo gasto na execução de seus fluxos de trabalho, minimizar o consumo de recursos e gerenciar custos de forma mais eficaz, mantendo um processo de CI/CD rápido e eficiente.
+Implementar essas práticas recomendadas pode ajudar você a reduzir o tempo gasto na execução de seus fluxos de trabalho, minimizar o consumo de recursos e gerenciar custos de forma mais eficaz, mantendo um processo de CI/CD rápido e eficiente.
 
-### Evaluate and Optimize Third-Party Actions
-Ações de terceiros do GitHub Actions Marketplace podem melhorar significativamente seus fluxos de trabalho, fornecendo soluções pré-criadas para tarefas comuns e integrações com vários serviços. No entanto, usar ações de terceiros também pode impactar o desempenho e o uso de recursos de seus fluxos de trabalho. Para otimizar o uso de ações de terceiros em seus fluxos de trabalho do GitHub Actions, siga estas estratégias:
-- [x] Revise e avalie ações: antes de adicionar uma ação de terceiros ao seu fluxo de trabalho, revise e avalie cuidadosamente sua documentação, código-fonte e feedback do usuário. Certifique-se de que a ação seja bem mantida, segura e eficiente. Evite usar ações que tenham problemas de desempenho conhecidos, vulnerabilidades de segurança ou que não sejam mais mantidas ativamente.
-- [x] Limite o número de ações: embora possa ser tentador usar várias ações para várias tarefas, é essencial limitar o número de ações em seus fluxos de trabalho àquelas que são realmente necessárias. Cada ação adiciona sobrecarga à execução do seu fluxo de trabalho e pode aumentar o tempo necessário para executar seus trabalhos. Avalie se uma ação específica é necessária ou se a mesma funcionalidade pode ser obtida usando recursos internos do GitHub Actions ou comandos de shell simples.
-- [x] Otimize entradas e configuração de ações: ao usar ações de terceiros, certifique-se de fornecer as entradas e configurações corretas para otimizar seu desempenho. Algumas ações podem oferecer parâmetros ou configurações opcionais que podem ajudar a ajustar seu comportamento e uso de recursos. Consulte a documentação da ação para obter detalhes sobre as opções disponíveis e as práticas recomendadas.
-- [x] Armazene em cache dependências de ações: algumas ações de terceiros podem exigir dependências externas, como pacotes Node.js, para funcionar. Use os mecanismos de cache internos do GitHub Actions para armazenar em cache essas dependências entre execuções de fluxo de trabalho, reduzindo o tempo gasto baixando e instalando-as e minimizando a sobrecarga da rede.
-- [x] Monitore e analise o desempenho das ações: monitore regularmente o desempenho das ações de terceiros que você usa em seus fluxos de trabalho. Analise o tempo gasto executando cada ação e identifique quaisquer gargalos ou problemas de desempenho. Se você descobrir uma ação que consistentemente tem desempenho inferior
-ou consome recursos excessivos, considere substituí-la por uma alternativa mais eficiente ou implementar a funcionalidade necessária usando scripts personalizados ou recursos integrados.
+### Avalie e otimize ações de terceiros
+Usar ações de terceiros também pode impactar o desempenho e o uso de recursos de seus fluxos de trabalho. Para otimizar o uso de ações de terceiros em seus fluxos de trabalho do GitHub Actions, siga estas estratégias:
 
-Ao avaliar e otimizar cuidadosamente o uso de ações de terceiros em seus fluxos de trabalho do GitHub Actions, você pode melhorar o desempenho e a eficiência de recursos do seu pipeline de CI/CD. Seguir essas práticas recomendadas ajudará você a reduzir o tempo gasto na execução de seus fluxos de trabalho, minimizar o consumo de recursos e gerenciar custos de forma mais eficaz, ao mesmo tempo em que se beneficia do amplo ecossistema do GitHub Actions.
+- [x] **Revise e avalie ações**: Antes de adicionar uma ação de terceiros ao seu fluxo de trabalho, revise e avalie cuidadosamente sua documentação, código-fonte e feedback do usuário. Certifique-se de que a ação seja bem mantida, segura e eficiente. Evite usar ações que tenham problemas de desempenho conhecidos, vulnerabilidades de segurança ou que não sejam mais mantidas ativamente.
+- [x] **Limite o número de ações**: Embora possa ser tentador usar várias ações para várias tarefas, é essencial limitar o número de ações em seus fluxos de trabalho àquelas que são realmente necessárias. Cada ação adiciona sobrecarga à execução do seu fluxo de trabalho e pode aumentar o tempo necessário para executar seus trabalhos. Avalie se uma ação específica é necessária ou se a mesma funcionalidade pode ser obtida usando recursos internos do GitHub Actions ou comandos de shell simples.
+- [x] **Otimize entradas e configuração de ações**: Ao usar ações de terceiros, certifique-se de fornecer as entradas e configurações corretas para otimizar seu desempenho. Algumas ações podem oferecer parâmetros ou configurações opcionais que podem ajudar a ajustar seu comportamento e uso de recursos. Consulte a documentação da ação para obter detalhes sobre as opções disponíveis e as práticas recomendadas.
+- [x] **Armazene em cache dependências de ações**: Algumas ações de terceiros podem exigir dependências externas, como pacotes Node.js, para funcionar. Use os mecanismos de cache internos do GitHub Actions para armazenar em cache essas dependências entre execuções de fluxo de trabalho, reduzindo o tempo gasto baixando e instalando-as e minimizando a sobrecarga da rede.
+- [x] **Monitore e analise o desempenho das ações**: Monitore regularmente o desempenho das ações de terceiros que você usa em seus fluxos de trabalho. Analise o tempo gasto executando cada ação e identifique quaisquer gargalos ou problemas de desempenho. Se você descobrir uma ação que consistentemente tem desempenho inferior ou consome recursos excessivos, considere substituí-la por uma alternativa mais eficiente ou implementar a funcionalidade necessária usando scripts personalizados ou recursos integrados.
 
-### Monitor and Analyze Workflow Performance
-Monitorar e analisar o desempenho dos seus fluxos de trabalho do GitHub Actions é crucial para identificar gargalos, ineficiências e oportunidades de otimização. O monitoramento contínuo ajuda você a manter um pipeline de CI/CD rápido e eficiente, minimizar o consumo de recursos e gerenciar custos de forma mais eficaz. Aqui estão algumas estratégias para monitorar e analisar o desempenho dos seus fluxos de trabalho do GitHub Actions:
+Seguir essas práticas recomendadas ajudará você a reduzir o tempo gasto na execução de seus fluxos de trabalho, minimizar o consumo de recursos e gerenciar custos de forma mais eficaz, ao mesmo tempo em que se beneficia do amplo ecossistema do GitHub Actions.
 
-- [x] Aproveite a análise integrada do GitHub: use os recursos de análise integrados fornecidos pelo GitHub para monitorar o desempenho dos seus fluxos de trabalho, como duração média de execução, taxa de sucesso e tempo de fila. Analise essas métricas para identificar tendências e problemas potenciais e use as informações para orientar seus esforços de otimização.
-- [x] Inspecione execuções de fluxo de trabalho individuais: examine os logs e detalhes de execução de execuções de fluxo de trabalho individuais para obter insights sobre o desempenho de tarefas e etapas específicas. Isso pode ajudar você a identificar tarefas lentas ou que exigem muitos recursos que podem exigir otimização ou refatoração.
-- [x] Monitore o uso de recursos: acompanhe o uso de recursos dos seus executores hospedados no GitHub, como CPU, memória e armazenamento, para garantir que seus fluxos de trabalho estejam sendo executados de forma eficiente e não esgotem os recursos disponíveis. Se você notar restrições consistentes de recursos, considere otimizar seus fluxos de trabalho ou usar executores auto-hospedados com mais recursos.
-- [x] Use ferramentas de monitoramento de terceiros: integre seus fluxos de trabalho do GitHub Actions com ferramentas externas de monitoramento e observabilidade, como Datadog ou Grafana, para obter insights mais profundos sobre o desempenho do seu pipeline de CI/CD. Essas ferramentas podem ajudar você a visualizar e analisar métricas de fluxo de trabalho, configurar alertas e identificar tendências ao longo do tempo.
-- [x] Estabeleça linhas de base e metas de desempenho: defina linhas de base e metas de desempenho para seus fluxos de trabalho, como duração de execução alvo, taxa de sucesso e consumo de recursos. Revise regularmente o desempenho dos seus fluxos de trabalho em relação a esses benchmarks e tome medidas corretivas quando necessário para garantir que seu pipeline de CI/CD permaneça rápido e eficiente.
-- [x] Otimize continuamente: revise e otimize continuamente seus fluxos de trabalho para resolver quaisquer gargalos ou ineficiências de desempenho. Use os insights coletados do monitoramento e da análise para orientar seus esforços de otimização, como refatorar etapas lentas, usar ações mais eficientes ou implementar execução condicional.
+### Monitore e analise o desempenho do fluxo de trabalho
+O monitoramento contínuo ajuda você a manter um pipeline de CI/CD rápido e eficiente, minimizar o consumo de recursos e gerenciar custos de forma mais eficaz. Aqui estão algumas estratégias para monitorar e analisar o desempenho dos seus fluxos de trabalho do GitHub Actions:
 
-Ao monitorar e analisar ativamente o desempenho de seus fluxos de trabalho do GitHub Actions, você pode garantir que seu pipeline de CI/CD permaneça rápido, eficiente e econômico. A implementação dessas práticas recomendadas ajudará você a identificar e resolver problemas potenciais antes que se tornem críticos, melhorando a confiabilidade e a eficácia geral do seu processo de CI/CD.
+- [x] **Aproveite a análise integrada do GitHub**: Use os recursos de análise integrados fornecidos pelo GitHub para monitorar o desempenho dos seus fluxos de trabalho, como duração média de execução, taxa de sucesso e tempo de fila. Analise essas métricas para identificar tendências e problemas potenciais e use as informações para orientar seus esforços de otimização.
+- [x] **Inspecione execuções de fluxo de trabalho individuais**: Examine os logs e detalhes de execução de execuções de fluxo de trabalho individuais para obter insights sobre o desempenho de tarefas e etapas específicas. Isso pode ajudar você a identificar tarefas lentas ou que exigem muitos recursos que podem exigir otimização ou refatoração.
+- [x] **Monitore o uso de Recursos**: Acompanhe o uso de recursos dos seus executores hospedados no GitHub, como CPU, memória e armazenamento, para garantir que seus fluxos de trabalho estejam sendo executados de forma eficiente e não esgotem os recursos disponíveis. Se você notar restrições consistentes de recursos, considere otimizar seus fluxos de trabalho ou usar executores auto-hospedados com mais recursos.
+- [x] **Use ferramentas de monitoramento de terceiros**: Integre seus fluxos de trabalho do GitHub Actions com ferramentas externas de monitoramento e observabilidade, como Datadog ou Grafana, para obter insights mais profundos sobre o desempenho do seu pipeline de CI/CD. Essas ferramentas podem ajudar você a visualizar e analisar métricas de fluxo de trabalho, configurar alertas e identificar tendências ao longo do tempo.
+- [x] **Estabeleça linhas de base e metas de desempenho**: Defina linhas de base e metas de desempenho para seus fluxos de trabalho, como duração de execução alvo, taxa de sucesso e consumo de recursos. Revise regularmente o desempenho dos seus fluxos de trabalho em relação a esses benchmarks e tome medidas corretivas quando necessário para garantir que seu pipeline de CI/CD permaneça rápido e eficiente.
+- [x] **Otimize Continuamente**: Revise e otimize continuamente seus fluxos de trabalho para resolver quaisquer gargalos ou ineficiências de desempenho. Use os insights coletados do monitoramento e da análise para orientar seus esforços de otimização, como refatorar etapas lentas, usar ações mais eficientes ou implementar execução condicional.
 
-Concluindo, o Capítulo 9 forneceu insights valiosos e práticas recomendadas para proteger e otimizar seus fluxos de trabalho do GitHub Actions. Garantir a segurança de seus fluxos de trabalho é fundamental, pois evita acesso não autorizado, protege informações confidenciais e mantém a integridade do seu pipeline de CI/CD. A otimização, por outro lado, ajuda você a criar fluxos de trabalho eficientes e econômicos que fazem o melhor uso dos recursos disponíveis e minimizam o tempo de execução.
+A implementação dessas práticas recomendadas ajudará você a identificar e resolver problemas potenciais antes que se tornem críticos, melhorando a confiabilidade e a eficácia geral do seu processo de CI/CD.
 
-Seguindo as diretrizes e recomendações descritas neste capítulo, você pode criar um pipeline de CI/CD seguro e eficiente que aprimora seu processo de desenvolvimento e melhora a qualidade geral de seus projetos de software. Lembre-se de que segurança e otimização são processos contínuos; é essencial revisar, monitorar e refinar continuamente seus fluxos de trabalho para abordar potenciais ameaças e ineficiências à medida que elas surgem. À medida que você continua a explorar e aproveitar o poder do GitHub Actions, você estará bem equipado para construir um pipeline de CI/CD robusto e eficiente que acelera seu ciclo de vida de desenvolvimento de software.
-### Advanced GitHub Actions Techniques
-À medida que você se sentir mais confortável com o GitHub Actions e começar a explorar todo o seu potencial, você pode acabar buscando técnicas mais avançadas para aprimorar ainda mais seu pipeline de CI/CD. Este capítulo se aprofunda em estratégias avançadas do GitHub Actions que podem ajudar você a ajustar seus fluxos de trabalho, estender sua funcionalidade e melhorar sua eficiência geral.
-Neste capítulo, abordaremos uma variedade de tópicos avançados, como usar compilações de matriz dinâmica, trabalhar com scripts de shell avançados, integrar com outras plataformas de CI/CD e explorar a API do GitHub para ações personalizadas. Ao dominar essas técnicas avançadas, você será capaz de lidar com cenários de automação complexos e desbloquear todo o potencial do GitHub Actions para agilizar seu processo de desenvolvimento de software.
-Quer você esteja procurando otimizar seus fluxos de trabalho existentes ou enfrentar novos desafios com o GitHub Actions, este capítulo fornece o conhecimento e as ferramentas necessárias para elevar seu pipeline de CI/CD para o próximo nível. Então, vamos mergulhar e explorar as técnicas avançadas que ajudarão você a aproveitar ao máximo o GitHub Actions.
-#### Workflow Templates and Reusable Workflows
-À medida que sua organização cresce e você gerencia vários repositórios, torna-se cada vez mais importante padronizar e manter a consistência em seus fluxos de trabalho do GitHub Actions. Modelos de fluxo de trabalho e fluxos de trabalho reutilizáveis ajudam a simplificar seu gerenciamento de pipeline de CI/CD e reduzem a duplicação de código, facilitando a manutenção e a atualização de seus fluxos de trabalho em vários repositórios. Nesta seção, exploraremos esses dois recursos poderosos e demonstraremos como usá-los de forma eficaz.
+A otimização, por outro lado, ajuda você a criar fluxos de trabalho eficientes e econômicos que fazem o melhor uso dos recursos disponíveis e minimizam o tempo de execução.
+
+Lembre-se de que segurança e otimização são processos contínuos; é essencial revisar, monitorar e refinar continuamente seus fluxos de trabalho para abordar potenciais ameaças e ineficiências à medida que elas surgem. À medida que você continua a explorar e aproveitar o poder do GitHub Actions, você estará bem equipado para construir um pipeline de CI/CD robusto e eficiente que acelera seu ciclo de vida de desenvolvimento de software.
+
+### Técnicas avançadas de ações do GitHub
+À medida que você se sentir mais confortável com o GitHub Actions e começar a explorar todo o seu potencial, você pode acabar buscando técnicas mais avançadas para aprimorar ainda mais seu pipeline de CI/CD.
+
+AprofundaR em estratégias avançadas do GitHub Actions que podem ajudar você a ajustar seus fluxos de trabalho, estender sua funcionalidade e melhorar sua eficiência geral.
+
+Ao dominar essas técnicas avançadas, você será capaz de lidar com cenários de automação complexos e desbloquear todo o potencial do GitHub Actions para agilizar seu processo de desenvolvimento de software.
+
+Quer você esteja procurando otimizar seus fluxos de trabalho existentes ou enfrentar novos desafios com o GitHub Actions, este capítulo fornece o conhecimento e as ferramentas necessárias para elevar seu pipeline de CI/CD para o próximo nível.
+
+Então, vamos mergulhar e explorar as técnicas avançadas que ajudarão você a aproveitar ao máximo o GitHub Actions.
+
+#### Modelos de fluxo de trabalho e fluxos de trabalho reutilizáveis
+À medida que sua organização cresce e você gerencia vários repositórios, torna-se cada vez mais importante padronizar e manter a consistência em seus fluxos de trabalho do GitHub Actions.
+
+Modelos de fluxo de trabalho e fluxos de trabalho reutilizáveis ajudam a simplificar seu gerenciamento de pipeline de CI/CD e reduzem a duplicação de código, facilitando a manutenção e a atualização de seus fluxos de trabalho em vários repositórios. Nesta seção, exploraremos esses dois recursos poderosos e demonstraremos como usá-los de forma eficaz.
 
 #### Workflow Templates
-Os modelos de fluxo de trabalho podem simplificar significativamente o processo de criação e manutenção de fluxos de trabalho do GitHub Actions em sua organização. Eles fornecem uma estrutura predefinida que permite criar arquivos de fluxo de trabalho reutilizáveis que podem ser facilmente compartilhados em vários repositórios. Os modelos de fluxo de trabalho são particularmente úteis para organizações com vários repositórios compartilhando pipelines de CI/CD semelhantes ou tarefas de automação, pois permitem consistência e manutenibilidade em todos os projetos.
+Os modelos de fluxo de trabalho podem simplificar significativamente o processo de criação e manutenção de fluxos de trabalho do GitHub Actions em sua organização.
+
+```
+.github/
+├── ISSUE_TEMPLATE/
+│   ├── bug-report.md          # Template para reportar bugs
+│   ├── feature-request.md    # Template para sugerir novas funcionalidades
+│   └── config.yml           # Configuração de templates de issues (opcional)
+│
+├── PULL_REQUEST_TEMPLATE.md  # Template padrão para PRs
+│
+├── DISCUSSION_TEMPLATE/
+│   └── ideas.md             # Template para discussões de ideias
+│
+└── CODEOWNERS               # Define responsáveis por partes do código (opcional)
+|
+├── workflow-templates/
+│   ├── template-ci.yml            # Workflow compartilhado
+│   ├──template-ci.properties.json # Informações do Workflow
+```
+
+Eles fornecem uma estrutura predefinida que permite criar arquivos de fluxo de trabalho reutilizáveis que podem ser facilmente compartilhados em vários repositórios.
+
+Os modelos de fluxo de trabalho são particularmente úteis para organizações com vários repositórios compartilhando pipelines de CI/CD semelhantes ou tarefas de automação, pois permitem consistência e manutenibilidade em todos os projetos.
 
 Para criar um modelo de fluxo de trabalho, siga estas etapas:
 
-- [x] Crie um repositório **.github**: Comece criando um novo repositório chamado .github em sua organização. Este repositório armazenará os modelos de fluxo de trabalho da sua organização e outros recursos compartilhados.
-- [x] Crie um diretório workflow-templates: dentro do repositório .github, crie um novo diretório chamado workflow-templates.
-    - [ ] `.github/workflow-templates`
-- [x] Crie um arquivo de modelo: no diretório workflow-templates, crie um novo arquivo de fluxo de trabalho com uma extensão yaml ou yml. Este arquivo conterá o modelo para seu fluxo de trabalho reutilizável. Defina o fluxo de trabalho como faria para um fluxo de trabalho regular do GitHub Actions, incluindo gatilhos, trabalhos, etapas e ações. No entanto, lembre-se de que esse arquivo deve ser genérico o suficiente para ser usado em vários repositórios.
+- [x] Crie um repositório **.github**: Comece criando um novo repositório chamado `.github` em sua organização. Este repositório armazenará os modelos de fluxo de trabalho da sua organização e outros recursos compartilhados.
+- [x] Crie um diretório `workflow-templates` : Dentro do repositório .github, crie um novo diretório chamado `workflow-templates`.
+    - [x] `.github/workflow-templates`
+- [x] **Crie um arquivo de modelo**: no diretório** workflow-templates**, crie um novo arquivo de fluxo de trabalho com uma extensão yaml ou yml. Este arquivo conterá o modelo para seu fluxo de trabalho reutilizável. Defina o fluxo de trabalho como faria para um fluxo de trabalho regular do GitHub Actions, incluindo gatilhos, trabalhos, etapas e ações. No entanto, lembre-se de que esse arquivo deve ser genérico o suficiente para ser usado em vários repositórios.
+
 
 ```
 name: Octo Organization CI
@@ -4308,7 +4624,7 @@ jobs:
       - name: Run a one-line script
         run: echo Hello from Octo Organization
 ```
-- [x] Adicione um arquivo de metadados de modelo: Crie um arquivo de metadados JSON para seu modelo (**octo-organization-ci.properties.json**) com o mesmo nome do arquivo de modelo de fluxo de trabalho, mas com uma extensão properties.json. Esse arquivo deve ser colocado no diretório workflow-templates. O arquivo de metadados contém informações sobre seu modelo, como seu nome, descrição e quaisquer entradas necessárias. Aqui está um exemplo de um arquivo de metadados:
+- [x] **Adicione um arquivo de metadados de modelo**: Crie um arquivo de metadados JSON para seu modelo (**octo-organization-ci.properties.json**) com o mesmo nome do arquivo de modelo de fluxo de trabalho, mas com uma extensão properties.json. Esse arquivo deve ser colocado no diretório workflow-templates. O arquivo de metadados contém informações sobre seu modelo, como seu nome, descrição e quaisquer entradas necessárias. Aqui está um exemplo de um arquivo de metadados:
 
 ```
 {
@@ -4336,23 +4652,29 @@ jobs:
 |            | Pilhas de tecnologia compatíveis da lista no repositório starter-workflows. |
 | filePatterns | Opcional. Permite que o fluxo de trabalho seja usado se o repositório do usuário tiver um arquivo em seu diretório raiz que corresponda a uma expressão regular definida. |
 
-- [x] Confirme e envie suas alterações: confirme e envie as alterações para seu repositório .github. O novo modelo de fluxo de trabalho agora estará disponível para uso nos repositórios da sua organização.
+- [x] **Confirme e envie suas alterações**: Confirme e envie as alterações para seu repositório .github. O novo modelo de fluxo de trabalho agora estará disponível para uso nos repositórios da sua organização.
 
 Para usar um modelo de fluxo de trabalho em um repositório, siga estas etapas:
-- [x] Navegue até a guia Ações do repositório: vá para a guia Ações do GitHub do repositório onde deseja usar o modelo de fluxo de trabalho.
-- [x] Selecione o modelo: clique no botão "Novo fluxo de trabalho" e você verá uma lista de modelos de fluxo de trabalho disponíveis. Encontre o modelo que deseja usar e clique no botão "Configurar este fluxo de trabalho".
-- [x] Personalize o fluxo de trabalho: o conteúdo do modelo será copiado para um novo arquivo de fluxo de trabalho em seu repositório. Personalize o fluxo de trabalho conforme necessário, como fornecendo quaisquer valores de entrada necessários ou fazendo ajustes específicos do projeto.
-- [x] Confirme o novo fluxo de trabalho: salve suas alterações e confirme o novo arquivo de fluxo de trabalho em seu repositório. O fluxo de trabalho agora será executado com base na configuração definida no modelo.
+
+- [x] **Navegue até a guia Ações do repositório**: vá para a guia Ações do GitHub do repositório onde deseja usar o modelo de fluxo de trabalho.
+- [x] **Selecione o modelo**: clique no botão "Novo fluxo de trabalho" e você verá uma lista de modelos de fluxo de trabalho disponíveis. Encontre o modelo que deseja usar e clique no botão "Configurar este fluxo de trabalho".
+- [x] **Personalize o fluxo de trabalho**: o conteúdo do modelo será copiado para um novo arquivo de fluxo de trabalho em seu repositório. Personalize o fluxo de trabalho conforme necessário, como fornecendo quaisquer valores de entrada necessários ou fazendo ajustes específicos do projeto.
+- [x] **Confirme o novo fluxo de trabalho**: salve suas alterações e confirme o novo arquivo de fluxo de trabalho em seu repositório. O fluxo de trabalho agora será executado com base na configuração definida no modelo.
 
 Ao usar modelos de fluxo de trabalho, você pode economizar tempo e esforço reutilizando fluxos de trabalho predefinidos nos repositórios da sua organização. Eles promovem consistência, manutenibilidade e melhores práticas, permitindo que você crie fluxos de trabalho do GitHub Actions mais eficientes e eficazes.
 
 ### Reusable Workflows
 Os fluxos de trabalho reutilizáveis são outro recurso poderoso no GitHub Actions que permite que você reutilize fluxos de trabalho inteiros ou partes de fluxos de trabalho em um único repositório ou em vários repositórios.
+
 Ao criar fluxos de trabalho reutilizáveis, você pode reduzir a duplicação, manter a consistência e garantir que as melhores práticas sejam seguidas em toda a sua organização.
-Ao contrário dos modelos de fluxo de trabalho, que exigem que você copie o conteúdo do modelo em um novo arquivo de fluxo de trabalho, os fluxos de trabalho reutilizáveis são referenciados diretamente de outro fluxo de trabalho usando a palavra-chave uses. Isso significa que quaisquer atualizações no fluxo de trabalho reutilizável serão aplicadas automaticamente a todos os fluxos de trabalho que o referenciam.
+
+Ao contrário dos modelos de fluxo de trabalho, que exigem que você copie o conteúdo do modelo em um novo arquivo de fluxo de trabalho, os fluxos de trabalho reutilizáveis são referenciados diretamente de outro fluxo de trabalho usando a palavra-chave `uses`.
+
+Isso significa que quaisquer atualizações no fluxo de trabalho reutilizável serão aplicadas automaticamente a todos os fluxos de trabalho que o referenciam.
+
 Para criar um fluxo de trabalho reutilizável, siga estas etapas:
 
-- [x] Defina o fluxo de trabalho reutilizável: no seu repositório, crie um novo arquivo de fluxo de trabalho do GitHub Actions (por exemplo, reusable-work-flow.yml) ou use um existente. Defina o fluxo de trabalho como de costume, especificando gatilhos, trabalhos e etapas. Se quiser tornar este fluxo de trabalho reutilizável, você pode adicionar o gatilho workflow_call à seção on:
+- [x] **Defina o fluxo de trabalho reutilizável**: No seu repositório, crie um novo arquivo de fluxo de trabalho do GitHub Actions (por exemplo, reusable-work-flow.yml) ou use um existente. Defina o fluxo de trabalho como de costume, especificando gatilhos, trabalhos e etapas. Se quiser tornar este fluxo de trabalho reutilizável, você pode adicionar o gatilho workflow_call à seção on:
 
 ```
 on:
@@ -4364,16 +4686,16 @@ on:
 ```
 Este exemplo define uma entrada chamada input_name. Quando outro fluxo de trabalho faz referência a esse fluxo de trabalho reutilizável, ele deve fornecer um valor para essa entrada.
 
-- [x] Confirme e envie suas alterações: confirme e envie as alterações para seu repositório. O novo fluxo de trabalho reutilizável agora estará disponível para uso em seu próprio repositório ou em outros repositórios.
+- [x] **Confirme e envie suas alterações**: Confirme e envie as alterações para seu repositório. O novo fluxo de trabalho reutilizável agora estará disponível para uso em seu próprio repositório ou em outros repositórios.
 
 Para usar um fluxo de trabalho reutilizável em outro fluxo de trabalho, siga estas etapas:
 
-- [x] Crie ou edite um arquivo de fluxo de trabalho: em seu repositório, crie um novo arquivo de fluxo de trabalho (por exemplo, main.yml ) ou edite um existente.
-- [x] Faça referência ao fluxo de trabalho reutilizável: no arquivo de fluxo de trabalho, adicione um novo trabalho que faça referência ao fluxo de trabalho reutilizável usando a palavra-chave uses. Forneça quaisquer valores de entrada necessários usando a palavra-chave with :
+- [x] **Crie ou edite um arquivo de fluxo de trabalho**: Em seu repositório, crie um novo arquivo de fluxo de trabalho (por exemplo, main.yml ) ou edite um existente.
+- [x] **Faça referência ao fluxo de trabalho reutilizável**: No arquivo de fluxo de trabalho, adicione um novo trabalho que faça referência ao fluxo de trabalho reutilizável usando a palavra-chave uses. Forneça quaisquer valores de entrada necessários usando a palavra-chave with :
 
 ```
 jobs: my_job:
-uses: organization/repository/.github/workflows/reusable-work- flow.yml@branch
+uses: organization/repository/.github/workflows/reusable-work-flow.yml@branch
 with:
 input_name: 'My Input Value'
 ```
@@ -4381,87 +4703,70 @@ Substitua organização, repositório e branch pelos valores apropriados para se
 
 - [x] Confirme e envie suas alterações: confirme e envie as alterações para seu repositório. O fluxo de trabalho agora será executado usando a configuração do fluxo de trabalho reutilizável.
 
-Ao usar fluxos de trabalho reutilizáveis, você pode compartilhar fluxos de trabalho e seus componentes de forma eficiente entre repositórios, garantindo que atualizações e melhorias sejam propagadas automaticamente. Essa abordagem promove consistência, manutenibilidade e melhores práticas, permitindo que você crie fluxos de trabalho do GitHub Actions mais eficazes e eficientes.
+Essa abordagem promove consistência, manutenibilidade e melhores práticas, permitindo que você crie fluxos de trabalho do GitHub Actions mais eficazes e eficientes.
 
-### Handling Workflow Dependencies
-Em projetos complexos, é comum ter vários fluxos de trabalho com dependências entre si. Gerenciar adequadamente essas dependências é crucial para garantir a execução eficiente e precisa dos seus fluxos de trabalho do GitHub Actions. Esta seção fornecerá uma visão geral de como identificar e lidar com dependências de fluxo de trabalho, incluindo o gerenciamento de dependências entre fluxos de trabalho, execução de trabalho sequencial e dinâmica, dependências de fluxo de trabalho entre repositórios e tratamento de falhas e erros em fluxos de trabalho dependentes. Ao entender esses conceitos, você poderá projetar fluxos de trabalho do GitHub Actions mais robustos e sustentáveis que abordem os desafios de dependências complexas em seus projetos.
-#### Identifying Workflow Dependencies
-Antes de gerenciar efetivamente as dependências do fluxo de trabalho, é essencial identificar os relacionamentos entre seus fluxos de trabalho. As dependências do fluxo de trabalho podem existir em diferentes níveis e em diferentes formas. Elas podem incluir dependências entre trabalhos dentro do mesmo fluxo de trabalho, entre fluxos de trabalho dentro do mesmo repositório ou até mesmo entre fluxos de trabalho em vários repositórios. Identificar essas dependências é o primeiro passo para gerenciá-las efetivamente.
+### Lidando com dependências de fluxo de trabalho
+Em projetos complexos, é comum ter vários fluxos de trabalho com dependências entre si.
+
+Gerenciar adequadamente essas dependências é crucial para garantir a execução eficiente e precisa dos seus fluxos de trabalho do GitHub Actions.
+
+Esta seção fornecerá uma visão geral de como identificar e lidar com dependências de fluxo de trabalho, incluindo o gerenciamento de dependências entre fluxos de trabalho, execução de trabalho sequencial e dinâmica, dependências de fluxo de trabalho entre repositórios e tratamento de falhas e erros em fluxos de trabalho dependentes.
+
+Ao entender esses conceitos, você poderá projetar fluxos de trabalho do GitHub Actions mais robustos e sustentáveis que abordem os desafios de dependências complexas em seus projetos.
+
+#### Identificando dependências de fluxo de trabalho
+Antes de gerenciar efetivamente as dependências do fluxo de trabalho, é essencial identificar os relacionamentos entre seus fluxos de trabalho.
+
+As dependências do fluxo de trabalho podem existir em diferentes níveis e em diferentes formas.
+
+Elas podem incluir dependências entre trabalhos dentro do mesmo fluxo de trabalho, entre fluxos de trabalho dentro do mesmo repositório ou até mesmo entre fluxos de trabalho em vários repositórios. Identificar essas dependências é o primeiro passo para gerenciá-las efetivamente.
+
 Aqui estão algumas etapas para ajudar você a identificar as dependências do fluxo de trabalho:
 
-- [x] Analise a estrutura e os requisitos do seu projeto: comece revisando a estrutura do seu projeto e entendendo seus requisitos. Determine quais tarefas precisam ser executadas em uma ordem específica, quais tarefas podem ser executadas em paralelo e quais tarefas são independentes umas das outras.
-- [x] Revise seus fluxos de trabalho existentes: examine seus fluxos de trabalho do GitHub Actions existentes para identificar quaisquer dependências implícitas ou explícitas entre trabalhos e fluxos de trabalho. Procure instâncias em que um trabalho ou fluxo de trabalho depende da conclusão, sucesso ou falha de outro trabalho ou fluxo de trabalho. Essas dependências podem ser indicadas pelo uso de gatilhos, artefatos ou saídas específicos.
-- [x] Mapeie dependências: crie uma representação visual das dependências entre seus fluxos de trabalho e trabalhos, como um fluxograma ou gráfico de dependência. Isso ajudará você a obter uma compreensão clara dos relacionamentos entre fluxos de trabalho e identificar quaisquer gargalos ou problemas potenciais em sua configuração atual.
-- [x] Considere dependências externas: não se esqueça de levar em conta dependências externas, como serviços de terceiros, APIs ou outros recursos dos quais seus fluxos de trabalho dependem. Essas dependências também podem afetar a execução de seus fluxos de trabalho e precisam ser gerenciadas adequadamente.
+- [x] **Analise a estrutura e os requisitos do seu projeto**: Comece revisando a estrutura do seu projeto e entendendo seus requisitos. Determine quais tarefas precisam ser executadas em uma ordem específica, quais tarefas podem ser executadas em paralelo e quais tarefas são independentes umas das outras.
+- [x] **Revise seus fluxos de trabalho existentes**: Examine seus fluxos de trabalho do GitHub Actions existentes para identificar quaisquer dependências implícitas ou explícitas entre trabalhos e fluxos de trabalho. Procure instâncias em que um trabalho ou fluxo de trabalho depende da conclusão, sucesso ou falha de outro trabalho ou fluxo de trabalho. Essas dependências podem ser indicadas pelo uso de gatilhos, artefatos ou saídas específicos.
+- [x] **Mapeie dependências**: Crie uma representação visual das dependências entre seus fluxos de trabalho e trabalhos, como um fluxograma ou gráfico de dependência. Isso ajudará você a obter uma compreensão clara dos relacionamentos entre fluxos de trabalho e identificar quaisquer gargalos ou problemas potenciais em sua configuração atual.
+- [x] **Considere dependências externas**: Não se esqueça de levar em conta dependências externas, como serviços de terceiros, APIs ou outros recursos dos quais seus fluxos de trabalho dependem. Essas dependências também podem afetar a execução de seus fluxos de trabalho e precisam ser gerenciadas adequadamente.
 
-Ao identificar cuidadosamente as dependências do fluxo de trabalho, você pode projetar fluxos de trabalho mais eficientes e robustos que levem em conta os vários relacionamentos entre trabalhos e fluxos de trabalho. Esse entendimento servirá como base para gerenciar dependências entre fluxos de trabalho, execução sequencial e dinâmica de trabalhos, dependências de fluxo de trabalho entre repositórios e lidar com falhas e erros em fluxos de trabalho dependentes.
+Ao identificar cuidadosamente as dependências do fluxo de trabalho, você pode projetar fluxos de trabalho mais eficientes e robustos que levem em conta os vários relacionamentos entre trabalhos e fluxos de trabalho.
 
-### Managing Inter-Workflow Dependencies
-Depois de identificar as dependências entre seus fluxos de trabalho, a próxima etapa é gerenciar essas dependências entre fluxos de trabalho de forma eficaz. Gerenciar dependências entre fluxos de trabalho envolve coordenar a execução de diferentes fluxos de trabalho, garantir que os fluxos de trabalho dependentes sejam acionados no momento apropriado e lidar com a troca de informações entre fluxos de trabalho.
+Esse entendimento servirá como base para gerenciar dependências entre fluxos de trabalho, execução sequencial e dinâmica de trabalhos, dependências de fluxo de trabalho entre repositórios e lidar com falhas e erros em fluxos de trabalho dependentes.
+
+### Gerenciando dependências entre fluxos de trabalho
+Depois de identificar as dependências entre seus fluxos de trabalho, a próxima etapa é gerenciar essas dependências entre fluxos de trabalho de forma eficaz.
+
+Gerenciar dependências entre fluxos de trabalho envolve coordenar a execução de diferentes fluxos de trabalho, garantir que os fluxos de trabalho dependentes sejam acionados no momento apropriado e lidar com a troca de informações entre fluxos de trabalho.
 
 Aqui estão algumas estratégias para ajudar você a gerenciar dependências entre fluxos de trabalho:
-- [x] Use gatilhos e eventos: aproveite os gatilhos e eventos do GitHub Actions para coordenar a execução de fluxos de trabalho dependentes. Por exemplo, você pode usar o evento workflow_run para acionar um fluxo de trabalho quando outro fluxo de trabalho for concluído. Ao especificar o workflow_id ou o nome do fluxo de trabalho apropriado e a ramificação na qual o fluxo de trabalho de acionamento deve ser executado, você pode garantir que os fluxos de trabalho dependentes sejam executados na ordem correta.
-- [x] Use artefatos de fluxo de trabalho: compartilhe dados entre fluxos de trabalho usando artefatos. Os artefatos podem armazenar arquivos, como saídas de compilação ou resultados intermediários, que podem ser consumidos por fluxos de trabalho posteriores. Carregue artefatos no fluxo de trabalho de produção usando a ação actions/upload-artifact e baixe-os no fluxo de trabalho de consumo usando a ação actions/download-artifact.
-- [x] Alavancar saídas: Use saídas de fluxo de trabalho para passar informações entre fluxos de trabalho. No fluxo de trabalho de produção, defina saídas usando a palavra-chave outputs e defina seus valores usando o comando echo "::set-output name=<output_name>::<output_value>". No fluxo de trabalho de consumo, acesse as saídas usando a palavra-chave needs seguida pelo id do trabalho e o nome da saída, por exemplo, ${{ needs.<job_id>.outputs.<output_name> }} .
-- [x] Lidar com falhas: Gerencie o comportamento de fluxos de trabalho dependentes em caso de falhas. Você pode usar a palavra-chave if em combinação com a palavra-chave needs para controlar a execução de trabalhos com base no sucesso ou falha de suas dependências. Além disso, você pode usar a palavra-chave continue-on-error para especificar se um trabalho deve continuar sendo executado mesmo se uma de suas etapas encontrar um erro.
-- [x] Otimize a execução do fluxo de trabalho: equilibre a execução de fluxos de trabalho dependentes para otimizar o uso de recursos e minimizar o tempo de execução. Use paralelismo, condições de nível de trabalho e outras técnicas de otimização de desempenho para garantir que os fluxos de trabalho sejam executados de forma eficiente e somente quando necessário.
 
-Ao empregar essas estratégias, você pode gerenciar efetivamente as dependências entre fluxos de trabalho na sua configuração do GitHub Actions. Isso ajudará você a criar fluxos de trabalho mais robustos, sustentáveis e eficientes que podem lidar com as complexidades dos requisitos do seu projeto.
+- [x] **Use gatilhos e eventos**: aproveite os gatilhos e eventos do GitHub Actions para coordenar a execução de fluxos de trabalho dependentes. Por exemplo, você pode usar o evento workflow_run para acionar um fluxo de trabalho quando outro fluxo de trabalho for concluído. Ao especificar o workflow_id ou o nome do fluxo de trabalho apropriado e a ramificação na qual o fluxo de trabalho de acionamento deve ser executado, você pode garantir que os fluxos de trabalho dependentes sejam executados na ordem correta.
+- [x] **Use artefatos de fluxo de trabalho**: compartilhe dados entre fluxos de trabalho usando artefatos. Os artefatos podem armazenar arquivos, como saídas de compilação ou resultados intermediários, que podem ser consumidos por fluxos de trabalho posteriores. Carregue artefatos no fluxo de trabalho de produção usando a ação actions/upload-artifact e baixe-os no fluxo de trabalho de consumo usando a ação actions/download-artifact.
+- [x] **Alavancar saídas**: Use saídas de fluxo de trabalho para passar informações entre fluxos de trabalho. No fluxo de trabalho de produção, defina saídas usando a palavra-chave outputs e defina seus valores usando o comando echo "::set-output name=<output_name>::<output_value>". No fluxo de trabalho de consumo, acesse as saídas usando a palavra-chave needs seguida pelo id do trabalho e o nome da saída, por exemplo, ${{ needs.<job_id>.outputs.<output_name> }} .
+- [x] **Lidar com falhas**: Gerencie o comportamento de fluxos de trabalho dependentes em caso de falhas. Você pode usar a palavra-chave if em combinação com a palavra-chave needs para controlar a execução de trabalhos com base no sucesso ou falha de suas dependências. Além disso, você pode usar a palavra-chave continue-on-error para especificar se um trabalho deve continuar sendo executado mesmo se uma de suas etapas encontrar um erro.
+- [x] **Otimize a execução do fluxo de trabalho**: Equilibre a execução de fluxos de trabalho dependentes para otimizar o uso de recursos e minimizar o tempo de execução. Use paralelismo, condições de nível de trabalho e outras técnicas de otimização de desempenho para garantir que os fluxos de trabalho sejam executados de forma eficiente e somente quando necessário.
 
-### Sequential Job Execution
+Ao empregar essas estratégias, você pode gerenciar efetivamente as dependências entre fluxos de trabalho na sua configuração do GitHub Actions.
+
+Isso ajudará você a criar fluxos de trabalho mais robustos, sustentáveis e eficientes que podem lidar com as complexidades dos requisitos do seu projeto.
+
+### Execução sequencial de tarefas
 Em alguns cenários, você pode precisar impor a execução de trabalhos dentro de um fluxo de trabalho em uma ordem específica. A execução sequencial de trabalhos garante que um trabalho seja iniciado somente após o trabalho anterior ter sido concluído com sucesso. Isso pode ser particularmente útil quando a saída de um trabalho é necessária como entrada para outro ou quando a ordem de execução do trabalho é essencial para o funcionamento correto do aplicativo.
 
 Veja como você pode implementar a execução sequencial de trabalhos em seus fluxos de trabalho do GitHub Actions:
 
-- [x] Use a palavra-chave needs: A palavra-chave needs permite que você defina dependências entre trabalhos dentro de um fluxo de trabalho. Ao especificar o(s) trabalho(s) do(s) qual(is) outro trabalho depende, você pode garantir que o trabalho dependente seja executado somente após o(s) trabalho(s) necessário(s) ter(em) sido concluído(s) com sucesso. Por exemplo:
-```
-jobs:
-job1:
-runs-on: self-hosted steps:
-- name: Execute task 1
-run:...
-job2:
-needs: job1
-runs-on: self-hosted
-steps:
-- name: Execute task 2
-run: ...
-```
-Neste exemplo, job2 depende de job1, então job2 só começará a ser executado após job1 ter sido concluído com sucesso.
-
-Encadeie vários jobs: Para fluxos de trabalho mais complexos que envolvam vários jobs sequenciais, simplesmente encadeie os jobs usando a palavra-chave needs. Isso cria uma ordem de execução linear na qual cada job começa somente após seu predecessor ter sido concluído com sucesso:
-
-```
-jobs: job1:
-runs-on: self-hosted
-steps:
-- name: Execute task 1
-run: ...
-
-2.
-job2:
-needs: job1
-runs-on: self-hosted
-steps:
-- name: Execute task 2
-run: ...
-
-job3:
-needs: job2
-runs-on: self-hosted
-steps:
-- name: Execute task 3
-run: ...
-```
-Neste exemplo, job3 depende de job2, que por sua vez depende de job1. Como resultado, os jobs serão executados na ordem job1 -> job2 -> job3.
+- [x] **Use a palavra-chave needs**: A palavra-chave needs permite que você defina dependências entre trabalhos dentro de um fluxo de trabalho. Ao especificar o(s) trabalho(s) do(s) qual(is) outro trabalho depende, você pode garantir que o trabalho dependente seja executado somente após o(s) trabalho(s) necessário(s) ter(em) sido concluído(s) com sucesso. Por exemplo:
+- [x] **Encadeie vários jobs**: Para fluxos de trabalho mais complexos que envolvam vários jobs sequenciais, simplesmente encadeie os jobs usando a palavra-chave needs. Isso cria uma ordem de execução linear na qual cada job começa somente após seu predecessor ter sido concluído com sucesso:
 
 Ao usar a palavra-chave needs para definir dependências de job e impor a execução sequencial de job, você pode gerenciar efetivamente a ordem de execução de job dentro de seus fluxos de trabalho. Isso ajuda a garantir que seus fluxos de trabalho sejam executados corretamente e eficientemente, aderindo aos requisitos específicos do seu projeto.
 
-#### Dynamic Job Execution
-Em alguns casos, você pode querer ter mais controle sobre a execução de trabalhos dentro do seu fluxo de trabalho com base em condições dinâmicas, como a saída de um trabalho anterior ou o resultado de um script. A execução dinâmica de trabalhos permite que você execute trabalhos somente quando certas condições são atendidas, adicionando flexibilidade e adaptabilidade aos seus fluxos de trabalho.
+#### Execução dinâmica de tarefas
+Em alguns casos, você pode querer ter mais controle sobre a execução de trabalhos dentro do seu fluxo de trabalho com base em condições dinâmicas, como a saída de um trabalho anterior ou o resultado de um script.
+
+A execução dinâmica de trabalhos permite que você execute trabalhos somente quando certas condições são atendidas, adicionando flexibilidade e adaptabilidade aos seus fluxos de trabalho.
+
 Para implementar a execução dinâmica de trabalhos em seus fluxos de trabalho do GitHub Actions, você pode utilizar as seguintes estratégias:
 
-- [x] Usar saídas de trabalho: as saídas de trabalho permitem que você armazene e passe dados entre trabalhos em um fluxo de trabalho. Ao usar a saída de um trabalho anterior como entrada para outro trabalho, você pode controlar a execução do trabalho com base no resultado do trabalho anterior. Por exemplo:
+- [x] **Usar saídas de trabalho**: As saídas de trabalho permitem que você armazene e passe dados entre trabalhos em um fluxo de trabalho. Ao usar a saída de um trabalho anterior como entrada para outro trabalho, você pode controlar a execução do trabalho com base no resultado do trabalho anterior. Por exemplo:
 
 ```
 jobs:
@@ -4484,48 +4789,19 @@ if: ${{ needs.job1.outputs.result == 'success' }}
 
 Neste exemplo, job2 depende de job1, e job2 só começará a ser executado se o resultado de saída de job1 for definido como 'success'.
 
-- [x] Aproveite a execução condicional: você pode usar a palavra-chave if para executar jobs com base em condições dinâmicas. Ao combinar isso com saídas de job, variáveis ​​de ambiente ou dados de contexto, você pode criar cenários de execução complexos que se adaptam melhor aos requisitos do seu projeto:
-
-```
-jobs:
-  job1:
-    runs-on: self-hosted
-steps:
-- name: Execute task 1
-run: ...
-job2:
-runs-on: self-hosted
-run: echo "::set-output name=result::success"
-if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-steps:
-- name: Execute task 2
-run: ...
-```
-Neste exemplo, o job2 será executado somente se o evento que disparou o fluxo de trabalho for um push para o branch 'main'.
+- [x] **Aproveite a execução condicional**: Você pode usar a palavra-chave if para executar jobs com base em condições dinâmicas. Ao combinar isso com saídas de job, variáveis ​​de ambiente ou dados de contexto, você pode criar cenários de execução complexos que se adaptam melhor aos requisitos do seu projeto:
 
 A execução dinâmica de trabalho fornece a flexibilidade para adaptar seus fluxos de trabalho a vários cenários, melhorando sua eficiência e eficácia. Ao usar saídas de trabalho e execução condicional, você pode criar fluxos de trabalho dinâmicos que são mais adequados aos requisitos exclusivos do seu projeto.
 
-#### Cross-Repository Workflow Dependencies
+#### Dependências de fluxo de trabalho entre repositórios
 Em alguns casos, você pode ter vários repositórios com fluxos de trabalho que dependem uns dos outros. Gerenciar dependências entre repositórios pode ser desafiador, mas o GitHub Actions fornece ferramentas e técnicas para lidar eficientemente com dependências de fluxo de trabalho entre repositórios.
 Para gerenciar dependências de fluxo de trabalho entre repositórios, você pode usar as seguintes abordagens:
 
-- [x] Eventos de despacho de repositório: você pode usar o Evento de despacho de repositório para acionar um fluxo de trabalho em outro repositório enviando um evento de webhook. Este método permite acionar fluxos de trabalho em diferentes repositórios com base no resultado ou eventos no repositório de origem.
+- [x] **Eventos de despacho de repositório**: você pode usar o Evento de despacho de repositório para acionar um fluxo de trabalho em outro repositório enviando um evento de webhook. Este método permite acionar fluxos de trabalho em diferentes repositórios com base no resultado ou eventos no repositório de origem.
 
 Para configurar um Evento de despacho de repositório, siga estas etapas:
 
 - [x] Crie um fluxo de trabalho no repositório de destino que escute o evento repository_dispatch:
-```
-name: Target Repository Workflow
-on:
-repository_dispatch:
-types: [custom_event]
-jobs:
-handle_dispatch:
-runs-on: self-hosted
-steps:
-- name: Execute task
-run: ...
-```
 - [x] No repositório de origem, use um comando curl em seu fluxo de trabalho para enviar o evento webhook para o repositório de destino:
 ```
 steps:
@@ -4538,34 +4814,52 @@ curl -XPOST \
 
 Certifique-se de substituir OWNER, TARGET_REPO e TARGET_REPO_TOKEN pelos valores apropriados. O TARGET_REPO_TOKEN deve ser um token de acesso pessoal ou um token de instalação do GitHub App com o escopo do repositório e armazenado como um segredo no repositório de origem.
 
-Usando o evento workflow_run: Este evento permite que você acione um fluxo de trabalho no mesmo repositório com base na conclusão de outro fluxo de trabalho. Embora ele não suporte diretamente dependências entre repositórios, você pode usá-lo em combinação com o Repository Dispatch Event para gerenciar dependências entre repositórios.
+### Usando o evento workflow_run:
+Este evento permite que você acione um fluxo de trabalho no mesmo repositório com base na conclusão de outro fluxo de trabalho. Embora ele não suporte diretamente dependências entre repositórios, você pode usá-lo em combinação com o Repository Dispatch Event para gerenciar dependências entre repositórios.
 
 Primeiro, configure um evento de execução de fluxo de trabalho em seu repositório de origem para acionar um Repository Dispatch Event quando o fluxo de trabalho for concluído:
 
 ```
-name: Source Repository Workflow
+name: Exemp;lo
 on:
-workflow_run:
-workflows: ["Another Workflow"]
-types:
+  workflow_run:
+    workflows: ["Main CI Pipeline"]  # Nome exato do workflow principal
+    types:
+      - completed  # Só executa quando o workflow principal terminar
+    branches: [ "main" ]  # Filtro adicional para branch
+
 jobs:
-- completed
-trigger_target_repo:
-runs-on: self-hosted
-steps:
-- name: Trigger target repository workflow
-run: ...
-# Add the curl command from the previous example to
-# send the webhook event
+  deploy:
+    runs-on: ubuntu-latest
+    # Só executa se o workflow principal foi bem-sucedido
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Check Main Workflow Status
+        run: |
+          echo "Workflow principal concluído com: ${{ github.event.workflow_run.conclusion }}"
+          echo "Branch: ${{ github.event.workflow_run.head_branch }}"
+
+      - name: Download Artifact from Main Workflow
+        uses: actions/download-artifact@v3
+        with:
+          name: build-output
+          path: ./artifact
+
+      - name: Deploy to Production
+        run: |
+          echo "🚀 Deploying artifact to production..."
+          ls -R ./artifact  # Lista os arquivos baixados
+        env:
+          AWS_ACCESS_KEY: ${{ secrets.PROD_AWS_KEY }}
 ```
 
 Ao aproveitar essas técnicas, você pode gerenciar dependências de fluxo de trabalho entre repositórios e garantir que seus fluxos de trabalho sejam executados na sequência desejada em diferentes repositórios.
 
-### Handling Failures and Errors in Dependent Workflows
+### Lidando com falhas e erros em fluxos de trabalho dependentes
 Ao trabalhar com fluxos de trabalho dependentes, é crucial lidar com falhas e erros graciosamente para manter a estabilidade e a confiabilidade do seu pipeline de CI/CD. Ao gerenciar erros de forma eficaz, você pode evitar que uma única falha cause problemas em cascata em todo o seu sistema.
 Nesta seção, discutiremos várias estratégias para lidar com falhas e erros em fluxos de trabalho dependentes:
 
-- [x] Usando condições if: você pode usar instruções condicionais em seu fluxo de trabalho para determinar se um trabalho ou etapa deve ser executado com base no resultado de um trabalho ou etapa anterior. Por exemplo, você pode usar a palavra-chave needs para especificar dependências de trabalho e, em seguida, usar uma condição if para verificar o status do trabalho necessário:
+- [x] **Usando condições if**: você pode usar instruções condicionais em seu fluxo de trabalho para determinar se um trabalho ou etapa deve ser executado com base no resultado de um trabalho ou etapa anterior. Por exemplo, você pode usar a palavra-chave needs para especificar dependências de trabalho e, em seguida, usar uma condição if para verificar o status do trabalho necessário:
 ```
 jobs:
 job1:
@@ -4584,7 +4878,7 @@ run:...
 
 Neste exemplo, job2 será executado somente se job1 for bem-sucedido.
 
-- [x] Implementando novas tentativas: Em alguns casos, erros transitórios podem fazer com que um trabalho ou etapa falhe. Para lidar com essas situações, você pode implementar novas tentativas para dar ao seu fluxo de trabalho chances adicionais de sucesso. Você pode usar a palavra-chave retry em combinação com uma ação personalizada ou uma ação de terceiros como action-retry para tentar novamente uma etapa ou trabalho:
+- [x] **Implementando novas tentativas**: Em alguns casos, erros transitórios podem fazer com que um trabalho ou etapa falhe. Para lidar com essas situações, você pode implementar novas tentativas para dar ao seu fluxo de trabalho chances adicionais de sucesso. Você pode usar a palavra-chave retry em combinação com uma ação personalizada ou uma ação de terceiros como action-retry para tentar novamente uma etapa ou trabalho:
 ```
 steps:
 - name: Execute task with retries
@@ -4595,7 +4889,7 @@ delay_seconds: 10
 command: your-command-here
 ```
 
-- [x] Tratamento de erros com continue-on-error: para evitar que uma única etapa com falha cause falha em todo o trabalho, você pode usar a palavra-chave continue-on-error para permitir que o fluxo de trabalho continue mesmo se uma etapa específica encontrar um erro:
+- [x] **Tratamento de erros com continue-on-error**: para evitar que uma única etapa com falha cause falha em todo o trabalho, você pode usar a palavra-chave continue-on-error para permitir que o fluxo de trabalho continue mesmo se uma etapa específica encontrar um erro:
 
 ```
 steps:
@@ -4604,18 +4898,18 @@ run: ...
 continue-on-error: true
 ```
 
-- [x] Notificações e monitoramento: acompanhe falhas e erros de fluxo de trabalho configurando notificações e monitoramento. Você pode usar recursos internos do GitHub, como notificações por e-mail, ou integrar ferramentas e serviços de terceiros, como Slack ou PagerDuty, para receber alertas quando seus fluxos de trabalho encontrarem problemas.
+- [x] **Notificações e monitoramento**: Acompanhe falhas e erros de fluxo de trabalho configurando notificações e monitoramento. Você pode usar recursos internos do GitHub, como notificações por e-mail, ou integrar ferramentas e serviços de terceiros, como Slack ou PagerDuty, para receber alertas quando seus fluxos de trabalho encontrarem problemas.
 
 Ao incorporar essas técnicas de tratamento de erros em seus fluxos de trabalho dependentes, você pode criar pipelines de CI/CD mais robustos e resilientes que podem lidar com falhas com elegância e manter a integridade geral de seus projetos.
 
 Concluindo, lidar com dependências de fluxo de trabalho de forma eficaz é essencial para manter um pipeline de CI/CD confiável e eficiente. Ao identificar e gerenciar dependências entre fluxos de trabalho, implementar execução de tarefas sequencial e dinâmica e lidar com dependências entre repositórios, você pode criar um pipeline mais robusto e simplificado. Além disso, lidar com falhas e erros usando instruções condicionais, novas tentativas, tratamento de erros com continue-on-error e notificações e monitoramento adequados ajudarão a garantir que seu pipeline permaneça resiliente diante de problemas. À medida que você continua a refinar seus fluxos de trabalho do GitHub Actions, tenha essas técnicas e práticas recomendadas em mente para otimizar seu gerenciamento de dependências e melhorar o desempenho geral do seu processo de desenvolvimento.
 
-#### Automating Project Management and Collaboration
+#### Automatizando o gerenciamento e a colaboração de projetos
 Automatizar tarefas de colaboração e gerenciamento de projetos pode melhorar significativamente a eficiência do seu processo de desenvolvimento e ajudar sua equipe a manter o foco na entrega de código de alta qualidade. O GitHub Actions fornece uma plataforma flexível para criar fluxos de trabalho personalizados para automatizar vários aspectos dos seus esforços de colaboração e gerenciamento de projetos.
 
 Nesta seção, discutiremos vários exemplos de como você pode aproveitar o GitHub Actions para automatizar tarefas de colaboração e gerenciamento de projetos.
 
-#### Automating Issue and Pull Request Management
+#### Automatizando o gerenciamento de problemas e solicitações de pull
 Problemas e solicitações de pull são o cerne dos recursos colaborativos do GitHub, permitindo que os membros da equipe relatem bugs, sugiram melhorias e enviem alterações de código. Ao automatizar o gerenciamento deles com o GitHub Actions, você pode economizar tempo, melhorar a organização e garantir a consistência em seu projeto.
 Aqui estão alguns aspectos importantes da automação do gerenciamento de problemas e solicitações de pull com o GitHub Actions:
 
@@ -4628,47 +4922,53 @@ Aqui estão alguns aspectos importantes da automação do gerenciamento de probl
 
 Para começar a automatizar o gerenciamento de problemas e solicitações de pull, explore as GitHub Actions disponíveis no mercado que são projetadas para essas finalidades. Você também pode criar fluxos de trabalho personalizados adaptados às necessidades específicas do seu projeto. Ao implementar a automação no gerenciamento de problemas e solicitações de pull, você poderá se concentrar mais no trabalho de desenvolvimento real e manter um ambiente de projeto mais organizado, eficiente e colaborativo.
 
-### Integrating GitHub Actions with Project Boards
-Os GitHub Project Boards fornecem uma representação visual do progresso do seu projeto, permitindo que você gerencie tarefas, priorize o trabalho e acompanhe marcos. Integrar o GitHub Actions com os Project Boards pode agilizar o gerenciamento do seu projeto e ajudar você a manter uma visão atualizada do status do seu projeto.
+### Integrando ações do GitHub com Painéis de projeto
+Os GitHub Project Boards fornecem uma representação visual do progresso do seu projeto, permitindo que você gerencie tarefas, priorize o trabalho e acompanhe marcos.
+
+Integrar o GitHub Actions com os Project Boards pode agilizar o gerenciamento do seu projeto e ajudar você a manter uma visão atualizada do status do seu projeto.
 
 Aqui estão alguns aspectos importantes da integração do GitHub Actions com os Project Boards:
 
-- [x] Criação automática de cartões: crie cartões automaticamente no seu Project Board quando novos problemas ou solicitações de pull forem abertos. Isso garante que todas as tarefas sejam rastreadas em um local centralizado e permite que os membros da equipe tenham uma visão geral do trabalho que precisa ser feito.
-- [x] Movimentação de cartões: automatize a movimentação de cartões entre diferentes colunas no seu Project Board com base em gatilhos ou eventos específicos. Por exemplo, quando uma solicitação de pull é aprovada, você pode mover automaticamente seu cartão correspondente para uma coluna "Pronto para mesclagem". Isso ajuda a manter uma representação precisa do progresso do seu projeto e minimiza o trabalho manual para sua equipe.
-- [x] Atribuição de cartão: atribua cartões aos membros da equipe automaticamente com base em regras ou condições predefinidas. Isso pode ajudar a distribuir a carga de trabalho de forma mais uniforme e garantir que a pessoa certa seja responsável por cada tarefa.
+- [x] **Criação automática de Cartões**: crie cartões automaticamente no seu Project Board quando novos problemas ou solicitações de pull forem abertos. Isso garante que todas as tarefas sejam rastreadas em um local centralizado e permite que os membros da equipe tenham uma visão geral do trabalho que precisa ser feito.
+- [x] **Movimentação de cartões**: automatize a movimentação de cartões entre diferentes colunas no seu Project Board com base em gatilhos ou eventos específicos. Por exemplo, quando uma solicitação de pull é aprovada, você pode mover automaticamente seu cartão correspondente para uma coluna "Pronto para mesclagem". Isso ajuda a manter uma representação precisa do progresso do seu projeto e minimiza o trabalho manual para sua equipe.
+- [x] **Atribuição de cartão**: atribua cartões aos membros da equipe automaticamente com base em regras ou condições predefinidas. Isso pode ajudar a distribuir a carga de trabalho de forma mais uniforme e garantir que a pessoa certa seja responsável por cada tarefa.
+- [x] **Atualizando detalhes do cartão**: atualize automaticamente os detalhes do cartão, como rótulos, responsáveis ​​ou datas de vencimento, com base em alterações no problema associado ou solicitação de pull. Isso mantém seu quadro de projeto atualizado e garante que todas as informações relevantes sejam facilmente acessíveis.
+- [x] **Notificações do quadro de projeto**: envie notificações personalizadas para sua equipe quando eventos específicos ocorrerem em seu quadro de projeto, como quando um cartão for movido para uma coluna diferente ou quando uma data de vencimento estiver se aproximando. Isso pode ajudar a manter sua equipe informada e garantir que todos estejam cientes de atualizações ou prazos importantes.
 
-- [x] Atualizando detalhes do cartão: atualize automaticamente os detalhes do cartão, como rótulos, responsáveis ​​ou datas de vencimento, com base em alterações no problema associado ou solicitação de pull. Isso mantém seu quadro de projeto atualizado e garante que todas as informações relevantes sejam facilmente acessíveis.
-- [x] Notificações do quadro de projeto: envie notificações personalizadas para sua equipe quando eventos específicos ocorrerem em seu quadro de projeto, como quando um cartão for movido para uma coluna diferente ou quando uma data de vencimento estiver se aproximando. Isso pode ajudar a manter sua equipe informada e garantir que todos estejam cientes de atualizações ou prazos importantes.
+Para integrar o GitHub Actions com seus quadros de projeto, você precisará criar fluxos de trabalho personalizados que interajam com a API do GitHub para executar ações relacionadas aos quadros de projeto.
 
-Para integrar o GitHub Actions com seus quadros de projeto, você precisará criar fluxos de trabalho personalizados que interajam com a API do GitHub para executar ações relacionadas aos quadros de projeto. Explore as ações disponíveis no GitHub Actions Marketplace para gerenciar quadros de projeto ou crie suas próprias ações personalizadas adaptadas às necessidades do seu projeto.
+Explore as ações disponíveis no GitHub Actions Marketplace para gerenciar quadros de projeto ou crie suas próprias ações personalizadas adaptadas às necessidades do seu projeto.
 
 Ao integrar o GitHub Actions com seus painéis de projeto, você pode automatizar e otimizar seus processos de gerenciamento de projetos, resultando em maior eficiência e melhor colaboração entre os membros da equipe.
 
-### Collaborating with External Teams and Services
-Em muitos projetos de software, a colaboração se estende além da sua equipe imediata para incluir equipes externas ou serviços de terceiros. Integrar o GitHub Actions com esses recursos externos pode facilitar a colaboração perfeita, agilizar a comunicação e garantir que todas as partes permaneçam informadas e sincronizadas.
+### Colaborando com equipes e serviços externos
+Em muitos projetos de software, a colaboração se estende além da sua equipe imediata para incluir equipes externas ou serviços de terceiros.
+
+Integrar o GitHub Actions com esses recursos externos pode facilitar a colaboração perfeita, agilizar a comunicação e garantir que todas as partes permaneçam informadas e sincronizadas.
+
 Aqui estão alguns aspectos importantes da colaboração com equipes e serviços externos usando o GitHub Actions:
 
-- [x] Interação com repositórios externos: configure fluxos de trabalho que interagem com repositórios externos, como criar solicitações de pull, abrir problemas ou atualizar código em um repositório bifurcado. Isso pode ser particularmente útil ao trabalhar com projetos de código aberto ou colaborar com outras organizações em iniciativas compartilhadas.
-- [x] Integração de serviços de terceiros: integre o GitHub Actions com serviços populares de terceiros, como Jira, Trello, Slack ou Microsoft Teams para automatizar várias tarefas de gerenciamento de projetos, comunicação e colaboração. Por exemplo, você pode criar um fluxo de trabalho que publique uma mensagem em um canal específico do Slack quando uma nova solicitação de pull for aberta ou sincronizar problemas do GitHub com tíquetes do Jira.
-- [x] Fluxos de trabalho e ações compartilhados: compartilhe fluxos de trabalho e ações em vários repositórios ou organizações. Isso permite que você estabeleça as melhores práticas e mantenha a consistência em seus projetos. Você também pode aproveitar o recurso de fluxos de trabalho reutilizáveis ​​do GitHub para minimizar a duplicação de esforços e agilizar o processo de configuração para novos projetos.
-- [x] Controle de acesso e permissões: configure controles de acesso e permissões para seus fluxos de trabalho do GitHub Actions para garantir que apenas usuários autorizados possam executar ações específicas ou acessar informações confidenciais. Isso é particularmente importante ao trabalhar com colaboradores externos, pois ajuda a manter a segurança e a integridade de sua base de código.
-- [x] Colaboração em ações personalizadas: incentive a colaboração no desenvolvimento de ações personalizadas do GitHub, disponibilizando o código-fonte em um repositório público. Isso permite que colaboradores externos enviem melhorias, relatem problemas ou sugiram novos recursos, promovendo uma abordagem orientada pela comunidade para o desenvolvimento de ações.
+- [x] **Interação com repositórios externos**: configure fluxos de trabalho que interagem com repositórios externos, como criar solicitações de pull, abrir problemas ou atualizar código em um repositório bifurcado. Isso pode ser particularmente útil ao trabalhar com projetos de código aberto ou colaborar com outras organizações em iniciativas compartilhadas.
+- [x] **Integração de serviços de terceiros**: integre o GitHub Actions com serviços populares de terceiros, como Jira, Trello, Slack ou Microsoft Teams para automatizar várias tarefas de gerenciamento de projetos, comunicação e colaboração. Por exemplo, você pode criar um fluxo de trabalho que publique uma mensagem em um canal específico do Slack quando uma nova solicitação de pull for aberta ou sincronizar problemas do GitHub com tíquetes do Jira.
+- [x] **Fluxos de trabalho e ações compartilhados**: compartilhe fluxos de trabalho e ações em vários repositórios ou organizações. Isso permite que você estabeleça as melhores práticas e mantenha a consistência em seus projetos. Você também pode aproveitar o recurso de fluxos de trabalho reutilizáveis ​​do GitHub para minimizar a duplicação de esforços e agilizar o processo de configuração para novos projetos.
+- [x] **Controle de acesso e permissões**: configure controles de acesso e permissões para seus fluxos de trabalho do GitHub Actions para garantir que apenas usuários autorizados possam executar ações específicas ou acessar informações confidenciais. Isso é particularmente importante ao trabalhar com colaboradores externos, pois ajuda a manter a segurança e a integridade de sua base de código.
+- [x] **Colaboração em ações personalizadas**: incentive a colaboração no desenvolvimento de ações personalizadas do GitHub, disponibilizando o código-fonte em um repositório público. Isso permite que colaboradores externos enviem melhorias, relatem problemas ou sugiram novos recursos, promovendo uma abordagem orientada pela comunidade para o desenvolvimento de ações.
 
 Para colaborar com sucesso com equipes e serviços externos usando o GitHub Actions, é essencial planejar e implementar fluxos de trabalho, controles de acesso e integrações apropriados. Isso permitirá que sua equipe trabalhe de forma eficiente com colaboradores externos, aproveite o poder de serviços de terceiros e mantenha a segurança e a integridade de seus projetos.
 
-### Automating Code Review and Feedback
+### Automatizando a revisão e o feedback do código
 Automatizar os processos de revisão e feedback de código usando o GitHub Actions pode melhorar significativamente a qualidade geral da sua base de código e agilizar a colaboração entre os membros da equipe. Ao incorporar verificações e revisões automatizadas, você pode garantir que seu projeto esteja de acordo com os padrões de codificação estabelecidos e as melhores práticas, minimizando erros humanos e supervisão.
 Aqui estão alguns aspectos importantes da automação da revisão e feedback de código usando o GitHub Actions:
 
-- [x] Linting e análise de código estático: integre linters e ferramentas de análise de código estático em seus fluxos de trabalho para verificar automaticamente erros de sintaxe, violações de estilo de código e outros problemas. Essas ferramentas podem fornecer feedback imediato sobre solicitações de pull, garantindo que sua base de código permaneça limpa e sustentável. Ferramentas populares incluem ESLint para JavaScript, Pylint para Python e RuboCop para Ruby.
-- [x] Testes automatizados: configure seus fluxos de trabalho para executar testes automatizados em cada solicitação de pull ou confirmação. Isso ajuda a identificar problemas potenciais no início do processo de desenvolvimento e garante que novas alterações não introduzam regressões. Você também pode usar o GitHub Actions para executar testes em paralelo ou em vários ambientes, aumentando ainda mais a confiabilidade e a robustez da sua base de código.
-- [x] Automação de revisão de código: use o GitHub Actions para automatizar vários aspectos do processo de revisão de código, como atribuir revisores automaticamente, impor políticas de revisão ou verificar a conformidade com diretrizes específicas. Isso pode ajudar a agilizar o processo de revisão e garantir que todas as alterações de código sejam cuidadosamente verificadas antes de serem mescladas ao branch principal.
-- [x] Feedback automatizado: integre o GitHub Actions com plataformas de comunicação como Slack ou Microsoft Teams para fornecer feedback em tempo real sobre alterações de código. Por exemplo, você pode criar um fluxo de trabalho que envie uma mensagem para um canal específico sempre que uma nova solicitação de pull for aberta ou quando os testes automatizados falharem. Isso ajuda a manter sua equipe informada e incentiva ações rápidas sobre problemas.
+- [x]** Linting e análise de código estático**: integre linters e ferramentas de análise de código estático em seus fluxos de trabalho para verificar automaticamente erros de sintaxe, violações de estilo de código e outros problemas. Essas ferramentas podem fornecer feedback imediato sobre solicitações de pull, garantindo que sua base de código permaneça limpa e sustentável. Ferramentas populares incluem ESLint para JavaScript, Pylint para Python e RuboCop para Ruby.
+- [x] **Testes automatizados**: configure seus fluxos de trabalho para executar testes automatizados em cada solicitação de pull ou confirmação. Isso ajuda a identificar problemas potenciais no início do processo de desenvolvimento e garante que novas alterações não introduzam regressões. Você também pode usar o GitHub Actions para executar testes em paralelo ou em vários ambientes, aumentando ainda mais a confiabilidade e a robustez da sua base de código.
+- [x] **Automação de revisão de código**: use o GitHub Actions para automatizar vários aspectos do processo de revisão de código, como atribuir revisores automaticamente, impor políticas de revisão ou verificar a conformidade com diretrizes específicas. Isso pode ajudar a agilizar o processo de revisão e garantir que todas as alterações de código sejam cuidadosamente verificadas antes de serem mescladas ao branch principal.
+- [x] **Feedback automatizado**: integre o GitHub Actions com plataformas de comunicação como Slack ou Microsoft Teams para fornecer feedback em tempo real sobre alterações de código. Por exemplo, você pode criar um fluxo de trabalho que envie uma mensagem para um canal específico sempre que uma nova solicitação de pull for aberta ou quando os testes automatizados falharem. Isso ajuda a manter sua equipe informada e incentiva ações rápidas sobre problemas.
 - [x] Verificações de desempenho e segurança: use o GitHub Actions para analisar automaticamente seu código em busca de gargalos de desempenho, vulnerabilidades de segurança e outros problemas potenciais. Ferramentas como SonarQube ou Snyk podem ajudar você a identificar e abordar essas preocupações no início do processo de desenvolvimento, garantindo que seu código permaneça seguro e com desempenho.
 
 Ao automatizar os processos de revisão e feedback de código usando GitHub Actions, você pode estabelecer um ambiente de colaboração mais eficiente e eficaz para sua equipe. Isso, por sua vez, leva a um código de maior qualidade, menos defeitos e ciclos de desenvolvimento mais rápidos, resultando, em última análise, em um projeto de software mais bem-sucedido e robusto.
 
-### Streamlining Documentation and Knowledge Management
+### Simplificando a documentação e a gestão do conhecimento
 Documentação eficaz e gerenciamento de conhecimento são essenciais para o sucesso de qualquer projeto de software. Eles garantem que todos os membros da equipe tenham acesso às informações necessárias para entender, contribuir e manter a base de código. O GitHub Actions pode ajudar a automatizar e agilizar vários aspectos da documentação e do gerenciamento de conhecimento, facilitando para sua equipe se manter informada e atualizada.
 Aqui estão algumas estratégias importantes para agilizar a documentação e o gerenciamento de conhecimento usando o GitHub Actions:
 
@@ -4681,11 +4981,11 @@ Ao integrar essas ferramentas ao seu fluxo de trabalho, você pode garantir que 
 - [x] Atualizações automatizadas da base de conhecimento: integre o GitHub Actions ao seu sistema de gerenciamento de conhecimento ou wiki para atualizar automaticamente a documentação e outros recursos quando alterações forem feitas na sua base de código. Por exemplo, você pode criar um fluxo de trabalho que atualize uma página do Confluence ou um GitHub Wiki sempre que um novo recurso for adicionado ou um recurso existente for modificado. Isso garante que sua equipe sempre tenha acesso às informações mais atualizadas.
 
 - [x] Rastreamento e notificação de alterações: use o GitHub Actions para monitorar alterações na documentação e outros recursos de conhecimento e notificar os membros da equipe sobre atualizações relevantes. Isso pode ajudar a manter sua equipe informada sobre mudanças importantes e incentivar a colaboração e o compartilhamento de conhecimento. Integrar o GitHub Actions a plataformas de comunicação como Slack ou Microsoft Teams pode facilitar notificações e discussões em tempo real sobre atualizações de documentação.
-- [ ] Automatizando notas de lançamento: gere e publique notas de lançamento automaticamente usando GitHub Actions. Ao extrair informações relevantes de mensagens de confirmação, solicitações de pull e atualizações do rastreador de problemas, você pode criar notas de lançamento detalhadas e precisas que ajudam os usuários a entender as alterações e melhorias em cada nova versão do seu software.
+- [x] Automatizando notas de lançamento: gere e publique notas de lançamento automaticamente usando GitHub Actions. Ao extrair informações relevantes de mensagens de confirmação, solicitações de pull e atualizações do rastreador de problemas, você pode criar notas de lançamento detalhadas e precisas que ajudam os usuários a entender as alterações e melhorias em cada nova versão do seu software.
 
 Ao aproveitar o GitHub Actions para automatizar e agilizar os processos de documentação e gerenciamento de conhecimento, você pode promover um ambiente de desenvolvimento mais informado e colaborativo. Isso leva a uma melhor tomada de decisão, fluxos de trabalho mais eficientes e, finalmente, um projeto de software mais bem-sucedido e sustentável.
 
-### Best Practices for Collaborative Workflows Using GitHub Actions
+### Melhores práticas para fluxos de trabalho colaborativos usando ações do GitHub
 O GitHub Actions pode desempenhar um papel crucial no aprimoramento da colaboração e comunicação dentro das equipes de desenvolvimento. Para aproveitar ao máximo o GitHub Actions para gerenciamento de projetos e colaboração, considere as seguintes práticas recomendadas:
 
 - [x] Escolha as ações certas: avalie cuidadosamente as ações disponíveis no GitHub Actions Marketplace ou crie suas próprias ações personalizadas para atender às suas necessidades específicas de gerenciamento de projetos e colaboração. Selecione ações que sejam bem mantidas, amplamente utilizadas e tenham uma forte reputação na comunidade.
@@ -4714,28 +5014,12 @@ Bem-vindo ao capítulo final de "GitHub Actions Essentials". Neste capítulo fin
 
 Ao concluirmos nossa exploração do GitHub Actions, revisitaremos os temas principais e forneceremos insights sobre como você pode continuar a desenvolver sua expertise nesta área. Nosso objetivo é garantir que você saia deste livro com a confiança e o conhecimento necessários para aproveitar todo o potencial do GitHub Actions, permitindo que você automatize tarefas, otimize fluxos de trabalho e simplifique a colaboração dentro de suas equipes de desenvolvimento.
 
-## Recap of Key Concepts
-Nesta seção, recapitularemos brevemente os principais conceitos e técnicas que abordamos em "GitHub Actions Essentials", resumindo os elementos essenciais que você precisa dominar para aproveitar ao máximo o GitHub Actions para seus projetos.
-
-- [x] Introdução ao GitHub Actions: começamos com uma visão geral do GitHub Actions, seus benefícios e seu papel na automação de fluxos de trabalho de desenvolvimento de software.
-- [x] Introdução ao GitHub Actions: discutimos os conceitos básicos do GitHub Actions, incluindo fluxos de trabalho, sintaxe YAML e configuração do seu primeiro fluxo de trabalho.
-- [x] Construindo seu primeiro fluxo de trabalho: mergulhamos no processo de criação de fluxos de trabalho, com foco em gatilhos, definição de trabalhos e etapas e uso de ações pré-construídas.
-- [x] Gerenciando a execução do fluxo de trabalho: examinamos as melhores práticas para gerenciar fluxos de trabalho, abrangendo variáveis ​​de ambiente e segredos, condições de nível de trabalho e etapa e compilações de matriz.
-- [x] Criando ações personalizadas do GitHub: exploramos o processo de criação de ações personalizadas, comparando ações baseadas em Docker e JavaScript e aprendendo como publicá-las.
-- [ ] Aproveitando o GitHub Actions Marketplace: discutimos a descoberta, avaliação e integração de ações populares e serviços de terceiros do marketplace.
-- [x] Implementando integração contínua com GitHub Actions: examinamos como incorporar testes automatizados, verificações de qualidade de código, linting e relatórios de cobertura de código em seus fluxos de trabalho.
-- [x] Implementando implantação contínua com GitHub Actions: analisamos como configurar e automatizar o processo de implantação usando GitHub Actions, incluindo estratégias de implantação, ambientes e mecanismos de reversão.
-- [x] Protegendo e otimizando seus fluxos de trabalho do GitHub Actions: nos aprofundamos nas práticas recomendadas de segurança de fluxo de trabalho, cache, gerenciamento de artefatos e técnicas de otimização de desempenho.
-- [x] Técnicas avançadas do GitHub Actions: Abordamos tópicos avançados, como modelos de fluxo de trabalho, fluxos de trabalho reutilizáveis, tratamento de dependências de fluxo de trabalho e automação de tarefas de colaboração e gerenciamento de projetos.
-
-Ao entender e implementar esses conceitos-chave, você estará bem equipado para criar, gerenciar e otimizar fluxos de trabalho poderosos do GitHub Actions que ajudarão a conduzir seus projetos de desenvolvimento de software ao sucesso.
-
 ### Further Resources and Learning
 À medida que você continua a explorar e usar o GitHub Actions, é essencial se manter atualizado sobre os últimos desenvolvimentos, melhores práticas e novos recursos. Esta seção fornece uma lista de recursos que podem ajudar você a se manter informado e a aprofundar seu aprendizado:
 
 - [x] Documentação do GitHub Actions: A documentação oficial do Git-Hub Actions é um recurso inestimável, fornecendo informações detalhadas, exemplos e diretrizes sobre como usar o GitHub Actions de forma eficaz. Acesse aqui: _https:// docs.github.com/en/actions
 - [x] GitHub Actions Marketplace: visite o GitHub Actions Marketplace regularmente para descobrir ações, ferramentas e integrações novas e atualizadas que podem ajudar a otimizar seus fluxos de trabalho: https://github.com/marketplace?type=actions
-- [ ] GitHub Blog: mantenha-se atualizado com os últimos recursos, melhorias e práticas recomendadas do GitHub Actions seguindo o blog oficial do GitHub: https://github.blog/
+- [x] GitHub Blog: mantenha-se atualizado com os últimos recursos, melhorias e práticas recomendadas do GitHub Actions seguindo o blog oficial do GitHub: https://github.blog/
 - [x] GitHub Actions Community Forum: junte-se ao fórum da comunidade do GitHub Actions para fazer perguntas, compartilhar conhecimento e aprender com outros usuários e especialistas: _https://github.community/c/code-to-cloud/github-actions/
 - [x] Cursos e tutoriais online: há vários cursos e tutoriais online disponíveis em plataformas como Udemy, Coursera, YouTube e blogs que abordam o GitHub Actions com mais detalhes. Algumas opções populares incluem:
 "Automating Your Workflow with GitHub Actions" por GitHub Training & Guides no YouTube:_https:// www.youtube.com/playlist?
@@ -4834,7 +5118,7 @@ This appendix provides a curated list of useful GitHub Actions and integrations 
 - [x] actions/cache: Caches dependencies and build outputs to improve workflow execution times.Repository: https://github.com/actions/cache
 - [x] actions/upload-artifact and actions/download-artifact: Uploads build artifacts from a job and downloads them for use in subsequent jobs.Repository: https://github.com/actions/upload-artifact_and__https://github.com/actions/download-artifact
 - [x] actions/create-release: Creates a new release on GitHub and uploads assets to the release. Repository: https://github.com/actions/create-release - [x] actions/github-script: Allows you to write inline scripts that interact with the GitHub API and other GitHub Actions features using Octokit and the actions-toolkit libraries. Repository: https://github.com/actions/github-script
-- [ ] codecov/codecov-action: Uploads your code coverage re- ports to Codecov, a popular code coverage analysis and reporting tool.Repository: https://github.com/codecov/codecov-action
+- [x] codecov/codecov-action: Uploads your code coverage re- ports to Codecov, a popular code coverage analysis and reporting tool.Repository: https://github.com/codecov/codecov-action
 - [x] deployments/ftp-deploy: Deploys your repository to a re- mote server via FTP or SFTP.Repository: https://github.com/deployments/ftp-deploy
 - [x] jakejarvis/lighthouse-action: Runs Google Lighthouse au- dits on your web application and generates reports.Repository: https://github.com/jakejarvis/lighthouse- action
 - [x]  peter-evans/create-pull-request: Automates the creation of pull requests from within your GitHub Actions workflows. Repository: https://github.com/peter-evans/create- pull-request
@@ -4842,800 +5126,254 @@ This appendix provides a curated list of useful GitHub Actions and integrations 
 - [x] snyk/actions: Scans your dependencies for vulnerabilities using Snyk, a popular open-source security platform.Repository: https://github.com/snyk/actions
 - [x] SonarCloud/github-action: Integrates SonarCloud, a cloud- based code quality and security analysis platform, into your GitHub Actions workflows.Repository: https://github.com/SonarCloud/github-action
 - [x] stale/stale: Automatically marks issues and pull requests as stale after a period of inactivity, and eventually closes them if no further activity occurs. Repository: https://github.com/stale/stale
-https://spacelift.io/blog/ci-cd-pipeline
-https://spacelift.io/blog/ci-cd-pipeline
-https://github.com/sottlmarek/DevSecOps?tab=readme-ov-file
-https://app.exampro.co/student/material/gha/6770?autoplay=true
-https://docs.edgeimpulse.com/docs/tutorials/lifecycle-management/gitactions-docker
-https://davecross.substack.com/p/github-actions-essentials-is-published?utm_campaign=post&utm_medium=web
-https://docs.openedx.org/en/latest/developers/references/developer_guide/testing/github-actions.html
-https://medium.com/@ravipatel.it/key-concepts-of-github-actions-a-guide-from-beginner-to-advanced-abb95c59e0f4
-https://davecross.substack.com/p/github-actions-essentials-is-published?utm_campaign=post&utm_medium=web
 
-https://docs.openedx.org/en/latest/developers/references/developer_guide/testing/github-actions.html
-
-
-https://docs.github.com/pt/actions/about-github-actions/understanding-github-actions
-https://docs.github.com/pt/actions/writing-workflows/quickstart
-
-https://docs.github.com/en/actions/guides
-
-https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions
-
-https://github.com/marketplace/actions/setup-node-js-environment
-https://docs.github.com/pt/actions/learn-github-actions/using-starter-workflows
-https://docs.github.com/pt/actions/automating-builds-and-tests
-https://docs.github.com/pt/actions/publishing-packages
-https://docs.github.com/pt/actions/deployment
-https://docs.github.com/pt/actions/managing-issues-and-pull-requests
-https://docs.github.com/pt/actions/examples
-
-## Alguns Exemplos de Fluxos
-
-```
-jobs:
-  example-job:
-    runs-on: self-hosted
-    defaults:
-      run:
-        working-directory: ./scripts
-    steps:
-      - name: Check out the repository to the runner
-        uses: actions/checkout@v4
-      - name: Run a script
-        run: ./my-script.sh
-      - name: Run another script
-        run: ./my-other-script.sh
-```
-## Publish GitHub Package using Workflow
-
-```
-name: Create and publish a Docker image
-on:
-  push:
-    branches: ['release']
-
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
-
-jobs:
-  build-and-push-image:
-    runs-on: self-hosted
-    permissions:
-      contents: read
-      packages: write
-    steps:
-steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
-  - name: Log in the Container registry
-    uses: docker/login-action@65b78...
-    with:
-      registry: ${{ env.REGISTRY }}
-      username: ${{ github.actor }}
-      password: ${{ secrets.GITHUB_TOKEN }}
-  - name: Extract metadata (tags, labels) for Docker
-    id: meta
-    uses: docker/metadata-action@9ec57...
-    with:
-      images: $ {{ env.REGISTRY }} /${{ env.IMAGE_NAME }}
-  - name: Build and push Docker image
-    uses: docker/build-push-action@f2a1d...
-    with:
-      context: .
-      push: true
-      tags: ${{ steps.meta.outputs.tags }}
-      labels: ${{ steps.meta.outputs.labels }}
-```
-
-## Publish Docker Hub Registry using Workflo
-
-```
-name: Publish Docker image
-
-on:
-  release:
-    types: [published]
-
-jobs:
-  push_to_registry:
-    name: Push Docker image to Docker Hub
-    runs-on: self-hosted
-    steps:
-  - name: Check out the repo
-    uses: actions/checkout@v4
-
-  - name: Log in to Docker Hub
-    uses docker/login-action@f4e78...
-    with:
-      username: ${{ secrets.DOCKER_USERNAME }}
-      password: ${{ secrets.DOCKER_PASSWORD }}
-
-  - name: Extract metadata (tags, labels) for Docker
-    id: meta
-    uses: docker/metadata-action@9ec57...
-    with:
-      images: my-docker-hub-namespace/my-docker-hub-repository
-
-  - name: Build and push Docker image
-    uses: docker/build-push-action@3b5e8...
-    with:
-      context: .
-      file: ./Dockerfile
-      push: true
-      tags: ${{ steps.meta.outputs.tags }}
-      labels: ${{ steps.meta.outputs.labels }}
-```
-### Publish GitHub Container Registry using Workflow
-
-```
-name: Publish Docker Image
-on: [push]
-jobs:
-  build-and-push
-    runs-on: self-hosted
-    steps:
-    - name: Check out the repo
-      uses: actions/checkout@v4
-
-    - name: Log in to GitHub Container Registry
-      uses: docker/login-action@v1
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.CR_PAT }} # or use GITHUB_TOKEN
-
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
-
-    - name: Build and push Docker image
-      users: docker/build-push-action@v2
-      with:
-        context: .
-        file: ./Dockerfile
-        push: true
-        tags: ghcr.io/${{ github.repository_owner }}/my-image latest
-
-    - name: Verify the image was pushed
-      run: docker pull ghcr.io/${{ github.repository_owner }}/my-image latest
-```
-
-### Publish Component as GitHub Release
-
-```
-name: Release Workflow
-on:
-  push:
-    tags:
-      - 'v*'
-
-jobs:
-  build:
-    runs-on: self-hosted
-    steps:
-steps:
-  - name: Checkout code
-    uses: actions/checkout@v4
-
-  - name: Build project
-    run: |
-      echo "Build your project here"
-      # Example: gcc -o output_binary source_code.c
-
-  - name: Create Release
-    id: create_release
-    uses: actions/create-release@v1
-    env:
-      GITHUB_TOKEN: $ {{ secrets.GITHUB_TOKEN }}
-    with:
-      tag_name: ${{ github.ref }}
-      release_name: Release ${{ github.ref }}
-      draft: false
-      prerelease: false
-
-  - name: Upload Release Asset
-    uses: actions/upload-release-asset@v1
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    with:
-      upload_url: ${{ steps.create.release.outputs.upload_url }}
-      asset_path: ./path/to/your/output_binary
-      asset_name: output_binary_name
-      asset_content_type: application/octet-stream
-```
-### Deploy Release to Cloud Provider
-
-```
-name: Deploy web app to Azure Static Web Apps
-
-env:
-  APP_LOCATION: "/"
-  API_LOCATION: "api"
-  OUTPUT_LOCATION: "build"
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
-    branches:
-      - main
-permissions:
-  issues: write
-  contents: read
-  pull-requests: write
-
-jobs:
-jobs:
-  build_and_deploy:
-    if: github_event_name == 'push' || (github.event_name == 'pull_request' && github.event_action != 'closed')
-    runs-on: self-hosted
-    name: Build and Deploy
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: true
-      - name: Build and Deploy
-        uses: Azure/static-web-apps-deploy@1a947...
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          action: "upload"
-          app_location: ${{ env.APP_LOCATION }}
-          api_location: ${{ env.API_LOCATION }}
-          output_location: ${{ env.OUTPUT_LOCATION }}
-
-  close_pull_request:
-    if: github.event_name == 'pull_request' && github.event_action == 'closed'
-    runs-on: self-hosted
-    name: Close Pull Request
-    steps:
-      - name: Close Pull Request
-        uses: Azure/static-web-apps-deploy@1a947...
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          action: 'close'
-```
-
-```
-name: Test
-on:
-  push:
-    branches: [ main ]
-jobs:
-  test:
-      runs-on: ${{ matrix.os }}
-      strategy:
-        matrix:
-          os: [self-hosted, macos-latest, windows-latest]
-      steps:
-        - uses: actions/checkout@v4
-        - name: Set up Python
-          uses: actions/setup-python@master
-          with:
-            python-version: 3.9
-        - name: Install dependencies
-          run: |
-            python -m pip install --upgrade pip
-            pip install -r requirements.txt
-        - name: Run tests
-          run: |
-            pip install pytest
-            pytest
-```
-
-.github/fluxos de trabalho/02_deploy.yml
-
-```
-name: Deploy
-on:
-  push:
-    branches: [ main ]
-jobs:
-  build:
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
-      - name: Install latex dependencies
-        run: sudo apt-get update -y && sudo apt-get install -y texlive latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended ghostscript
-
-      - name: Update pip and install python dependencies
-        working-directory: 'docs/'
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Build html and pdf ebook
-        working-directory: 'docs/'
-        run: |
-          make html latexpdf --keep-going LATEXMKOPTS="-interaction=nonstopmode" || true
-          make latexpdf --keep-going LATEXMKOPTS="-interaction=nonstopmode" || true
-          make latexpdf --keep-going LATEXMKOPTS="-interaction=nonstopmode" || true
-        continue-on-error: true
-      - name: Get current datetime in ISO format
-        id: date
-        run: echo "::set-output name=date::$(date -u +'%Y-%m-%d')"
-      - name: Create GitHub release
-        id: gh_release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: docs/build/latex/addressinguncertaintyinmultisectordynamicsresearch.pdf
-          tag_name: ${{ steps.date.outputs.date }}v${{ github.run_number }}
-
-      - name: Commit the compiled files
-        run: |
-          cd docs/build/html
-          git init
-          git add -A
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -m 'deploy' -a || true
-
-      - name: Push changes to gh-pages
-        uses: ad-m/github-push-action@master
-        with:
-          branch: gh-pages
-          directory: docs/build/html
-          force: true
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-```
-
-## [Integração com Slack](https://slack.github.com/)
-Para levar nosso fluxo de trabalho para o próximo nível (e evitar a necessidade de ler ainda mais e-mails 😅 ), adicionamos o aplicativo GitHub ao nosso canal Slack de eBooks. Isso adiciona um bot que pode assinar repositórios do GitHub e relatar atividades; por exemplo: novos problemas, novas solicitações de pull e novos lançamentos. Podemos então discutir e iterar inline no Slack, sem precisar pular para outros aplicativos ou sites.
-
-
-
-```
-name: Lake model
-
-on: [push]
-
-jobs:
-  build:
-
-    runs-on: self-hosted
-    strategy:
-      matrix:
-        python-version: [3.8]
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Lint with flake8
-      run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
-      run: |
-        python -m pytest test.py
-```
-
-
-```
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the workflow will run
-
-on:
-# Triggers the workflow on push or pull request events for main
-push:
- branches: [ main ]
- pull_request:
- branches: [ main ]
-
- # Allows you to run this workflow manually from the Actions tab
- workflow_dispatch:
-
- # A workflow run is made up of one or more jobs
- jobs:
- # This workflow contains a single job called "build"
- build:
- # The type of runner that the job will run on
- runs-on: self-hosted
-
- # Steps are a sequence of tasks executed as part of a job
- steps:
- # Checks-out your repository under $GITHUB_WORKSPACE
- - uses: actions/checkout@v3
-
- # Runs a single command using the runners shell
- - name: Run a one-line script
- run: echo Hello, world!
-
- # Runs a set of commands using the runners shell
- - name: Run a multi-line script
- run: |
- echo Add other actions to build,
- echo test, and deploy your project.
-```
-
-
-```
-name: Push into main branch
-  on:
-    push:
-      branches: [ master ]
-
-  jobs:
-    context:
-      runs-on: self-hosted
-      steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Build
-        id: build
-        uses: cloudposse/github-action-docker-build-push@main
-        with:
-          registry: registry.hub.docker.com
-          organization: "${{ github.event.repository.owner.login }}"
-          repository: "${{ github.event.repository.name }}"
-          login: "${{ secrets.DOCKERHUB_USERNAME }}"
-          password: "${{ secrets.DOCKERHUB_PASSWORD }}"
-          platforms: linux/amd64,linux/arm64
-
-    outputs:
-      image: ${{ steps.build.outputs.image }}
-      tag: ${{ steps.build.outputs.tag }}
-```
-
-#### Exemplo 3: Verificação de segurança
-O GitHub Actions também habilita o ScOps com seu fluxo de trabalho flexível. Vários Github Actions estão disponíveis para executar a varredura de segurança de arquivos, código-fonte e imagens de contêiner. No exemplo abaixo, configuramos a varredura de código-fonte para aplicativos Go como uma etapa no fluxo de trabalho do GitHub Actions. Uma vez configurado, após a etapa de checkout , esta ação inspeciona o código-fonte e fornece resultados a serem aproveitados no processo de desenvolvimento.
-
-```
-name: Run Gosec
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
-jobs:
-  tests:
-    runs-on: self-hosted
-    env:
-      GO111MODULE: on
-    steps:
-      - name: Checkout Source
-        uses: actions/checkout@v3
-      - name: Run Gosec Security Scanner
-        uses: securego/gosec@master
-        with:
-          args: ./...
-```
-
-# GitHub Actions vs. Azure DevOps Pipelines - Escolhendo a ferramenta CI/CD certa para suas necessidades
-
-A automação é essencial para acelerar a entrega de software no mundo de desenvolvimento acelerado de hoje.
-
-Duas ferramentas líderes de CI/CD — GitHub Actions e Azure DevOps Pipelines — oferecem excelentes recursos de automação, mas cada uma atende a diferentes casos de uso. Agora, vamos aprender como escolher a certa.
-
-GitHub Actions: CI/CD contínuo para projetos do GitHub
-
-Melhor para:
-
-Equipes profundamente integradas ao ecossistema do GitHub.
-Projetos de código aberto
-Aplicações nativas da nuvem
-Fluxos de trabalho baseados em YAML
-
-Principais vantagens:
-
-✅ Integração nativa com GitHub - Os fluxos de trabalho são automatizados sem seus repositórios GitHub
-
-✅ Event-Driven Triggers - Triggers baseados em eventos Git
-
-✅ Ações de Marketplace - Disponibilidade de ações de marketplace pré-construídas com suporte da comunidade
-
-✅ Escalabilidade e flexibilidade - Execute os fluxos de trabalho em Custom Runners e Github Runners com amplo suporte de sistema operacional.
-
-Azure DevOps Pipelines: CI/CD de nível empresarial para cargas de trabalho complexas
-
-Melhor para:
-
-Manutenção de infraestrutura de nuvem híbrida e local
-Organizações que usam serviços do Azure ou implantações em várias nuvens.
-Equipes que exigem controles profundos de governança, segurança e conformidade.
-
-Principais vantagens:
-
-✅ Suporte a vários repositórios e várias nuvens - Fácil integração com várias nuvens - AWS, Azure, GCP, etc.
-
-✅ Segurança e conformidade robustas - Segurança de nível empresarial, controles de acesso e aplicação de políticas.
-
-✅ Pipelines gráficos e YAML - Suporta pipelines baseados em YAML e UI
-
-✅ Integração DevOps de ponta a ponta - Azure Boards, Planos de teste, Conjuntos de teste, Artefatos
-
-Fazendo a escolha certa
-
-🔹 Use o GitHub Actions se sua equipe gosta muito do GitHub e está interessada em trabalhar com ecossistemas simples e de código aberto.
-
-🔹 Escolha o Azure DevOps Pipelines se precisar de segurança de nível empresarial, gerenciar implantações em várias nuvens ou precisar de uma abordagem mais estruturada para DevOps.
-
-Preparando sua estratégia de CI/CD para o futuro
-
-As empresas precisam ser adaptáveis conforme o cenário do DevOps muda. Para equipes focadas no GitHub, o GitHub Actions é a solução preferida; no entanto, o Azure DevOps Pipelines continua sendo uma vantagem para automação de nível empresarial. Em alguns casos, usar os dois juntos pode fornecer o melhor.
-
-
-
-
----
-GITHUB ACTIONS: UM GUIA PRÁTICO
-A história do GitHub
-e GitHub Actions
-A maioria das pessoas confunde quando se trata de Git, GitHub, GitLab, GitFlow e outros git-alguma coisa.
+# Fase 02
 
 ## Git
-Git é um "software de controle de versão descentralizado" e este termo bárbaro explica precisamente o que é e o que não é
-. Git é um software, o que significa que não é uma metodologia como seria "DevOps", não é uma sigla como "CI/CD" ou nem mesmo uma maneira de fazer como "gitflow". É um aplicativo que é necessário instalar em um servidor cuja função principal é gerenciar as diferentes versões do nosso código-fonte. Essas versões, em vez de um simples backup, permitem, particularmente no mundo do software, manter uma cópia de cada modificação do código-fonte, com a capacidade de voltar e/ou selecionar uma versão precisa. Este tipo de software existe há décadas com os famosos CVS (1990), ClearCase (1992), SVN (2000), Visual SourceSafe (1994), Team Foundation Server (2005) mas também muitos outros, menos conhecidos, como o BitKeeper (que foi usado para o código fonte do Linux), etc. Todos eles têm suas vantagens e desvantagens, mas acima de tudo, eles têm um ponto em comum: a necessidade de um único servidor onde o código fonte é armazenado e no qual tudo acontece. É o famoso conceito de "centralizado".
-É justamente para quebrar esse modelo que Linus Torvalds (também o inventor do Linux!) inventou o Git em 2005. Se o Git também funciona com um servidor "principal", cada software cliente também traz recursos de gerenciamento de código-fonte (ramificação, confirmação, etc.). Isso significa que todo desenvolvedor que instala o Git em seu computador pode usar todos os recursos localmente, incluindo a criação/gerenciamento de ramificações e a mesclagem de código, registro de dados, etc. Isso levou ao surgimento de novas formas de trabalho entre os desenvolvedores. Um bom exemplo é uma nova forma de criar uma ramificação por recurso ou desenvolvedor. No passado, geralmente era uma única ramificação correspondente a um software de versão, com os riscos de que essa ramificação, quando "quebrada", impedisse todos os desenvolvedores de trabalhar.
+Git é um "software de controle de versão descentralizado" e este termo bárbaro explica precisamente o que é e o que não é. Git é um software, o que significa que não é uma metodologia como seria "DevOps", não é uma sigla como "CI/CD" ou nem mesmo uma maneira de fazer como "gitflow".
+
+É um aplicativo que é necessário instalar em um servidor cuja função principal é gerenciar as diferentes versões do nosso código-fonte. Essas versões, em vez de um simples backup, permitem, particularmente no mundo do software, manter uma cópia de cada modificação do código-fonte, com a capacidade de voltar e/ou selecionar uma versão precisa.
+
+Este tipo de software existe há décadas com os famosos CVS (1990), ClearCase (1992), SVN (2000), Visual SourceSafe (1994), Team Foundation Server (2005) mas também muitos outros, menos conhecidos, como o BitKeeper (que foi usado para o código fonte do Linux), etc. Todos eles têm suas vantagens e desvantagens, mas acima de tudo, eles têm um ponto em comum: a necessidade de um único servidor onde o código fonte é armazenado e no qual tudo acontece.
+
+É o famoso conceito de "centralizado".
+
+É justamente para quebrar esse modelo que Linus Torvalds (também o inventor do Linux!) inventou o Git em 2005. Se o Git também funciona com um servidor "principal", cada software cliente também traz recursos de gerenciamento de código-fonte (ramificação, confirmação, etc.).
+
+Isso significa que todo desenvolvedor que instala o Git em seu computador pode usar todos os recursos localmente, incluindo a criação/gerenciamento de ramificações e a mesclagem de código, registro de dados, etc.
+
+Isso levou ao surgimento de novas formas de trabalho entre os desenvolvedores.
+
+Um bom exemplo é uma nova forma de criar uma ramificação por recurso ou desenvolvedor.
+
+No passado, geralmente era uma única ramificação correspondente a um software de versão, com os riscos de que essa ramificação, quando "quebrada", impedisse todos os desenvolvedores de trabalhar.
+
 Hoje, o Git, graças à sua flexibilidade, se tornou o software de gerenciamento de versão de referência e dominou completamente todos os outros do cenário. Mas com grande poder, o GitHub Actions também vem com uma complexidade.
 
-
-
 ## GitHub
-É justamente essa complexidade e capacidade de suporte (nenhuma empresa editou ou suportou o Git) que as empresas e equipes de desenvolvedores temiam migrar para essa nova ferramenta. É quando as pessoas decidem criar plataformas de hospedagem de código-fonte baseadas em Git (SaaS, Software as a Service) e a Internet então vê aparecer GitHub, GitLab ou Bitbucket.
-O objetivo dessas plataformas é esconder a complexidade do Git por meio de uma interface intuitiva e então adicionar recursos adicionais, como gerenciamento de projetos, rastreamento de bugs, varredura de código e muitos outros. Assim nasceu o GitHub no final de 2007, que neste momento era apenas uma oferta comercial de Git hospedado (apenas armazenamento de código-fonte).
+É justamente essa complexidade e capacidade de suporte (nenhuma empresa editou ou suportou o Git) que as empresas e equipes de desenvolvedores temiam migrar para essa nova ferramenta.
+
+É quando as pessoas decidem criar plataformas de hospedagem de código-fonte baseadas em Git (SaaS, Software as a Service) e a Internet então vê aparecer GitHub, GitLab ou Bitbucket.
+
+O objetivo dessas plataformas é esconder a complexidade do Git por meio de uma interface intuitiva e então adicionar recursos adicionais, como gerenciamento de projetos, rastreamento de bugs, varredura de código e muitos outros.
+
+Assim nasceu o GitHub no final de 2007, que neste momento era apenas uma oferta comercial de Git hospedado (apenas armazenamento de código-fonte).
+
 O GitHub, com mais de 50 milhões de usuários no início de 2021, é claramente o líder do mercado de plataformas de gerenciamento de código-fonte, mas há muito tempo é insuficiente para um projeto real.
 
 De fato, era necessário para cada equipe que esperava usá-lo como parte de um projeto real, adicionar:
 
-• Software de terceiros para gerenciar o backlog (problemas do GitHub e "Projetos" estão longe de serem perfeitos)
-. Outro software para gerenciamento de testes
-. Outro software para a parte de compilação/construção
+- [x] Software de terceiros para gerenciar o backlog (problemas do GitHub e "Projetos" estão longe de serem perfeitos);
+- [x] Outro software para gerenciamento de testes;
+- [x] Outro software para a parte de compilação/construção;
+- [x] E, finalmente, software para a implantação.
 
+Para competir com essas plataformas mais avançadas/completas, o GitHub começou a implementar recursos para preencher essas lacunas.
 
-E, finalmente, software para a implantação.
+Assim, entre vários novos recursos, nasceu um GitHub Actions.
 
-Para competir com essas plataformas mais avançadas/completas, o GitHub começou a implementar recursos para preencher essas lacunas. Assim, entre vários novos recursos, nasceu um GitHub Actions.
-Nota: GitHub, Inc, o editor do GitHub.com, foi adquirido pela Microsoft em junho de 2018, mas continua sendo uma empresa totalmente independente. Se sinergias e co-investimentos técnicos forem feitos entre as duas empresas, o GitHub mantém sua orientação e independência total. Se você estiver interessado no futuro do GitHub, esteja ciente de que a lista de próximos recursos e cronograma de implementação são públicos e acessíveis neste endereço: `https://github.com/github/roadmap/`.
+- [x] Nota: GitHub, Inc, o editor do GitHub.com, foi adquirido pela Microsoft em junho de 2018, mas continua sendo uma empresa totalmente independente.
+- [x] Se sinergias e co-investimentos técnicos forem feitos entre as duas empresas, o GitHub mantém sua orientação e independência total.
+- [x] Se você estiver interessado no futuro do GitHub, esteja ciente de que a lista de próximos recursos e cronograma de implementação são públicos e acessíveis neste endereço: `https://github.com/github/roadmap/`.
 
 ## GitHub Actions
 Em agosto de 2019, o GitHub anunciou o beta público do GitHub Actions, embora eles tenham sido realmente acessíveis desde o verão de 2018 para alguns sortudos.
+
 As GitHub Actions são então descritas como "Seu fluxo de trabalho, criado por você, executado pelo GitHub. As GitHub Actions permitem que você compile facilmente, empacote, versione, atualize e implante seu projeto em qualquer linguagem, no GitHub ou em qualquer sistema externo, sem precisar executar nenhum código sozinho".
-As GitHub Actions, um sistema de automação, são mais do que isso, pois também podem interagir com os diferentes elementos de um projeto, como criar bugs, enviar e-mails automaticamente, atualizar os elementos do roadmap, etc. Mas vão muito além, pois você pode automatizar quase tudo com ele, como acionar o aspirador de pó robô, acender as luzes de uma árvore de Natal, fazer jogo da velha, etc. Os usos são infinitos, desde que sua criatividade esteja lá e que você esteja pronto para escrever algum código.
-GitHub Actions prometem grandes coisas que confirmaremos neste livro.
+
+As **GitHub Actions, um sistema de automação, são mais do que isso, pois também podem interagir com os diferentes elementos de um projeto, como criar bugs, enviar e-mails automaticamente, atualizar os elementos do roadmap**, etc.
+
+Mas vão muito além, pois você pode automatizar quase tudo com ele, como acionar o aspirador de pó robô, acender as luzes de uma árvore de Natal, fazer jogo da velha, etc.
+
+Os usos são infinitos, desde que sua criatividade esteja lá e que você esteja pronto para escrever algum código.
 
 ## Seu primeiro fluxo de trabalho
-Nada é mais irritante do que a teoria sem prática, então iremos diretamente para a prática criando um fluxo de trabalho usando GitHub Actions. Isso permitirá que você manipule vários elementos que detalharemos mais tarde nos capítulos seguintes. Acredito que será mais fácil entender esses conceitos quando você os tiver visto e aplicado pelo menos uma vez.
+Acredito que será mais fácil entender esses conceitos quando você os tiver visto e aplicado pelo menos uma vez.
+
 ## Criando uma conta GitHub
 Se isso ainda não tiver sido feito, você precisará criar uma conta GitHub para criar e usar fluxos de trabalho em seu ambiente. A criação de uma conta é totalmente gratuita e é realizada na seguinte URL: `https://github.com/join`.
 
 Embora o GitHub ofereça várias assinaturas pagas que permitem acesso a recursos adicionais, você precisará de uma conta gratuita neste livro.
 
-Os recursos do GitHub Actions são totalmente acessíveis gratuitamente, mas alguns recursos estão disponíveis para contas gratuitas apenas em repositórios públicos. Assim, se você decidir criar um repositório privado (visível apenas para você), certos recursos como ambientes, varredura de código ou publicação de páginas não estarão acessíveis para você; o livro mencionará essas limitações quando apropriado.
+Os recursos do GitHub Actions são totalmente acessíveis gratuitamente, mas alguns recursos estão disponíveis para contas gratuitas apenas em repositórios públicos.
+
+Assim, se você decidir criar um repositório privado (visível apenas para você), certos recursos como ambientes, varredura de código ou publicação de páginas não estarão acessíveis para você.
 
 ## Criação do repositório
-Você pode começar com um novo repositório vazio, mas para mais simplicidade neste primeiro capítulo, criamos um repositório pronto para uso que você só precisa copiar para sua conta. Para fazer isso, visite a seguinte URL: https://github.com/lgmorand/book-github-actions-repo e bifurque o repositório.
+Você pode começar com um novo repositório vazio, mas para mais simplicidade neste primeiro capítulo, criamos um repositório pronto para uso que você só precisa copiar para sua conta. Para fazer isso, visite a seguinte URL: `https://github.com/60pportunities/estudo-actions` e bifurque o repositório.
 
 ## Fork do repositório
-Um fork é uma cópia de um repositório, mantendo uma conexão com o arquivamento do qual é copiado. Isso permite que você edite a cópia como quiser (é sua cópia), mas também lhe dá a capacidade de "empurrar" suas alterações para reaplicar o repositório original para contribuir (se o autor aceitar, é claro). É como operamos a maioria dos projetos de código aberto. Cada colaborador executa e trabalha na cópia e então propõe adicionar emendas ao rascunho original.
+Um fork é uma cópia de um repositório, mantendo uma conexão com o arquivamento do qual é copiado.
 
-O proprietário do repositório de origem pode então ver as alterações que você deseja fazer e aceitar ou rejeitar as alterações, que são automaticamente incluídas em seu código. Em breve, veremos como as Ações do GitHub são precisamente um ativo líder para facilitar o trabalho múltiplo em um repositório, para contribuir com outro projeto ou realizar controles de qualidade quando um terceiro deseja contribuir com seu projeto.
+Isso permite que você edite a cópia como quiser (é sua cópia), mas também lhe dá a capacidade de "empurrar" suas alterações para reaplicar o repositório original para contribuir (se o autor aceitar, é claro).
 
-Assim que o fork for alcançado, o que deve levar alguns segundos, você deve pousar em um novo repositório chamado NOME_DA_SUA_CONTA/book-github-action-repo. Você observa que o repositório já contém várias pastas e arquivos. Ignore-os por enquanto.
+É como operamos a maioria dos projetos de código aberto. Cada colaborador executa e trabalha na cópia e então propõe adicionar emendas ao rascunho original.
+
+O proprietário do repositório de origem pode então ver as alterações que você deseja fazer e aceitar ou rejeitar as alterações, que são automaticamente incluídas em seu código.
+
+Assim que o fork for alcançado, o que deve levar alguns segundos, você deve pousar em um novo repositório chamado NOME_DA_SUA_CONTA/estudo-actions.
 
 ## Criando um fluxo de trabalho
 Observe as guias disponíveis em seu repositório e anote aquela que nos interessa: Actions.
-Na aba do seu projeto em Actions é que você pode criar, editar e, principalmente, visualizar o status de seus vários fluxos de trabalho.
-Entre na guia Ações para chegar ao Assistente de criação de fluxo de trabalho. Observe a mensagem que informa que os fluxos de trabalho foram deliberadamente desabilitados pelo GitHub neste repositório devido aos riscos que eles podem causar. A mensagem recomenda que você inspecione o código-fonte dos fluxos de trabalho e certifique-se de que não haja nada perigoso lá.
 
-Se, após sua leitura cuidadosa, não houver nada suspeito, você pode clicar em "Eu entendo meus fluxos de trabalho, vá em frente e habilite-os" para reativar a funcionalidade do repositório GitHub para suas Ações.
+Na aba do seu projeto em Actions é que você pode criar, editar e, principalmente, visualizar o status de seus vários fluxos de trabalho.
+
+Entre na guia Ações para chegar ao Assistente de criação de fluxo de trabalho.
+
+Observe a mensagem que informa que os fluxos de trabalho foram deliberadamente desabilitados pelo GitHub neste repositório devido aos riscos que eles podem causar.
+
+A mensagem recomenda que você inspecione o código-fonte dos fluxos de trabalho e certifique-se de que não haja nada perigoso lá.
+
+Se, após sua leitura cuidadosa, não houver nada suspeito, você pode clicar em **"Eu entendo meus fluxos de trabalho, vá em frente e habilite-os"** para reativar a funcionalidade do repositório GitHub para suas Ações.
 
 Esta etapa só é necessária porque você **bifurcou** um repositório de outra pessoa; no caso de um novo repositório de código pessoal, esta etapa não existe.
 
-1. Crie um fluxo de trabalho "vazio" que lhe dará a estrutura de um fluxo de trabalho genérico que apenas envia uma mensagem no console
-2. Crie um fluxo de trabalho a partir de um modelo predefinido. O GitHub oferece modelos que devem se alinhar com o que ele acha que detectou em seu repositório ou permitindo que você escolha entre dezenas de modelos predefinidos. Esses fluxos de trabalho são um bom ponto de partida e uma excelente maneira de aprender quando você está começando com o GitHub Actions. Sinta-se à vontade para ler o conteúdo deles.
+- [x] Crie um fluxo de trabalho "vazio" que lhe dará a estrutura de um fluxo de trabalho genérico que apenas envia uma mensagem no console
+- [x] Crie um fluxo de trabalho a partir de um modelo predefinido.
+
+O GitHub oferece modelos que devem se alinhar com o que ele acha que detectou em seu repositório ou permitindo que você escolha entre dezenas de modelos predefinidos.
+
+Esses fluxos de trabalho são um bom ponto de partida e uma excelente maneira de aprender quando você está começando com o GitHub Actions.
 
 ## Escolha um modelo de fluxo de trabalho
-Crie, teste e implante seu código. Faça revisões de código, gerenciamento de ramificação e triagem de problemas funcionarem da maneira que você deseja. Selecione um modelo de fluxo de trabalho para começar.
+Crie, teste e implante seu código.
+
+Faça revisões de código, gerenciamento de ramificação e triagem de problemas funcionarem da maneira que você deseja. Selecione um modelo de fluxo de trabalho para começar.
 
 ## Implantação
 No nosso caso, criaremos nosso fluxo de trabalho completamente à mão.
 
 Clique em Configurar um fluxo de trabalho você mesmo, o que abre uma nova página com um arquivo em modo de edição. Você pode observar vários elementos importantes:
 
-O arquivo tem uma extensão .yml e uma sintaxe que pode parecer simplista, mas, no momento, totalmente absurda.
+O arquivo tem uma extensão `.yml` e uma sintaxe que pode parecer simplista, mas, no momento, totalmente absurda.
 
-Esta é a "linguagem" YAML (YAML Ain't Markup Language) que quer ser um formato minimalista (mais leve que JSON) para descrever as propriedades de um objeto. está, portanto, em um único arquivo e escrito usando YAML que descreveremos nosso fluxo de trabalho. O arquivo é chamado de "main.yml", mas você pode renomeá-lo como achar melhor, desde que mantenha a extensão correta.
+Esta é a `linguagem" YAML (YAML Ain't Markup Language)` que quer ser um formato minimalista (mais leve que JSON) para descrever as propriedades de um objeto.
 
-• O arquivo é criado diretamente no seu repositório, junto com seu código-fonte, mas localizado na pasta `.github/workflows`. Esta pasta deve ser nomeada exatamente assim; é o caminho onde o GitHub espera encontrar os fluxos de trabalho para usar.
+Portanto, em um único arquivo e escrito usando YAML que descreveremos nosso fluxo de trabalho.
 
-Isso significa que toda vez que você quiser adicionar seu próprio fluxo de trabalho, é nesta pasta específica que ele terá que registrá-lo e não em outro lugar `.github` corresponde a uma pasta oculta no Linux. Neste caso, você também pode encontrar fluxos de trabalho em uma subpasta chamada workflows, templates e outros arquivos usados para personalizar o uso do GitHub. Esses outros elementos não serão abordados neste livro, mas são explicados em detalhes na documentação do GitHub.
+O arquivo é chamado de "main.yml", mas você pode renomeá-lo como achar melhor, desde que mantenha a extensão correta.
 
-Reserve um tempo para olhar o conteúdo pré-preenchido do arquivo my-workflow.yml, mas não se preocupe se você não entendeu tudo ainda.
+- [x] O arquivo é criado diretamente no seu repositório, junto com seu código-fonte, mas localizado na pasta `.github/workflows`.
+- [ ] Esta pasta deve ser nomeada exatamente assim;
+- [ ] É o caminho onde o GitHub espera encontrar os fluxos de trabalho para usar.
 
-Agora, construiremos um fluxo de trabalho associado ao código-fonte do nosso repositório.
-No repositório que você bifurcou, há dois arquivos na pasta src:
-  • Um arquivo chamado main.css que contém estilo CSS Web
-  • Um arquivo index.pug, que é uma página da Web, mas usando o formato de modelo PUG.
-
-A sintaxe PUG simplifica o código, ao contrário do XHTML, é muito prolixo com seu sistema de iluminação. O resultado final, no entanto, será exatamente o mesmo.
+Isso significa que toda vez que você quiser adicionar seu próprio fluxo de trabalho, é nesta pasta específica que ele terá que registrá-lo e não em outro lugar `.github` corresponde a uma pasta oculta no Linux.
 
 ```
-link(rel="stylesheet",href="main.css")
-.bear
-.left-ear
-.right-ear
-.left-eye
-.right-eye
-.nose
-.mouth
-.hand
-.container
+.github/
+├── workflows/
+│   ├── ci.yml
+│   └── deploy.yml
+├── actions/
+│   └── custom-action/
+├── ISSUE_TEMPLATE/
+│   ├── bug-report.md
+│   └── feature-request.md
+├── environments/
+│   └── production.yml
+├── CODEOWNERS
+├── dependabot.yml
+└── SECURITY.md
 ```
 
-Info: Se você estiver um pouco curioso e quiser saber mais sobre o mecanismo de template PUG, dê uma olhada no site oficial https://pugjs.org/
+Neste caso, você também pode encontrar fluxos de trabalho em uma subpasta chamada workflows, templates e outros arquivos usados para personalizar o uso do GitHub.
 
-Vamos construir juntos um fluxo de trabalho que transforma nosso código-fonte PUG em uma página da Web HTML padrão e fazer um entregável que pode ser implantado em produção.
-
-Retorne ao fluxo de trabalho que está sendo criado, que mudaremos voluntariamente com pouca explicação para ir mais rápido. Veremos cada seção em mais detalhes neste livro.
-
-O primeiro passo é nomear nosso fluxo de trabalho:
+Reserve um tempo para olhar o conteúdo pré-preenchido do arquivo 01-60pportuinties-workflow.yml:
 
 ```
-on:
-push:
-#When code is pushed
-branches: [ main] # on the main branch
-pull_request: # When a pull request is made
-branches: [ main] # on the main branch
-name: My first workflow # The name of your choice
-workflow_dispatch: #manual trigger
-```
-
-A segunda seção pode ser deixada como está. Ela define os casos de acionamento do nosso fluxo de trabalho.
-
-Aqui indicamos que nosso fluxo de trabalho terá que ser acionado no caso de um commit em um branch, no caso de uma solicitação de pull ou após um lançamento manual.
-
-A seção a seguir simplesmente indica o tipo de máquina virtual que ativará nosso fluxo de trabalho, aqui usando o Ubuntu.
-
-Esta máquina virtual é criada perfeitamente em servidores GitHub. Você não precisa se preocupar com isso por enquanto.
-
-```
-jobs:
-  build:
-   uses: actions/setup-node@v4
-   runs-on: self-hosted
-```
-
-A última seção é a mais interessante, pois adicionaremos nossas ações para atingir. Primeiro, exclua as duas ações run que mostram apenas uma mensagem no console, o que não é útil.
-Em seguida, adicione as seguintes tarefas na parte inferior do arquivo (preste atenção ao recuo):
-1- Uma ação indica que queremos instalar o NodeJS na máquina virtual que executará o fluxo de trabalho.
-
-```
-- name: User Nodes
-  uses: actions/setup-node@v4
-```
-
-2- Uma ação que inicia um comando npm install, que analisará os pacotes necessários do nosso código-fonte (eles estão listados no arquivo /src/packages.json) e os instalará localmente (=na máquina virtual).
-
-- run: npm install
-
-3- Uma ação executa o comando gulp build, que usa os pacotes baixados pelo NPM para transformar nosso código PUG em XHTML e, em seguida, copiará o resultado gerado em uma pasta /dest. Todas essas mecânicas ocultas estão escritas no arquivo gulpfile.js, mas você não precisa se preocupar com isso.
-
-- run: gulp build
-
-4- Uma ação que pegará todos os arquivos gerados na pasta /dest, nossa página HTML gerada e o arquivo CSS, compactará como MyPackage e, em seguida, fará o upload deste arquivo para o portal do GitHub.
-
-```
-on:
-push:
-- uses: actions/upload-artifact@v4
-  with:
-    name: MyPackage # Coloque qualquer nome que você quiser
-branches: [ main]
-pull_request:
-branches: [ main]
-path: dest #pasta que será carregada no pacote
-workflow_dispatch:
-```
-
-O resultado final do seu arquivo YAML deve ser algo como isto:
-
-```
-name: My first workflow
-
+name: 01-60pportuinties-workflow
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
   workflow_dispatch:
 jobs:
   build:
-    runs-on: self-hosted
-
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-
     - name: Use Node.js
       uses: actions/setup-node@v4
-
     - run: npm install
-
     - run: gulp build
-
     - uses: actions/upload-artifact@v4
       with:
         name: MyPackage
         path: dest
 ```
 
-Salve seu fluxo de trabalho clicando no botão "Start commit".
+Aqui indicamos que nosso fluxo de trabalho terá que ser acionado no caso de um commit em um branch, no caso de uma solicitação de pull ou após um lançamento manual.
 
-Então, no pop-up que aparece, deixe todas as configurações padrão e clique em "Commit new file".
+Esta máquina virtual é criada perfeitamente em servidores GitHub, você não precisa se preocupar com isso por enquanto.
 
+- [x] Uma ação indica que queremos instalar o NodeJS na máquina virtual que executará o fluxo de trabalho.
 
+```
+- name: User Nodes
+  uses: actions/setup-node@v4
+```
 
-## Retorne à aba Ações.
+- [x] Uma ação que inicia um comando npm install, que analisará os pacotes necessários do nosso código-fonte (eles estão listados no arquivo /src/packages.json) e os instalará localmente (=na máquina virtual).
 
-Desta vez, você deve descobrir que seu fluxo de trabalho agora está listado como GitHub detectou automaticamente um arquivo válido na pasta .github/workflows.
+- run: npm install
 
-Você também percebe que uma execução do seu fluxo de trabalho também foi acionada. Ela foi acionada porque você salvou (enviou) código no branch principal no momento do commit e que seu fluxo de trabalho tem um gatilho correspondente a este caso específico.
+- [x] Uma ação executa o comando gulp build, que usa os pacotes baixados pelo NPM para transformar nosso código PUG em XHTML e, em seguida, copiará o resultado gerado em uma pasta /dest. Todas essas mecânicas ocultas estão escritas no arquivo gulpfile.js, mas você não precisa se preocupar com isso.
 
+- run: gulp build
+
+- [x]Uma ação que pegará todos os arquivos gerados na pasta /dest, nossa página HTML gerada e o arquivo CSS, compactará como MyPackage e, em seguida, fará o upload deste arquivo para o portal do GitHub.
+
+```
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+    - run: npm install
+    - run: gulp build
+    - uses: actions/upload-artifact@v4
+      with:
+        name: MyPackage
+        path: dest
+```
 ## Analisando os resultados
-Se você clicar na execução do seu fluxo de trabalho (chamado run), você chegará na tela de resultados.
-
-Os fluxos de trabalho mais recentes do Ubuntu usarão o Ubuntu-20.04 em breve.
-Para mais detalhes, consulte https://github.com/actions/virtual-environments issues/1816
-
-## Resultados
+Se você clicar na execução do seu fluxo de trabalho (chamado `run`), você chegará na tela de resultados.
+### Resultados
 Esta tela é separada em várias subpartes:
-1. No lado esquerdo está a lista de trabalhos no seu fluxo de trabalho.
-2. O status geral do fluxo de trabalho, seu tempo de execução, o tempo cobrado (livre até um certo número) e o número de elementos (artefatos) que foram gerados.
-3. Logo abaixo está a visualização do gráfico. No caso de um fluxo de trabalho simples, geralmente é inútil. Ainda assim, para fluxos de trabalho mais complexos, permite ver as relações entre os diferentes elementos e o status dos diferentes estágios.
-4. A seção Anotações que lista todos os avisos e erros importantes do fluxo de trabalho.
-5. Todos os fluxos de trabalho não geram artefatos, mas quando o fazem como aqui, eles são listados aqui.
-6. No lado esquerdo, se você clicar no trabalho chamado build, verá os resultados detalhados de cada ação do fluxo de trabalho. Este é o lugar onde você verifica os logs para validar se seu fluxo de trabalho se comporta conforme o esperado.
-
-Clique no artefato MyPackage e baixe o arquivo zip, e então configure-o. Ele deve conter dois arquivos: index.html e main.css. Se você abrir o arquivo com um navegador da web, você deve ver o resultado: nosso adorável panda animado.
-
-As Ações do GitHub não são mais complexas do que isso para casos simples e, graças aos conceitos mais avançados deste livro, você pode aperfeiçoar seu conhecimento e ser capaz de cobrir os assuntos mais complexos.
+- [x] No lado esquerdo está a lista de trabalhos no seu fluxo de trabalho;
+- [x] O status geral do fluxo de trabalho, seu **tempo de execução**, **o tempo cobrado** (livre até um certo número) e o **número de elementos** (artefatos) que foram gerados;
+- [x] Logo abaixo está a visualização do gráfico. Permite ver as relações entre os diferentes elementos e o status dos diferentes estágios.
+- [x] A seção Anotações que lista todos os avisos e erros importantes do fluxo de trabalho.
+- [x] Todos os fluxos de trabalho não geram artefatos, mas quando o fazem como aqui, eles são listados aqui.
+- [x] No lado esquerdo, se você clicar no trabalho chamado build, verá os resultados detalhados de cada ação do fluxo de trabalho. Este é o lugar onde você **verifica os logs** para validar se seu fluxo de trabalho se comporta conforme o esperado.
+- [X] Clique no artefato MyPackage e baixe o arquivo zip, e então configure-o:
+    - [X] Ele deve conter dois arquivos: index.html e main.css.
+    - [X] Se você abrir o arquivo com um navegador da web, você deve ver o resultado: nosso adorável panda animado.
 
 ## Algumas observações sobre YAML
-O formato YAML já tem 20 anos, mas só recentemente é amplamente conhecido, a ponto de substituir os formatos XML e JSON para tudo o que está relacionado à configuração ou descrição. Além disso, seu formato simples, em formato livre e sem nenhuma tag, o torna um formato leve, muito legível e utilizável para qualquer necessidade; portanto, o GitHub tornou o elemento central das Ações do GitHub.
-Se você nunca escreveu nenhum YAML em sua vida, nós o cobriremos junto com o básico. Em vez de cobrir toda a especificação YAML, vamos nos concentrar nas partes relevantes para o GitHub Actions.
+O formato YAML já tem 20 anos, mas só recentemente é amplamente conhecido, a ponto de substituir os formatos XML e JSON para tudo o que está relacionado à configuração ou descrição.
 
+Além disso, seu formato simples, em formato livre e sem nenhuma tag, o torna um formato leve, muito legível e utilizável para qualquer necessidade; portanto, o GitHub tornou o elemento central das Ações do GitHub.
 
 Um arquivo YAML pode, no caso do GitHub Actions, ser resumido com três elementos:
-1. Elementos de chave/valor
-2. Elementos aninhados
-3. Matrizes de elementos
-Os elementos de chave/valor são compostos de um nome de chave, seguido pelo caractere de coluna ":" e finalmente por seu valor. Aqui estão alguns exemplos:
-key: value # observe o espaço após os dois pontos ":", mas não antes
-```
-keyNumeric: 1235
-keyBoolean: false
-OtherKey: "Hello world" # entre aspas porque o valor contém espaços
-cmd: "echo"
-```
+- [X] Elementos de chave/valor
+    - [X] Os elementos de chave/valor são compostos de um nome de chave, seguido pelo caractere de coluna ":" e finalmente por seu valor. Aqui estão alguns exemplos: **key: value** # observe o espaço após os dois pontos ":", mas não antes
+    ```
+    keyNumeric: 1235
+    keyBoolean: false
+    OtherKey: "Hello world" # entre aspas porque o valor contém espaços
+    cmd: "echo"
+    ```
+- [X] Elementos aninhados
+- [X] Matrizes de elementos
 
 O valor deve estar em uma linha. No entanto, se você precisar de um valor multilinha, é necessário usar o caractere pipe "|":
 ```
-key: # caractere que indica que as linhas a seguir
-$var = "hello" # fazem parte de um único bloco
-echo $var # atribuído à chave
+key: | # caractere que indica que as linhas a seguir
+      $var = "hello" # fazem parte de um único bloco
+      echo $var # atribuído à chave
 ```
 Então vêm os elementos aninhados. É uma chave que não tem nenhum valor, mas tem subelementos que precisam ser recuados. O recuo em YAML é feito com dois espaços (sem tabulações):
 
@@ -5643,18 +5381,23 @@ Então vêm os elementos aninhados. É uma chave que não tem nenhum valor, mas 
 a_nested_key:
    key: value    # subelemento recuado por dois espaços
    other_key: other value # sub-element at the same level
-   other_nested_key: #sub-element too
-   hello: hello # sub sub-element indented by two spaces
-   weekDay: ['Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday'] # string array
-   oddNumbers: [1,3,5,7,9] # List of numeric values
-   os: [self-hosted, windows-latest, macos-latest]
-jobs: # new first-level element so no indented
-build:
-runs-on: self-hosted
+   other_nested_key:     #sub-element too
+            hello: hello # sub sub-element indented by two spaces
+ jobs: # new first-level element so no indented
+    build:
+      runs-on: self-hosted
 ```
 Por fim, vêm os elementos cujo valor é uma lista de objetos. Eles estão disponíveis em duas formas.
 Primeiro vem a lista de valores escritos na mesma linha em um array, representados por colchetes.
+
+```
+   weekDay: ['Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday'] # string array
+   oddNumbers: [1,3,5,7,9] # List of numeric values
+   os: [self-hosted, windows-latest, macos-latest]
+```
+
 Depois vêm os objetos mais complexos, inclusive quando cada valor do array também é um objeto. Neste caso, o formato acima não funciona, e um novo formato é necessário. Nele, cada elemento é representado por um traço sem recuo.
+
 ```
 students:
     - firstname: Jean    # element, no indentation
@@ -5674,41 +5417,48 @@ city:
     name: Courbevoie
      postalCode: 92400
 ```
-O formato YAML tem outras sutilezas, mas essas bases devem ser suficientes para usar o GitHub Actions serenamente e escrever qualquer fluxo de trabalho.
-Aviso: Mais um lembrete: seja muito rigoroso ao escrever seus arquivos, copiando exemplos deste livro e seja particularmente vigilante ao recuo. Ao menor erro de recuo ou espaço ao redor do sinal ":", o GitHub rejeitará o fluxo de trabalho.
+**Observação**: Para conseguir ler estes arquivos utilize o utilitário Json(jq) e Yaml(yq).
 
-
-# Workflow syntax
-Você criou seu primeiro fluxo de trabalho sem realmente entender a estrutura nem os mecanismos. Neste capítulo, você descobrirá em detalhes os diferentes elementos que compõem um fluxo de trabalho e, especialmente, como usá-los para atender às suas necessidades.
+- [x] `yq -r '.students[].firstname, .students[].name' students.yml`
+- [x] `jq -r '.students[].firstname' students.json`
 
 ## Triggers
-Os gatilhos são, como o nome indica, os meios para especificar o critério de início de um fluxo de trabalho, e todo fluxo de trabalho deve conter um ou mais gatilhos.
+Os gatilhos são, como o nome indica, os meios para especificar o critério de início de um fluxo de trabalho, e todo fluxo de trabalho deve conter um ou mais gatilhos. Existem três categorias de gatilhos:
 
-Existem três categorias de gatilhos:
-1. Gatilhos automáticos
-2. Gatilhos de programação
-3. Gatilhos manuais
+- [x] Gatilhos automáticos;
+- [x] Gatilhos de schedulle;
+- [x] Gatilhos manuais;
 
-### The automatic trigger
-Ao criar um fluxo de trabalho, você deve primeiro definir sua finalidade e as condições para acioná-lo. O caso mais comum é querer um gatilho sempre que uma nova versão do código-fonte estiver disponível, para verificar se tudo pode ser compilado corretamente. No mundo do Git, significa agir assim que um dos desenvolvedores envia seu código para o servidor. Portanto, estamos falando aqui sobre integração contínua ("CI").
+### Gatilhos automáticos
+Ao criar um fluxo de trabalho, você deve primeiro definir sua finalidade e as condições para acioná-lo.
 
-Em termos de sintaxe, em nosso arquivo, usaremos a palavra-chave "on" que significa "no caso de", e especificaremos o termo "push" para indicar cada vez que um commit é enviado para o servidor.
+O caso mais comum é querer um gatilho sempre que uma nova versão do código-fonte estiver disponível, para verificar se tudo pode ser compilado corretamente.
+
+No mundo do Git, significa agir assim que um dos desenvolvedores envia seu código para o servidor.
+
+Portanto, estamos falando aqui sobre integração contínua ("CI").
+
+Em termos de sintaxe, em nosso arquivo, usaremos a palavra-chave "on:" que significa "no caso de", e especificaremos o termo "push" para indicar cada vez que um commit é enviado para o servidor.
 
 `on: push`
 
-Da mesma forma, é possível disparar o fluxo de trabalho quando uma solicitação de pull é realizada quando o desenvolvedor solicita "push" seu código para uma ramificação de outra ramificação. A pequena diferença com o caso anterior é que ele é disparado antes que seu código seja mesclado na ramificação de destino. É possível agir e bloquear modificações se um problema for detectado. No caso de "push", é tarde demais, o código já está na ramificação e, se o código tiver algum erro, a ramificação será quebrada, o que pode impactar outros desenvolvedores.
+Da mesma forma, é possível disparar o fluxo de trabalho quando uma solicitação de pull é realizada quando o desenvolvedor solicita "push" seu código para uma ramificação de outra ramificação.
+
+A pequena diferença com o caso anterior é que ele é disparado antes que seu código seja mesclado na ramificação de destino.
+
+É possível agir e bloquear modificações se um problema for detectado.
+
+No caso de "push", é tarde demais, o código já está na ramificação e, se o código tiver algum erro, a ramificação será quebrada, o que pode impactar outros desenvolvedores.
 
 ```
 on:
-push: # inicia em cada push
-pullrequest: # ou solicitação de pull
+  push:            # inicia em cada push
+   pull_request:   # ou solicitação de pull
 ```
 
-Também pode ser escrito como:
+Eventos como push e pull_request são numerosos.
 
-```on: push, pullrequest```
-
-Eventos como push e pullrequest são numerosos. Aqui está uma lista não exaustiva dos mais comuns. Você verá alguns deles neste livro:
+Aqui está uma lista não exaustiva dos mais comuns. Você verá alguns deles neste livro:
 
 | Evento           | Disparo                                                    |
 | ----             | ----                                                       |
@@ -5719,204 +5469,307 @@ Eventos como push e pullrequest são numerosos. Aqui está uma lista não exaust
 | registry_package | Quando um pacote* é publicado                              |
 | release          | Quando uma versão é criada, excluída, editada              |
 
-* Um "pacote" como citado aqui é diferente de um artefato, como vimos no capítulo anterior. Pacotes são abordados no capítulo Gerenciamento de artefatos.
+- [x] Pacotes: São binários, bibliotecas ou imagens (como .npm, .jar, .docker, .nuget) publicados em um registro do GitHub.
+- [x] Artefatos: São arquivos temporários gerados durante um workflow (ex: logs, binários, relatórios de teste).
 
 ## Filtros
-Se um gatilho for executado a cada modificação de código, seria normal nos questionarmos como lidar com isso no caso de um projeto mais complexo, seja porque ele contém várias ramificações ou porque apenas um repositório tem vários aplicativos dentro dele e cada um requer um fluxo de trabalho dedicado que não queremos ver ser acionado quando não deveria. Essa especialização do fluxo de trabalho é feita com os filtros que se aplicam em combinação com o critério de gatilho.
+Se um gatilho for executado a cada modificação de código, seria normal nos questionarmos como lidar com isso no caso de um projeto mais complexo, seja porque ele contém várias ramificações ou porque apenas um repositório tem vários aplicativos dentro dele e cada um requer um fluxo de trabalho dedicado que não queremos ver ser acionado quando não deveria.
 
+Essa especialização do fluxo de trabalho é feita com os filtros que se aplicam em combinação com o critério de gatilho.
 ### Filtros por branch
-Em alguns eventos como push e pullrequest, é possível especificar o branch que deve disparar o fluxo de trabalho (main por exemplo). Então, se um novo código de versão for enviado para outro branch, o fluxo de trabalho não será acionado.
+Em alguns eventos como push e pull_request, é possível especificar o branch que deve disparar o fluxo de trabalho (main por exemplo). Então, se um novo código de versão for enviado para outro branch, o fluxo de trabalho não será acionado.
 
 ```
-on: #fires
+on:
   push: # quando o código for enviado
    branches: # quando o código for enviado
-   # um dos seguintes branches
-   - main
+      - main
 ```
 
-```
 Também é possível especificar múltiplos branches nominalmente ou, ao contrário, um conjunto de branches
 
 ```
 on: #fires
-push:
-# quando o código for enviado
-   # qualquer main
-   - branch1 # qualquer branch1
-    branches: # no branch
-     - main # nomeado "main"
-     - features/** # qualquer um dos branches na pasta "features"
-     - "**bug**' # ou qualquer branch que contenha 'bug' em seu nome
-
-
+  push:
+     branches:
+        - main
+        - features/**
+        - "**bug**'
+```
 
 Mas também é possível excluir certos branches.
 
 ```
-on: #fires
+on:
   push:
-   branches-ignore: # on all branches
-     - main #except the main branch
+     branches-ignore: # on all branches
+       - main #except the main branch
 ```
 
-Aviso: Você não pode usar branches e branches-ignore no mesmo fluxo de trabalho. Você deve usar a listagem explícita (white-Listing) ou a exclusão explícita (black-listing). Se precisar de ambas, é necessário usar o caractere "!" para fazer um padrão negativo escolhendo apenas uma das duas palavras-chave.
+
+#### Aviso
+- [x] **Você não pode usar branches e branches-ignore no mesmo fluxo de trabalho**.
+- [x] Você deve usar a listagem explícita (white-Listing) ou a exclusão explícita (black-listing). Se precisar de ambas, é necessário usar o caractere "!" para fazer um padrão negativo escolhendo apenas uma das duas palavras-chave.
 
 ```
-on: #fires
- push: # as soon as a change is made
-   branches: #on one of the following branches
-     - 'releases/*** #starting with releases
-     - '!releases/**-alpha' # except those who end up with "-alpha"
+on:
+ push:
+   branches:
+      - '**'       # Executa em todas as branches...
+      - '!develop' # ...exceto develop.
 ```
 ## Os filtros por caminho
-Também é possível ser ainda mais granular com base na adição de código, mas apenas quando ele está localizado em um arquivo específico ou em uma pasta específica. Isso é particularmente útil quando você tem vários aplicativos no mesmo repositório, mas cada um precisa de um fluxo de trabalho dedicado, como um aplicativo Android e iOS.
+Também é possível ser ainda mais granular com base na adição de código, mas apenas quando ele está localizado em um arquivo específico ou em uma pasta específica.
+
+Isso é particularmente útil quando você tem **vários aplicativos no mesmo repositório**, mas cada um precisa de um fluxo de trabalho dedicado, como um aplicativo Android e iOS.
 
 ```
-on: #fires
-  push: # as soon as a change is made
-    paths:# on the files
-      - '**.cs' #which have the extension **.cs'
-      - 'android/*** # or that are in the code folder
-
-Aviso: Não é possível usar paths e paths-ignore no mesmo fluxo de trabalho. Quanto aos branches, você pode excluir paths com o uso do caractere "!'
-Ou, por outro lado, é possível ignorar alguns paths:
+name: 52-patch_validation
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main                   # Só executa na branch main
+    paths-ignore:
+      - '**'                    # Ignora qualquer alteração **
+      - '!resource/**'
+jobs:
+  validate-resources:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: List modified files (debug)
+        run: |
+          echo "Arquivos modificados (exceto java/):"
+          git diff --name-only HEAD^ HEAD -- . ':!java/**'
+      - name: Validate Resource Changes
+        run: |
+          if [ -n "$(git diff --name-only HEAD^ HEAD -- resource/)" ]; then
+            echo "✅ Alterações válidas em resource/ detectadas"
+            # Adicione comandos de validação aqui (ex: testes, scripts)
+          else
+            echo "❌ Nenhuma alteração em resource/ (workflow não deveria ter sido acionado)"
+          fi
+```
+#### Aviso
+- [x] Não é possível usar **paths e paths-ignore** no mesmo fluxo de trabalho.
+- [x] Quanto aos branches, você pode excluir paths com o uso do caractere "!'
+- [x] Ou, por outro lado, é possível ignorar alguns paths:
 
 ```
-on: #fires
-push: # As soon as a change is made
-  paths-ignore: # unless it concerns
-    - 'docs/** # A file in the 'docs' folder
+on:
+  push:
+    paths-ignore:
+       - 'docs/**
 ```
 
 ## Scheduled trigger
-Este gatilho serve em particular para as compilações que são comumente chamadas de Nightly Builds. Essas compilações são (geralmente) iniciadas à noite, mas descorrelacionadas do processo de CI/CD, seja porque realizam tratamentos longos (ex.: varredura de código mais avançada) ou porque as ações do fluxo de trabalho não são necessárias para o escopo da Integração Contínua (ex.: geração de um relatório de qualidade de código)
+Este gatilho serve em particular para as compilações que são comumente chamadas de **Nightly Builds**.
+
+Essas compilações são (geralmente) iniciadas à noite, mas descorrelacionadas do processo de CI/CD, seja porque realizam tratamentos longos (ex.: varredura de código mais avançada) ou porque as ações do fluxo de trabalho não são necessárias para o escopo da Integração Contínua (ex.: geração de um relatório de qualidade de código)
+
 Essa configuração é feita adicionando a propriedade schedule e um parâmetro cron, conforme mostrado no exemplo abaixo:
 
 ```
 on:
   schedule:
-    - cron: '00** *' #Every day at midnight
+    - cron: '0 0 * * *' #Every day at midnight
 ```
 
-Esta formatação usa a terminologia crontab que permite que você defina qualquer agendamento. No exemplo anterior, "0 0 *** " 0 significa 0 minutos, às 0 horas (meia-noite), todos os dias, todos os meses, todos os dias da semana. Você pode especificar qualquer coisa, desde que respeite o intervalo mínimo de 5 minutos.
+Esta formatação usa a terminologia crontab que permite que você defina qualquer agendamento.
 
-Link útil: http://www.cronmaker.com é um site para construir sua expressão cron facilmente.
+No exemplo anterior, "0 0 * * *" 0 significa 0 minutos, às 0 horas (meia-noite), todos os dias, todos os meses, todos os dias da semana. Você pode especificar qualquer coisa, desde que respeite o intervalo mínimo de 5 minutos. Link útil:
 
-Um exemplo de uso pode ser um fluxo de trabalho que começa toda segunda-feira às 9h antes da reunião standup e fecha os problemas abertos que não estão mais ativos (inativos por mais de 60 dias) graças à ação stale (https://github.com/actions/stale).
+- [x] [Crontab-Guru](https://crontab.guru/)
+- [x] [Crontab-Maker](http://www.cronmaker.com)
 
+Um exemplo de uso pode ser um fluxo de trabalho que começa toda segunda-feira às 9h antes da reunião standup e fecha os problemas abertos que não estão mais ativos.
 
 ```
-name: "Close the old issues"
+name: 52-marca_e_fecha_issue_e_pull_request
 on:
-schedule:
-- cron: "0 9 ** 1" # every Monday at 9 am
+#  schedule:
+#    - cron: '0 0 * * *'  # Executa diariamente à meia-noite (UTC)
+  workflow_dispatch:      # Permite execução manual
+permissions:
+  contents: write # only for delete-branch option
+  issues: write
+  pull-requests: write
 jobs:
   stale:
-   runs-on: self-hosted
-   steps:
-   - uses: actions/stale@v9
-    with:
-    repo-token: ${{ secrets.GITHUB_TOKEN }}
-   stale-issue-message: 'This bug is closed because of too long inactivity (60jrs by default)'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mark and Close Stale Issues/PRs
+        uses: actions/stale@v8
+        with:
+          days-before-issue-stale: 30
+          days-before-issue-close: 7
+          stale-issue-label: 'stale'
+          stale-issue-message: |
+            ⏳ Esta issue está inativa há 30 dias.
+            **Ela será fechada em 7 dias** se não houver novas interações.
+            Caso ainda seja relevante, comente aqui para mantê-la aberta!
+
+          # Configurações para PRs
+          days-before-pr-stale: 30      # Marca PRs após 30 dias inativos
+          days-before-pr-close: 7       # Fecha 7 dias após ser marcado
+          stale-pr-label: 'stale'       # Rótulo aplicado a PRs inativos
+          stale-pr-message: |
+            ⏳ Este PR está inativo há 30 dias.
+            **Será fechado em 7 dias** se não houver atualizações.
+            Reative-o com um comentário ou commit se ainda for importante!
+
+          # Configurações gerais
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          exempt-issue-labels: 'pinned,high-priority'  # Ignora issues com esses rótulos
+          exempt-pr-labels: 'critical'                 # Ignora PRs com esses rótulos
+          operations-per-run: 100       # Limite de operações por execução
 ```
 
-Por motivos de sustentabilidade, o GitHub desabilita qualquer fluxo de trabalho agendado quando não há atividade no repositório nos últimos dois meses. Você recebe um e-mail para estender manualmente a atividade do seu fluxo de trabalho por 60 dias. Uma alternativa é usar esta ação (https://github.com/gautamkrishnar/keepalive-workflow) que simula a atividade no repositório.
+- [x] **Atenção**: Por motivos de sustentabilidade, o **GitHub desabilita qualquer fluxo de trabalho agendado quando não há atividade no repositório nos últimos dois meses**.
+
+Você recebe um e-mail para estender manualmente a atividade do seu fluxo de trabalho por 60 dias.
+
+Uma alternativa é usar esta ação (https://github.com/gautamkrishnar/keepalive-workflow) que simula a atividade no repositório.
+
+```
+name: 52-atualiza-readme
+on:
+  workflow_dispatch:
+permissions:
+  contents: write # only for delete-branch option
+  issues: write
+  pull-requests: write
+#  schedule:
+#    # Runs at 12 am UTC
+#    - cron: "0 0 * * *"
+jobs:
+  update-readme:
+    environment: DESENVOLVIMENTO
+    name: Update this repo's README
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Update README with WakaTime stats
+        uses: athul/waka-readme@master
+        with:
+          GH_TOKEN: ${{ secrets.MKDOCS_TOKEN_PAT_ESTUDO }}
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          ### meta
+          REPOSITORY: horaciovasconcellos/horaciovasconcellos # optional
+          ### content
+          SHOW_TITLE: true
+          BLOCKS: -> # optional
+          TIME_RANGE: all_time # optional
+          LANG_COUNT: 10 # optional
+          SHOW_TIME: true # optional
+          SHOW_TOTAL: true # optional
+          SHOW_MASKED_TIME: false # optional
+          STOP_AT_OTHER: true # optional
+          ### commit
+          COMMIT_MESSAGE: Updated waka-readme graph with new metrics # optional
+          TARGET_BRANCH: main # optional
+          TARGET_PATH: README.md # optional
+          COMMITTER_NAME: 'HVasconcellos'
+          COMMITTER_EMAIL: 'horacio.vasconcellos@gmail.com'
+          AUTHOR_NAME: 'HVasconcellos'
+          AUTHOR_EMAIL: 'horacio.vasconcellos@gmail.com'
+      - name: Keep workflow alive
+        uses: gautamkrishnar/keepalive-workflow@v2
+        with:
+          commit_message: 'Mensagem de Execução'
+          committer_username: 'HVasconcellos'
+          committer_email: 'horacio.vasconcellos@gmail.com'
+      - name: Log completion
+        run: echo "Workflow concluído com sucesso."
+```
 
 ## Manual triggering
 O gatilho manual é particularmente útil quando você quer que a ação seja disparada por um humano, como implantar em um ambiente após uma fase de teste.
-Este gatilho é especial porque você tem que usar o evento workflow_dispatch que indica que o fluxo de trabalho pode ser iniciado a partir de um item externo (por exemplo, outro fluxo de trabalho, uma chamada de API ou... um humano).
 
-```
- on: workflow_dispatch
-```
+Este gatilho é especial porque você tem que usar o evento workflow_dispatch que indica que o fluxo de trabalho pode ser iniciado a partir de um item externo (por exemplo, **outro fluxo de trabalho, uma chamada de API ou... um humano**).
 
-Uma vez configurado, o fluxo de trabalho pode ser acionado a partir de um fluxo de trabalho de terceiros e manualmente a partir do portal GitHub. Abra a aba Ações.
+Uma vez configurado, o fluxo de trabalho pode ser acionado a partir de um fluxo de trabalho de terceiros e manualmente a partir do portal GitHub.
 
-## Iniciar manualmente um fluxo de trabalho
 Os gatilhos manuais também podem fornecer parâmetros de entrada ao iniciar o fluxo de trabalho para dar a eles um pouco de dinamicidade.
-Essas configurações são declaradas com as entradas de propriedade.
-É possível então definir um parâmetro que tenha propriedades diferentes:
 
-* Seu nome que serve como uma "chave". É por meio desse nome que você pode se referir a ele no fluxo de trabalho, como um nome de variável
-* description: uma dica que será exibida no formulário gerado pelo GitHub
-* required: indica se o valor do parâmetro é obrigatório ou não
-• default: o valor padrão e pré-preenchido no formulário de entrada
+Essas configurações são declaradas com as entradas de propriedade. É possível então definir um parâmetro que tenha propriedades diferentes:
 
+É claro que é possível definir vários parâmetros, cada um com sua configuração.
 
-```
-input:
-    nameOfMyParameter:
-    description: 'my first parameter'
-    required: true
-    default: 'hello'
-
-```
-É claro que é possível definir vários parâmetros, cada um com sua configuração. O GitHub cuida apenas de gerar um formulário contendo os parâmetros de entrada e então transmitir os valores para seu fluxo de trabalho. Você ainda precisa configurar seu fluxo de trabalho para usar esses parâmetros.
+O GitHub cuida apenas de gerar um formulário contendo os parâmetros de entrada e então transmitir os valores para seu fluxo de trabalho.
+Você ainda precisa configurar seu fluxo de trabalho para usar esses parâmetros.
 Aqui está um exemplo de um fluxo de trabalho que pede para fornecer dois parâmetros obrigatórios, um dos quais já tem um valor padrão.
 
 ```
-name: My workflow with params
+name: 52_manual_opcoes
 on:
-workflow_dispatch:
-inputs:
-myParam:
-description: 'my first param'
-required: true
-default: 'hello'
-myParam2:
-description: 'my second param'
-required: true
-jobs:
-  my-job:
-   runs-on: self-hosted
-   steps:
-    run: echo "${{ github.event.inputs.myParam }} $ {{ github.event.inputs.myParam2 }}"
-```
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+      print_tags:
+        description: 'True to print to STDOUT'
+        required: true
+        type: boolean
+      tags:
+        description: 'Test scenario tags'
+        required: true
+        type: string
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true
 
-O resultado ao iniciar o fluxo de trabalho fica assim:
+jobs:
+  print-tag:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.print_tags }}
+    steps:
+      - name: Print the input tag to STDOUT
+        run: |
+               echo  The tags are ${{ inputs.tags }}
+               echo  The tags are ${{ inputs.print_tags }}
+               echo  The tags are ${{ inputs.environment }}
+               echo  The tags are ${{ inputs.logLevel }}
+```
 
 ## Manually trigger with parameters
-O formato um tanto particular $ {{ github.event.inputs.myParam }} que representa uma variável do GitHub é abordado no capítulo As variáveis.
+O formato um tanto particular $ {{ github.event.inputs.environment }} que representa uma variável do GitHub é abordado no capítulo.
 Lembre-se apenas por um momento que este formato informa o fluxo de trabalho:
 
-- [x] Entre as variáveis do GitHub
-- [x] Look in the properties of the event that triggered the workflow
-- [x] Search among its input parameters (inputs)
-- [x] Then retrieves the value of the parameter named "myParam"
+- [x] Entre as variáveis do GitHub;
+- [x] Procure nas propriedades do evento que disparou o workflow;
+- [x] Procure entre seus parâmetros de entrada (inputs);
+- [x] Então recupere o valor do parâmetro chamado "logLevel"
 
-Desde novembro de 2021, agora é possível atribuir tipos para parâmetros. Se as configurações fossem todas string (agora o tipo padrão), agora é possível especificar tipos como boolean, choice ou environment:
-
-```
-workflow_dispatch:
-inputs:
-name:
-type: choice
-description: Who to greet
-options:
-- monalisa
-- cschleiden
-message:
-required: true
-use-emoji:
-type: boolean
-description: Include emojis
-environment:
-type: environment
-```
+Desde novembro de 2021, agora é possível atribuir tipos para parâmetros. Se as configurações fossem todas string (agora o tipo padrão), agora é possível especificar tipos como **boolean, choice ou environment**:
 
 Também é possível dar um nome dinâmico ao fluxo de trabalho usando essas entradas. Em vez de usar a propriedade name, você pode usar a propriedade run-name
 
 run-name: O fluxo de trabalho cumprimentará ${{ inputs.name}} por @${{ github.actor}}
 
 ## Desabilitar/ignorar gatilhos temporariamente
-Pode acontecer de você querer alterar um ou mais arquivos, mas não querer acionar o fluxo de trabalho associado a este evento (push ou pull-request). Por exemplo, quando você edita um arquivo que não é relevante para a implantação, como um arquivo README.md.
-Um truque não documentado consiste em inserir uma palavra-chave no comentário de um commit ou pull request, e o GitHub ignorará o evento e não acionará o fluxo de trabalho.
+Pode acontecer de você querer alterar um ou mais arquivos, mas não querer acionar o fluxo de trabalho associado a este evento (push ou pull-request).
 
-A lista de possíveis palavras-chave para desabilitar temporariamente um fluxo de trabalho é a seguinte: [skip ci], [ci skip], [no ci], [skip actions] ou [actions skip] (não se esqueça dos colchetes).
+Por exemplo, quando você edita um arquivo que não é relevante para a implantação, como um arquivo README.md.
+
+Um truque não documentado consiste em inserir uma palavra-chave no comentário de um commit ou pull_request, e o GitHub ignorará o evento e não acionará o fluxo de trabalho.
+
+A lista de possíveis palavras-chave para desabilitar temporariamente um fluxo de trabalho é a seguinte: **[skip ci], [ci skip], [no ci], [skip actions] ou [actions skip] (não se esqueça dos colchetes)**.
 
 ## Desativar um fluxo de trabalho
-Se desabilitar temporariamente for útil, isso requer nunca omitir a inserção de uma das palavras-chave de desativação para cada commit. Uma alternativa é desabilitar um fluxo de trabalho totalmente (until reactivated);
+Se desabilitar temporariamente for útil, isso requer nunca omitir a inserção de uma das palavras-chave de desativação para cada commit.
+Uma alternativa é desabilitar um fluxo de trabalho totalmente (until reactivated);
 O arquivo YAML permanece presente e funcional, mas tecnicamente o GitHub não o acionará até novo aviso.
 
 A desativação (ou reativação) é realizada por meio da aba Ações do repositório; ao clicar em um dos fluxos de trabalho no canto superior direito, clique no botão "..." e escolha "Desativar fluxo de trabalho".
@@ -6176,7 +6029,7 @@ A parte mais rica de um fluxo de trabalho é representada pelo bloco steps que c
 Você pode escolher entre:
 
 - [x] Executar um comando, uma linha de comando simples ou uma série de comandos
-- [ ] Executar uma Action, um módulo rico, personalizável e reutilizável criado anteriormente por outra pessoa
+- [x] Executar uma Action, um módulo rico, personalizável e reutilizável criado anteriormente por outra pessoa
 
 ## Executar um comando
 A execução de um comando é o equivalente a uma tarefa CMD no Windows ou um comando bash no Linux. Ele executa uma linha de comando simples e retorna o resultado para o console. Frequentemente usado para exibir uma mensagem, para executar uma operação em arquivos, às vezes é usado para iniciar comandos do sistema ou scripts de terceiros como vimos no capítulo anterior com "npm install" e "gulp build". Este tipo de tarefa é reconhecível pela presença da palavra-chave run.
@@ -6616,7 +6469,7 @@ Uma vez instalado, o segundo passo é configurar o runner para interagir com seu
 
 ```
 # Runner configuration
-$ ./config.cmd --url https://github.com/lgmorand/book-github-actions --token C3C13STUNF4K3TOK3N
+$ ./config.cmd --url https://github.com/60pportunities/book-github-actions --token C3C13STUNF4K3TOK3N
 ```
 
 Quando executado, o comando pede várias informações para personalizar o agente, como seu nome, seus rótulos e o tipo de execução (como um serviço ou manual). Claro, você também pode deixar esses valores vazios e deixar que a configuração use os valores padrão:
@@ -6909,13 +6762,13 @@ Isso permite ter o nome de todas as propriedades do contexto (seu número muda d
 "token":
 "job": "build",
 "ref": "refs/heads/main",
-"repository": "lgmorand/test",
-"repository_owner": "lgmorand",
-#"repositoryUrl": "git://github.com/lgmorand/test.git",
+"repository": "60pportunities/test",
+"repository_owner": "60pportunities",
+#"repositoryUrl": "git://github.com/60pportunities/test.git",
 "run_id":"587245182",
 "run_number": "8",
 "retention_days": "90",
-"actor": "lgmorand",
+"actor": "60pportunities",
 "workflow": "Test Wkf",
 "head_ref": "",
 "base_ref": "",
@@ -7038,13 +6891,13 @@ MY_LARGE_SECRET_PWD:
 ```
 ### Exercícios - Segredos
 #### Exercício n°1
-O primeiro exercício, crie um segredo e passe-o diretamente para a ação Igmorand@github-action-hello (https://github.com/ lgmorand/github-action-hello). Depois, verifique se seu valor não aparece nos logs.
+O primeiro exercício, crie um segredo e passe-o diretamente para a ação Igmorand@github-action-hello (https://github.com/ 60pportunities/github-action-hello). Depois, verifique se seu valor não aparece nos logs.
 
 #### Exercício n°2
-O repositório que contém a ação lgmorand@github-action-hello (https://github.com/lgmorand/github-action-hello) tem um segredo chamado MY_SECRET. Este repositório tem um fluxo de trabalho disparado no push e/ou pull request e tem como objetivo validar que a ação ainda esteja totalmente funcional em um teste unitário. Execute um pull request no repositório e altere o fluxo de trabalho para obter o valor de sigilo.
+O repositório que contém a ação 60pportunities@github-action-hello (https://github.com/60pportunities/github-action-hello) tem um segredo chamado MY_SECRET. Este repositório tem um fluxo de trabalho disparado no push e/ou pull request e tem como objetivo validar que a ação ainda esteja totalmente funcional em um teste unitário. Execute um pull request no repositório e altere o fluxo de trabalho para obter o valor de sigilo.
 
 ### Exercício n°3
-De outra conta, tente bifurcar um dos seus repositórios que contém um segredo (ou bifurcar um repositório de terceiros que contém um segredo, por exemplo este: https://github.com/lgmorand/aks-checklist). Em seguida, abra a aba Configurações e altere o valor de um dos segredos.
+De outra conta, tente bifurcar um dos seus repositórios que contém um segredo (ou bifurcar um repositório de terceiros que contém um segredo, por exemplo este: https://github.com/60pportunities/aks-checklist). Em seguida, abra a aba Configurações e altere o valor de um dos segredos.
 
 ## Variáveis de configuração
 Desde janeiro de 2023, o GitHub também permite a declaração de variáveis de configuração. As variáveis de configuração são estritamente idênticas aos segredos, exceto que seu conteúdo não é protegido e pode ser visualizado dentro do fluxo de trabalho. É perfeito quando você quer adicionar dinamicidade ao seu fluxo de trabalho sem codificá-lo dentro do arquivo YAML ou colocá-lo em um segredo porque você não pode necessariamente ver/editar seu conteúdo facilmente.
@@ -7290,7 +7143,7 @@ Também é possível incluir o emblema em um site externo ao GitHub. Isso requer
 
 Aqui está um exemplo de um emblema injetado em uma página HTML:
 
-`<img src="https://github.com/lgmorand/aks-checklist/actions/ workflows/generate-offline.yml/badge.svg" />`
+`<img src="https://github.com/60pportunities/aks-checklist/actions/ workflows/generate-offline.yml/badge.svg" />`
 
 Esses emblemas são mais do que um elemento estético; eles podem dar visibilidade centralizada, sem precisar ir para a parte de ações restaurativas e analisar cada fluxo de trabalho.
 
@@ -7334,7 +7187,7 @@ Neste exemplo anterior, nós o carregamos usando um arquivo YAML local, o que si
 
 ```
 call-workflow-in-local-repo:
-uses: lgmorand/REPO-REUSABLE/.github/workflows/reusable.yaml@main
+uses: 60pportunities/REPO-REUSABLE/.github/workflows/reusable.yaml@main
 
 ```
 
@@ -7345,7 +7198,7 @@ on:
 workflow_dispatch:
 jobs:
 call-workflow-1-in-local-repo:
-uses: lgmorand/test/.github/workflows/reusable.yaml@main
+uses: 60pportunities/test/.github/workflows/reusable.yaml@main
 with:
 message: 'hello my friend'
 job2:
@@ -7353,7 +7206,7 @@ runs-on: self-hosted
 steps:
 - run: echo 'a normal step'
 call-workflow-1-in-remote-repo:
-uses: lgmorand/test/.github/workflows/another-reusable.yaml@main
+uses: 60pportunities/test/.github/workflows/another-reusable.yaml@main
 ```
 Você já deve estar se perguntando: qual é a diferença com Composite Actions que permite injetar vários passos de uma vez? Essa é uma boa pergunta porque a diferença é muito (muito) sutil e, como ambos os recursos continuam a remover limitações, eles se tornam cada vez mais idênticos. Use o que você acha que se encaixa em suas necessidades ou sua preferência.
 acessado.
@@ -7532,11 +7385,11 @@ Este comando cria uma pasta node_modules na qual o módulo @actions/core é baix
 
 Nossa ação está pronta; só precisamos testá-la em um fluxo de trabalho. Para fazer isso, basta usar a palavra-chave uses e fornecer o nome completo da nossa ação: Igmorand/github-action-hello@main
 
-`- uses: lgmorand/github-action-hello@main`
+`- uses: 60pportunities/github-action-hello@main`
 
 Você pode então fazer commit e enviar seu código para o repositório que está no GitHub.
 
-Observe que "lgmorand" deve ser substituído pelo nome da sua conta no GitHub, depois vem o nome do repositório da sua ação e, finalmente, "@main", que indica usar o branch principal. Usar um nome de branch é incomum; veremos em um capítulo vindouro versionamento como sua ação e chamar esse número de versão explicitamente.
+Observe que "60pportunities" deve ser substituído pelo nome da sua conta no GitHub, depois vem o nome do repositório da sua ação e, finalmente, "@main", que indica usar o branch principal. Usar um nome de branch é incomum; veremos em um capítulo vindouro versionamento como sua ação e chamar esse número de versão explicitamente.
 
 O YAML final deve ser parecido com isto:
 
@@ -7689,7 +7542,7 @@ Dica: basta reverter as etapas de publicação, mas isso deve ser feito para cad
 Crie sua segunda ação
 A primeira Ação está concluída, agora construiremos uma segunda ação que aborda novos conceitos. Esta segunda ação visa simplificar a criação de uma versão do GitHub automatizando a criação da tag e gerando automaticamente um histórico de alterações (changelog). Esta nova Ação, mais relevante para casos de uso reais, cobrirá as noções de execução de código de terceiros, pré/pós script, geração de variável de saída, mas também interações com o GitHub.
 
-Um ponto de atenção em particular, a Action, contém dezenas de arquivos e conceitos que não estão relacionados ao GitHub Actions (ex: como configurar a estrutura do projeto Typescript). Esses conceitos não serão abordados neste livro, mas você pode baixar uma cópia totalmente funcional da action do repositório que contém algumas indicações adicionais: https://github.com/lgmorand/github-action-generate-relnotes.
+Um ponto de atenção em particular, a Action, contém dezenas de arquivos e conceitos que não estão relacionados ao GitHub Actions (ex: como configurar a estrutura do projeto Typescript). Esses conceitos não serão abordados neste livro, mas você pode baixar uma cópia totalmente funcional da action do repositório que contém algumas indicações adicionais: https://github.com/60pportunities/github-action-generate-relnotes.
 
 Aviso: O código-fonte da action é minimalista e está longe de ser perfeito, mas visa ser o mais conciso possível para evitar explicar centenas de linhas de código. Você pode se concentrar nas partes que têm um valor técnico real.
 
@@ -7964,7 +7817,7 @@ Por fim, um arquivo tsconfig.json é criado manualmente para definir a compilaç
 },
 ```
 
-É como a mecânica funciona dentro de um projeto TypeScript, um pouco complexo de configurar para neófitos, mas muito flexível. Sinta-se à vontade para verificar o repositório de amostra para analisar os diferentes arquivos: https://github.com/lgmorand/github-action-generate-relnotes
+É como a mecânica funciona dentro de um projeto TypeScript, um pouco complexo de configurar para neófitos, mas muito flexível. Sinta-se à vontade para verificar o repositório de amostra para analisar os diferentes arquivos: https://github.com/60pportunities/github-action-generate-relnotes
 
 Nossa ação está tecnicamente pronta, mas ainda temos que enviar todos os arquivos de origem (incluindo arquivos baixados/gerados) para o repositório GitHub.
 
@@ -8076,7 +7929,7 @@ Uma Docker Action é geralmente mais sintética do que uma JavaScript Action; el
 
 O arquivo README.md contém a descrição da sua ação e um exemplo de YAML para usar nossa Action:
 ```
-- uses: lgmorand/github-action-pandoc@v1
+- uses: 60pportunities/github-action-pandoc@v1
 with:
 args: "--standalone --output-readme.pdf README.md"
 ```
@@ -8176,7 +8029,7 @@ De quais argumentos estamos falando? Argumentos que estão no arquivo YAML. O ru
 ```
 Portanto, o comando final é "pandoc standalone -output=readme.pdf README.md", que diz ao Pandoc para pegar o arquivo README.md e transformá-lo em readme.pdf. Finalmente, se você ainda não fez isso, crie um arquivo README.md com conteúdo markdown.
 
-Nota: Você pode encontrar minha ação pronta para o usuário e bifurcá-la se desejar. Ela está localizada neste repositório: https://github.com/lgmorand/github-action-pandoc. Eu recomendo que você pegue o arquivo sample.md e coloque seu conteúdo em seu arquivo README.md. O resultado deste arquivo transformado em PDF pode surpreendê-lo.
+Nota: Você pode encontrar minha ação pronta para o usuário e bifurcá-la se desejar. Ela está localizada neste repositório: https://github.com/60pportunities/github-action-pandoc. Eu recomendo que você pegue o arquivo sample.md e coloque seu conteúdo em seu arquivo README.md. O resultado deste arquivo transformado em PDF pode surpreendê-lo.
 
 Seu repositório deve ser parecido com isto:
 
@@ -8203,7 +8056,7 @@ generate:
 runs-on: self-hosted
 steps:
 - uses: actions/checkout@v4
-- uses: lgmorand/github-action-pandoc@main # replace with your action and your branch
+- uses: 60pportunities/github-action-pandoc@main # replace with your action and your branch
 with:
 args: "--standalone --output-readme.pdf README.md"
 - uses: actions/upload-artifact@v4
@@ -8241,7 +8094,7 @@ required: true
 image:
 description: 'version of the container image'
 required: true
-default: "lgmorand/github-action-pandoc"
+default: "60pportunities/github-action-pandoc"
 ```
 Isso tem a consequência de exibir um formulário durante a inicialização do fluxo de trabalho:
 
@@ -8277,7 +8130,7 @@ docker push $TAG
 
 O resultado final do fluxo de trabalho é:
 
-Recurso: em caso de problemas ou se você não quiser reescrever o fluxo de trabalho completamente, você pode encontrar uma versão pronta para uso no repositório https://github.com/ lgmorand/github-action-pandoc
+Recurso: em caso de problemas ou se você não quiser reescrever o fluxo de trabalho completamente, você pode encontrar uma versão pronta para uso no repositório https://github.com/ 60pportunities/github-action-pandoc
 
 ```
 name: Publish Docker Image
@@ -8290,7 +8143,7 @@ required: true
 image:
 description: 'name of the container image'
 required: true
-default: "lgmorand/github-action-pandoc"
+default: "60pportunities/github-action-pandoc"
 jobs:
 publish:
 runs-on: self-hosted
@@ -8330,7 +8183,7 @@ generate:
 runs-on: self-hosted
 steps:
 - uses: actions/checkout@v4
-- uses: docker://lgmorand/github-action-pandoc:1.0.1
+- uses: docker://60pportunities/github-action-pandoc:1.0.1
 with:
 args: "--standalone --output-readme.html README.md"
 - uses: actions/upload-artifact@v4
@@ -8385,7 +8238,7 @@ icon: 'lock' # The name of one of the available icons
 color: 'orange' # The background color of your icon
 ```
 
-Nota: O código-fonte completo desta ação de exemplo está no repositório público: https://github.com/lgmorand/github-action-composite-credscanning
+Nota: O código-fonte completo desta ação de exemplo está no repositório público: https://github.com/60pportunities/github-action-composite-credscanning
 
 Em seguida, adicione um parâmetro de entrada folderToScan que especifica a pasta (e subpastas) que você deseja que o scanner. Útil quando não queremos escanear o repositório completo.
 
@@ -8600,7 +8453,7 @@ with:
 github-token: ${{secrets.MY_GITHUB_TOKEN}}
 script:|
 return github.rest.repos.listForUser({
-username: "lgmorand"
+username: "60pportunities"
 });
 ```
 
@@ -8950,7 +8803,7 @@ O upload do pacote é feito no repositório do seu projeto. No entanto, a ferram
 
 OWNER representa o nome da sua conta ou organização aqui, enquanto USERNAME é o nome do usuário que carrega o pacote. A senha é um PAT (Personal Access Token). É possível criar uma nova ou simplesmente reutilizar a que é injetada automaticamente em cada fluxo de trabalho: GITHUB_TOKEN.
 
-``nuget sources add -name "github" -Source https://nuget.pkg.github.com/lgmorand/ index.json -Username lgmorand -Password ${{ secrets.GITHUB_TOKEN}}``
+``nuget sources add -name "github" -Source https://nuget.pkg.github.com/60pportunities/ index.json -Username 60pportunities -Password ${{ secrets.GITHUB_TOKEN}}``
 
 Isso tem o efeito de produzir um arquivo de configuração que contém todas as galerias do NuGet, que ele pode acessar para carregar ou baixar pacotes. Por exemplo, aqui está o arquivo após o comando anterior:
 
@@ -8958,7 +8811,7 @@ Isso tem o efeito de produzir um arquivo de configuração que contém todas as 
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
 <packageSources>
-<add key="github" value="https://nuget.pkg.github.com/lgmorand/index.json" protocolVersion="3" />
+<add key="github" value="https://nuget.pkg.github.com/60pportunities/index.json" protocolVersion="3" />
 <add  key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
 </packageSources>
 </configuration>
@@ -8981,7 +8834,7 @@ steps:
    run: dotnet pack --configuration Release
 - name: Adding the source
    run: nuget sources add
--name "github" -Source https://nuget.pkg.github.com/ lgmorand/index.json -Username lgmorand -Password ${{ secrets.GITHUB_TOKEN }}
+-name "github" -Source https://nuget.pkg.github.com/ 60pportunities/index.json -Username 60pportunities -Password ${{ secrets.GITHUB_TOKEN }}
 - name: Upload package
    run: dotnet nuget push "bin/Release/DemoNuget.1.0.0.nupkg" --source "github"
 ```
@@ -9056,6 +8909,25 @@ Esta dica deve ajudar você a depurar seus fluxos de trabalho mais facilmente.
 Há também uma solução alternativa que permite que você execute os fluxos de trabalho do GitHub diretamente no seu computador e sem instalar um agente. Isso requer a ferramenta "Act", que pode ser encontrada no GitHub (https://github.com/nektos/act).
 
 Apesar de algumas limitações, o Act analisa os arquivos YAML e tenta reproduzir o comportamento de um runner. Seu uso não é abordado neste livro, mas adiciona uma corda ao seu arco.
+
+
+No GitHub Actions, o tempo que os logs e artefatos ficam armazenados por padrão depende do tipo de item e do plano de conta que você está utilizando.
+
+1. Logs:
+Armazenamento: Os logs de execução dos jobs (logs de cada execução de um fluxo de trabalho) são armazenados pelo GitHub por 90 dias.
+
+Acessibilidade: Você pode acessar os logs de execução de qualquer job ou execução do fluxo de trabalho enquanto os logs estiverem dentro desse período de retenção. Após esse período, os logs são excluídos automaticamente.
+
+2. Artefatos:
+Armazenamento: Os artefatos (arquivos gerados durante o fluxo de trabalho, como binários, logs ou pacotes de build) têm uma retenção padrão de 90 dias.
+
+Acessibilidade: Assim como os logs, os artefatos podem ser acessados e baixados enquanto estiverem dentro do período de retenção de 90 dias. Após esse período, eles são automaticamente excluídos.
+
+Limitação de Tamanho: Além disso, há uma limitação de tamanho para artefatos individuais (50 GB por artefato), e um máximo de 100 GB no total por conta para artefatos armazenados.
+
+3. Exceções e Personalizações:
+Alterar o Tempo de Retenção de Artefatos: Você pode personalizar a retenção dos artefatos usando a opção retention-days no arquivo de workflow. Isso permite definir um tempo de retenção menor ou maior, mas não pode exceder 90 dias.
+
 
 ## Improve the performance of your workflows
 Se você leu este livro, entendeu que a automação de tarefas e evitar erros humanos durante projetos de computador permite uma economia de tempo significativa porque uma máquina sempre será rápida como um humano e permitirá que ele se concentre em outras tarefas durante esse tempo. No entanto, também é importante que as tarefas automatizadas sejam executadas o mais rápido possível. Tomemos o exemplo de um fluxo de trabalho de compilação e implantação. Este desenvolvedor cria um aplicativo deve esperar que o fluxo de trabalho seja concluído para validar se seu desenvolvimento é confiável ou não. Um desenvolvedor pode fazer isso cerca de cinquenta vezes por dia nesta operação e representa tanto tempo perdido à toa. Multiplicando esse tempo pelo número de desenvolvedores da equipe, podemos facilmente imaginar as horas perdidas todos os dias.
@@ -9314,7 +9186,7 @@ Hash completo
 Então use esse hash para referenciar uma versão bem específica da ação.
 
 ```
-- uses: lgmorand/github-action-hello@7f2e08be313d58f0d0133b76514dda947b4c1f79
+- uses: 60pportunities/github-action-hello@7f2e08be313d58f0d0133b76514dda947b4c1f79
   with:
     firstname: 'Louis-Guillaume'
 ```
@@ -9400,7 +9272,7 @@ Dessa forma, o comando é "expandido"  em uma variável, mas como é uma variáv
 # My Real-World Workflows
 Nesta última parte, um pouco abrangente, decidi dissecar alguns fluxos de trabalho que uso em meus projetos. Úteis ou não para você, você verá diferentes fluxos de trabalho, diferentes tópicos abordados e a riqueza de possíveis casos de uso.
 
-Cada fluxo de trabalho é explicado neste livro, mas você encontrará todos os fluxos de trabalho neste repositório: https://github.com/lgmorand/book-github-actions-advanced-workflows.
+Cada fluxo de trabalho é explicado neste livro, mas você encontrará todos os fluxos de trabalho neste repositório: https://github.com/60pportunities/book-github-actions-advanced-workflows.
 
 ## PowerPoint
 É comum no meu trabalho fazer apresentações técnicas. Embora eu aprecie o software Microsoft PowerPoint, também gosto da flexibilidade do Markdown, que me permite transformar ou traduzir meu texto rapidamente para vários idiomas antes de gerar uma apresentação.
@@ -9895,19 +9767,19 @@ Desejo que você se divirta brincando com essas Ações e espero que você autom
 Louis-Guillaume MORAND
 
 
-https://github.com/lgmorand/book-github-actions-content?tab=readme-ov-file
+https://github.com/60pportunities/book-github-actions-content?tab=readme-ov-file
 
 ## Apêndices
 Recursos do livro
 Um máximo de códigos, exemplos, exercícios e Ações construídos dentro deste livro estão disponíveis em acesso aberto para seus repositórios dedicados.
-Exemplos de código e respostas aos exercícios estão no repositório principal: https://github.com/lgmorand/book-github-actions-content
+Exemplos de código e respostas aos exercícios estão no repositório principal: https://github.com/60pportunities/book-github-actions-content
 
 As Ações podem ser encontradas em:
 
-- [x] Hello World: https://github.com/lgmorand/github-action-hello
-- [x] Generate Release: https://github.com/lgmorand/github-action-generate-relnotes
-- [x] Pandoc: https://github.com/lgmorand/github-action-pandoc
-- [x] CredScanning:https://github.com/lgmorand/github-action-composite-credscanning
+- [x] Hello World: https://github.com/60pportunities/github-action-hello
+- [x] Generate Release: https://github.com/60pportunities/github-action-generate-relnotes
+- [x] Pandoc: https://github.com/60pportunities/github-action-pandoc
+- [x] CredScanning:https://github.com/60pportunities/github-action-composite-credscanning
 
 ## Recursos recomendados
 
@@ -9988,7 +9860,7 @@ cleanup
 ```
 
 Agora que todos os elementos estão prontos, você precisa gerar uma imagem de contêiner e publicá-la em qualquer registro docker (ou localmente usando o Docker build). O procedimento é exatamente o mesmo que criar uma Action dockerizada explicada anteriormente neste livro.
-Código-fonte: Se você estiver procurando por um exemplo pronto para uso e seu fluxo de trabalho para gerar a imagem docker, você pode encontrar um exemplo deste repositório público: https://github.com/lgmorand/self-hosted-runner-dockerized.
+Código-fonte: Se você estiver procurando por um exemplo pronto para uso e seu fluxo de trabalho para gerar a imagem docker, você pode encontrar um exemplo deste repositório público: https://github.com/60pportunities/self-hosted-runner-dockerized.
 
 
 Depois que sua imagem de contêiner for gerada e disponibilizada em um registro, você precisa criar uma instância do contêiner transmitindo os parâmetros necessários:
@@ -10012,5 +9884,35 @@ docker run --env OWNER={OWNER} --
 REPO={REPO} {IMAGE}
 Here is an example:
 docker run --env OWNER=1gmorand --env TOKEN=ghp_mXkDnajJQjM921W1UqfkO --
-env NAME=redtower-runner --env REPO-my-repo lgmorand/self-hosted-runnner
+env NAME=redtower-runner --env REPO-my-repo 60pportunities/self-hosted-runnner
 ```
+
+
+
+https://spacelift.io/blog/ci-cd-pipeline
+https://spacelift.io/blog/ci-cd-pipeline
+https://github.com/sottlmarek/DevSecOps?tab=readme-ov-file
+https://app.exampro.co/student/material/gha/6770?autoplay=true
+https://docs.edgeimpulse.com/docs/tutorials/lifecycle-management/gitactions-docker
+https://davecross.substack.com/p/github-actions-essentials-is-published?utm_campaign=post&utm_medium=web
+https://docs.openedx.org/en/latest/developers/references/developer_guide/testing/github-actions.html
+https://medium.com/@ravipatel.it/key-concepts-of-github-actions-a-guide-from-beginner-to-advanced-abb95c59e0f4
+https://davecross.substack.com/p/github-actions-essentials-is-published?utm_campaign=post&utm_medium=web
+
+https://docs.openedx.org/en/latest/developers/references/developer_guide/testing/github-actions.html
+
+
+https://docs.github.com/pt/actions/about-github-actions/understanding-github-actions
+https://docs.github.com/pt/actions/writing-workflows/quickstart
+
+https://docs.github.com/en/actions/guides
+
+https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions
+
+https://github.com/marketplace/actions/setup-node-js-environment
+https://docs.github.com/pt/actions/learn-github-actions/using-starter-workflows
+https://docs.github.com/pt/actions/automating-builds-and-tests
+https://docs.github.com/pt/actions/publishing-packages
+https://docs.github.com/pt/actions/deployment
+https://docs.github.com/pt/actions/managing-issues-and-pull-requests
+https://docs.github.com/pt/actions/examples
