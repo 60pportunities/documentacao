@@ -220,6 +220,7 @@ nav:
       - 'Políticas'                                                  : 'politicas.md'
       - 'Segurança'                                                  : 'SECURITY.md'
    - 'Padrões Tecnológicos'                                          :
+      - 'Engenharia de Software'                                     : 'recipe_60pportunities_engenharia_sw.md'
       - 'Microservices with Databases'                               : 'recipe_60pportunities_microservices_com_databases.md'
    - 'Felicidade do imperfeito'                                      :
       - 'Aprender, desaprender e reaprender'                         : 'recipe_60pportunities_felicidade_001.md'
@@ -240,7 +241,6 @@ nav:
       - 'Grande Depressão (2009-2015)'                               : 'recipe_60pportunities_livro_cap_005.md'
       - 'Década Perdida (2016-2020)'                                 : 'recipe_60pportunities_livro_cap_006.md'
       - 'Avanço da vacinação (2021-2025)'                            : 'recipe_60pportunities_livro_cap_007.md'
-      - 'Engenharia de Software'                                     : 'recipe_60pportunities_engenharia_sw.md'
    - 'Software Development Lifecycle'                                :
       - 'Definições'                                                 : 'recipe_60pportunities_livro_sdlc_local_001.md'
       - 'Pastas'                                                     : 'recipe_60pportunities_livro_sdlc_local_002.md'
@@ -279,12 +279,16 @@ nav:
       - 'Engenharia de Software'                                     : 'recipe_60pportunities_livro_cap_conclusao.md'
    - 'Publicações'                                                   :
       - '31-jan-2025 - LinkedIn'                                     : 'recipe_60pportunities_publicacao_001.md'
+   - 'Certificação Estudo'                                           :
+      - 'GitHub Actions 01'                                          : 'recipe_60pportunities_certificacao_gha_resumo_01.md'
+      - 'GitHub Actions 02'                                          : 'recipe_60pportunities_certificacao_gha_resumo_02.md'
    - 'Certificação Perguntas'                                        :
       - 'Certiprof DevOps Essentials'                                : 'recipe_60pportunities_certificacao_depc.md'
       - 'Scrum Developer'                                            : 'recipe_60pportunities_certificacao_spd.md'
       - 'GitHub Foundations'                                         : 'recipe_60pportunities_certificacao_ghf.md'
       - 'GitHub Actions'                                             : 'recipe_60pportunities_certificacao_gha.md'
-      - 'Resumo para prova GitHub Actions'                           : 'recipe_60pportunities_certificacao_gha_resumo.md'
+      - 'Resumo para prova GitHub Actions'                           : 'recipe_60pportunities_certificacao_gha_resumo_01.md'
+
    - 'Projetos'                                                      :
       - 'PMI e Standish Group'                                       : 'recipe_60pportunities_projetos_standishgroup.md'
    - 'Arquitetura'                                                   :
