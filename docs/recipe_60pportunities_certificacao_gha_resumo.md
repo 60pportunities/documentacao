@@ -5564,7 +5564,7 @@ on:
        - 'docs/**
 ```
 
-## Scheduled trigger
+### Scheduled trigger
 Este gatilho serve em particular para as compilações que são comumente chamadas de **Nightly Builds**.
 
 Essas compilações são (geralmente) iniciadas à noite, mas descorrelacionadas do processo de CI/CD, seja porque realizam tratamentos longos (ex.: varredura de código mais avançada) ou porque as ações do fluxo de trabalho não são necessárias para o escopo da Integração Contínua (ex.: geração de um relatório de qualidade de código)
@@ -5686,7 +5686,7 @@ jobs:
         run: echo "Workflow concluído com sucesso."
 ```
 
-## Manual triggering
+### Manual triggering
 O gatilho manual é particularmente útil quando você quer que a ação seja disparada por um humano, como implantar em um ambiente após uma fase de teste.
 
 Este gatilho é especial porque você tem que usar o evento workflow_dispatch que indica que o fluxo de trabalho pode ser iniciado a partir de um item externo (por exemplo, **outro fluxo de trabalho, uma chamada de API ou... um humano**).
@@ -5743,7 +5743,7 @@ jobs:
                echo  The tags are ${{ inputs.logLevel }}
 ```
 
-## Manually trigger with parameters
+#### Disparar manualmente com parâmetros
 O formato um tanto particular $ {{ github.event.inputs.environment }} que representa uma variável do GitHub é abordado no capítulo.
 Lembre-se apenas por um momento que este formato informa o fluxo de trabalho:
 
@@ -5758,7 +5758,7 @@ Também é possível dar um nome dinâmico ao fluxo de trabalho usando essas ent
 
 run-name: O fluxo de trabalho cumprimentará ${{ inputs.name}} por @${{ github.actor}}
 
-## Desabilitar/ignorar gatilhos temporariamente
+### Desabilitar/ignorar gatilhos temporariamente
 Pode acontecer de você querer alterar um ou mais arquivos, mas não querer acionar o fluxo de trabalho associado a este evento (push ou pull-request).
 
 Por exemplo, quando você edita um arquivo que não é relevante para a implantação, como um arquivo README.md.
@@ -5767,141 +5767,254 @@ Um truque não documentado consiste em inserir uma palavra-chave no comentário 
 
 A lista de possíveis palavras-chave para desabilitar temporariamente um fluxo de trabalho é a seguinte: **[skip ci], [ci skip], [no ci], [skip actions] ou [actions skip] (não se esqueça dos colchetes)**.
 
-## Desativar um fluxo de trabalho
+### Desativar um fluxo de trabalho
 Se desabilitar temporariamente for útil, isso requer nunca omitir a inserção de uma das palavras-chave de desativação para cada commit.
+
 Uma alternativa é desabilitar um fluxo de trabalho totalmente (until reactivated);
+
 O arquivo YAML permanece presente e funcional, mas tecnicamente o GitHub não o acionará até novo aviso.
 
 A desativação (ou reativação) é realizada por meio da aba Ações do repositório; ao clicar em um dos fluxos de trabalho no canto superior direito, clique no botão "..." e escolha "Desativar fluxo de trabalho".
 
-## Desativar fluxo de trabalho
-Se a desativação for efetiva, uma mensagem indicando o status e como reativar o fluxo de trabalho será exibida:
-
-## Habilitar fluxo de trabalho
-Com o que você acabou de aprender, escolher o gatilho relevante para sua necessidade deve ser fácil.
-
 ### Exercícios
 Agora, vamos aplicar o que você acabou de aprender fazendo alguns exercícios.
 
-Exercício n°1
+#### Exercício n°1
 Aqui está um fluxo de trabalho que fecha os bugs que são muito antigos. Modifique-o para que ele seja executado todas as noites às 19h30, de segunda a sexta-feira.
 
 ```
-name: "triggers - exercise 1"
+name: 52-fecha-bugs
 on:
-# to complete
+  schedule:
+    # Executa às 19:30 UTC (16:30 BRT) de segunda a sexta-feira
+    - cron: '30 19 * * 1-5'
+  workflow_dispatch:  # Permite execução manual
+
 jobs:
-stale:
-runs-on: self-hosted
-steps:
-uses: actions/stale@v9
-with:
- repo-token: ${{ secrets.GITHUB_TOKEN }}
-stale-issue-message: 'This issue is stale because it has been open 30 days with no activity. Remove stale label or comment or this will be closed in 5 days'
-days-before-stale: 30
-days-before-close: 5
+  fechar-bugs-antigos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar bugs antigos
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'bug',
+              sort: 'created',
+              direction: 'asc',
+              per_page: 100
+            });
+
+            const cutoffDate = new Date();
+            cutoffDate.setDate(cutoffDate.getDate() - 30); // 30 dias atrás
+
+            for (const issue of issues) {
+              const createdAt = new Date(issue.created_at);
+              if (createdAt < cutoffDate) {
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  state: 'closed'
+                });
+
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  body: 'Este bug foi fechado automaticamente por estar aberto há mais de 30 dias sem atualização. Se ainda for relevante, por favor reabra.'
+                });
+
+                console.log(`Fechado bug #${issue.number}: ${issue.title}`);
+              }
+            }
+
 ```
 
-### Exercise n°2
-Para este segundo exercício, altere este fluxo de trabalho para ser acionado sempre que o código for enviado em qualquer branch. Adicione um segundo gatilho quando uma solicitação de pull for feita no branch principal
+#### Exercise n°2
+Altere este fluxo de trabalho para ser acionado sempre que o código for enviado em qualquer branch. Adicione um segundo gatilho quando uma solicitação de pull for feita no branch principal
 
 ```
-name: "triggers - exercise 2"
+name: Fechar Bugs Antigos
 on:
-# to complete
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - 'main'
+  schedule:
+    - cron: '30 19 * * 1-5'
+
 jobs:
-stale:
-runs-on: self-hosted
-steps:
-- run: echo "I check that the code compiles correctly"
+  fechar-bugs-antigos:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar bugs antigos
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'bug',
+              sort: 'created',
+              direction: 'asc',
+              per_page: 100
+            });
+
+            const cutoffDate = new Date();
+            cutoffDate.setDate(cutoffDate.getDate() - 30); // 30 dias atrás
+
+            for (const issue of issues) {
+              const createdAt = new Date(issue.created_at);
+              if (createdAt < cutoffDate) {
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  state: 'closed'
+                });
+
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  body: 'Este bug foi fechado automaticamente por estar aberto há mais de 30 dias sem atualização. Se ainda for relevante, por favor reabra.'
+                });
+
+                console.log(`Fechado bug #${issue.number}: ${issue.title}`);
+              }
+            }
+
+  # Novo job para executar em push/pull_request (opcional)
+  validacoes:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    needs: fechar-bugs-antigos
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Echo Event
+        run: |
+          echo "Evento disparador: ${{ github.event_name }}"
+          echo "Branch: ${{ github.ref }}"
+          echo "SHA: ${{ github.sha }}"
 
 ```
 
-Exercício n°3
-Para este último exercício, você deve disparar o fluxo de trabalho quando os arquivos com extensão ".yml" forem modificados durante um pull request, exceto aqueles que têm uma pasta pai chamada "test".
+#### Exercício n°3
+Disparar o fluxo de trabalho quando os arquivos com extensão ".yml" forem modificados durante um pull request, exceto aqueles que têm uma pasta pai chamada "mkdocs".
 
 ```
-name: "triggers - exercise 3"
+name: 52-YAML
 on:
-# to complete
+  pull_request:
+    paths:
+      - '**.yml'           # Monitora todos arquivos .yml
+      - '!mkdocs/**/*.yml'   # Ignora .yml dentro da pasta test
+
 jobs:
-stale:
-runs-on: self-hosted
-steps:
- - run: echo "I'm checking the YAML files"
+  validate-yml:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Necessário para verificar diferenças entre commits
+
+      - name: Get changed YAML files
+        id: changed-files
+        uses: tj-actions/changed-files@v42
+        with:
+          files: |
+            **.yml
+            !mkdocs/**/*.yml
+
+      - name: List modified YAML files
+        run: |
+          echo "Arquivos YAML modificados (exceto em /mkdocs):"
+          echo "${{ steps.changed-files.outputs.all_changed_files }}"
+
+      - name: Validate YAML syntax
+        run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "Validando $file"
+            yamllint "$file" || exit 1
+          done
 ```
+### Jobs
+Cada fluxo de trabalho é composto de um ou mais jobs, que são um grupo de tarefas que um único agente executará. Essas tarefas, chamadas steps.
+#### A execução de um job
+Um job representa um conjunto de tarefas que serão executadas sequencialmente pelo mesmo agente. Um fluxo de trabalho, portanto, contém pelo menos um job, mas pode ter dezenas deles, se necessário.
 
-Lembrete: As soluções podem ser encontradas no capítulo dedicado no final deste livro.
+O importante a lembrar é que cada job é executado por um agente diferente. Cada job é composto de vários elementos:
 
-## Jobs
-Cada fluxo de trabalho é composto de um ou mais jobs, que são um grupo de tarefas que um único agente executará. Essas tarefas, chamadas steps, serão abordadas no próximo capítulo.
+- [x] Um nome simples e chave que será exibido se a propriedade name não for preenchida
+- [x] Um nome de propriedade (opcional), que serve apenas para legibilidade em logs
+- [x] Uma propriedade runs-on, a mais importante, define o tipo de máquina virtual na qual o job será executado.
+- [x] Uma propriedade Steps, que contém um conjunto de tarefas a serem executadas
 
-### A execução de um job
-Um job representa um conjunto de tarefas que serão executadas sequencialmente pelo mesmo agente. Um fluxo de trabalho, portanto, contém pelo menos um job, mas pode ter dezenas deles, se necessário. O importante a lembrar é que cada job é executado por um agente diferente.
-Cada job é composto de vários elementos:
-
-. Um nome simples e chave que será exibido se a propriedade name não for preenchida
-• Um nome de propriedade (opcional), que serve apenas para legibilidade em logs
-· Uma propriedade runs-on, a mais importante, define o tipo de máquina virtual na qual o job será executado.
-· Uma propriedade Steps, que contém um conjunto de tarefas a serem executadas
-
-Aqui está um exemplo de sintaxe de job:
 ```
 jobs:
-job1:
-#Job's key
-name: "My first job" #Job's name
-runs-on: self-hosted # type of machine on which the job will be executed
-steps:
-[...] # The different tasks to perform
+  print-tag:                      # Um nome simples e chave que será exibido se a propriedade name não for preenchida
+    name: Horacio                 # Um nome de propriedade (opcional),
+    runs-on: ubuntu-latest        # Define o tipo de máquina virtual na qual o job será executado.
+    if: ${{ inputs.print_tags }}
+    steps:
+      - name: Print the input tag to STDOUT
+        run: |
+        [...]
 ```
+A seção runs-on é a mais crítica de todas porque você terá que selecionar um sistema operacional específico dependendo das tarefas que você tem que executar.
 
-## Jobs
-Cada fluxo de trabalho é composto de um ou mais jobs, que são um grupo de tarefas que um único agente executará. Essas tarefas, chamadas steps, serão abordadas no próximo capítulo.
+Por exemplo, escolher uma máquina Windows para compilar um aplicativo .Net  ou uma máquina macOS para construir um aplicativo iOS.
 
-### A execução de um job
-Um job representa um conjunto de tarefas que serão executadas sequencialmente pelo mesmo agente. Um fluxo de trabalho, portanto, contém pelo menos um job, mas pode ter dezenas deles, se necessário. O importante a lembrar é que cada job é executado por um agente diferente.
-Cada job é composto de vários elementos:
+Se você escolher uma tarefa que precisa do Windows e cujas solicitações de fluxo de trabalho são executadas em uma máquina Linux, a tarefa travará no tempo de execução, porque o GitHub não realizou nenhum controle inicial.
 
-. Um nome simples e chave que será exibido se a propriedade name não for preenchida
-• Um nome de propriedade (opcional), que serve apenas para legibilidade em logs
-· Uma propriedade runs-on, a mais importante, define o tipo de máquina virtual na qual o job será executado.
-· Uma propriedade Steps, que contém um conjunto de tarefas a serem executadas
-
-Aqui está um exemplo de sintaxe de job:
+Aqui estão as escolhas possíveis atuais de máquinas virtuais:
 
 | Virtual machine     | Label                           |
 | ----                | ----                            |
 | Windows Server 2022 |  windows-latest or windows-2022 |
 | Windows Server 2019 |  windows-2019                   |
-| Ubuntu 24.04        | self-hosted ou ubuntu 22.04   |
+| Ubuntu 24.04        | self-hosted ou ubuntu 22.04     |
 | macOS Sequoia 15.0  | macos-latest or macos-15        |
 | macOS Sonoma 14.0   | macos-latest or macos-14        |
 | macOS Ventura 13.0  | macos-13                        |
 
 
-Executores ARM: Os executores ARM estão disponíveis apenas para planos Teams/Enterprises
-A maioria dessas VMs vem com 2 CPUs, 7 Gb de RAM e 14 Gb de armazenamento (SSD), mas CPU/RAM são duplicados se seu repositório for público. Se você estiver procurando por executores com
+- [x] Executores ARM: Os executores ARM estão disponíveis apenas para planos Teams/Enterprises.
 
-processadores Arm64 ou GPU, eles são reservados apenas para os planos de preços Teams/Enterprise.
+A maioria dessas VMs vem com 2 CPUs, 7 Gb de RAM e 14 Gb de armazenamento (SSD), mas CPU/RAM são duplicados se seu repositório for público. Se você estiver procurando por executores com processadores Arm64 ou GPU, eles são reservados apenas para os planos de preços Teams/Enterprise.
 
-Aviso: Um fluxo de trabalho pode conter vários trabalhos. É importante observar que cada um desses trabalhos será executado em uma máquina virtual diferente, mesmo se o mesmo sistema operacional for especificado. Portanto, se você planeja transmitir dados de um trabalho para outro, será necessário usar mecanismos mais complexos ou serviços de terceiros.
+- [x] Um fluxo de trabalho pode conter vários trabalhos.
+- [x] É importante observar que cada um desses trabalhos será executado em uma máquina virtual diferente, mesmo se o mesmo sistema operacional for especificado.
+- [x] Portanto, se você planeja transmitir dados de um trabalho para outro, será necessário usar mecanismos mais complexos ou serviços de terceiros.
 
-Dependências entre seus trabalhos
-Por padrão, os trabalhos do mesmo fluxo de trabalho são executados em paralelo e independentemente um do outro (=iniciar simultaneamente). Isso permite, por exemplo, compilar um aplicativo para Android em um agente Linux e um aplicativo para iOS em um agente macOS simultaneamente, em vez de um após o outro.
+#### Dependências entre seus trabalhos
+Os trabalhos do mesmo fluxo de trabalho são executados **em paralelo e independentementes** um do outro (=iniciar simultaneamente).
+
+Isso permite, por exemplo, compilar um aplicativo para Android em um agente Linux e um aplicativo para iOS em um agente macOS simultaneamente, em vez de um após o outro.
 
 No entanto, há muitos casos em que precisaremos executar os jobs sequencialmente. Para isso, é necessário adicionar o atributo needs no job que queremos ver executando após o outro:
 
 ```
 jobs:
   job1:
-job2:
-
-needs: job1
-job3:
-needs: [job1, job2]
+  job2:
+     needs: job1
+   job3:
+     needs: [job1, job2]
 ```
 No exemplo anterior, o job1 deve ser executado inteiramente e com sucesso para que o job2 comece.
+
 Uma vez que o job2 for concluído com sucesso, o job3 será iniciado porque depende do job1 e do job2. Poderíamos ter apenas colocado uma dependência no job2 neste caso.
 
 Também é possível configurar um job para que ele seja executado após outro job que foi concluído com sucesso ou não.
@@ -5913,7 +6026,7 @@ Também é possível configurar um job para que ele seja executado após outro j
     job1:
       job2:
         needs: job1
-        if: always()  # says it will run whatever happens# but after job1
+        if: always()  # diz que será executado aconteça o que acontecer# mas depois do job1
 ```
 
 Por outro lado, é possível executar um job somente se o job do qual ele depende falhou. Portanto, é comum usar esse tipo de etapa de configuração para ações de cancelamento que não foram bem-sucedidas (rollback):
@@ -5922,7 +6035,7 @@ Por outro lado, é possível executar um job somente se o job do qual ele depend
       job1:
         job2:
           needs: job1
-       if: failure() # indicates that it will only run if Job1 fails
+        if: failure() # indica que ele só será executado se o Job1 falhar
 ```
 
 Os status possíveis são:
@@ -5935,93 +6048,122 @@ Os status possíveis são:
 | always()    | O tempo todo, se os trabalhos anteriores foram bem-sucedidos ou não |
 
 ## Limitações
-
 Embora alguns limites sejam altos, há limitações no número de trabalhos executados em paralelo na mesma conta do GitHub.
 
 | Plano       | Max Parallel Jobs | Max Parallel Jobs MacOS |
-| ----        | ---- | ---- |
-| Free        |  20  |  5   |
-| Pro         |  40  |  5   |
-| Team        |  60  |  5   |
-| Enterprise  | 150  | 50   |
+| ----        | ----:             | ----:                   |
+| Free        |  20               |  5                      |
+| Pro         |  40               |  5                      |
+| Team        |  60               |  5                      |
+| Enterprise  | 150               | 50                      |
 
 Essas limitações devem ser consideradas ao dividir seus fluxos de trabalho, especialmente se você os usa em projetos profissionais com várias pessoas trabalhando em paralelo.
 
-Também há limites no tempo de execução. Por exemplo, cada tarefa não pode ser executada por mais de 6 horas e o total de horas de um fluxo de trabalho que está executando várias tarefas (ou usa uma matriz) não pode exceder 72 horas.
+Também há limites no **tempo de execução**.
 
-## Exercícios - jobs
-Vamos passar para alguns exercícios práticos para validar o que você acabou de aprender.
+Por exemplo, cada tarefa não pode ser executada por mais de **6 horas** e o total de horas de um fluxo de trabalho que está executando várias tarefas (ou usa uma matriz) não pode exceder **72 horas**.
 
-### Exercício n°1
+### Exercício
+
+#### Exercício n°1
 Analise o próximo fluxo de trabalho e tente adivinhar o que será exibido no console.
 
 ```
+name: 52_nao_sei_a_ordem
+on:
+  workflow_dispatch:
 jobs:
   job1:
-    runs-on: self-hosted
-     steps:
-        - run: echo "Hello"
- job2:
-   needs: job1
-   runs-on: self-hosted
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+              echo "Hello"
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+       - run: echo "how"
+  job3:
+    needs: [job1, job2]
+    runs-on: ubuntu-latest
+    steps:
+       - run: |
+               echo "are"
+  job4:
+   runs-on: ubuntu-latest
    steps:
-     -- run: echo "how"
- job3:
-      needs: [job1, job2]^
-    runs-on: self-hosted
-      steps:
-       - run: echo "are"
- job4:
-   runs-on: self-hosted
-       steps:
          - run: echo "you?"
 ```
-
-
-
-Exercício n°2
+#### Exercício n°2
 Neste segundo exercício, você é solicitado a concluir o fluxo de trabalho para que o job2 seja disparado somente se o job1 falhar e o job3 seja iniciado, aconteça o que acontecer. Por exemplo, o job1 falha se o fluxo de trabalho for executado durante o fim de semana. Novamente, não altere nenhuma propriedade ou linha de código existente; você só pode adicionar novas linhas.
 
 ```
+name: 52_nao_sei_a_ordem
+on:
+  workflow_dispatch:
 jobs:
   job1:
-     runs-on: self-hosted
-      steps:
+    runs-on: ubuntu-latest
+    steps:
         - run: |
-            dayOfWeek=$(date +%u) # calculates the day of the week
-            if ($dayOfWeek > 5)
-             then
-               exit 1
-            fi
-   job2:
-     runs-on: self-hosted
-       needs: job1
-      steps:
+                dayOfWeek=$(date +%u) # calculates the day of the week
+                if ($dayOfWeek > 5)
+                    then
+                   exit 1
+                fi
+  job2:
+     runs-on: ubuntu-latest
+     needs: job1
+     steps:
         - run: echo "Something went wrong"
   job3:
-    runs-on: self-hosted
-      needs: job2
-      steps:
+    runs-on: ubuntu-latest
+    needs: job2
+    steps:
         - run: echo "I am running whatever happens"
 ```
-
-Exercício n°3
-É comum que um fluxo de trabalho tenha vários trabalhos. Aqui está um exemplo simples em que a primeira parte escreve alguma mensagem em um arquivo de texto, e a segunda etapa, que dispara após a primeira, lê e exibe o conteúdo do arquivo de texto. Qual é a exibição do fluxo de trabalho a seguir?
+#### Exercício n°3
+É comum que um fluxo de trabalho tenha vários trabalhos. Aqui está um exemplo simples em que a primeira parte escreve alguma mensagem em um arquivo de texto, e a segunda etapa, que dispara após a primeira, lê e exibe o conteúdo do arquivo de texto.
+Qual é a exibição do fluxo de trabalho a seguir?
 
 ```
-name: jobs - exercice 3
-   on:
-     workflow_dispatch:
-     jobs:
-       job1:
-         runs-on: self-hosted
-         steps:
-           - run: echo "hello job2" > test.txt # writes in test.txt
-       job2:
-         runs-on: self-hosted
-           needs: job1
-           steps:
-              - run: cat test.txt # reads the content of test.txt and displays it in the console
+name: 52_nao_sei_a_ordem
+on: [workflow_dispatch]
+jobs:
+  # Job 1: Escreve no arquivo
+  escrever-arquivo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Criar arquivo
+        run: |
+          echo "Esta mensagem foi gerada em $(date)" > output.txt
+          cat output.txt  # Exibe o conteúdo (opcional)
+
+      - name: Upload do arquivo
+        uses: actions/upload-artifact@v4
+        with:
+          name: arquivo-output
+          path: output.txt
+
+  # Job 2: Lê o arquivo (depende do Job 1)
+  ler-arquivo:
+    needs: escrever-arquivo  # Espera o Job 1 completar
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download do arquivo
+        uses: actions/download-artifact@v4
+        with:
+          name: arquivo-output
+
+      - name: Exibir conteúdo
+        run: |
+          echo "Conteúdo do arquivo:"
+          cat output.txt
+Update 52_nao_sei_a_ordem.yml · horaciovasconcellos/estudo-actions@cf700ef
+```
 
 ## The steps
 A parte mais rica de um fluxo de trabalho é representada pelo bloco steps que contém todas as ações que um fluxo de trabalho executa. Essas ações são precisamente essas famosas GitHub Actions, módulos que executam uma tarefa específica e que podem ser facilmente combinados dentro de um fluxo de trabalho.
@@ -6037,6 +6179,7 @@ A execução de um comando é o equivalente a uma tarefa CMD no Windows ou um co
 Uma etapa de execução se parece com isso: `- run: echo 'Execução do meu comando'`
 
 Caso você queira executar vários comandos, você terá a opção entre duplicar cada etapa com um único comando ou usar um caractere pipe (1) e combinar comandos com o seguinte formato:
+
 ```
 steps:
  #way of doing no 1
