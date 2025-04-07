@@ -1,5 +1,4 @@
-## Conceitos Básicos
-### Roadmap de Produtos
+## Roadmap de Produtos
 Um roadmap de produto é um instrumento estratégico que alinha visão, planejamento e execução, garantindo que todas as partes interessadas (stakeholders) compreendam o direcionamento do produto. Sua elaboração é essencial por vários motivos:
 <div class="mdx-columns2" markdown>
 - [x] Alinhamento Estratégico e de Prioridades
@@ -18,14 +17,14 @@ Um roadmap de produto não é apenas um cronograma, mas uma ferramenta dinâmica
 Sem ele, a gestão do produto fica **reativa, fragmentada e sujeita a falhas** de execução.
 Portanto, sua elaboração é não apenas necessária, mas crítica para o sucesso sustentável.
 
-#### Definir Formato (Tático vs. Estratégico)
-
+### Definir Formato (Tático vs. Estratégico)
+<div class="center-table" markdown>
 | Roadmap Estratégico (Longo Prazo) | Roadmap Tático (Curto Prazo) |
 | ----                              | ----                         |
 | Foco em objetivos macro (ex: expansão para novos mercados).| Foco em entregas imediatas (ex: lançamento de feature X). |
 | Escopo flexível, sem prazos rígidos.	    | Cronograma detalhado (sprints, milestones).  |
 | Público-alvo: liderança e investidores.	| Público-alvo: equipes de desenvolvimento e operação. |
-
+</div>
 #### Matriz de Priorização
 <div class="center-table" markdown>
 | Iniciativa    | Impacto (1-5) | Esforço (1-5) | Alinhamento Estratégico | Pontuação  |
@@ -49,7 +48,66 @@ Portanto, sua elaboração é não apenas necessária, mas crítica para o suces
 | 2      | Testes de Usabilidade    | UX          | Planejado    |
 </div>
 **Observação**: Este modelo garante clareza, adaptabilidade e decisões baseadas em dados, essenciais para um produto competitivo.
+##### **Fato Projeto Atualização do e-Business Suite**
+```mermaid
+gantt
+    dateFormat  YYYY-MM-DD
+    title       Clonagem CESUC
+    excludes    weekends
+    %% (`excludes` accepts specific dates in YYYY-MM-DD format, days of the week ("sunday") or "weekends", but not the word "weekdays".)
 
+section Desenvolvimento
+Q_01/2025                               :done,   DEV20241,2024-12-27,2025-03-28
+DBA_01/2025                             :DBA1,2024-12-27, 5d
+Q_02/2025                               :done,   DEV20252,2025-04-02,2025-07-04
+DBA_02/2025                             :DBA2,2025-04-02, 5d
+Q_03/2025                               :done,   DEV20253,2025-07-09,2025-10-10
+DBA_03/2025                             :DBA3,2025-07-09, 5d
+Q_04/2026                               :done,   DEV20254,2025-10-15,2026-01-16
+DBA_04/2026                             :DBA4,2025-10-15, 5d
+Q_01/2026                               :done,   DEV20261,2026-01-21,2026-04-24
+DBA_01/2026                             :DBA5,2026-01-21, 5d
+Q_02/2026                               :done,   DEV20262,2026-04-29,2026-07-31
+DBA_02/2026                             :DBA6,2026-04-29, 5d
+Q_03/2026                               :done,   DEV20263,2026-08-05,2026-11-06
+DBA_03/2026                             :DBA7,2026-08-05, 5d
+Q_01/2027                               :done,   DEV20261,2026-11-11,2027-02-12
+DBA_01/2027                             :DBA8,2026-11-11, 5d
+Q_02/2027                               :done,   DEV20272,2027-02-17,2027-05-21
+DBA_02/2027                             :DBA9,2027-02-17, 5d
+section Projeto
+SET/2025                                 :P1, 2025-09-08, 20d
+FUNC_01/2025                             :FUNC1,2025-09-28, 30d
+SET/2026                                 :P2, 2026-09-07, 20d
+FUNC_02/2026                             :FUNC2,2026-09-27, 5d
+section Homologação
+H_01/2025                             :done,   HML20251,2025-04-02,2025-05-02
+HBA_01/2025                             :HBA1,2025-04-02, 5d
+H_02/2025                             :done,   HML20252,2025-05-07,2025-06-06
+HBA_02/2025                             :HBA2,2025-05-07, 5d
+H_03/2025                             :done,   HML20253,2025-06-11,2025-07-11
+HBA_03/2025                             :HBA3,2025-06-11, 5d
+H_04/2025                             :done,   HML20254,2025-07-16,2025-08-15
+HBA_04/2025                             :HBA4,2025-07-16, 5d
+H_05/2025                             :done,   HML20255,2025-08-20,2025-09-19
+HBA_05/2025                             :HBA5,2025-08-20, 5d
+H_06/2025                             :done,   HML20256,2025-09-24,2025-10-24
+HBA_06/2025                             :HBA6,2025-09-24, 5d
+H_07/2025                             :done,   HML20257,2025-10-29,2025-11-28
+HBA_07/2025                             :HBA7,2025-10-29, 5d
+H_08/2026                             :done,   HML20258,2025-12-03,2026-01-02
+HBA_08/2026                             :HBA8,2025-12-03, 5d
+H_09/2026                             :done,   HML20269,2026-01-07,2026-02-06
+HBA_09/2026                             :HBA9,2026-01-07, 5d
+H_10/2026                             :done,   HML202610,2026-02-11,2026-03-13
+HBA_10/2026                             :HBA10,2026-02-11, 5d
+H_11/2026                             :done,   HML202611,2026-03-18,2026-04-17
+HBA_11/2026                             :HBA11,2026-03-18, 5d
+H_12/2026                             :done,   HML202612,2026-04-22,2026-05-22
+HBA_12/2026                             :HBA12,2026-04-22, 5d
+H_13/2026                             :done,   HML202613,2026-05-27,2026-06-26
+HBA_13/2026                             :HBA13,2026-05-27, 5d
+```
 ### [Yaml](https://github.com/yaml/yaml-grammar)
 O Githun utiliza a especificação YAML 1.2 contém a gramática formal para YAML 1.2. As 211 regras gramaticais são formatadas no HTML da página da web, juntamente com muitas descrições textuais da linguagem e gramática.
 
