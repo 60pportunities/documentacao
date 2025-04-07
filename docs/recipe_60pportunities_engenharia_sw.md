@@ -71,6 +71,7 @@ Manter um alto nível de qualidade de código é crucial para qualquer projeto d
 Linting é uma prática comum empregada por desenvolvedores para verificar automaticamente padrões de codificação, melhores práticas e problemas potenciais em seu código.
 
 A qualidade do código e o linting são aspectos essenciais e destacamos alguns motivos:
+
 - [x] **Legibilidade e Manutenibilidade**: Garantir que o código siga um estilo consistente e cumpra as melhores práticas estabelecidas torna mais fácil para os membros da equipe ler, entender e manter o código.
 - [x] **Erros reduzidos**: Ferramentas de linting podem detectar problemas potenciais, como erros de sintaxe, variáveis não utilizadas ou chamadas de função incorretas antes que causem problemas no aplicativo.
 - [x] **Revisões de código mais rápidas**: Ao impor padrões de codificação e melhores práticas por meio do linting, os desenvolvedores podem se concentrar em aspectos mais críticos das revisões de código, como lógica e funcionalidade, em vez de gastar tempo em questões estilísticas ou de formatação.
@@ -86,6 +87,7 @@ Ao selecionar cuidadosamente um linter que atenda aos requisitos do seu projeto 
 O teste automatizado é um componente central da Integração Contínua, pois permite que os desenvolvedores validem novas alterações de código em relação à base de código existente de forma rápida e eficiente.
 #### Por que o teste automatizado é crucial para CI
 Os testes automatizados desempenham um papel crítico no processo de CI por vários motivos:
+
 - [x] **Feedback mais rápido**: executar testes automaticamente como parte do seu pipeline de CI fornece feedback imediato sobre o impacto de novas alterações de código, permitindo que os desenvolvedores resolvam problemas antes que se tornem problemas mais significativos.
 - [x] **Esforço manual reduzido**: automatizar testes elimina a necessidade de testes manuais, liberando tempo dos desenvolvedores para se concentrarem na implementação de novos recursos e na correção de bugs.
 - [x] **Ambiente de teste consistente**: testes automatizados são executados em um ambiente consistente, reduzindo a probabilidade de discrepâncias entre execuções de teste e garantindo um processo de validação confiável.
@@ -155,7 +157,7 @@ Também abordaremos alguns casos de uso e cenários comuns em que o GitHub Actio
 Ao final, você terá uma sólida compreensão dos conceitos fundamentais por trás do GitHub Actions e uma perspectiva clara sobre como ele pode beneficiar seus projetos de desenvolvimento.
 
 Esta base preparará o cenário para a exploração aprofundada do GitHub Actions nos capítulos subsequentes, onde nos aprofundaremos em tópicos mais avançados e implementações práticas.
-
+<div class="center-table" markdown>
 | **Aspecto**                | **Continuous Integration (CI)**                                  | **Continuous Delivery (CD)**                                       | **Continuous Deployment (CD)**                                        |
 |----------------------------|------------------------------------------------------------------|--------------------------------------------------------------------|-----------------------------------------------------------------------|
 | **Objetivo**                | Integrar e testar código frequentemente para detectar erros cedo | Garantir que o código esteja sempre pronto para ser liberado       | Automatizar a liberação do código diretamente para produção          |
@@ -166,6 +168,7 @@ Esta base preparará o cenário para a exploração aprofundada do GitHub Action
 | **Benefício Principal**     | Identificação precoce de problemas de integração e qualidade do código | Liberação mais rápida e controlada para produção, com menos risco de falhas | Entrega contínua, com mudanças sendo rapidamente disponibilizadas para os usuários |
 | **Foco**                    | Automatizar testes e integração de código                       | Garantir que o código esteja pronto para produção a qualquer momento | Automatizar todo o processo, incluindo o deploy em produção          |
 | **Exemplo de Workflow**     | Desenvolvedor envia código → Testes e integração contínuos      | Código aprovado → Pré-produção → Aprovação manual → Deploy em produção | Código aprovado → Deploy automático em produção                       |
+</div>
 
 ```mermaid
 sequenceDiagram
@@ -261,7 +264,6 @@ Existem dois tipos de itens pelos quais você paga com o GitHub Action:
 - [x] Minutos: As ações exigem tempo de processamento em sistemas virtuais.
 
 #### Planos e Preços
-
 <div class="center-table" markdown>
 | Planejar	                         | Armazenamento | Minutos (por mês) |
 | ------                            | ----:         | ----:             |
@@ -406,9 +408,6 @@ sequenceDiagram
         end
     end
 ```
-
-
-
 
 # Termos
 
