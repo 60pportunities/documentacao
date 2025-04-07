@@ -1,19 +1,20 @@
 ## Conceitos Básicos
 ### Roadmap de Produtos
 Um roadmap de produto é um instrumento estratégico que alinha visão, planejamento e execução, garantindo que todas as partes interessadas (stakeholders) compreendam o direcionamento do produto. Sua elaboração é essencial por vários motivos:
-
+<div class="mdx-columns2" markdown>
 - [x] Alinhamento Estratégico e de Prioridades
 - [x] Comunicação Transparente com Stakeholders
 - [x] Adaptação a Mudanças e Riscos
 - [x] Otimização de Recursos e Tempo
 - [x] Mensuração de Resultados
-
+</div>
 Um roadmap de produto não é apenas um cronograma, mas uma ferramenta dinâmica que:
 
+<div class="mdx-columns2" markdown>
 - [x] Alinha times em torno de objetivos comuns.
 - [x] Comunica o plano de forma visual e acessível.
 - [x] Adapta-se a mudanças sem perder o foco estratégico.
-
+</div>
 Sem ele, a gestão do produto fica **reativa, fragmentada e sujeita a falhas** de execução.
 Portanto, sua elaboração é não apenas necessária, mas crítica para o sucesso sustentável.
 
@@ -26,26 +27,27 @@ Portanto, sua elaboração é não apenas necessária, mas crítica para o suces
 | Público-alvo: liderança e investidores.	| Público-alvo: equipes de desenvolvimento e operação. |
 
 #### Matriz de Priorização
-
+<div class="center-table" markdown>
 | Iniciativa    | Impacto (1-5) | Esforço (1-5) | Alinhamento Estratégico | Pontuação  |
 | ----          | ----:         | ----:         | ----:                   | :----:     |
 | Integrar API  | 	5	        | 3	            | 4	                      | 12 (5+3+4) |
 | Redesign da UI|	4	        | 5	            | 3	                      | 12 (4+5+3) |
-
+</div>
 #### **Exemplo Estratégico 202X**
 ##### Objetivo Principal: [Ex: Liderança de mercado em X]
-
+<div class="center-table" markdown>
 | Trimestre | Iniciativa              | Métrica de Sucesso       | Dados de Apoio          |
 |-----------|-------------------------|--------------------------|-------------------------|
 | Q1        | Lançamento do Módulo A  | +15% de retenção         | Pesquisa com 200 clientes|
 | Q2        | Integração com Plataforma B | 20 parceiros onboardados | Benchmarking competitivo|
-
+</div>
 ##### **Roadmap Tático - Q1 202X**
+<div class="center-table" markdown>
 | Sprint | Tarefa                   | Responsável | Status       |
 |--------|--------------------------|-------------|--------------|
 | 1      | Protótipo da Feature X   | Time Dev    | Em andamento |
 | 2      | Testes de Usabilidade    | UX          | Planejado    |
-
+</div>
 **Observação**: Este modelo garante clareza, adaptabilidade e decisões baseadas em dados, essenciais para um produto competitivo.
 
 ### [Yaml](https://github.com/yaml/yaml-grammar)
@@ -143,8 +145,6 @@ A implantação local se refere à hospedagem de seu aplicativo em seus próprio
 Embora a implantação em servidores locais possa exigir mais gerenciamento de infraestrutura em comparação às plataformas de nuvem, ela pode oferecer maior controle sobre sua infraestrutura, segurança aprimorada e possíveis economias de custos.
 
 Certifique-se de criar um ambiente dedicado para cada estágio do seu pipeline de implantação (desenvolvimento, preparação e produção).
-
-
 
 
 ## Introdução
