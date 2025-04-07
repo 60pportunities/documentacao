@@ -52,7 +52,7 @@ Portanto, sua elaboração é não apenas necessária, mas crítica para o suces
 ```mermaid
 gantt
     dateFormat  YYYY-MM-DD
-    title       Clonagem CESUC
+    title       Clonagem
     excludes    weekends
     %% (`excludes` accepts specific dates in YYYY-MM-DD format, days of the week ("sunday") or "weekends", but not the word "weekdays".)
 
