@@ -1405,6 +1405,28 @@ Dica: leia a documentação oficial sobre matrizes para descobrir como fazer iss
 ## Runners
 Os agentes, também conhecidos como runners ou "runners hospedados no GitHub", são pequenos programas com apenas uma coisa a fazer: executar as tarefas dadas a eles e transmitir seus resultados de volta.
 
+|      | GitHub-Hosted Runners | Self-Hosted Runners |
+| ---- | ----         | ---- |
+| Configuração e manutenção | Nenhuma configuração necessária; totalmente gerenciado pelo GitHub | Requer configuração e manutenção manuais |
+| Custo | Gratuito com limites de uso; cobranças por minutos extras | Sem custo para o executor; custos de infraestrutura aplicáveis |
+| Escalabilidade | Escala automaticamente com base na demanda | Gerenciado manualmente com base na sua infraestrutura |
+| Controle de ambiente | Ambientes predefinidos com controle limitado | Controle total sobre o ambiente |
+| Sistemas operacionais | Windows, Linux e macOS | Qualquer sistema operacional que possa executar o aplicativo executor |
+| Segurança | Seguro, mas executado em um ambiente compartilhado | Potencialmente mais seguro, isolado em sua infraestrutura. |
+| Desempenho | Recursos de desempenho fixos | Pode ser adaptado às suas necessidades |
+| Acesso a recursos internos | Limitado, a menos que use serviços auto-hospedados | Acesso direto a redes e recursos internos |
+| Personalização | Limitado a ambientes GitHub disponíveis | Personalização completa da configuração |
+| Limites de uso | Sujeito aos limites e cotas de uso do GitHub | Determinado por seus próprios recursos |
+
+
+Self-hosted runners can be:
+
+- [x] Physical
+- [x] Virtual
+- [x] In a container
+- [x] On-premises
+- [x] In a cloud
+
 ## How it works
 Um agente é um orquestrador; sua única "inteligência" é executar as tarefas descritas em um arquivo de fluxo de trabalho. O comportamento interno é o seguinte:
 1. Um evento é acionado no GitHub (push, pull_request, etc.)
