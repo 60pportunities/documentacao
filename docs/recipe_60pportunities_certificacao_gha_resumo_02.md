@@ -4783,8 +4783,9 @@ Build Helm chart
 @echo' Running Prettier" npx --yes prettier@2.8.8 --editorconfig --check.'
 @echo "Running Hadolint"
 find. -name "Dockerfile*" -exec bash -c "echo 'File {}:' && hadolint {}" \;
+```
 
-
+```
 @echo " Running Azure Bicep Validate"
 az deployment sub validate\
 --location francecentral \
@@ -4847,7 +4848,7 @@ Louis-Guillaume MORAND
 https://github.com/60pportunities/book-github-actions-content?tab=readme-ov-file
 
 ## Apêndices
-Recursos do livro
+
 Um máximo de códigos, exemplos, exercícios e Ações construídos dentro deste livro estão disponíveis em acesso aberto para seus repositórios dedicados.
 Exemplos de código e respostas aos exercícios estão no repositório principal: https://github.com/60pportunities/book-github-actions-content
 
@@ -4943,15 +4944,17 @@ cleanup
 ```
 
 Agora que todos os elementos estão prontos, você precisa gerar uma imagem de contêiner e publicá-la em qualquer registro docker (ou localmente usando o Docker build). O procedimento é exatamente o mesmo que criar uma Action dockerizada explicada anteriormente neste livro.
+
 Código-fonte: Se você estiver procurando por um exemplo pronto para uso e seu fluxo de trabalho para gerar a imagem docker, você pode encontrar um exemplo deste repositório público: https://github.com/60pportunities/self-hosted-runner-dockerized.
 
 
 Depois que sua imagem de contêiner for gerada e disponibilizada em um registro, você precisa criar uma instância do contêiner transmitindo os parâmetros necessários:
-NAME: nome do runner, deve ser exclusivo
-OWNER: o nome da sua conta do GitHub
-REPO: o nome do repositório ao qual o runner será vinculado
-IMAGE: o nome da sua imagem Docker que você acabou de criar
-TOKEN: um Personal Access Token que fornece acesso aos seus repositórios. A criação de um PAT é feita no portal do GitHub clicando em seu perfil e depois em Settings > Developer Settings
+
+- [x] NAME: nome do runner, deve ser exclusivo
+- [x] OWNER: o nome da sua conta do GitHub
+- [x] REPO: o nome do repositório ao qual o runner será vinculado
+- [x] IMAGE: o nome da sua imagem Docker que você acabou de criar
+- [x] TOKEN: um Personal Access Token que fornece acesso aos seus repositórios. A criação de um PAT é feita no portal do GitHub clicando em seu perfil e depois em Settings > Developer Settings
 
 O uso dele pode ir além, implantando, por exemplo, instâncias do seu contêiner dentro de um cluster Kubernetes ou uma oferta serverless para contêineres (por exemplo, Azure Container Instance, Cloud Run no GCP, Fargate na AWS). Depende de você, agora você tem mais agilidade do que com um runner instalado diretamente em um servidor.
 
