@@ -286,7 +286,8 @@ nav:
       - 'Certiprof DevOps Essentials'                                : 'recipe_60pportunities_certificacao_depc.md'
       - 'Scrum Developer'                                            : 'recipe_60pportunities_certificacao_spd.md'
       - 'GitHub Foundations'                                         : 'recipe_60pportunities_certificacao_ghf.md'
-      - 'GitHub Actions'                                             : 'recipe_60pportunities_certificacao_gha.md'
+      - 'GitHub Actions (EN)'                                        : 'recipe_60pportunities_certificacao_gha_en.md'
+      - 'GitHub Actions (PTB)'                                       : 'recipe_60pportunities_certificacao_gha_ptb.md'
       - 'Resumo para prova GitHub Actions'                           : 'recipe_60pportunities_certificacao_gha_resumo_01.md'
 
    - 'Projetos'                                                      :
