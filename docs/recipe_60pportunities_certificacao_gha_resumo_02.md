@@ -9,8 +9,11 @@
 | Caches	                 |                     | 7 dias sem uso	       | Ilimitado (até uso)|
 | Logs de workflow	       |                     | 90 dias	             | ----               |
 | GitHub-hosted runners    | execução            | 6 horas (360 minutos) | Se um job ultrapassar esse tempo, ele será automaticamente cancelado. |
-| Self-hosted runners      | execução            | Sem limite de tempo.  | Você define a duração máxima. |
 
+| Self-hosted runners      | execução            | Sem limite de tempo.  | Você define a duração máxima. |
+| Número máximo de trabalhos que uma matriz |  | 256 trabalhos | |
+| GITHUB_TOKEN             |                | após a conclusão de um trabalho ou após um máximo de 24 hora | |
+|  segredos maiores que 48 KB | | usar criptografia com GPG. |
 
 ## Limitações
 Embora alguns limites sejam altos, há limitações no número de trabalhos executados em paralelo na mesma conta do GitHub.
