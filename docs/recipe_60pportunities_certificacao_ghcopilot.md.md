@@ -1,5 +1,5 @@
 https://learn.microsoft.com/pt-br/training/modules/get-started-github-copilot/?wt.mc_id=1reg_24497_webpage_reactor
-
+https://www.builder.io/blog/cursor-vs-github-copilot
 
 https://learn.microsoft.com/pt-br/training/modules/github-copilot-across-environments/?wt.mc_id=1reg_24497_webpage_reactor
 https://developer.microsoft.com/pt-br/reactor/series/S-1447/?wt.mc_id=seriespg_S-1447_webpage_reactor
