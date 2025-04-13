@@ -11,7 +11,7 @@ O GitHub Copilot é um assistente de programação baseado em IA desenvolvido pe
 O GitHub Copilot não é apenas uma ferramenta; ele está transformando o conceito de
 programação em pares.
 
-4984083007752791
+18/04/2027
 A engenharia de prompts é a prática de estruturar comandos ou instruções para obter os melhores resultados possíveis de modelos de IA generativa.
 
 A qualidade das sugestões geradas pelo GitHub Copilot depende diretamente da clareza dos prompts fornecidos.
