@@ -23,3 +23,11 @@ repos:
           - id: osv-scanner
             args: ['--recursive', '.']  # Opcional, dependendo de como você deseja o formato de saída
             stages: [pre-commit]  # Ajuste o estágio para 'commit'
+
+    - repo: local
+      hooks:
+          - id: sonar-scanner
+            name: SonarScanner
+            entry: .hooks/run-sonar.sh
+            language: script
+            pass_filenames: false
